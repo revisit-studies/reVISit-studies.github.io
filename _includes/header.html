@@ -1,0 +1,53 @@
+
+  <div class="logo">
+    <img style="height: 100px" src="{{ site.baseurl }}/assets/images/logos/revisit_logo.png" alt="reVISit Logo">
+  </div>
+<div class="navigation">
+ 
+  <div class="navigation-buttons">
+    <ul>
+      <!-- todo: add examples-->
+      {% assign navButtons = "home|about" | split: "|" %}
+      {% for nav in navButtons %}
+      {% assign navURL = nav %}
+      {% assign pageURL = page.url %}
+      {% assign pageURLSplit = page.url | split: "/" %}
+      {% if nav == "home" %}
+      {% assign navURL = "" %}
+      {% endif %}
+
+      {% if pageURLSplit[1] == navURL %}
+      <!-- the active page -->
+      
+      <li class="nav-button">
+        <a class="active" href="{{ site.baseurl }}/{{ navURL }}/">
+          <span class="nav-text">{{ nav | upcase }}</span></a>
+      </li>
+
+      {% elsif navURL == "" and pageURL == "/" %}
+      <li class="nav-button">
+        <a class="active" href="{{ site.baseurl }}/">
+          <span class="nav-text">{{ nav | upcase }}</span></a>
+      </li>
+
+      {% elsif navURL == "" %}
+      <li class="nav-button">
+        <a href="{{ site.baseurl }}/">
+          <span class="nav-text">{{ nav | upcase }}</span></a>
+      </li>
+
+      {% else %}
+      <li class="nav-button">
+        {% if navURL != ""%}
+        <a href="{{ site.baseurl }}/{{ navURL }}/">
+        {% else %}
+        <a href="{{ site.baseurl }}/">
+        {% endif %}
+          <span class="nav-text">{{ nav | upcase }}</span></a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>

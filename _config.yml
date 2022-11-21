@@ -1,0 +1,38 @@
+# Site settings
+title: reVISit - visualization study infrastructure
+email: alex@sci.utah.edu
+description: "reVISit – visualization study infrastructure"
+baseurl: ""
+url: "https://revisit-study.github.io"
+twitter_username: alexander_lex
+github_username: revisit-study
+youtube_username:
+facebook_page:
+safe: false
+lsi: false
+google_analytics: "'G-6Q77MCTCTY'"
+use_analytics: true
+
+paper_content_url: https://sci.utah.edu/~vdl/papers/
+
+plugins:
+  - jekyll-redirect-from
+
+auto_ids: true
+
+# Build settings
+permalink: pretty
+sass:
+  sass_dir: _sass
+# exclude from build
+exclude: ["README.md", ".idea/"]
+
+# Collections
+collections:
+  videos:
+    output: false
+  institutions:
+    output: false
+  upsetversions: 
+    output: true
+
