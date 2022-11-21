@@ -1,10 +1,10 @@
 # UpSet.app Website
 
-This website describes the UpSet set visualization technique and collects references to implementations. It also serves as a project page for the original UpSet implementation and it's immediate derivate, UpSet 2. 
+This website describes the reVISit project.
 
 ## Contributions
 
-We encourage contributions in the form of edits or fixes, or, in particular, if you've developed or know of another implementation. Check out how to add an implementation in the [UpSet Implementations Readme](_upsetversions/Readme.md).
+We encourage contributions in the form of edits or fixes.
 
 Ideally, you could submit a pull request, but e-mailing alex@sci.utah.edu will also do. 
 
