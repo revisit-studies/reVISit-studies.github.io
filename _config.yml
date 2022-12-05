@@ -33,6 +33,4 @@ collections:
     output: false
   institutions:
     output: false
-  upsetversions: 
-    output: true
-
+    sort_by: order
