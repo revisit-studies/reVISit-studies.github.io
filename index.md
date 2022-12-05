@@ -7,7 +7,7 @@ permalink: /
 ---
 {% capture path %}{{ site.baseurl }}/assets/images/{% endcapture %}
 
-# reVISit  Scalable Empirical Evaluation of Interactive Visualizations
+# reVISit: Scalable Empirical Evaluation of Interactive Visualizations
 
 The reVISit project addresses a critical bottleneck in visualization research: how can we better and more efficiently empirically evaluate visualization techniques? The reVISit infrastructure aims to democratize evaluation of interactive visualization techniques, an area that has been under-explored, due in part to the high technical burden and skills required to create complex online experiments. 
 
