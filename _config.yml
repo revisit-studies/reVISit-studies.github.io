@@ -17,7 +17,7 @@ paper_content_url: https://sci.utah.edu/~vdl/papers/
 
 repo: https://github.com/revisit-studies/revisit-study-frontend/
 code: https://github.com/revisit-studies/revisit-study-frontend/tree/main/
-demo: https://revisit-studies.github.io/revisit-study-frontend/
+demo: https://revisit.dev/study/
 
 plugins:
   - jekyll-redirect-from
