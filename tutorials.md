@@ -6,11 +6,17 @@ tag: tutorials
 permalink: /tutorials/
 ---
 
-# Tutorials
+# Tutorial
 
-{% capture path %}{{ site.baseurl }}/assets/images/{% endcapture %}
+{% capture path %}{{ site.baseurl }}/assets/tutorials/{% endcapture %}
 
-reVISit lets you create interactive studies using a JSON grammar. You create your stimuli as images, (interactive) html pages, or react components, and reVISit allows you to build the interface around your stimulus. The workflow for studies includes: 
+reVISit lets you create interactive, web-based study setups using a JSON domain-specific language, called reVISit.spec, and a set if stimuli specified in one of various formats. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
+
+The overall process is shown in the following figure: 
+
+![TODO]({{ path }}revisit-overview.png)
+
+In this tutorial, we'll walk you through a simple example to create your first study with reVISit! 
 
 
 ## The Basic Study Grammar
