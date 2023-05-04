@@ -22,7 +22,6 @@ reVISit lets you create interactive studies using a JSON grammar. You create you
 ## The Basic Study Grammar
 
 
-
 ## Deploying your Study 
 
 
