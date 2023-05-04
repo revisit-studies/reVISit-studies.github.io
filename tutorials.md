@@ -9,8 +9,8 @@ permalink: /tutorials/
 # Tutorial
 
 {% capture path %}{{ site.baseurl }}/assets/tutorials/{% endcapture %}
-{% capture repo %}https://github.com/revisit-studies/revisit-study-frontend/{% endcapture %}
-{% capture code %}https://github.com/revisit-studies/revisit-study-frontend/tree/main/{% endcapture %}
+{% capture repo %}{{ site.repo }}{% endcapture %}
+{% capture code %}{{ site.code}}{% endcapture %}
 
 
 reVISit lets you create interactive, web-based study setups using a JSON domain-specific language, called reVISit.spec, and a set if stimuli specified in one of various formats. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
