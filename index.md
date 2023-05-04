@@ -19,12 +19,17 @@ The key innovations of this project are:
 
 These methods will allow visualization researchers to gather empirical evidence about the merits of different interactive visualization techniques. It will allow researchers to understand the types of insights that different techniques support, revealing diverging analysis strategies users may take. Ultimately, these methods will enable a wider set of visualization researchers to run a much broader range of experiments using crowdsourcing than before.
 
+## Demo 
+
+You can check out a few example projects on our [demo page]({{site.demo}}). All of the demos on this site are build from stimuli and examples that you can find in the [github repo]({{site.repo}}).
+
+Check out the [getting started tutorial]({{site.baseurl}}/tutorials/) to learn how to build your own experiment. 
 
 ## Frequently Asked Questions
 
 - _Is reVISit ready for me to use?_  
 
-    We're just getting strated, so unfortunately no. But check back in a few weeks!
+   Yes! We're looking for early adopters. Things are still evolving, so don't expect a rock-solid, stable framework yet, but we'd love to work with you to deploy your study!
 
 
 
