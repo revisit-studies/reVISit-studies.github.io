@@ -407,6 +407,53 @@ The `style` property defines the css style that will be attached to the image.
 #### Website Components
 
 
+Type `website` defines a stimulus with HTML / JS file.
+
+The `path` property defines the path of the html file inside the `public` folder.
+
+The `style` property defines the css style that will be attached to the iframe containing the html file.
+
+```json
+{
+    ...
+    stimulus: {
+        type: "website"
+        path: "html-input/bar-chart-interaction.html"
+        style: {
+            height: "500px"
+        }
+    }
+    ...
+}
+```
+
+The website component can be interactive. In such case, participant's answer can be directly sent to the reVISit.
+
+To do so, add the `revisit-communicate.js` script in your html. This file is present in `public/js` folder.
+
+```html
+<script src="../js/revisit-communicate.js"></script>
+```
+
+Then inform reVISit when the stimuli is ready by calling `postReady`.
+
+```js
+// call postReady after the stimuli has been rendered to the user
+Revisit.postReady();
+```
+
+To post answers to reVISit, call `postAnswers` function with answers as a list:
+```js
+Revisit.postAnswers([answerQuantative, answerQualitative]);
+```
+
+If any custom events need to be tracked, call `postEvent` function with parameters `eventName` and `objectId`:
+
+```js
+Revisit.postEvent("mouseHover", "box1");
+```
+
+
 ## Response types
 
 Defines the response type required for a stimulus. A response type can either be [Numerical](#numerical-input), [Likert Scale](#likert-scale-input), [Radio](#radio-input), [Check Box](#checkbox-input), [Short Text](#short-text-input), [Long Text](#long-text-input), [Drop down](#dropdown-input) or [Slider Input](#slider-input).
