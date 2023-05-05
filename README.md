@@ -41,6 +41,12 @@ https://jekyllrb.com/docs/installation/
 $ jekyll serve -i
 ```
 
+If you are having troubles running jekyll, try 
+``` shell
+$ bundle exec jekyll serve -i
+```
+
+
 Running Jekyll in incremental (`-i`) mode is _significantly_ faster.
 
 

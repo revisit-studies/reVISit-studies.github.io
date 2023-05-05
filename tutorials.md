@@ -9,6 +9,9 @@ permalink: /tutorials/
 # Tutorial
 
 {% capture path %}{{ site.baseurl }}/assets/tutorials/{% endcapture %}
+{% capture repo %}{{ site.repo }}{% endcapture %}
+{% capture code %}{{ site.code}}{% endcapture %}
+
 
 reVISit lets you create interactive, web-based study setups using a JSON domain-specific language, called reVISit.spec, and a set if stimuli specified in one of various formats. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
 
@@ -17,6 +20,13 @@ The overall process is shown in the following figure:
 ![TODO]({{ path }}revisit-overview.png)
 
 In this tutorial, we'll walk you through a simple example to create your first study with reVISit! 
+
+
+## How to Create a Study
+
+To create your own study, go to the [github repository]({{repo}}) and clone it to your computer. You'll need node and yarn installed; check out the [README]({{repo}}#readme) for details on the installation. 
+
+All of the files you need to touch are in the [`public`]({{code}}public/) folder. 
 
 
 ## The Basic Study Grammar
