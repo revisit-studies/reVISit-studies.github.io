@@ -153,7 +153,7 @@ components {
 
 To include a practice component in your experiment, add a practice key to the configuration file.
 
-The example below adds a practice section to the experiment. The practice section contains a bubble chart stimulus which contains a numerical input for the participants response. The bubble chart stimulus is defined in the trials block.
+The example below adds a practice section to the experiment. The practice section contains a ```react-component``` stimulus which contains a numerical input for the participants response. 
 
 ```js
 components {
@@ -211,14 +211,76 @@ components {
 | randomization-scheme                  | string      | Specifies the stimuli randomization scheme.                              |
 | subset-count                          | number      |                                                                          |
 | [attention-checks](#attention-checks) | hjson       | The number of a attention checks to be included in the practice section. |
-| [response](#response-types)         | array[]     | An array of hjson stimulus response objects. There are 8 stimulus response objects [Numerical](#numerical-input), [Likert Scale](#likert-scale-input), [Radio](#radio-input),  [Check Box](#checkbox-input), [Short Text](#short-text-input), [Long Text](#long-text-input), [Drop down](#dropdown-input) and [Slider Input](#slider-input) |
-| [trials](#trials-block)          | hjson       | A list of hjson objects for each stimuli specified in the order field. There are 4 stimuli that can be added to the practice component (Bar Chart, Stacked, Bar Chart, Pie Chart, Bubble Chart)                                                               |
+| [response](#response-types)         | array[]       | An array of hjson stimulus response objects. There are 8 stimulus response objects [Numerical](#numerical-input), [Likert Scale](#likert-scale-input), [Radio](#radio-input),  [Check Box](#checkbox-input), [Short Text](#short-text-input), [Long Text](#long-text-input), [Drop down](#dropdown-input) and [Slider Input](#slider-input)  |
+| trials                           | hjson            | A list of hjson objects for each stimuli specified in the order field. Refer to the [Experiment Stimuli](#experiment-stimuli) for examples.                   |
 
 <!-- prettier-ignore-end -->
 
 ### Trials Component
 
 To include a trials component in your experiment, add a trials key to the configuration file.
+
+The example below adds a trial to the experiment. The trial contains a ```react-component``` stimulus which contains a numerical input for the participants response. 
+
+```js
+components {
+    practice: {
+            type: "trials"
+            order: ["bubbleChart"]
+            randomization-scheme: "latin-square"
+            subset-count: 2
+            attention-checks: {
+                check: "attention"
+                pattern: random
+                interval: 10
+            },
+            response:[{
+                id: "cm-response"
+                type: "numerical"
+                prompt: "Your answer!!"
+                desc: "Enter your answer here, range from 0 - 100"
+                required: true
+                max: 100
+                min: 0
+            }],
+            trials: {
+                bubbleChart: {
+                    description: "A chart with correct answer of 0.66"
+                    instruction: "Stimulus Instruction"
+                    stimulus: {
+                        type: "react-component"
+                        path: "./stimuli/BubbleChart.tsx"
+                        parameters: {
+                            data: [
+                                { name: "A", value: "30" }
+                                { name: "B", value: "40" }
+                                { name: "C", value: "50" }
+                                { name: "D", value: "40" }
+                                { name: "E", value: "60" }
+                            ]
+                            selectedIndices: [1, 4]
+                        }
+                    }
+                }
+            }
+        }
+    }
+```
+
+<!-- prettier-ignore-start -->
+
+| Practice Component                    |
+| ------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| <u>Property</u>                       | <u>Type</u> | <u>Description</u>                                                       |
+| type                                  | string      | Component type. Default value: ```trials```.                           |
+| order                                 | array[]     | Specifies the stimuli display order. Multiple practice stimuli can be added to an experiment. For example: ``` order: [barChart1, barChart2]``` defines two bar charts with different specification, whereas ``` order: [barChat, bubbleChart]``` defines a barChart and a bubbleChart. |
+| randomization-scheme                  | string      | Specifies the stimuli randomization scheme.                              |
+| subset-count                          | number      |                                                                          |
+| [attention-checks](#attention-checks) | hjson       | The number of a attention checks to be included in the practice section. |
+| [response](#response-types)         | array[]       | An array of hjson stimulus response objects. There are 8 stimulus response objects [Numerical](#numerical-input), [Likert Scale](#likert-scale-input), [Radio](#radio-input),  [Check Box](#checkbox-input), [Short Text](#short-text-input), [Long Text](#long-text-input), [Drop down](#dropdown-input) and [Slider Input](#slider-input)  |
+| trials                           | hjson            | A list of hjson objects for each stimuli specified in the order field. Refer to the [Experiment Stimuli](#experiment-stimuli) for examples.                   |
+
+<!-- prettier-ignore-end -->
 
 ### Survey Component
 
