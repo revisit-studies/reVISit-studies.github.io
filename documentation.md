@@ -531,7 +531,54 @@ A component type can either be a [react-component](#react-component), an [image]
 
 #### React Components
 
+Defines a stimulus built with React Component.
+
+The `path` property defines the path of the react file inside the `src/components/stimuli` folder.
+
+The `parameters` property is sent as Props to the react component.
+
+```json
+{
+  ...
+  stimulus: {
+    type: "react-component",
+    path: "./stimuli/StackedBarChart.tsx",
+    parameters: {
+        data: [
+            { name: "A", value: "30" },
+            { name: "B", value: "40" },
+            { name: "C", value: "50" },
+            { name: "D", value: "40" },
+            { name: "E", value: "60" }
+        ],
+        selectedIndices: [1, 4],
+    }
+  },
+  ...
+}
+```
+
 #### Image Components
+
+Defines a stimulus with Image file.
+
+The `path` property defines the path of the image file inside the `public` folder.
+
+The `style` property defines the css style that will be attached to the image.
+
+```json
+{
+  ...
+  stimulus: {
+    type: "image",
+    path: "image-demo/uncertainty-1.png",
+    style: {
+      width: "800px",
+    }
+  },
+  ...
+}
+```
 
 #### Website Components
 
