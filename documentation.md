@@ -86,7 +86,8 @@ This section contains a list of components to be included in the experiment. The
 | [Training](#training-component) | A markdown file which contains a training specification for the study |
 | [Practice](#practice-component) | A list of practice stimuli for the study                              |
 | Attention                       | Include attention checks for the study                                |
-| Trials                          | A list of stimuli to be used in the study                             |
+| [Trials](#trials-component)     | A list of stimuli to be used in the study                             |
+| [Survey](#survey-component)     | Post Study Survey                                                     |
 
 ### Consent Component
 
@@ -205,13 +206,13 @@ components {
 | Practice Component                    |
 | ------------------------------------- | ----------- | ------------------------------------------------------------------------ |
 | <u>Property</u>                       | <u>Type</u> | <u>Description</u>                                                       |
-| type                                  | string      | Component type. Default value: ```practice```.                            |
+| type                                  | string      | Component type. Default value: ```practice```.                           |
 | order                                 | array[]     | Specifies the stimuli display order. Multiple practice stimuli can be added to an experiment. For example: ``` order: [barChart1, barChart2]``` defines two bar charts with different specification, whereas ``` order: [barChat, bubbleChart]``` defines a barChart and a bubbleChart. |
 | randomization-scheme                  | string      | Specifies the stimuli randomization scheme.                              |
 | subset-count                          | number      |                                                                          |
 | [attention-checks](#attention-checks) | hjson       | The number of a attention checks to be included in the practice section. |
 | [response](#stimuli-response)         | array[]     | An array of hjson stimulus response objects. There are 8 stimulus response objects [Numerical](#numerical-input), [Likert Scale](#likert-scale-input), [Radio](#radio-input),  [Check Box](#checkbox-input), [Short Text](#short-text-input), [Long Text](#long-text-input), [Drop down](#dropdown-input) and [Slider Input](#slider-input) |
-| [trials](#trials-block)          | hjson       | A list of hjson objects for each stimuli specified in the order field. There are 4 stimuli that can be added to the practice component (Bar Chart, Stacked, Bar Chart 3, Pie Chart 4, Bubble Chart)                                                           |
+| [trials](#trials-block)          | hjson       | A list of hjson objects for each stimuli specified in the order field. There are 4 stimuli that can be added to the practice component (Bar Chart, Stacked, Bar Chart, Pie Chart, Bubble Chart)                                                               |
 
 <!-- prettier-ignore-end -->
 
@@ -542,6 +543,10 @@ To include a trials component in your experiment, add a trials key to the config
 
 ## Survey Component
 
+To include a survey component in your experiment, add a post-survey key to the configuration file.
+
+Example: This example defines a post study survey component for the experiment.
+
 ```js
  post-study-survey: {
     type: "survey"
@@ -553,6 +558,32 @@ To include a trials component in your experiment, add a trials key to the config
         options:[{label:"Yes", value:"Yes"},{label:"No", value:"No"}]
         required: true
         location: sideBar
+    }]
+}
+```
+Note: A survey can contain multiple response types ([Numerical](#numerical-input), [Likert Scale](#likert-scale-input), [Radio](#radio-input),  [Check Box](#checkbox-input), [Short Text](#short-text-input), [Long Text](#long-text-input), [Drop down](#dropdown-input) or [Slider Input](#slider-input)).
+
+
+Note: Multiple questions can be added to a survey as shown below:
+
+```js
+ post-study-survey: {
+    type: "survey"
+    response:[{
+        id: "Question-1"
+        type: "dropdown"
+        prompt: "Do you want to take this study again?"
+        desc: "Enter your preference"
+        options:[{label:"Yes", value:"Yes"},{label:"No", value:"No"}]
+        required: true
+        location: sideBar
+    }
+    {
+        id: "Question-2"
+        type: "longText"
+        prompt: "Any other comments?"
+        desc: "Enter your feedback here."
+        required: true
     }]
 }
 ```
