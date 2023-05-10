@@ -24,7 +24,7 @@ The ReVISit frameworks provides an environment that allows researchers to build 
 - To run locally, run ```yarn serve```.
 - Navigate to http://localhost:8080 to a view demo studies.
 
-**Note:** The default data store for the ReVISit framework is [Firebase](http://firebase.google.com). To connect to a Firebase instance:
+**Note:** The ReVISit framework uses [Firebase](http://firebase.google.com) as its default data store. To connect to a Firebase instance:
 - Navigate to http://localhost:8080 and click on any demo study 
 - Press [Ctrl + Shift + i] to view the browser console.
 - Copy the debug token from the console. 
