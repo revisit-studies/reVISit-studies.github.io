@@ -8,11 +8,37 @@ permalink: /documentation/
 
 # Documentation
 
-{% capture path %}{{ site.baseurl }}/assets/images/{% endcapture %}
+{% capture path %}{{ site.baseurl }}/assets/tutorials/{% endcapture %}
+{% capture repo %}{{ site.repo }}{% endcapture %}
+{% capture code %}{{ site.code}}{% endcapture %}
 
 ## The ReVISit DSL
 
-The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file [**reVISit.spec**]({{ site.repo }}main/public/configs/config-cleveland.hjson) uses HJSON format which compiles into the ReVISit platform. This documentation provides an overview on how to configure a visualization experiment using the ReVISit DSL.
+The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file [**reVISit.spec**]({{ code }}public/configs/config-demo.hjson) uses HJSON format which compiles into the ReVISit platform. This documentation provides an overview on how to configure a visualization experiment using the ReVISit DSL.
+
+# Environment Setup
+The ReVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Customizing the properties of the configuration file [**reVISit.spec**]({{ code }}public/configs/config-demo.hjson) allows the specification of desired study components (consent, training, practice, trials, stimuli and survey). This section provides a guideline of how to setup the ReVISit framework.
+### Build Instructions
+- Clone the [**ReVISit repository**]({{ repo }})
+- Run ```yarn install```. If you don't have yarn installed, run ```npm i -g yarn```.
+- To run locally, run ```yarn serve```.
+- Navigate to http://localhost:8080 to a view demo studies.
+
+**Note:** The default data store for the ReVISit framework is [Firebase](http://firebase.google.com). To connect to a Firebase instance:
+- Navigate to http://localhost:8080 and click on any demo study 
+- Press [Ctrl + Shift + i] to view the browser console.
+- Copy the debug token from the console. 
+
+<img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+- Navigate to your firebase instance and add the token as shown below:
+
+<img src="{{ path }}firebase.png" alt="Firebase" style="border: 2px solid black; border-radius: 5px;">
+
+- Clear your broswers cache by closing and re-opening it 
+- Navigate to http://localhost:8080 and launch on any demo study.
+
+<img src="{{ path }}demo.png" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
 
 # Study Metadata
 
