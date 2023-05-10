@@ -15,7 +15,7 @@ use_analytics: true
 
 paper_content_url: https://sci.utah.edu/~vdl/papers/
 
-repo: https://github.com/revisit-studies/study
+repo: https://github.com/revisit-studies/study/
 code: https://github.com/revisit-studies/study/tree/main/
 demo: https://revisit.dev/study/
 
