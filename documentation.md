@@ -261,7 +261,7 @@ This section contains a list of elements to be included in the experiment. The l
 | ------------------------------- | ------------------------------------------------------------------------------ |
 | <u>Component</u>                | <u>Description</u>                                                             |
 | [Consent](#consent-form)        | A markdown file which contains a consent specification for the study           |
-| [Training](#training-container) | A markdown or image file which contains a training specification for the study |
+| [Training](#training-page) | A markdown or image file which contains a training specification for the study |
 | [Practice](#practice-container) | A list of practice stimuli for the study                                       |
 | [Trials](#trials-container)     | A list of stimuli to be used in the study                                      |
 | [Questionnaire](#questionnaire) | Post Study Survey                                                              |
