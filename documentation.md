@@ -109,7 +109,7 @@ uiConfig: {
 
 Different types of components can be added to an experiment ([React](#react-components), [Image](#image-components), [Markdown](#markdown) and [Website](#website-components) Components). This section details different types of components and how to import them into ReVISit.
 
-#### React Components
+#### React Component
 
 Defines a stimulus built with React.
 
@@ -117,28 +117,32 @@ The `path` property defines the path of the react file.
 
 The `parameters` property is sent as Props to the react component.
 
-```json
+```js
 {
-  ...
-  stimulus: {
-    type: "react-component",
-    path: "StackedBarChart.tsx",
-    parameters: {
-        data: [
-            { name: "A", value: "30" },
-            { name: "B", value: "40" },
-            { name: "C", value: "50" },
-            { name: "D", value: "40" },
-            { name: "E", value: "60" }
-        ],
-        selectedIndices: [1, 4],
+  components: {
+    reactComponent: {
+        ...
+        stimulus: {
+            type: "react-component",
+            path: "StackedBarChart.tsx",
+            parameters: {
+                data: [
+                    { name: "A", value: "30" },
+                    { name: "B", value: "40" },
+                    { name: "C", value: "50" },
+                    { name: "D", value: "40" },
+                    { name: "E", value: "60" }
+                ],
+                selectedIndices: [1, 4],
+            }
+        }
+        ...
     }
   }
-  ...
 }
 ```
 
-#### Image Components
+#### Image Component
 
 Defines a stimulus with Image file.
 
@@ -146,21 +150,25 @@ The `path` property defines the path of the image file.
 
 The `style` property defines the css style that will be attached to the image.
 
-```json
+```js
 {
-  ...
-  stimulus: {
-    type: "image",
-    path: "image-demo/uncertainty-1.png",
-    style: {
-      width: "800px",
+    components: {
+        imageComponent: {
+            ...
+            stimulus: {
+                type: "image",
+                path: "image-demo/uncertainty-1.png",
+                style: {
+                width: "800px",
+                }
+            },
+            ...
+        }
     }
-  },
-  ...
 }
 ```
 
-#### Website Components
+#### Website Component
 
 Type `website` defines a stimulus with HTML / JS file.
 
@@ -168,17 +176,21 @@ The `path` property defines the path of the html file.
 
 The `style` property defines the css style that will be attached to the iframe containing the html file.
 
-```json
+```js
 {
-    ...
-    stimulus: {
-        type: "website"
-        path: "html-input/bar-chart-interaction.html"
-        style: {
-            height: "500px"
+    components: {
+        websiteComponent: {
+            ...
+            stimulus: {
+                type: "website"
+                path: "html-input/bar-chart-interaction.html"
+                style: {
+                    height: "500px"
+                }
+            }
+            ...
         }
     }
-    ...
 }
 ```
 
@@ -209,7 +221,7 @@ If any custom events need to be tracked, call `postEvent` function with paramete
 Revisit.postEvent("mouseHover", "box1");
 ```
 
-#### Markdown Components
+#### Markdown Component
 
 Markdown components can be specified by setting the property type to `markdown`.
 
@@ -217,7 +229,7 @@ The `path` property defines the path of the markdown file.
 
 ```js
 components {
-    consent: {
+    markdownComponent: {
        type: 'markdown'
        path: "cleveland/consent-cm.md"
        ...
@@ -225,6 +237,21 @@ components {
 ...
 }
 ```
+
+#### Questionnaire Component
+
+A questionnaire component can be specified by setting the property type to `questionnaire`.
+
+Example: 
+
+```js
+ post-study-survey: {
+    type: "questionnaire"
+    response:[{
+        ...
+    }
+```
+See [response types](#response-types) for a list of elements that can be included in a questionnaire.
 
 # Experiment Elements
 
@@ -278,9 +305,9 @@ components {
 
 <!-- prettier-ignore-end -->
 
-### Training Container
+### Training Page
 
-To include a training container in your experiment, add a training<id> key to the configuration file. The <id> is a unique numeric identifier for each training component (training1, training2, ...).
+To include a training page in your experiment, add a training<id> key to the configuration file. The <id> is a unique numeric identifier for each training component (training1, training2, ...).
 
 The example below shows the definition of a training component.
 
