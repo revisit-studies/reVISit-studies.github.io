@@ -49,9 +49,9 @@ jobs:
         run: |
           cp -r study/docs ./_typedoc
           cd _typedoc
-          find . -type f -name '*.md' -exec sed -i '' 's/\.md/.html/g' {} +
-          find . -type f -name '*.md' -exec sed -i '' 's/\/index.html//g' {} +
-          find . -type f -name '*.md' -exec sed -i '' 's/# ui-components//g' {} +
+          find . -type f -name '*.md' -exec sed -i 's/\.md/.html/g' {} +
+          find . -type f -name '*.md' -exec sed -i 's/\/index.html//g' {} +
+          find . -type f -name '*.md' -exec sed -i 's/# ui-components//g' {} +
           cd ..
           rm -rf study
 
