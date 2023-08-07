@@ -50,7 +50,7 @@ jobs:
           ls study
       - name: Build study docs
         run: yarn buildDocs
-        working-directory: study
+        working-directory: ./study
       - name: Copy study docs to docs
         run: |
           ls
