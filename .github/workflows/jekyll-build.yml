@@ -51,6 +51,7 @@ jobs:
           cd _typedoc
           sed -i 's/\.md/.html/g' **/*.md
           sed -i 's/\/index.html//g' **/*.md
+          sed -i 's/# ui-components//g' **/*.md
           cd ..
           rm -rf study
 
