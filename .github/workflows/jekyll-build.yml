@@ -3,6 +3,8 @@ name: Deploy Jekyll site to Pages
 on:
   push:
     branches: ["main"]
+  repository_dispatch:
+    types: [study_repo_publish]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,6 +32,30 @@ jobs:
         with:
           ruby-version: '3.0'
           bundler-cache: true
+
+      - name: Clone study repo (for docs)
+        uses: actions/checkout@v3
+        with:
+          repository: revisit-studies/study
+          path: study
+      - name: Install study dependencies
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+          working-directory: study
+      - name: Build study docs
+        run: 
+          yarn install
+          yarn buildDocs
+        working-directory: study
+      - name: Copy study docs to docs
+        run: |
+          ls
+          ls study
+          ls docs
+          cp -r study/docs docs
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
