@@ -34,7 +34,7 @@ jobs:
           repository: revisit-studies/study
           path: study
           ref: typedoc
-      - name: Install study dependencies
+      - name: Install yarn
         uses: actions/setup-node@v2
         with:
           node-version: lts/*
@@ -47,7 +47,11 @@ jobs:
         working-directory: ./study
       - name: Copy study docs to docs
         run: |
-          cp -r study/docs ./docs
+          cp -r study/docs ./_typedoc
+          cd _typedoc
+          sed -i 's/\.md/.html/g' **/*.md
+          sed -i 's/\/index.html//g' **/*.md
+          cd ..
           rm -rf study
 
       - name: Setup Ruby
