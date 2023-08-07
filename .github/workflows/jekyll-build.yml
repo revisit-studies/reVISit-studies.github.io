@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: lts/*
           cache: 'yarn'
-          working-directory: study
+          cache-dependency-path: study/yarn.lock
       - name: Build study docs
         run: 
           yarn install
