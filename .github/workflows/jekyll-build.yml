@@ -37,24 +37,28 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: revisit-studies/study
-          path: study
+          path: ../study
       - name: Install study dependencies
         uses: actions/setup-node@v2
         with:
           node-version: lts/*
           cache: 'yarn'
-          cache-dependency-path: study/yarn.lock
+          cache-dependency-path: ../study/yarn.lock
+      - name: list
+        run: |
+          ls
+          ls study
+          ls ../
+          ls ../study
       - name: Build study docs
-        run: 
-          yarn install
-          yarn buildDocs
+        run: yarn buildDocs
         working-directory: study
       - name: Copy study docs to docs
         run: |
           ls
           ls study
           ls docs
-          cp -r study/docs docs
+          cp -r ../study/docs ./docs
 
       - name: Setup Pages
         id: pages
