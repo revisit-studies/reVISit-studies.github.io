@@ -27,11 +27,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
-        with:
-          ruby-version: '3.0'
-          bundler-cache: true
 
       - name: Clone study repo (for docs)
         uses: actions/checkout@v3
@@ -44,21 +39,21 @@ jobs:
           node-version: lts/*
           cache: 'yarn'
           cache-dependency-path: study/yarn.lock
-      - name: list
-        run: |
-          ls
-          ls study
+      - name: Install study dependencies
+        run: yarn --cwd=./study install
       - name: Build study docs
-        run: yarn buildDocs
+        run: yarn --cwd=./study buildDocs
         working-directory: ./study
       - name: Copy study docs to docs
         run: |
-          ls
-          ls study
-          ls docs
           cp -r study/docs ./docs
           rm -rf study
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
