@@ -33,6 +33,7 @@ jobs:
         with:
           repository: revisit-studies/study
           path: study
+          ref: typedoc
       - name: Install study dependencies
         uses: actions/setup-node@v2
         with:
