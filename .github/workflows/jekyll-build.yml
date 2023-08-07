@@ -43,13 +43,11 @@ jobs:
         with:
           node-version: lts/*
           cache: 'yarn'
-          cache-dependency-path: ../study/yarn.lock
+          cache-dependency-path: study/yarn.lock
       - name: list
         run: |
           ls
           ls study
-          ls ../
-          ls ../study
       - name: Build study docs
         run: yarn buildDocs
         working-directory: study
