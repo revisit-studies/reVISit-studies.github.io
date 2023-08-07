@@ -30,6 +30,9 @@ sass:
   sass_dir: _sass
 # exclude from build
 exclude: ["README.md", ".idea/"]
+include:
+  - .md
+  - _typedoc/**/*
 
 # Collections
 collections:
@@ -38,3 +41,6 @@ collections:
   institutions:
     output: false
     sort_by: order
+  typedoc:
+    output: true
+    permalink: /:collection/:path
