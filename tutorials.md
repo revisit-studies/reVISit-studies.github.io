@@ -66,6 +66,8 @@ The configuration is done using the reVISit DSL, which allows you to specify inf
 
 The study metadata defines elements such as the study title, authors, and description. The title and description are shown on the landing page when you have multiple studies. The other fields are hidden to the user, but are saved to the database with participant tracking information. This allows you to see which version of the study a participant took.
 
+For more detailed documentation on the study metadata, check out the [documentation](/typedoc/interfaces/StudyMetadata.html).
+
 ```
 {
     ...
@@ -90,6 +92,8 @@ The study metadata defines elements such as the study title, authors, and descri
 ### UI Configuration
 
 The UI configuration tells reVISit how the UI should be laid out, such as which image to use for the study logo, whether to include a sidebar, the contact email, etc.
+
+For more detailed documentation on the UI configuration, check out the [documentation](/typedoc/interfaces/UIConfig.html).
 
 ```
 {
@@ -116,6 +120,8 @@ We'll step through examples for how to the rendering components and the containe
 
 A markdown component renders a markdown file to the page. This is useful for introducing your study, giving instructions, etc. The markdown file can be in any folder in the `public` folder (e.g., `public/cleveland/introduction.md`), and the path is relative to the `public` folder.
 
+For more detailed documentation on the markdown component, check out the [documentation](/typedoc/interfaces/MarkdownComponent.html).
+
 ```
 introduction: {
     type: markdown
@@ -127,6 +133,8 @@ introduction: {
 #### Image Component
 
 Similar to mark down components, image components render an image to the page. The image can be in any folder in the `public` folder (e.g., `public/cleveland/cm-training.png`), and the path is relative to the `public` folder.
+
+For more detailed documentation on the image component, check out the [documentation](/typedoc/interfaces/ImageComponent.html).
 
 ```
 training1: {
@@ -140,6 +148,8 @@ training1: {
 
 Similar to the above components website components render a website to the page. The website can be in any folder in the `public` folder (e.g., `public/mvnv/training/mvnv-training.html`), and the path is relative to the `public` folder, in that case. The website may also be external, in which case the path is the full URL. This would be useful for displaying publicly available websites or elements on them as a part of your study.
 
+For more detailed documentation on the website component, check out the [documentation](/typedoc/interfaces/WebsiteComponent.html).
+
 ```
 training: {
     type: website
@@ -152,6 +162,8 @@ training: {
 #### Questionnaire Component
 
 The questionnaire component renders a questionnaire to the page. It could be  useful for collecting demographic information, or other information that you want to collect from participants. Since this component doesn't render a stimulus, it's only useful for collecting basic information from participants.
+
+For more detailed documentation on the questionnaire component, check out the [documentation](/typedoc/interfaces/QuestionnaireComponent.html).
 
 ```
 survey: {
@@ -183,6 +195,8 @@ survey: {
 
 The React component is by far the most complicated. It allows you to render a React component to the page. This is useful for rendering interactive stimuli, or for rendering stimuli that require a lot of customization. We have options for passing parameters to the React component that allow the same component to be used for multiple stimuli. For the best example of how to use this component, check out the Cleveland & McGill demo study.
 
+For more detailed documentation on the react component, check out the [documentation](/typedoc/interfaces/ReactComponent.html).
+
 ```
 trial: {
     meta: {
@@ -213,6 +227,8 @@ trial: {
 ### Container Component
 
 The container component is the odd one out. It doesn't render anything to the page, but it allows you to group components together, and to define the order in which they should be displayed. This is useful for grouping components into logical blocks. For example, you might have a training block, and then multiple trial blocks. Eventually, you will be able to use the container component to define skip logic and randomization, both of which are not yet implemented.
+
+For more detailed documentation on the container component, check out the [documentation](/typedoc/interfaces/ContainerComponent.html).
 
 ```
 trials1: {
@@ -249,6 +265,45 @@ trials1: {
 }
 ```
 
+#### Collecting Responses
+
+The last part of defining your study involves collecting responses from participants. This is done in the response section of each rendering component and is required. The response section is a list of questions that you want to ask participants. Each question has a prompt, a type, and a location. The prompt is the text that is displayed to the participant. The type is the type of response that you want to collect. The location is where you want to display the response to the participant. The location can be one of `aboveStimulus`, `belowStimulus`, or `sidebar`. The type of response that you want to collect depends on the type of question that you want to ask. The available types are:
+
+- `numerical`: A text box that allows the participant to enter a number.
+- `shorttext`: A text box that allows the participant to enter text.
+- `longtext`: A text area that allows the participant to enter text.
+- `likert`: A likert scale that allows the participant to select one of a set of options.
+- `dropdown`: A dropdown menu that allows the participant to select one of a set of options.
+- `slider`: A slider that allows the participant to select a value between a minimum and maximum value.
+- `checkbox`: A checkbox that allows the participant to select one or more options.
+- `radio`: A radio button that allows the participant to select one of a set of options.
+- `iframe`: A list generated by items passed from an iframe (website component).
+
+For more detailed documentation on the response section, check out the [documentation](/typedoc/index.html#response).
+
+```
+response: [
+    {
+        id: q1
+        prompt: Dropdown example
+        required: true
+        location: aboveStimulus
+        type: dropdown
+        placeholder: Enter your chart preference
+        options: [
+            {
+                label: Bar Chart
+                value: Bar Chart
+            }
+            {
+                label: Bubble Chart
+                value: Bubble Chart
+            }
+        ]
+    }
+]
+```
+
 #### Sequence
 
 The last part of defining your study involves setting the sequences in which your components should be displayed to the participants. A common sequence is *consent*, *training*,*trial_block1*, *trial_block2*, ... These blocks and components are ordered in the sequence section. The sequence section is a list in the order you want to display components to the participant.
@@ -268,7 +323,7 @@ Deploying your study should be relatively simple. We include a GitHub action tha
 
 ## Getting your Data Out 
 
-Since reVISit uses Firebase as its data store, you can use the Firebase console to download your data. You can also use the Firebase API to download your data. We are working on a tool to make this downloading easier, but for now, you can use the Firebase API to download your data.
+Since reVISit uses Firebase as its data store, you can use the Firebase console to download your data. Additionally, we provide the ability to manually download your data from the study ending page. There are options to download the data as a CSV or JSON file. The CSV file is a flat file that contains all of the data for all of the participants in your study. The JSON file is a nested file that contains all of the data for all of the participants in your study. The JSON file is useful if you want to do more complex analysis of your data, but the CSV file is useful if you want to import your data into a spreadsheet program like Excel or Google Sheets.
 
 
 ## Future Plans: Analysis Dashboard
