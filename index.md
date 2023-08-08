@@ -23,7 +23,7 @@ These methods will allow visualization researchers to gather empirical evidence 
 
 You can check out a few example projects on our [demo page]({{site.demo}}). All of the demos on this site are build from stimuli and examples that you can find in the [github repo]({{site.repo}}).
 
-Check out the [getting started tutorial]({{site.baseurl}}/tutorials/) to learn how to build your own experiment. 
+Check out the [getting started tutorial]({{site.baseurl}}/tutorial/) to learn how to build your own experiment. 
 
 ## Frequently Asked Questions
 
