@@ -25,6 +25,17 @@ You can check out a few example projects on our [demo page]({{site.demo}}). All 
 
 Check out the [getting started tutorial]({{site.baseurl}}/tutorials/) to learn how to build your own experiment. 
 
+## Paper
+
+For a concise description of the project, check out the [short paper](https://vdl.sci.utah.edu/publications/2023_shortpaper_revisit/). 
+<div class="note">
+<div class="ref">
+Yiren Ding, Jack Wilburn, Hilson Shrestha, Akim Ndlovu, Kiran Gadhave, <br> Carolina Nobre, Alexander Lex, Lane Harrison <br>
+<a href="https://vdl.sci.utah.edu/publications/2023_shortpaper_revisit/"><b>reVISit: Supporting Scalable Evaluation of Interactive Visualizations</b></a>  <br>
+IEEE Visualization Short Papers, to appear, 2023.  
+</div>
+</div>
+
 ## Frequently Asked Questions
 
 - _Is reVISit ready for me to use?_  
