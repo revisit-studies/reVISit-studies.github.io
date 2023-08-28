@@ -16,7 +16,7 @@ reVISit is a project developed at the [University of Utah](https://vdl.sci.utah.
 * [Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, University of Utah
 * [Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI
 * [Carolina Nobre](http://carolinanobre.com/), Co-I, University of Toronto
-* [Jack Wilburn](https://jackwilburn.xyz/), Software Engineer, University of Utah
+* [Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah
 * [Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI
 * [Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI
 * [Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI
