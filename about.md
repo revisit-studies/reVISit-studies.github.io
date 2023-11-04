@@ -6,21 +6,40 @@ tag: about
 permalink: /about/
 ---
 
+
 # About
 
 {% capture path %}{{ site.baseurl }}/assets/images/{% endcapture %}
 
-reVISit is a project developed at the [University of Utah](https://vdl.sci.utah.edu), [Worcester Polytechnic Institute](http://web.cs.wpi.edu/~ltharrison/), and the [University of Toronto](http://www.cs.toronto.edu/~cnobre/). 
+reVISit is a project developed at the [University of Utah](https://vdl.sci.utah.edu), [Worcester Polytechnic Institute](http://web.cs.wpi.edu/~ltharrison/), and the [University of Toronto](http://www.cs.toronto.edu/~cnobre/).
+
 ## Project Team
 
-* [Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, University of Utah
-* [Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI
-* [Carolina Nobre](http://carolinanobre.com/), Co-I, University of Toronto
-* [Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah
-* [Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI
-* [Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI
-* [Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI
-* [Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah
+[Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, University of Utah  
+[Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI  
+[Carolina Nobre](http://carolinanobre.com/), Co-I, University of Toronto  
+[Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah  
+[Zach Cutler](https://vdl.sci.utah.edu/team/zcutler/), PhD Student, University of Utah  
+[Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
+[Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah  
+[Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI  
+[Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI  
+
+## Steering Committee
+
+reVISit is advised by a steering committee composed of researchers who regularly run a diverse set of studies. 
+
+[Danielle Albers Szafir](https://danielleszafir.com/), University of North Carolina-Chapel Hill  
+[Cindy Xiong Bearfield](https://cyxiong.com/), Georgia Tech  
+[Ana Crisan](https://amcrisan.github.io/), Tableau Research  
+[Alex Endert](https://va.gatech.edu/endert/), Georgia Tech  
+[Jean-Daniel Fekete](https://www.aviz.fr/~fekete/), INRIA Paris   
+[Petra Isenberg](https://petra.isenberg.cc/wiki/pmwiki.php), INRIA Paris  
+[Lace Padilla](https://www.lacepadilla.com/), Northeastern University     
+[John Stasko](https://faculty.cc.gatech.edu/~john.stasko/), Georgia Tech  
+[Manuela Waldner](https://www.cg.tuwien.ac.at/staff/ManuelaWaldner), TU Vienna  
+
+
 
 ## Contact
 
