@@ -41,17 +41,76 @@ The ReVISit frameworks provides an environment that allows researchers to build 
 ### How to create and connect to a Firebase instance: 
 
 Navigate to [Firebase](http://firebase.google.com) and go to your console. 
-<img src="{{ path }}firebase_steps/step1.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Create a new Firebase project 
+<img src="{{ path }}firebase_steps/step2.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Name your Project Accordingly
+<img src="{{ path }}firebase_steps/step3.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+With your project created, we are now going to add a firestore database to it. 
+<img src="{{ path }}firebase_steps/step4.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step5.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+You can leave the default settings in the following two steps. 
+<img src="{{ path }}firebase_steps/step6.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step7.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and update your read/write rules as follows: 
+
+``rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+    match /{document=**} {
+    	allow read: if true
+       allow write: if request.auth != null;
+    }
+  }
+}
+``
+
+<img src="{{ path }}firebase_steps/step8.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 
-- Copy your firebase configuration to the .env file (just the object, don't include the javascript parts like `const, ;`, etc.).
+We are now going to add an app to your firebase project: 
+<img src="{{ path }}firebase_steps/step9.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step10.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+With the app set up, we are ready to copy over the app configuration to your revisit project. 
+Click on project settings and copy your firebase configuration to the .env file in your revisit project (just the object, don't include the javascript parts like `const, ;`, etc.). 
+
+<img src="{{ path }}firebase_steps/step11.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+We are now going to set up the authentication so that your browser is authorized to communicate with your firebase database. 
+<img src="{{ path }}firebase_steps/step12.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step13.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step14.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step15.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Our last step is to set up App Check. 
+<img src="{{ path }}firebase_steps/step16.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step17.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step18.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step19.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step20.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+
 - Navigate to http://localhost:8080 and click on any demo study.
 - Press [Ctrl + Shift + i] to view the browser console.
 - Copy the debug token from the console.
-
 <img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 - Navigate to your firebase instance and add the token as shown below:
+
 
 <img src="{{ path }}firebase.png" alt="Firebase" style="border: 2px solid black; border-radius: 5px;">
 
