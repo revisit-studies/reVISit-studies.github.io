@@ -31,12 +31,18 @@ The ReVISit frameworks provides an environment that allows researchers to build 
 
 ### How to install reVISit and run it locally
 
-- Clone the [**ReVISit repository**]({{ repo }})
+- Fork, then clone the [**ReVISit repository**]({{ repo }})
 - Run `yarn install`. If you don't have yarn installed, run `npm i -g yarn`.
-- To run locally, run `yarn serve`.
+- To run locally, run `yarn install` , then `yarn serve`.
 - Navigate to http://localhost:8080 to a view demo studies.
 
 **Note:** The ReVISit framework uses [Firebase](http://firebase.google.com) as its default data store. To connect to a Firebase instance:
+
+### How to create and connect to a Firebase instance: 
+
+Navigate to [Firebase](http://firebase.google.com) and go to your console. 
+<img src="{{ path }}firebase_steps/step1.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
 
 - Copy your firebase configuration to the .env file (just the object, don't include the javascript parts like `const, ;`, etc.).
 - Navigate to http://localhost:8080 and click on any demo study.
