@@ -98,11 +98,28 @@ We are now going to set up the authentication so that your browser is authorized
 Our last step is to set up App Check. 
 <img src="{{ path }}firebase_steps/step16.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step17.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Click on register to register your app with recaptcha. 
 <img src="{{ path }}firebase_steps/step18.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+At this point you will need to navigate to [Recaptcha](https://www.google.com/recaptcha/admin/create) to create a secret key. 
+
 <img src="{{ path }}firebase_steps/step19.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+The important part here is filling out the domains that you will allow to access the firebase database. Assuming you are hosting your survey on github, enter your base github pages url (<username>.github.io). Also add localhost and 127.0.0.1 to test your survey on your local server. 
+
 <img src="{{ path }}firebase_steps/step20.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
+Copy the secret key
 
+<img src="{{ path }}firebase_steps/step21.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+And paste it back on the firebase recaptcha page. 
+
+
+<img src="{{ path }}firebase_steps/step22.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+The last step is to link your browser to your app through a debug key. 
 
 - Navigate to http://localhost:8080 and click on any demo study.
 - Press [Ctrl + Shift + i] to view the browser console.
@@ -110,9 +127,10 @@ Our last step is to set up App Check.
 <img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 - Navigate to your firebase instance and add the token as shown below:
+<img src="{{ path }}firebase_steps/step23.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step24.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step25.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-
-<img src="{{ path }}firebase.png" alt="Firebase" style="border: 2px solid black; border-radius: 5px;">
 
 - Navigate to http://localhost:8080 and launch any demo study.
 
