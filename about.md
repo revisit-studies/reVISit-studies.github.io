@@ -40,7 +40,6 @@ reVISit is advised by a steering committee composed of researchers who regularly
 [Manuela Waldner](https://www.cg.tuwien.ac.at/staff/ManuelaWaldner), TU Vienna  
 
 
-
 ## Contact
 
 If you have any questions, please [e-mail us](mailto:alex@sci.utah.edu). 
