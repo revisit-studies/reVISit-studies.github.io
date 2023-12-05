@@ -276,9 +276,9 @@ survey: {
 
 #### React Component
 
-The React component is by far the most complicated. It allows you to render a React component to the page. This is useful for rendering interactive stimuli, or for rendering stimuli that require a lot of customization. We have options for passing parameters to the React component that allow the same component to be used for multiple stimuli. For the best example of how to use this component, check out the Cleveland & McGill demo study.
+The React component is by far the most complicated. It allows you to render a React component to the page. This is useful for rendering interactive stimuli, or for rendering stimuli that require a lot of customization. We have options for passing parameters to the React component that allow the same component to be used for multiple stimuli. React components require that their react code be in the `src/public` folder, and the path is relative to the `src/public` folder. We recommend that you put your react components in a folder that is named after your study to make your paths consistent with the static assets in the `public` folder in the root of the project.
 
-For more detailed documentation on the react component, check out the [documentation](/typedoc/interfaces/ReactComponent.html).
+For the best example of how to use this component check out the Cleveland & McGill demo study, and for more detailed documentation on the react component, check out the [documentation](/typedoc/interfaces/ReactComponent.html).
 
 ```
 trial: {
@@ -289,7 +289,7 @@ trial: {
     description: try to click on the center of the moving dot
     instruction: Click on the moving dot
     type: react-component
-    path: ClickAccuracyTest.tsx
+    path: cleveland/ClickAccuracyTest.tsx
     parameters: {
         speed: 100
         taskid: accuracy
@@ -304,47 +304,6 @@ trial: {
             type: iframe
         }
     ]
-}
-```
-
-### Container Component
-
-The container component is the odd one out. It doesn't render anything to the page, but it allows you to group components together, and to define the order in which they should be displayed. This is useful for grouping components into logical blocks. For example, you might have a training block, and then multiple trial blocks. Eventually, you will be able to use the container component to define skip logic and randomization, both of which are not yet implemented.
-
-For more detailed documentation on the container component, check out the [documentation](/typedoc/interfaces/ContainerComponent.html).
-
-```
-trials1: {
-    type: container
-    order: [
-        trial
-    ]
-    components: {
-        trial: {
-            meta: {
-                nr-dots: 1
-            }
-            title: Click Accuracy Test
-            description: try to click on the center of the moving dot
-            instruction: Click on the moving dot
-            type: react-component
-            path: ClickAccuracyTest.tsx
-            parameters: {
-                speed: 100
-                taskid: accuracy
-            }
-            nextButtonLocation: sidebar
-            response: [
-                {
-                    id: accuracy
-                    prompt: Your click distance to circle center
-                    required: true
-                    location: sidebar
-                    type: iframe
-                }
-            ]
-        }
-    }
 }
 ```
 
