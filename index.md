@@ -32,7 +32,7 @@ For a concise description of the project, check out the [short paper](https://vd
 <div class="ref">
 Yiren Ding, Jack Wilburn, Hilson Shrestha, Akim Ndlovu, Kiran Gadhave, <br> Carolina Nobre, Alexander Lex, Lane Harrison <br>
 <a href="https://vdl.sci.utah.edu/publications/2023_shortpaper_revisit/"><b>reVISit: Supporting Scalable Evaluation of Interactive Visualizations</b></a>  <br>
-IEEE Visualization Short Papers, to appear, 2023.  
+IEEE Visualization Short Papers, 2023.  
 </div>
 </div>
 
