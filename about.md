@@ -24,6 +24,7 @@ reVISit is a project developed at the [University of Utah](https://vdl.sci.utah.
 [Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah  
 [Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI  
 [Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI  
+[Sweta Ukey](), MS Student, University of Utah
 
 ## Steering Committee
 
