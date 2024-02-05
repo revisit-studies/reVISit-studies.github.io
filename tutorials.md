@@ -23,7 +23,7 @@ In this tutorial, we'll walk you through a simple example to create your first s
 
 ## The ReVISit DSL
 
-The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file [**reVISit.spec**]({{ code }}public/configs/config-reference.hjson) uses HJSON format which compiles into the ReVISit platform. This documentation provides an overview on how to configure a visualization experiment using the ReVISit DSL.
+The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the ReVISit platform. This documentation provides an overview on how to configure a visualization experiment using the ReVISit DSL.
 
 # Environment Setup
 
@@ -142,7 +142,7 @@ First, complete the steps above to clone and install rVISit to your computer. Al
 
 ## The Basic Study Grammar
 
-The configuration is done using the reVISit DSL, which allows you to specify information on the study metadata, UI configuration, study components, and study sequence. reVISit configurations are written in [HJSON](https://hjson.github.io/), a human readable version of JSON that allows commenting and has looser syntax requirements. We'll give an overview of what each of these sections controls below, and give you some relevant HJSON snippets for each section.
+The configuration is done using the reVISit DSL, which allows you to specify information on the study metadata, UI configuration, study components, and study sequence. reVISit configurations are written in JSON. We'll give an overview of what each of these sections controls below, and give you some relevant JSON snippets for each section.
 
 
 ### Study Metadata
