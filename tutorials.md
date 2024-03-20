@@ -6,6 +6,480 @@ tag: tutorial
 permalink: /tutorial/
 ---
 
+
+# Installation
+The reVisit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
+
+Start by navigating to the following github repository: https://github.com/revisit-studies/study
+
+You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, your organization will be able to have a central location for all of your personal studies. 
+
+Once you fork the repository, you will be prompted for some basic information about this repository (such as the desired name). After this, you’ll need to clone the repository onto your local machine.
+
+After the repository is on your local machine, you will have all the entire code base for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
+
+To continue, you will need yarn installed. If you do not have yarn, you can install it using npm:
+
+Note that this requires that you have the package manager “npm” installed. If you do not have npm installed, please see here to get Node and NPM installed on your local computer before running the command below:
+
+	npm i -g yarn
+
+Once yarn is successfully installed, navigate to your forked repository and run the following yarn command:
+	
+	yarn install
+
+This will install all the packages that the reVisit requires to run. Once this is finished, you can now start the program:
+
+	yarn serve
+
+This will launch a local server which can be accessed to view and interact with reVisit. By default, you can access this by visiting http://localhost:8080/. Any change you make to the existing codebase will automatically update the front end.
+
+
+Note (not sure if this is necessary to add, but could be useful). In production, we use Firebase as a central data store to save the data that is recorded in the UI. Without Firebase, you’ll still be able to use reVisit and download the data locally. When interacting with these demo studies without Firebase installed, you will see an error which indicates that no Firebase store has been set up.
+
+# Tutorials
+
+## Setting up a basic questionnaire study
+
+Note: It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode.
+
+You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the “public” directory. Start by making a new directory called “basic-questionnaire-study”.
+
+Once that is done, we will make an “introduction” markdown file. This will be used as the introduction to the study for your users.
+
+Create a file with the following contents:
+
+```
+# Introduction
+
+Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
+```
+Save this file as “introduction.md” in the “basic-questionnaire-study” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
+
+```
+# Help
+
+This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
+
+```
+Save this file as “help.md” in the “basic-questionnaire-study” directory.
+
+Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
+
+Create a new file called “config.json”. Then, copy and paste the following json into the new file.
+
+```
+{
+    "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "studyMetadata": {
+        "title": "Basic Questionnaire Study",
+        "version": "pilot",
+        "authors": [
+            "The reVISit Team"
+        ],
+        "date": "2024-03-19",
+        "description": "A simple questionnaire study",
+        "organizations": [
+            "University of Utah",
+            "WPI",
+            "University of Toronto"
+        ]
+    },
+    "uiConfig": {
+        "contactEmail": "test@test.com",
+        "helpTextPath": "basic-questionnaire-study/help.md",
+        "logoPath": "assets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "autoDownloadStudy": false,
+        "sidebar": true
+    },
+    "components": {
+        "introduction": {
+            "type": "markdown",
+            "path": "basic-questionnaire-study/introduction.md",
+            "response": []
+        },
+        "first-question-set":{
+            "type":"questionnaire",
+            "response":[
+                {
+                    "id":"q1",
+                    "prompt":"What is your first name?",
+                    "required":true,
+                    "location":"aboveStimulus",
+                    "type":"longText",
+                    "placeholder": "Please enter your first name"
+
+                },
+                {
+                    "id":"q2",
+                    "prompt":"What is your favorite color?",
+                    "required":true,
+                    "location":"aboveStimulus",
+                    "type":"dropdown",
+                    "placeholder":"Please choose your favorite color",
+                    "options":[
+                        {
+                            "label":"Red",
+                            "value":"red"
+                        },
+                        {
+                            "label":"Blue",
+                            "value":"blue"
+                        },
+                        {
+                            "label":"My favorite color is not shown here.",
+                            "value":"notShown"
+                        }
+                    ]
+                }
+            ]
+        },
+        "second-question-set":{
+            "type":"questionnaire",
+            "response":[
+                {
+                    "id":"q1",
+                    "prompt":"What would you rate your satisfaction of this survey? 0 being very un-enjoyable, 5 being very enjoyable.",
+                    "required": true,
+                    "location":"aboveStimulus",
+                    "type":"numerical",
+                    "min":0,
+                    "max":5
+                }
+            ]
+        }
+    },
+    "sequence": {
+        "order": "fixed",
+        "components": [
+            "introduction",
+            "first-question-set",
+            "second-question-set"
+        ]
+    }
+}
+
+
+```
+Save this file in the “basic-questionnaire-study” directory.
+
+Now, our study is almost set up to view. The last step is to make sure that the “global.json” file is set to find this new study. Navigate into the public/configs directory and open the “global.json” file.
+
+Add the following code to the “configs” object:
+
+```
+“basic-questionnaire-study”:{
+	“path”:”basic-questionnaire-study/config.json”
+}
+```
+After this, add “basic-questionnaire-study” into the “configsList” list in the same file. Then, save the file.
+
+Now, if you start the server (using `yarn serve` as described in the Installation section), you'll be able to navigate to "http://localhost:8080/" and view your study in the list of studies. Alternatively, you can navigate to "http://localhost:8080/basic-questionnaire-study" to enter the study directly.
+
+
+## Adding custom HTML to your Study
+
+Now, we will take the study we just created and add another component based on a user-created HTML file. This allows for some additional customization of the component. 
+
+The HTML code below uses the extensive D3.js library. It renders a simple, horizontal barchart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study” directory.
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D3 Nice Axes</title>
+    <script src="https://d3js.org/d3.v7.js"></script>
+    <!-- Load revisit-communicate to be able to send data to reVISit -->
+    <script src="../js/revisit-communicate.js"></script>
+</head>
+
+<body>
+    <svg>
+    </svg>
+</body>
+
+<script>
+
+    addEventListener("message", (event) => {
+
+        let data = event.data.message['barChartData'];
+
+
+        const taskID = "barChart";
+        const loc = "belowStimulus"
+        height = 400;
+        width = 750;
+        padding = 25;
+        svg = d3.select("svg");
+        svg.attr("width", width + 2 * padding)
+            .attr("height", height + 2 * padding);
+
+        let spacing = height / data.length;
+
+        let min = d3.min(data);
+        let max = d3.max(data);
+
+        let xScale = d3.scaleLinear()
+            .domain([min, max])
+            .range([0, width])
+            .nice();
+
+        let color = d3.scaleLinear()
+            .domain([min, 0, max])
+            .range(["darkred", "lightgray", "steelblue"]);
+
+        let xAxis = d3.axisBottom();
+        xAxis.scale(xScale);
+
+        svg.selectAll(".bar")
+            .data(data)
+            .join("rect")
+            .classed("bar", true)
+            .attr("transform", "translate(" + padding + "," + padding + ")")
+            .attr("x", d => xScale(Math.min(0, d)))
+            .attr("y", (d, i) => i * spacing + 5)
+            .attr("width", d => Math.abs(xScale(d) - xScale(0)))
+            .attr("height", 20)
+            .style("fill", d => color(d))
+            // Post answer from the html to reVISit platform
+            .on("click", (e, d) => {
+                Revisit.postAnswers(
+                    {answer:[d], taskID,location:loc}
+                );
+            });
+
+        svg.append("g")
+            .attr("transform", "translate(" + padding + "," + (height + padding) + ")")
+            .call(xAxis);
+    })
+
+
+    
+
+</script>
+</html>
+```
+
+One of the interesting peices of the above code is that this HTML document interacts with reVISit in a two-way fashion. Firstly, note that the script to render the barchart is wrapped in the “addEventListener(“message”,(event)=>{})” function. This listens for a message received from reVISit. In this message, we can pass in any data that we’d like and use that in the HTML document. You will see shortly how we can use this HTML document as a template for multiple components with different datasets.
+
+Furthermore, you’ll see that we have also created an “onClick” function and attached it to each of the bars in the bar graph. This click function uses the “Revisit.postAnswers” method to send information back to reVISit. 
+
+Now that we have this HTML document in our study directory, we are ready to adjust our “config.json” file to account for these new components.
+
+In your “config.json” document, create new new key called “baseComponents” as a sibling to the keys “uiConfig”, “components”, “sequence”, etc. In this newly created key, paste the code below:
+
+```
+    "baseComponents":{
+        "bar-chart":{
+            "type": "website",
+            "response": [
+                {
+                    "id": "barChart",
+                    "prompt": "Your selected answer:",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "iframe"
+                }
+            ],
+            "path": "basic-questionnaire-study/bar-chart.html",
+            "instructionLocation": "aboveStimulus"
+        
+        }
+    },
+
+```
+This creates a component that new components can be based off of. Each component using the “bar-chart” as the value to the “baseComponent” key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating these next components.
+
+In the components section, add the following objects:
+
+```
+        "bar-chart-1":{
+            "baseComponent": "bar-chart",
+            "description": "A trial for the user to click the smallest bar",
+            "instruction": "Click on the smallest bar",
+            "parameters":{
+                "barData":[0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
+            }
+        },
+        "bar-chart-2":{
+            "baseComponent": "bar-chart",
+            "description": "A trial for the user to click the smallest bar",
+            "instruction": "Click on the smallest bar",
+            "parameters":{
+                "barData":[1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
+            }
+        }
+
+
+```
+The "parmaeters" key is a dynamically valued key which is used to pass data to your components. When you add the "parameters" key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
+
+To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json). 
+
+# How-To-Guides
+
+## Connecting to Firebase
+
+reVISit is inherently a serverless program. Because of this, we set up a storage engine in order to store the data that is gathered from users as they move through the study. While you can test the program locally without any storage, you will need to set up some sort of storage in order for users that are interacting with the study so that the data can be gathered. Our intention is that those who create the study have full control over the data that is generated by participants -- no data is ever linked back to the reVISit repository or those who have contributed to its creation.
+
+<a href="https://firebase.google.com/" target="_blank" >Firebase</a> is an app development platform that has extremely useful tools such as storage and real-time synchonization. With Firebase alone, a study creator can capture all data from participants and then export that data for further analysis. In what follows, there are two main products we will be using: the Firestore database and Firebase's storage product.
+
+### Create a Firebase Project
+
+Navigate to <a href="https://firebase.google.com/" target="_blank" >Firebase</a> and go to your console. 
+<img src="{{ path }}firebase_steps/step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Create a new Firebase project 
+<img src="{{ path }}firebase_steps/step2.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Name your Project Accordingly
+<img src="{{ path }}firebase_steps/step3.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+### Adding a Firestore Database
+
+With your project created, we are now going to add a firestore database to it. 
+<img src="{{ path }}firebase_steps/step4.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step5.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+You can leave the default settings in the following two steps. 
+<img src="{{ path }}firebase_steps/step6.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step7.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and update your read/write rules as follows: 
+
+``rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+    match /{document=**} {
+    	allow read: if true
+       allow write: if request.auth != null;
+    }
+  }
+}
+``
+
+<img src="{{ path }}firebase_steps/step8.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+We are now going to add an app to your firebase project: 
+<img src="{{ path }}firebase_steps/step9.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step10.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+With the app set up, we are ready to copy over the app configuration to your revisit project. 
+Click on project settings and copy your firebase configuration to the .env file in your revisit project (just the object, don't include the javascript parts like `const, ;`, etc.). 
+
+<img src="{{ path }}firebase_steps/step11.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+We are now going to set up the authentication so that your browser is authorized to communicate with your firebase database. 
+<img src="{{ path }}firebase_steps/step12.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step13.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step14.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/step15.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Our last step is to set up App Check. 
+<img src="{{ path }}firebase_steps/step16.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step17.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Click on register to register your app with recaptcha. 
+<img src="{{ path }}firebase_steps/step18.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+At this point you will need to navigate to [Recaptcha](https://www.google.com/recaptcha/admin/create) to create a secret key. 
+
+<img src="{{ path }}firebase_steps/step19.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+The important part here is filling out the domains that you will allow to access the firebase database. Assuming you are hosting your survey on github, enter your base github pages url (<username>.github.io). Also add localhost and 127.0.0.1 to test your survey on your local server. 
+
+<img src="{{ path }}firebase_steps/step20.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Copy the secret key
+
+<img src="{{ path }}firebase_steps/step21.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+And paste it back on the firebase recaptcha page. 
+
+
+<img src="{{ path }}firebase_steps/step22.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+The last step is to link your browser to your app through a debug key. 
+
+- Navigate to http://localhost:8080 and click on any demo study.
+- Press [Ctrl + Shift + i] to view the browser console.
+- Copy the debug token from the console.
+<img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+- Navigate to your firebase instance and add the token as shown below:
+<img src="{{ path }}firebase_steps/step23.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step24.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}firebase_steps/step25.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+### Adding Firebase Storage
+
+Navigate to the build panel and then to "storage". 
+
+Enable the storage product.
+
+Once the storage product is enabled, navigate to the "rules" section. Copy and paste the following code into the rule:
+
+```
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if true;
+    }
+  }
+}
+```
+
+Once that is finished, we'll have to use Google's `gsutil` function in the terminal to set up a CORS policy so that the application can communicate with Firebase storage. Follow <a href="https://cloud.google.com/storage/docs/gsutil_install" targe="_blank">these steps on how to install gsutil on your local machine</a>.
+
+After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` folder on your local machine. Create a new file called "cors.json" with the following contents:
+
+```
+[
+  {
+    "origin": ["*"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]
+```
+
+Lastly, while still inside this same directory, call the following function:
+
+`gsutil cors set cors.json gs://<your-cloud-storage-bucket>`
+
+You can find the link for the storage bucket by navigating to the "storage" product in Firebase. 
+
+
+Now you can navigate to http://localhost:8080 and launch any demo study. All data from any participation will automatically be uploaded to the store.
+
+<img src="{{ path }}demo.png" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
+
+
+## Deploying to a static website
+
+## Creating Components
+
+### React Component
+
+### HTML Component
+
+### Questionnaire Component
+
+## Downloading User Data
+
+
 # Tutorial
 
 {% capture path %}{{ site.baseurl }}/assets/tutorial/{% endcapture %}
@@ -61,7 +535,8 @@ You can leave the default settings in the following two steps.
 
 With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and update your read/write rules as follows: 
 
-``rules_version = '2';
+```
+rules_version = '2';
 service cloud.firestore {
  match /databases/{database}/documents {
     match /{document=**} {
@@ -70,7 +545,7 @@ service cloud.firestore {
     }
   }
 }
-``
+```
 
 <img src="{{ path }}firebase_steps/step8.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
