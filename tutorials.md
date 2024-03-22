@@ -1,13 +1,41 @@
 ---
-layout: page_toc
+layout: tutorial
 title: Tutorial | reVISit
 weight: 2
 tag: tutorial
 permalink: /tutorial/
 ---
+<h1 class='tutorial-page'>Introduction</h1>
+
+{% capture path %}{{ site.baseurl }}/assets/tutorial/{% endcapture %}
+{% capture repo %}{{ site.repo }}{% endcapture %}
+{% capture code %}{{ site.code}}{% endcapture %}
 
 
-# Installation
+reVISit lets you create interactive, web-based study setups using a JSON domain-specific language (DSL), called reVISit.spec, and a set of stimuli specified in the DSL. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
+
+The overall process is shown in the following figure: 
+
+![Revisit teaser image showing revisit workflow]({{ path }}revisit-overview.png)
+
+In the tutorials section, we'll walk you through a simple example to create your first study with reVISit! 
+
+## The ReVISit DSL
+
+The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the ReVISit platform. This documentation provides an overview on how to configure a visualization experiment using the ReVISit DSL.
+
+## Environment Setup
+
+The ReVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file allows the specification of desired study components (consent, training, practice, trials, stimuli and survey). This section provides a guideline of how to setup the ReVISit framework and further sections explain how to modify the configuration file.
+
+
+## The Basic Study Grammar
+
+The configuration is done using the reVISit DSL, which allows you to specify information on the study metadata, UI configuration, study components, and study sequence. reVISit configurations are written in JSON. We'll give an overview of what each of these sections controls below, and give you some relevant JSON snippets for each section.
+
+<h1 class='tutorial-page'>Installation</h1>
+
+
 The reVisit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
 Start by navigating to the following github repository: https://github.com/revisit-studies/study
@@ -16,19 +44,33 @@ You should see a “fork” button on the same row as the name of the repository
 
 Once you fork the repository, you will be prompted for some basic information about this repository (such as the desired name). After this, you’ll need to clone the repository onto your local machine.
 
-After the repository is on your local machine, you will have all the entire code base for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
+After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
 
-To continue, you will need yarn installed. If you do not have yarn, you can install it using npm:
+To continue, you will need yarn installed. If you already have yarn installed, you can skip to Step 2 below. Otherwise, proceed with Step 1. 
 
-Note that this requires that you have the package manager “npm” installed. If you do not have npm installed, please see here to get Node and NPM installed on your local computer before running the command below:
+<div class="info-panel">
+    <div class="info-text">Note that this requires that you have the package manager NPM installed. If you do not have NPM installed, please see <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" targe="_blank">here</a> to get started. These docs will also direct you on how to install Node -- a prerequisite of NPM.</div>
+</div>
+
+<br>
+<br>
+
+
+**Step 1: Install yarn on your local computer using NPM:**
 
 	npm i -g yarn
 
-Once yarn is successfully installed, navigate to your forked repository and run the following yarn command:
+<br>
+
+**Step 2: Once yarn is successfully installed, navigate to your forked repository and run the following yarn command:**
 	
 	yarn install
 
-This will install all the packages that the reVisit requires to run. Once this is finished, you can now start the program:
+This will install all the packages that the reVisit requires to run.
+
+<br>
+
+**Step 3: . Once this is finished, you can now start the program:**
 
 	yarn serve
 
@@ -37,7 +79,7 @@ This will launch a local server which can be accessed to view and interact with 
 
 Note (not sure if this is necessary to add, but could be useful). In production, we use Firebase as a central data store to save the data that is recorded in the UI. Without Firebase, you’ll still be able to use reVisit and download the data locally. When interacting with these demo studies without Firebase installed, you will see an error which indicates that no Firebase store has been set up.
 
-# Tutorials
+<h1 class='tutorial-page'>Tutorials</h1>
 
 ## Setting up a basic questionnaire study
 
@@ -49,14 +91,14 @@ Once that is done, we will make an “introduction” markdown file. This will b
 
 Create a file with the following contents:
 
-```
+``` markdown
 # Introduction
 
 Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
 ```
 Save this file as “introduction.md” in the “basic-questionnaire-study” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
 
-```
+``` markdown
 # Help
 
 This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
@@ -68,7 +110,7 @@ Now we are ready to create the configuration file for the study. This configurat
 
 Create a new file called “config.json”. Then, copy and paste the following json into the new file.
 
-```
+``` json
 {
     "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
@@ -168,7 +210,7 @@ Now, our study is almost set up to view. The last step is to make sure that the 
 
 Add the following code to the “configs” object:
 
-```
+``` JSON
 “basic-questionnaire-study”:{
 	“path”:”basic-questionnaire-study/config.json”
 }
@@ -184,85 +226,80 @@ Now, we will take the study we just created and add another component based on a
 
 The HTML code below uses the extensive D3.js library. It renders a simple, horizontal barchart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study” directory.
 
-```
+``` HTML
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>D3 Nice Axes</title>
     <script src="https://d3js.org/d3.v7.js"></script>
     <!-- Load revisit-communicate to be able to send data to reVISit -->
     <script src="../js/revisit-communicate.js"></script>
-</head>
+  </head>
 
-<body>
-    <svg>
-    </svg>
-</body>
+  <body>
+    <svg></svg>
+  </body>
 
-<script>
+  <script>
+    // Get data from the config file
+    Revisit.onDataReceive((data) => {
+      const barData = data['barData']
+      const taskID = 'barChart';
+      const loc = 'belowStimulus';
+      height = 400;
+      width = 750;
+      padding = 25;
+      svg = d3.select('svg');
+      svg
+        .attr('width', width + 2 * padding)
+        .attr('height', height + 2 * padding);
 
-    addEventListener("message", (event) => {
+      let spacing = height / barData.length;
 
-        let data = event.data.message['barChartData'];
+      let min = d3.min(barData);
+      let max = d3.max(barData);
 
+      let xScale = d3.scaleLinear().domain([min, max]).range([0, width]).nice();
 
-        const taskID = "barChart";
-        const loc = "belowStimulus"
-        height = 400;
-        width = 750;
-        padding = 25;
-        svg = d3.select("svg");
-        svg.attr("width", width + 2 * padding)
-            .attr("height", height + 2 * padding);
+      let color = d3
+        .scaleLinear()
+        .domain([min, 0, max])
+        .range(['darkred', 'lightgray', 'steelblue']);
 
-        let spacing = height / data.length;
+      let xAxis = d3.axisBottom();
+      xAxis.scale(xScale);
 
-        let min = d3.min(data);
-        let max = d3.max(data);
+      svg
+        .selectAll('.bar')
+        .data(barData)
+        .join('rect')
+        .classed('bar', true)
+        .attr('transform', 'translate(' + padding + ',' + padding + ')')
+        .attr('x', (d) => xScale(Math.min(0, d)))
+        .attr('y', (d, i) => i * spacing + 5)
+        .attr('width', (d) => Math.abs(xScale(d) - xScale(0)))
+        .attr('height', 20)
+        .style('fill', (d) => color(d))
 
-        let xScale = d3.scaleLinear()
-            .domain([min, max])
-            .range([0, width])
-            .nice();
+        // Post answer from the html to reVISit platform
+        .on('click', (e, d) => {
+          Revisit.postAnswers({ answer: [d], taskID, location: loc });
+        });
 
-        let color = d3.scaleLinear()
-            .domain([min, 0, max])
-            .range(["darkred", "lightgray", "steelblue"]);
-
-        let xAxis = d3.axisBottom();
-        xAxis.scale(xScale);
-
-        svg.selectAll(".bar")
-            .data(data)
-            .join("rect")
-            .classed("bar", true)
-            .attr("transform", "translate(" + padding + "," + padding + ")")
-            .attr("x", d => xScale(Math.min(0, d)))
-            .attr("y", (d, i) => i * spacing + 5)
-            .attr("width", d => Math.abs(xScale(d) - xScale(0)))
-            .attr("height", 20)
-            .style("fill", d => color(d))
-            // Post answer from the html to reVISit platform
-            .on("click", (e, d) => {
-                Revisit.postAnswers(
-                    {answer:[d], taskID,location:loc}
-                );
-            });
-
-        svg.append("g")
-            .attr("transform", "translate(" + padding + "," + (height + padding) + ")")
-            .call(xAxis);
-    })
-
-
-    
-
-</script>
+      svg
+        .append('g')
+        .attr(
+          'transform',
+          'translate(' + padding + ',' + (height + padding) + ')'
+        )
+        .call(xAxis);
+    });
+  </script>
 </html>
 ```
 
-One of the interesting peices of the above code is that this HTML document interacts with reVISit in a two-way fashion. Firstly, note that the script to render the barchart is wrapped in the “addEventListener(“message”,(event)=>{})” function. This listens for a message received from reVISit. In this message, we can pass in any data that we’d like and use that in the HTML document. You will see shortly how we can use this HTML document as a template for multiple components with different datasets.
+One of the interesting peices of the above code is that this HTML document interacts with reVISit in a two-way fashion. Firstly, note that the script to render the barchart is wrapped in the “Revisit.onDataReceive” function. This listens for data that is passed to the HTML document via the "parameters" key in the configuration of the component. You will see shortly how we can use this HTML document as a template for multiple components with different datasets.
 
 Furthermore, you’ll see that we have also created an “onClick” function and attached it to each of the bars in the bar graph. This click function uses the “Revisit.postAnswers” method to send information back to reVISit. 
 
@@ -270,7 +307,7 @@ Now that we have this HTML document in our study directory, we are ready to adju
 
 In your “config.json” document, create new new key called “baseComponents” as a sibling to the keys “uiConfig”, “components”, “sequence”, etc. In this newly created key, paste the code below:
 
-```
+``` JSON
     "baseComponents":{
         "bar-chart":{
             "type": "website",
@@ -294,23 +331,25 @@ This creates a component that new components can be based off of. Each component
 
 In the components section, add the following objects:
 
-```
-        "bar-chart-1":{
-            "baseComponent": "bar-chart",
-            "description": "A trial for the user to click the smallest bar",
-            "instruction": "Click on the smallest bar",
-            "parameters":{
-                "barData":[0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
-            }
-        },
-        "bar-chart-2":{
-            "baseComponent": "bar-chart",
-            "description": "A trial for the user to click the smallest bar",
-            "instruction": "Click on the smallest bar",
-            "parameters":{
-                "barData":[1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
-            }
-        }
+``` json
+...
+"bar-chart-1":{
+    "baseComponent": "bar-chart",
+    "description": "A trial for the user to click the smallest bar",
+    "instruction": "Click on the smallest bar",
+    "parameters":{
+        "barData":[0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
+    }
+},
+"bar-chart-2":{
+    "baseComponent": "bar-chart",
+    "description": "A trial for the user to click the smallest bar",
+    "instruction": "Click on the smallest bar",
+    "parameters":{
+        "barData":[1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
+    }
+}
+...
 
 
 ```
@@ -318,7 +357,13 @@ The "parmaeters" key is a dynamically valued key which is used to pass data to y
 
 To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json). 
 
-# How-To-Guides
+<div class='info-panel' type='warning'>
+    <div class="info-text">
+        In order for reVISit to properly identify users without a server and/or an authentication process, it relies on cacheing the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
+    </div>
+</div>
+
+<h1 class='tutorial-page'>How-To-Guides</h1>
 
 ## Connecting to Firebase
 
@@ -337,21 +382,29 @@ Create a new Firebase project
 Name your Project Accordingly
 <img src="{{ path }}firebase_steps/step3.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
+<div class='info-panel'>
+    <div class='info-text'>
+        Enabling google analytics is not necessary. Feel free to disable this when prompted.
+    </div>
+</div>
+
 ### Adding a Firestore Database
 
-With your project created, we are now going to add a firestore database to it. 
+With your project created, we are now going to add a firestore database to it. On the left-hand side, you should see a "Build" dropdown menu. From that, select "Firestore Database".
 <img src="{{ path }}firebase_steps/step4.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
+Click "Create Database" in the center of the screen.
 <img src="{{ path }}firebase_steps/step5.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-You can leave the default settings in the following two steps. 
+For the next two steps, there is no need to change the defaults. Simply click "Next" and then "Enable".
 <img src="{{ path }}firebase_steps/step6.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 <img src="{{ path }}firebase_steps/step7.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and update your read/write rules as follows: 
+With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and copy and paste the following code. Then click "publish".
 
-``rules_version = '2';
+```
+rules_version = '2';
 service cloud.firestore {
  match /databases/{database}/documents {
     match /{document=**} {
@@ -360,74 +413,28 @@ service cloud.firestore {
     }
   }
 }
-``
+```
 
 <img src="{{ path }}firebase_steps/step8.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-
-We are now going to add an app to your firebase project: 
-<img src="{{ path }}firebase_steps/step9.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-<img src="{{ path }}firebase_steps/step10.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-
-With the app set up, we are ready to copy over the app configuration to your revisit project. 
-Click on project settings and copy your firebase configuration to the .env file in your revisit project (just the object, don't include the javascript parts like `const, ;`, etc.). 
-
-<img src="{{ path }}firebase_steps/step11.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-
-We are now going to set up the authentication so that your browser is authorized to communicate with your firebase database. 
-<img src="{{ path }}firebase_steps/step12.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-<img src="{{ path }}firebase_steps/step13.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-<img src="{{ path }}firebase_steps/step14.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-<img src="{{ path }}firebase_steps/step15.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-Our last step is to set up App Check. 
-<img src="{{ path }}firebase_steps/step16.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-<img src="{{ path }}firebase_steps/step17.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-Click on register to register your app with recaptcha. 
-<img src="{{ path }}firebase_steps/step18.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-At this point you will need to navigate to [Recaptcha](https://www.google.com/recaptcha/admin/create) to create a secret key. 
-
-<img src="{{ path }}firebase_steps/step19.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-The important part here is filling out the domains that you will allow to access the firebase database. Assuming you are hosting your survey on github, enter your base github pages url (<username>.github.io). Also add localhost and 127.0.0.1 to test your survey on your local server. 
-
-<img src="{{ path }}firebase_steps/step20.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-Copy the secret key
-
-<img src="{{ path }}firebase_steps/step21.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-And paste it back on the firebase recaptcha page. 
-
-
-<img src="{{ path }}firebase_steps/step22.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-The last step is to link your browser to your app through a debug key. 
-
-- Navigate to http://localhost:8080 and click on any demo study.
-- Press [Ctrl + Shift + i] to view the browser console.
-- Copy the debug token from the console.
-<img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-- Navigate to your firebase instance and add the token as shown below:
-<img src="{{ path }}firebase_steps/step23.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-<img src="{{ path }}firebase_steps/step24.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-<img src="{{ path }}firebase_steps/step25.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
 ### Adding Firebase Storage
 
-Navigate to the build panel and then to "storage". 
+Once that is finished, we will enable standard Firebase storage. Click the "Build" dropdown menu again and navigate to "Storage". We can leave the options as their defaults.
 
-Enable the storage product.
+<img src="{{ path }}firebase_steps/storage_step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-Once the storage product is enabled, navigate to the "rules" section. Copy and paste the following code into the rule:
+<img src="{{ path }}firebase_steps/storage_step2.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/storage_step3.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<img src="{{ path }}firebase_steps/storage_step4.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Once the storage product is enabled, navigate to the "rules" tab. 
+
+<img src="{{ path }}firebase_steps/storage_step5.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+Replace the existing rule with the following code and then publish:
 
 ```
 rules_version = '2';
@@ -441,113 +448,9 @@ service firebase.storage {
 }
 ```
 
-Once that is finished, we'll have to use Google's `gsutil` function in the terminal to set up a CORS policy so that the application can communicate with Firebase storage. Follow <a href="https://cloud.google.com/storage/docs/gsutil_install" targe="_blank">these steps on how to install gsutil on your local machine</a>.
+<img src="{{ path }}firebase_steps/storage_step6.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` folder on your local machine. Create a new file called "cors.json" with the following contents:
-
-```
-[
-  {
-    "origin": ["*"],
-    "method": ["GET"],
-    "maxAgeSeconds": 3600
-  }
-]
-```
-
-Lastly, while still inside this same directory, call the following function:
-
-`gsutil cors set cors.json gs://<your-cloud-storage-bucket>`
-
-You can find the link for the storage bucket by navigating to the "storage" product in Firebase. 
-
-
-Now you can navigate to http://localhost:8080 and launch any demo study. All data from any participation will automatically be uploaded to the store.
-
-<img src="{{ path }}demo.png" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
-
-
-## Deploying to a static website
-
-## Creating Components
-
-### React Component
-
-### HTML Component
-
-### Questionnaire Component
-
-## Downloading User Data
-
-
-# Tutorial
-
-{% capture path %}{{ site.baseurl }}/assets/tutorial/{% endcapture %}
-{% capture repo %}{{ site.repo }}{% endcapture %}
-{% capture code %}{{ site.code}}{% endcapture %}
-
-
-reVISit lets you create interactive, web-based study setups using a JSON domain-specific language (DSL), called reVISit.spec, and a set of stimuli specified in the DSL. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
-
-The overall process is shown in the following figure: 
-
-![Revisit teaser image showing revisit workflow]({{ path }}revisit-overview.png)
-
-In this tutorial, we'll walk you through a simple example to create your first study with reVISit! 
-
-## The ReVISit DSL
-
-The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the ReVISit platform. This documentation provides an overview on how to configure a visualization experiment using the ReVISit DSL.
-
-# Environment Setup
-
-The ReVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file allows the specification of desired study components (consent, training, practice, trials, stimuli and survey). This section provides a guideline of how to setup the ReVISit framework and further sections explain how to modify the configuration file.
-
-### How to install reVISit and run it locally
-
-- Fork, then clone the [**ReVISit repository**]({{ repo }})
-- Run `yarn install`. If you don't have yarn installed, run `npm i -g yarn`.
-- To run locally, run `yarn install` , then `yarn serve`.
-- Navigate to http://localhost:8080 to a view demo studies.
-
-**Note:** The ReVISit framework uses [Firebase](http://firebase.google.com) as its default data store. To connect to a Firebase instance:
-
-### How to create and connect to a Firebase instance: 
-
-Navigate to [Firebase](http://firebase.google.com) and go to your console. 
-<img src="{{ path }}firebase_steps/step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-Create a new Firebase project 
-<img src="{{ path }}firebase_steps/step2.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-Name your Project Accordingly
-<img src="{{ path }}firebase_steps/step3.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-With your project created, we are now going to add a firestore database to it. 
-<img src="{{ path }}firebase_steps/step4.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-<img src="{{ path }}firebase_steps/step5.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-You can leave the default settings in the following two steps. 
-<img src="{{ path }}firebase_steps/step6.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-<img src="{{ path }}firebase_steps/step7.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
-
-With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and update your read/write rules as follows: 
-
-```
-rules_version = '2';
-service cloud.firestore {
- match /databases/{database}/documents {
-    match /{document=**} {
-    	allow read: if true
-       allow write: if request.auth != null;
-    }
-  }
-}
-```
-
-<img src="{{ path }}firebase_steps/step8.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+### Adding an App to the Firebase Project
 
 
 We are now going to add an app to your firebase project: 
@@ -597,7 +500,9 @@ And paste it back on the firebase recaptcha page.
 The last step is to link your browser to your app through a debug key. 
 
 - Navigate to http://localhost:8080 and click on any demo study.
-- Press [Ctrl + Shift + i] to view the browser console.
+
+- Open up the browser console. This differs depending on the web browser that you are using. You can find the various ways to view the browser console for popular web browsers <a href="https://help.planday.com/en/articles/30207-how-to-open-the-developer-console-in-your-web-browser" target="_blank">here</a>.
+
 - Copy the debug token from the console.
 <img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
@@ -606,19 +511,160 @@ The last step is to link your browser to your app through a debug key.
 <img src="{{ path }}firebase_steps/step24.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step25.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
+### Allowing for CORS requests
 
-- Navigate to http://localhost:8080 and launch any demo study.
+
+Once that is finished, we'll have to use Google's `gsutil` function in the terminal to set up a CORS policy so that the application can communicate with Firebase storage. Follow <a href="https://cloud.google.com/storage/docs/gsutil_install" targe="_blank">these steps on how to install gsutil on your local machine</a>.
+
+After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` folder on your local machine. Create a new file called "cors.json" with the following contents:
+
+``` JSON
+[
+  {
+    "origin": ["*"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]
+```
+
+Lastly, while still inside this same directory, call the following function:
+
+``` shell
+gsutil cors set cors.json gs://<your-cloud-storage-bucket>
+```
+You can find the link for the storage bucket by navigating to the "storage" product in Firebase. 
+
+<img src="{{ path }}firebase_steps/gsutil_step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+
+Now you can navigate to http://localhost:8080 and launch any demo study. All data from any participation will automatically be uploaded to the store.
 
 <img src="{{ path }}demo.png" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
 
-## How to Create Your Own Study
 
-First, complete the steps above to clone and install rVISit to your computer. All of the files you need to touch to create your own study are in the [`public`]({{code}}public/) folder -- unless you plan to add React components, which live in the `src` folder. If you're using react components, check out the guide for that [here](#react-component).
+## Deploying to a static website
 
-## The Basic Study Grammar
+Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. Once your configuration is built, you need only push your changes to GitHub and the action will run. This means that developing the studies and iterating their design is easy. If you find something doesn't work in a pilot version of the study, you can change it out, push and the new version will be deployed in a matter of minutes. By default, GitHub pages will deploy to a URL like `https://<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
-The configuration is done using the reVISit DSL, which allows you to specify information on the study metadata, UI configuration, study components, and study sequence. reVISit configurations are written in JSON. We'll give an overview of what each of these sections controls below, and give you some relevant JSON snippets for each section.
+## Creating Study Components
 
+Study components are the building blocks for each study. Below we list the various types of study components and provide some basic examples of their usage. In this section, you define a list of the study components. There are 2 basic types of study components, one that renders something to the page and a container component. The container component exists to enable groupings of rendering components, randomization (not yet implemented), and skip logic (not yet implemented).
+
+We'll step through examples for how to the rendering components and the container components. 
+
+### Markdown Component
+
+A markdown component renders a markdown file to the page. This is useful for introducing your study, giving instructions, etc. The markdown file can be in any folder in the `public` folder (e.g., `public/cleveland/introduction.md`), and the path is relative to the `public` folder.
+
+For more detailed documentation on the markdown component, check out the [documentation](/typedoc/interfaces/MarkdownComponent.html).
+
+```
+"introduction": {
+    "type": "markdown",
+    "path": "cleveland/introduction.md",
+    response: []
+}
+```
+
+### Image Component
+
+Similar to mark down components, image components render an image to the page. The image can be in any folder in the `public` folder (e.g., `public/cleveland/cm-training.png`), and the path is relative to the `public` folder.
+
+For more detailed documentation on the image component, check out the [documentation](/typedoc/interfaces/ImageComponent.html).
+
+```
+"training1": {
+    "type": "image",
+    "path": "cleveland/cm-training.png",
+    "response": []
+}
+```
+
+
+### Website Component
+
+Similar to the above components website components render a website to the page. The website can be in any folder in the `public` folder (e.g., `public/mvnv/training/mvnv-training.html`), and the path is relative to the `public` folder, in that case. The website may also be external, in which case the path is the full URL. This would be useful for displaying publicly available websites or elements on them as a part of your study.
+
+For more detailed documentation on the website component, check out the [documentation](/typedoc/interfaces/WebsiteComponent.html).
+
+```
+"training": {
+    "type": "website",
+    "path": "mvnv/training/mvnv-training.html",
+    response: []
+}
+```
+
+
+### Questionnaire Component
+
+The questionnaire component renders a questionnaire to the page. It could be  useful for collecting demographic information, or other information that you want to collect from participants. Since this component doesn't render a stimulus, it's only useful for collecting basic information from participants.
+
+For more detailed documentation on the questionnaire component, check out the [documentation](/typedoc/interfaces/QuestionnaireComponent.html).
+
+```
+"survey": {
+    "type": "questionnaire"
+    "response": [
+        {
+            "id": "q1",
+            "prompt": "Dropdown example",
+            "required": "true",
+            "location": "aboveStimulus",
+            "type": "dropdown",
+            "placeholder": "Enter your chart preference",
+            "options": [
+                {
+                    "label": "Bar Chart",
+                    "value": "Bar Chart"
+                },
+                {
+                    "label": "Bubble Chart",
+                    "value": "Bubble Chart"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### React Component
+
+The React component is by far the most complicated. It allows you to render a React component to the page. This is useful for rendering interactive stimuli, or for rendering stimuli that require a lot of customization. We have options for passing parameters to the React component that allow the same component to be used for multiple stimuli. React components require that their react code be in the `src/public` folder, and the path is relative to the `src/public` folder. We recommend that you put your react components in a folder that is named after your study to make your paths consistent with the static assets in the `public` folder in the root of the project.
+
+For the best example of how to use this component check out the Cleveland & McGill demo study, and for more detailed documentation on the react component, check out the [documentation](/typedoc/interfaces/ReactComponent.html).
+
+```
+"trial": {
+    "meta": {
+        "nr-dots": 1
+    },
+    "title": "Click Accuracy Test",
+    "description": "try to click on the center of the moving dot",
+    "instruction": "Click on the moving dot",
+    "type": "react-component",
+    "path": "cleveland/ClickAccuracyTest.tsx",
+    "parameters": {
+        "speed": 100,
+        "taskid": "accuracy"
+    }
+    "nextButtonLocation": "sidebar",
+    "response": [
+        {
+            "id": "accuracy",
+            "prompt": "Your click distance to circle center",
+            "required": true,
+            "location": "sidebar",
+            "type": "iframe"
+        }
+    ]
+}
+```
+
+## Downloading User Data
+
+Since reVISit uses Firebase as its data store, you can use the Firebase console to download your data. Additionally, we provide the ability to manually download your data from the study ending page. There are options to download the data as a CSV or JSON file. The CSV file is a flat file that contains all of the data for all of the participants in your study. The JSON file is a nested file that contains all of the data for all of the participants in your study. The JSON file is useful if you want to do more complex analysis of your data, but the CSV file is useful if you want to import your data into a spreadsheet program like Excel or Google Sheets.
 
 ### Study Metadata
 
@@ -668,119 +714,6 @@ For more detailed documentation on the UI configuration, check out the [document
 }
 ```
 
-### Study Components
-
-This is where things start to get interesting. In this section, you define a list of the study components. There are 2 basic types of study components, one that renders something to the page and a container component. The container component exists to enable groupings of rendering components, randomization (not yet implemented), and skip logic (not yet implemented).
-
-We'll step through examples for how to the rendering components and the container components. 
-
-#### Markdown Component
-
-A markdown component renders a markdown file to the page. This is useful for introducing your study, giving instructions, etc. The markdown file can be in any folder in the `public` folder (e.g., `public/cleveland/introduction.md`), and the path is relative to the `public` folder.
-
-For more detailed documentation on the markdown component, check out the [documentation](/typedoc/interfaces/MarkdownComponent.html).
-
-```
-introduction: {
-    type: markdown
-    path: cleveland/introduction.md
-    response: []
-}
-```
-
-#### Image Component
-
-Similar to mark down components, image components render an image to the page. The image can be in any folder in the `public` folder (e.g., `public/cleveland/cm-training.png`), and the path is relative to the `public` folder.
-
-For more detailed documentation on the image component, check out the [documentation](/typedoc/interfaces/ImageComponent.html).
-
-```
-training1: {
-    type: image
-    path: cleveland/cm-training.png
-    response: []
-}
-```
-
-#### Website Component
-
-Similar to the above components website components render a website to the page. The website can be in any folder in the `public` folder (e.g., `public/mvnv/training/mvnv-training.html`), and the path is relative to the `public` folder, in that case. The website may also be external, in which case the path is the full URL. This would be useful for displaying publicly available websites or elements on them as a part of your study.
-
-For more detailed documentation on the website component, check out the [documentation](/typedoc/interfaces/WebsiteComponent.html).
-
-```
-training: {
-    type: website
-    type: website
-    path: mvnv/training/mvnv-training.html
-    response: []
-}
-```
-
-#### Questionnaire Component
-
-The questionnaire component renders a questionnaire to the page. It could be  useful for collecting demographic information, or other information that you want to collect from participants. Since this component doesn't render a stimulus, it's only useful for collecting basic information from participants.
-
-For more detailed documentation on the questionnaire component, check out the [documentation](/typedoc/interfaces/QuestionnaireComponent.html).
-
-```
-survey: {
-    type: questionnaire
-    response: [
-        {
-            id: q1
-            prompt: Dropdown example
-            required: true
-            location: aboveStimulus
-            type: dropdown
-            placeholder: Enter your chart preference
-            options: [
-                {
-                    label: Bar Chart
-                    value: Bar Chart
-                }
-                {
-                    label: Bubble Chart
-                    value: Bubble Chart
-                }
-            ]
-        }
-    ]
-}
-```
-
-#### React Component
-
-The React component is by far the most complicated. It allows you to render a React component to the page. This is useful for rendering interactive stimuli, or for rendering stimuli that require a lot of customization. We have options for passing parameters to the React component that allow the same component to be used for multiple stimuli. React components require that their react code be in the `src/public` folder, and the path is relative to the `src/public` folder. We recommend that you put your react components in a folder that is named after your study to make your paths consistent with the static assets in the `public` folder in the root of the project.
-
-For the best example of how to use this component check out the Cleveland & McGill demo study, and for more detailed documentation on the react component, check out the [documentation](/typedoc/interfaces/ReactComponent.html).
-
-```
-trial: {
-    meta: {
-        nr-dots: 1
-    }
-    title: Click Accuracy Test
-    description: try to click on the center of the moving dot
-    instruction: Click on the moving dot
-    type: react-component
-    path: cleveland/ClickAccuracyTest.tsx
-    parameters: {
-        speed: 100
-        taskid: accuracy
-    }
-    nextButtonLocation: sidebar
-    response: [
-        {
-            id: accuracy
-            prompt: Your click distance to circle center
-            required: true
-            location: sidebar
-            type: iframe
-        }
-    ]
-}
-```
 
 #### Collecting Responses
 
@@ -832,15 +765,6 @@ sequence: [
     "trials0"
 ]
 ```
-
-
-## Deploying your Study 
-
-Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. Once your configuration is built, you need only push your changes to GitHub and the action will run. This means that developing the studies and iterating their design is easy. If you find something doesn't work in a pilot version of the study, you can change it out, push and the new version will be deployed in a matter of minutes. By default, GitHub pages will deploy to a URL like `https://<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
-
-## Getting your Data Out 
-
-Since reVISit uses Firebase as its data store, you can use the Firebase console to download your data. Additionally, we provide the ability to manually download your data from the study ending page. There are options to download the data as a CSV or JSON file. The CSV file is a flat file that contains all of the data for all of the participants in your study. The JSON file is a nested file that contains all of the data for all of the participants in your study. The JSON file is useful if you want to do more complex analysis of your data, but the CSV file is useful if you want to import your data into a spreadsheet program like Excel or Google Sheets.
 
 
 ## Future Plans: Analysis Dashboard
