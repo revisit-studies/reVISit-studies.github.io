@@ -22,16 +22,11 @@ In the tutorials section, we'll walk you through a simple example to create your
 
 ## The ReVISit DSL
 
-The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the ReVISit platform. This documentation provides an overview on how to configure a visualization experiment using the ReVISit DSL.
+The ReVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the ReVISit platform. In the following tutorials, you will see how we configure a visualization experiment using the ReVISit DSL.
 
 ## Environment Setup
 
-The ReVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file allows the specification of desired study components (consent, training, practice, trials, stimuli and survey). This section provides a guideline of how to setup the ReVISit framework and further sections explain how to modify the configuration file.
-
-
-## The Basic Study Grammar
-
-The configuration is done using the reVISit DSL, which allows you to specify information on the study metadata, UI configuration, study components, and study sequence. reVISit configurations are written in JSON. We'll give an overview of what each of these sections controls below, and give you some relevant JSON snippets for each section.
+The ReVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file which allows for the specification of desired study components (e.g. consent, training, practice, trials, stimuli and survey).
 
 <h1 class='tutorial-page'>Installation</h1>
 
@@ -76,27 +71,34 @@ This will install all the packages that the reVisit requires to run.
 
 This will launch a local server which can be accessed to view and interact with reVisit. By default, you can access this by visiting http://localhost:8080/. Any change you make to the existing codebase will automatically update the front end.
 
+When you visit the site, you'll be greeted with a list of pre-constructed demo studies. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
 
-Note (not sure if this is necessary to add, but could be useful). In production, we use Firebase as a central data store to save the data that is recorded in the UI. Without Firebase, you’ll still be able to use reVisit and download the data locally. When interacting with these demo studies without Firebase installed, you will see an error which indicates that no Firebase store has been set up.
 
 <h1 class='tutorial-page'>Tutorials</h1>
 
 ## Setting up a basic questionnaire study
 
-Note: It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode.
+Let's start with setting up a simple questionnaire study.
 
-You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the “public” directory. Start by making a new directory called “basic-questionnaire-study”.
+<div class='info-panel'>
+    <div class="info-text">
+        It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode.
+    </div>
+</div>
+
+You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the “public” directory. Start by making a new directory called “basic-questionnaire-study” in the "public" directory. Inside this folder, create another directory called "assets". The assets directory will be where all of our various components are held.
 
 Once that is done, we will make an “introduction” markdown file. This will be used as the introduction to the study for your users.
 
 Create a file with the following contents:
 
 ``` markdown
-# Introduction
+
+# Introduction 
 
 Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
 ```
-Save this file as “introduction.md” in the “basic-questionnaire-study” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
+Save this file as “introduction.md” in the “basic-questionnaire-study/assets” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
 
 ``` markdown
 # Help
@@ -104,7 +106,7 @@ Save this file as “introduction.md” in the “basic-questionnaire-study” d
 This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
 
 ```
-Save this file as “help.md” in the “basic-questionnaire-study” directory.
+Save this file as “help.md” in the “basic-questionnaire-study/assets” directory.
 
 Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
 
@@ -204,9 +206,9 @@ Create a new file called “config.json”. Then, copy and paste the following j
 
 
 ```
-Save this file in the “basic-questionnaire-study” directory.
+Save this file in the “basic-questionnaire-study” directory -- one level above the "basic-questionnaire-study/assets" directory.
 
-Now, our study is almost set up to view. The last step is to make sure that the “global.json” file is set to find this new study. Navigate into the public/configs directory and open the “global.json” file.
+Now, our study is almost set up to view. The last step is to make sure that the “global.json” file is set to find this new study. Open the "global.json" file in the "public" directory.
 
 Add the following code to the “configs” object:
 
@@ -215,7 +217,7 @@ Add the following code to the “configs” object:
 	“path”:”basic-questionnaire-study/config.json”
 }
 ```
-After this, add “basic-questionnaire-study” into the “configsList” list in the same file. Then, save the file.
+After this, add “basic-questionnaire-study” into the “configsList” list in the same file. It does not matter where "basic-questionnaire-study" appears in the configs list. Because the configs list is ordered, however, placing "basic-questionnair-study" at the bottom of the list will mean that the study will show up at the bottom of the list of studies in the UI.
 
 Now, if you start the server (using `yarn serve` as described in the Installation section), you'll be able to navigate to "http://localhost:8080/" and view your study in the list of studies. Alternatively, you can navigate to "http://localhost:8080/basic-questionnaire-study" to enter the study directly.
 
