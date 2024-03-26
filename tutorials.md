@@ -217,7 +217,7 @@ Add the following code to the “configs” object:
 	“path”:”basic-questionnaire-study/config.json”
 }
 ```
-After this, add “basic-questionnaire-study” into the “configsList” list in the same file. It does not matter where "basic-questionnaire-study" appears in the configs list. Because the configs list is ordered, however, placing "basic-questionnair-study" at the bottom of the list will mean that the study will show up at the bottom of the list of studies in the UI.
+After this, add “basic-questionnaire-study” into the “configsList” list in the same file. It does not matter where "basic-questionnaire-study" appears in the configs list. Because the configs list is ordered, however, placing "basic-questionnaire-study" at the bottom of the list will mean that the study will show up at the bottom of the list of studies in the UI.
 
 Now, if you start the server (using `yarn serve` as described in the Installation section), you'll be able to navigate to "http://localhost:8080/" and view your study in the list of studies. Alternatively, you can navigate to "http://localhost:8080/basic-questionnaire-study" to enter the study directly.
 
@@ -226,7 +226,7 @@ Now, if you start the server (using `yarn serve` as described in the Installatio
 
 Now, we will take the study we just created and add another component based on a user-created HTML file. This allows for some additional customization of the component. 
 
-The HTML code below uses the extensive D3.js library. It renders a simple, horizontal barchart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study” directory.
+The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study” directory.
 
 ``` HTML
 <!DOCTYPE html>
@@ -301,7 +301,7 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
 </html>
 ```
 
-One of the interesting peices of the above code is that this HTML document interacts with reVISit in a two-way fashion. Firstly, note that the script to render the barchart is wrapped in the “Revisit.onDataReceive” function. This listens for data that is passed to the HTML document via the "parameters" key in the configuration of the component. You will see shortly how we can use this HTML document as a template for multiple components with different datasets.
+One of the interesting pieces of the above code is that this HTML document interacts with reVISit in a two-way fashion. Firstly, note that the script to render the bar chart is wrapped in the “Revisit.onDataReceive” function. This listens for data that is passed to the HTML document via the "parameters" key in the configuration of the component. You will see shortly how we can use this HTML document as a template for multiple components with different datasets.
 
 Furthermore, you’ll see that we have also created an “onClick” function and attached it to each of the bars in the bar graph. This click function uses the “Revisit.postAnswers” method to send information back to reVISit. 
 
@@ -355,13 +355,13 @@ In the components section, add the following objects:
 
 
 ```
-The "parmaeters" key is a dynamically valued key which is used to pass data to your components. When you add the "parameters" key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
+The "parameters" key is a dynamically valued key which is used to pass data to your components. When you add the "parameters" key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
 
 To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json). 
 
 <div class='info-panel' type='warning'>
     <div class="info-text">
-        In order for reVISit to properly identify users without a server and/or an authentication process, it relies on cacheing the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
+        In order for reVISit to properly identify users without a server and/or an authentication process, it relies on caching the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
     </div>
 </div>
 
@@ -371,7 +371,7 @@ To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-
 
 reVISit is inherently a serverless program. Because of this, we set up a storage engine in order to store the data that is gathered from users as they move through the study. While you can test the program locally without any storage, you will need to set up some sort of storage in order for users that are interacting with the study so that the data can be gathered. Our intention is that those who create the study have full control over the data that is generated by participants -- no data is ever linked back to the reVISit repository or those who have contributed to its creation.
 
-<a href="https://firebase.google.com/" target="_blank" >Firebase</a> is an app development platform that has extremely useful tools such as storage and real-time synchonization. With Firebase alone, a study creator can capture all data from participants and then export that data for further analysis. In what follows, there are two main products we will be using: the Firestore database and Firebase's storage product.
+<a href="https://firebase.google.com/" target="_blank" >Firebase</a> is an app development platform that has extremely useful tools such as storage and real-time synchronization. With Firebase alone, a study creator can capture all data from participants and then export that data for further analysis. In what follows, there are two main products we will be using: the Firestore database and Firebase's storage product.
 
 ### Create a Firebase Project
 
@@ -392,7 +392,7 @@ Name your Project Accordingly
 
 ### Adding a Firestore Database
 
-With your project created, we are now going to add a firestore database to it. On the left-hand side, you should see a "Build" dropdown menu. From that, select "Firestore Database".
+With your project created, we are now going to add a Firestore database to it. On the left-hand side, you should see a "Build" dropdown menu. From that, select "Firestore Database".
 <img src="{{ path }}firebase_steps/step4.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 Click "Create Database" in the center of the screen.
@@ -494,7 +494,7 @@ Copy the secret key
 
 <img src="{{ path }}firebase_steps/step21.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-And paste it back on the firebase recaptcha page. 
+And paste it back on the firebase re-captcha page. 
 
 
 <img src="{{ path }}firebase_steps/step22.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
