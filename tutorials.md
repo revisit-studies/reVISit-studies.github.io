@@ -31,11 +31,11 @@ The ReVISit frameworks provides an environment that allows researchers to build 
 <h1 class='tutorial-page'>Installation</h1>
 
 
-The reVisit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
+The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
 Start by navigating to the following github repository: https://github.com/revisit-studies/study
 
-You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, your organization will be able to have a central location for all of your personal studies. 
+You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies. 
 
 Once you fork the repository, you will be prompted for some basic information about this repository (such as the desired name). After this, you’ll need to clone the repository onto your local machine.
 
@@ -65,11 +65,11 @@ This will install all the packages that the reVisit requires to run.
 
 <br>
 
-**Step 3: . Once this is finished, you can now start the program:**
+**Step 3: Once this is finished, you can now start the program:**
 
 	yarn serve
 
-This will launch a local server which can be accessed to view and interact with reVisit. By default, you can access this by visiting http://localhost:8080/. Any change you make to the existing codebase will automatically update the front end.
+This will launch a local server which can be accessed to view and interact with reVISit. By default, you can access this by visiting http://localhost:8080/. Any change you make to the existing codebase will automatically update the front end.
 
 When you visit the site, you'll be greeted with a list of pre-constructed demo studies. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
 
@@ -82,7 +82,7 @@ Let's start with setting up a simple questionnaire study.
 
 <div class='info-panel'>
     <div class="info-text">
-        It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode.
+        It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode since it has JSON autocomplete.
     </div>
 </div>
 
@@ -131,8 +131,8 @@ Create a new file called “config.json”. Then, copy and paste the following j
     },
     "uiConfig": {
         "contactEmail": "test@test.com",
-        "helpTextPath": "basic-questionnaire-study/help.md",
-        "logoPath": "assets/revisitLogoSquare.svg",
+        "helpTextPath": "basic-questionnaire-study/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,
         "autoDownloadStudy": false,
         "sidebar": true
@@ -140,7 +140,7 @@ Create a new file called “config.json”. Then, copy and paste the following j
     "components": {
         "introduction": {
             "type": "markdown",
-            "path": "basic-questionnaire-study/introduction.md",
+            "path": "basic-questionnaire-study/assets/introduction.md",
             "response": []
         },
         "first-question-set":{
@@ -153,7 +153,6 @@ Create a new file called “config.json”. Then, copy and paste the following j
                     "location":"aboveStimulus",
                     "type":"longText",
                     "placeholder": "Please enter your first name"
-
                 },
                 {
                     "id":"q2",
@@ -219,14 +218,14 @@ Add the following code to the “configs” object:
 ```
 After this, add “basic-questionnaire-study” into the “configsList” list in the same file. It does not matter where "basic-questionnaire-study" appears in the configs list. Because the configs list is ordered, however, placing "basic-questionnaire-study" at the bottom of the list will mean that the study will show up at the bottom of the list of studies in the UI.
 
-Now, if you start the server (using `yarn serve` as described in the Installation section), you'll be able to navigate to "http://localhost:8080/" and view your study in the list of studies. Alternatively, you can navigate to "http://localhost:8080/basic-questionnaire-study" to enter the study directly.
+Now, if you start the server (using `yarn serve` as described in the <a href="#installation">Installation</a> section), you'll be able to navigate to "http://localhost:8080/" and view your study in the list of studies. Alternatively, you can navigate to "http://localhost:8080/basic-questionnaire-study" to enter the study directly.
 
 
 ## Adding custom HTML to your Study
 
 Now, we will take the study we just created and add another component based on a user-created HTML file. This allows for some additional customization of the component. 
 
-The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study” directory.
+The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study/assets” directory.
 
 ``` HTML
 <!DOCTYPE html>
@@ -322,7 +321,7 @@ In your “config.json” document, create new new key called “baseComponents�
                     "type": "iframe"
                 }
             ],
-            "path": "basic-questionnaire-study/bar-chart.html",
+            "path": "basic-questionnaire-study/assets/bar-chart.html",
             "instructionLocation": "aboveStimulus"
         
         }
