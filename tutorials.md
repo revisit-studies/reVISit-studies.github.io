@@ -48,7 +48,6 @@ To continue, you will need yarn installed. If you already have yarn installed, y
 </div>
 
 <br>
-<br>
 
 
 **Step 1: Install yarn on your local computer using NPM:**
@@ -92,20 +91,17 @@ Once that is done, we will make an “introduction” markdown file. This will b
 
 Create a file with the following contents:
 
-``` markdown
 
-# Introduction 
+<pre><code class="language-markdown"># Introduction
 
-Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
-```
+Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.</code></pre>
 Save this file as “introduction.md” in the “basic-questionnaire-study/assets” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
 
-``` markdown
-# Help
+<pre><code class="language-markdown"># Help
 
 This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
+</code></pre>
 
-```
 Save this file as “help.md” in the “basic-questionnaire-study/assets” directory.
 
 Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
@@ -201,7 +197,8 @@ Create a new file called “config.json”. Then, copy and paste the following j
             "second-question-set"
         ]
     }
-}```
+}
+```
 Save this file in the “basic-questionnaire-study” directory -- one level above the "basic-questionnaire-study/assets" directory.
 
 Now, our study is almost set up to view. The last step is to make sure that the “global.json” file is set to find this new study. Open the "global.json" file in the "public" directory.
@@ -548,7 +545,86 @@ Deploying your study should be relatively simple. We include a GitHub action tha
 
 ## Downloading User Data
 
-Since reVISit uses Firebase as its data store, you can use the Firebase console to download your data. Additionally, we provide the ability to manually download your data from the study ending page. There are options to download the data as a CSV or JSON file. The CSV file is a flat file that contains all of the data for all of the participants in your study. The JSON file is a nested file that contains all of the data for all of the participants in your study. The JSON file is useful if you want to do more complex analysis of your data, but the CSV file is useful if you want to import your data into a spreadsheet program like Excel or Google Sheets.
+reVISit allows you to download participant's data using an admin interface -- there is no need to interact with Firebase directly. To start, navigate to a study that you wish to download participants data from. Then, add `?admin=t` to the url like in the image below.
+
+
+<img src="{{ path }}userdata_step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Next, you should see three vertical dots next to the `Help` button in the upper right hand of the view. Clicking this will open up the dropdown menu to access admin mode.
+
+<img src="{{ path }}userdata_step2.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+Now that you are in admin mode, navigate to the end of the study. Once at the end, you should see options to download user data as shown below:
+
+<img src="{{ path }}userdata_step3.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
+
+<div class='info-panel' type='warning'>
+    <div class="info-text">
+    Currently, only JSON data is able to be exported by reVISit. We have plans to support Tidy CSV in the near future. 
+    </div>
+</div>
+The JSON file is a nested file that contains all of the data for all of the participants in your study. It is structured as a list. Each element refers to a participants data or a configuration. While in many cases there is only one configuration per study, the study creator is allowed to change the configuration file after the study has already been completed by other participants. The data for each participant will have a "participantConfigHash" which refers to a particular configuration which is also in this list. 
+
+Below we have an example of a participants data.
+``` JSON
+[
+    {
+        "participantId": <UUID4>,
+        "participantConfigHash": <CONFIG_ID>,
+        "sequence": {
+            ...
+        },
+        "answers": {
+            ...
+        },
+        "searchParameters": {
+            ...
+        }
+    }
+]
+```
+Each key in answer will be labeled the same as the component that it refers to. The sequence is the given sequence that the user saw all components (since these may be different for each participant if the configuration sequence was set to be random). This answer wil contain information such as the start time, the end time, and all of the window events. See the example below.
+
+```JSON
+     "bar-chart-1_1": {
+        "answer": {
+          "barChart": [
+            1.3
+          ]
+        },
+        "startTime": 1711641174858,
+        "endTime": 1711641178836,
+        "windowEvents": [
+          [
+            1711641174878,
+            "mousedown",
+            [ 1843, 286 ]
+          ],
+          [
+            1711641174878,
+            "focus",
+            "BUTTON"
+          ],
+        [
+            1711641174935,
+            "mouseup",
+            [ 1843, 286 ]
+          ],
+          .
+          .
+          .
+          [
+            1711641178706,
+            "mousemove",
+            [ 1868, 728 ]
+          ]
+        ]
+      }
+```
+All times are in **epoch milliseconds**. We can see at a high level that we are given the answer that the user submitted, the start time for the component, and the end time. In addition to this, we have a list of window events. Each item in the window event is given a time, a position an event name, and a position on the screen.
+
+<!-- The JSON file is useful if you want to do more complex analysis of your data
+Since reVISit uses Firebase as its data store, you can use the Firebase console to download your data. Additionally, we provide the ability to manually download your data from the study ending page. There are options to download the data as a CSV or JSON file. The CSV file is a flat file that contains all of the data for all of the participants in your study. The JSON file is a nested file that contains all of the data for all of the participants in your study. The JSON file is useful if you want to do more complex analysis of your data, but the CSV file is useful if you want to import your data into a spreadsheet program like Excel or Google Sheets. -->
 
 # Future of ReVISit
 
