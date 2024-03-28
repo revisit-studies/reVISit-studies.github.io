@@ -37,7 +37,7 @@ Start by navigating to the following github repository: https://github.com/revis
 
 You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies. 
 
-Once you fork the repository, you will be prompted for some basic information about this repository (such as the desired name). After this, you’ll need to clone the repository onto your local machine.
+When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own github account, you can clone the repository. You should see a `code` button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
 
 After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
 
@@ -112,7 +112,7 @@ Now we are ready to create the configuration file for the study. This configurat
 
 Create a new file called “config.json”. Then, copy and paste the following json into the new file.
 
-``` json
+```JSON
 {
     "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
@@ -143,52 +143,52 @@ Create a new file called “config.json”. Then, copy and paste the following j
             "path": "basic-questionnaire-study/assets/introduction.md",
             "response": []
         },
-        "first-question-set":{
-            "type":"questionnaire",
-            "response":[
+        "first-question-set": {
+            "type": "questionnaire",
+            "response": [
                 {
-                    "id":"q1",
-                    "prompt":"What is your first name?",
-                    "required":true,
-                    "location":"aboveStimulus",
-                    "type":"longText",
+                    "id": "q1",
+                    "prompt": "What is your first name?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
                     "placeholder": "Please enter your first name"
                 },
                 {
-                    "id":"q2",
-                    "prompt":"What is your favorite color?",
-                    "required":true,
-                    "location":"aboveStimulus",
-                    "type":"dropdown",
-                    "placeholder":"Please choose your favorite color",
-                    "options":[
+                    "id": "q2",
+                    "prompt": "What is your favorite color?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Please choose your favorite color",
+                    "options": [
                         {
-                            "label":"Red",
-                            "value":"red"
+                            "label": "Red",
+                            "value": "red"
                         },
                         {
-                            "label":"Blue",
-                            "value":"blue"
+                            "label": "Blue",
+                            "value": "blue"
                         },
                         {
-                            "label":"My favorite color is not shown here.",
-                            "value":"notShown"
+                            "label": "My favorite color is not shown here.",
+                            "value": "notShown"
                         }
                     ]
                 }
             ]
         },
-        "second-question-set":{
-            "type":"questionnaire",
-            "response":[
+        "second-question-set": {
+            "type": "questionnaire",
+            "response": [
                 {
-                    "id":"q1",
-                    "prompt":"What would you rate your satisfaction of this survey? 0 being very un-enjoyable, 5 being very enjoyable.",
+                    "id": "q1",
+                    "prompt": "What would you rate your satisfaction of this survey? 0 being very un-enjoyable, 5 being very enjoyable.",
                     "required": true,
-                    "location":"aboveStimulus",
-                    "type":"numerical",
-                    "min":0,
-                    "max":5
+                    "location": "aboveStimulus",
+                    "type": "numerical",
+                    "min": 0,
+                    "max": 5
                 }
             ]
         }
@@ -201,10 +201,7 @@ Create a new file called “config.json”. Then, copy and paste the following j
             "second-question-set"
         ]
     }
-}
-
-
-```
+}```
 Save this file in the “basic-questionnaire-study” directory -- one level above the "basic-questionnaire-study/assets" directory.
 
 Now, our study is almost set up to view. The last step is to make sure that the “global.json” file is set to find this new study. Open the "global.json" file in the "public" directory.
@@ -212,8 +209,8 @@ Now, our study is almost set up to view. The last step is to make sure that the 
 Add the following code to the “configs” object:
 
 ``` JSON
-“basic-questionnaire-study”:{
-	“path”:”basic-questionnaire-study/config.json”
+“basic-questionnaire-study”: {
+	“path”: ”basic-questionnaire-study/config.json”
 }
 ```
 After this, add “basic-questionnaire-study” into the “configsList” list in the same file. It does not matter where "basic-questionnaire-study" appears in the configs list. Because the configs list is ordered, however, placing "basic-questionnaire-study" at the bottom of the list will mean that the study will show up at the bottom of the list of studies in the UI.
@@ -309,8 +306,8 @@ Now that we have this HTML document in our study directory, we are ready to adju
 In your “config.json” document, create new new key called “baseComponents” as a sibling to the keys “uiConfig”, “components”, “sequence”, etc. In this newly created key, paste the code below:
 
 ``` JSON
-    "baseComponents":{
-        "bar-chart":{
+    "baseComponents": {
+        "bar-chart": {
             "type": "website",
             "response": [
                 {
@@ -325,29 +322,28 @@ In your “config.json” document, create new new key called “baseComponents�
             "instructionLocation": "aboveStimulus"
         
         }
-    },
-
+    }
 ```
 This creates a component that new components can be based off of. Each component using the “bar-chart” as the value to the “baseComponent” key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating these next components.
 
 In the components section, add the following objects:
 
-``` json
+``` JSON
 ...
 "bar-chart-1":{
     "baseComponent": "bar-chart",
     "description": "A trial for the user to click the largest bar",
     "instruction": "Click on the largest bar",
-    "parameters":{
-        "barData":[0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
+    "parameters": {
+        "barData": [0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
     }
 },
 "bar-chart-2":{
     "baseComponent": "bar-chart",
     "description": "A trial for the user to click the smallest bar",
     "instruction": "Click on the smallest bar",
-    "parameters":{
-        "barData":[1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
+    "parameters": {
+        "barData": [1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
     }
 }
 ...

@@ -14,10 +14,17 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico" />
 <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.png" />
 
+<!-- Include Highlight.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
 {% if page.layout == "post" %} 
 <meta name="twitter:image:src" content="{{ site.url }}{{page.lead-image}}"> 
 <meta property="og:image" content="{{ site.url }}{{ page.lead-image }}"> 
 {% endif %}
+
+
 
 {% if page.layout == "publication" %}
   {% if page.image_large %}
