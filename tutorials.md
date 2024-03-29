@@ -488,7 +488,7 @@ And paste it back on the firebase re-captcha page.
 
 <img src="{{ path }}firebase_steps/step22.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-The last step is to link your browser to your app through a debug key. 
+Now we will link your browser to your app through a debug key. 
 
 - Navigate to http://localhost:8080 and click on any demo study.
 
@@ -529,7 +529,9 @@ You can find the link for the storage bucket by navigating to the "storage" prod
 <img src="{{ path }}firebase_steps/gsutil_step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 
-The last step is to enable firebase storage. Open up the `.env` file in the root of the repository. Change the `VITE_STORAGE_ENGINE variable to "firebase". Now you can call `yarn serve` to launch the server and navigate to http://localhost:8080 to launch any demo study. All data from any participation will automatically be uploaded to the store.
+The last step is to enable firebase storage. Open up the `.env` file in the root of the repository. Change the `VITE_STORAGE_ENGINE` variable to "firebase". Now you can call `yarn serve` to launch the server and navigate to http://localhost:8080 to launch any demo study. All data from any participation will automatically be uploaded to the store.
+
+<div class="info-panel"><div class="info-text">When running `yarn build`, reVISit automatically uses the Firebase storage engine.</div></div>
 
 <img src="{{ path }}demo.png" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
 
