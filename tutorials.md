@@ -487,7 +487,7 @@ The important part here is filling out the domains that you will allow to access
 
 <img src="{{ path }}firebase_steps/step20.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-You should now see a SITE KEY and a SECRET Key. First, copy the secret key and paste it back into the Firebase re-captcha page as shown in the following images.
+You should now see a SITE key and a SECRET key. First, copy the secret key and paste it back into the Firebase re-captcha page as shown in the following images.
 
 <img src="{{ path }}firebase_steps/step21.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
