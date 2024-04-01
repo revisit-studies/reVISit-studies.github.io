@@ -556,7 +556,20 @@ After this, you'll need to make sure that your Github repository has workflow ac
 
 <img src="{{ path }}deploy_step1.jpg" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
 
-On this page, you will be able to enable workflows. Now that it is enabled, whenever you push to your main branch, the workflow to deploy to Github pages will automatically run. This means that developing the studies and iterating their design is easy. If you find something doesn't work in a pilot version of the study, you can change it out, push and the new version will be deployed in a matter of minutes. By default, GitHub pages will deploy to a URL like `https://<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+On this page, enable workflows as shown below.
+
+<img src="{{ path }}deploy_step2.jpg" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
+
+After you've changed the `.env` file and enabled the workflow, go ahead and push the commit to your forked repository. Afterwards, the deploy action will run. Once that has finished, navigate to the 'settings' tab and then the 'pages' tab.
+
+<img src="{{ path }}deploy_step3.jpg" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
+<img src="{{ path }}deploy_step4.jpg" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
+
+Here we will be able to deploy the site to the Github pages. In the 'Branch' section, you should see options to select a branch to deploy from. Select 'gh-pages' from the dropdown menu as shown below.
+
+<img src="{{ path }}deploy_step5.jpg" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
+
+Click 'Save' once you have made the switch. After a short period of time, your reVISit application will deploy to `<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 
 
