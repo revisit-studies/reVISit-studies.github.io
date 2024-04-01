@@ -451,7 +451,7 @@ We are now going to add an app to your firebase project:
 <img src="{{ path }}firebase_steps/step10.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 
-With the app set up, we are ready to copy over the app configuration to your revisit project. In image below you will see a JSON object denoted as `const firebase = { ... }`. 
+With the app set up, we are ready to copy over the app configuration to your revisit project. In the image below you will see a JSON object denoted as `const firebase = { ... }`.
 
 <img src="{{ path }}firebase_steps/step11.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
@@ -478,7 +478,7 @@ At this point you will need to navigate to [Recaptcha](https://www.google.com/re
 
 <img src="{{ path }}firebase_steps/step19.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-The important part here is filling out the domains that you will allow to access the firebase database. Add localhost and 127.0.0.1 to test your survey on your local server. 
+The important part here is filling out the domains that you will allow to access the firebase database. Add localhost and 127.0.0.1 to test your survey on your local machine.
 
 <div class="info-panel">
 <div class="info-text">If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the Github pages deployment, you should enter your base github pages url (i.e. <code>&lt;username&gt;.github.io</code>).
