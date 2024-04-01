@@ -512,6 +512,12 @@ body {
   @include span-columns(8);
 }
 
+// Added by Brian Bollen (briancbollen@gmail.com) for Tutorial Page
+.post-content-main-extended{
+  @include page-content();
+  @include span-columns(10);
+}
+
 .post-content-aside {
   @include page-content();
   @include span-columns(0);
@@ -1265,3 +1271,83 @@ pre.bibtex {
 
 }
 
+/* --------------------------------------------
+Tutorial page styles. 
+Added by Brian Bollen (briancbollen@gmail.com)
+-------------------------------------------- */
+
+.info-panel{
+  border-radius:10px;
+  background-color: rgba(89,190,233,0.35);
+  width: 100%;
+  padding:20px;
+  border:1px solid #d5d5d5;
+  margin-bottom:20px;
+  margin-top:20px;
+}
+
+
+.info-panel::before {
+  position:absolute;
+  content: "\f05a";
+  font-family: FontAwesome;
+  font-weight: 900; 
+  font-size: 0.9em; 
+  margin-right: 10px; 
+}
+
+.info-panel .info-text{
+  margin-left:25px;
+  display:inline-block;
+}
+
+.info-panel[type=warning]{
+  background-color:rgba(238,210,2,0.45)
+}
+
+.info-panel[type=warning]:before{
+  content:"\f071"
+}
+
+.tutorial-page {
+  display:grid;
+  grid-template-columns:0.7fr 0.3fr;
+  column-gap:40px;
+
+  h1{
+    font-size:1.8em;
+    margin-top:60px;
+  }
+
+  pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    font-size:0.9em;
+  }
+
+  .toc{
+    font-size:0.8em;
+    position:sticky;
+    top:0px;
+    align-self:start;
+    margin-top:60px;
+    h1{
+      font-size:1.5em;
+      margin-top:20px;
+    }
+  }
+
+  @include media($medium-display){
+    .toc{
+      order:1;
+      position:static;
+    }
+    div:first-child{
+      order:2;
+    }
+    grid-template-columns: 1fr;
+  }
+}
