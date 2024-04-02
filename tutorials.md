@@ -593,66 +593,8 @@ Now that you are in admin mode, navigate to the end of the study. Once at the en
     Currently, only JSON data is able to be exported by reVISit. We have plans to support Tidy CSV in the near future. 
     </div>
 </div>
-The JSON file is a nested file that contains all of the data for all of the participants in your study. It is structured as a list. Each element refers to a participants data or a configuration. While in many cases there is only one configuration per study, the study creator is allowed to change the configuration file after the study has already been completed by other participants. The data for each participant will have a "participantConfigHash" which refers to a particular configuration which is also in this list. 
 
-Below we have an example of a participants data.
-``` JSON
-[
-    {
-        "participantId": <UUID4>,
-        "participantConfigHash": <CONFIG_ID>,
-        "sequence": {
-            ...
-        },
-        "answers": {
-            ...
-        },
-        "searchParameters": {
-            ...
-        }
-    }
-]
-```
-Each key in answer will be labeled the same as the response component that it refers to. The sequence shows the order that the participant saw each component (since these may be different for each participant if the configuration sequence has some randomization). This answer wil contain information such as the start time, the end time, and all of the window events. See the example below.
-
-```JSON
-     "bar-chart-1_1": {
-        "answer": {
-          "barChart": [
-            1.3
-          ]
-        },
-        "startTime": 1711641174858,
-        "endTime": 1711641178836,
-        "windowEvents": [
-          [
-            1711641174878,
-            "mousedown",
-            [ 1843, 286 ]
-          ],
-          [
-            1711641174878,
-            "focus",
-            "BUTTON"
-          ],
-        [
-            1711641174935,
-            "mouseup",
-            [ 1843, 286 ]
-          ],
-          .
-          .
-          .
-          [
-            1711641178706,
-            "mousemove",
-            [ 1868, 728 ]
-          ]
-        ]
-      }
-```
-All times are in **epoch milliseconds**. We can see at a high level that we are given the answer that the user submitted, the start time for the component, and the end time. In addition to this, we have a list of window events. Each item in the window event is given a time, a position an event name, and some extra information for the event (for mouse events, this is the location).
-
+The file downloaded is a JSON object containing information about the participant's answers, how they interacted with each component, and which config they were served. You can find more explicit documentation about the data structure [here](/typedoc/interfaces/ParticipantData.html).
 
 # Future of ReVISit
 
