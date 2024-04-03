@@ -5,7 +5,8 @@ weight: 2
 tag: tutorial
 permalink: /tutorial/
 ---
-<h1 class='tutorial-page'>Introduction</h1>
+
+# Introduction
 
 {% capture path %}{{ site.baseurl }}/assets/tutorial/{% endcapture %}
 {% capture repo %}{{ site.repo }}{% endcapture %}
@@ -28,7 +29,7 @@ The ReVISit framework uses a declarative DSL (Domain Specific Language) for spec
 
 The ReVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file which allows for the specification of desired study components (e.g. consent, training, practice, trials, stimuli and survey).
 
-<h1 class='tutorial-page'>Installation</h1>
+# Installation
 
 
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
@@ -73,7 +74,7 @@ This will launch a local server which can be accessed to view and interact with 
 When you visit the site, you'll be greeted with a list of pre-constructed demo studies. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
 
 
-<h1 class='tutorial-page'>Tutorials</h1>
+# Tutorials
 
 ## Setting up a basic questionnaire study
 
@@ -355,7 +356,7 @@ To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-
     </div>
 </div>
 
-<h1 class='tutorial-page'>How-To-Guides</h1>
+# How-To-Guides
 
 ## Connecting to Firebase
 
