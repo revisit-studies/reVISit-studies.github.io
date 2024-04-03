@@ -10,7 +10,6 @@ permalink: /faq/
 
 Below we have a list of some frequently asked questions. We try to make sure that this page is updated as frequently as possible. If you have a question that is not answered by this page or the [documentation](/tutorial/), you can join the [reVISit Slack group](https://join.slack.com/t/revisit-nsf/shared_invite/zt-2g1lwcq5y-Yae8eBEbMO~r7tP~ZQ7Cig). Otherwise, you can contact us at <contact@revisit.dev>.
 
-{% capture path %}{{ site.baseurl }}/assets/images/{% endcapture %}
 
 ### Q: Is there a version of this application that I do not need to host myself?
 
@@ -28,4 +27,4 @@ A: Firebase allows choosing the region for both Firestore and Storage. Please se
 
 ### Q: How do I store data in something other than Firebase?
 
-A: reVISit is designed with "storage engines" in mind. By default, we use the local storage engine (data being downloaded directly to the user's computer) and mostly provide support for Firebase. However, we do have plans to create additional storage engines for cases where a study creator has a backend server hooked up to a database (such as MySQL). In the meantime, you can view the <a href="https://github.com/revisit-studies/study/tree/main/src/storage/engines" target="_blank">source code</a> to design your own storage engine that best fits your needs.
+A: reVISit is designed with "storage engines" in mind. By default, we use the local storage engine (data being downloaded directly to the user's computer) for development and the firebase storage engine for production builds. However, we do have plans to create additional storage engines for cases where a study creator has a backend server hooked up to a database (such as MySQL). In the meantime, you can view the <a href="https://github.com/revisit-studies/study/tree/main/src/storage/engines" target="_blank">source code</a> to design your own storage engine that best fits your needs. If you make a storage engine to suit your own needs, please consider making a pull request so that we can improve reVISit for all users.
