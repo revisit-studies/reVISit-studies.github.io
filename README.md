@@ -6,7 +6,7 @@ This website describes the reVISit project.
 
 We encourage contributions in the form of edits or fixes.
 
-Ideally, you could submit a pull request, but e-mailing alex@sci.utah.edu will also do. 
+Ideally, you could submit a pull request, but e-mailing [contact@revisit.dev] will also do. 
 
 
 ## Modifying the Code
