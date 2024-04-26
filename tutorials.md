@@ -86,7 +86,7 @@ When you visit the site, you'll be greeted with a list of pre-constructed demo s
 
 # Tutorials
 
-## Setting up a basic questionnaire study
+## Setting up a Basic Questionnaire Study
 
 Let's start with setting up a simple questionnaire study.
 
@@ -96,9 +96,21 @@ Let's start with setting up a simple questionnaire study.
     </div>
 </div>
 
-You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the “public” directory. Start by making a new directory called “basic-questionnaire-study” in the "public" directory. Inside this folder, create another directory called "assets". The assets directory will be where all of our various components are held.
+You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the `public` directory. At the end of this section, your directory structure should contain these folders and files: 
 
-Once that is done, we will make an “introduction” markdown file. This will be used as the introduction to the study for your users.
+```
+public/
+    basic-questionnaire-study/
+        config.json 
+        assets/
+            help.md         
+            introduction.md
+    global.json
+```
+
+Start by making a new directory called `basic-questionnaire-study` in the `public` directory. Inside this folder, create another directory called `assets`. The assets directory will be where all of our various components are held.
+
+Once that is done, make an `introduction.md` markdown file. This will be used as the introduction to the study for your users.
 
 Create a file with the following contents:
 
@@ -106,18 +118,18 @@ Create a file with the following contents:
 <pre><code class="language-markdown"># Introduction
 
 Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.</code></pre>
-Save this file as “introduction.md” in the “basic-questionnaire-study/assets” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
+Save this file as `introduction.md` in the `basic-questionnaire-study/assets` directory. Next, let’s create a `help` file. This will be used so that any user who needs help during the study will be able to read this markdown page.
 
 <pre><code class="language-markdown"># Help
 
 This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
 </code></pre>
 
-Save this file as “help.md” in the “basic-questionnaire-study/assets” directory.
+Save this file as `help.md` in the `basic-questionnaire-study/assets` directory.
 
 Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
 
-Create a new file called “config.json”. Then, copy and paste the following json into the new file.
+Create a new file called `config.json`. Then, copy and paste the following json into the new file.
 
 ```JSON
 {
@@ -210,20 +222,39 @@ Create a new file called “config.json”. Then, copy and paste the following j
     }
 }
 ```
-Save this file in the “basic-questionnaire-study” directory -- one level above the "basic-questionnaire-study/assets" directory.
+Save this file in the `basic-questionnaire-study` directory -- one level above the "basic-questionnaire-study/assets" directory.
 
-Now, our study is almost set up to view. The last step is to make sure that the “global.json” file is set to find this new study. Open the "global.json" file in the "public" directory.
+If you want to learn more about the configuration, check out the [documentation page]({{site.baseurl}}/typedoc/interfaces/StudyConfig.html).
 
-Add the following code to the “configs” object:
+Now, our study is almost set up to view. The last step is to make sure that the `global.json` file is set to find this new study. Open the `global.json` file in the `public` directory.
+
+Add the following code to the `configs` object:
 
 ``` JSON
-“basic-questionnaire-study”: {
-	“path”: ”basic-questionnaire-study/config.json”
+"basic-questionnaire-study": {
+	"path": "basic-questionnaire-study/config.json"
 }
 ```
-After this, add “basic-questionnaire-study” into the “configsList” list in the same file. It does not matter where "basic-questionnaire-study" appears in the configs list. Because the configs list is ordered, however, placing "basic-questionnaire-study" at the bottom of the list will mean that the study will show up at the bottom of the list of studies in the UI.
 
-Now, if you start the server (using `yarn serve` as described in the <a href="#installation">Installation</a> section), you'll be able to navigate to "http://localhost:8080/" and view your study in the list of studies. Alternatively, you can navigate to "http://localhost:8080/basic-questionnaire-study" to enter the study directly.
+After this, add `basic-questionnaire-study` into the `configsList` list in the same file. 
+This should look something like this: 
+
+``` JSON
+ "configsList": [
+        "basic-questionnaire-study",
+        "demo-html",
+        ...
+    ],
+    "configs": {
+        "basic-questionnaire-study": {
+            "path": "basic-questionnaire-study/config.json"
+        },
+        ...
+```
+
+It does not matter where `basic-questionnaire-study` appears in the configs list. Because the configs list is ordered, however, placing `basic-questionnaire-study` at the bottom of the list will mean that the study will show up at the bottom of the list of studies in the UI, so it's probably a good idea to put it at the top.
+
+Now, if you start the server (using `yarn serve` as described in the <a href="#installation">Installation</a> section), you'll be able to navigate to [http://localhost:8080/](http://localhost:8080/) and view your study in the list of studies. Alternatively, you can navigate to [http://localhost:8080/basic-questionnaire-study](http://localhost:8080/basic-questionnaire-study) to enter the study directly.
 
 
 ## Adding custom HTML to your Study
