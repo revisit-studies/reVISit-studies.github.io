@@ -21,10 +21,13 @@ reVISit is a project developed at the [University of Utah](https://vdl.sci.utah.
 [Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah  
 [Zach Cutler](https://vdl.sci.utah.edu/team/zcutler/), PhD Student, University of Utah  
 [Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
-[Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah  
-[Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI  
 [Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI     
 [Brian Bollen](http://briancbollen.com/), Senior Software Developer, University of Utah
+
+## Project Alumni
+
+[Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah  
+[Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI  
 
 ## Steering Committee
 
