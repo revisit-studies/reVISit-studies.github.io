@@ -25,6 +25,16 @@ You can check out a few example projects on our [demo page]({{site.demo}}). All 
 
 Check out the [getting started tutorial]({{site.baseurl}}/tutorial/) to learn how to build your own experiment. 
 
+## Current Release
+
+ReVISit is released as V 1.0 and ready to use! 
+
+A pape that use reVISit for studies: 
+
+Maxim Lisnic, Zach Cutler, Marina Kogan, Alexander Lex; 
+[Visualization Guardrails: Designing Interventions Against Cherry-Picking in Interactive Data Explorers](https://vdl.sci.utah.edu/publications/2024_preprint_guardrails/);
+Preprint, doi:10.31219/osf.io/4j9nr, 2024.
+
 ## Paper
 
 For a concise description of the project, check out the [short paper](https://vdl.sci.utah.edu/publications/2023_shortpaper_revisit/). 
@@ -36,11 +46,11 @@ IEEE Visualization and Visual Analytics (VIS), 31-35, doi:10.1109/VIS54172.2023.
 </div>
 </div>
 
-## Frequently Asked Questions
 
-- _Is reVISit ready for me to use?_  
 
-   Yes! We're looking for early adopters. Things are still evolving, so don't expect a rock-solid, stable framework yet, but we'd love to work with you to deploy your study!
+
+
+
 
 
 
