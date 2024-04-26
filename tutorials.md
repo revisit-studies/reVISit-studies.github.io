@@ -405,7 +405,7 @@ To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-
     </div>
 </div>
 
-You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html) and the [associated study](https://revisit.dev/study/demo-html/) in our main study repository. 
+You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html-input) and the [associated study](https://revisit.dev/study/demo-html-input/) in our main study repository. 
 
 # How-To-Guides
 
