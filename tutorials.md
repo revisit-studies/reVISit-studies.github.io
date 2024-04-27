@@ -13,7 +13,7 @@ permalink: /tutorial/
 {% capture code %}{{ site.code}}{% endcapture %}
 
 
-reVISit lets you create interactive, web-based study setups using a JSON domain-specific language (DSL), called reVISit.spec, and a set of stimuli specified in the DSL. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
+reVISit lets you create interactive, web-based studies setups using a JSON domain-specific language (DSL) called reVISit.spec, and a set of stimuli specified in the DSL. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) HTML pages, or React components. 
 
 The overall process is shown in the following figure: 
 
@@ -23,11 +23,11 @@ In the tutorials section, we'll walk you through a simple example to create your
 
 ## The ReVISit DSL
 
-The reVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the reVISit platform. In the following tutorials, you will learn how to configure a visualization experiment using the reVISit DSL.
+The reVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the reVISit platform. The tutorial will show you how to configure a visualization experiment using the reVISit DSL.
 
 ## Environment Setup
 
-The reVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file which allows for the specification of desired study components (e.g., consent, training, practice, trials, stimuli and survey).
+The reVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a GitHub repository. Users can then customize the properties of a configuration file which allows for the specification of desired study components (e.g., consent, training, practice, trials, stimuli and survey).
 
 # Installation
 
@@ -44,11 +44,15 @@ yarn serve
 
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
+<div class="info-panel">
+    <div class="info-text">If you need to make your repository private, that's totally possible. Instead of forking the base study repository, clone or download it instead, and transfer the contents- including hidden files- to a new private repository. </div>
+</div>
+
 Start by navigating to the following github repository: [https://github.com/revisit-studies/study](https://github.com/revisit-studies/study)
 
 You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies. 
 
-When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own github account, you can clone the repository to your local computer. You should see a `code` button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
+When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own GitHub account, you can clone the repository to your local computer. You should see a `code` button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
 
 After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
 
@@ -129,7 +133,7 @@ Save this file as `help.md` in the `basic-questionnaire-study/assets` directory.
 
 Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
 
-Create a new file called `config.json`. Then, copy and paste the following json into the new file.
+Create a new file called `config.json`. Then, copy and paste the following JSON into the new file.
 
 ```JSON
 {
@@ -226,7 +230,7 @@ Save this file in the `basic-questionnaire-study` directory -- one level above t
 
 If you want to learn more about the configuration, check out the [documentation page]({{site.baseurl}}/typedoc/interfaces/StudyConfig.html).
 
-Now, our study is almost set up to view. The last step is to make sure that the `global.json` file is set to find this new study. Open the `global.json` file in the `public` directory.
+Now, our study is almost set up to view. The last step is to make sure that the `global.json` file is set to find this new study. Open the (already existing) `global.json` file, found in the `public` directory.
 
 Add the following code to the `configs` object:
 
@@ -237,7 +241,7 @@ Add the following code to the `configs` object:
 ```
 
 After this, add `basic-questionnaire-study` into the `configsList` list in the same file. 
-This should look something like this: 
+Both portions together should look something like this: 
 
 ``` JSON
  "configsList": [
@@ -261,7 +265,7 @@ Now, if you start the server (using `yarn serve` as described in the <a href="#i
 
 In this section you will learn two things: 
 * How to add a custom HTML stimulus to your study.
-* How to use inheritance for components, so that you can, for example, write one component but parameterize it such that you can use it multiple times with tifferent configurations. 
+* How to use inheritance for components, so that you can, for example, write one component but parameterize it such that you can use it multiple times with different configurations. 
 
 We will take the study we just created and add another component based on a user-created HTML file. This allows for some additional customization of the component. 
 
@@ -272,7 +276,6 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>D3 Nice Axes</title>
     <script src="https://d3js.org/d3.v7.js"></script>
     <!-- Load revisit-communicate to be able to send data to reVISit -->
     <script src="../../revisitUtilities/revisit-communicate.js"></script>
@@ -283,7 +286,7 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
   </body>
 
   <script>
-    // Get data from the config file
+    // Get data for this stimuli from your config file
     Revisit.onDataReceive((data) => {
       const barData = data['barData']
       const taskID = 'barChart';
@@ -323,9 +326,9 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
         .attr('height', 20)
         .style('fill', (d) => color(d))
 
-        // Post answer from the html to reVISit platform
+        // Post answer from the HTML stimulus to reVISit platform
         .on('click', (e, d) => {
-          Revisit.postAnswers({ answer: [d], taskID, location: loc });
+          Revisit.postAnswers({ [taskID]: d });
         });
 
       svg
@@ -340,15 +343,17 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
 </html>
 ```
 
-One of the interesting pieces of the above code is that this HTML document interacts with reVISit in a two-way fashion. Firstly, note that the script to render the bar chart is wrapped in the `Revisit.onDataReceive()` function. This listens for data that is passed to the HTML document via the `parameters` key in the configuration of the component. You will see shortly how we can use this HTML document as a template for multiple components with different datasets.
+This HTML document interacts with reVISit in a two-way fashion. 
 
-Furthermore, you’ll see that we have also created an `onClick()` function and attached it to each of the bars in the bar graph. This click function uses the `Revisit.postAnswers()` method to send information back to reVISit. 
+First, the script to render the bar chart is wrapped in the `Revisit.onDataReceive()` function. This function listens for data that is passed to the HTML document via the `parameters` key in your configuration file. You will see shortly how we can use this HTML document as a template for building multiple bar chart stimuli with different datasets.
 
-Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to account for these new components.
+Second, you’ll see the `onClick()` function which is attached each of the bars in the bar graph. This click function uses the `Revisit.postAnswers()` method to send information back to reVISit. This allows us to store participant answers and to show participant answers in an ``answer form'' when needed. 
+
+Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to pass in data and set up multiple trials.
 
 In your `config.json` document, create new key called `baseComponents` as a sibling to the keys `uiConfig`, `components`, `sequence`, etc. 
 
-`baseComponets` are components that are intended to be extended at a later point. In this example, we create a base component for the bar chart, but don't pass in data or task instructions yet.
+`baseComponets` are components that are intended to be extended at a later point. In this example, we create a base component for the bar chart, but we don't pass in data or task instructions yet, as those are specified in individual trials.
 
 In the `baseComponents` key, add the code below:
 
@@ -371,9 +376,9 @@ In the `baseComponents` key, add the code below:
     }
 ```
 
-This creates a component that more specific components can be based off of. Each component using the `bar-chart` as the value to the `baseComponent` key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating a concrete bar chart component.
+Each component using the `bar-chart` as the value to the `baseComponent` key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating individual bar chart trials.
 
-We now create concrete bar chart components with data and instructions in the `components` section. Add the following objects:
+We now create concrete bar chart trials with data and instructions in the `components` section. Add the following objects:
 
 ``` JSON
 ...
@@ -395,17 +400,34 @@ We now create concrete bar chart components with data and instructions in the `c
 }
 ...
 ```
-The `parameters` key is a dynamically valued key which is used to pass data to your components. When you add the `parameters` key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
+The `parameters` key is a dynamically valued key which is used to pass data to your components. When you add the `parameters` key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we are able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
 
-To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2`) to the sequence in `config.json`. 
+To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2`) to the sequence in `config.json`. It will look similar to this:
+
+``` JSON
+...
+"components": [
+    "introduction",
+    "bar-chart-1",
+    "bar-chart-2",
+    "first-question-set",
+    "second-question-set"
+]
+...
+```
 
 <div class='info-panel' type='warning'>
     <div class="info-text">
-        In order for reVISit to properly identify users without a server and/or an authentication process, it relies on caching the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
+        Whenever you make an update to the configuration file, make sure to clear your cache so you can view the updated study. In order for reVISit to properly identify users without requiring your team to host a server, it relies on caching the data for a user in their browser. Because of this, updates or new configurations can only be seen when the user clears their browser cache. 
     </div>
 </div>
 
-You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html-input) and the [associated study](https://revisit.dev/study/demo-html-input/) in our main study repository. 
+Now you can return to the study and see the bar chart trials in action.
+
+<img width="1280" alt="view of reVISit interface with bar chart displayed" src="https://github.com/revisit-studies/reVISit-studies.github.io/assets/412089/4f69ec11-946f-42b9-b1db-3610a5a3aad9">
+
+
+You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html-input) and the [associated study](https://revisit.dev/study/demo-html-input/) in the main reVISit study repository. 
 
 # How-To-Guides
 
