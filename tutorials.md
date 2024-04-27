@@ -424,6 +424,9 @@ To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-
 
 Now you can return to the study and see the bar chart trials in action.
 
+<img width="1280" alt="view of reVISit interface with bar chart displayed" src="https://github.com/revisit-studies/reVISit-studies.github.io/assets/412089/4f69ec11-946f-42b9-b1db-3610a5a3aad9">
+
+
 You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html-input) and the [associated study](https://revisit.dev/study/demo-html-input/) in the main reVISit study repository. 
 
 # How-To-Guides
