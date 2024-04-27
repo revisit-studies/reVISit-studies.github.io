@@ -630,7 +630,7 @@ After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` fold
 Lastly, while still inside this same directory, call the following function:
 
 ``` shell
-gsutil cors set cors.json gs://<your-cloud-storage-bucket>
+./gsutil cors set cors.json gs://<your-cloud-storage-bucket>
 ```
 You can find the link for the storage bucket by navigating to the "storage" product in Firebase. 
 
