@@ -276,7 +276,6 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>D3 Nice Axes</title>
     <script src="https://d3js.org/d3.v7.js"></script>
     <!-- Load revisit-communicate to be able to send data to reVISit -->
     <script src="../../revisitUtilities/revisit-communicate.js"></script>
