@@ -45,7 +45,7 @@ yarn serve
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
 <div class="info-panel">
-    <div class="info-text">If you need to make your repository private, that's totally possible. Instead of forking the base study repository, clone or download it instead, and transfer the contents to a new private repository. </div>
+    <div class="info-text">If you need to make your repository private, that's totally possible. Instead of forking the base study repository, clone or download it instead, and transfer the contents- including hidden files- to a new private repository. </div>
 </div>
 
 Start by navigating to the following github repository: [https://github.com/revisit-studies/study](https://github.com/revisit-studies/study)
