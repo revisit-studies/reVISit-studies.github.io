@@ -436,7 +436,7 @@ Name your Project Accordingly
 
 <div class='info-panel'>
     <div class='info-text'>
-        Enabling google analytics is not necessary. Feel free to disable this when prompted.
+        Enabling Google Analytics is not necessary. Feel free to disable this when prompted.
     </div>
 </div>
 
