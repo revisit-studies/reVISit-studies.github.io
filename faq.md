@@ -28,3 +28,9 @@ A: Firebase allows choosing the region for both Firestore and Storage. Please se
 ### Q: How do I store data in something other than Firebase?
 
 A: reVISit is designed with "storage engines" in mind. By default, we use the local storage engine (data being downloaded directly to the user's computer) for development and the firebase storage engine for production builds. However, we do have plans to create additional storage engines for cases where a study creator has a backend server hooked up to a database (such as MySQL). In the meantime, you can view the <a href="https://github.com/revisit-studies/study/tree/main/src/storage/engines" target="_blank">source code</a> to design your own storage engine that best fits your needs. If you make a storage engine to suit your own needs, please consider making a pull request so that we can improve reVISit for all users.
+
+### Q: I had Firebase connected but it no longer works locally. What happened?
+
+A: A common issue is the debug token changing while developing. Whenever you clear the cache, you're debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. See [here](/tutorials#adding-an-app-to-the-firebase-project) to see how to register a debug token.
+
+<div class="info-panel" type="warning"><div class="info-text">A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.</div></div>
