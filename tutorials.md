@@ -574,7 +574,7 @@ At this point you will need to navigate to [the Recaptcha page](https://www.goog
 
 <img src="{{ path }}firebase_steps/step19.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-The important part here is filling out the domains that you will allow to access the firebase database. Add localhost and 127.0.0.1 to test your survey on your local machine and also add the domain to which you intend to deploy the page here.
+The important part here is filling out the domains that you will allow to access the firebase database. Add `localhost` and `127.0.0.1` to test your survey on your local machine and also add the domain to which you intend to deploy the page here.
 
 <div class="info-panel">
 <div class="info-text">If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the Github pages deployment, you should enter your base github pages url (i.e. <code>&lt;username&gt;.github.io</code>).
@@ -637,11 +637,22 @@ You can find the link for the storage bucket by navigating to the "storage" prod
 <img src="{{ path }}firebase_steps/gsutil_step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 
-Assuming that you have already changed the `VITE_STORAGE_ENGINE` variable in the `.env` file to "firebase", you can now call `yarn serve` to launch the server and navigate to http://localhost:8080 to launch any demo study. All data from any participation will automatically be uploaded to the store. 
+Assuming that you have already changed the `VITE_STORAGE_ENGINE` variable in the `.env` file to "firebase", you can now call `yarn serve` to launch the server and navigate to [http://localhost:8080](http://localhost:8080) to launch any demo study. All data from any participation will automatically be uploaded to the store. 
 
 <div class="info-panel"><div class="info-text">When running `yarn build`, reVISit automatically uses the Firebase storage engine.</div></div>
 
 <img src="{{ path }}demo.png" alt="Demo" style="border: 2px solid black; border-radius: 5px;">
+
+### Did it work?
+
+To make sure that the communication with firebase works, open the console in your browser as you're testing your study and make sure there are no firebase errors. 
+
+To see wheter your application is collecting data, go to the firebase storage and see wheter data is collected. 
+
+<div class="info-panel">
+<div class="info-text">If you're struggling with the Firebase setup, first google the console error messages. This might lead you to which part of the setup went wrong. Otherwise, ask for help in our slack team.
+</div>
+</div>
 
 
 ## Deploying to a static website
