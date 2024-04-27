@@ -13,7 +13,7 @@ permalink: /tutorial/
 {% capture code %}{{ site.code}}{% endcapture %}
 
 
-reVISit lets you create interactive, web-based studies using a JSON domain-specific language (DSL) called reVISit.spec, and a set of stimuli specified in the DSL. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) HTML pages, or React components. 
+reVISit lets you create interactive, web-based study setups using a JSON domain-specific language (DSL), called reVISit.spec, and a set of stimuli specified in the DSL. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
 
 The overall process is shown in the following figure: 
 
@@ -23,11 +23,11 @@ In the tutorials section, we'll walk you through a simple example to create your
 
 ## The ReVISit DSL
 
-The reVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the reVISit platform. The tutorial will show you how to configure a visualization experiment using the reVISit DSL.
+The reVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the reVISit platform. In the following tutorials, you will learn how to configure a visualization experiment using the reVISit DSL.
 
 ## Environment Setup
 
-The reVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a GitHub repository. Users can then customize the properties of a configuration file which allows for the specification of desired study components (e.g., consent, training, practice, trials, stimuli and survey).
+The reVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file which allows for the specification of desired study components (e.g., consent, training, practice, trials, stimuli and survey).
 
 # Installation
 
@@ -44,15 +44,11 @@ yarn serve
 
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
-<div class="info-panel">
-    <div class="info-text">If you need to make your repository private, that's totally possible. Instead of forking the base study repository, clone or download it instead, and transfer the contents to a new private repository. </div>
-</div>
-
-Start by navigating to the following GitHub repository: [https://github.com/revisit-studies/study](https://github.com/revisit-studies/study)
+Start by navigating to the following github repository: [https://github.com/revisit-studies/study](https://github.com/revisit-studies/study)
 
 You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies. 
 
-When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own GitHub account, you can clone the repository to your local computer. You should see a `code` button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
+When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own github account, you can clone the repository to your local computer. You should see a `code` button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
 
 After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
 
@@ -86,6 +82,7 @@ This will install all the packages that the reVisit requires to run.
 This will launch a local server which can be accessed to view and interact with reVISit. By default, you can access this by visiting [http://localhost:8080/](http://localhost:8080/). Any change you make to the existing codebase will automatically update the front end.
 
 When you visit the site, you'll be greeted with a list of pre-constructed demo studies. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
+
 
 # Tutorials
 
@@ -132,7 +129,7 @@ Save this file as `help.md` in the `basic-questionnaire-study/assets` directory.
 
 Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
 
-Create a new file called `config.json`. Then, copy and paste the following JSON into the new file.
+Create a new file called `config.json`. Then, copy and paste the following json into the new file.
 
 ```JSON
 {
@@ -264,7 +261,7 @@ Now, if you start the server (using `yarn serve` as described in the <a href="#i
 
 In this section you will learn two things: 
 * How to add a custom HTML stimulus to your study.
-* How to use inheritance for components, so that you can, for example, write one component but parameterize it such that you can use it multiple times with different configurations. 
+* How to use inheritance for components, so that you can, for example, write one component but parameterize it such that you can use it multiple times with tifferent configurations. 
 
 We will take the study we just created and add another component based on a user-created HTML file. This allows for some additional customization of the component. 
 
@@ -286,7 +283,7 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
   </body>
 
   <script>
-    // Get data for this stimuli from your config file
+    // Get data from the config file
     Revisit.onDataReceive((data) => {
       const barData = data['barData']
       const taskID = 'barChart';
@@ -326,7 +323,7 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
         .attr('height', 20)
         .style('fill', (d) => color(d))
 
-        // Post answer from the HTML to reVISit platform
+        // Post answer from the html to reVISit platform
         .on('click', (e, d) => {
           Revisit.postAnswers({ answer: [d], taskID, location: loc });
         });
@@ -343,17 +340,15 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
 </html>
 ```
 
-This HTML document interacts with reVISit in a two-way fashion. 
+One of the interesting pieces of the above code is that this HTML document interacts with reVISit in a two-way fashion. Firstly, note that the script to render the bar chart is wrapped in the `Revisit.onDataReceive()` function. This listens for data that is passed to the HTML document via the `parameters` key in the configuration of the component. You will see shortly how we can use this HTML document as a template for multiple components with different datasets.
 
-First, the script to render the bar chart is wrapped in the `Revisit.onDataReceive()` function. This function listens for data that is passed to the HTML document via the `parameters` key in your configuration file. You will see shortly how we can use this HTML document as a template for building multiple bar chart stimuli with different datasets.
+Furthermore, you’ll see that we have also created an `onClick()` function and attached it to each of the bars in the bar graph. This click function uses the `Revisit.postAnswers()` method to send information back to reVISit. 
 
-Second, you’ll see the `onClick()` function which is attached each of the bars in the bar graph. This click function uses the `Revisit.postAnswers()` method to send information back to reVISit. This allows us to store participant answers and to show participant answers in an ``answer form'' when needed. 
-
-Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to pass in data and set up multiple trials.
+Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to account for these new components.
 
 In your `config.json` document, create new key called `baseComponents` as a sibling to the keys `uiConfig`, `components`, `sequence`, etc. 
 
-`baseComponets` are components that are intended to be extended at a later point. In this example, we create a base component for the bar chart, but we don't pass in data or task instructions yet, as those are specified in individual trials.
+`baseComponets` are components that are intended to be extended at a later point. In this example, we create a base component for the bar chart, but don't pass in data or task instructions yet.
 
 In the `baseComponents` key, add the code below:
 
@@ -376,9 +371,9 @@ In the `baseComponents` key, add the code below:
     }
 ```
 
-Each component using the `bar-chart` as the value to the `baseComponent` key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating individual bar chart trials.
+This creates a component that more specific components can be based off of. Each component using the `bar-chart` as the value to the `baseComponent` key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating a concrete bar chart component.
 
-We now create concrete bar chart trials with data and instructions in the `components` section. Add the following objects:
+We now create concrete bar chart components with data and instructions in the `components` section. Add the following objects:
 
 ``` JSON
 ...
@@ -400,26 +395,33 @@ We now create concrete bar chart trials with data and instructions in the `compo
 }
 ...
 ```
-The `parameters` key is a dynamically valued key which is used to pass data to your components. When you add the `parameters` key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we are able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
+The `parameters` key is a dynamically valued key which is used to pass data to your components. When you add the `parameters` key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
 
 To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2`) to the sequence in `config.json`. 
 
 <div class='info-panel' type='warning'>
     <div class="info-text">
-        Whenever you make an update to the configuration file, make sure to clear your cache so you can view the updated study. In order for reVISit to properly identify users without requiring your team to host a server, it relies on caching the data for a user in their browser. Because of this, updates or new configurations can only be seen when the user clears their browser cache. 
+        In order for reVISit to properly identify users without a server and/or an authentication process, it relies on caching the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
     </div>
 </div>
 
-You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html-input) and the [associated study](https://revisit.dev/study/demo-html-input/) in the main reVISit study repository. 
+You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html-input) and the [associated study](https://revisit.dev/study/demo-html-input/) in our main study repository. 
 
 # How-To-Guides
 
 ## Connecting to Firebase
 
-reVISit is inherently a serverless platform. Because of this, we set up a storage engine in order to store the data that is gathered from users as they move through the study. While you can test the program locally without any storage, you will need to set up some sort of storage in order to save study participant data. Our intention is that those who create the study have full control over the data that is generated by participants -- no data is ever linked back to the reVISit repository or those who have contributed to its creation. See the <a href="#deploying-to-a-static-website">Deployment</a> section for more information about deploying your study to GitHub.io once the connection to Firebase has been set up. 
+ReVISit is designed to be serverless, so that you don't have to run and maintain a server. While you can test reVISit locally without storage, we still need to store the data somehwere in online studies. Our intention is that those who create the study have full control over the data that is generated by participants -- no data is ever stored by the reVISit team. 
 
 <a href="https://firebase.google.com/" target="_blank" >Firebase</a> is an app development platform that has extremely useful tools such as storage and real-time synchronization. With Firebase alone, a study creator can capture all data from participants and then export that data for further analysis. In what follows, there are two main products we will be using: the Firestore database and Firebase's storage product.
 
+See the <a href="#deploying-to-a-static-website">Deployment</a> section for more information about deploying your study to GitHub.io once the connection to Firebase has been set up. 
+
+<div class='info-panel'>
+    <div class='info-text'>
+    While reVISit is designed to work with custom storage solutions as well, we currently only support Firebase. 
+    </div>
+</div>
 
 ### Create a Firebase Project
 
@@ -446,7 +448,13 @@ With your project created, we are now going to add a Firestore database to it. O
 Click "Create Database" in the center of the screen.
 <img src="{{ path }}firebase_steps/step5.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-For the next two steps, there is no need to change the defaults. Simply click "Next" and then "Enable".
+<div class='info-panel'>
+    <div class='info-text'>
+        At this point you can select where your data is stored. Select the location that meets your needs or any lequal requirements you might have. 
+    </div>
+</div>
+
+For the next two steps change the defaults as needed and proceed. 
 <img src="{{ path }}firebase_steps/step6.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 <img src="{{ path }}firebase_steps/step7.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
@@ -486,6 +494,8 @@ Once the storage product is enabled, navigate to the "rules" tab.
 
 Replace the existing rule with the following code and then publish:
 
+
+
 ```
 rules_version = '2';
 
@@ -498,12 +508,18 @@ service firebase.storage {
 }
 ```
 
+<div class='info-panel'>
+    <div class='info-text'>
+       Warning: this makes your data publicly readable. We will replace this so that only authenticated users can read soon. 
+    </div>
+</div>
+
 <img src="{{ path }}firebase_steps/storage_step6.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 ### Adding an App to the Firebase Project
 
+We are now going to add an app to your firebase project. Navigate to your project home and add a "web app". 
 
-We are now going to add an app to your firebase project: 
 <img src="{{ path }}firebase_steps/step9.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step10.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
@@ -512,10 +528,32 @@ With the app set up, we are ready to copy over the app configuration to your rev
 
 <img src="{{ path }}firebase_steps/step11.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-Copy the contents of that JSON object into the `.env` file for the variable `VITE_FIREBASE_CONFIG`. In the `.env` file, your `VITE_FIREBASE_CONFIG` variable should still be a JSON object that is escaped in single quotes.
+Copy the contents of that JSON object into the `.env` file for the variable `VITE_FIREBASE_CONFIG` in the root folder of your study repository. In the `.env` file, your `VITE_FIREBASE_CONFIG` variable should still be a JSON object that is escaped in single quotes.
+
+Your resulting `.env` file should look someething like this (obviously with different values): 
+
+```JSON
+VITE_BASE_PATH="/study/"
+VITE_FIREBASE_CONFIG='
+{
+  apiKey: "AIzaSyCVJ1fLk-_DL42C6wzMbNgOPeCfGW0Zhuo",
+  authDomain: "revisit-test-10db1.firebaseapp.com",
+  projectId: "revisit-test-10db1",
+  storageBucket: "revisit-test-10db1.appspot.com",
+  messagingSenderId: "737694563815",
+  appId: "1:737694563815:web:ec45b08042afcd66241142",
+  measurementId: "G-6VFMH9RK30"
+}
+'
+VITE_STORAGE_ENGINE="localStorage" # "firebase" or "localStorage" or your own custom storage engine
+VITE_RECAPTCHAV3TOKEN="6LdjOd0lAAAAAASvFfDZFWgtbzFSS9Y3so8rHJth" # recaptcha SITE KEY
+
+```
 
 
-We are now going to set up the authentication so that your browser is authorized to communicate with your firebase database. 
+We are now going to set up the authentication so that your browser is authorized to communicate with your firebase database. We set up authentication so that anonymous sign-in providers.
+
+
 <img src="{{ path }}firebase_steps/step12.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
 <img src="{{ path }}firebase_steps/step13.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
@@ -528,14 +566,15 @@ Our last step is to set up App Check.
 <img src="{{ path }}firebase_steps/step16.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step17.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-Click on register to register your app with recaptcha. 
+Click on register to register your app with recaptcha. Firebase requires recaptcha.
+
 <img src="{{ path }}firebase_steps/step18.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-At this point you will need to navigate to [Recaptcha](https://www.google.com/recaptcha/admin/create) to create a secret key. 
+At this point you will need to navigate to [the Recaptcha page](https://www.google.com/recaptcha/admin/create) to create a secret key. 
 
 <img src="{{ path }}firebase_steps/step19.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-The important part here is filling out the domains that you will allow to access the firebase database. Add localhost and 127.0.0.1 to test your survey on your local machine.
+The important part here is filling out the domains that you will allow to access the firebase database. Add localhost and 127.0.0.1 to test your survey on your local machine and also add the domain to which you intend to deploy the page here.
 
 <div class="info-panel">
 <div class="info-text">If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the Github pages deployment, you should enter your base github pages url (i.e. <code>&lt;username&gt;.github.io</code>).
@@ -559,14 +598,14 @@ Now we will link your browser to your app through a debug key.
 
 <div class="info-panel"><div class='info-text'>To see the debug token, you need to enable firebase storage. Open up the <code>.env</code> file in the root of the repository. Change the <code>VITE_STORAGE_ENGINE</code> variable value to "firebase". Once you have firebase already set up, you can switch between "localstorage" and "firebase" freely for development purposes.</div></div>
 
-- Navigate to http://localhost:8080 and click on any demo study.
+- Navigate to [http://localhost:8080](http://localhost:8080) and click on any demo study.
 
 - Open up the browser console. This differs depending on the web browser that you are using. You can find the various ways to view the browser console for popular web browsers <a href="https://help.planday.com/en/articles/30207-how-to-open-the-developer-console-in-your-web-browser" target="_blank">here</a>.
 
 - Copy the debug token from the console.
 <img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-- Navigate to your firebase instance and add the token as shown below:
+- Navigate to your firebase app instance and add the token as shown below:
 <img src="{{ path }}firebase_steps/step23.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step24.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step25.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
@@ -591,7 +630,7 @@ After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` fold
 Lastly, while still inside this same directory, call the following function:
 
 ``` shell
-gsutil cors set cors.json gs://<your-cloud-storage-bucket>
+./gsutil cors set cors.json gs://<your-cloud-storage-bucket>
 ```
 You can find the link for the storage bucket by navigating to the "storage" product in Firebase. 
 
