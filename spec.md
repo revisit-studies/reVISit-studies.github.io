@@ -1,135 +1,73 @@
 ---
 layout: tutorial
-title: Tutorial | reVISit
+title: The reVISit Spec | reVISit
 weight: 2
 tag: tutorial
-permalink: /tutorial/
+permalink: /spec/
 ---
 
-# Introduction
 
 {% capture path %}{{ site.baseurl }}/assets/tutorial/{% endcapture %}
 {% capture repo %}{{ site.repo }}{% endcapture %}
 {% capture code %}{{ site.code}}{% endcapture %}
 
+# Overview
 
-reVISit lets you create interactive, web-based study setups using a JSON domain-specific language (DSL), called reVISit.spec, and a set of stimuli specified in the DSL. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
-
-The overall process is shown in the following figure: 
-
-![Revisit teaser image showing revisit workflow]({{ path }}revisit-overview.png)
-
-In the tutorials section, we'll walk you through a simple example to create your first study with reVISit! 
-
-## The ReVISit DSL
-
-The reVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments. The configuration file uses JSON format which compiles into the reVISit platform. In the following tutorials, you will learn how to configure a visualization experiment using the reVISit DSL.
-
-## Environment Setup
-
-The reVISit frameworks provides an environment that allows researchers to build web-based visualization user studies by cloning/forking a github repository. Users can then customize the properties of a configuration file which allows for the specification of desired study components (e.g., consent, training, practice, trials, stimuli and survey).
-
-# Installation
-
-If you have done this kind of thing before, here's what to do: 
-
-* Fork and clone [https://github.com/revisit-studies/study](https://github.com/revisit-studies/study)
-* In the repository, run:  
-```
-yarn install
-yarn serve
-```
-* Visit your local study at [http://localhost:8080/](http://localhost:8080/)
-* Proceed to the next section
-
-The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
-
-Start by navigating to the following github repository: [https://github.com/revisit-studies/study](https://github.com/revisit-studies/study)
-
-You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies. 
-
-When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own github account, you can clone the repository to your local computer. You should see a `code` button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
-
-After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
-
-To continue, you will need [yarn](https://yarnpkg.com/) installed. If you already have yarn installed, you can skip to Step 2 below. Otherwise, proceed with Step 1. 
-
-<div class="info-panel">
-    <div class="info-text">Note that this requires that you have the package manager NPM installed. If you do not have NPM installed, please see <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" targe="_blank">here</a> to get started. These docs will also direct you on how to install Node -- a prerequisite of NPM.</div>
-</div>
-
-<br>
+To create a study with reVISit, you have to create components that contain the content of your study, and you have to create the study configuration (the reVISit Spec) that controls when and how these components are shown to participants. In this tutorial, we will introduce these at a high level and link to complete documentation where appropriate. 
 
 
-**Step 1: Install yarn on your local computer using NPM:**
+# Components
 
-	npm i -g yarn
+Componets are where user-generated content goes. ReVISit currently supports four types of components: 
 
-<br>
-
-**Step 2: Once yarn is successfully installed, navigate to your forked repository and run the following yarn command:**
-	
-	yarn install
-
-This will install all the packages that the reVisit requires to run.
-
-<br>
-
-**Step 3: Once this is finished, you can now start reVISit:**
-
-	yarn serve
-
-This will launch a local server which can be accessed to view and interact with reVISit. By default, you can access this by visiting [http://localhost:8080/](http://localhost:8080/). Any change you make to the existing codebase will automatically update the front end.
-
-When you visit the site, you'll be greeted with a list of pre-constructed demo studies. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
+* **Markdown Files** contain formatted text, including links, images, embedded videos, etc. They are useful for introductions, consent forms, help pages, etc. 
+* **Images** can be used as stimuli directly. 
+* **HTML Pages** can be used to create custom stimuly, including interactive stimuli developed with JavaScript 
+* **React Components** can be used for sophisticated interactive stimuli. In comparison to HTML pages, react components simplify the communication between reVISit and the stimulus. 
+* **Survey Questions** can be used to elicit structured responses from participants.
 
 
-# Tutorials
-
-## Setting up a Basic Questionnaire Study
-
-Let's start with setting up a simple questionnaire study.
-
-<div class='info-panel'>
-    <div class="info-text">
-        It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode since it has JSON autocomplete.
-    </div>
-</div>
-
-You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the `public` directory. At the end of this section, your directory structure should contain these folders and files: 
-
-```
-public/
-    basic-questionnaire-study/
-        config.json 
-        assets/
-            help.md         
-            introduction.md
-    global.json
-```
-
-Start by making a new directory called `basic-questionnaire-study` in the `public` directory. Inside this folder, create another directory called `assets`. The assets directory will be where all of our various components are held.
-
-Once that is done, make an `introduction.md` markdown file. This will be used as the introduction to the study for your users.
-
-Create a file with the following contents:
+All of these stimuli can (and commonly are) paired with **responses**. Responses are form elements that capture the elicited responses. Survey questions are basically empty components with responses.
 
 
-<pre><code class="language-markdown"># Introduction
 
-Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.</code></pre>
-Save this file as `introduction.md` in the `basic-questionnaire-study/assets` directory. Next, let’s create a `help` file. This will be used so that any user who needs help during the study will be able to read this markdown page.
 
-<pre><code class="language-markdown"># Help
 
-This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
-</code></pre>
+# The reVISit Spec
 
-Save this file as `help.md` in the `basic-questionnaire-study/assets` directory.
 
-Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
 
-Create a new file called `config.json`. Then, copy and paste the following json into the new file.
+## Study Metadata
+
+## Components
+
+### Regular Components
+
+### Inheritance and Base Components 
+
+
+## Sequencing
+
+### Groups
+
+### Randomization
+
+### Skips
+
+### Breaks and Attention Checks
+
+
+# Tracking Study Data
+
+
+
+
+
+
+
+
+The reVISit framework uses a declarative DSL (Domain Specific Language) for specifying visualization experiments, which is called reVISit.spec. The configuration file uses JSON format which compiles into the reVISit platform. In the following tutorials, you will learn how to configure a visualization experiment using the reVISit DSL.
+
 
 ```JSON
 {
