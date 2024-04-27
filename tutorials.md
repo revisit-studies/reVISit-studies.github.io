@@ -230,7 +230,7 @@ Save this file in the `basic-questionnaire-study` directory -- one level above t
 
 If you want to learn more about the configuration, check out the [documentation page]({{site.baseurl}}/typedoc/interfaces/StudyConfig.html).
 
-Now, our study is almost set up to view. The last step is to make sure that the `global.json` file is set to find this new study. Open the `global.json` file in the `public` directory.
+Now, our study is almost set up to view. The last step is to make sure that the `global.json` file is set to find this new study. Open the (already existing) `global.json` file, found in the `public` directory.
 
 Add the following code to the `configs` object:
 
@@ -241,7 +241,7 @@ Add the following code to the `configs` object:
 ```
 
 After this, add `basic-questionnaire-study` into the `configsList` list in the same file. 
-This should look something like this: 
+Both portions together should look something like this: 
 
 ``` JSON
  "configsList": [
@@ -403,13 +403,27 @@ We now create concrete bar chart trials with data and instructions in the `compo
 ```
 The `parameters` key is a dynamically valued key which is used to pass data to your components. When you add the `parameters` key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we are able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
 
-To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2`) to the sequence in `config.json`. 
+To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2`) to the sequence in `config.json`. It will look similar to this:
+
+``` JSON
+...
+"components": [
+    "introduction",
+    "bar-chart-1",
+    "bar-chart-2",
+    "first-question-set",
+    "second-question-set"
+]
+...
+```
 
 <div class='info-panel' type='warning'>
     <div class="info-text">
         Whenever you make an update to the configuration file, make sure to clear your cache so you can view the updated study. In order for reVISit to properly identify users without requiring your team to host a server, it relies on caching the data for a user in their browser. Because of this, updates or new configurations can only be seen when the user clears their browser cache. 
     </div>
 </div>
+
+Now you can return to the study and see the bar chart trials in action.
 
 You can review [this config](https://github.com/revisit-studies/study/tree/main/public/demo-html-input) and the [associated study](https://revisit.dev/study/demo-html-input/) in the main reVISit study repository. 
 
