@@ -1,4 +1,4 @@
-# UpSet.app Website
+# reVISit Website
 
 This website describes the reVISit project.
 

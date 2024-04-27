@@ -605,7 +605,7 @@ Now we will link your browser to your app through a debug key.
 - Copy the debug token from the console.
 <img src="{{ path }}console.png" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-- Navigate to your firebase instance and add the token as shown below:
+- Navigate to your firebase app instance and add the token as shown below:
 <img src="{{ path }}firebase_steps/step23.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step24.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 <img src="{{ path }}firebase_steps/step25.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
