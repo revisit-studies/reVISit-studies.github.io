@@ -27,9 +27,9 @@ Componets are where user-generated content goes. ReVISit currently supports four
 * **Survey Questions** can be used to elicit structured responses from participants.
 
 
-All of these stimuli can (and commonly are) paired with **responses**. Responses are form elements that capture the elicited responses. Survey questions are basically empty components with responses.
+All of these stimuli can (and commonly are) paired with **responses**. Responses are form elements that capture the elicited responses. Survey questions are basically empty components with responses. 
 
-
+A component is typically defined in the spec, with the text, code, or image included from a file. The only exception are survey questions, which do not need a file.
 
 
 
