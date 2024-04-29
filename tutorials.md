@@ -609,7 +609,7 @@ You should now see a SITE key and a SECRET key. First, copy the secret key and p
 
 <img src="{{ path }}firebase_steps/step22.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;">
 
-Now, copy the SITE key. That site should now go back into your `.env` file for the variable `VITE_RECAPTCHAV3TOEKN`. 
+Now, copy the SITE key. That site should now go back into your `.env` file for the variable `VITE_RECAPTCHAV3TOKEN`. 
 
 
 
