@@ -87,6 +87,8 @@ This will launch a local server which can be accessed to view and interact with 
 
 When you visit the site, you'll be greeted with a list of pre-constructed demo studies. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
 
+<img width="1272" alt="image" src="https://github.com/revisit-studies/reVISit-studies.github.io/assets/412089/1fa7c9f3-bfd1-4168-bad6-8f4be1ec4b8f">
+
 
 # Tutorials
 
