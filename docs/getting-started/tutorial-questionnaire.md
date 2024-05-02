@@ -8,11 +8,9 @@ sidebar_position: 3
 
 Let's start with setting up a simple questionnaire study.
 
-<div class='info-panel'>
-    <div class="info-text">
-        It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode since it has JSON autocomplete.
-    </div>
-</div>
+:::note
+It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode since it has JSON autocomplete.
+:::
 
 You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the “public” directory. Start by making a new directory called “basic-questionnaire-study” in the "public" directory. Inside this folder, create another directory called "assets". The assets directory will be where all of our various components are held.
 
@@ -20,20 +18,19 @@ Once that is done, we will make an “introduction” markdown file. This will b
 
 Create a file with the following contents:
 
-<pre><code class="language-markdown">
+```markdown
 # Introduction
 
 Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
-</code></pre>
+```
 
 Save this file as “introduction.html” in the “basic-questionnaire-study/assets” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
 
-<pre><code class="language-markdown">
+```markdown
 # Help
 
 This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
-</code></pre>
-
+```
 Save this file as “help.html” in the “basic-questionnaire-study/assets” directory.
 
 Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
