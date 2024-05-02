@@ -12,7 +12,7 @@ This list is displayed on the landing page when running the app.
 
 ### Properties
 
-- [$schema](GlobalConfig.md#$schema)
+- [$schema](GlobalConfig.md#schema)
 - [adminUsers](GlobalConfig.md#adminusers)
 - [configs](GlobalConfig.md#configs)
 - [configsList](GlobalConfig.md#configslist)

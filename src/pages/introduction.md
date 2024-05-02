@@ -18,9 +18,9 @@ These methods will allow visualization researchers to gather empirical evidence 
 
 ## Demo 
 
-You can check out a few example projects on our [demo page]({{site.demo}}). All of the demos on this site are build from stimuli and examples that you can find in the [github repo]({{site.repo}}).
+You can check out a few example projects on our [demo page](https://revisit.dev/study/). All of the demos on this site are build from stimuli and examples that you can find in the [github repo](https://github.com/revisit-studies/study).
 
-Check out the [getting started tutorial]({{site.baseurl}}/tutorial/) to learn how to build your own experiment. 
+Check out the [getting started tutorial](docs/introduction/) to learn how to build your own experiment. 
 
 ## Paper
 
@@ -32,12 +32,6 @@ Yiren Ding, Jack Wilburn, Hilson Shrestha, Akim Ndlovu, Kiran Gadhave, <br/> Car
 IEEE Visualization and Visual Analytics (VIS), 31-35, doi:10.1109/VIS54172.2023.00015, 2023.
 </div>
 </div>
-
-<!-- ## Frequently Asked Questions
-
-- _Is reVISit ready for me to use?_  
-
-   Yes! We're looking for early adopters. Things are still evolving, so don't expect a rock-solid, stable framework yet, but we'd love to work with you to deploy your study! -->
 
 
 

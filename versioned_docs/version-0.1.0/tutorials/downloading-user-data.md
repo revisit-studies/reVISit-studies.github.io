@@ -27,4 +27,4 @@ Now that you are in admin mode, navigate to the end of the study. Once at the en
 Currently, only JSON data is able to be exported by reVISit. We have plans to support Tidy CSV in the near future. 
 :::
 
-The file downloaded is a JSON object containing information about the participant's answers, how they interacted with each component, and which config they were served. You can find more explicit documentation about the data structure [here](/typedoc/interfaces/ParticipantData.html).
+The file downloaded is a JSON object containing information about the participant's answers, how they interacted with each component, and which config they were served. You can find more explicit documentation about the data structure [here](../typedoc/interfaces/ParticipantData).
