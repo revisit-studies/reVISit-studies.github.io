@@ -36,7 +36,7 @@ The `$schema` line is used to verify the schema. If you're using VSCode (or othe
 
 ### Properties
 
-- [$schema](StudyConfig.md#$schema)
+- [$schema](StudyConfig.md#schema)
 - [baseComponents](StudyConfig.md#basecomponents)
 - [components](StudyConfig.md#components)
 - [sequence](StudyConfig.md#sequence)
