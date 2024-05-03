@@ -1,8 +1,9 @@
 name: Deploy To GitHub Pages
 
 on:
-  repository_dispatch:
-    types: [study_repo_publish]
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -14,31 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Build study docs
-      - name: Clone study repo (for docs)
-        uses: actions/checkout@v3
-        with:
-          repository: revisit-studies/study
-          path: study
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: lts/*
-          cache: 'yarn'
-          cache-dependency-path: study/yarn.lock
-
-      - name: Install study dependencies
-        run: yarn --cwd=./study install
-
-      - name: Build study docs
-        run: yarn --cwd=./study buildDocs
-        working-directory: ./study
-
-      - name: Copy study docs to docs and cleanup
-        run: |
-          cp -r study/docs ./docs/typedoc
-          rm -rf study
-
       # Build documentation repo
       - uses: actions/setup-node@v3
         with:
@@ -47,7 +23,7 @@ jobs:
           cache-dependency-path: yarn.lock
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Build documentation
         run: yarn build
