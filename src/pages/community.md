@@ -7,9 +7,6 @@ hide_table_of_contents: false
 
 # Community
 
-<!-- {% capture path %}{{ site.baseurl }}/assets/images/{% endcapture %} -->
-
-
 reVISit is designed to benefit the visualization community! We appreciate feedback, suggestions, bug reports, code contributions. 
 
 We are also happy to support you in setting up your first study. Get in touch via the slack team.  
@@ -18,8 +15,8 @@ We are also happy to support you in setting up your first study. Get in touch vi
 
 Trying to run your own study? Here is how you can learn about how to use reVISit: 
 
-* Read the [tutorials](/docs/introduction)
-* Read the [documentation](/docs/typedoc/)
+* Read the [tutorials](docs/introduction)
+* Read the [documentation](docs/typedoc/)
 * Check out the [example studies](https://revisit.dev/study/) and the [config files and stimuli](https://github.com/revisit-studies/study/tree/main/public) that are used to create these stimuli
 * Join the [reVISit slack](https://join.slack.com/t/revisit-nsf/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ) to get help from our team
 
