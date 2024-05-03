@@ -48,6 +48,9 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/logos/revisitLogoThumbnail.png',
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       title: 'ReVISit',
       logo: {
