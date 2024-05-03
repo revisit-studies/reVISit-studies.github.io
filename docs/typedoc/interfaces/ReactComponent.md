@@ -12,7 +12,7 @@ Similar to our standard assets, we suggest creating a folder named `src/public/{
 Your React component which you link to in the path must be default exported from its file.
 
 React components created this way have a generic prop type passed to the component on render, `<StimulusParams<T>>`, which has the following types.
-```typescript
+```ts
 {
  parameters: T;
  setAnswer: ({ status, provenanceGraph, answers }: { status: boolean, provenanceGraph?: TrrackedProvenance, answers: Record<string, any> }) => void
