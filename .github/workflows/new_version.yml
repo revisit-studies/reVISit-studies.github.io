@@ -27,7 +27,7 @@ jobs:
           echo "Latest tag: ${tags[0]}"
           echo "Second latest tag: ${tags[1]}"
           echo "latest_tag=${tags[0]}" >> $GITHUB_OUTPUT
-          echo "second_latest_tag=${tags[2]}" >> $GITHUB_OUTPUT
+          echo "second_latest_tag=${tags[1]}" >> $GITHUB_OUTPUT
 
       - name: Create a version based on the second latest tag
         run: |
