@@ -1,0 +1,63 @@
+name: Create a new version and push to GitHub
+
+on:
+  repository_dispatch:
+    types: [study_repo_publish]
+
+jobs:
+  create_version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/checkout@v3
+        with:
+          repository: revisit-studies/study
+          path: study
+
+      - name: Get the 2 latest tags
+        id: get_tags
+        run: |
+          git fetch --tags
+          tags=$(git tag --sort=-v:refname)
+          tags=($tags)
+          echo "Latest tag: ${tags[0]}"
+          echo "Second latest tag: ${tags[1]"
+          echo "::set-output name=latest_tag::${tags[0]}"
+          echo "::set-output name=second_latest_tag::${tags[1]}"
+
+      - name: Create a version based on the second latest tag
+        run: |
+          yarn docusarus docs:version --version ${{ steps.get_tags.outputs.second_latest_tag }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+          cache-dependency-path: study/yarn.lock
+  
+      - name: Install study dependencies
+        run: yarn --cwd=./study install --immutable
+
+      - name: Build study docs
+        run: yarn --cwd=./study buildDocs
+        working-directory: ./study
+
+      - name: Copy study docs to docs and cleanup
+        run: |
+          cp -r study/docs ./docs/typedoc
+          rm -rf study
+
+      - name: Modify the current version in docusaurus.config.js
+        run: |
+          sed -i "s/label: '.*',/label: '${{ steps.get_tags.outputs.latest_tag }}',/" docusaurus.config.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "jackwilburn@tutanota.com"
+          git config --global user.name "Jack Wilburn"
+          git add .
+          git commit -m "Create a new version based on the latest tag"
+          git push
