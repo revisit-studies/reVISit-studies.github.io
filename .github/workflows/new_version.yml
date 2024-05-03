@@ -63,8 +63,8 @@ jobs:
 
       - name: Modify the current version in docusaurus.config.ts
         run: |
-          sed -i "s/label: '.*',/label: '${{ steps.get_tags.outputs.latest_tag }}',/" docusaurus.config.ts
-
+          sed -i "s/current: { label: '.*', path: '' },/current: { label: '${{ steps.get_tags.outputs.latest_tag }}', path: '' },/" docusaurus.config.ts
+          
       - name: Commit and push changes
         run: |
           git config --global user.email "jackwilburn@tutanota.com"
