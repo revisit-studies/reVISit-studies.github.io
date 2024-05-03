@@ -24,7 +24,7 @@ jobs:
           tags=$(git tag --sort=-v:refname)
           tags=($tags)
           echo "Latest tag: ${tags[0]}"
-          echo "Second latest tag: ${tags[1]"
+          echo "Second latest tag: ${tags[1]}"
           echo "::set-output name=latest_tag::${tags[0]}"
           echo "::set-output name=second_latest_tag::${tags[1]}"
 
