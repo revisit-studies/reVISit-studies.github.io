@@ -30,7 +30,7 @@ jobs:
 
       - name: Create a version based on the second latest tag
         run: |
-          yarn docusarus docs:version ${{ steps.get_tags.outputs.second_latest_tag }}
+          yarn docusaurus docs:version ${{ steps.get_tags.outputs.second_latest_tag }}
 
       - uses: actions/setup-node@v3
         with:
