@@ -18,10 +18,12 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Getting Started',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'getting-started/index'
       },
       collapsed: false,
       items: [
+        'getting-started/how-does-it-work',
         'getting-started/installation',
         'getting-started/tutorial-questionnaire'
       ],
@@ -36,12 +38,33 @@ const sidebars: SidebarsConfig = {
       items:[
         'tutorials/firebase-setup',
         'tutorials/deploying-to-static-website',
-        'tutorials/downloading-user-data'
+        'tutorials/dissemination-of-study'
       ]
     },
     {
       type: 'category',
-      label: 'Documentation',
+      label: 'Authentication and Authorization',
+      link: {
+        type: 'doc',
+        id: 'authentication-authorization/index'
+      },
+      items:[
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Analysis Dashboard',
+      link: {
+        type: 'doc',
+        id: 'analysis-dashboard/index'
+      },
+      items:[
+        'analysis-dashboard/downloading-user-data',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'TypeDoc',
       link: {
         type: 'doc',
         id: 'typedoc/index'
