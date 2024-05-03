@@ -35,13 +35,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          versions:{
-            current:{
+          lastVersion: 'current',
+          versions: {
+            current: {
               label: 'v1.0.0-beta5',
-              path:'v1.0.0-beta5'
+              path: ''
             }
-          },
-          // includeCurrentVersion: false
+          }
         },
         theme: {
           customCss: './src/css/custom.css',
