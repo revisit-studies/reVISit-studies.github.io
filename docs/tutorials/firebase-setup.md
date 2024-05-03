@@ -46,7 +46,7 @@ service cloud.firestore {
  match /databases/{database}/documents {
     match /{document=**} {
     	allow read: if true
-       allow write: if request.auth != null;
+      allow write: if request.auth != null;
     }
   }
 }
@@ -167,7 +167,7 @@ Once that is finished, we'll have to use Google's `gsutil` function in the termi
 
 After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` folder on your local machine. Create a new file called "cors.json" with the following contents:
 
-``` JSON
+```js
 [
   {
     "origin": ["*"],
@@ -179,7 +179,7 @@ After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` fold
 
 Lastly, while still inside this same directory, call the following function:
 
-``` shell
+```bash
 gsutil cors set cors.json gs://<your-cloud-storage-bucket>
 ```
 You can find the link for the storage bucket by navigating to the "storage" product in Firebase. 

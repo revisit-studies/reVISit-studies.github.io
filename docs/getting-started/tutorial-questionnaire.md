@@ -37,7 +37,7 @@ Now we are ready to create the configuration file for the study. This configurat
 
 Create a new file called “config.json”. Then, copy and paste the following json into the new file.
 
-```JSON
+```js
 {
     "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
@@ -134,7 +134,7 @@ Now, our study is almost set up to view. The last step is to make sure that the 
 
 Add the following code to the “configs” object:
 
-``` JSON
+```js
 “basic-questionnaire-study”: {
 	“path”: ”basic-questionnaire-study/config.json”
 }
@@ -149,7 +149,7 @@ Now, we will take the study we just created and add another component based on a
 
 The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study/assets” directory.
 
-``` HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -230,7 +230,7 @@ Now that we have this HTML document in our study directory, we are ready to adju
 
 In your “config.json” document, create new new key called “baseComponents” as a sibling to the keys “uiConfig”, “components”, “sequence”, etc. In this newly created key, paste the code below:
 
-``` JSON
+```js
     "baseComponents": {
         "bar-chart": {
             "type": "website",
@@ -253,7 +253,7 @@ This creates a component that new components can be based off of. Each component
 
 In the components section, add the following objects:
 
-``` JSON
+```js
 ...
 "bar-chart-1":{
     "baseComponent": "bar-chart",
