@@ -29,6 +29,14 @@ jobs:
           echo "latest_tag=${tags[0]}" >> $GITHUB_OUTPUT
           echo "second_latest_tag=${tags[1]}" >> $GITHUB_OUTPUT
 
+      # Yarn install for docusaurus
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Create a version based on the second latest tag
         run: |
           yarn makeVersion ${{ steps.get_tags.outputs.second_latest_tag }}
