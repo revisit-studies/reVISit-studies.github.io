@@ -25,7 +25,7 @@ The check we'll perform.
 
 #### Defined in
 
-[parser/types.ts:496](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L496)
+[parser/types.ts:496](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L496)
 
 ___
 
@@ -37,7 +37,7 @@ The name of the component to check.
 
 #### Defined in
 
-[parser/types.ts:494](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L494)
+[parser/types.ts:494](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L494)
 
 ___
 
@@ -49,4 +49,4 @@ The id of the component or block to skip to
 
 #### Defined in
 
-[parser/types.ts:498](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L498)
+[parser/types.ts:498](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L498)

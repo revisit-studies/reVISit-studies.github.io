@@ -27,7 +27,7 @@ The check we'll perform.
 
 #### Defined in
 
-[parser/types.ts:482](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L482)
+[parser/types.ts:482](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L482)
 
 ___
 
@@ -39,7 +39,7 @@ The name of the component to check.
 
 #### Defined in
 
-[parser/types.ts:480](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L480)
+[parser/types.ts:480](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L480)
 
 ___
 
@@ -51,7 +51,7 @@ The response id to check.
 
 #### Defined in
 
-[parser/types.ts:484](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L484)
+[parser/types.ts:484](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L484)
 
 ___
 
@@ -63,7 +63,7 @@ The id of the component or block to skip to
 
 #### Defined in
 
-[parser/types.ts:488](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L488)
+[parser/types.ts:488](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L488)
 
 ___
 
@@ -75,4 +75,4 @@ The value to check.
 
 #### Defined in
 
-[parser/types.ts:486](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L486)
+[parser/types.ts:486](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L486)

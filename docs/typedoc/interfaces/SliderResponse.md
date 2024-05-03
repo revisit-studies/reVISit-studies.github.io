@@ -43,7 +43,7 @@ Controls whether the response is hidden.
 
 #### Defined in
 
-[parser/types.ts:159](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L159)
+[parser/types.ts:159](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L159)
 
 ___
 
@@ -59,7 +59,7 @@ The id of the response. This is used to identify the response in the data file.
 
 #### Defined in
 
-[parser/types.ts:145](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L145)
+[parser/types.ts:145](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L145)
 
 ___
 
@@ -75,7 +75,7 @@ Controls the response location. These might be the same for all responses, or di
 
 #### Defined in
 
-[parser/types.ts:151](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L151)
+[parser/types.ts:151](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L151)
 
 ___
 
@@ -87,7 +87,7 @@ This define the steps in the slider and the extent of the slider.
 
 #### Defined in
 
-[parser/types.ts:233](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L233)
+[parser/types.ts:233](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L233)
 
 ___
 
@@ -103,7 +103,7 @@ Use to capture querystring parameters in answers such as participant_name. See t
 
 #### Defined in
 
-[parser/types.ts:157](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L157)
+[parser/types.ts:157](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L157)
 
 ___
 
@@ -119,7 +119,7 @@ The prompt that is displayed to the participant. You can use markdown here to re
 
 #### Defined in
 
-[parser/types.ts:147](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L147)
+[parser/types.ts:147](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L147)
 
 ___
 
@@ -135,7 +135,7 @@ Controls whether the response is required to be answered.
 
 #### Defined in
 
-[parser/types.ts:149](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L149)
+[parser/types.ts:149](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L149)
 
 ___
 
@@ -151,7 +151,7 @@ You can provide a required label, which makes it so a participant has to answer 
 
 #### Defined in
 
-[parser/types.ts:155](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L155)
+[parser/types.ts:155](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L155)
 
 ___
 
@@ -167,7 +167,7 @@ You can provide a required value, which makes it so a participant has to answer 
 
 #### Defined in
 
-[parser/types.ts:153](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L153)
+[parser/types.ts:153](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L153)
 
 ___
 
@@ -177,4 +177,4 @@ ___
 
 #### Defined in
 
-[parser/types.ts:231](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L231)
+[parser/types.ts:231](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L231)

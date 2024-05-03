@@ -74,7 +74,7 @@ Object whose keys are the component names and values are StoredAnswer objects.
 
 #### Defined in
 
-[storage/types.ts:60](https://github.com/revisit-studies/study/blob/cb2c5ee/src/storage/types.ts#L60)
+[storage/types.ts:60](https://github.com/revisit-studies/study/blob/bdd28e8/src/storage/types.ts#L60)
 
 ___
 
@@ -86,7 +86,7 @@ Whether the participant has completed the study.
 
 #### Defined in
 
-[storage/types.ts:66](https://github.com/revisit-studies/study/blob/cb2c5ee/src/storage/types.ts#L66)
+[storage/types.ts:66](https://github.com/revisit-studies/study/blob/bdd28e8/src/storage/types.ts#L66)
 
 ___
 
@@ -98,7 +98,7 @@ Metadata of a participants browser, resolution, language, and IP.
 
 #### Defined in
 
-[storage/types.ts:64](https://github.com/revisit-studies/study/blob/cb2c5ee/src/storage/types.ts#L64)
+[storage/types.ts:64](https://github.com/revisit-studies/study/blob/bdd28e8/src/storage/types.ts#L64)
 
 ___
 
@@ -110,7 +110,7 @@ Unique ID corresponding to the Configuration that the participant received.
 
 #### Defined in
 
-[storage/types.ts:56](https://github.com/revisit-studies/study/blob/cb2c5ee/src/storage/types.ts#L56)
+[storage/types.ts:56](https://github.com/revisit-studies/study/blob/bdd28e8/src/storage/types.ts#L56)
 
 ___
 
@@ -122,7 +122,7 @@ Unique ID  associated with the participant
 
 #### Defined in
 
-[storage/types.ts:54](https://github.com/revisit-studies/study/blob/cb2c5ee/src/storage/types.ts#L54)
+[storage/types.ts:54](https://github.com/revisit-studies/study/blob/bdd28e8/src/storage/types.ts#L54)
 
 ___
 
@@ -134,7 +134,7 @@ Query parameters of the URL used to enter the study.
 
 #### Defined in
 
-[storage/types.ts:62](https://github.com/revisit-studies/study/blob/cb2c5ee/src/storage/types.ts#L62)
+[storage/types.ts:62](https://github.com/revisit-studies/study/blob/bdd28e8/src/storage/types.ts#L62)
 
 ___
 
@@ -146,4 +146,4 @@ Sequence of components that the participant received.
 
 #### Defined in
 
-[storage/types.ts:58](https://github.com/revisit-studies/study/blob/cb2c5ee/src/storage/types.ts#L58)
+[storage/types.ts:58](https://github.com/revisit-studies/study/blob/bdd28e8/src/storage/types.ts#L58)

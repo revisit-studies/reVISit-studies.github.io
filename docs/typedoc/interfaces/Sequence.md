@@ -22,7 +22,7 @@ displayed_sidebar: docs
 
 #### Defined in
 
-[store/types.ts:110](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L110)
+[store/types.ts:110](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L110)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[store/types.ts:108](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L108)
+[store/types.ts:108](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L108)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[store/types.ts:109](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L109)
+[store/types.ts:109](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L109)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-[store/types.ts:111](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L111)
+[store/types.ts:111](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L111)

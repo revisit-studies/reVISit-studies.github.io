@@ -47,7 +47,7 @@ The authors of your study.
 
 #### Defined in
 
-[parser/types.ts:53](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L53)
+[parser/types.ts:53](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L53)
 
 ___
 
@@ -59,7 +59,7 @@ The date of your study, may be useful for the researcher.
 
 #### Defined in
 
-[parser/types.ts:55](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L55)
+[parser/types.ts:55](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L55)
 
 ___
 
@@ -71,7 +71,7 @@ The description of your study, shown on the landing page.
 
 #### Defined in
 
-[parser/types.ts:57](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L57)
+[parser/types.ts:57](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L57)
 
 ___
 
@@ -83,7 +83,7 @@ The organizations that are associated with your study.
 
 #### Defined in
 
-[parser/types.ts:59](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L59)
+[parser/types.ts:59](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L59)
 
 ___
 
@@ -95,7 +95,7 @@ The title of your study, shown on the landing page.
 
 #### Defined in
 
-[parser/types.ts:49](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L49)
+[parser/types.ts:49](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L49)
 
 ___
 
@@ -107,4 +107,4 @@ The version of your study, shown on the landing page and attached to participant
 
 #### Defined in
 
-[parser/types.ts:51](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L51)
+[parser/types.ts:51](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L51)

@@ -28,7 +28,7 @@ The components that are included in the order.
 
 #### Defined in
 
-[parser/types.ts:537](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L537)
+[parser/types.ts:537](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L537)
 
 ___
 
@@ -40,7 +40,7 @@ The id of the block. This is used to identify the block in the SkipConditions an
 
 #### Defined in
 
-[parser/types.ts:533](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L533)
+[parser/types.ts:533](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L533)
 
 ___
 
@@ -52,7 +52,7 @@ The interruptions property specifies an array of interruptions. These can be use
 
 #### Defined in
 
-[parser/types.ts:541](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L541)
+[parser/types.ts:541](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L541)
 
 ___
 
@@ -64,7 +64,7 @@ The number of samples to use for the random assignments. This means you can rand
 
 #### Defined in
 
-[parser/types.ts:539](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L539)
+[parser/types.ts:539](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L539)
 
 ___
 
@@ -76,7 +76,7 @@ The type of order. This can be random (pure random), latinSquare (random with so
 
 #### Defined in
 
-[parser/types.ts:535](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L535)
+[parser/types.ts:535](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L535)
 
 ___
 
@@ -88,4 +88,4 @@ The skip conditions for the block.
 
 #### Defined in
 
-[parser/types.ts:543](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L543)
+[parser/types.ts:543](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L543)
