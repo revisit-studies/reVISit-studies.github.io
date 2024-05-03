@@ -58,7 +58,7 @@ jobs:
 
       - name: Copy new study docs to docs and cleanup
         run: |
-          cp -r study/docs ./docs/typedoc
+          cp -r study/docs/ ./docs/typedoc
           rm -rf study
 
       - name: Modify the current version in docusaurus.config.ts
