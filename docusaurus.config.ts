@@ -7,14 +7,9 @@ const config: Config = {
   tagline: 'A Toolkit For Data Visualization Experiments',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: 'https://revisit.dev',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: 'University of Utah', // Usually your GitHub org/user name.
   projectName: 'ReVISit', // Usually your repo name.
 
@@ -51,7 +46,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/logos/revisitLogoThumbnail.png',
     navbar: {
       title: 'ReVISit',
@@ -74,8 +68,6 @@ const config: Config = {
         {
           type: 'docsVersionDropdown',
           position: 'right',
-          // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
-          // dropdownActiveClassDisabled: true,
         },
         {
           href: 'https://github.com/revisit-studies/study',
@@ -105,7 +97,6 @@ const config: Config = {
               <a target="_blank" href="http://web.cs.wpi.edu/~ltharrison/">
                 <img src="/img/logos/view-logo-light.svg" class='logo light-theme'/>
                 <img src="/img/logos/view-logo-dark.svg" class='logo dark-theme'/>
-
               </a>
               <a target="_blank" href="https://wpi.edu/">
                 <img src="/img/logos/wpi.png" class='logo'/>
@@ -125,8 +116,7 @@ const config: Config = {
           `
         },
       ],
-      copyright: `Copyright © 2022-2024 The reVISit team. All content on this website is licensed under
-      the Creative <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank">Commons Attribution license (CC BY)</a>.<br/>Copyright or exclusive license of the linked publications is frequently with the publishers. Last updated on ${new Date().toISOString().split('T')[0]}. Built with Docusaurus.`,
+      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${new Date().toISOString().split('T')[0]}. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
