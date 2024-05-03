@@ -20,17 +20,18 @@ jobs:
       - name: Get the 2 latest tags
         id: get_tags
         run: |
+          cd study
           git fetch --tags
           tags=$(git tag --sort=-v:refname)
           tags=($tags)
           echo "Latest tag: ${tags[0]}"
           echo "Second latest tag: ${tags[1]}"
-          echo "::set-output name=latest_tag::${tags[0]}"
-          echo "::set-output name=second_latest_tag::${tags[1]}"
+          echo "latest_tag=${tags[0]}" >> $GITHUB_OUTPUT
+          echo "second_latest_tag=${tags[2]}" >> $GITHUB_OUTPUT
 
       - name: Create a version based on the second latest tag
         run: |
-          yarn docusaurus docs:version ${{ steps.get_tags.outputs.second_latest_tag }}
+          yarn version ${{ steps.get_tags.outputs.second_latest_tag }}
 
       - uses: actions/setup-node@v3
         with:
