@@ -59,9 +59,9 @@ jobs:
           cp -r study/docs ./docs/typedoc
           rm -rf study
 
-      - name: Modify the current version in docusaurus.config.js
+      - name: Modify the current version in docusaurus.config.ts
         run: |
-          sed -i "s/label: '.*',/label: '${{ steps.get_tags.outputs.latest_tag }}',/" docusaurus.config.js
+          sed -i "s/label: '.*',/label: '${{ steps.get_tags.outputs.latest_tag }}',/" docusaurus.config.ts
 
       - name: Commit and push changes
         run: |
