@@ -37,8 +37,8 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           versions:{
             current:{
-              label: '1.0.0 🚧',
-              path:'1.0.0'
+              label: 'v1.0.0-beta5',
+              path:'v1.0.0-beta5'
             }
           },
           // includeCurrentVersion: false
@@ -139,6 +139,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'typescript'],
     },
   } satisfies Preset.ThemeConfig,
 };
