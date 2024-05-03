@@ -45,7 +45,7 @@ Object whose keys are the "id"s in the Response list of the component in the Stu
 
 #### Defined in
 
-[store/types.ts:61](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L61)
+[store/types.ts:61](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L61)
 
 ___
 
@@ -57,7 +57,7 @@ Time that the user ended interaction with the component in epoch milliseconds.
 
 #### Defined in
 
-[store/types.ts:65](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L65)
+[store/types.ts:65](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L65)
 
 ___
 
@@ -69,7 +69,7 @@ The entire provenance graph exported from a Trrack instance from a React compone
 
 #### Defined in
 
-[store/types.ts:67](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L67)
+[store/types.ts:67](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L67)
 
 ___
 
@@ -81,7 +81,7 @@ Time that the user began interacting with the component in epoch milliseconds.
 
 #### Defined in
 
-[store/types.ts:63](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L63)
+[store/types.ts:63](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L63)
 
 ___
 
@@ -121,4 +121,4 @@ A list containing the time (in epoch milliseconds), the action (focus, input, ke
 
 #### Defined in
 
-[store/types.ts:98](https://github.com/revisit-studies/study/blob/cb2c5ee/src/store/types.ts#L98)
+[store/types.ts:98](https://github.com/revisit-studies/study/blob/bdd28e8/src/store/types.ts#L98)

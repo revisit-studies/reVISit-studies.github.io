@@ -53,7 +53,7 @@ A required json schema property. This should point to the github link for the ve
 
 #### Defined in
 
-[parser/types.ts:579](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L579)
+[parser/types.ts:579](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L579)
 
 ___
 
@@ -119,7 +119,7 @@ In the above code snippet, we have a single base component which holds the infor
 
 #### Defined in
 
-[parser/types.ts:640](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L640)
+[parser/types.ts:640](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L640)
 
 ___
 
@@ -131,7 +131,7 @@ The components that are used in the study. They must be fully defined here with 
 
 #### Defined in
 
-[parser/types.ts:642](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L642)
+[parser/types.ts:642](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L642)
 
 ___
 
@@ -143,7 +143,7 @@ The order of the components in the study. This might include some randomness.
 
 #### Defined in
 
-[parser/types.ts:644](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L644)
+[parser/types.ts:644](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L644)
 
 ___
 
@@ -155,7 +155,7 @@ The metadata for the study. This is used to identify the study and version in th
 
 #### Defined in
 
-[parser/types.ts:581](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L581)
+[parser/types.ts:581](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L581)
 
 ___
 
@@ -167,4 +167,4 @@ The UI configuration for the study. This is used to configure the UI of the app.
 
 #### Defined in
 
-[parser/types.ts:583](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L583)
+[parser/types.ts:583](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L583)

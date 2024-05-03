@@ -51,7 +51,7 @@ Controls whether the study data is automatically downloaded at the end of the st
 
 #### Defined in
 
-[parser/types.ts:94](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L94)
+[parser/types.ts:94](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L94)
 
 ___
 
@@ -63,7 +63,7 @@ The time in milliseconds to wait before automatically downloading the study data
 
 #### Defined in
 
-[parser/types.ts:96](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L96)
+[parser/types.ts:96](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L96)
 
 ___
 
@@ -75,7 +75,7 @@ The email address that used during the study if a participant clicks contact.
 
 #### Defined in
 
-[parser/types.ts:86](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L86)
+[parser/types.ts:86](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L86)
 
 ___
 
@@ -87,7 +87,7 @@ The path to the help text file. This is displayed when a participant clicks help
 
 #### Defined in
 
-[parser/types.ts:88](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L88)
+[parser/types.ts:88](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L88)
 
 ___
 
@@ -99,7 +99,7 @@ The path to the logo image. This is displayed on the landing page and the header
 
 #### Defined in
 
-[parser/types.ts:90](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L90)
+[parser/types.ts:90](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L90)
 
 ___
 
@@ -111,7 +111,7 @@ The number of sequences to generate for the study. This is used to generate the 
 
 #### Defined in
 
-[parser/types.ts:110](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L110)
+[parser/types.ts:110](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L110)
 
 ___
 
@@ -123,7 +123,7 @@ Controls whether the left sidebar is rendered at all. Required to be true if you
 
 #### Defined in
 
-[parser/types.ts:100](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L100)
+[parser/types.ts:100](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L100)
 
 ___
 
@@ -135,7 +135,7 @@ The message to display when the study ends.
 
 #### Defined in
 
-[parser/types.ts:98](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L98)
+[parser/types.ts:98](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L98)
 
 ___
 
@@ -147,7 +147,7 @@ If the participant ID is passed in the URL, this is the name of the querystring 
 
 #### Defined in
 
-[parser/types.ts:106](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L106)
+[parser/types.ts:106](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L106)
 
 ___
 
@@ -159,7 +159,7 @@ Debounce time in milliseconds for automatically tracked window events. Defaults 
 
 #### Defined in
 
-[parser/types.ts:102](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L102)
+[parser/types.ts:102](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L102)
 
 ___
 
@@ -171,4 +171,4 @@ Controls whether the progress bar is rendered in the study.
 
 #### Defined in
 
-[parser/types.ts:92](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L92)
+[parser/types.ts:92](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L92)

@@ -26,7 +26,7 @@ The label displayed to participants.
 
 #### Defined in
 
-[parser/types.ts:120](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L120)
+[parser/types.ts:120](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L120)
 
 ___
 
@@ -38,4 +38,4 @@ The value stored in the participant's data.
 
 #### Defined in
 
-[parser/types.ts:122](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L122)
+[parser/types.ts:122](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L122)

@@ -26,7 +26,7 @@ The check we'll perform.
 
 #### Defined in
 
-[parser/types.ts:504](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L504)
+[parser/types.ts:504](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L504)
 
 ___
 
@@ -38,7 +38,7 @@ The condition to check.
 
 #### Defined in
 
-[parser/types.ts:506](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L506)
+[parser/types.ts:506](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L506)
 
 ___
 
@@ -50,7 +50,7 @@ The id of the component or block to skip to
 
 #### Defined in
 
-[parser/types.ts:510](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L510)
+[parser/types.ts:510](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L510)
 
 ___
 
@@ -62,4 +62,4 @@ The number of correct or incorrect responses to check for.
 
 #### Defined in
 
-[parser/types.ts:508](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L508)
+[parser/types.ts:508](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L508)

@@ -27,7 +27,7 @@ A required json schema property. This should point to the github link for the ve
 
 #### Defined in
 
-[parser/types.ts:10](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L10)
+[parser/types.ts:10](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L10)
 
 ___
 
@@ -39,7 +39,7 @@ A required property listing out the emails of users who require admin access.
 
 #### Defined in
 
-[parser/types.ts:22](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L22)
+[parser/types.ts:22](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L22)
 
 ___
 
@@ -57,7 +57,7 @@ The key is used to identify the study config file. This key is used in the confi
 
 #### Defined in
 
-[parser/types.ts:12](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L12)
+[parser/types.ts:12](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L12)
 
 ___
 
@@ -69,4 +69,4 @@ A required property that is used to generate the list of available studies in th
 
 #### Defined in
 
-[parser/types.ts:20](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L20)
+[parser/types.ts:20](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L20)

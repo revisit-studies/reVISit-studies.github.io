@@ -26,7 +26,7 @@ The acceptable high value for the answer. This is used to define a range of acce
 
 #### Defined in
 
-[parser/types.ts:279](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L279)
+[parser/types.ts:279](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L279)
 
 ___
 
@@ -38,7 +38,7 @@ The acceptable low value for the answer. This is used to define a range of accep
 
 #### Defined in
 
-[parser/types.ts:277](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L277)
+[parser/types.ts:277](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L277)
 
 ___
 
@@ -50,7 +50,7 @@ The correct answer to the question.
 
 #### Defined in
 
-[parser/types.ts:275](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L275)
+[parser/types.ts:275](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L275)
 
 ___
 
@@ -62,4 +62,4 @@ The id of the answer. This is used to identify the answer in the data file.
 
 #### Defined in
 
-[parser/types.ts:272](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L272)
+[parser/types.ts:272](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L272)

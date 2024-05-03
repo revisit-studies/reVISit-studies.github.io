@@ -44,7 +44,7 @@ The correct answer to the component. This is used for training trials where the 
 
 #### Defined in
 
-[parser/types.ts:302](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L302)
+[parser/types.ts:302](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L302)
 
 ___
 
@@ -60,7 +60,7 @@ The description of the component. This is used to identify and provide additiona
 
 #### Defined in
 
-[parser/types.ts:308](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L308)
+[parser/types.ts:308](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L308)
 
 ___
 
@@ -76,7 +76,7 @@ The instruction of the component. This is used to identify and provide additiona
 
 #### Defined in
 
-[parser/types.ts:310](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L310)
+[parser/types.ts:310](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L310)
 
 ___
 
@@ -92,7 +92,7 @@ The location of the instructions.
 
 #### Defined in
 
-[parser/types.ts:300](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L300)
+[parser/types.ts:300](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L300)
 
 ___
 
@@ -108,7 +108,7 @@ The meta data for the component. This is used to identify and provide additional
 
 #### Defined in
 
-[parser/types.ts:306](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L306)
+[parser/types.ts:306](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L306)
 
 ___
 
@@ -124,7 +124,7 @@ The location of the next button.
 
 #### Defined in
 
-[parser/types.ts:298](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L298)
+[parser/types.ts:298](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L298)
 
 ___
 
@@ -140,7 +140,7 @@ The text that is displayed on the next button.
 
 #### Defined in
 
-[parser/types.ts:296](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L296)
+[parser/types.ts:296](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L296)
 
 ___
 
@@ -152,7 +152,7 @@ The path to the image. This should be a relative path from the public folder.
 
 #### Defined in
 
-[parser/types.ts:377](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L377)
+[parser/types.ts:377](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L377)
 
 ___
 
@@ -168,7 +168,7 @@ Controls whether the component should provide feedback to the participant, such 
 
 #### Defined in
 
-[parser/types.ts:304](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L304)
+[parser/types.ts:304](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L304)
 
 ___
 
@@ -184,7 +184,7 @@ The responses to the component
 
 #### Defined in
 
-[parser/types.ts:292](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L292)
+[parser/types.ts:292](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L292)
 
 ___
 
@@ -196,7 +196,7 @@ The style of the image. This is an object with css properties as keys and css va
 
 #### Defined in
 
-[parser/types.ts:379](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L379)
+[parser/types.ts:379](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L379)
 
 ___
 
@@ -206,4 +206,4 @@ ___
 
 #### Defined in
 
-[parser/types.ts:375](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L375)
+[parser/types.ts:375](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L375)

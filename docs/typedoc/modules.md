@@ -56,7 +56,7 @@ displayed_sidebar: docs
 
 #### Defined in
 
-[parser/types.ts:455](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L455)
+[parser/types.ts:455](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L455)
 
 ___
 
@@ -68,7 +68,7 @@ An InheritedComponent is a component that inherits properties from a baseCompone
 
 #### Defined in
 
-[parser/types.ts:547](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L547)
+[parser/types.ts:547](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L547)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[parser/types.ts:475](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L475)
+[parser/types.ts:475](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L475)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[parser/types.ts:265](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L265)
+[parser/types.ts:265](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L265)
 
 ___
 
@@ -100,4 +100,4 @@ The SkipConditions interface is used to define skip conditions. This is used to 
 
 #### Defined in
 
-[parser/types.ts:528](https://github.com/revisit-studies/study/blob/cb2c5ee/src/parser/types.ts#L528)
+[parser/types.ts:528](https://github.com/revisit-studies/study/blob/bdd28e8/src/parser/types.ts#L528)
