@@ -1,8 +1,9 @@
 import clsx from 'clsx';
+import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import HomepageFeatures from '../components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
@@ -18,6 +19,7 @@ function HomepageHeader() {
           darkImageSrc={"img/logos/revisitLogoLong-dark.svg"}
           style={{width:'70%'}}
         />
+        
         {/* <img src="img/logos/revisitLogoLong.svg" style={{width:'60%'}}/> */}
         {/* <Heading as="h1" className="hero__title">
           {siteConfig.title}

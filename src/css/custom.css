@@ -15,10 +15,10 @@
   height:40px;
 }
 
-html[data-theme='light'] .footer-wrapper .logo.dark-theme {
+html[data-theme='light'] .dark-theme-display-component {
   display:none;
 }
-html[data-theme='dark'] .footer-wrapper .logo.light-theme {
+html[data-theme='dark'] .light-theme-display-component {
   display:none;
 }
 
