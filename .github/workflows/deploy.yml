@@ -1,0 +1,61 @@
+name: Deploy To GitHub Pages
+
+on:
+  repository_dispatch:
+    types: [study_repo_publish]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+
+      # Build study docs
+      - name: Clone study repo (for docs)
+        uses: actions/checkout@v3
+        with:
+          repository: revisit-studies/study
+          path: study
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+          cache-dependency-path: study/yarn.lock
+
+      - name: Install study dependencies
+        run: yarn --cwd=./study install
+
+      - name: Build study docs
+        run: yarn --cwd=./study buildDocs
+        working-directory: ./study
+
+      - name: Copy study docs to docs and cleanup
+        run: |
+          cp -r study/docs ./docs/typedoc
+          rm -rf study
+
+      # Build documentation repo
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build documentation
+        run: yarn build
+
+      # Deploy to GitHub Pages
+      - uses: peaceiris/actions-gh-pages@v3
+        name: Deploy
+        id: deploy
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
