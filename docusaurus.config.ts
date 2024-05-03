@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'reVISit',
+  title: 'ReVISit',
   tagline: 'A Toolkit For Data Visualization Experiments',
   favicon: 'img/favicon.ico',
 
@@ -16,7 +16,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'University of Utah', // Usually your GitHub org/user name.
-  projectName: 'reVISit', // Usually your repo name.
+  projectName: 'ReVISit', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -54,11 +54,11 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/logos/revisitLogoThumbnail.png',
     navbar: {
-      title: 'reVISit',
+      title: 'ReVISit',
       logo: {
-        alt: 'reVISit Logo',
-        src: 'img/logos/revisitLogoThumbnail-solid-light.svg',
-        srcDark: 'img/logos/revisitLogoThumbnail-solid-dark.svg'
+        alt: 'ReVISit Logo',
+        src: 'img/logos/revisitLogoThumbnail-dotted-light.svg',
+        srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
       items: [
         {to: '/introduction', label: 'Introduction', position: 'left'},
