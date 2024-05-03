@@ -33,7 +33,7 @@ const config: Config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'v1.0.0-beta5',
+              label: 'v1.0.0-beta6',
               path: ''
             }
           }
@@ -59,23 +59,23 @@ const config: Config = {
         srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
       items: [
-        {to: '/introduction', label: 'Introduction', position: 'left'},
-        {to: '/about', label: 'About', position: 'left'},
-        {to: '/community', label: 'Community', position: 'left'},
+        {to: '/introduction', label: 'v1.0.0-beta6', position: 'left'},
+        {to: '/about', label: 'v1.0.0-beta6', position: 'left'},
+        {to: '/community', label: 'v1.0.0-beta6', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'docs',
           position: 'left',
-          label: 'Documentation',
+          label: 'v1.0.0-beta6',
         },
-        {to: '/faq', label: 'FAQ', position: 'left'},
+        {to: '/faq', label: 'v1.0.0-beta6', position: 'left'},
         {
           type: 'docsVersionDropdown',
           position: 'right',
         },
         {
           href: 'https://github.com/revisit-studies/study',
-          label: 'GitHub',
+          label: 'v1.0.0-beta6',
           position: 'right',
         },
       ],
