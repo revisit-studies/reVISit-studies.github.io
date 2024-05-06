@@ -4,6 +4,10 @@ Hello! You've stumbled across the code for the reVISit documentation. The docume
 
 If you're working on the project, you might find the following information useful:
 
+### Contributing
+
+This site is built using [Docusaurus](https://docusaurus.io/). You can view all necessary documentation for working on this site there. Please make sure that you are creating a separate branch and making a pull request to the `main` branch when working on this site.
+
 ### Running the Documentation Locally
 
 Run the following commands to install the dependencies and start the development server:
