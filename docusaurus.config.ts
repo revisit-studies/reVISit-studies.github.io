@@ -59,7 +59,6 @@ const config: Config = {
         srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
       items: [
-        {to: '/introduction', label: 'Introduction', position: 'left'},
         {to: '/about', label: 'About', position: 'left'},
         {to: '/community', label: 'Community', position: 'left'},
         {
