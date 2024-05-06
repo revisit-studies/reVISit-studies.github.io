@@ -26,10 +26,16 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p> */}
         <div className={styles.buttons} style={{marginTop:"50px"}}>
-          <Link
+        <Link
             className="button button--secondary button--lg"
-            to="/introduction">
-            Read the Docs 
+            to="/about">
+            About ReVISit 
+          </Link>
+          <Link
+            className="button button--primary button--lg"
+            style={{marginLeft:'10px',color:'white'}}
+            to="/docs/introduction">
+            Get Started 
           </Link>
         </div>
       </div>
