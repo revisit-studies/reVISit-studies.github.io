@@ -33,7 +33,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--primary button--lg"
-            style={{marginLeft:'10px',color:'white'}}
+            style={{color:'white'}}
             to="/docs/introduction">
             Get Started 
           </Link>
