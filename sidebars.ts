@@ -49,6 +49,8 @@ const sidebars: SidebarsConfig = {
         id: 'authentication-authorization/index'
       },
       items:[
+        'authentication-authorization/adding-removing-ui',
+        'authentication-authorization/firebase-user-management'
       ]
     },
     {
