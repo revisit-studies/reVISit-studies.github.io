@@ -17,7 +17,7 @@ function HomepageHeader() {
         <ImageSwitcher 
           lightImageSrc={"img/logos/revisitLogoLong.svg"}
           darkImageSrc={"img/logos/revisitLogoLong-dark.svg"}
-          style={{width:'70%'}}
+          className='homepage-logo'
         />
         
         {/* <img src="img/logos/revisitLogoLong.svg" style={{width:'60%'}}/> */}
@@ -29,7 +29,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/introduction">
-            &#128218; Read All About It! &#128218;
+            Read the Docs 
           </Link>
         </div>
       </div>

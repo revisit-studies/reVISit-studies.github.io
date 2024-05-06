@@ -3,21 +3,31 @@ import React from 'react';
 interface ImageSwitcherProps {
   lightImageSrc: string,
   darkImageSrc: string,
-  style?: React.CSSProperties
+  style?: React.CSSProperties,
+  className?: string
 }
 
-const ImageSwitcher = ({lightImageSrc,darkImageSrc,style} : ImageSwitcherProps) => {
+const ImageSwitcher = ({lightImageSrc,darkImageSrc,style,className} : ImageSwitcherProps) => {
+  let darkClassName = 'dark-theme-display-component';
+  let lightClassName = 'light-theme-display-component';
+  
+  if(className){
+    darkClassName = darkClassName + ' ' + className;
+    lightClassName = lightClassName + ' ' + className;
+  }
   return (
     <>
       <img 
-        style={style} alt="Example banner"
+        style={style}
+        alt="Example banner"
         src={lightImageSrc}
-        className='light-theme-display-component'
+        className={lightClassName}
       />
       <img 
-        style={style} alt="Example banner"
+        style={style}
+        alt="Example banner"
         src={darkImageSrc}
-        className='dark-theme-display-component'
+        className={darkClassName}
       />
     </>
   )
