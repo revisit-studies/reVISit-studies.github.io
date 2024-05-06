@@ -18,3 +18,5 @@ The documentation will be available at [http://localhost:3000](http://localhost:
 ### Building and Deploying the Documentation
 
 The documentation is built and deployed automatically by GitHub Actions. When you push to the `main` branch, the documentation will be built and deployed to the `gh-pages` branch. See the `.github/workflows/deploy.yml` file for more information.
+
+In addition to pushes from the `main` branch in this repo, the documentation is also built and deployed when a new version of the `revisit-studies` repo is released. This is triggered by a workflow dispatch event from the `revisit-studies` repo. See the `.github/workflows/deploy_website.yaml` file in the `revisit-studies` repo for more information. In theory, this workflow dispatch only happens when there is a new version of the `revisit-studies` repo, which happens on PR from `dev` to `main` in the `revisit-studies` repo.
