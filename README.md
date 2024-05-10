@@ -25,7 +25,6 @@ The documentation is built and deployed automatically by GitHub Actions. When yo
 
 In addition to pushes from the `main` branch in this repo, the documentation is also built and deployed when a new version of the `revisit-studies` repo is released. This is triggered by a workflow dispatch event from the `revisit-studies` repo. See the `.github/workflows/deploy_website.yaml` file in the `revisit-studies` repo for more information. In theory, this workflow dispatch only happens when there is a new version of the `revisit-studies` repo, which happens on PR from `dev` to `main` in the `revisit-studies` repo.
 
-
 ### Our Versioning System
 
 Whenever our Github action for the `study` repository runs, it versions the current documentation. This gets labeled as the previous recent version. So if we are about to release `v1` and our previous release was `v1-beta`, then the versioning system will create a `version-v1-beta` folder in the `version_docs` folder. The contents of these files will be identical to the `docs` folder when this action is taken. Then, the `docs/` folder will be `v1`.
