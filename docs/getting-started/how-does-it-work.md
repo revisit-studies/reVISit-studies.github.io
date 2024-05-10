@@ -38,27 +38,27 @@ You can find the detailed documentation for the reVISit Spec [here](../typedoc/i
 
 ## Study Metadata
 
-The study metadata defines elements such as the study title, authors, and description. The title and description are shown on the landing page when you have multiple studies. The other fields are hidden to the user, but are saved to the database with participant tracking information. This allows you to see which version of the study a participant took. For more detailed documentation on the study metadata, check out the [documentation](../typedoc/interfacesStudyMetadata).
+The study metadata defines elements such as the study title, authors, and description. The title and description are shown on the landing page when you have multiple studies. The other fields are hidden to the user, but are saved to the database with participant tracking information. This allows you to see which version of the study a participant took. For more detailed documentation on the study metadata, check out the [documentation](../typedoc/interfaces/StudyMetadata).
 
 ## UI Configuration
 
-The UI configuration tells reVISit how the UI should be laid out, such as which image to use for the study logo, whether to include a sidebar, the contact email, etc. For more detailed documentation on the UI configuration, check out the [documentation](../typedoc/interfacesUIConfig).
+The UI configuration tells reVISit how the UI should be laid out, such as which image to use for the study logo, whether to include a sidebar, the contact email, etc. For more detailed documentation on the UI configuration, check out the [documentation](../typedoc/interfaces/UIConfig).
 
 ## Components
 
 Components are the building blocks for each study. 
 There are currently 5 types of components: 
-* [Image](../typedoc/interfacesImageComponent), 
-* [Website](../typedoc/interfacesWebsiteComponent), 
-* [Questionnaire](../typedoc/interfacesQuestionnaireComponent), 
-* [React](../typedoc/interfacesReactComponent), and 
-* [Markdown](../typedoc/interfacesMarkdownComponent).
+* [Image](../typedoc/interfaces/ImageComponent), 
+* [Website](../typedoc/interfaces/WebsiteComponent), 
+* [Questionnaire](../typedoc/interfaces/QuestionnaireComponent), 
+* [React](../typedoc/interfaces/ReactComponent), and 
+* [Markdown](../typedoc/interfaces/MarkdownComponent).
 
-Each component extends the [BaseIndividualComponent](../typedoc/interfacesBaseIndividualComponent) interface. To add a component to your study (which can be thought of as a "page" of your study), you add a JSON object representing that component to the "components" object with a key which you can define how you would like. Then, the `type` key in that JSON object controls which type of component you are referring to. 
+Each component extends the [BaseIndividualComponent](../typedoc/interfaces/BaseIndividualComponent) interface. To add a component to your study (which can be thought of as a "page" of your study), you add a JSON object representing that component to the "components" object with a key which you can define how you would like. Then, the `type` key in that JSON object controls which type of component you are referring to. 
 
 ### Collecting Responses
 
-Each component has a list of responses which represents a set of questions to ask to the user for that particular component. The user can describe where the question should be displayed in the UI, the instruction for the response, and the type of response input (e.g., a [numerical response](../typedoc/interfacesNumericalResponse), a [dropdown](../typedoc/interfacesDropdownResponse), a [slider](../typedoc/interfacesSliderResponse), etc). Each response interface extends the [BaseResponse](../typedoc/interfacesBaseResponse) interface.
+Each component has a list of responses which represents a set of questions to ask to the user for that particular component. The user can describe where the question should be displayed in the UI, the instruction for the response, and the type of response input (e.g., a [numerical response](../typedoc/interfaces/NumericalResponse), a [dropdown](../typedoc/interfaces/DropdownResponse), a [slider](../typedoc/interfaces/SliderResponse), etc). Each response interface extends the [BaseResponse](../typedoc/interfaces/BaseResponse) interface.
 
 The below example illustrates a simple consent component that is based on a Markdown file and has a response that asks for a signature: 
 
@@ -80,18 +80,18 @@ The below example illustrates a simple consent component that is based on a Mark
         }
 ```
 
-For more detailed documentation on the response section, check out the [documentation](../typedoc/interfacesBaseResponse).
+For more detailed documentation on the response section, check out the [documentation](../typedoc/interfaces/BaseResponse).
 
 ## Base Components and Inheritance
 
-[Base Components](../typedoc/interfacesStudyConfig#basecomponents) can be used to implement inheritance for components. This is often useful if you want to parameterize a component. For example: 
+[Base Components](../typedoc/interfaces/StudyConfig#basecomponents) can be used to implement inheritance for components. This is often useful if you want to parameterize a component. For example: 
 
 * You might have a stimulus, such as an image, where you want to ask multiple different questions.  
 * You might have a generic implementation of a stimulus, such as a bar chart, and you want to pass in data to change how the stimulus appears. 
 
 In both of these cases, you can set up a component once as a `baseComponent`, including linking to the stimulus and including (partial) responses, but then later write inherited, short components that extend the base component with the specific functionality you want. 
 
-For examples of how to write a base component, refer to the [documentation](../typedoc/interfacesStudyConfig#basecomponents) and to the [relevant tutorial](../getting-started/tutorial-questionnaire#adding-custom-html).
+For examples of how to write a base component, refer to the [documentation](../typedoc/interfaces/StudyConfig#basecomponents) and to the [relevant tutorial](../getting-started/tutorial-questionnaire#adding-custom-html).
 
 ## Sequence
 
@@ -129,4 +129,4 @@ All of these can be applied on arbitrarily nested "blocks", i.e., it is designed
     }
 ```
 
-You can find more detailed documentation about the sequencing strategies [here](../typedoc/interfacesComponentBlock).
+You can find more detailed documentation about the sequencing strategies [here](../typedoc/interfaces/ComponentBlock).
