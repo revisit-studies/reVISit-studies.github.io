@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FLX70EGV5P"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-FLX70EGV5P",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.7d888293.css">
-<script src="/assets/js/runtime~main.7fb3177f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.942dd5ad.js" defer="defer"></script>
 <script src="/assets/js/main.93fd0a77.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -15,20 +15,19 @@
 <p>The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.</p>
 <p>Start by navigating to the following github repository: <a href="https://github.com/revisit-studies/study" target="_blank" rel="noopener noreferrer">https://github.com/revisit-studies/study</a></p>
 <p>You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies.</p>
-<p>When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you&#x27;ve forked the repository into your own github account, you can clone the repository. You should see a <code>code</code> button on the main page of your forked repository. After clicking the dropdown arrow on this button, you&#x27;ll be given instructions on how to clone this repository to your local machine.</p>
+<p>When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you&#x27;ve forked the repository into your own github account, you can clone the repository. You should see a “code” button on the main page of your forked repository. After clicking the dropdown arrow on this button, you&#x27;ll be given instructions on how to clone this repository to your local machine.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>You can rename the repository to suit your needs, but if you change the name, you also need to adjust the <code>VITE_BASE_PATH</code> in your <a href="https://github.com/revisit-studies/study/blob/main/.env" target="_blank" rel="noopener noreferrer"><code>.env</code> file</a> to reflect that change.</p></div></div>
 <p>After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.</p>
 <p>To continue, you will need yarn installed. If you already have yarn installed, you can skip to Step 2 below. Otherwise, proceed with Step 1.</p>
-<div class="info-panel"><div class="info-text">Note that this requires that you have the package manager NPM installed. If you do not have NPM installed, please see <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" targe="_blank">here</a> to get started. These docs will also direct you on how to install Node -- a prerequisite of NPM.</div></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Note that this requires that you have the package manager NPM installed. If you do not have NPM installed, please see review <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" target="_blank" rel="noopener noreferrer">the NPM documentation</a> to get started. These docs will also direct you on how to install Node – a prerequisite of NPM.</p></div></div>
 <br>
 <p><strong>Step 1: Install yarn on your local computer using NPM:</strong></p>
-<p>npm i -g yarn</p>
-<br>
+<p><code>npm i -g yarn</code></p>
 <p><strong>Step 2: Once yarn is successfully installed, navigate to your forked repository and run the following yarn command:</strong></p>
-<p>yarn install</p>
+<p><code>yarn install</code></p>
 <p>This will install all the packages that the reVisit requires to run.</p>
-<br>
 <p><strong>Step 3: Once this is finished, you can now start the program:</strong></p>
-<p>yarn serve</p>
+<p><code>yarn serve</code></p>
 <p>This will launch a local server which can be accessed to view and interact with reVISit. By default, you can access this by visiting <a href="http://localhost:8080/" target="_blank" rel="noopener noreferrer">http://localhost:8080/</a>. Any change you make to the existing codebase will automatically update the front end.</p>
 <p>When you visit the site, you&#x27;ll be greeted with a list of pre-constructed demo studies. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/category/getting-started"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Getting Started</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/getting-started/tutorial-questionnaire"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Setting Up Your First Study</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer"><div class="container container-fluid"><div class="footer__links text--center"><div class="footer__links"><span class="footer__link-item"> 
             <div class="footer-wrapper">
