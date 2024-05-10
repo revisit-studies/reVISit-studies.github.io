@@ -67,7 +67,6 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {to: '/faq', label: 'FAQ', position: 'left'},
         {
           type: 'docsVersionDropdown',
           position: 'right',
