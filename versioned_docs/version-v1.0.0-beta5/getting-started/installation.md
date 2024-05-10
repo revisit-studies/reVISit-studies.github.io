@@ -11,15 +11,19 @@ Start by navigating to the following github repository: https://github.com/revis
 
 You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies. 
 
-When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own github account, you can clone the repository. You should see a `code` button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
+When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own github account, you can clone the repository. You should see a “code” button on the main page of your forked repository. After clicking the dropdown arrow on this button, you'll be given instructions on how to clone this repository to your local machine.
+
+:::info
+You can rename the repository to suit your needs, but if you change the name, you also need to adjust the `VITE_BASE_PATH` in your [`.env` file](https://github.com/revisit-studies/study/blob/main/.env) to reflect that change.
+:::
 
 After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
 
 To continue, you will need yarn installed. If you already have yarn installed, you can skip to Step 2 below. Otherwise, proceed with Step 1. 
 
-<div class="info-panel">
-    <div class="info-text">Note that this requires that you have the package manager NPM installed. If you do not have NPM installed, please see <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" targe="_blank">here</a> to get started. These docs will also direct you on how to install Node -- a prerequisite of NPM.</div>
-</div>
+:::info
+Note that this requires that you have the package manager NPM installed. If you do not have NPM installed, please see <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" targe="_blank">here</a> to get started. These docs will also direct you on how to install Node -- a prerequisite of NPM.
+:::
 
 <br/>
 
