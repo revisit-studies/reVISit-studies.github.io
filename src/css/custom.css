@@ -36,15 +36,6 @@ html[data-theme='dark'] .light-theme-display-component {
   }
 }
 
-.homepage-logo{
-  width:70%;
-}
-
-@media only screen and (max-width: 720px){
-  .homepage-logo{
-    width:auto;
-  }
-}
 
 
 /* You can override the default Infima variables here. */

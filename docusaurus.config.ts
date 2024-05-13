@@ -76,6 +76,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://revisit.dev/study',
+          label: 'Demo',
+          position: 'right',
+        },
       ],
     },
     footer: {

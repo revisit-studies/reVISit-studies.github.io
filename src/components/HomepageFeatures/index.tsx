@@ -6,9 +6,10 @@ type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
+  inputClass?: string
 };
 
-const FeatureList: FeatureItem[] = [
+const FeatureListOne: FeatureItem[] = [
   {
     title: 'Flexible And Powerful',
     Svg: require('@site/static/img/page-analysis.svg').default,
@@ -36,17 +37,36 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Data Collection',
+    Svg: require('@site/static/img/mobile-app.svg').default,
+    description: (
+      <>
+        From user inputs to complex window events, reVISit handles all data collection in a robust manner.
+      </>
+    ),
+    inputClass:'col--offset-2'
+  },
+  {
+    title: 'Disseminate Your Study',
+    Svg: require('@site/static/img/dns.svg').default,
+    description: (
+      <>
+        With reVISit, it's simple to move from the data collection phase to widely sharing your studies with the public. 
+      </>
+    ),
+  },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, Svg, description, inputClass}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--4',inputClass)}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+        <p >{description}</p>
       </div>
     </div>
   );
@@ -57,9 +77,10 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+          {FeatureListOne.map((props, idx) => {
+            return <Feature key={idx} {...props} />
+          }
+          )}
         </div>
       </div>
     </section>

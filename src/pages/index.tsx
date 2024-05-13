@@ -12,19 +12,28 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--secondary', styles.heroBanner)}>
       <div className="container">
-        <ImageSwitcher 
-          lightImageSrc={"img/logos/revisitLogoLong.svg"}
-          darkImageSrc={"img/logos/revisitLogoLong-dark.svg"}
-          className='homepage-logo'
-        />
-        
+        <div className={styles.titleContainer}>
+          <div className={clsx('hero__title',styles.description)}>
+          A study creation platform allowing you to quickly create, publish, and disseminate your customized visualization study.
+          </div>
+          <ImageSwitcher 
+            lightImageSrc={"img/logos/revisitLogoThumbnail-dotted-light.svg"}
+            darkImageSrc={"img/logos/revisitLogoThumbnail-dotted-dark.svg"}
+            className={clsx(styles.largeItem,styles.homepageLogo)}
+          />
+          <ImageSwitcher 
+            lightImageSrc={"img/logos/revisitLogoLong.svg"}
+            darkImageSrc={"img/logos/revisitLogoLong-dark.svg"}
+            className={clsx(styles.smallItem,styles.homepageLogo)}
+          />
+        </div>
         {/* <img src="img/logos/revisitLogoLong.svg" style={{width:'60%'}}/> */}
         {/* <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p> */}
-        <div className={styles.buttons} style={{marginTop:"50px"}}>
-        <Link
+        <div className={styles.buttons} style={{marginTop:'50px'}}>
+          <Link
             className="button button--secondary button--lg"
             to="/about">
             About ReVISit 
@@ -32,6 +41,11 @@ function HomepageHeader() {
           <Link
             className="button button--primary button--lg"
             style={{color:'white'}}
+            to="https://revisit.dev/study">
+            Try The Demo
+          </Link>
+          <Link
+            className="button button--info button--lg"
             to="/docs/introduction">
             Get Started 
           </Link>
