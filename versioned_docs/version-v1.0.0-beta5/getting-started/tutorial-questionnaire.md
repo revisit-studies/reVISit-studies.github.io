@@ -277,8 +277,6 @@ The "parameters" key is a dynamically valued key which is used to pass data to y
 
 To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json). 
 
-<div class='info-panel' type='warning'>
-    <div class="info-text">
-        In order for reVISit to properly identify users without a server and/or an authentication process, it relies on caching the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
-    </div>
-</div>
+:::warning
+In order for reVISit to properly identify users without a server and/or an authentication process, it relies on caching the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
+:::

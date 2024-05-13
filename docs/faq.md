@@ -30,4 +30,6 @@ A: reVISit is designed with "storage engines" in mind. By default, we use the lo
 
 A: A common issue is the debug token changing while developing. Whenever you clear the cache, you're debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. See [here](tutorials/firebase-setup#adding-an-app-to-the-firebase-project) to see how to register a debug token.
 
-<div class="info-panel" type="warning"><div class="info-text">A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.</div></div>
+:::warning
+A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.
+:::</div></div>

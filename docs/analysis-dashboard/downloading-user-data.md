@@ -18,11 +18,6 @@ Now that you are in admin mode, navigate to the end of the study. Once at the en
 
 ![Download User Data Step 3](./img/userdata_step3.jpg)
 
-<div class='info-panel' type='warning'>
-    <div class="info-text">
-    Currently, only JSON data is able to be exported by reVISit. We have plans to support Tidy CSV in the near future. 
-    </div>
-</div>
 :::warning
 Currently, only JSON data is able to be exported by reVISit. We have plans to support Tidy CSV in the near future. 
 :::
