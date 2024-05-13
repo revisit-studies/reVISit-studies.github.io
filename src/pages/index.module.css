@@ -12,7 +12,7 @@
 
 .homepageLogo{
   /* width:60%; */
-  height: 300px;
+  height: 250px;
 }
 
 .smallItem{
@@ -21,14 +21,14 @@
 
 .titleContainer{
   display:flex;
-  flex-direction:'row';
+  flex-direction:row;
   justify-content:space-between;
   align-items:center;
 }
 
 .titleContainer .description{
-  text-align: left;
-  margin-right:50px;
+  text-align: right;
+  margin-left:30px;
   font-weight: bold;
   line-height: 105%;
 }
@@ -51,7 +51,7 @@
   }
 
   .titleContainer{
-    flex-direction: column-reverse;
+    flex-direction: column;
 
   }
 

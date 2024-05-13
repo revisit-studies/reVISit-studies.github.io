@@ -13,9 +13,6 @@ function HomepageHeader() {
     <header className={clsx('hero hero--secondary', styles.heroBanner)}>
       <div className="container">
         <div className={styles.titleContainer}>
-          <div className={clsx('hero__title',styles.description)}>
-          A study creation platform allowing you to quickly create, publish, and disseminate your customized visualization study.
-          </div>
           <ImageSwitcher 
             lightImageSrc={"img/logos/revisitLogoThumbnail-dotted-light.svg"}
             darkImageSrc={"img/logos/revisitLogoThumbnail-dotted-dark.svg"}
@@ -26,6 +23,9 @@ function HomepageHeader() {
             darkImageSrc={"img/logos/revisitLogoLong-dark.svg"}
             className={clsx(styles.smallItem,styles.homepageLogo)}
           />
+          <div className={clsx('hero__title',styles.description)}>
+          A study creation platform allowing you to quickly create, publish, and disseminate your customized visualization study.
+          </div>
         </div>
         {/* <img src="img/logos/revisitLogoLong.svg" style={{width:'60%'}}/> */}
         {/* <Heading as="h1" className="hero__title">
