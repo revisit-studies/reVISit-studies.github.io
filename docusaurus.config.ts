@@ -3,9 +3,9 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'ReVISit',
-  tagline: 'A Toolkit For Data Visualization Experiments',
-  favicon: 'img/favicon.ico',
+  title: 'Home | ReVISit',
+  tagline: 'reVISit: Reproducible and Powerful Visualization User Studies',
+  favicon: 'img/logos/favicon.ico',
 
   url: 'https://revisit.dev',
   baseUrl: '/',

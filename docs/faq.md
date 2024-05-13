@@ -32,4 +32,4 @@ A: A common issue is the debug token changing while developing. Whenever you cle
 
 :::warning
 A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.
-:::</div></div>
+:::
