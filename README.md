@@ -36,3 +36,29 @@ Because we have a versioning system in docusaurus, all old documentation is plac
 
 ** Workflow as of 2024/05/10 **
 Until version 1 is released, we have a `v1-doc-updates` branch that we will be working off of. For now, pleas make separate feature branches off of this branch and then make PRs to this branch. When we release V1, this branch will be merged into main. Afterwards, our standard workflow may change.
+
+
+
+### Typesetting Conventions
+
+* Use [Admonitions](https://docusaurus.io/docs/markdown-features/admonitions) for info, tip, warning, etc. For example, a tip would look like this in Markdown: 
+```
+:::warning
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+```
+* Use opening and closing double quotes “ ” when you want to use quotes. 
+    * “ opening - is Option + [ on Mac
+    * ” closing - is Option + Shift + [ on Mac.
+    * Don't use code-style quotes ". Don't use single quotes at all. 
+* Use code highlighting whenever you're mentioning something that's code, like a `function_name()`. 
+* Use dashes properly:
+    * em-dash: — use instead of comma; use sparingly. [Option + Shift + Dash (-) on Mac]
+    * en-dash: – use for number ranges, 2–3 items. [Option + Dash (-) on Mac] 
+    * hyphen: - use for hyphenation
+
+
+
+
