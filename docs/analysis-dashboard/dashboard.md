@@ -4,9 +4,7 @@ sidebar_position: 3
 
 # Dashboard
 
-The dashboard is the landing page of the analysis platform, it provides an overview of the status of experiments.
-
-By clicking the menu button at the top right corner of the page, you will see this navigation sidebar, click on the Analysis button, you will be navigated to the dashboard page.
+The dashboard is the landing page of the analysis platform. It provides an overview of the status of each of your studies. On any page of reVISit, you can navigate to the analysis dashboard via the navigation menu in the upper right-hand corner.
 
 ![Side bar menu](./img/Revisit-analysis-menu.jpg)
 
