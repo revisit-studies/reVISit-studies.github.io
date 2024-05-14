@@ -64,8 +64,6 @@ const sidebars: SidebarsConfig = {
         'analysis-dashboard/dashboard',
         'analysis-dashboard/tableview',
         'analysis-dashboard/downloading-user-data',
-
-
       ]
     },
     'faq',
