@@ -4,7 +4,9 @@ sidebar_position: 3
 
 # Downloading User Data
 
-reVISit allows you to download participant's data using an admin interface -- there is no need to interact with Firebase directly. To start, navigate to a study that you wish to download participants data from. Then, add `?admin=t` to the url like in the image below.
+To download user data, you can use [Analysis Dashboard](./dashboard.md).
+
+In addition, reVISit allows you to download participant's data using an admin interface -- there is no need to interact with Firebase directly. To start, navigate to a study that you wish to download participants data from. Then, add `?admin=t` to the url like in the image below.
 
 
 <!-- <img src="{{ path }}userdata_step1.jpg" alt="Console" style="border: 2px solid black; border-radius: 5px;"> -->
