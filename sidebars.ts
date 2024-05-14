@@ -55,13 +55,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Analysis Dashboard',
+      label: 'Analysis Platform',
       link: {
         type: 'doc',
         id: 'analysis-dashboard/index'
       },
       items:[
-        'analysis-dashboard/downloading-user-data',
+        'analysis-dashboard/dashboard',
+        'analysis-dashboard/downloading-user-data'
+
       ]
     },
     'faq',

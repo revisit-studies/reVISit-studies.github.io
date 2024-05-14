@@ -58,4 +58,9 @@ See the `getting-started` section for how this renders.
 
  -->
 
-# ReVISit Analysis Dashboard
+# ReVISit Analysis Platform
+
+
+reVISit provides an analysis platform for researchers to analyze their data. 
+This platform is designed to allow researchers to quickly monitor their experimental data without needing to download it or perform analysis elsewhere. 
+The platform currently includes the Dashboard, a place to check experiments at a glance, and the Table View, where researchers can inspect each record in table format.
