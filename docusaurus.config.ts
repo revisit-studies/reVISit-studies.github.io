@@ -53,7 +53,7 @@ const config: Config = {
       appId: 'CE7T3Q5S25',
 
       // Public API key: it is safe to commit it
-      apiKey: '0e172022221452330a1cf49f25f6ebc6',
+      apiKey: 'b770eed5f5b04ae9496e1d1403ec88df',
 
       indexName: 'revisit-docusaurus',
 
