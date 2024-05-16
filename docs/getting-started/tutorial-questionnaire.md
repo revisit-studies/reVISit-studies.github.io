@@ -24,14 +24,14 @@ Create a file with the following contents:
 Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
 ```
 
-Save this file as “introduction.html” in the “basic-questionnaire-study/assets” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
+Save this file as “introduction.md in the “basic-questionnaire-study/assets” directory. Next, let’s create a “help” file. This will be used so that any user who needs help during the study will be able to read this markdown page.
 
 ```markdown
 # Help
 
 This is a questionnaire. For each question, be sure to provide and answer and then click **Next** when you’re ready to move onto the next question.
 ```
-Save this file as “help.html” in the “basic-questionnaire-study/assets” directory.
+Save this file as “help.md in the “basic-questionnaire-study/assets” directory.
 
 Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
 
@@ -56,7 +56,7 @@ Create a new file called “config.json”. Then, copy and paste the following j
     },
     "uiConfig": {
         "contactEmail": "test@test.com",
-        "helpTextPath": "basic-questionnaire-study/assets/help.html",
+        "helpTextPath": "basic-questionnaire-study/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,
         "autoDownloadStudy": false,
@@ -65,7 +65,7 @@ Create a new file called “config.json”. Then, copy and paste the following j
     "components": {
         "introduction": {
             "type": "markdown",
-            "path": "basic-questionnaire-study/assets/introduction.html",
+            "path": "basic-questionnaire-study/assets/introduction.md",
             "response": []
         },
         "first-question-set": {
