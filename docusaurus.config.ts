@@ -55,7 +55,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: '0e172022221452330a1cf49f25f6ebc6',
 
-      indexName: 'revisit',
+      indexName: 'revisit-docusaurus',
 
       // Ensures that search is based on version
       contextualSearch: true,
