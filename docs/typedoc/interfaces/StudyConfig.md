@@ -9,7 +9,7 @@ The StudyConfig interface is used to define the properties of a study configurat
 
 ```js
 {
-   "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/v1.0.0-beta5/src/parser/StudyConfigSchema.json",
+   "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/v1.0.0-beta9/src/parser/StudyConfigSchema.json",
    "studyMetadata": {
      ...
    },
