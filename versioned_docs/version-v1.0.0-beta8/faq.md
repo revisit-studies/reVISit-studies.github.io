@@ -19,7 +19,7 @@ A: reVISit is designed to be a single page web application. If you run `yarn bui
 
 ### Q: How do store data in Firebase in a country outside of the U.S.?
 
-A: Firebase allows choosing the region for both Firestore and Storage. Please see <a href="https://firebase.google.comprojects/locations)" target="_blank">here</a> for documentation on how to choose these regions for both the Real Time Database and Cloud Firestore/Cloud Storage.
+A: Firebase allows choosing the region for both Firestore and Storage. Please see <a href="https://firebase.google.com/docs/firestore/locations" target="_blank">here</a> for documentation on how to choose these regions for both the Real Time Database and Cloud Firestore/Cloud Storage.
 
 
 ### Q: How do I store data in something other than Firebase?
