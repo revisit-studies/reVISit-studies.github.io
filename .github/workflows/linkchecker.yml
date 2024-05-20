@@ -1,0 +1,30 @@
+name: CheckLinks
+on:
+  push:
+    branches:
+      - '**'
+  schedule:
+    - cron: '13 10 * * *'
+
+jobs:
+  checklinks:
+    name: Check Links
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Build documentation repo
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+      
+      - name: Install dependencies
+        run: yarn install --immutable
+      
+      - name: Build documentation
+        run: yarn build
+
+      - name: Run link checker
+        run: yarn checkLinks
