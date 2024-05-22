@@ -10,16 +10,16 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: revisit-studies/study
           path: study
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'yarn'
@@ -45,11 +45,10 @@ jobs:
           echo "second_latest_tag=${tags[1]}" >> $GITHUB_OUTPUT
 
       # Yarn install for docusaurus
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'yarn'
-          cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn install --immutable
       - name: Create a version based on the second latest tag
@@ -69,6 +68,7 @@ jobs:
         run: |
           git config --global user.email "jackwilburn@tutanota.com"
           git config --global user.name "Jack Wilburn"
+          git pull
           git add .
           git commit -m "Create a new version based on the latest tag"
           git push
