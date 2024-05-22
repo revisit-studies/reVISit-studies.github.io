@@ -11,4 +11,4 @@ The SkipConditions interface is used to define skip conditions. This is used to 
 
 ## Source
 
-[parser/types.ts:528](https://github.com/revisit-studies/study/blob/9476518/src/parser/types.ts#L528)
+[parser/types.ts:570](https://github.com/revisit-studies/study/blob/bf76ab7/src/parser/types.ts#L570)
