@@ -207,7 +207,9 @@ The HTML code below uses the extensive D3.js library. It renders a simple, horiz
 
         // Post answer from the html to reVISit platform
         .on('click', (e, d) => {
-          Revisit.postAnswers({ answer: [d], taskID, location: loc });
+          Revisit.postAnswers({
+            [taskID]: d,
+          });
         });
 
       svg
