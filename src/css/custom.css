@@ -15,6 +15,10 @@
   height:40px;
 }
 
+.footer-wrapper .col{
+  padding:5px !important;
+}
+
 html[data-theme='light'] .dark-theme-display-component {
   display:none;
 }
@@ -32,7 +36,20 @@ html[data-theme='dark'] .light-theme-display-component {
 
 @media only screen and (max-width: 1024px){
   .footer-wrapper .logo{
-    height: 20px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 996px){
+  .footer-wrapper .col{
+    --ifm-col-width:calc(3 / 12 * 100%);
+  }
+}
+
+@media only screen and (max-width:768px){
+  .footer-wrapper .col{
+    --ifm-col-width:100%;
+    margin:10px 0px;
   }
 }
 
