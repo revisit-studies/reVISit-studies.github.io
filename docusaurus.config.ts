@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Home | ReVISit',
   tagline: 'reVISit: Reproducible and Powerful Visualization User Studies',
-  favicon: 'img/logos/favicon.ico',
+  favicon: 'img/logos/favicon.svg',
 
   url: 'https://revisit.dev',
   baseUrl: '/',
@@ -121,35 +121,35 @@ const config: Config = {
       links: [
         {
           html:` 
-            <div class="footer-wrapper">
-              <a target="_blank" href="https://vdl.sci.utah.edu/">
+            <div class="footer-wrapper row">
+              <a class="col " target="_blank" href="https://vdl.sci.utah.edu/">
                 <img src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/vdl-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a target="_blank" href="https://www.sci.utah.edu/">
+              <a class="col " target="_blank" href="https://www.sci.utah.edu/">
                 <img src="/img/logos/sci-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/sci-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a target="_blank" href="https://www.cs.utah.edu/">
+              <a class="col " target="_blank" href="https://www.cs.utah.edu/">
                 <img src="/img/logos/ULogo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/ULogo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a target="_blank" href="http://web.cs.wpi.edu/~ltharrison/">
+              <a class="col " target="_blank" href="http://web.cs.wpi.edu/~ltharrison/">
                 <img src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/view-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a target="_blank" href="https://wpi.edu/">
+              <a class="col " target="_blank" href="https://wpi.edu/">
                 <img src="/img/logos/wpi.png" class='logo'/>
               </a>
-              <a target="_blank" href="https://www.cs.toronto.edu/~cnobre/">
+              <a class="col " target="_blank" href="https://www.cs.toronto.edu/~cnobre/">
                 <img src="/img/logos/HIVE_logo.png" class='logo light-theme-display-component'/>
                 <img src="/img/logos/HIVE-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a target="_blank" href="https://www.cs.toronto.edu/">
+              <a class="col " target="_blank" href="https://www.cs.toronto.edu/">
                 <img src="/img/logos/UofTLogo.png" class='logo light-theme-display-component'/>
                 <img src="/img/logos/UofT-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a target="_blank" href="https://www.nsf.gov/">
+              <a class="col " target="_blank" href="https://www.nsf.gov/">
                 <img src="/img/logos/nsf.png" class='logo'/>
               </a>                                                       
             </div>
