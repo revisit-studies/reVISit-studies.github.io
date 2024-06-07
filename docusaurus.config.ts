@@ -92,14 +92,16 @@ const config: Config = {
         srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
       items: [
-        {to: '/about', label: 'About', position: 'left'},
+     
         {to: '/community', label: 'Community', position: 'left'},
+    
         {
           type: 'docSidebar',
           sidebarId: 'docs',
           position: 'left',
           label: 'Documentation',
         },
+        {to: '/about', label: 'About', position: 'left'},
         {
           type: 'docsVersionDropdown',
           position: 'right',
