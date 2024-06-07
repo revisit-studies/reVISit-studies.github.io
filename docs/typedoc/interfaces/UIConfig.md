@@ -11,8 +11,8 @@ The UIConfig is also used to configure the sidebar, which can be used to display
 ```js
  uiConfig:{
    "contactEmail": "test@test.com",
-   "helpTextPath": "path/to/assets/help.md",
-   "logoPath": "path/to/assets/logo.jpg",
+   "helpTextPath": "<study-name>/assets/help.md",
+   "logoPath": "<study-name>/assets/logo.jpg",
    "withProgressBar": true,
    "autoDownloadStudy": true
    "autoDownloadTime": 5000,
