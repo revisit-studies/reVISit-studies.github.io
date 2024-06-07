@@ -10,7 +10,7 @@ The WebsiteComponent interface is used to define the properties of a website com
 ```js
  {
    "type": "website",
-   "path": "path/to/study/assets/website.html",
+   "path": "<study-name>/assets/website.html",
  }
 ```
 
@@ -19,7 +19,7 @@ To pass a data from the config to the website, you can use the `parameters` fiel
 ```js
  {
    "type": "website",
-   "path": "path/to/website.html",
+   "path": "<study-name>/website.html",
    "parameters": {
      "barData": [0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
    }

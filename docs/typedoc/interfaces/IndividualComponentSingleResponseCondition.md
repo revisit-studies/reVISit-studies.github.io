@@ -5,7 +5,33 @@ displayed_sidebar: docs
 
 # IndividualComponentSingleResponseCondition
 
-The IndividualComponentSingleResponseCondition interface is used to define a SkipCondition based on a single answer to a specific component. If the component is repeated within the block, this condition will only check the first instance of the component once the order is flattened.
+The IndividualComponentSingleResponseCondition interface is used to define a SkipCondition based on a single answer to a specific component. The skip logic will be checked for every component in the block that has the specified name.
+
+:::info
+
+If you need to check all instances of a repeated component, you should use the RepeatedComponentBlockCondition.
+
+:::
+
+For example, if you want to skip to a different component based on a response to a specific component, you would use the IndividualComponentSingleResponseCondition. Here's an example of how to use the IndividualComponentSingleResponseCondition:
+
+```js
+{
+  ...
+  "skip": [
+    {
+      "name": "attentionCheck",
+      "check": "response",
+      "responseId": "attentionCheckResponse",
+      "value": "the right answer",
+      "to": "end"
+    }
+  ]
+  ...
+}
+```
+
+In this example, we assign our skip logic to the component whose ID is "attentionCheck". If the answer given to the response "attentionCheckResponse" is equal to "the right answer", then the user will be redirected to the end of the study. If the response is _not_ equal to "the right answer", then the participant will continue to the next component in the sequence.
 
 ## Properties
 
