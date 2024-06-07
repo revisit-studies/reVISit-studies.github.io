@@ -67,7 +67,7 @@ reVISit is funded by the [National Science Foundation](https://vdl.sci.utah.edu/
 
 We are grateful to Cindy Xiong Bearfield, Lace Padilla, and Danielle Albers Szafir for advice on the requirements of a study platform. 
 
-<img src="img/logos/nsf.png" style={{"height":'200px'}}/> 
+<img src="/img/logos/nsf.png" style={{"height":'200px'}}/> 
 
 
 
