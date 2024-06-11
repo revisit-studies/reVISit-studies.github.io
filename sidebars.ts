@@ -38,6 +38,7 @@ const sidebars: SidebarsConfig = {
       items:[
         'tutorials/firebase-setup',
         'tutorials/deploying-to-static-website',
+        'tutorials/html-stimulus',
         'tutorials/dissemination-of-study'
       ]
     },
