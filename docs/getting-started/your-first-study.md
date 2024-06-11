@@ -4,15 +4,14 @@ sidebar_position: 3
 
 # Setting Up Your First Study
 
-## Basic Questionnaire Study
 
 Let's start with setting up a simple questionnaire study.
 
 :::note
-It is easiest to perform the following tutorial with an IDE. We suggest something like VSCode since it has JSON autocomplete.
+It is easiest to perform the following tutorial with an IDE. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
 :::
 
-You’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the “public” directory. Start by making a new directory called “basic-questionnaire-study” in the "public" directory. Inside this folder, create another directory called "assets". The assets directory will be where all of our various components are held.
+After cloning your fork of the repository to your computer, you’ll see that the repository consists of many high level directories. For this tutorial, we will solely be working with the `public` directory. Start by making a new directory called “basic-questionnaire-study” in the "public" directory. Inside this folder, create another directory called "assets". The assets directory will be where all of our various components are held.
 
 Once that is done, we will make an “introduction” markdown file. This will be used as the introduction to the study for your users.
 
