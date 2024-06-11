@@ -4,8 +4,13 @@ sidebar_position: 3
 
 # Setting Up Your First Study
 
+In this tutorial we will use the example of a simple survey. You will learn: 
 
-Let's start with setting up a simple questionnaire study.
+* How to set up your own copy of revisit.
+* How to write a simple reVISit spec with survey questions split into multiple pages.
+* How to register your study with reVISit so it shows up on your local web-server.
+* How to run the local webserver and access / preview your study. 
+
 
 :::note
 It is easiest to best to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
@@ -55,7 +60,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
         ]
     },
     "uiConfig": {
-        "contactEmail": "test@test.com",
+        "contactEmail": "contact@revisit.dev",
         "helpTextPath": "basic-questionnaire-study/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,
@@ -72,7 +77,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
             "type": "questionnaire",
             "response": [
                 {
-                    "id": "q1",
+                    "id": "q1-name",
                     "prompt": "What is your first name?",
                     "required": true,
                     "location": "aboveStimulus",
@@ -80,7 +85,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
                     "placeholder": "Please enter your first name"
                 },
                 {
-                    "id": "q2",
+                    "id": "q2-color",
                     "prompt": "What is your favorite color?",
                     "required": true,
                     "location": "aboveStimulus",
@@ -107,8 +112,8 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
             "type": "questionnaire",
             "response": [
                 {
-                    "id": "q1",
-                    "prompt": "What would you rate your satisfaction of this survey from 0 (not enjoyable) to 5 (very enjoyable).",
+                    "id": "q3-satisfaction",
+                    "prompt": "Rate your satisfaction with this survey from 1 (not enjoyable) to 5 (very enjoyable).",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "likert",
@@ -153,5 +158,7 @@ After this, add `basic-questionnaire-study` into the `configsList` list in the s
 
 ## Running the Server
 
-Now, if you start the server (using `yarn serve` as described in the <a href="#installation">Installation</a> section), you'll be able to navigate to http://localhost:8080/ and view your study in the list of studies. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to enter the study directly.
+Now, if you start the server (using `yarn serve` as described in the <a href="#installation">Installation</a> section), you'll be able to navigate to http://localhost:8080/ and view your study in the list of studies. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to view the study directly.
+
+You should now see your study and be able to navigate quickly through it. However, your study is currently set up for development, so you won't be collecting any data yet. Go to the next getting started guide to learn how to enable data collection and download your data.
 

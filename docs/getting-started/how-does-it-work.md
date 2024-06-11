@@ -83,7 +83,7 @@ For more detailed documentation on the response section, check out the [document
 
 In both of these cases, you can set up a component once as a `baseComponent`, including linking to the stimulus and including (partial) responses, but then later write inherited, short components that extend the base component with the specific functionality you want. 
 
-For examples of how to write a base component, refer to the [documentation](../typedoc/interfaces/StudyConfig#properties) and to the [relevant tutorial](../getting-started/e#adding-custom-html).
+For examples of how to write a base component, refer to the [documentation](../typedoc/interfaces/StudyConfig#properties) and to the [relevant tutorial](../tutorials/html-stimulus.md).
 
 ## Sequence
 
