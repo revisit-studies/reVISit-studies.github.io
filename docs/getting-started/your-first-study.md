@@ -8,7 +8,7 @@ sidebar_position: 3
 Let's start with setting up a simple questionnaire study.
 
 :::note
-It is easiest to perform the following tutorial with an IDE. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
+It is easiest to best to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
 :::
 
 ## Setting Up Repos and Files
