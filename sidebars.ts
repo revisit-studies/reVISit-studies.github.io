@@ -25,7 +25,8 @@ const sidebars: SidebarsConfig = {
       items: [
         'getting-started/how-does-it-work',
         'getting-started/installation',
-        'getting-started/your-first-study'
+        'getting-started/your-first-study',
+        'getting-started/collecting-data'
       ],
     },
     {
