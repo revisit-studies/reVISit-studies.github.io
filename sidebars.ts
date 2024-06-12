@@ -40,7 +40,8 @@ const sidebars: SidebarsConfig = {
         'tutorials/firebase-setup',
         'tutorials/deploying-to-static-website',
         'tutorials/html-stimulus',
-        'tutorials/dissemination-of-study'
+        'tutorials/dissemination-of-study',
+        'tutorials/provenance-tracking'
       ]
     },
     {
