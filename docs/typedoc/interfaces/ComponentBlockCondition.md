@@ -7,7 +7,7 @@ displayed_sidebar: docs
 
 The ComponentBlockCondition interface is used to define a SkipCondition based on the number of correct or incorrect components in a block. All answers on all components in the block are checked.
 
-Answers are checked against the correct answers defined in the IndividualComponent's [CorrectAnswer](./Answer). If no correct answers are defined, the component is considered correct by default.
+Answers are checked against the correct answers defined in the IndividualComponent's [CorrectAnswer](../Answer). If no correct answers are defined, the component is considered correct by default.
 
 You might use this if a participant answers two questions in a block incorrectly. Here's an example of how to use the ComponentBlockCondition:
 
