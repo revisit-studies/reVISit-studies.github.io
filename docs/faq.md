@@ -5,12 +5,12 @@ sidebar_position: 1
 
 # FAQ 
 
-Below we have a list of some frequently asked questions. We try to make sure that this page is updated as frequently as possible. If you have a question that is not answered by this page or the rest of the [documentation](introduction/), you can join the [reVISit Slack group](https://join.slack.com/t/revisit-nsf/shared_invite/zt-2g1lwcq5y-Yae8eBEbMO~r7tP~ZQ7Cig). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
+Below we have a list of some frequently asked questions. We try to make sure that this page is updated as frequently as possible. If you have a question that is not answered by this page or the rest of the [documentation](../introduction/), you can join the [reVISit Slack group](https://join.slack.com/t/revisit-nsf/shared_invite/zt-2g1lwcq5y-Yae8eBEbMO~r7tP~ZQ7Cig). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
 
 
 ### Q: Is there a version of this application that I do not need to host myself?
 
-A: reVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offer no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using Github Pages and Firebase. Using these two tools requires no domain name setups, no external server to host the application, and no backend database to store your data; all of this can be achieved by using Firebase and Github pages. Please see [here](tutorials/firebase-setup) to get started with setting up Firebase and see [here](tutorials/deploying-to-static-website) for deploying to Github pages. 
+A: reVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offer no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using Github Pages and Firebase. Using these two tools requires no domain name setups, no external server to host the application, and no backend database to store your data; all of this can be achieved by using Firebase and Github pages. Please see [here](../tutorials/firebase-setup) to get started with setting up Firebase and see [here](../tutorials/deploying-to-static-website) for deploying to Github pages. 
 
 However, we are considering making hosting available in a future version to further simplify the process of creating your own study. Let us know if that would be important to you!
 
@@ -30,7 +30,7 @@ A: reVISit is designed with “storage engines” in mind. By default, we use th
 
 ### Q: I had Firebase connected but it no longer works locally. What happened?
 
-A: A common issue is the debug token changing while developing. Whenever you clear the cache, you're debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. [Review the tutorial](tutorials/firebase-setup#adding-an-app-to-the-firebase-project) to see how to register a debug token.
+A: A common issue is the debug token changing while developing. Whenever you clear the cache, you're debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. [Review the tutorial](../tutorials/firebase-setup#adding-an-app-to-the-firebase-project) to see how to register a debug token.
 
 :::warning
 A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.

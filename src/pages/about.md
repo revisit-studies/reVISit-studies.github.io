@@ -23,7 +23,7 @@ The key innovations of this project are:
 
 You can check out a few example projects on our [demo page](https://revisit.dev/study/). All of the demos on this site are build from stimuli and examples that you can find in the [github repo](https://github.com/revisit-studies/study).
 
-Check out the [getting started tutorial](docs/introduction/) to learn how to build your own experiment. 
+Check out the [getting started tutorial](../docs/introduction/) to learn how to build your own experiment. 
 
 ## Paper
 

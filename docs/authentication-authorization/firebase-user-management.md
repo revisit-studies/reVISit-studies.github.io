@@ -1,7 +1,7 @@
 # Firebase User Management
 
 :::danger
-In general, we do not advise editing the user management data directly in the Firestore Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](adding-removing-ui) for editing users within the reVISit UI
+In general, we do not advise editing the user management data directly in the Firestore Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../adding-removing-ui) for editing users within the reVISit UI
 :::
 
 ReVISit allows you to handle all necessary user management from the reVISit UI. However, if you are ever in a situation where you have lost access to the reVISit application, you can still edit the user access via the Firestore.

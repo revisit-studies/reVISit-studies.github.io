@@ -135,7 +135,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
 }
 ```
 
-The above code uses a [long text input](../typedoc/interfaces/LongTextResponse), a [drop-down input](../typedoc/interfaces/DropdownResponse), and a [likert scale input](../typedoc/interfaces/LikertResponse/). The questions are split up into two “pages”, the `first-question-set` and the `second-question-set`. The sequence is a simple linear sequence showing intro, first question and then second question set.
+The above code uses a [long text input](../../typedoc/interfaces/LongTextResponse), a [drop-down input](../../typedoc/interfaces/DropdownResponse), and a [likert scale input](../../typedoc/interfaces/LikertResponse/). The questions are split up into two “pages”, the `first-question-set` and the `second-question-set`. The sequence is a simple linear sequence showing intro, first question and then second question set.
 
 ## Registering the Study
 
