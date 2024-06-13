@@ -9,6 +9,7 @@ const config: Config = {
 
   url: 'https://revisit.dev',
   baseUrl: '/',
+  trailingSlash: true,
 
   organizationName: 'University of Utah', // Usually your GitHub org/user name.
   projectName: 'ReVISit', // Usually your repo name.
