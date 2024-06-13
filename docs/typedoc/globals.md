@@ -23,8 +23,8 @@ displayed_sidebar: docs
 - [LikertResponse](interfaces/LikertResponse.md)
 - [LongTextResponse](interfaces/LongTextResponse.md)
 - [MarkdownComponent](interfaces/MarkdownComponent.md)
+- [NumberOption](interfaces/NumberOption.md)
 - [NumericalResponse](interfaces/NumericalResponse.md)
-- [Option](interfaces/Option.md)
 - [ParticipantData](interfaces/ParticipantData.md)
 - [QuestionnaireComponent](interfaces/QuestionnaireComponent.md)
 - [RadioResponse](interfaces/RadioResponse.md)
@@ -35,6 +35,7 @@ displayed_sidebar: docs
 - [ShortTextResponse](interfaces/ShortTextResponse.md)
 - [SliderResponse](interfaces/SliderResponse.md)
 - [StoredAnswer](interfaces/StoredAnswer.md)
+- [StringOption](interfaces/StringOption.md)
 - [StudyConfig](interfaces/StudyConfig.md)
 - [StudyMetadata](interfaces/StudyMetadata.md)
 - [UIConfig](interfaces/UIConfig.md)
@@ -42,6 +43,7 @@ displayed_sidebar: docs
 
 ## Type Aliases
 
+- [BaseComponents](type-aliases/BaseComponents.md)
 - [IndividualComponent](type-aliases/IndividualComponent.md)
 - [InheritedComponent](type-aliases/InheritedComponent.md)
 - [InterruptionBlock](type-aliases/InterruptionBlock.md)
