@@ -8,6 +8,20 @@ displayed_sidebar: docs
 The NumericalResponse interface is used to define the properties of a numerical response.
 NumericalResponses render as a text input that only accepts numbers, and can optionally have a min and max value, or a placeholder.
 
+Example:
+```js
+{
+   "id": "q-numerical",
+   "prompt": "Numerical example",
+   "required": true,
+   "location": "aboveStimulus",
+   "type": "numerical",
+   "placeholder": "Enter your age, range from 0 - 120",
+   "max": 120,
+   "min": 0
+}
+```
+
 ## Extends
 
 - [`BaseResponse`](BaseResponse.md)
@@ -18,7 +32,7 @@ NumericalResponses render as a text input that only accepts numbers, and can opt
 | :------ | :------ | :------ | :------ |
 | `hidden?` | `boolean` | Controls whether the response is hidden. | [`BaseResponse`](BaseResponse.md).`hidden` |
 | `id` | `string` | The id of the response. This is used to identify the response in the data file. | [`BaseResponse`](BaseResponse.md).`id` |
-| `location` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. | [`BaseResponse`](BaseResponse.md).`location` |
+| `location?` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. Defaults to `belowStimulus` | [`BaseResponse`](BaseResponse.md).`location` |
 | `max?` | `number` | The maximum value that is accepted in the input. | - |
 | `min?` | `number` | The minimum value that is accepted in the input. | - |
 | `paramCapture?` | `string` | Use to capture querystring parameters in answers such as participant_name. See the examples for how this is used, but prefer uiConfig.urlParticipantIdParam if you are capturing a participant ID. | [`BaseResponse`](BaseResponse.md).`paramCapture` |
@@ -27,4 +41,5 @@ NumericalResponses render as a text input that only accepts numbers, and can opt
 | `required` | `boolean` | Controls whether the response is required to be answered. | [`BaseResponse`](BaseResponse.md).`required` |
 | `requiredLabel?` | `string` | You can provide a required label, which makes it so a participant has to answer with a response that matches label. | [`BaseResponse`](BaseResponse.md).`requiredLabel` |
 | `requiredValue?` | `unknown` | You can provide a required value, which makes it so a participant has to answer with that value. | [`BaseResponse`](BaseResponse.md).`requiredValue` |
+| `secondaryText?` | `string` | The secondary text that is displayed to the participant under the prompt. This does not accept markdown. | [`BaseResponse`](BaseResponse.md).`secondaryText` |
 | `type` | `"numerical"` | - | - |
