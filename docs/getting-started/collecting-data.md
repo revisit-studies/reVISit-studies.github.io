@@ -12,7 +12,7 @@ reVISit supports two modes of data collection:
 1. Storing data on your **local computer**. This is useful for testing and if you are running an in-lab study. Local storage is also easy to set up. 
 2. Storing data on **Firebase, a cloud storage provider**. This is useful and necessary if you want to run an online study. 
 
-In this getting-started guide, we will **only cover local storage**. For setting up cloud storage, please refer to the [Firebase tutorial](../tutorials/firebase-setup.md).
+In this getting-started guide, we will **only cover local storage**. For setting up cloud storage, please refer to the [Firebase tutorial](../data-and-deployment/firebase-setup.md).
 
 ## Enabling Data Recording
 

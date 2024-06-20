@@ -1,7 +1,7 @@
 # User Management In reVISit
 
 :::tip
-To use the user-management system that is built into reVISit, you must have a Firebase application set up. Please see [here](../tutorials/firebase-setup) for how to set up a Firebase application.
+To use the user-management system that is built into reVISit, you must have a Firebase application set up. Please see [here](../firebase-setup) for how to set up a Firebase application.
 :::
 
 ReVISit comes with an authentication and authorization system that allows a study creator to manage what users should have access to (possibly sensitive) user data and analysis. This is managed with Firebase's Google SSO and custom authorization tools built into the reVISit application. Enabling the authentication system will not interfere with who can take an individual study. Instead, it will allow a study creator to feel confident that a participant is not navigating to portions of the application which is intended for the study creator only.
