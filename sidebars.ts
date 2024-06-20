@@ -78,18 +78,8 @@ const sidebars: SidebarsConfig = {
       },
       items:[
         'analysis/data-management',
-        {
-          type: 'category',
-          label: 'Analysis Platform',
-          link: {
-            type: 'doc',
-            id: 'analysis/analysis-dashboard/index'
-          },
-          items:[
-            'analysis/analysis-dashboard/dashboard',
-            'analysis/analysis-dashboard/tableview',
-          ]
-        },
+        'analysis/dashboard',
+        'analysis/tableview'
       ]
     },
     'faq',
