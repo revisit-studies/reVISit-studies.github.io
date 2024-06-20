@@ -32,7 +32,7 @@ The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define t
 
 We'll explain the ideas in the next section, and link to the documentation for more details. 
 
-Check out the [detailed documentation](../typedoc/interfaces/StudyConfig) for the reVISit Spec.
+Check out the [detailed documentation](../../typedoc/interfaces/StudyConfig) for the reVISit Spec.
 
 ## Study Metadata
 
