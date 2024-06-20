@@ -22,7 +22,7 @@ At any point, the current study data can be restored to a snapshot. In your snap
 
 A snapshot can be deleted at any time in order to free up space in your Firebase application. Simply click the "delete" icon next to any snapshot and follow the onscreen instructions to remove it.
 
-:::warning
+:::danger
 All data deletion is permanent. Once deleted, you will not be able to view or download this data.
 :::
 
@@ -30,7 +30,7 @@ All data deletion is permanent. Once deleted, you will not be able to view or do
 
 You can delete the live study data at any point. Note that this delete functionality will _not_ create a snapshot of the data first; it will instead completely clear the data for this individual study.
 
-:::warning
+:::danger
 All data deletion is permanent. Once deleted, you will not be able to view or download this data.
 :::
 
