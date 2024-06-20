@@ -9,4 +9,4 @@ displayed_sidebar: docs
 
 ## Source
 
-[parser/types.ts:267](https://github.com/revisit-studies/study/blob/f193c37/src/parser/types.ts#L267)
+[parser/types.ts:435](https://github.com/revisit-studies/study/blob/b1ee783ec66e57b6eaa9ef3dbb2ca917e498439b/src/parser/types.ts#L435)
