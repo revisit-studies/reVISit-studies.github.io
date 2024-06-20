@@ -31,41 +31,65 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Tutorials',
+      label: 'Designing Studies',
       link: {
-        type: 'generated-index'
+        type: 'doc',
+        id:'designing-studies/index'
       },
       collapsed:false,
       items:[
-        'tutorials/firebase-setup',
-        'tutorials/deploying-to-static-website',
-        'tutorials/html-stimulus',
-        'tutorials/dissemination-of-study',
-        'tutorials/provenance-tracking'
+        'designing-studies/html-stimulus',
+        'designing-studies/provenance-tracking',
+        'designing-studies/react-stimulus',
+        'designing-studies/study-sequences'
       ]
     },
     {
-      type: 'category',
-      label: 'Authentication and Authorization',
-      link: {
-        type: 'doc',
-        id: 'authentication-authorization/index'
+      type:'category',
+      label:'Data And Deployment',
+      link:{
+        type:'doc',
+        id:'data-and-deployment/index'
       },
       items:[
-        'authentication-authorization/adding-removing-ui',
-        'authentication-authorization/firebase-user-management'
+        'data-and-deployment/deploying-to-static-website',
+        'data-and-deployment/firebase-setup',
+        'data-and-deployment/lifecycle-of-revisit',
+        {
+          type: 'category',
+          label: 'Authentication and Authorization',
+          link: {
+            type: 'doc',
+            id: 'data-and-deployment/authentication-authorization/index'
+          },
+          items:[
+            'data-and-deployment/authentication-authorization/adding-removing-ui',
+            'data-and-deployment/authentication-authorization/firebase-user-management'
+          ]
+        },
       ]
     },
     {
-      type: 'category',
-      label: 'Analysis Platform',
-      link: {
-        type: 'doc',
-        id: 'analysis-dashboard/index'
+      type:'category',
+      label:'Analysis',
+      link:{
+        type:'doc',
+        id:'analysis/index'
       },
       items:[
-        'analysis-dashboard/dashboard',
-        'analysis-dashboard/tableview',
+        'analysis/data-management',
+        {
+          type: 'category',
+          label: 'Analysis Platform',
+          link: {
+            type: 'doc',
+            id: 'analysis/analysis-dashboard/index'
+          },
+          items:[
+            'analysis/analysis-dashboard/dashboard',
+            'analysis/analysis-dashboard/tableview',
+          ]
+        },
       ]
     },
     'faq',
@@ -137,15 +161,15 @@ const sidebars: SidebarsConfig = {
 //     },
 //     {
 //       type: 'category',
-//       label: 'Tutorials',
+//       label: 'designing-studies',
 //       link: {
 //         type: 'generated-index'
 //       },
 //       collapsed:false,
 //       items:[
-//         'tutorials/firebase-setup',
-//         'tutorials/deploying-to-static-website',
-//         'tutorials/downloading-user-data'
+//         'designing-studies/firebase-setup',
+//         'designing-studies/deploying-to-static-website',
+//         'designing-studies/downloading-user-data'
 //       ]
 //     },
 //     {
