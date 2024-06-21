@@ -39,9 +39,9 @@ const sidebars: SidebarsConfig = {
       collapsed:false,
       items:[
         'designing-studies/html-stimulus',
-        'designing-studies/provenance-tracking',
         'designing-studies/react-stimulus',
-        'designing-studies/study-sequences'
+        'designing-studies/study-sequences',
+        'designing-studies/provenance-tracking'
       ]
     },
     {
@@ -52,9 +52,7 @@ const sidebars: SidebarsConfig = {
         id:'data-and-deployment/index'
       },
       items:[
-        'data-and-deployment/deploying-to-static-website',
         'data-and-deployment/firebase-setup',
-        'data-and-deployment/lifecycle-of-revisit',
         {
           type: 'category',
           label: 'Authentication and Authorization',
@@ -67,6 +65,8 @@ const sidebars: SidebarsConfig = {
             'data-and-deployment/authentication-authorization/firebase-user-management'
           ]
         },
+        'data-and-deployment/deploying-to-static-website',
+        'data-and-deployment/lifecycle-of-revisit',
       ]
     },
     {

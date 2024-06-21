@@ -1,4 +1,4 @@
-# Preparing A Study For Review
+# The Lifecycle of a reVISit Study
 
 ToDo
 

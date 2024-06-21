@@ -101,6 +101,7 @@ With the app set up, we are ready to copy over the app configuration to your rev
 
 Copy the contents of that JSON object into the `.env` file for the variable `VITE_FIREBASE_CONFIG`. In the `.env` file, your `VITE_FIREBASE_CONFIG` variable should still be a JSON object that is escaped in single quotes.
 
+#### Authentication
 
 We are now going to set up the authentication so that your browser is authorized to communicate with your firebase database. 
 ![Console](./img/firebase_steps/step12.jpg)
@@ -111,8 +112,16 @@ We are now going to set up the authentication so that your browser is authorized
 
 ![Console](./img/firebase_steps/step15.jpg)
 
+:::info
+In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for particpants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. 
+:::
+
+#### App Check
+
 Our last step is to set up App Check. 
+
 ![Console](./img/firebase_steps/step16.jpg)
+
 ![Console](./img/firebase_steps/step17.jpg)
 
 Click on register to register your app with recaptcha. 
