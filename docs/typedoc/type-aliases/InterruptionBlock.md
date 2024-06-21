@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # InterruptionBlock
@@ -11,4 +11,4 @@ The InterruptionBlock interface is used to define interruptions in a block. Thes
 
 ## Source
 
-[parser/types.ts:810](https://github.com/revisit-studies/study/blob/28fc76c7963482dd60846afde0942e2d4335731c/src/parser/types.ts#L810)
+[parser/types.ts:812](https://github.com/revisit-studies/study/blob/0dbb50ff3c65a335d9205656b4ba13d45395ff66/src/parser/types.ts#L812)

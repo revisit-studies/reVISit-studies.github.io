@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # StudyConfig
@@ -9,19 +9,19 @@ The StudyConfig interface is used to define the properties of a study configurat
 
 ```js
 {
-   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v1.0.0-beta14/src/parser/StudyConfigSchema.json",
-   "studyMetadata": {
-     ...
-   },
-   "uiConfig": {
-     ...
-   },
-   "components": {
-     ...
-   },
-   "sequence": {
-     ...
-   }
+ "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v1.0.0/src/parser/StudyConfigSchema.json",
+ "studyMetadata": {
+   ...
+ },
+ "uiConfig": {
+   ...
+ },
+ "components": {
+   ...
+ },
+ "sequence": {
+   ...
+ }
 }
 ```
 

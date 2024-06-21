@@ -34,9 +34,10 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           lastVersion: 'current',
           versions: {
-            current: { label: 'v1.0.0-beta14', path: '' },
+            current: { label: 'v1.0.0', path: '' },
           }
         },
+
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -52,7 +53,7 @@ const config: Config = {
     announcementBar: {
       id: 'support_us',
       content:
-      'ReVISit Version 1.0 Is Out! &#127881; <a target="_blank" href="https://vdl.sci.utah.edu/blog/2024/06/20/revisit/">Read the blog post.',
+      'ReVISit Version 1.0.0 Is Out! &#127881; <a target="_blank" href="https://vdl.sci.utah.edu/blog/2024/06/20/revisit/">Read the blog post.',
       backgroundColor: '#fafbfc',
       textColor: '#091E42',
       isCloseable: true,
@@ -109,6 +110,12 @@ const config: Config = {
           sidebarId: 'docs',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          type:'docSidebar',
+          sidebarId:'reference',
+          postiion:'left',
+          label:'Reference'
         },
         {to: '/about', label: 'About', position: 'left'},
         {
