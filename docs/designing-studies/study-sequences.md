@@ -1,6 +1,10 @@
 # Study Sequence
 
-Once you have defined the components you want to be part of your study, you need to tell reVISit what order to show the components in. This is done by defining a sequence object, which has a variety of powerful options for different randomization types, as well as attention checks, breaks, and advanced skip logic for more complex studies.
+Once you have defined the components you want to be part of your study, you need to tell reVISit what order to show the components in. This is done by defining a sequence object in the reVISit Spec, which has a variety of powerful options for different randomization types, as well as attention checks, breaks, and advanced skip logic for more complex studies.
+
+ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. 
+
+TODO: can I customize end? 
 
 ## Simple Sequence 
 
@@ -21,7 +25,7 @@ If your study has a set order, creating a sequence is simple. Define the compone
 
 ## Nested Sequence
 
-Many studies will want to randomize the order of some of the components, but not all. You may want every participant to see `introduction` and `consent` first, but then randomize the order they see trials in. To do this, sequences can be nested. Create another object around your trials, and change the order to `random`.
+Many studies need to randomize the order of some of the components, but not all. You may want every participant to see `introduction` and `consent` first, but then randomize the order they see trials in. To do this, sequences can be nested. Create another object around your trials, and change the order to `random`.
 
 ```
  sequence: {
@@ -41,7 +45,10 @@ Many studies will want to randomize the order of some of the components, but not
  }
 ```
 
-Studies can be nested as many levels deep as you want. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, as well as the order of the trials within each condition. That would look like the following. 
+In this case all participants will first see `introduction` and `consent`, and then randomly either `trial1` or `trial2` first, and then the other trial second, followed by the `post-survey` for everyone. 
+
+
+Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, an then also randomize the order of the trials within each condition. That would look like the following. 
 
 ```
  sequence: {
@@ -75,7 +82,7 @@ Studies can be nested as many levels deep as you want. A frequent use case is a 
 
 ## Latin Square
 
-Studies frequently want portions of their trials to be random, but also want to ensure that their trials are not susceptible to ordering effects due to bad luck in the randomization process. A latin square study design is commonly used to combat this, and we have latin squares as a built-in option for randomization. Just change the order to `latinSquare`.
+Studies frequently want portions of their trials to be random, but also want to ensure that their trials are not susceptible to ordering effects due to bad luck in the randomization process. A [latin square study design](https://en.wikipedia.org/wiki/Latin_square) is commonly used to combat this, and we have latin squares as a built-in option for randomization. Just change the order to `latinSquare`.
 
 ```
  sequence: {
@@ -96,10 +103,12 @@ Studies frequently want portions of their trials to be random, but also want to 
 ```
 
 This option will create a latin square for any block using one behind the scenes, iterate through the latin square as new participants request sequences, and refill it when empty. 
- 
-## Number of trials
 
-Studies frequently want to only show a subset of all trials to a single participant. For this, each block in the sequence has a `numSamples`. The following example will show each participant 2 of the 4 trials. `numSamples` works with `latinSquare`, and will ensure that each trial is seen the same amount.
+TODO: write more about how this works and how you can reject participants to pop them back into the latin square. 
+ 
+## Showing a Subset of All Trials
+
+Studies frequently want to only show a subset of all trials to a single participant. For this, each block in the sequence has a `numSamples` variable. The following example will show each participant 2 of the 4 trials. `numSamples` works with all sequence orders, but is likely only useful in combination with `random` and `latinSquare`. If used with `latinSquare`, choosing a `numSamples` will ensure that each trial is seen the same amount.
 
 ```
  sequence: {
@@ -122,9 +131,9 @@ Studies frequently want to only show a subset of all trials to a single particip
  }
 ```
 
-## Attention Checks + Breaks
+## Attention Checks and Breaks
 
-To add attention checks or breaks to your study, there is an `interruptions` object, which has its own components. The example below adds two attention checks randomly spaced out between trials 1-4. You are guaranteed that the first component will not be an attention check, and that you wont see two attention checks back to back.
+To add attention checks or breaks to your study, there is an `interruptions` object, which has its own components. The example below adds two attention checks randomly spaced out between trials 1-4. You are guaranteed that the first component will not be an attention check, and that you won't see two attention checks back to back.
 
 ```
  sequence: {
@@ -178,9 +187,11 @@ You can also add `interruptions` deterministically at set intervals. The example
  }
 ```
 
-## Skip logic
+## Skip Logic
 
-Some studies want more advanced sequencing logic, determined by a participants answers to previous questions. This is possible via the skip object. The example below will jump straight to `end` if the consent is answered incorrectly, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for they keyword `end`. 
+Some studies need more advanced sequencing logic, based on a participant's response to previous questions. For example, a participant should only be shown a second, simpler task if they got a first, difficult task wrong. This is possible to implement in reVISit sequences with the `skip` object. 
+
+The example below will jump straight to `end` if the consent form is answered with anything but `yes` to the field `consentApproval`, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for they keyword `end`, which always jumps to the default final component of the study. 
 
 ```
  sequence: {
@@ -206,8 +217,9 @@ Some studies want more advanced sequencing logic, determined by a participants a
     order: 'fixed'
  }
 ```
+TODO: you have some double quotes in the previous example, otherwise mostly single quotes.
 
-To check if multiple components are correct, for example that all attention checks were correct, you can do the following
+To check if multiple components are correct, for example that all attention checks were correct, you can do the following:
 
 ```
  sequence: {
@@ -238,8 +250,12 @@ To check if multiple components are correct, for example that all attention chec
     order: 'fixed'
  }
 ```
+TODO: I don't get how this really works here? 
 
-You can also wait until multiple attention checks are failed to jump to end 
+
+You can also wait until multiple attention checks have been answered incorrectly to jump to end: 
+
+TODO: more explanation; is repeatedComponent a special keyword? 
 
 ```
  sequence: {
@@ -315,3 +331,5 @@ You can also use `skip` to jump around within your study. The example below skip
     order: 'fixed'
  }
 ```
+
+TODO: this needs a bit more explanation
