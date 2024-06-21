@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # WebsiteComponent
@@ -8,57 +8,57 @@ displayed_sidebar: docs
 The WebsiteComponent interface is used to define the properties of a website component. A WebsiteComponent is used to render an iframe with a website inside of it. This can be used to display an external website or an html file that is located in the public folder.
 
 ```js
- {
-   "type": "website",
-   "path": "<study-name>/assets/website.html",
- }
+{
+ "type": "website",
+ "path": "<study-name>/assets/website.html",
+}
 ```
 
 To pass a data from the config to the website, you can use the `parameters` field as below:
 
 ```js
- {
-   "type": "website",
-   "path": "<study-name>/website.html",
-   "parameters": {
-     "barData": [0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
-   }
-   "response": [
-     {
-       "id": "barChart",
-       "prompt": "Your selected answer:",
-       "required": true,
-       "location": "belowStimulus",
-       "type": "iframe"
-     }
-   ],
+{
+ "type": "website",
+ "path": "<study-name>/website.html",
+ "parameters": {
+   "barData": [0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
  }
+ "response": [
+   {
+     "id": "barChart",
+     "prompt": "Your selected answer:",
+     "required": true,
+     "location": "belowStimulus",
+     "type": "iframe"
+   }
+ ],
+}
 ```
 In the `website.html` file, by including `revisit-communicate.js`, you can use the `Revisit.onDataReceive` method to retrieve the data, and `Revisit.postAnswers` to send the user's responses back to the reVISit as shown in the example below:
 
 ```html
- <script src="../../revisitUtilities/revisit-communicate.js"></script>
- <script>
-   Revisit.onDataReceive((data) => {
-     const barData = data['barData'];
-     ...
-   });
+<script src="../../revisitUtilities/revisit-communicate.js"></script>
+<script>
+ Revisit.onDataReceive((data) => {
+   const barData = data['barData'];
+   ...
+ });
 
-   // Call out that 'barChart' needs to match ID in 'response' object
-   Revisit.postAnswers({ barChart: userAnswer });
- </script>
+ // Call out that 'barChart' needs to match ID in 'response' object
+ Revisit.postAnswers({ barChart: userAnswer });
+</script>
 ```
 
  * If the html website implements Trrack library for provenance tracking, you can send the provenance graph back to reVISit by calling `Revisit.postProvenanceGraph` as shown in the example below. You need to call this each time the Trrack state is updated so that reVISit is kept aware of the changes in the provenance graph.
 
 ```js
-   const trrack = initializeTrrack({
-       initialState,
-       registry
-   });
+const trrack = initializeTrrack({
+ initialState,
+ registry
+});
 
-   ...
-   Revisit.postProvenance(trrack.graph.backend);
+...
+Revisit.postProvenance(trrack.graph.backend);
 ```
 
 ## Extends

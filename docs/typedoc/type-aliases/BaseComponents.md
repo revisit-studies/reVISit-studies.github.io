@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # BaseComponents
@@ -13,56 +13,56 @@ Using baseComponents:
 
 ```js
 "baseComponents": {
- "my-image-component": {
-     "instructionLocation": "sidebar",
-     "nextButtonLocation": "sidebar",
-     "path": "<study-name>/assets/my-image.jpg",
-     "response": [
-         {
-             "id": "my-image-id",
-             "options": [
-                 {
-                     "label": "Europe",
-                     "value": "Europe"
-                 },
-                 {
-                     "label": "Japan",
-                     "value": "Japan"
-                 },
-                 {
-                     "label": "USA",
-                     "value": "USA"
-                 }
-             ],
-             "prompt": "Your Selected Answer:",
-             "type": "dropdown"
-         }
+"my-image-component": {
+ "instructionLocation": "sidebar",
+ "nextButtonLocation": "sidebar",
+ "path": "<study-name>/assets/my-image.jpg",
+ "response": [
+   {
+     "id": "my-image-id",
+     "options": [
+       {
+         "label": "Europe",
+         "value": "Europe"
+       },
+       {
+         "label": "Japan",
+         "value": "Japan"
+       },
+       {
+         "label": "USA",
+         "value": "USA"
+       }
      ],
-     "type": "image"
- }
+     "prompt": "Your Selected Answer:",
+     "type": "dropdown"
+   }
+ ],
+ "type": "image"
+}
 }
 ```
 In the above code snippet, we have a single base component which holds the information about the type of component, the path to the image, and the response (which is a dropdown containing three choices). Any component which contains the `"baseComponent":"my-image-component"` key-value pair will inherit each of these properties. Thus, if we have three different questions which have the same choices and are concerning the same image, we can define our components like below:
 ```js
 "components": {
- "q1": {
-     "baseComponent": "my-image-component",
-     "description": "Choosing section with largest GDP",
-     "instruction": "Which region has the largest GDP?"
- },
- "q2": {
-     "baseComponent": "my-image-component",
-     "description": "Choosing section with lowest GDP",
-     "instruction": "Which region has the lowest GDP?"
- },
- "q3": {
-     "baseComponent": "my-image-component",
-     "description": "Choosing section with highest exports of Wheat",
-     "instruction": "Which region had the most Wheat exported in 2022?"
- }
+"q1": {
+ "baseComponent": "my-image-component",
+ "description": "Choosing section with largest GDP",
+ "instruction": "Which region has the largest GDP?"
+},
+"q2": {
+"baseComponent": "my-image-component",
+"description": "Choosing section with lowest GDP",
+"instruction": "Which region has the lowest GDP?"
+},
+"q3": {
+"baseComponent": "my-image-component",
+"description": "Choosing section with highest exports of Wheat",
+"instruction": "Which region had the most Wheat exported in 2022?"
+}
 }
 ```
 
 ## Source
 
-[parser/types.ts:1148](https://github.com/revisit-studies/study/blob/28fc76c7963482dd60846afde0942e2d4335731c/src/parser/types.ts#L1148)
+[parser/types.ts:1150](https://github.com/revisit-studies/study/blob/8d4e182fa2188caea02bef5834516aec69ab9ca4/src/parser/types.ts#L1150)

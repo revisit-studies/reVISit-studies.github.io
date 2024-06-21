@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # IndividualComponentSingleResponseCondition
@@ -17,17 +17,17 @@ For example, if you want to skip to a different component based on a response to
 
 ```js
 {
-  ...
-  "skip": [
-    {
-      "name": "attentionCheck",
-      "check": "response",
-      "responseId": "attentionCheckResponse",
-      "value": "the right answer",
-      "to": "end"
-    }
-  ]
-  ...
+ ...
+ "skip": [
+   {
+     "name": "attentionCheck",
+     "check": "response",
+     "responseId": "attentionCheckResponse",
+     "value": "the right answer",
+     "to": "end"
+   }
+ ]
+ ...
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # ImageComponent
@@ -10,12 +10,13 @@ The ImageComponent interface is used to define the properties of an image compon
 For example, to render an image with a path of `path/to/study/assets/image.jpg` and a max width of 50%, you would use the following snippet:
 ```js
 {
-  "type": "image",
-  "path": "<study-name>/assets/image.jpg",
-  "style": {
-    "maxWidth": "50%"
-  }
+ "type": "image",
+ "path": "<study-name>/assets/image.jpg",
+ "style": {
+ "maxWidth": "50%"
+ }
 }
+```
 
 ## Extends
 

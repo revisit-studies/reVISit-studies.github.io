@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # ShortTextResponse
@@ -10,12 +10,12 @@ ShortTextResponses render as a text input that accepts any text and can optional
 
 ```js
 {
-   "id": "q-short-text",
-   "prompt": "Short text example",
-   "required": true,
-   "location": "aboveStimulus",
-   "type": "shortText",
-   "placeholder": "Enter your answer here"
+ "id": "q-short-text",
+ "prompt": "Short text example",
+ "required": true,
+ "location": "aboveStimulus",
+ "type": "shortText",
+ "placeholder": "Enter your answer here"
 }
 ```
 

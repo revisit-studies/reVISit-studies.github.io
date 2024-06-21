@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # SliderResponse
@@ -11,27 +11,27 @@ SliderResponses render as a slider input with user specified steps. For example,
 Example:
 ```js
 {
-   "id": "q-slider",
-   "prompt": "How are you feeling?",
-   "location": "aboveStimulus",
-   "required": true,
-   "type": "slider",
-   "options": [
-       {
-           "label": "Bad",
-           "value": 0
-       },
-       {
-           "label": "OK",
-           "value": 50
-       },
-       {
-           "label": "Good",
-           "value": 100
-       }
-   ]
+ "id": "q-slider",
+ "prompt": "How are you feeling?",
+ "location": "aboveStimulus",
+ "required": true,
+ "type": "slider",
+ "options": [
+   {
+     "label": "Bad",
+     "value": 0
+   },
+   {
+     "label": "OK",
+     "value": 50
+   },
+   {
+     "label": "Good",
+     "value": 100
+   }
+ ]
 }
- ```
+```
 
 ## Extends
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # Answer
@@ -13,21 +13,21 @@ Here's an example of how to use the Answer interface to define the correct answe
 
 ```js
 {
-  "type": "markdown",
-  "path": "<study-name>/assets/question.md",
-  "response": [
-    {
-      "id": "response1",
-      "prompt": "What is 2 + 2?",
-      "required": true,
-      "location": "belowStimulus",
-      "type": "numerical"
-    }
-  ]
-  "correctAnswer": [{
-    "id": "response1",
-    "answer": 4
-  }]
+ "type": "markdown",
+ "path": "<study-name>/assets/question.md",
+ "response": [
+   {
+     "id": "response1",
+     "prompt": "What is 2 + 2?",
+     "required": true,
+     "location": "belowStimulus",
+     "type": "numerical"
+   }
+ ]
+ "correctAnswer": [{
+   "id": "response1",
+   "answer": 4
+ }]
 }
 ```
 

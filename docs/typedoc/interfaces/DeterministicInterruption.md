@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # DeterministicInterruption
@@ -15,25 +15,25 @@ Here's an example of how to use the DeterministicInterruption:
 
 ```js
 {
-  "order": "fixed",
-  "components": [
-    "component1",
-    "component2",
-    "component3",
-    "component4",
-    "component5",
-    "component6"
-  ],
-  "interruptions": [
-    {
-      "firstLocation": 2,
-      "spacing": 3,
-      "components": [
-        "interruption1",
-        "interruption2"
-      ]
-    }
-  ]
+ "order": "fixed",
+ "components": [
+   "component1",
+   "component2",
+   "component3",
+   "component4",
+   "component5",
+   "component6"
+ ],
+ "interruptions": [
+   {
+     "firstLocation": 2,
+     "spacing": 3,
+     "components": [
+       "interruption1",
+       "interruption2"
+     ]
+   }
+ ]
 }
 ```
 
@@ -41,10 +41,10 @@ The resulting sequence array could be:
 
 ```js
 [
-  ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
-  ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
-  ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
-  ...
+ ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
+ ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
+ ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
+ ...
 ]
 ```
 

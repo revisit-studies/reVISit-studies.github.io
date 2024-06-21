@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # IndividualComponent
@@ -9,4 +9,4 @@ displayed_sidebar: docs
 
 ## Source
 
-[parser/types.ts:703](https://github.com/revisit-studies/study/blob/28fc76c7963482dd60846afde0942e2d4335731c/src/parser/types.ts#L703)
+[parser/types.ts:705](https://github.com/revisit-studies/study/blob/8d4e182fa2188caea02bef5834516aec69ab9ca4/src/parser/types.ts#L705)

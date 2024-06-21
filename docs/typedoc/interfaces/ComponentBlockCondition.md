@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # ComponentBlockCondition
@@ -13,16 +13,16 @@ You might use this if a participant answers two questions in a block incorrectly
 
 ```js
 {
-  ...
-  "skip": [
-    {
-      "check": "block",
-      "condition": "numIncorrect",
-      "value": 2,
-      "to": "end"
-    }
-  ]
-  ...
+ ...
+ "skip": [
+   {
+     "check": "block",
+     "condition": "numIncorrect",
+     "value": 2,
+     "to": "end"
+   }
+ ]
+ ...
 }
 ```
 

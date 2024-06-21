@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # DropdownResponse
@@ -11,22 +11,22 @@ DropdownResponses render as a select input with user specified options.
 Example:
 ```js
 {
-   "id": "q-color",
-   "prompt": "What is your favorite color?",
-   "required": true,
-   "location": "aboveStimulus",
-   "type": "dropdown",
-   "placeholder": "Please choose your favorite color",
-   "options": [
-       {
-           "label": "Red",
-           "value": "red"
-       },
-       {
-           "label": "Blue",
-           "value": "blue"
-       }
-   ]
+ "id": "q-color",
+ "prompt": "What is your favorite color?",
+ "required": true,
+ "location": "aboveStimulus",
+ "type": "dropdown",
+ "placeholder": "Please choose your favorite color",
+ "options": [
+   {
+     "label": "Red",
+     "value": "red"
+   },
+   {
+     "label": "Blue",
+     "value": "blue"
+   }
+ ]
 }
  ```
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # LikertResponse
@@ -10,20 +10,20 @@ LikertResponses render as radio buttons with a user specified number of options,
 LikertResponses can also have a description, and left and right labels.
 The left and right labels are used to label the left and right ends of the likert scale with values such as 'Strongly Disagree' and 'Strongly Agree'.
 
-Example for a five-point Likerts Scale:
+Example for a five-point Likert Scale:
 
 ```js
 {
-     "id": "q-satisfaction",
-     "prompt": "Rate your satisfaction from 1 (not enjoyable) to 5 (very enjoyable).",
-     "required": true,
-     "location": "aboveStimulus",
-     "type": "likert",
-     "leftLabel": "Not Enjoyable",
-     "rightLabel": "Very Enjoyable",
-     "numItems": 5
- }
- ```
+ "id": "q-satisfaction",
+ "prompt": "Rate your satisfaction from 1 (not enjoyable) to 5 (very enjoyable).",
+ "required": true,
+ "location": "aboveStimulus",
+ "type": "likert",
+ "leftLabel": "Not Enjoyable",
+ "rightLabel": "Very Enjoyable",
+ "numItems": 5
+}
+```
 
 ## Extends
 
