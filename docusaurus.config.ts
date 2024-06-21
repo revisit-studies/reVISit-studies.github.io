@@ -37,6 +37,7 @@ const config: Config = {
             current: { label: 'v1.0.0-beta14', path: '' },
           }
         },
+
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -109,6 +110,12 @@ const config: Config = {
           sidebarId: 'docs',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          type:'docSidebar',
+          sidebarId:'reference',
+          postiion:'left',
+          label:'Reference'
         },
         {to: '/about', label: 'About', position: 'left'},
         {
