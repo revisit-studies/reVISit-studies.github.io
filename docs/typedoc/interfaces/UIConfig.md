@@ -1,27 +1,27 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # UIConfig
 
 The UIConfig is used to configure the UI of the app.
 This includes the logo, contact email, and whether to show a progress bar.
-The UIConfig is also used to configure the sidebar, which can be used to display the task instructions and capture responses. Below is an example of how the UI Config would look in your study configuration
+The UIConfig is also used to configure the sidebar, which can be used to display the task instructions and capture responses. Below is an example of how the UI Config would look in your study configuration (note, there are optional fields that are not shown here):
 ```js
- uiConfig:{
-   "contactEmail": "contact@revisit.dev",
-   "helpTextPath": "<study-name>/assets/help.md",
-   "logoPath": "<study-name>/assets/logo.jpg",
-   "withProgressBar": true,
-   "autoDownloadStudy": true
-   "autoDownloadTime": 5000,
-   "studyEndMsg": "Thank you for completing this study. You're the best!",
-   "sidebar": true,
-   "windowEventDebounceTime": 500,
-   "urlParticipantIdParam": "PROLIFIC_ID",
-   "numSequences": 500
- }
+uiConfig:{
+ "contactEmail": "contact@revisit.dev",
+ "helpTextPath": "<study-name>/assets/help.md",
+ "logoPath": "<study-name>/assets/logo.jpg",
+ "withProgressBar": true,
+ "autoDownloadStudy": true
+ "autoDownloadTime": 5000,
+ "studyEndMsg": "Thank you for completing this study. You're the best!",
+ "sidebar": true,
+ "windowEventDebounceTime": 500,
+ "urlParticipantIdParam": "PROLIFIC_ID",
+ "numSequences": 500
+}
 ```
 In the above, the `path/to/assets/` path is referring to the path to your individual study assets. It is common practice to have your study directory contain an `assets` directory where all components and images relevant to your study reside. Note that this path is relative to the `public` folder of the repository - as is all other paths you define in reVISit (aside from React components whose paths are relative to `src/public`.)
 

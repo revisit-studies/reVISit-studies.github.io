@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # RadioResponse
@@ -27,7 +27,7 @@ Example:
    }
  ]
 }
- ```
+```
 
 ## Extends
 

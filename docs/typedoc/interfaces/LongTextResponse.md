@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # LongTextResponse
@@ -9,12 +9,12 @@ The LongTextResponse interface is used to define the properties of a long text r
 LongTextResponses render as a text area that accepts any text and can optionally have a placeholder.
 ```js
 {
-   "id": "q-name",
-   "prompt": "What is your first name?",
-   "required": true,
-   "location": "aboveStimulus",
-   "type": "longText",
-   "placeholder": "Please enter your first name"
+ "id": "q-name",
+ "prompt": "What is your first name?",
+ "required": true,
+ "location": "aboveStimulus",
+ "type": "longText",
+ "placeholder": "Please enter your first name"
 }
 ```
 

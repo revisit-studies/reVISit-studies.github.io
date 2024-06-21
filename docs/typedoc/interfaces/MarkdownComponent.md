@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # MarkdownComponent
@@ -9,9 +9,9 @@ The MarkdownComponent interface is used to define the properties of a markdown c
 
 ```js
 {
-  "type": "markdown",
-  "path": "<study-name>/assets/help.md",
-  "response": []
+ "type": "markdown",
+ "path": "<study-name>/assets/help.md",
+ "response": []
 }
 ```
 

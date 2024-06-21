@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # RepeatedComponentBlockCondition
@@ -11,17 +11,17 @@ Here's an example of how to use the RepeatedComponentBlockCondition:
 
 ```js
 {
-  ...
-  "skip": [
-    {
-      "name": "attentionCheck",
-      "check": "repeatedComponent",
-      "condition": "numIncorrect",
-      "value": 2,
-      "to": "end"
-    }
-  ]
-  ...
+ ...
+ "skip": [
+   {
+     "name": "attentionCheck",
+     "check": "repeatedComponent",
+     "condition": "numIncorrect",
+     "value": 2,
+     "to": "end"
+   }
+ ]
+ ...
 }
 ```
 

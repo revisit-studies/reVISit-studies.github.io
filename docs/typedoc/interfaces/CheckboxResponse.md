@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # CheckboxResponse
@@ -10,26 +10,27 @@ CheckboxResponses render as a checkbox input with user specified options.
 
 ```js
 {
-   "id": "q7",
-   "prompt": "Checkbox example (not required)",
-   "required": false,
-   "location": "aboveStimulus",
-   "type": "checkbox",
-   "options": [
-       {
-           "label": "Option 1",
-           "value": "opt-1"
-       },
-       {
-           "label": "Option 2",
-           "value": "opt-2"
-       },
-       {
-           "label": "Option 3",
-           "value": "opt-3"
-       }
-   ]
+ "id": "q7",
+ "prompt": "Checkbox example (not required)",
+ "required": false,
+ "location": "aboveStimulus",
+ "type": "checkbox",
+ "options": [
+   {
+     "label": "Option 1",
+     "value": "opt-1"
+   },
+   {
+     "label": "Option 2",
+     "value": "opt-2"
+   },
+   {
+     "label": "Option 3",
+     "value": "opt-3"
+   }
+ ]
 }
+```
 
 ## Extends
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # IndividualComponentAllResponsesCondition
@@ -17,15 +17,15 @@ Here's an example of how to use the IndividualComponentAllResponsesCondition:
 
 ```js
 {
-  ...
-  "skip": [
-    {
-      "name": "attentionCheck",
-      "check": "responses",
-      "to": "end"
-    }
-  ]
-  ...
+ ...
+ "skip": [
+   {
+     "name": "attentionCheck",
+     "check": "responses",
+     "to": "end"
+   }
+ ]
+ ...
 }
 ```
 

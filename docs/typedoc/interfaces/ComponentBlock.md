@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # ComponentBlock
@@ -13,22 +13,22 @@ Here's a snippet that shows how to use the random order:
 
 ```js
 {
-  "order": "random",
-  "components": [
-    "component1",
-    "component2",
-    "component3"
-  ]
+ "order": "random",
+ "components": [
+   "component1",
+   "component2",
+   "component3"
+ ]
 }
-
+```
 This snippet would produce a random order of the components in the sequence array. For example, the resulting sequence array could be :
 
 ```js
 [
-  ["component2", "component3", "component1"],
-  ["component1", "component3", "component2"],
-  ["component3", "component1", "component2"],
-  ...
+ ["component2", "component3", "component1"],
+ ["component1", "component3", "component2"],
+ ["component3", "component1", "component2"],
+ ...
 ]
 ```
 
@@ -36,11 +36,11 @@ The latin square assignment is a random assignment with some guarantees. It ensu
 
 ```js
 {
-  "order": "latinSquare",
-  "components": [
-    "component1",
-    "component2",
-    "component3"
+ "order": "latinSquare",
+ "components": [
+   "component1",
+   "component2",
+   "component3"
  ]
 }
 ```
@@ -49,10 +49,10 @@ This snippet would produce a latin square order of the components in the sequenc
 
 ```js
 [
-  ["component1", "component2", "component3"],
-  ["component2", "component3", "component1"],
-  ["component3", "component1", "component2"],
-  ...
+ ["component1", "component2", "component3"],
+ ["component2", "component3", "component1"],
+ ["component3", "component1", "component2"],
+ ...
 ]
 ```
 
@@ -60,11 +60,11 @@ The fixed assignment is a fixed assignment of components. This is used when you 
 
 ```js
 {
-  "order": "fixed",
-  "components": [
-    "component1",
-    "component2",
-    "component3"
+ "order": "fixed",
+ "components": [
+   "component1",
+   "component2",
+   "component3"
  ]
 }
 ```
@@ -73,10 +73,10 @@ This snippet would produce a fixed order of the components in the sequence array
 
 ```js
 [
-  ["component1", "component2", "component3"],
-  ["component1", "component2", "component3"],
-  ["component1", "component2", "component3"],
-  ...
+ ["component1", "component2", "component3"],
+ ["component1", "component2", "component3"],
+ ["component1", "component2", "component3"],
+ ...
 ]
 ```
 
@@ -84,11 +84,11 @@ In addition to the order property, the ComponentBlock interface also includes th
 
 ```js
 {
-  "order": "latinSquare",
-  "components": [
-    "component1",
-    "component2",
-    "component3"
+ "order": "latinSquare",
+ "components": [
+   "component1",
+   "component2",
+   "component3"
  ],
  "numSamples": 2
 }
@@ -98,10 +98,10 @@ This snippet would produce a latin square order of the components in the sequenc
 
 ```js
 [
-  ["component1", "component2"],
-  ["component2", "component3"],
-  ["component3", "component1"],
-  ...
+ ["component1", "component2"],
+ ["component2", "component3"],
+ ["component3", "component1"],
+ ...
 ]
 ```
 

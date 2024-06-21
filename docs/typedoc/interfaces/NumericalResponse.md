@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # NumericalResponse
@@ -11,14 +11,14 @@ NumericalResponses render as a text input that only accepts numbers, and can opt
 Example:
 ```js
 {
-   "id": "q-numerical",
-   "prompt": "Numerical example",
-   "required": true,
-   "location": "aboveStimulus",
-   "type": "numerical",
-   "placeholder": "Enter your age, range from 0 - 120",
-   "max": 120,
-   "min": 0
+ "id": "q-numerical",
+ "prompt": "Numerical example",
+ "required": true,
+ "location": "aboveStimulus",
+ "type": "numerical",
+ "placeholder": "Enter your age, range from 0 - 120",
+ "max": 120,
+ "min": 0
 }
 ```
 

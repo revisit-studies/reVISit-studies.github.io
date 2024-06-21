@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # SkipConditions
@@ -17,4 +17,4 @@ Please see the interface definitions for more specific information on the differ
 
 ## Source
 
-[parser/types.ts:968](https://github.com/revisit-studies/study/blob/28fc76c7963482dd60846afde0942e2d4335731c/src/parser/types.ts#L968)
+[parser/types.ts:970](https://github.com/revisit-studies/study/blob/8d4e182fa2188caea02bef5834516aec69ab9ca4/src/parser/types.ts#L970)

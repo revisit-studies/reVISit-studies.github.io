@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # QuestionnaireComponent
@@ -8,37 +8,37 @@ displayed_sidebar: docs
 A QuestionnaireComponent is used to render simple questions that require a response. The main use case of this component type is to ask participants questions when you don't need to render a stimulus. Please note, that even though we're not using a stimulus, the responses still require a `location`. For example this could be used to collect demographic information from a participant using the following snippet:
 
 ```js
- {
-   "type": "questionnaire",
-   "response": [
-     {
-       "id": "gender",
-       "prompt": "Gender:",
-       "required": true,
-       "location": "belowStimulus",
-       "type": "checkbox",
-       "options": [
-         {
-           "label": "Man",
-           "value": "Man"
-         },
-         {
-           "label": "Woman",
-           "value": "Woman"
-         },
-         {
-           "label": "Genderqueer",
-           "value": "Genderqueer"
-         },
-         {
-           "label": "Third-gender",
-           "value": "Third-gender"
-         },
-         ... etc.
-       ]
-     }
-   ]
- }
+{
+ "type": "questionnaire",
+ "response": [
+   {
+     "id": "gender",
+     "prompt": "Gender:",
+     "required": true,
+     "location": "belowStimulus",
+     "type": "checkbox",
+     "options": [
+       {
+         "label": "Man",
+         "value": "Man"
+       },
+       {
+         "label": "Woman",
+         "value": "Woman"
+       },
+       {
+         "label": "Genderqueer",
+         "value": "Genderqueer"
+       },
+       {
+         "label": "Third-gender",
+         "value": "Third-gender"
+       },
+       ... etc.
+     ]
+   }
+ ]
+}
 ```
 
 ## Extends
