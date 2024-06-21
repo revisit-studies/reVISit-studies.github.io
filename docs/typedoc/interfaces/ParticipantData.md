@@ -58,9 +58,9 @@ We can see at a high level that we are given the answer that the user submitted,
 | :------ | :------ | :------ |
 | `answers` | `Record`\<`string`, [`StoredAnswer`](StoredAnswer.md)\> | Object whose keys are the component names and values are StoredAnswer objects. |
 | `completed` | `boolean` | Whether the participant has completed the study. |
-| `metadata` | `ParticipantMetadata` | Metadata of a participants browser, resolution, language, and IP. |
+| `metadata` | [`ParticipantMetadata`](ParticipantMetadata.md) | Metadata of a participants browser, resolution, language, and IP. |
 | `participantConfigHash` | `string` | Unique ID corresponding to the Configuration that the participant received. |
 | `participantId` | `string` | Unique ID  associated with the participant |
 | `rejected` | `boolean` | Whether the participant has been rejected. |
 | `searchParams` | `Record`\<`string`, `string`\> | Query parameters of the URL used to enter the study. |
-| `sequence` | [`Sequence`](Sequence.md) | Sequence of components that the participant received. |
+| `sequence` | `Sequence` | Sequence of components that the participant received. This is an internal data type and is compiled from the ComponentBlocks in the StudyConfig sequence. |
