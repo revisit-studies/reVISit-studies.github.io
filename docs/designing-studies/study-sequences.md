@@ -102,7 +102,8 @@ Studies frequently want portions of their trials to be random, but also want to 
 
 This option will create a latin square for any block using one behind the scenes, iterate through the latin square as new participants request sequences, and refill it when empty. 
 
-TODO: write more about how this works and how you can reject participants to pop them back into the latin square. 
+To further ensure consistency in the latin square, participants may be `rejected` via the [data dashboard](../../analysis/dashboard). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc) do not use up a row of any generated latinSquares.
+
  
 ## Showing a Subset of All Trials
 
