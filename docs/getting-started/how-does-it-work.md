@@ -126,11 +126,11 @@ You can find more detailed documentation about the sequencing strategies [here](
 
 ## reVISit Study Modes
 
-Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analytics interface. Here we give a brief introduction to these modes. Check out our [Analytics Platform Documentation](../analysis) for more information on managing your data and studies. Additionally, you can find our [best practices](../data-and-deployment/lifecycle-of-revisit) for using these modes to manage the lifecycle of your reVISit study.
+Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analytics interface. Here we give a brief introduction to these modes. Check out our [Analytics Platform Documentation](../../analysis) for more information on managing your data and studies. Additionally, you can find our [best practices](../../data-and-deployment/lifecycle-of-revisit) for using these modes to manage the lifecycle of your reVISit study.
 
 ### Data Collection
 
-With Data Collection enabled, all data that is captured by participants will be stored either Locally or in your Firestore database (dependent on your current setup). You can check out our [data management documentation](../analysis/data-management) to learn how to manage participants, create backup datasets, and more. 
+With Data Collection enabled, all data that is captured by participants will be stored either Locally or in your Firestore database (dependent on your current setup). You can check out our [data management documentation](../../analysis/data-management) to learn how to manage participants, create backup datasets, and more. 
 
 Disabling data collection for a particular study will be shown to the user with a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
 
