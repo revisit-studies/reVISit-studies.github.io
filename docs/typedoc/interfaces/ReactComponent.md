@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: docs
+displayed_sidebar: reference
 ---
 
 # ReactComponent
@@ -12,12 +12,14 @@ Similar to our standard assets, we suggest creating a folder named `src/public/{
 Your React component which you link to in the path must be default exported from its file.
 
 React components created this way have a generic prop type passed to the component on render, `<StimulusParams<T>>`, which has the following types.
+
 ```ts
 {
  parameters: T;
  setAnswer: ({ status, provenanceGraph, answers }: { status: boolean, provenanceGraph?: TrrackedProvenance, answers: Record<string, any> }) => void
 }
 ```
+
 parameters is the same object passed in from the ReactComponent type below, allowing you to pass options in from the config to your component.
 setAnswer is a callback function allowing the creator of the ReactComponent to programmatically set the answer, as well as the provenance graph. This can be useful if you don't use the default answer interface, and instead have something more unique.
 
@@ -37,13 +39,13 @@ My react component, CoolComponent.tsx, would exist in src/public/my_study/assets
 
 ```ts
 export default function CoolComponent({ parameters, setAnswer }: StimulusParams<{name: string, age: number}>) {
-   // render something
+ // render something
 }
 ```
 
 For in depth examples, see the following studies, and their associated codebases.
-https://revisit.dev/study/demo-click-accuracy-test (https://github.com/revisit-studies/study/tree/v1.0.0-beta14/src/public/demo-click-accuracy-test/assets)
-https://revisit.dev/study/demo-brush-interactions (https://github.com/revisit-studies/study/tree/v1.0.0-beta14/src/public/demo-brush-interactions/assets)
+https://revisit.dev/study/demo-click-accuracy-test (https://github.com/revisit-studies/study/tree/v1.0.0/src/public/demo-click-accuracy-test/assets)
+https://revisit.dev/study/demo-brush-interactions (https://github.com/revisit-studies/study/tree/v1.0.0/src/public/demo-brush-interactions/assets)
 
 ## Extends
 
