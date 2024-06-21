@@ -49,6 +49,14 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'support_us',
+      content:
+      'ReVISit Version 1.0 Is Out! &#127881; <a target="_blank" href="https://vdl.sci.utah.edu/blog/2024/06/20/revisit/">Read the blog post.',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: true,
+    },
     algolia: {
       // The application ID provided by Algolia
       appId: 'CE7T3Q5S25',
