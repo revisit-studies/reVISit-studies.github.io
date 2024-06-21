@@ -2,9 +2,7 @@
 
 Once you have defined the components you want to be part of your study, you need to tell reVISit what order to show the components in. This is done by defining a sequence object in the reVISit Spec, which has a variety of powerful options for different randomization types, as well as attention checks, breaks, and advanced skip logic for more complex studies.
 
-ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. 
-
-TODO: can I customize end? 
+ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. Other components can also optionally be given `id`, which can then be used to jump to them. 
 
 ## Simple Sequence 
 
