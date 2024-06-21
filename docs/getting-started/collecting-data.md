@@ -14,22 +14,6 @@ reVISit supports two modes of data collection:
 
 In this getting-started guide, we will **only cover local storage**. For setting up cloud storage, please refer to the [Firebase tutorial](../data-and-deployment/firebase-setup.md).
 
-## Enabling Data Recording
-
-You might have noticed the orange **DEMO MODE** tag in the top-right corner of your study. This tag indicates that the study isn't collecting data. You also see interface elements, such as the “Study Browser” that real participants should not see. You can enable data collection by modifying a paramter in the `.env` file at the root of the repository. This file contains a few global configuration options for your instance of reVISit. 
-
-You will see this flag: 
-
-```
-VITE_REVISIT_MODE="public"
-```
-
-Change that variable to `private`. You will see that the **DEMO MODE** tag immediately disappears – your reVISit study is now ready to collect data. 
-
-:::warning
-This configuration will change soon. Be sure to check back here. 
-:::
-
 ## Recording Data
 
 Take the survey that you have created earlier! After you are done, use the menu on the top right, select “Next Participant“ and take the survey again (using different values). Now you have recorded data for two participants. 

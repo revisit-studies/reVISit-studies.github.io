@@ -122,3 +122,23 @@ All of these can be applied on arbitrarily nested “blocks”: an entry in the 
 ```
 
 You can find more detailed documentation about the sequencing strategies [here](../../typedoc/interfaces/ComponentBlock).
+
+
+## reVISit Study Modes
+
+Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analytics interface. Here we give a brief introduction to these modes. Check out our [Analytics Platform Documentation](../analysis) for more information on managing your data and studies. Additionally, you can find our [best practices](../data-and-deployment/lifecycle-of-revisit) for using these modes to manage the lifecycle of your reVISit study.
+
+### Data Collection
+
+With Data Collection enabled, all data that is captured by participants will be stored either Locally or in your Firestore database (dependent on your current setup). You can check out our [data management documentation](../analysis/data-management) to learn how to manage participants, create backup datasets, and more. 
+
+Disabling data collection for a particular study will be shown to the user with a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
+
+
+### Study Navigator
+
+When the study navigator is enabled, any user will be able to access the studie's "study browser". This allows users to move between any two components in the study freely. This is especially useful when you are disseminating your study after all data collection has completed and you'd like to share your study with the broader public.
+
+### Publicly Accessible Analysis Interface
+
+The analysis interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the anonymized participants, see the answers given, and download all the data. 
