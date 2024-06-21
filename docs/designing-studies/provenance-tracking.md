@@ -4,7 +4,7 @@ ReVISit has integrated provenance tracking with Trrack, a state-based provenance
 
 ## Integrating into a react or HTML component
 
-Building off the bar chart example we created in the react stimulus tutorial, we will add simple provenance tracking that keeps track of which bar in the bar chart is selected. 
+Building off the [bar chart example](../react-stimulus) we created in the react stimulus tutorial, we will add simple provenance tracking that keeps track of which bar in the bar chart is selected. 
 
 Because trrack is state-based, you must define a state for your tracked application. In this case, the state is simply 
 ```ts
