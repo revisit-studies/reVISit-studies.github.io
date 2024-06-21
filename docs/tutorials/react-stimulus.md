@@ -14,12 +14,12 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 ## Example 1: Graphical Perception Experiment
 
-The React component should be put into the *src/public/project-name/assets folder*. In this example, we name the experiment "demo-cleveland," so we put this code into src/public/demo-cleveland/assets/BarChart.tsx.
+The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. In our example, we name the experiment "demo-cleveland," so we put this code into `src/public/demo-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
 
-We have demo components and hooks available in the *src/public/demo-cleveland/assets/hooks* and *src/public/demo-cleveland/assets/chartcomponents* folders, which are required in this demo. You may copy them to your own project path.
+We have a few reusable components and hooks available in the `src/public/demo-cleveland/assets/hooks` and `src/public/demo-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks helps creating charts using D3.js in React. You may copy them to your own experiment folder.
 
-Please note, there is a **parameters** prop in the BarChart component. This prop is used to pass data from the config file to the React component.
-In this example, 
+Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
+In this example, we pass two data arrays to the BarChart component. One is the data array contains 5 objects, each object has a name and a value. The other is the selectedIndices array, which contains the indices of the data array that we want to highlight with dots.
 
 ```javascript
 import * as d3 from 'd3';
@@ -28,6 +28,7 @@ import { Bars } from './chartcomponents/Bars';
 import { NumericAxisV } from './chartcomponents/NumericAxisV';
 import { OrdinalAxisHWithDotMarks } from './chartcomponents/OrdinalAxisHWithDotMarks';
 
+// Chart dimensions
 const chartSettings = {
   marginBottom: 40,
   marginLeft: 40,
@@ -37,11 +38,14 @@ const chartSettings = {
   height: 400,
 };
 
+// This React component renders a bar chart with 5 bars and 2 of them highlighted by dots.
+// The data value comes from the config file and pass to this component by parameters.
 function BarChart({ parameters }: { parameters: any }) {
   const tickLength = 6;
   const [ref, dms] = useChartDimensions(chartSettings);
 
-  // define axis scales
+    // Define axis scales
+    // Data comes from parameters is used here
   const xScale = d3
     .scaleBand()
     .domain(parameters.data.map((d: { name: any }) => d.name))
@@ -53,8 +57,10 @@ function BarChart({ parameters }: { parameters: any }) {
     .domain([100, 0])
     .range([0, dms.boundedHeight]);
 
+  // Define ticks
   const yAxisTickFilter = (ticks: any[]) => ticks.filter((t, i) => i === 0 || i === ticks.length - 1);
 
+  // selectedIndices is used here to draw dots on the x-axis
   const xAxisTickFilter = (ticks: any[]) => ticks.filter((t, i) => parameters.selectedIndices.includes(i));
 
   return (
@@ -103,8 +109,11 @@ export default BarChart;
 
 ```
 
-In the config file, we will pass the data as a parameter to the React component.
+In the config file, we will set parameters for the BarChart component.
 The parameters contain data and selectedIndices. Both are decoded in the above code and used to create the stimulus.
+
+The parameters are an object; you can change the format to suit your needs.
+
 ```javascript
  "barChart": {
             "meta": {
@@ -152,19 +161,19 @@ The click accuracy experiment requires participants to click on a moving dot on 
 In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the 'iFrame' response type, which will receive the user's click data and send it to reVISit.
 
 In this example, the React component will take paramameters and setAnswer as props. The parameters work just like in example 1, it will pass data from the config file to the React component.
-The setAnswer functions is used to pass user's response to the reVISit framework.
+The setAnswer functions is a built-in function that used to pass user's response to the reVISit framework.
 
-The name of this experiment is 'demo-click-accuracy-test'.
-So we will need to put the React component code into *src/public/demo-click-accuracy-test/assets/ClickAccuracyTest.tsx*
+We will use 'demo-click-accuracy-test' as experiment name in this example. So we will need to put the React component code into `src/public/demo-click-accuracy-test/assets/ClickAccuracyTest.tsx`
+Please replace it with your own experiment name.
+
 Here is the code for the ClickAccuracyTest.tsx file:
 
 ```javascript
 import * as d3 from 'd3';
 import {
-  useCallback, useEffect, useMemo, useState,
+  useCallback, useEffect, useState,
 } from 'react';
 import { Box, Slider } from '@mantine/core';
-import { initializeTrrack, Registry } from '@trrack/core';
 import { useChartDimensions } from '../../demo-cleveland/assets/hooks/useChartDimensions';
 import { StimulusParams } from '../../../store/types';
 
@@ -186,56 +195,29 @@ interface ClickAccuracyTest {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ClickAccuracyTest({ parameters, setAnswer }: StimulusParams<any>) {
+    // useChartDimensions is a custom hook to create a chart with D3.js in React, you can find it in src/public/demo-cleveland/assets/hooks/useChartDimensions.ts
   const [ref, dms] = useChartDimensions(chartSettings);
   const [x, setX] = useState(100);
   const [y, setY] = useState(100);
   const [speed, setSpeed] = useState(300);
   const { taskid } = parameters;
 
-  const { actions, trrack } = useMemo(() => {
-    const reg = Registry.create();
-
-    const clickAction = reg.register('click', (state, click: {clickX: number, clickY: number, distance: number}) => {
-      state.clickX = click.clickX;
-      state.clickY = click.clickY;
-      state.distance = click.distance;
-      return state;
-    });
-
-    const trrackInst = initializeTrrack({
-      registry: reg,
-      initialState: {
-        distance: 0, speed: 10, clickX: 0, clickY: 0,
-      },
-    });
-
-    return {
-      actions: {
-        clickAction,
-      },
-      trrack: trrackInst,
-    };
-  }, []);
-
   const clickCallback = useCallback((e: React.MouseEvent) => {
     const circle = d3.select('#movingCircle');
     const svg = d3.select('#clickAccuracySvg');
     const pointer = d3.pointer(e, svg.node());
-
     const circelPos = [+circle.attr('cx'), +circle.attr('cy')];
     const distance = `${Math.round(Math.sqrt((pointer[0] - circelPos[0]) ** 2 + (pointer[1] - circelPos[1]) ** 2))}px`;
-
-    trrack.apply('Clicked', actions.clickAction({ distance: +distance, clickX: pointer[0], clickY: pointer[1] }));
-
+    // This will record the distance between the click location and the center of the dot, passing answer to reVISit.
     setAnswer({
-      status: true,
-      provenanceGraph: trrack.graph.backend,
       answers: {
-        [taskid]: distance,
+          status: true,
+          [taskid]: distance,
       },
     });
-  }, [actions, setAnswer, taskid, trrack]);
+  }, [ setAnswer, taskid]);
 
+  // Making the moving dot
   useEffect(() => {
     const nxtX = Math.random() * 800;
     const nxtY = Math.random() * 600;
@@ -283,7 +265,7 @@ export default ClickAccuracyTest;
 
 ```
 
-In the config file, we will pass the taskid and speed as parameters. Notice the response type for the trial is 'iFrame'.
+In the config file, we pass the taskid and speed as parameters. Notice the response type for the trial is 'iFrame'.
 
 ```javascript
 "trial": {
@@ -308,7 +290,8 @@ In the config file, we will pass the taskid and speed as parameters. Notice the 
         }
 ```
 
-At this point, the click accuracy test should be running and be able to collect participant's data seemlessly.
-We have two little assignments for you. 
+At this point, the click accuracy test should be running and be able to collect participant's data.
+We have three assignments for you. 
 1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
 2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
+3) We can make this stimulus more challenge, adding mulitple moving dots and ask the participants to click on the highlighted one.
