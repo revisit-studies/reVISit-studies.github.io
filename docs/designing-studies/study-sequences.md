@@ -48,7 +48,7 @@ Many studies need to randomize the order of some of the components, but not all.
 In this case all participants will first see `introduction` and `consent`, and then randomly either `trial1` or `trial2` first, and then the other trial second, followed by the `post-survey` for everyone. 
 
 
-Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, an then also randomize the order of the trials within each condition. That would look like the following. 
+Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, and then also randomize the order of the trials within each condition. That would look like the following. 
 
 ```
  sequence: {
@@ -199,12 +199,12 @@ The example below will jump straight to `end` if the consent form is answered wi
         'introduction',
         {
             components: ['consent']
-            "skip": {
-                "name": "consent",
-                "check": "response",
-                "responseId": "consentApproval",
-                "value": "yes",
-                "to": "end"
+            'skip': {
+                'name': 'consent',
+                'check': 'response',
+                'responseId': 'consentApproval',
+                'value': 'yes',
+                'to': 'end'
             }
             order: 'fixed'
         }
@@ -217,7 +217,6 @@ The example below will jump straight to `end` if the consent form is answered wi
     order: 'fixed'
  }
 ```
-TODO: you have some double quotes in the previous example, otherwise mostly single quotes.
 
 To check if multiple components are correct, for example that all attention checks were correct, you can do the following:
 
@@ -240,9 +239,9 @@ To check if multiple components are correct, for example that all attention chec
                 components: ['myAttentionCheckComponent']
             }, 
             skip: {
-                "name": "myAttentionCheckComponent",
-                "check": "responses",
-                "to": "end"
+                'name': 'myAttentionCheckComponent',
+                'check': 'responses',
+                'to': 'end'
             }
         },
         'post-survey'
@@ -250,12 +249,9 @@ To check if multiple components are correct, for example that all attention chec
     order: 'fixed'
  }
 ```
-TODO: I don't get how this really works here? 
+This example will go through every component named `myAttentionCheckComponent`, and if any response is incorrect, jump immediately to end. 
 
-
-You can also wait until multiple attention checks have been answered incorrectly to jump to end: 
-
-TODO: more explanation; is repeatedComponent a special keyword? 
+You can also wait until multiple attention checks have been answered incorrectly to jump to end with the `repeatedComponent` check.
 
 ```
  sequence: {
@@ -276,11 +272,11 @@ TODO: more explanation; is repeatedComponent a special keyword?
                 components: ['myAttentionCheckComponent']
             }, 
             skip: {
-                "name": "myAttentionCheckComponent",
-                "check": "repeatedComponent",
-                "condition": "numIncorrect",
-                "value": 2,
-                "to": "end"
+                'name': 'myAttentionCheckComponent',
+                'check': 'repeatedComponent',
+                'condition': 'numIncorrect',
+                'value': 2,
+                'to': 'end'
             }
         },
         'post-survey'
@@ -332,4 +328,4 @@ You can also use `skip` to jump around within your study. The example below skip
  }
 ```
 
-TODO: this needs a bit more explanation
+After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards. 
