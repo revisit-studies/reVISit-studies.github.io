@@ -1,1 +1,1 @@
-# React Stimulus
+# Designing a React Stimulus
