@@ -16,9 +16,11 @@ Navigate to <a href="https://firebase.google.com/" target="_blank">Firebase</a> 
 
 
 Create a new Firebase project 
+
 ![Console](./img/firebase_steps/step2.jpg)
 
 Name your Project Accordingly
+
 ![Console](./img/firebase_steps/step3.jpg)
 
 :::note
@@ -92,6 +94,7 @@ service firebase.storage {
 
 We are now going to add an app to your firebase project: 
 ![Console](./img/firebase_steps/step9.jpg)
+
 ![Console](./img/firebase_steps/step10.jpg)
 
 
@@ -125,6 +128,7 @@ Our last step is to set up App Check.
 ![Console](./img/firebase_steps/step17.jpg)
 
 Click on register to register your app with recaptcha. 
+
 ![Console](./img/firebase_steps/step18.jpg)
 
 At this point you will need to navigate to [Recaptcha](https://www.google.com/recaptcha/admin/create) to create a secret key. 
@@ -165,8 +169,11 @@ To see the debug token, you need to enable firebase storage. Open up the <code>.
 ![Console](./img/console.png)
 
 - Navigate to your firebase instance and add the token as shown below:
+
 ![Console](./img/firebase_steps/step23.jpg)
+
 ![Console](./img/firebase_steps/step24.jpg)
+
 ![Console](./img/firebase_steps/step25.jpg)
 
 ### Allowing for CORS requests
@@ -203,3 +210,8 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 :::
 
 ![Demo](./img/demo.png)
+
+
+### Deployment
+
+If you intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to Github pages](../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain is authorized with Firebase.

@@ -17,6 +17,7 @@ On this page, enable workflows as shown below.
 After you've changed the `.env` file and enabled the workflow, go ahead and push the commit to your forked repository. Afterwards, the deploy action will run. Once that has finished, navigate to the 'settings' tab and then the 'pages' tab.
 
 ![Demo](./img/deploy_step3.jpg)
+
 ![Demo](./img/deploy_step4.jpg)
 
 Here we will be able to deploy the site to the Github pages. In the 'Branch' section, you should see options to select a branch to deploy from. Select 'gh-pages' from the dropdown menu as shown below.
@@ -24,3 +25,7 @@ Here we will be able to deploy the site to the Github pages. In the 'Branch' sec
 ![Demo](./img/deploy_step5.jpg)
 
 Click 'Save' once you have made the switch. After a short period of time, your reVISit application will deploy to `<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+
+:::info
+When you deploy your static website, you will have to make sure that Firebase has your domain name set as an authorized domain. Otherwsie, Google authentication will not work as intended. You can follow the steps in this helpful [Stack Overflow post](https://stackoverflow.com/questions/48076968/firebase-auth-unauthorized-domain-domain-is-not-authorized) to add a custom authorized domain to your Firebase application.
+:::
