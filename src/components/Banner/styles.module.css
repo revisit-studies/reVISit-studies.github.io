@@ -1,0 +1,41 @@
+.banner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.0rem 0;
+  width: 100%;
+  color:white;
+  background-color: #f05a30;
+}
+
+.banner a{
+  color:white;
+}
+
+.bannerColumn{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction:column;
+}
+
+.bannerTitle{
+  font-size: 2.4em;
+  font-weight:bold;
+  font-style:italic;
+}
+
+.bannerTitle a{
+  font-weight:normal;
+  margin-left:10px; 
+  font: size 0.8em;
+}
+
+.bannerSubtitle{
+  font-size:1.2em;
+  padding-top:0px;
+  padding-bottom:10px;
+}
+
+
+

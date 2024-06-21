@@ -7,6 +7,7 @@ import HomepageFeatures from '../components/HomepageFeatures';
 
 import styles from './index.module.css';
 import ImageSwitcher from '../components/ImageSwitcher';
+import Banner from '../components/Banner/Banner';
 
 function HomepageHeader() {
   return (
@@ -60,6 +61,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       description={`${siteConfig.tagline}`}>
+      <Banner/>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
