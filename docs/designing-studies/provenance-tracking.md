@@ -7,7 +7,7 @@ ReVISit has integrated provenance tracking with Trrack, a state-based provenance
 Building off the bar chart example we created in the react stimulus tutorial, we will add simple provenance tracking that keeps track of which bar in the bar chart is selected. 
 
 Because trrack is state-based, you must define a state for your tracked application. In this case, the state is simply 
-```js
+```ts
 {
     selectedBar: string | null;
 }
@@ -15,7 +15,7 @@ Because trrack is state-based, you must define a state for your tracked applicat
 
 Next, we need to create a trrack instance, and an action that we will call when the bar gets clicked. We only need to do this once. 
 
-```js
+```ts
 const { actions, trrack } = useMemo(() => {
     const reg = Registry.create();
 
@@ -26,15 +26,11 @@ const { actions, trrack } = useMemo(() => {
 
     const trrackInst = initializeTrrack({
         registry: reg,
-        initialState: {
-        selectedBar: null,
-        },
+        initialState: { selectedBar: null },
     });
 
     return {
-        actions: {
-        selectBarAction,
-        },
+        actions: { selectBarAction },
         trrack: trrackInst,
     };
 }, []);
@@ -44,7 +40,7 @@ Finally, all thats left is to call the action! When calling the action you can a
 
 Once you have a graph, you save it to storage by calling the `setAnswer` callback which is passed as a prop to all react components used in revisit. 
 
-```js
+```ts
 const clickCallback = useCallback((barName: string) => {
     trrack.apply('Select Bar', actions.selectBarAction(barName));
 
@@ -66,19 +62,19 @@ The above example shows the basic use case for trrack if you just want to store 
 
 For this, we will use trrack as our central storage, instead of react. So in the above example, you probably have a react state that looks like 
 
-```js
+```ts
 const [selectedBar, setSelectedBar] = useState<string | null>(null);
 ```
 
 We will keep this, but where we would normally call `setSelectedBar`, such as in an onclick of the bar, we instead call our trrack action 
 
-```js
+```ts
 trrack.apply('Select Bar', actions.selectBarAction(barName));
 ```
 
 Now, to update our frontend, we will add an observer onto trrack that will get called whenever our current node changes. This gets called not only when new clicks are made, but also when `undo` or `redo` are called.
 
-```js
+```ts
 trrack.currentChange(() => {
     const selectedBar = trrack.getState().selectedBar;
     setSelectedBar(selectedBar);
@@ -87,7 +83,7 @@ trrack.currentChange(() => {
 
 Now we can add undo/redo, either via a button or with the standard keybinds, by calling the built in trrack functions. 
 
-```js
+```ts
 trrack.undo();
 trrack.redo();
 ```
