@@ -3,6 +3,7 @@ name: Create a new version and push to GitHub
 on:
   repository_dispatch:
     types: [study_repo_publish]
+  workflow_dispatch:
 
 jobs:
   create_version:
