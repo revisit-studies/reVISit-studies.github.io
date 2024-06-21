@@ -10,7 +10,7 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 ## Example 1: Graphical Perception Experiment
 
-The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. In our example, we name the experiment "demo-cleveland," so we put this code into `src/public/demo-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
+The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "demo-cleveland," so we put this code into `src/public/demo-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
 
 We have a few reusable components and hooks available in the `src/public/demo-cleveland/assets/hooks` and `src/public/demo-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks helps creating charts using D3.js in React. You may copy them to your own experiment folder.
 
