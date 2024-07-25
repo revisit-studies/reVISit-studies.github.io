@@ -43,6 +43,8 @@ CheckboxResponses render as a checkbox input with user specified options.
 | `hidden?` | `boolean` | Controls whether the response is hidden. | [`BaseResponse`](BaseResponse.md).`hidden` |
 | `id` | `string` | The id of the response. This is used to identify the response in the data file. | [`BaseResponse`](BaseResponse.md).`id` |
 | `location?` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. Defaults to `belowStimulus` | [`BaseResponse`](BaseResponse.md).`location` |
+| `maxSelections?` | `number` | The maximum number of selections that are required. | - |
+| `minSelections?` | `number` | The minimum number of selections that are required. | - |
 | `options` | [`StringOption`](StringOption.md)[] | The options that are displayed as checkboxes, provided as an array of objects, with label and value fields. | - |
 | `paramCapture?` | `string` | Use to capture querystring parameters in answers such as participant_name. See the examples for how this is used, but prefer uiConfig.urlParticipantIdParam if you are capturing a participant ID. | [`BaseResponse`](BaseResponse.md).`paramCapture` |
 | `prompt` | `string` | The prompt that is displayed to the participant. You can use markdown here to render images, links, etc. | [`BaseResponse`](BaseResponse.md).`prompt` |

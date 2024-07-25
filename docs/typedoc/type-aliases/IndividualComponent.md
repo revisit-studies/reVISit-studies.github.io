@@ -9,4 +9,4 @@ displayed_sidebar: reference
 
 ## Source
 
-[parser/types.ts:705](https://github.com/revisit-studies/study/blob/0dbb50ff3c65a335d9205656b4ba13d45395ff66/src/parser/types.ts#L705)
+[parser/types.ts:709](https://github.com/revisit-studies/study/blob/d65e91ab4af88102fb0ed9f3885702e20d5a1b2a/src/parser/types.ts#L709)

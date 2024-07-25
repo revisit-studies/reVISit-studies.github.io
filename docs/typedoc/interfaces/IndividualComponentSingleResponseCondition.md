@@ -24,6 +24,7 @@ For example, if you want to skip to a different component based on a response to
      "check": "response",
      "responseId": "attentionCheckResponse",
      "value": "the right answer",
+     "comparison": "equal",
      "to": "end"
    }
  ]
@@ -38,6 +39,7 @@ In this example, we assign our skip logic to the component whose ID is "attentio
 | Property | Type | Description |
 | :------ | :------ | :------ |
 | `check` | `"response"` | The check we'll perform. |
+| `comparison` | `"equal"` \| `"notEqual"` | The comparison to use. |
 | `name` | `string` | The name of the component to check. |
 | `responseId` | `string` | The response id to check. |
 | `to` | `string` | The id of the component or block to skip to |
