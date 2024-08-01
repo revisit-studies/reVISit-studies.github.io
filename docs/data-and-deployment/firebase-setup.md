@@ -111,7 +111,7 @@ We are now going to set up the authentication so that your browser is authorized
 ![Console](./img/firebase_steps/step15.jpg)
 
 :::info
-In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for particpants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](../authentication-authorization/adding-removing-ui) for more detailed authentication information.
+In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for particpants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](../authentication-authorization/adding-removing-ui) for more detailed authentication information and set up instructions.
 :::
 
 #### App Check
@@ -178,9 +178,9 @@ After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` fold
   {
     origin: ["*"],
     method: ["GET"],
-    maxAgeSeconds: 3600,
-  },
-];
+    maxAgeSeconds: 3600
+  }
+]
 ```
 
 Lastly, while still inside this same directory, call the following function:
@@ -203,4 +203,4 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 
 ### Deployment
 
-If you intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to Github pages](../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain is authorized with Firebase.
+If you intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to Github pages](../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
