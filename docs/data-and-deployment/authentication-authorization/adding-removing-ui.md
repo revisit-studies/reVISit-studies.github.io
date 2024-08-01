@@ -6,7 +6,7 @@ In order to use authentication, you must have a Firebase application already con
 
 ## Enabling Authentication in Firebase
 
-Start by navigating for your Firebase application. In the left-hand sidebar, choose the 'Authentication' tab.
+Start by navigating to your Firebase application dashboard. In the left-hand sidebar, choose the 'Authentication' tab.
 
 ![Console](./img/auth-1.png)
 
@@ -22,15 +22,19 @@ Upon clicking "enable", you will be prompted with providing some information abo
 
 ![Console](./img/auth-4.jpg)
 
+## Adding Authorized Domains
+
+Once you have deployed your reVISit application to a website, you'll need to ensure that Google SSO is authorized to redirect back to your website once a user has signed in. To do this, navigate to the "Authentication" section of your Firebase application. In the "Settings" tab you will see an "Authorized Domains" section. Add your domain name(s) using the "Add domain" button on the right.
+
 ## Enabling Authentication in reVISit
+
+:::warning
+Note that if your application has been deployed but you have _not_ added your custom authorized domain, then attempting to enable authentication will result in an error.
+:::
 
 Through the navigation panel on the right of your reVISit application, navigate to the "settings" page. Here, you will see that authentication will be currently disabled with a button to enable authentication.
 
 When you first enable authentication, you will be prompted to sign in using Google SSO. The account chosen will automatically be added as a user. Any other account attempting to log in to reVISit and access these protected routes will be redirected to the login screen.
-
-## Adding Authorized Domains
-
-Once you have deployed your reVISit application to a website, you'll need to ensure that Google SSO is authorized to redirect back to your website once a user has signed in. To do this, navigate to the "Authentication" section of your Firebase application. In the "Settings" tab you will see an "Authorized Domains" section. Add your domain name(s) using the "Add domain" button on the right.
 
 ## Manage Administrators in reVISit
 
