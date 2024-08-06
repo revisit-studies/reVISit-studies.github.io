@@ -173,14 +173,14 @@ Once that is finished, we'll have to use Google's `gsutil` function in the termi
 
 After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` folder on your local machine. Create a new file called "cors.json" with the following contents:
 
-```js
+```json
 [
   {
-    origin: ["*"],
-    method: ["GET"],
-    maxAgeSeconds: 3600
-  }
-]
+    "origin": ["*"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600,
+  },
+];
 ```
 
 Lastly, while still inside this same directory, call the following function:
