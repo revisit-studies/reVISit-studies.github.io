@@ -8,7 +8,7 @@ The below functionality is not present in the local storage version of reVISit. 
 
 ## Snapshots
 
-A **snapshot** of in the data management platform is an exact copy of the current state of a particular study dataset. This includes all the data gathered from each participant as well as the current study assignment sequence. To create a snapshot, you can navigate to the "Manage" tab within a particular study's analytics interface and click "Snapshot" in the "Create A Snapshot" section. When a snapshot is created, you will see the name of the snapshot in the "Snapshots" list below.  This does not remove the data from the current study dataset.
+A **snapshot** of in the data management platform is an exact copy of the current state of a particular study dataset. This includes all the data gathered from each participant as well as the current study assignment sequence. To create a snapshot, you can navigate to the "Manage" tab within a particular study's analytics interface and click "Snapshot" in the "Create A Snapshot" section. When a snapshot is created, you will see the name of the snapshot in the "Snapshots" list below. This does not remove the data from the current study dataset.
 
 ## Archiving Data
 
@@ -16,7 +16,7 @@ When you archive your data, it first creates a snapshot of the current study dat
 
 ## Restoring A Snapshot
 
-At any point, the current study data can be restored to a snapshot. In your snapshot list, you will see a "restore" icon which will allow you to do this. When you restore a snapshot, a new snapshot of the current study data will first be created. All data from the snapshot being restored is then copied back into the current study data. Your snapshot will _not_ be removed. 
+At any point, the current study data can be restored to a snapshot. In your snapshot list, you will see a "restore" icon which will allow you to do this. When you restore a snapshot, a new snapshot of the current study data will first be created. All data from the snapshot being restored is then copied back into the current study data. Your snapshot will _not_ be removed.
 
 ## Deleting A Snapshot
 
@@ -34,5 +34,6 @@ You can delete the live study data at any point. Note that this delete functiona
 All data deletion is permanent. Once deleted, you will not be able to view or download this data.
 :::
 
-
-
+:::info
+Whenever live data is deleted, reVISit will automatically generate a new configuration file for the upcoming participant. Thus, if you go into your Firebase UI after deleting your live data, you will still see the `configs/` folder with one configuration inside.
+:::
