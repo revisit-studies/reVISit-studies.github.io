@@ -91,20 +91,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
                     "location": "aboveStimulus",
                     "type": "dropdown",
                     "placeholder": "Please choose your favorite color",
-                    "options": [
-                        {
-                            "label": "Red",
-                            "value": "red"
-                        },
-                        {
-                            "label": "Blue",
-                            "value": "blue"
-                        },
-                        {
-                            "label": "My favorite color is not shown here.",
-                            "value": "notShown"
-                        }
-                    ]
+                    "options": ["Red", "Blue", "My favorite color is not shown here."]
                 }
             ]
         },

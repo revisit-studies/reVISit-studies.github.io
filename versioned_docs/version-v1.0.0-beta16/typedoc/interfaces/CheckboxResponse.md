@@ -15,20 +15,7 @@ CheckboxResponses render as a checkbox input with user specified options.
  "required": false,
  "location": "aboveStimulus",
  "type": "checkbox",
- "options": [
-   {
-     "label": "Option 1",
-     "value": "opt-1"
-   },
-   {
-     "label": "Option 2",
-     "value": "opt-2"
-   },
-   {
-     "label": "Option 3",
-     "value": "opt-3"
-   }
- ]
+ "options": ["Option 1", "Option 2", "Option 3"]
 }
 ```
 

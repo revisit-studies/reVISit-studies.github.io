@@ -20,20 +20,7 @@ Using baseComponents:
  "response": [
    {
      "id": "my-image-id",
-     "options": [
-       {
-         "label": "Europe",
-         "value": "Europe"
-       },
-       {
-         "label": "Japan",
-         "value": "Japan"
-       },
-       {
-         "label": "USA",
-         "value": "USA"
-       }
-     ],
+     "options": ["Europe", "Japan", "USA"],
      "prompt": "Your Selected Answer:",
      "type": "dropdown"
    }
