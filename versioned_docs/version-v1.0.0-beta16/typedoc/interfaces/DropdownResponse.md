@@ -17,16 +17,7 @@ Example:
  "location": "aboveStimulus",
  "type": "dropdown",
  "placeholder": "Please choose your favorite color",
- "options": [
-   {
-     "label": "Red",
-     "value": "red"
-   },
-   {
-     "label": "Blue",
-     "value": "blue"
-   }
- ]
+ "options": ["Red", "Blue", "My favorite color is not shown here."]
 }
  ```
 

@@ -16,16 +16,7 @@ Example:
  "required": true,
  "location": "aboveStimulus",
  "type": "radio",
- "options": [
-   {
-     "label": "Option 1",
-     "value": "opt-1"
-   },
-   {
-     "label": "Option 2",
-     "value": "opt-2"
-   }
- ]
+ "options": ["Option 1", "Option 2"]
 }
 ```
 
