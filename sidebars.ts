@@ -26,7 +26,7 @@ const sidebars: SidebarsConfig = {
         'getting-started/how-does-it-work',
         'getting-started/installation',
         'getting-started/your-first-study',
-        'getting-started/collecting-data'
+        'getting-started/collecting-data',
       ],
     },
     {
@@ -41,7 +41,9 @@ const sidebars: SidebarsConfig = {
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
         'designing-studies/study-sequences',
-        'designing-studies/provenance-tracking'
+        'designing-studies/provenance-tracking',
+        'designing-studies/config-generation'
+
       ]
     },
     {
