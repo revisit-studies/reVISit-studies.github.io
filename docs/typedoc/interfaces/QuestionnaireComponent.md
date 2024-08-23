@@ -17,25 +17,7 @@ A QuestionnaireComponent is used to render simple questions that require a respo
      "required": true,
      "location": "belowStimulus",
      "type": "checkbox",
-     "options": [
-       {
-         "label": "Man",
-         "value": "Man"
-       },
-       {
-         "label": "Woman",
-         "value": "Woman"
-       },
-       {
-         "label": "Genderqueer",
-         "value": "Genderqueer"
-       },
-       {
-         "label": "Third-gender",
-         "value": "Third-gender"
-       },
-       ... etc.
-     ]
+     "options": ["Man", "Woman", "Genderqueer", "Third-gender", ...]
    }
  ]
 }

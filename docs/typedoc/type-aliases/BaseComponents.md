@@ -20,20 +20,7 @@ Using baseComponents:
  "response": [
    {
      "id": "my-image-id",
-     "options": [
-       {
-         "label": "Europe",
-         "value": "Europe"
-       },
-       {
-         "label": "Japan",
-         "value": "Japan"
-       },
-       {
-         "label": "USA",
-         "value": "USA"
-       }
-     ],
+     "options": ["Europe", "Japan", "USA"],
      "prompt": "Your Selected Answer:",
      "type": "dropdown"
    }
@@ -65,4 +52,4 @@ In the above code snippet, we have a single base component which holds the infor
 
 ## Source
 
-[parser/types.ts:1161](https://github.com/revisit-studies/study/blob/29c3ca24ff4bd61e99fba54351362365ce5764c6/src/parser/types.ts#L1161)
+[parser/types.ts:1099](https://github.com/revisit-studies/study/blob/6541f4640b9af9f05f3811cc5f8115560bdd9653/src/parser/types.ts#L1099)

@@ -15,20 +15,7 @@ CheckboxResponses render as a checkbox input with user specified options.
  "required": false,
  "location": "aboveStimulus",
  "type": "checkbox",
- "options": [
-   {
-     "label": "Option 1",
-     "value": "opt-1"
-   },
-   {
-     "label": "Option 2",
-     "value": "opt-2"
-   },
-   {
-     "label": "Option 3",
-     "value": "opt-3"
-   }
- ]
+ "options": ["Option 1", "Option 2", "Option 3"]
 }
 ```
 
@@ -45,7 +32,7 @@ CheckboxResponses render as a checkbox input with user specified options.
 | `location?` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. Defaults to `belowStimulus` | [`BaseResponse`](BaseResponse.md).`location` |
 | `maxSelections?` | `number` | The maximum number of selections that are required. | - |
 | `minSelections?` | `number` | The minimum number of selections that are required. | - |
-| `options` | [`StringOption`](StringOption.md)[] | The options that are displayed as checkboxes, provided as an array of objects, with label and value fields. | - |
+| `options` | (`string` \| [`StringOption`](StringOption.md))[] | The options that are displayed as checkboxes, provided as an array of objects, with label and value fields. | - |
 | `paramCapture?` | `string` | Use to capture querystring parameters in answers such as participant_name. See the examples for how this is used, but prefer uiConfig.urlParticipantIdParam if you are capturing a participant ID. | [`BaseResponse`](BaseResponse.md).`paramCapture` |
 | `prompt` | `string` | The prompt that is displayed to the participant. You can use markdown here to render images, links, etc. | [`BaseResponse`](BaseResponse.md).`prompt` |
 | `required` | `boolean` | Controls whether the response is required to be answered. | [`BaseResponse`](BaseResponse.md).`required` |

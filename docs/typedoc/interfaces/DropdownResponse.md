@@ -17,16 +17,7 @@ Example:
  "location": "aboveStimulus",
  "type": "dropdown",
  "placeholder": "Please choose your favorite color",
- "options": [
-   {
-     "label": "Red",
-     "value": "red"
-   },
-   {
-     "label": "Blue",
-     "value": "blue"
-   }
- ]
+ "options": ["Red", "Blue"]
 }
  ```
 
@@ -41,7 +32,7 @@ Example:
 | `hidden?` | `boolean` | Controls whether the response is hidden. | [`BaseResponse`](BaseResponse.md).`hidden` |
 | `id` | `string` | The id of the response. This is used to identify the response in the data file. | [`BaseResponse`](BaseResponse.md).`id` |
 | `location?` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. Defaults to `belowStimulus` | [`BaseResponse`](BaseResponse.md).`location` |
-| `options` | [`StringOption`](StringOption.md)[] | The options that are displayed in the dropdown. | - |
+| `options` | (`string` \| [`StringOption`](StringOption.md))[] | The options that are displayed in the dropdown. | - |
 | `paramCapture?` | `string` | Use to capture querystring parameters in answers such as participant_name. See the examples for how this is used, but prefer uiConfig.urlParticipantIdParam if you are capturing a participant ID. | [`BaseResponse`](BaseResponse.md).`paramCapture` |
 | `placeholder?` | `string` | The placeholder text that is displayed in the input. | - |
 | `prompt` | `string` | The prompt that is displayed to the participant. You can use markdown here to render images, links, etc. | [`BaseResponse`](BaseResponse.md).`prompt` |
