@@ -16,16 +16,7 @@ Example:
  "required": true,
  "location": "aboveStimulus",
  "type": "radio",
- "options": [
-   {
-     "label": "Option 1",
-     "value": "opt-1"
-   },
-   {
-     "label": "Option 2",
-     "value": "opt-2"
-   }
- ]
+ "options": ["Option 1", "Option 2"]
 }
 ```
 
@@ -41,7 +32,7 @@ Example:
 | `id` | `string` | The id of the response. This is used to identify the response in the data file. | [`BaseResponse`](BaseResponse.md).`id` |
 | `leftLabel?` | `string` | The left label of the radio group. Used in Likert scales for example | - |
 | `location?` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. Defaults to `belowStimulus` | [`BaseResponse`](BaseResponse.md).`location` |
-| `options` | [`StringOption`](StringOption.md)[] | The options that are displayed as checkboxes, provided as an array of objects, with label and value fields. | - |
+| `options` | (`string` \| [`StringOption`](StringOption.md))[] | The options that are displayed as checkboxes, provided as an array of objects, with label and value fields. | - |
 | `paramCapture?` | `string` | Use to capture querystring parameters in answers such as participant_name. See the examples for how this is used, but prefer uiConfig.urlParticipantIdParam if you are capturing a participant ID. | [`BaseResponse`](BaseResponse.md).`paramCapture` |
 | `prompt` | `string` | The prompt that is displayed to the participant. You can use markdown here to render images, links, etc. | [`BaseResponse`](BaseResponse.md).`prompt` |
 | `required` | `boolean` | Controls whether the response is required to be answered. | [`BaseResponse`](BaseResponse.md).`required` |
