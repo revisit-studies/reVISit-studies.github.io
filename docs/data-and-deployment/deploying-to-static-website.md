@@ -14,6 +14,10 @@ On this page, enable workflows as shown below.
 
 ![Demo](./img/deploy_step2.jpg)
 
+:::info
+If you have enabled github pages or ran any other action in your repo, it won't be possible to enable the workflow on this screen. To enable the workflow, you will have to navigate to the `.github/workflows` folder in your repository, remove the workflow files, commit and push, then add the workflow files back, commit and push again. After that, the workflows should be enabled.
+:::
+
 After you've changed the `.env` file and enabled the workflow, go ahead and push the commit to your forked repository. Afterwards, the deploy action will run. Once that has finished, navigate to the 'settings' tab and then the 'pages' tab.
 
 ![Demo](./img/deploy_step3.jpg)
