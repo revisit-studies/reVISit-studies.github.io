@@ -42,7 +42,21 @@ const sidebars: SidebarsConfig = {
         'designing-studies/react-stimulus',
         'designing-studies/study-sequences',
         'designing-studies/provenance-tracking',
-        'designing-studies/config-generation'
+        {
+          "type": "category",
+          "label": "Config File Generation",
+          "link": {
+            "type": "doc",
+            "id": "designing-studies/config-generation/index"
+          },
+          "items": [
+            "designing-studies/config-generation/fixed-order",
+            "designing-studies/config-generation/random-sample",
+            "designing-studies/config-generation/latin-square",
+
+          ]
+        },
+        // 'designing-studies/config-generation'
 
       ]
     },

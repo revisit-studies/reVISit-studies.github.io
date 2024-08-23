@@ -1,83 +1,12 @@
----
-sidebar_position: 4
----
+# Example 2: Random Sample
 
-# Config File Generation
+Suppose we are trying to develop a ([VLAT](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7539634&casa_token=9jo2PolUvEQAAAAA:vQJzbp3Sh6FU5TW1uaNyNKzQio6cSyx6-BOKrZ4cbDE6nAYOWFj3NJNecDMQlHg-1beKBM8Ra5I&tag=1))-like experiment.
+The original VLAT contains 50+ questions, each trial has a chart type and a task type.
 
-In some cases, you may encounter the problem that your experiments may include hundreds or even thousands of trials, and it is not feasible to write them all by hand. 
-reVISit provides the [`BaseComponents`](/docs/typedoc/type-aliases/BaseComponents/) that you can reuse to reduce redundence in config file, but it still quite a effort to write trials and sequence manually.
+For each chart type and task combination, we developed multiple questions with different context.
+So, we want our test to follow the original VLAT sequence (same chart type and task type in each trial), but the context will be randomly selected.
 
-In this case, we recommand to use a script to generate the config file. 
-This tutorial will guide you through the process of generating a config file for your experiments by 3 demo use cases.
-
-**Example 1** generates 100 trials for the click accuracy test with fixed order.
-
-**Example 2** is generating config file for a VLAT-like experiment([VLAT](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7539634&casa_token=9jo2PolUvEQAAAAA:vQJzbp3Sh6FU5TW1uaNyNKzQio6cSyx6-BOKrZ4cbDE6nAYOWFj3NJNecDMQlHg-1beKBM8Ra5I&tag=1)). Each trial contains of a chart, a question and a few options. However, for each chart type and task combination, we have different questions with various context. 
-We will generate a VLAT-like experiment, the chart type and task will be identical with the original VLAT, but the context is randomly selected. 
-
-**Example 3** is using the same trials from Example 2, we picked a set of questions from the pool and want to ask expert to review them, but it takes too much time for one person to review all of them. 
-In this case, we want to each expert can review a certain amount of questions, and we want to each question be reviewed at balanced times. In this case, we will use the Latin Square randomization.
-
-
-## Example 1: Fixed Order
-In this example, we will generate 100 trials for the click accuracy test first. Since we have basecomponent in the config file, we won't need to write common features repeatly. 
-
-```python
-allTrials = {}
-def createTrials():
-   for i in range(300, 401): 
-    allTrials["trial" + str(i)] = {  
-        "baseComponent": "trial",
-        "meta": {
-            "nr-dots": 1,
-            "speed": i
-        },
-        "parameters": {
-            "speed": i,
-            "taskid": "t" + str(i)
-        }
-    }
-
-createTrials()
-```
-Then, we can write the trials into a json file. 
-```python
-with open('out/trial-click-accuracy.json', 'w') as outfile:
-    json.dump(allTrials, outfile, indent=4)
-```
-
-Now we can generated fixed order sequence based on trial names. 
-```python
-#Create fixed order
-def createFixedOrder():
-    trial_keys = [key for key in allTrials]
-    
-    # Create the sequence structure
-    sequence = {
-        "sequence": {
-            "order": "fixed",
-            "components": [
-                "introduction"
-            ] + trial_keys  # Append the trial keys
-        }
-    }
-    return sequence
-
-seq = createFixedOrder()
-print(seq)
-with open('out/seq-fixed-order.json', 'w') as outfile:
-        json.dump(seq, outfile, indent=4)
-```
-
-You can run the script from [here](https://codesandbox.io/p/devbox/config-gen-demo1-cgzlg5?file=%2Fmain.py%3A9%2C2-24%2C15)
-
-
-## Example 2: Random Sample
-
-We are trying to develop a VLAT-like experiment. We extract chart type and task type for each trial in the original VLAT, and we developed many questions with different context. 
-So we want to this test follow the VLAT sequence (same chart type and task type in each trial), but the context will be randomly selected. 
-
-Suppose we put all visualizations in the data/vis folder and all questions in the data/questions folder.
+We put all visualizations in the data/vis folder and all questions in the data/questions folder.
 Now let's generate the trials first:
 
 ```python
@@ -214,6 +143,3 @@ with open('out/seq-balancedsample.json', 'w') as outfile:
 ```
 
 You can check the code and output [here](https://codesandbox.io/p/devbox/config-gen-demo2-ywf9rw?file=%2Fmain.py%3A77%2C1-138%2C1)
-
-
-## Example 3: Latin Square
