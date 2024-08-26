@@ -13,7 +13,7 @@ def createTrials():
         },
         "parameters": {
             "speed": i,
-            "taskid": "t" + str(i)
+            "taskid": "accuracy"
         }
     }
 
