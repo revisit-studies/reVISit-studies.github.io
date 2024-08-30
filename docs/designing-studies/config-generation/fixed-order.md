@@ -13,15 +13,15 @@ import TabItem from '@theme/TabItem';
 ```python
 def createTrials():
     allTrials = {}
-    for i in range(300, 401):
-        allTrials["trial" + str(i)] = {
+    for i in range(100):
+        allTrials["trial-" + str(i)] = {
             "baseComponent": "trial",
             "meta": {
                 "nr-dots": 1,
-                "speed": i
+                "speed": 300 + i
             },
             "parameters": {
-                "speed": i,
+                "speed": 300 + i,
                 "taskid": "accuracy"
             }
         }
@@ -34,15 +34,15 @@ def createTrials():
 ```javascript
 function createTrials() {
   const allTrials = {};
-  for (let i = 300; i <= 400; i++) {
-    allTrials[`trial${i}`] = {
+  for (let i = 0; i < 100; i++) {
+    allTrials[`trial-${i}`] = {
       baseComponent: "trial",
       meta: {
         "nr-dots": 1,
-        speed: i,
+        speed: 300 + i,
       },
       parameters: {
-        speed: i,
+        speed: 300 + i,
         taskid: "accuracy",
       },
     };
@@ -180,15 +180,15 @@ initialConfig = {
 
 def createTrials():
     allTrials = {}
-    for i in range(300, 401):
-        allTrials["trial" + str(i)] = {
+    for i in range(100):
+        allTrials["trial-" + str(i)] = {
             "baseComponent": "trial",
             "meta": {
                 "nr-dots": 1,
-                "speed": i
+                "speed": 300 + i
             },
             "parameters": {
-                "speed": i,
+                "speed": 300 + i,
                 "taskid": "accuracy"
             }
         }
@@ -275,15 +275,15 @@ const initialConfig = {
 // Create trials
 function createTrials() {
   const allTrials = {};
-  for (let i = 300; i <= 400; i++) {
-    allTrials[`trial${i}`] = {
+  for (let i = 0; i < 100; i++) {
+    allTrials[`trial-${i}`] = {
       baseComponent: "trial",
       meta: {
         "nr-dots": 1,
-        speed: i,
+        speed: 300 + i,
       },
       parameters: {
-        speed: i,
+        speed: 300 + i,
         taskid: "accuracy",
       },
     };
