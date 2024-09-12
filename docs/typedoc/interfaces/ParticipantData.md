@@ -61,6 +61,6 @@ We can see at a high level that we are given the answer that the user submitted,
 | `metadata` | [`ParticipantMetadata`](ParticipantMetadata.md) | Metadata of a participants browser, resolution, language, and IP. |
 | `participantConfigHash` | `string` | Unique ID corresponding to the Configuration that the participant received. |
 | `participantId` | `string` | Unique ID  associated with the participant |
-| `rejected` | `boolean` | Whether the participant has been rejected. |
+| `rejected` | `false` \| `object` | Whether the participant has been rejected and the reason. |
 | `searchParams` | `Record`\<`string`, `string`\> | Query parameters of the URL used to enter the study. |
 | `sequence` | `Sequence` | Sequence of components that the participant received. This is an internal data type and is compiled from the ComponentBlocks in the StudyConfig sequence. |
