@@ -34,7 +34,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           lastVersion: 'current',
           versions: {
-            current: { label: 'v1.0.3', path: '' },
+            current: { label: 'v1.0.4', path: '' },
           }
         },
 
