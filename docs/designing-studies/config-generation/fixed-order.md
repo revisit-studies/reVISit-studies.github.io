@@ -130,6 +130,7 @@ Combining everything together, we get the following:
 <TabItem value="python" label="Python">
 
 ```python
+
 initialConfig = {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v1.0.2/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
