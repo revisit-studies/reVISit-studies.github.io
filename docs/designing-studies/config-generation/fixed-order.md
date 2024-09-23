@@ -1,6 +1,6 @@
 # Example 1: Fixed Order
 
-Suppose we have a base component which allows the parameters `speed` and `taskid` and metadata fields `nr-dots` and `speed`. Now, suppose we want many exact copies of this base component except that we want different speeds. In this example, we'll create a configuration file with 100 copies of the same base component with increasing speeds.
+In this example, we will re-use the [click accuracy test](https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test) in our demo. Suppose we have a base component which allows the parameters `speed` and `taskid` and metadata fields `nr-dots` and `speed`. Now, suppose we want many exact copies of this base component except that we want different speeds. In this example, we'll create a configuration file with 100 copies of the same base component with increasing speeds.
 
 We'll start by creating an Object containing the base components with variable speed.
 
@@ -35,7 +35,7 @@ def createTrials():
 function createTrials() {
   const allTrials = {};
   for (let i = 0; i < 100; i++) {
-    allTrials[`trial-${i}`] = {
+    allTrials[`trial${i + 300}`] = {
       baseComponent: "trial",
       meta: {
         "nr-dots": 1,
@@ -232,77 +232,77 @@ with open('config.json', 'w') as outfile:
 
 ```javascript
 const initialConfig = {
-  $schema:
-    "https://raw.githubusercontent.com/revisit-studies/study/v1.0.2/src/parser/StudyConfigSchema.json",
-  studyMetadata: {
-    title: "Dynamic React Stimuli and Provenance Tracking",
-    version: "pilot",
-    authors: ["The reVISit Team"],
-    date: "2023-06-15",
-    description:
-      "A demo of using dynamic React stimuli and using provenance tracking with the trrack library for data collection.",
-    organizations: ["University of Utah", "WPI", "University of Toronto"],
-  },
-  uiConfig: {
-    contactEmail: "contact@revisit.dev",
-    helpTextPath: "demo-click-accuracy-test/assets/help.md",
-    logoPath: "revisitAssets/revisitLogoSquare.svg",
-    withProgressBar: true,
-    autoDownloadStudy: false,
-    sidebar: true,
-  },
-  baseComponents: {
-    trial: {
-      description: "try to click on the center of the moving dot",
-      instruction: "Click on the moving dot",
-      type: "react-component",
-      path: "demo-click-accuracy-test/assets/ClickAccuracyTest.tsx",
-      nextButtonLocation: "sidebar",
-      response: [
-        {
-          id: "accuracy",
-          prompt: "Your click distance to circle center",
-          required: true,
-          location: "sidebar",
-          type: "iframe",
-        },
-      ],
+    $schema:
+        "https://raw.githubusercontent.com/revisit-studies/study/v1.0.2/src/parser/StudyConfigSchema.json",
+    studyMetadata: {
+        title: "Dynamic React Stimuli and Provenance Tracking",
+        version: "pilot",
+        authors: ["The reVISit Team"],
+        date: "2023-06-15",
+        description:
+            "A demo of using dynamic React stimuli and using provenance tracking with the trrack library for data collection.",
+        organizations: ["University of Utah", "WPI", "University of Toronto"],
     },
-  },
-  components: {},
-  sequence: {},
+    uiConfig: {
+        contactEmail: "contact@revisit.dev",
+        helpTextPath: "demo-click-accuracy-test/assets/help.md",
+        logoPath: "revisitAssets/revisitLogoSquare.svg",
+        withProgressBar: true,
+        autoDownloadStudy: false,
+        sidebar: true,
+    },
+    baseComponents: {
+        trial: {
+            description: "try to click on the center of the moving dot",
+            instruction: "Click on the moving dot",
+            type: "react-component",
+            path: "demo-click-accuracy-test/assets/ClickAccuracyTest.tsx",
+            nextButtonLocation: "sidebar",
+            response: [
+                {
+                    id: "accuracy",
+                    prompt: "Your click distance to circle center",
+                    required: true,
+                    location: "sidebar",
+                    type: "iframe",
+                },
+            ],
+        },
+    },
+    components: {},
+    sequence: {},
 };
 
 // Create trials
 function createTrials() {
-  const allTrials = {};
-  for (let i = 0; i < 100; i++) {
-    allTrials[`trial-${i}`] = {
-      baseComponent: "trial",
-      meta: {
-        "nr-dots": 1,
-        speed: 300 + i,
-      },
-      parameters: {
-        speed: 300 + i,
-        taskid: "accuracy",
-      },
-    };
-  }
-  return allTrials;
+    const allTrials = {};
+    for (let i = 0; i < 100; i++) {
+        allTrials[`trial${i + 300}`] = {
+            baseComponent: "trial",
+            meta: {
+                "nr-dots": 1,
+                speed: 300 + i,
+            },
+            parameters: {
+                speed: 300 + i,
+                taskid: "accuracy",
+            },
+        };
+    }
+    return allTrials;
 }
 
 // Create fixed order
 function createFixedOrder(allTrials) {
-  const trialKeys = Object.keys(allTrials);
+    const trialKeys = Object.keys(allTrials);
 
-  const sequence = {
-    sequence: {
-      order: "fixed",
-      components: ["introduction", ...trialKeys],
-    },
-  };
-  return sequence;
+    const sequence = {
+        sequence: {
+            order: "fixed",
+            components: ["introduction", ...trialKeys],
+        },
+    };
+    return sequence;
 }
 
 // Call 'createTrials' function
@@ -317,17 +317,33 @@ initialConfig.components = allTrials;
 initialConfig.sequence = seq;
 
 const fs = require("fs");
-const jsonData = JSON.stringify(seq, null, 2);
-
+const seqData = JSON.stringify(seq, null, 2);
+const trialData = JSON.stringify(allTrials, null, 2);
+const configData = JSON.stringify(initialConfig, null, 2);
 // Output to JSON file
-fs.writeFile("config.json", jsonData, (err) => {
-  if (err) {
-    console.error("Error writing to file", err);
-  }
+fs.writeFile("out/config-click-accuracy.json", configData, (err) => {
+    if (err) {
+        console.error("Error writing to file", err);
+    }
 });
+
+fs.writeFile("out/trial.json", trialData, (err) => {
+    if (err) {
+        console.error("Error writing to file", err);
+    }
+});
+
+fs.writeFile("out/seq-fixed-order.json", seqData, (err) => {
+    if (err) {
+        console.error("Error writing to file", err);
+    }
+});
+
 ```
 
 </TabItem>
 </Tabs>
 
-You can check the code and output [here](https://codesandbox.io/p/devbox/config-gen-demo1-cgzlg5?file=%2Fmain.py%3A9%2C2-24%2C15)
+You can check the code and output at Codesandbox using the link below:
+- [Python](https://codesandbox.io/p/devbox/config-gen-demo1-cgzlg5)
+- [Node](https://codesandbox.io/p/devbox/cpsmvd)
