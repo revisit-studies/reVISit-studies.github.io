@@ -101,8 +101,7 @@ export default function Home(): JSX.Element {
 
     useEffect(() => {
         const fetchData = async () => {
-            // Adjust the path based on your project structure
-            const response = await fetch('/testimonials.csv'); // Adjust this path
+            const response = await fetch('/testimonials.csv');
             if (!response.ok) {
                 console.error('Error fetching the CSV file:', response.statusText);
                 return;
@@ -124,7 +123,7 @@ export default function Home(): JSX.Element {
                             "tags": entry['Study Type'].split(", ")
                         }
                     })
-                    setTestimonials(testimonials); // Store parsed data
+                    setTestimonials(testimonials);
                 },
             });
         };
