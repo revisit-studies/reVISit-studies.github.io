@@ -121,7 +121,7 @@ export default function Home(): JSX.Element {
                             "subtitle": entry['Short Description'],
                             "revisitVersion": entry['ReVISit Version'],
                             "sourceCodeLink": entry['Source Code Link'],
-                            "tags": entry['Study Type'].split(",")
+                            "tags": entry['Study Type'].split(", ")
                         }
                     })
                     setTestimonials(testimonials); // Store parsed data
