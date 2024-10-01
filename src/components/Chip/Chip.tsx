@@ -29,9 +29,9 @@ const capitalizeWord = (word: string): string => {
 const formatTypeDisplay = (type: string): string => {
     let formattedType = formatType(type);
     return formattedType
-        .split('-')                      // Split by dashes
-        .map(capitalizeWord)             // Capitalize each word
-        .join(' ');                      // Join the words back with dashes
+        .split('-')
+        .map(capitalizeWord)
+        .join(' ');
 }
 
 
