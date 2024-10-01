@@ -112,11 +112,15 @@ const config: Config = {
         {
           type: "docSidebar",
           sidebarId: "reference",
-          postiion: "left",
+          position: "left",
           label: "Reference",
         },
         { to: "/about", label: "About", position: "left" },
-        { to: "/testimonials", label: "Testimonials", position: "left" },
+        {
+          to: "/testimonials",
+          label: "Testimonials",
+          position: "left",
+        },
         {
           type: "docsVersionDropdown",
           position: "right",
