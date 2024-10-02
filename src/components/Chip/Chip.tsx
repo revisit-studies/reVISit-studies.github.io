@@ -2,10 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
-interface ChipInput {
-    type: string
-}
-
 const possibleTypes = ['survey', 'interaction', 'visual-encoding', 'visualization-technique'];
 
 const formatType = (type: string): string => {
@@ -31,7 +27,7 @@ const formatTypeDisplay = (type: string): string => {
     .join(' ');
 };
 
-export function Chip({ type }: ChipInput): JSX.Element {
+export function Chip({ type }: { type: string }) {
   return (
     <div className={clsx(styles[`type-${formatTypeClass(type)}`], styles.chip)}>{formatTypeDisplay(type)}</div>
   );

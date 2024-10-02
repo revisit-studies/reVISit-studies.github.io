@@ -23,7 +23,7 @@ interface Testimonial {
     tags: string[];
 }
 
-function Testimonial({ testimonial }: { testimonial: Testimonial }): JSX.Element {
+function Testimonial({ testimonial }: { testimonial: Testimonial }) {
   const revisitVersionLink = testimonial.revisitVersion === '1.0.5' ? '../docs/introduction' : `../docs/v${testimonial.revisitVersion}/introduction/`;
   return (
     <div className={styles.testimonialContainer}>
@@ -35,7 +35,7 @@ function Testimonial({ testimonial }: { testimonial: Testimonial }): JSX.Element
       </div>
       {testimonial.tags.length !== 0}
       <div className={styles.tagsRow}>
-        {testimonial.tags.map((tag: string): JSX.Element => (
+        {testimonial.tags.map((tag: string) => (
           <Chip key={tag} type={tag} />
         ))}
       </div>
@@ -105,7 +105,7 @@ function Testimonial({ testimonial }: { testimonial: Testimonial }): JSX.Element
   );
 }
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   const [testimonials, setTestimonials] = useState([]);

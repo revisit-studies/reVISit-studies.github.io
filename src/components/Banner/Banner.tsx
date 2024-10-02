@@ -1,7 +1,7 @@
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
-export default function Banner(): JSX.Element {
+export default function Banner() {
   return (
     <section className={styles.banner}>
       <div className="container">
