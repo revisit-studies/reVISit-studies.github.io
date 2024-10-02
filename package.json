@@ -34,7 +34,6 @@
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "fs": "^0.0.1-security",
     "linkinator": "^6.0.4",
     "papaparse": "^5.4.1",
     "prism-react-renderer": "^2.3.0",
