@@ -7,30 +7,32 @@ interface ImageSwitcherProps {
   className?: string
 }
 
-const ImageSwitcher = ({lightImageSrc,darkImageSrc,style,className} : ImageSwitcherProps) => {
+function ImageSwitcher({
+  lightImageSrc, darkImageSrc, style, className,
+} : ImageSwitcherProps) {
   let darkClassName = 'dark-theme-display-component';
   let lightClassName = 'light-theme-display-component';
-  
-  if(className){
-    darkClassName = darkClassName + ' ' + className;
-    lightClassName = lightClassName + ' ' + className;
+
+  if (className) {
+    darkClassName = `${darkClassName} ${className}`;
+    lightClassName = `${lightClassName} ${className}`;
   }
   return (
     <>
-      <img 
+      <img
         style={style}
         alt="Example banner"
         src={lightImageSrc}
         className={lightClassName}
       />
-      <img 
+      <img
         style={style}
         alt="Example banner"
         src={darkImageSrc}
         className={darkClassName}
       />
     </>
-  )
+  );
 }
 
 export default ImageSwitcher;

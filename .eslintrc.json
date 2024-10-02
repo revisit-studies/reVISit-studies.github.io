@@ -80,6 +80,7 @@
         "contextType": "static public field",
         "displayName": "static public field"
       }
-    ]
+    ],
+    "import/no-unresolved": [ 2, {"ignore": ["^@theme", "^@docusaurus", "^@site"]}]
   }
 }

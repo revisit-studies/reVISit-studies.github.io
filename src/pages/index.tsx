@@ -15,13 +15,13 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.titleContainer}>
           <ImageSwitcher
-            lightImageSrc={"img/logos/revisitLogoThumbnail-dotted-light.svg"}
-            darkImageSrc={"img/logos/revisitLogoThumbnail-dotted-dark.svg"}
+            lightImageSrc="img/logos/revisitLogoThumbnail-dotted-light.svg"
+            darkImageSrc="img/logos/revisitLogoThumbnail-dotted-dark.svg"
             className={clsx(styles.largeItem, styles.homepageLogo)}
           />
           <ImageSwitcher
-            lightImageSrc={"img/logos/revisitLogoLong.svg"}
-            darkImageSrc={"img/logos/revisitLogoLong-dark.svg"}
+            lightImageSrc="img/logos/revisitLogoLong.svg"
+            darkImageSrc="img/logos/revisitLogoLong-dark.svg"
             className={clsx(styles.smallItem, styles.homepageLogo)}
           />
           <div className={clsx('hero__title', styles.description)}>
@@ -36,18 +36,21 @@ function HomepageHeader() {
         <div className={styles.buttons} style={{ marginTop: '50px' }}>
           <Link
             className="button button--secondary button--lg"
-            to="/about">
+            to="/about"
+          >
             About ReVISit
           </Link>
           <Link
             className="button button--primary button--lg"
             style={{ color: 'white' }}
-            to="https://revisit.dev/study">
+            to="https://revisit.dev/study"
+          >
             Try The Demo
           </Link>
           <Link
             className="button button--info button--lg"
-            to="/docs/introduction">
+            to="/docs/introduction"
+          >
             Get Started
           </Link>
         </div>
@@ -59,8 +62,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      description={`${siteConfig.tagline}`}>
+    <Layout description={`${siteConfig.tagline}`}>
       <Banner />
       <HomepageHeader />
       <main>
