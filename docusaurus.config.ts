@@ -1,47 +1,47 @@
-import { themes as prismThemes } from "prism-react-renderer";
-import type { Config } from "@docusaurus/types";
-import type * as Preset from "@docusaurus/preset-classic";
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: "Home | ReVISit",
-  tagline: "reVISit: Reproducible and Powerful Visualization User Studies",
-  favicon: "img/logos/favicon.svg",
+  title: 'Home | ReVISit',
+  tagline: 'reVISit: Reproducible and Powerful Visualization User Studies',
+  favicon: 'img/logos/favicon.svg',
 
-  url: "https://revisit.dev",
-  baseUrl: "/",
+  url: 'https://revisit.dev',
+  baseUrl: '/',
   trailingSlash: true,
 
-  organizationName: "University of Utah", // Usually your GitHub org/user name.
-  projectName: "ReVISit", // Usually your repo name.
+  organizationName: 'University of Utah', // Usually your GitHub org/user name.
+  projectName: 'ReVISit', // Usually your repo name.
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
     [
-      "classic",
+      'classic',
       {
         docs: {
-          sidebarPath: "./sidebars.ts",
-          lastVersion: "current",
+          sidebarPath: './sidebars.ts',
+          lastVersion: 'current',
           versions: {
-            current: { label: "v1.0.1", path: "" },
+            current: { label: 'v1.0.1', path: '' },
           },
         },
 
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: './src/css/custom.css',
         },
         gtag: {
-          trackingID: "G-FLX70EGV5P",
+          trackingID: 'G-FLX70EGV5P',
           anonymizeIP: true,
         },
       } satisfies Preset.Options,
@@ -50,21 +50,21 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      id: "support_us",
+      id: 'support_us',
       content:
         'ReVISit Version 1.0.0 Is Out! &#127881; <a target="_blank" href="https://vdl.sci.utah.edu/blog/2024/06/20/revisit/">Read the blog post.',
-      backgroundColor: "#fafbfc",
-      textColor: "#091E42",
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
       isCloseable: true,
     },
     algolia: {
       // The application ID provided by Algolia
-      appId: "CE7T3Q5S25",
+      appId: 'CE7T3Q5S25',
 
       // Public API key: it is safe to commit it
-      apiKey: "0e172022221452330a1cf49f25f6ebc6",
+      apiKey: '0e172022221452330a1cf49f25f6ebc6',
 
-      indexName: "revisit-docusaurus",
+      indexName: 'revisit-docusaurus',
 
       // Ensures that search is based on version
       contextualSearch: true,
@@ -82,63 +82,63 @@ const config: Config = {
       searchParameters: {},
 
       // Optional: path for search page that enabled by default (`false` to disable it)
-      searchPagePath: "search",
+      searchPagePath: 'search',
 
       // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
       insights: false,
 
-      //... other Algolia params
+      // ... other Algolia params
     },
-    image: "img/logos/revisitLogoThumbnail.png",
+    image: 'img/logos/revisitLogoThumbnail.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "ReVISit",
+      title: 'ReVISit',
       logo: {
-        alt: "ReVISit Logo",
-        src: "img/logos/revisitLogoThumbnail-dotted-light.svg",
-        srcDark: "img/logos/revisitLogoThumbnail-dotted-dark.svg",
+        alt: 'ReVISit Logo',
+        src: 'img/logos/revisitLogoThumbnail-dotted-light.svg',
+        srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
       items: [
-        { to: "/community", label: "Community", position: "left" },
+        { to: '/community', label: 'Community', position: 'left' },
 
         {
-          type: "docSidebar",
-          sidebarId: "docs",
-          position: "left",
-          label: "Documentation",
+          type: 'docSidebar',
+          sidebarId: 'docs',
+          position: 'left',
+          label: 'Documentation',
         },
         {
-          type: "docSidebar",
-          sidebarId: "reference",
-          position: "left",
-          label: "Reference",
+          type: 'docSidebar',
+          sidebarId: 'reference',
+          position: 'left',
+          label: 'Reference',
         },
-        { to: "/about", label: "About", position: "left" },
+        { to: '/about', label: 'About', position: 'left' },
         {
-          to: "/testimonials",
-          label: "Testimonials",
-          position: "left",
-        },
-        {
-          type: "docsVersionDropdown",
-          position: "right",
+          to: '/testimonials',
+          label: 'Testimonials',
+          position: 'left',
         },
         {
-          href: "https://github.com/revisit-studies/study",
-          label: "GitHub",
-          position: "right",
+          type: 'docsVersionDropdown',
+          position: 'right',
         },
         {
-          href: "https://revisit.dev/study",
-          label: "Demo",
-          position: "right",
+          href: 'https://github.com/revisit-studies/study',
+          label: 'GitHub',
+          position: 'right',
+        },
+        {
+          href: 'https://revisit.dev/study',
+          label: 'Demo',
+          position: 'right',
         },
       ],
     },
     footer: {
-      style: "light",
+      style: 'light',
       links: [
         {
           html: ` 
@@ -178,13 +178,13 @@ const config: Config = {
         },
       ],
       copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${
-        new Date().toISOString().split("T")[0]
+        new Date().toISOString().split('T')[0]
       }. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["bash", "typescript"],
+      additionalLanguages: ['bash', 'typescript'],
     },
   } satisfies Preset.ThemeConfig,
 };
