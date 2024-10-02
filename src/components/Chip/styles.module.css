@@ -1,73 +1,74 @@
-.chip{
-    font-size:0.8rem;
-    font-weight:bold;
-    border-radius:15px;
-    margin:5px;
-    display:flex;
+.chip {
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 15px;
+    margin: 5px;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding:1px 15px;
-    color:black;
+    padding: 1px 15px;
+    color: black;
 }
 
-.chip.type-survey{
-    background-color:#624E88;
-    border:1px solid #463861;
-    color:white;
-}
-html[data-theme="dark"] .chip.type-survey{
-    background-color:#463861;
-    border:1px solid #624E88;
+.chip.type-survey {
+    background-color: #624E88;
+    border: 1px solid #463861;
+    color: white;
 }
 
-
-
-.chip.type-interaction{
-    background-color:#EF9C66;
-    border:1px solid #bf7c51;
-    color:white;
+html[data-theme="dark"] .chip.type-survey {
+    background-color: #463861;
+    border: 1px solid #624E88;
 }
 
-html[data-theme="dark"] .chip.type-interaction{
-    background-color:#bf7c51;
-    border:1px solid #EF9C66;
+
+
+.chip.type-interaction {
+    background-color: #EF9C66;
+    border: 1px solid #bf7c51;
+    color: white;
 }
 
-.chip.type-visual-encoding{
-    background-color:#CB80AB;
+html[data-theme="dark"] .chip.type-interaction {
+    background-color: #bf7c51;
+    border: 1px solid #EF9C66;
+}
+
+.chip.type-visual-encoding {
+    background-color: #CB80AB;
     border: 1px solid #a26688;
-    color:white;
+    color: white;
 }
 
-html[data-theme="dark"] .chip.type-visual-encoding{
-    background-color:#a26688;
+html[data-theme="dark"] .chip.type-visual-encoding {
+    background-color: #a26688;
     border: 1px solid #CB80AB;
 }
 
-.chip.type-visualization-technique{
-    background-color:#E6D9A2;
-    border:2px solid #b8ad81;
+.chip.type-visualization-technique {
+    background-color: #E6D9A2;
+    border: 2px solid #b8ad81;
 }
 
-html[data-theme="dark"] .chip.type-visualization-technique{
-    background-color:#b8ad81;
-    border:2px solid #E6D9A2;
+html[data-theme="dark"] .chip.type-visualization-technique {
+    background-color: #b8ad81;
+    border: 2px solid #E6D9A2;
 }
 
-.chip.type-other{
-    background-color:#BBE9FF;
+.chip.type-other {
+    background-color: #BBE9FF;
     border: 2px solid #95bacc;
 }
 
-html[data-theme="dark"] .chip.type-other{
-    background-color:#95bacc;
+html[data-theme="dark"] .chip.type-other {
+    background-color: #95bacc;
     border: 2px solid #BBE9FF;
 }
 
-@media only screen and (max-width:450px){
-    .chip{
-        font-size:0.6rem;
+@media only screen and (max-width:450px) {
+    .chip {
+        font-size: 0.6rem;
     }
 }
