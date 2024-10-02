@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -24,7 +24,6 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  
 
   presets: [
     [
@@ -53,7 +52,7 @@ const config: Config = {
     announcementBar: {
       id: 'support_us',
       content:
-      'ReVISit Version 1.0.0 Is Out! &#127881; <a target="_blank" href="https://vdl.sci.utah.edu/blog/2024/06/20/revisit/">Read the blog post.',
+        'ReVISit Version 1.0.0 Is Out! &#127881; <a target="_blank" href="https://vdl.sci.utah.edu/blog/2024/06/20/revisit/">Read the blog post.',
       backgroundColor: '#fafbfc',
       textColor: '#091E42',
       isCloseable: true,
@@ -88,7 +87,7 @@ const config: Config = {
       // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
       insights: false,
 
-      //... other Algolia params
+      // ... other Algolia params
     },
     image: 'img/logos/revisitLogoThumbnail.png',
     colorMode: {
@@ -102,9 +101,8 @@ const config: Config = {
         srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
       items: [
-     
-        {to: '/community', label: 'Community', position: 'left'},
-    
+        { to: '/community', label: 'Community', position: 'left' },
+
         {
           type: 'docSidebar',
           sidebarId: 'docs',
@@ -112,12 +110,17 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          type:'docSidebar',
-          sidebarId:'reference',
-          postiion:'left',
-          label:'Reference'
+          type: 'docSidebar',
+          sidebarId: 'reference',
+          position: 'left',
+          label: 'Reference',
         },
-        {to: '/about', label: 'About', position: 'left'},
+        { to: '/about', label: 'About', position: 'left' },
+        {
+          to: '/testimonials',
+          label: 'Testimonials',
+          position: 'left',
+        },
         {
           type: 'docsVersionDropdown',
           position: 'right',
@@ -135,10 +138,10 @@ const config: Config = {
       ],
     },
     footer: {
-      style:'light',
+      style: 'light',
       links: [
         {
-          html:` 
+          html: ` 
             <div class="footer-wrapper row">
               <a class="col " target="_blank" href="https://vdl.sci.utah.edu/">
                 <img src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
@@ -171,10 +174,12 @@ const config: Config = {
                 <img src="/img/logos/nsf.png" class='logo'/>
               </a>                                                       
             </div>
-          `
+          `,
         },
       ],
-      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${new Date().toISOString().split('T')[0]}. Built with Docusaurus.`,
+      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${
+        new Date().toISOString().split('T')[0]
+      }. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

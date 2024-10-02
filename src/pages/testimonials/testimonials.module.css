@@ -1,0 +1,109 @@
+.testimonialContainer {
+    border-top: px solid var(--ifm-color-gray-300);
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+html[data-theme="dark"] .testimonialContainer {
+    border-top: 1px solid var(--ifm-color-gray-700);
+}
+
+.testimonialContainer .authors {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.testimonialContainer .title {
+    margin: 10px 0px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 30px;
+    color: var(--ifm-color-primary);
+}
+
+.testimonialContainer .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.testimonialContainer .buttonContainer div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    min-width: 340px;
+    margin-top: 20px;
+}
+
+.testimonialContainer .buttonContainer .secondaryButtons a span {
+    margin-right: 5px;
+}
+
+.tagsRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-left: -5px;
+    flex-wrap: wrap;
+}
+
+.buttonMobile {
+    display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    .testimonialContainer .authors {
+        font-size: 1.0rem;
+    }
+
+    .testimonialContainer .date {
+        font-size: 1.0rem;
+    }
+
+    .testimonialContainer .title {
+        font-size: 1.4rem;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+    .buttonDesktop {
+        display: none;
+    }
+
+    .buttonMobile {
+        display: block;
+    }
+
+    .pageTitle {
+        font-size: 1.5rem;
+    }
+
+    .pageIntro {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .testimonialContainer .buttonContainer div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .testimonialContainer .authors {
+        font-size: 1.0rem;
+    }
+
+    .testimonialContainer .date {
+        font-size: 1.0rem;
+    }
+
+    .testimonialContainer .title {
+        font-size: 1.2rem;
+    }
+}
