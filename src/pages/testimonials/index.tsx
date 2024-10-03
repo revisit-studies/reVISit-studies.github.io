@@ -12,15 +12,17 @@ import { Chip } from '../../components/Chip/Chip';
 import styles from './testimonials.module.css';
 
 interface Testimonial {
-    title: string,
-    authors: string,
-    date: string,
-    paperUrl: string,
-    revisitStudyUrl?: string,
-    subtitle: string,
-    sourceCodeLink?: string,
-    revisitVersion: string
-    tags: string[];
+  title: string;
+  authors: string;
+  date: string;
+  paperUrl: string;
+  revisitStudyUrl?: string;
+  subtitle: string;
+  sourceCodeLink?: string;
+  revisitVersion: string;
+  tags: string[];
+  published: boolean;
+  venue: string;
 }
 
 function Testimonial({ testimonial }: { testimonial: Testimonial }) {
@@ -43,7 +45,7 @@ function Testimonial({ testimonial }: { testimonial: Testimonial }) {
         {testimonial.subtitle}
       </p>
       <div className={styles.date}>
-        {testimonial.date}
+        {`${testimonial.venue !== '' ? testimonial.venue : 'Preprint'}, ${testimonial.date}`}
       </div>
       <div className={styles.buttonContainer}>
         <div className={styles.primaryButtons}>
@@ -131,7 +133,17 @@ export default function Home() {
             revisitVersion: entry['ReVISit Version'],
             sourceCodeLink: entry['Source Code Link'],
             tags: entry['Study Type'].split(', '),
+            published: entry['Has this paper been published?'] === 'Yes',
+            venue: entry['Venue'],
           }));
+          // Sort based on Published then date (descending date).
+          parsedTestimonials.sort((a: Testimonial, b: Testimonial) => {
+            if (a.published !== b.published) {
+              return a.published ? -1 : 1;
+            }
+
+            return new Date(b.date).getTime() - new Date(a.date).getTime();
+          });
           setTestimonials(parsedTestimonials);
         },
       });
