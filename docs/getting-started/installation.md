@@ -10,6 +10,10 @@ Start by navigating to the following github repository: https://github.com/revis
 
 You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies. 
 
+:::info
+GitHub only allows you to fork a repository once. If you have already forked the repository, you will need to clone the repository to your local machine, create a new repo on your account, and run `git remote set-url origin new.git.url/here` to allow you to have 2 versions of the repository in your account.
+:::
+
 When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own github account, you can [clone the repository to your local computer](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). 
 
 :::info
