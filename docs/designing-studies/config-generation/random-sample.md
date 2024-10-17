@@ -1,12 +1,46 @@
 # Example 2: Random Sample
 
 Suppose we are trying to develop a ([VLAT](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7539634&casa_token=9jo2PolUvEQAAAAA:vQJzbp3Sh6FU5TW1uaNyNKzQio6cSyx6-BOKrZ4cbDE6nAYOWFj3NJNecDMQlHg-1beKBM8Ra5I&tag=1))-like experiment.
-The original VLAT contains 50+ questions, each trial has a chart type and a task type.
+The original VLAT contains 50+ questions, each trial has a chart type and a task type. The "chart type" refers to the visualization shown and the "task type" is a general category which the question falls into (e.g. 'information retrieval' or 'compare value'). Here, we added an additional dimension -- a "context" for each question.
 
-For each chart type and task combination, we developed multiple questions with different context.
-So, we want our test to follow the original VLAT sequence (same chart type and task type in each trial), but the context will be randomly selected.
+For this tutorial, we generated a list of questions which correspond to a specific, chart type, task type, and context. From this list of questions, we now want to generate each of the components that are necessary for our configuration file. We named the file for each question as `{chart_type}-{task_type}-{context}`. We put all visualizations in the data/vis folder and all questions in the data/questions folder.
 
-We put all visualizations in the data/vis folder and all questions in the data/questions folder.
+The goal here is to maintain the chart and task type ordering of the original VLAT experiment while having the newly added context be random. To do this, we start by having a fixed order sequence of components. Each component then corresponds to a single chart and task type pairing. However, instead of just directly adding the components to this list, we create nested sequence blocks. For each chart and task type, then, we will have another sequence block. The components of this sequence block will then be the set of questions pertaining to that chart and task type. We can then set the order on each of these sequence blocks as random. Below is the general configuration structure we will design:
+
+
+```json
+{
+  "sequence":{
+    "order": "fixed",
+    "components": [
+      {
+        // ChartType 1 and taskType 2
+        "order":"random",
+        "components":[
+          "chartType1-taskType1-context1",
+          "chartType1-taskType1-context-2",
+          ...
+          "chartType1-taskType1-contextM"
+        ]
+      },
+      ...
+      {
+        // ChartType N and taskType N
+        "order":"random",
+        "components":[
+          "chartTypeN-taskTypeN-context1",
+          "chartTypeN-taskTypeN-context2",
+          ...
+          "chartTypeN-taskTypeN-contextM"
+        ]
+      }
+    ]
+  }
+}
+```
+
+This means that each user will see the chart and task type sections in the same ordering, but each individual section will randomly assign the contexts.
+
 Now let's generate the trials first:
 
 import Tabs from '@theme/Tabs';
@@ -65,7 +99,7 @@ def generateTrialData(filename, idx):
 
 all_trials = {}
 questions = sorted(os.listdir(question_folder_path))
-i = 1;
+i = 1
 for filename in questions:
     filename_without_extension = os.path.splitext(filename)[0]
     trialName = filename_without_extension
@@ -76,12 +110,12 @@ for filename in questions:
     except:
         print(filename_without_extension)
 
-
 ```
 
 </TabItem>
 
 <TabItem value="node" label="Node.js">
+
 ```javascript
 function generateTrialData(filename, idx, questionFolderPath) {
   const filenameWithoutExtension = path.parse(filename).name;
@@ -170,8 +204,7 @@ questions.forEach((filename) => {
 
 
 Then we want to generate the sequence. To make our test follow the VLAT sequence but randomize the context.
-We want to make questions with the same chart type and task type a block. The sequence of block is in fiexed order which follows the VLAT sequence, while the extact question will be randomly selected from the that block. 
-
+Now that we have generated all the trials, we want to construct our sequence. As stated previously, we want a fixed order sequence which has nested random order blocks.
 <Tabs>
 <TabItem value="python" label="Python">
 
@@ -238,6 +271,7 @@ while counter < len(tasksList):
 
 </TabItem>
 <TabItem value="node" label="Node.js">
+
 ```javascript
 
 const fs = require('fs');
@@ -300,14 +334,12 @@ while (counter < tasksList.length) {
     counter++;
 }
 
-
-
-
 ```
+
 </TabItem>
 
 </Tabs>
 
-You can check the complete code and output at Codesandbox using the link below:
+You can check the complete code and output at CodeSandbox using the link below:
 - [Python](https://codesandbox.io/p/devbox/config-gen-demo2-ywf9rw)
 - [Node](https://codesandbox.io/p/devbox/config-gen-demo2-js-rrk8p7)
