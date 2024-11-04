@@ -21,6 +21,8 @@ Here is a list of libraries that are currently in development:
 - SUS (System Usability Scale)
 - QUIS (Questionnaire for User Interaction Satisfaction)
 - SMEQ (Subjective Mental Effort Questionnaire)
+- berlin-num (Berlin Numeracy Scale)
+- Spatial ability test (I forget the name, but deals with paper folding)
 
 
 Using libraries is simple. You can import the library into your study and then use the components that are provided by the library. Here is an example of how you might use the VLAT library in your study:
