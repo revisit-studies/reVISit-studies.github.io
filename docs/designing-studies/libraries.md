@@ -25,7 +25,32 @@ Here is a list of libraries that are currently in development:
 - Spatial ability test (I forget the name, but deals with paper folding)
 
 
-Using libraries is simple. You can import the library into your study and then use the components that are provided by the library. Here is an example of how you might use the VLAT library in your study:
+Using libraries is simple. You can import the library into your study and then use the components and/or whole sequences that are provided by the library. For example, to use a single component from a library, we would first import the library and then use the `$libraryName.components.componentName` syntax for the component.
+
+```js
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/dev/src/parser/StudyConfigSchema.json",
+  "studyMetadata": { ... },
+  "uiConfig": { ... },
+  "importedLibraries": ["vlat"],
+  "components": {
+    "vlat-modified":{
+      "baseComponent":"$vlat.components.component-one"
+      "description":"A new description"
+    }
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      ...
+      "vlat-modified",
+      ...
+    ]
+  }
+}
+```
+
+Additionally, we can use the components directly in our sequence, or import entire sequences from the library using the `$libraryName.sequences.sequencetName` syntax.
 
 ```js
 {
@@ -38,11 +63,10 @@ Using libraries is simple. You can import the library into your study and then u
     "order": "fixed",
     "components": [
       ...
+      "$vlat.components.component-one",
       "$vlat.sequences.mini",
       ...
     ]
   }
 }
 ```
-
-As shown above, libraries provide sequence exports that can be used in the sequence of your study. You can also use the library components directly in the sequence, or as a baseComponent in a component.
