@@ -1,10 +1,45 @@
 # Example 3: Latin Square
 
-From the trial pool we generated in Example 2, we want to ask experts to review some of them.
-Suppose we selected 13 task types, we want each expert could review 4 questions for each task type, and we want each question be reviewed at balanced times.
+The 'random' order does not guarantee that each task is assigned an equal number of times across participants.
+To ensure that each task is performed the same number of times, we can use the 'latinSquare' order.
 
-If we use the approach in Example 2, it will not garantee every question can be reviewd since it will randomly pick questions inside a block.
-In this case, we can use the Latin Square randomization to generate the sequence. It will require the minimum number of expert to review all selected trials.
+For instance, consider a scenario with 12 speed and 5 color combinations. 
+Each participant will complete all colors, and for each color, they will perform only 4 trials. 
+By employing a Latin square design, we need just 3 participants to ensure that every speed and color combination is covered exactly once by a participant. 
+This design ensures balanced task distribution while minimizing redundancy.
+
+This is the anticipated output of sequecne:
+```json
+{
+  "order": "fixed",
+  "components": [
+    "introduction",
+    {
+      "order": "latinSquare",
+      "numSamples": 4,
+      "components": [
+        "trial_300_red",
+        "trial_310_red",
+        "trial_320_red",
+        "trial_330_red",
+        "trial_340_red",
+        "trial_350_red",
+        "trial_360_red",
+        "trial_370_red",
+        "trial_380_red",
+        "trial_390_red",
+        "trial_400_red",
+        "trial_410_red"
+      ]
+    },
+    ......
+    }
+
+```
+
+We will skip the trial generation since it is same as the previous example.
+
+Here we will generate the sequence: 
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,86 +48,63 @@ import TabItem from '@theme/TabItem';
 <TabItem value="python" label="Python">
 
 ```python
-#List of tasks
-tasks = [
-    "make comparisons",
-    "identify range",
-    "retrieve value",
-    "locate value",
-    "identify labels of scales",
-    "describe the topic of the visualization",
-    "estimate the difference between two values of the same type",
-    "estimate the ratio of one value to another value of the same type",
-    "estimate the average of multiple values of the same type",
-    "describe trend or correlation",
-    "describe the characteristics of an alternative chart type",
-    "judge which visualization design is more appropriate for a task",
-    "judge which task this visualization design best supports"
-]
-# Create a task map and initialize it
+def createOrder():  
+    components = ["introduction"]  
+    # Create the sequence structure
+    sequence = {
+        "order": "fixed",  
+    }
 
-task_map = {}
-for task in tasks:
-    # Initialize an empty array for each task key
-    task_map[task.replace(' ', '_')] = []
+    for color in colorList:
+        subComponent = {
+            "order": "latinSquare",
+            "numSamples": 4,
+            "components": []
+        }
+        for speed in speedList:
+            subComponent["components"].append("trial_" + str(speed) + '_' + color)
+        components.append(subComponent)
+    
+    sequence["components"] = components
+    return sequence
 
-# Create a sequence object for each task
 
-sequence = []
-for key, value in task_map.items():
-    seq = {
-                "order": "latinSquare",
-                "numSamples": 4,
-                "components": value
-            }
-    sequence.append(seq)
-
+seq = createOrder()
 ```
+
+
 </TabItem>
 <TabItem value="node" label="Node.js">
+
 ```javascript
-const tasks = [
-  "make comparisons",
-  "identify range",
-  "retrieve value",
-  "locate value",
-  "identify labels of scales",
-  "describe the topic of the visualization",
-  "estimate the difference between two values of the same type",
-  "estimate the ratio of one value to another value of the same type",
-  "estimate the average of multiple values of the same type",
-  "describe trend or correlation",
-  "describe the characteristics of an alternative chart type",
-  "judge which visualization design is more appropriate for a task",
-  "judge which task this visualization design best supports",
-];
-
-const taskMap = {};
-tasks.forEach((task) => {
-    taskMap[task.replace(" ", "_")] = [];
-});
-//sequence
-const seq = tasks.map((task) => {
-    const key = task.replace(" ", "_");
-    return {
-    order: "latinSquare",
-    numSamples: 4,
-    components: taskMap[key],
-    };
-});
-
-const sequence = {
+function createOrder() {
+  const components = ["introduction"];
+  const sequence = {
     order: "fixed",
-    components: seq,
-};
+  };
 
+  colorList.forEach((color) => {
+    const subComponent = {
+      order: "latinSquare",
+      numSamples: 4,
+      components: [],
+    };
+    speedList.forEach((speed) => {
+      subComponent.components.push(`trial_${speed}_${color}`);
+    });
+    components.push(subComponent);
+  });
 
+  sequence.components = components;
+  return sequence;
+}
+
+const seq = createOrder();
 ```
-
 </TabItem>
 </Tabs>
 
 You can check the complete code and output at Codesandbox using the link below:
-- [Python](https://codesandbox.io/p/devbox/config-gen-demo3-cqdqtt)
-- [Node](https://codesandbox.io/p/devbox/config-gen-demo3-js-xnt3tn)
+- [Python](https://codesandbox.io/p/devbox/stupefied-wescoff-znppwr)
+- [Node](https://codesandbox.io/p/devbox/tcl5yw)
 
