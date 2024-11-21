@@ -2,7 +2,7 @@
 
 When we randomized the trials in the previous section, we placed no restrictions on what colors were seen by the user -- only that they received exactly one color at each speed. Thus, it is possible that some users always see red, or some all pink, or some just never see the color green. 
 
-Suppose that, instead, we wanted to make sure that the randomization is "balanced". In other words, if one speed and color combination is seen N times, then each other speed and color combination should also be seen N times. To achieve this, we can use the 'latinSquare' order. Consider a scenario with 12 different speeds and 5 different colors at each speed. If the user receives 4 random speeds for each color, then we would only need 3 participants to ensure that all color and speed combinations are seen exactly one time. This design ensures balanced task distribution while minimizing redundancy. You can read more about the latin square study design [here]((https://en.wikipedia.org/wiki/Latin_square)).
+Suppose that, instead, we wanted to make sure that the randomization is "balanced". In other words, if one speed and color combination is seen N times, then each other speed and color combination should also be seen N times. To achieve this, we can use the 'latinSquare' order. Consider a scenario with 12 different speeds and 5 different colors at each speed. If the user receives 4 random speeds for each color, then we would only need 3 participants to ensure that all color and speed combinations are seen exactly one time. This design ensures balanced task distribution while minimizing redundancy. You can read more about the latin square study design [here](https://en.wikipedia.org/wiki/Latin_square).
 
 
 
