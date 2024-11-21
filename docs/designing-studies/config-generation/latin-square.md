@@ -1,14 +1,12 @@
 # Example 3: Latin Square
 
-The 'random' order does not guarantee that each task is assigned an equal number of times across participants.
-To ensure that each task is performed the same number of times, we can use the 'latinSquare' order.
+When we randomized the trials in the previous section, we placed no restrictions on what colors were seen by the user -- only that they received exactly one color at each speed. Thus, it is possible that some users always see red, or some all pink, or some just never see the color green. 
 
-For instance, consider a scenario with 12 speed and 5 color combinations. 
-Each participant will complete all colors, and for each color, they will perform only 4 trials. 
-By employing a Latin square design, we need just 3 participants to ensure that every speed and color combination is covered exactly once by a participant. 
-This design ensures balanced task distribution while minimizing redundancy.
+Suppose that, instead, we wanted to make sure that the randomization is "balanced". In other words, if one speed and color combination is seen N times, then each other speed and color combination should also be seen N times. To achieve this, we can use the 'latinSquare' order. Consider a scenario with 12 different speeds and 5 different colors at each speed. If the user receives 4 random speeds for each color, then we would only need 3 participants to ensure that all color and speed combinations are seen exactly one time. This design ensures balanced task distribution while minimizing redundancy. You can read more about the latin square study design [here]((https://en.wikipedia.org/wiki/Latin_square)).
 
-This is the anticipated output of sequecne:
+
+
+Below is the intended sequence output:
 ```json
 {
   "order": "fixed",
@@ -32,14 +30,31 @@ This is the anticipated output of sequecne:
         "trial_410_red"
       ]
     },
+        {
+      "order": "latinSquare",
+      "numSamples": 4,
+      "components": [
+        "trial_300_pink",
+        "trial_310_pink",
+        "trial_320_pink",
+        "trial_330_pink",
+        "trial_340_pink",
+        "trial_350_pink",
+        "trial_360_pink",
+        "trial_370_pink",
+        "trial_380_pink",
+        "trial_390_pink",
+        "trial_400_pink",
+        "trial_410_pink"
+      ]
+    },
     ......
     }
 
 ```
 
-We will skip the trial generation since it is same as the previous example.
+We will skip the trial generation and move directly to generating the sequence since the trial generation is the same as the previous example. See [here](./random-sample.md) for generating the individual components.
 
-Here we will generate the sequence: 
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
