@@ -1,10 +1,11 @@
 # Example 2: Random Sample
 
-In a previous study, we generated 100 trials with varying speeds and organized them into a fixed order sequence.
-In this example, we will modify this click-accuracy test by introducing different colors for the on-screen dot. 
-The new study will still present trials in increasing speed order, with the dot's color randomized for each trial.
+In the previous example, we generated 100 trials with varying speeds and organized them into a fixed order sequence. Here, we will modify this click-accuracy test by introducing different colors for the on-screen dot. The new study will still present trials in increasing speed order, with the dot's color randomized for each trial.
 
-This is the anticipated output of sequecne: 
+Instead of having one component for each speed, we will have five different components for each speed -- each representing a different color. In our sequence, we will have each of these sets fo components as a single random block. Then, we set the number of samples value to 1 so that we will randomly pick one of the colors from the component block to display to the user.
+
+Below is the intended sequence output:
+
 ```json
 {
   "order": "fixed",
@@ -43,12 +44,13 @@ This is the anticipated output of sequecne:
         "trial_320_pink"
       ]
     },
-    ......
+    
+    ...
 
 ```
 
 
-Now let's generate the trials first, we append color to the trial name:
+We will start by generating the trials.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -59,12 +61,14 @@ import TabItem from '@theme/TabItem';
 
 ```python
 colorList = ['red','blue','green','orange','pink']
+# Generate a list of increasing speeds starting at 300 and increasing to 400 with increments of 10.
 speedList = [300 + i * 10 for i in range(10)]
 
 
 def createTrials():
     allTrials = {}
     for s in speedList: 
+        # Create a new trial/component for each color in our color list.
         for c in colorList:
             allTrials["trial_" + str(s) + '_' + c] = {  
                 "baseComponent": "trial",
@@ -89,13 +93,15 @@ trials = createTrials()
 
 <TabItem value="node" label="Node.js">
 
-```javascript
+```js
 const colorList = ["red", "blue", "green", "orange", "pink"];
+// Generate a list of increasing speeds starting at 300 and increasing to 400 with increments of 10.
 const speedList = Array.from({ length: 10 }, (_, i) => 300 + i * 10);
 
 function createTrials() {
   const allTrials = {};
   speedList.forEach((speed) => {
+    // Create a new trial/component for each color in our color list.
     colorList.forEach((color) => {
       allTrials[`trial_${speed}_${color}`] = {
         baseComponent: "trial",
@@ -120,7 +126,7 @@ trials = createTrials()
 </TabItem>
 </Tabs>
 
-Next, we will generate the sequence, we will add a sub-sequence with random order of different colors for each speed:
+To generate the sequence, we create a random subsequence for each speed where the components are the varying colors at that speed.
 
 <Tabs>
 <TabItem value="python" label="Python">
