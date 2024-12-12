@@ -17,4 +17,4 @@ Please see the interface definitions for more specific information on the differ
 
 ## Source
 
-[parser/types.ts:932](https://github.com/revisit-studies/study/blob/949297c405e1cac0edd9fce85d4f1f8a60f876df/src/parser/types.ts#L932)
+[parser/types.ts:994](https://github.com/revisit-studies/study/blob/9c4c113c6f32066618fad726cae4e0ef00a8c851/src/parser/types.ts#L994)

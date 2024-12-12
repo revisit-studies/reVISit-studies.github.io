@@ -39,6 +39,7 @@ In the above, the `path/to/assets/` path is referring to the path to your indivi
 | `sidebar` | `boolean` | Controls whether the left sidebar is rendered at all. Required to be true if your response's location is set to sidebar for any question. |
 | `sidebarWidth?` | `number` | The width of the left sidebar. Defaults to 300. |
 | `studyEndMsg?` | `string` | The message to display when the study ends. |
+| `timeoutReject?` | `boolean` | Whether to redirect a timed out participant to a rejection page. This only works for components where the `nextButtonDisableTime` field is set. |
 | `urlParticipantIdParam?` | `string` | If the participant ID is passed in the URL, this is the name of the querystring parameter that is used to capture the participant ID (e.g. PROLIFIC_ID). This will allow a user to continue a study on different devices and browsers. |
 | `windowEventDebounceTime?` | `number` | Debounce time in milliseconds for automatically tracked window events. Defaults to 100. E.g 100 here means 1000ms / 100ms = 10 times a second, 200 here means 1000ms / 200ms = 5 times per second |
 | `withProgressBar` | `boolean` | Controls whether the progress bar is rendered in the study. |

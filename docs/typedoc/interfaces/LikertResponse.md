@@ -33,7 +33,6 @@ Example for a five-point Likert Scale:
 
 | Property | Type | Description | Inherited from |
 | :------ | :------ | :------ | :------ |
-| `desc?` | `string` | The description of the likert scale. | - |
 | `hidden?` | `boolean` | Controls whether the response is hidden. | [`BaseResponse`](BaseResponse.md).`hidden` |
 | `id` | `string` | The id of the response. This is used to identify the response in the data file. | [`BaseResponse`](BaseResponse.md).`id` |
 | `leftLabel?` | `string` | The left label of the likert scale. E.g Strongly Disagree | - |
