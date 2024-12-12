@@ -16,7 +16,20 @@ Example:
  "location": "aboveStimulus",
  "required": true,
  "type": "slider",
- "options": ["Bad", "OK", "Good"]
+ "options": [
+   {
+     "label": "Bad",
+     "value": 0
+   },
+   {
+     "label": "OK",
+     "value": 50
+   },
+   {
+     "label": "Good",
+     "value": 100
+   }
+ ]
 }
 ```
 

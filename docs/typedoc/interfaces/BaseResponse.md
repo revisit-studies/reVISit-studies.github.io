@@ -15,6 +15,7 @@ Therefore, all responses must include these properties.
 - [`ShortTextResponse`](ShortTextResponse.md)
 - [`LongTextResponse`](LongTextResponse.md)
 - [`LikertResponse`](LikertResponse.md)
+- [`MatrixResponse`](MatrixResponse.md)
 - [`DropdownResponse`](DropdownResponse.md)
 - [`SliderResponse`](SliderResponse.md)
 - [`RadioResponse`](RadioResponse.md)
