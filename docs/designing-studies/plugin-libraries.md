@@ -58,7 +58,7 @@ For example:
 ```
 
 ## Modifying Components in Existing Plugins
-You can also modify the components in your study configuration directly via [inheritance](../getting-started/how-does-it-work/#base-components-and-inheritance). Any attributes you specify in your study config for a component will overwrite the original attributes of that component as defined in the plugin library. 
+You can also modify the components in your study configuration directly via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Any attributes you specify in your study config for a component will overwrite the original attributes of that component as defined in the plugin library. 
 
 For example, here we add a new `description` to the `vlat` library's `line-value` component: 
 
