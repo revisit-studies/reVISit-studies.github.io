@@ -47,7 +47,10 @@ When using these plugins, please ensure that you properly cite the original sour
 
 ## Using Plugins in Your Study  
 
-You can use components and sequences from a plugin library in [public/libraries folder](https://github.com/revisit-studies/study/tree/main/public/libraries) in your study.  The folder name is this library's `libraryName`.  Below are the steps for using a library. 
+Using libraries is simple. You can import the library into your study and then use the components and/or whole sequences that are provided by the library.
+
+The plugin library should be in [public/libraries folder](https://github.com/revisit-studies/study/tree/main/public/libraries) in your study.  The folder name is this library's `libraryName`.  Below are the steps for using a library. 
+
 ### Step 1: Import the Library 
 
 To import a library, add its name to the `"importedLibraries"` section of your study's `config.json` file. For example:  
@@ -72,16 +75,45 @@ For example:
 ```
 "sequence": {   
   // Configuration of the sequence for your study
+  ...
   "components": [    
     // List the components used in your study
+    ...
     "$mic-check.co.audioTest"
     "$vlat.se.latinSquare"   
   ] 
 }
 ```
 
+## Modifying Components in Existing Plugins
+You can also modify the components in your study configuration directly. Any attributes you specify in the `config.json` file of your study for a component will overwrite the original attributes of that component as defined in the plugin library. 
 
-## Define your own plugins
+For example: 
+
+```js
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/dev/src/parser/StudyConfigSchema.json",
+  "studyMetadata": { ... },
+  "uiConfig": { ... },
+  "importedLibraries": ["vlat"],
+  "components": {
+    "vlat-modified":{
+      "baseComponent":"$vlat.co.line-value"
+      "description":"A new description"
+    }
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      ...
+      "vlat-modified",
+      ...
+    ]
+  }
+}
+```
+
+## Defining your own plugins
 
 Beyond the libraries we provide, you can also define your own plugins in your study. See [LibraryConfig](https://revisit.dev/docs/typedoc/interfaces/LibraryConfig/) for the details of how to define a plugin libraries.
 
