@@ -18,6 +18,8 @@ There are other fields that can be included in a component that are used to iden
 - [`ImageComponent`](ImageComponent.md)
 - [`WebsiteComponent`](WebsiteComponent.md)
 - [`QuestionnaireComponent`](QuestionnaireComponent.md)
+- [`VegaComponentPath`](VegaComponentPath.md)
+- [`VegaComponentConfig`](VegaComponentConfig.md)
 
 ## Properties
 

@@ -41,6 +41,8 @@ displayed_sidebar: reference
 - [StudyConfig](interfaces/StudyConfig.md)
 - [StudyMetadata](interfaces/StudyMetadata.md)
 - [UIConfig](interfaces/UIConfig.md)
+- [VegaComponentConfig](interfaces/VegaComponentConfig.md)
+- [VegaComponentPath](interfaces/VegaComponentPath.md)
 - [WebsiteComponent](interfaces/WebsiteComponent.md)
 
 ## Type Aliases
@@ -51,3 +53,4 @@ displayed_sidebar: reference
 - [InterruptionBlock](type-aliases/InterruptionBlock.md)
 - [Response](type-aliases/Response.md)
 - [SkipConditions](type-aliases/SkipConditions.md)
+- [VegaComponent](type-aliases/VegaComponent.md)

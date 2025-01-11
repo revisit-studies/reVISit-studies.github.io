@@ -17,4 +17,4 @@ An InheritedComponent is a component that inherits properties from a baseCompone
 
 ## Source
 
-[parser/types.ts:1116](https://github.com/revisit-studies/study/blob/9c4c113c6f32066618fad726cae4e0ef00a8c851/src/parser/types.ts#L1116)
+[parser/types.ts:1130](https://github.com/revisit-studies/study/blob/c5f5fc14be8838e081860da2e0cde81ce3bcf969/src/parser/types.ts#L1130)
