@@ -1,6 +1,6 @@
 # Checking Answers and Trainings 
 
-In reVISit, a component typically has a [response](typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component. 
+In reVISit, a component typically has a [response](../../typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component. 
 
 Responses can optionally also be provided with an [Answer](../../typedoc/interfaces/Answer/) that captures what the correct response is. This answer is used in several ways: 
 
@@ -57,7 +57,9 @@ The last three lines specify that this is used for training:
 
 The `provideFeedback` field adds a “Check Answer” button to the UI, which can be used to validated the answer based on the provided correct Answer. 
 
-![Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts.](img/training-failed.png). 
+<img src="img/training-failed.png" width="200" alt="Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts."/>
+
+![Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts.](img/training-failed.png)
 
 The above screenshot shows an example for when the response was incorrect. 
 
