@@ -34,9 +34,6 @@ Whenever our Github action for the `study` repository runs, it versions the curr
 
 Because we have a versioning system in docusaurus, all old documentation is placed in the "versioned_docs" folder. This is done automatically with the help of our Github workflow and Docusaurus. The latest version of our documentation is always in the `docs/` folder. This should be the only folder you need to edit unless you are specifically attempting to update an old version of the documentation.
 
-** Workflow as of 2024/05/10 **
-Until version 1 is released, we have a `v1-doc-updates` branch that we will be working off of. For now, pleas make separate feature branches off of this branch and then make PRs to this branch. When we release V1, this branch will be merged into main. Afterwards, our standard workflow may change.
-
 
 
 ### Typesetting Conventions
