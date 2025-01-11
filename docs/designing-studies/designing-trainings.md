@@ -57,8 +57,6 @@ The last three lines specify that this is used for training:
 
 The `provideFeedback` field adds a “Check Answer” button to the UI, which can be used to validated the answer based on the provided correct Answer. 
 
-<img src="img/training-failed.png" width="200" alt="Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts."/>
-
 ![Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts.](img/training-failed.png)
 
 The above screenshot shows an example for when the response was incorrect. 
