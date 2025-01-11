@@ -85,7 +85,7 @@ For example:
 	  "components": [    
 	    // List the components used in your study
 	    ...
-	    "$mic-check.co.audioTest"
+	    "$mic-check.co.audioTest",
 	    "$vlat.se.latinSquare"   
 	  ] 
 	}
