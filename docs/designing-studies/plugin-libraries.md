@@ -1,6 +1,6 @@
-# Plugin libraries
+# Plugin Libraries
 
-A plugin is a predefined library of components and sequences that can be reused across multiple studies. We (the reVISit team) provide several plugins that can be integrated into your study configurations. These plugins include commonly used components for studies and validated questionnaires related to visualization and HCI. You can easily import them into your study using the provided plugins.
+We provide predefined components and sequences, called plugins, that are easy to integrate into your study configurations. These plugins include commonly used study components and validated questionnaires for visualization and HCI.
 
 **Note:** These plugins are specifically for reVISit components. When we mention "library" here, we are not referring to external libraries like NPM packages. If you’d like to use an NPM package in your study, you will need to create a React component that incorporates the package and reference that component in your study configuration.
 
