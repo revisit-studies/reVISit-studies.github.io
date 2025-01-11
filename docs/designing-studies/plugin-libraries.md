@@ -61,7 +61,8 @@ To import a library, add its name to the `"importedLibraries"` section of your s
 	"importedLibraries": [   
 		// Add the library names you want to import, e.g. "vlat" 
 		"mic-check",
-		"vlat"
+		"vlat",
+		...
 	]
 ...
 }
@@ -86,7 +87,8 @@ For example:
 	    // List the components used in your study
 	    ...
 	    "$mic-check.co.audioTest",
-	    "$vlat.se.latinSquare"   
+	    "$vlat.se.latinSquare",
+            ...
 	  ] 
 	}
 ...
