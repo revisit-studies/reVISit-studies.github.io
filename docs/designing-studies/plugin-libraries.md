@@ -6,7 +6,9 @@ A plugin is a predefined library of components and sequences that can be reused 
 
 ## Available Plugins
 
-Below are the plugins we provide. The plugins are stored in the [public/libraries folder](https://github.com/revisit-studies/study/tree/main/public/libraries). Each folder name corresponds to the library's `libraryName`. We are currently adding new plugins
+Below are the plugins we provide. The list will continue to grow as we are currently adding new plugins.
+
+The plugins are stored in the [public/libraries folder](https://github.com/revisit-studies/study/tree/main/public/libraries). Each folder name corresponds to the library's `libraryName`. 
 
 When using these plugins, please ensure that you properly cite the original sources in your work.
 
@@ -79,7 +81,7 @@ For example:
 ```
 
 
-## Define component libraries
+## Define your own plugins
 
 Beyond the libraries we provide, you can also define your own plugins in your study. See [LibraryConfig](https://revisit.dev/docs/typedoc/interfaces/LibraryConfig/) for the details of how to define a plugin libraries.
 
