@@ -43,6 +43,7 @@ const sidebars: SidebarsConfig = {
         'designing-studies/study-sequences',
         'designing-studies/designing-trainings',
         'designing-studies/provenance-tracking',
+        'designing-studies/plugin-libraries',
         {
           type: 'category',
           label: 'Config File Generation',
