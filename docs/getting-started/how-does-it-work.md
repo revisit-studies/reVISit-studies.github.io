@@ -53,23 +53,23 @@ Each component has a list of responses which represents a set of questions to as
 The below example illustrates a simple consent component that is based on a Markdown file and has a response that asks for a signature, nested inside the `components` block: 
 
 ```js
-    "components":{ 
-        "consent": {
-            "type": "markdown",
-            "path": "demo-brush-interactions/assets/consent.md",
-            "nextButtonText": "Agree",
-            "response": [
-                {
-                    "id": "signature",
-                    "prompt": "Your signature",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "shortText",
-                    "placeholder": "Please provide your signature"
-                }
-            ]
-        }
-    } 
+"components":{ 
+    "consent": {
+        "type": "markdown",
+        "path": "demo-brush-interactions/assets/consent.md",
+        "nextButtonText": "Agree",
+        "response": [
+            {
+                "id": "signature",
+                "prompt": "Your signature",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "shortText",
+                "placeholder": "Please provide your signature"
+            }
+        ]
+    }
+} 
 ```
 
 For more detailed documentation on the response section, check out the [documentation](../../typedoc/interfaces/BaseResponse).
@@ -100,25 +100,25 @@ The sequence object of the study configuration defines (a) the order participant
 All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order:  
 
 ```js
- "sequence": {
-        "order": "fixed",
-        "components": [
-            "introduction",
-            "consent",
-            "tutorial",
-            {
-                "order": "random",
-                "components": [
-                    "paintBrush_q1",
-                    "rectangleBrush_q1",
-                    "axisBrush_q1",
-                    "sliderBrush_q1"
-                ]
-            },
-            "post-study-survey",
-            "survey"
-        ]
-    }
+"sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
+        "tutorial",
+        {
+            "order": "random",
+            "components": [
+                "paintBrush_q1",
+                "rectangleBrush_q1",
+                "axisBrush_q1",
+                "sliderBrush_q1"
+            ]
+        },
+        "post-study-survey",
+        "survey"
+    ]
+}
 ```
 
 You can find more detailed documentation about the sequencing strategies [here](../../typedoc/interfaces/ComponentBlock).
