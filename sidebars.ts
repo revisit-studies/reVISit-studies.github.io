@@ -19,7 +19,7 @@ const sidebars: SidebarsConfig = {
       label: 'Getting Started',
       link: {
         type: 'doc',
-        id: 'getting-started/index'
+        id: 'getting-started/index',
       },
       collapsed: false,
       items: [
@@ -34,41 +34,40 @@ const sidebars: SidebarsConfig = {
       label: 'Designing Studies',
       link: {
         type: 'doc',
-        id:'designing-studies/index'
+        id: 'designing-studies/index'
       },
-      collapsed:false,
-      items:[
+      collapsed: false,
+      items: [
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
         'designing-studies/study-sequences',
+        'designing-studies/designing-trainings',
         'designing-studies/provenance-tracking',
         {
-          "type": "category",
-          "label": "Config File Generation",
-          "link": {
-            "type": "doc",
-            "id": "designing-studies/config-generation/index"
+          type: 'category',
+          label: 'Config File Generation',
+          link: {
+            type: 'doc',
+            id: 'designing-studies/config-generation/index',
           },
-          "items": [
-            "designing-studies/config-generation/fixed-order",
-            "designing-studies/config-generation/random-sample",
-            "designing-studies/config-generation/latin-square",
-
-          ]
+          items: [
+            'designing-studies/config-generation/fixed-order',
+            'designing-studies/config-generation/random-sample',
+            'designing-studies/config-generation/latin-square',
+          ],
         },
         // 'designing-studies/config-generation'
-
-      ]
+      ],
     },
     {
-      type:'category',
-      label:'Data And Deployment',
-      collapsed:false,
-      link:{
-        type:'doc',
-        id:'data-and-deployment/index'
+      type: 'category',
+      label: 'Data And Deployment',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'data-and-deployment/index'
       },
-      items:[
+      items: [
         'data-and-deployment/firebase-setup',
         {
           type: 'category',
@@ -79,13 +78,13 @@ const sidebars: SidebarsConfig = {
           },
           items:[
             'data-and-deployment/authentication-authorization/adding-removing-ui',
-            'data-and-deployment/authentication-authorization/firebase-user-management'
-          ]
+            'data-and-deployment/authentication-authorization/firebase-user-management',
+          ],
         },
         'data-and-deployment/deploying-to-static-website',
         'data-and-deployment/prolific-integration',
         'data-and-deployment/lifecycle-of-revisit',
-      ]
+      ],
     },
     {
       type:'category',
