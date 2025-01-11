@@ -56,11 +56,15 @@ The plugin library should be in [public/libraries folder](https://github.com/rev
 To import a library, add its name to the `"importedLibraries"` section of your study's `config.json` file. For example:  
 
 ```js
-"importedLibraries": [   
-	// Add the library names you want to import, e.g. "vlat" 
-	"mic-check",
-	"vlat"
-]
+{
+...
+	"importedLibraries": [   
+		// Add the library names you want to import, e.g. "vlat" 
+		"mic-check",
+		"vlat"
+	]
+...
+}
 ```
 
 ### Step 2: Use Components and Sequences
@@ -73,15 +77,19 @@ Once the plugin library is imported, you can use its components and sequences in
 For example: 
 
 ```js
-"sequence": {   
-  // Configuration of the sequence for your study
-  ...
-  "components": [    
-    // List the components used in your study
-    ...
-    "$mic-check.co.audioTest"
-    "$vlat.se.latinSquare"   
-  ] 
+{
+...
+	"sequence": {   
+	  // Configuration of the sequence for your study
+	  ...
+	  "components": [    
+	    // List the components used in your study
+	    ...
+	    "$mic-check.co.audioTest"
+	    "$vlat.se.latinSquare"   
+	  ] 
+	}
+...
 }
 ```
 
