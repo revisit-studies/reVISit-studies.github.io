@@ -15,7 +15,6 @@ Example for a 5-scale satisfaction matrix with three questions:
 {
  "id": "multi-satisfaction",
  "prompt": "Rate your satisfaction from 1 (not enjoyable) to 5 (very enjoyable) for the following items.",
- "required": true,
  "location": "aboveStimulus",
  "type": "matrix-radio",
  "answerOptions": "satisfaction5",
@@ -33,7 +32,6 @@ Here's an example using custom columns (answerOptions):
 {
  "id": "multi-custom",
  "prompt": "Which categories do the following items belong to?",
- "required": true,
  "location": "aboveStimulus",
  "type": "matrix-checkbox",
  "answerOptions": [
@@ -67,7 +65,7 @@ Here's an example using custom columns (answerOptions):
 | `paramCapture?` | `string` | Use to capture querystring parameters in answers such as participant_name. See the examples for how this is used, but prefer uiConfig.urlParticipantIdParam if you are capturing a participant ID. | [`BaseResponse`](BaseResponse.md).`paramCapture` |
 | `prompt` | `string` | The prompt that is displayed to the participant. You can use markdown here to render images, links, etc. | [`BaseResponse`](BaseResponse.md).`prompt` |
 | `questionOptions` | `string`[] | The question options (rows) are the prompts for each response you'd like to record. | - |
-| `required` | `boolean` | Controls whether the response is required to be answered. | [`BaseResponse`](BaseResponse.md).`required` |
+| `required?` | `boolean` | Controls whether the response is required to be answered. Defaults to true. | [`BaseResponse`](BaseResponse.md).`required` |
 | `requiredLabel?` | `string` | You can provide a required label, which makes it so a participant has to answer with a response that matches label. | [`BaseResponse`](BaseResponse.md).`requiredLabel` |
 | `requiredValue?` | `unknown` | You can provide a required value, which makes it so a participant has to answer with that value. | [`BaseResponse`](BaseResponse.md).`requiredValue` |
 | `secondaryText?` | `string` | The secondary text that is displayed to the participant under the prompt. This does not accept markdown. | [`BaseResponse`](BaseResponse.md).`secondaryText` |

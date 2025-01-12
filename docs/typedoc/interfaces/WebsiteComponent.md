@@ -27,7 +27,6 @@ To pass a data from the config to the website, you can use the `parameters` fiel
    {
      "id": "barChart",
      "prompt": "Your selected answer:",
-     "required": true,
      "location": "belowStimulus",
      "type": "iframe"
    }

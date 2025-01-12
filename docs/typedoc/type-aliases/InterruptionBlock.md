@@ -11,4 +11,4 @@ The InterruptionBlock interface is used to define interruptions in a block. Thes
 
 ## Source
 
-[parser/types.ts:847](https://github.com/revisit-studies/study/blob/c5f5fc14be8838e081860da2e0cde81ce3bcf969/src/parser/types.ts#L847)
+[parser/types.ts:835](https://github.com/revisit-studies/study/blob/efe024014f47f3678c492aad1b0b6d08049cd6eb/src/parser/types.ts#L835)
