@@ -19,7 +19,6 @@ Here's an example of how to use the Answer interface to define the correct answe
    {
      "id": "response1",
      "prompt": "What is 2 + 2?",
-     "required": true,
      "location": "belowStimulus",
      "type": "numerical"
    }
