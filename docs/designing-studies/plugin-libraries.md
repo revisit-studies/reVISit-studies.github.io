@@ -20,7 +20,7 @@ When we mention “library” here, we are not referring to external libraries l
 
 Using libraries is simple. You can import the library into your study and then use the components and/or whole sequences that are provided by the library.
 
-The plugin library are in [`public/libraries`](https://github.com/revisit-studies/study/tree/main/public/libraries) folder in your study. The folder name corresponds to the library's `libraryName`.  Below are the steps for using a library. 
+The libraries are in [`public/libraries`](https://github.com/revisit-studies/study/tree/main/public/libraries) folder in your study. The folder name corresponds to the library's `name`.  Below are the steps for using a library. 
 
 ### Step 1: Import the Library 
 
@@ -41,8 +41,8 @@ To import a library, add its name to the `importedLibraries` top-level field of 
 
 Libraries expose one ore multiple “components“ and possible also “sequences” – predefined collections of components. You can use its components and sequences in the `sequence` section of your study configuration. The format for referencing components and sequences is:
 
-- **Components**: `$libraryName.co.componentName`
-- **Sequences**: `$libraryName.se.sequenceName`
+- **Components**: `$name.co.componentName`
+- **Sequences**: `$name.se.sequenceName`
 
 For example: 
 
@@ -57,24 +57,24 @@ For example:
 }
 ```
 
-## Modifying Components in Existing Plugins
+## Modifying Components in Existing Libraries
 You can also modify the components in your study configuration directly via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Any attributes you specify in your study config for a component will overwrite the original attributes of that component as defined in the plugin library. 
 
-For example, here we add a new `description` to the `vlat` library's `line-value` component: 
+For example, here we add a new `instruction` to the `mini-vlat` library's `treemap` component: 
 
 ```js
-"importedLibraries": ["vlat"],
+"importedLibraries": ["mini-vlat"],
 "components": {
-  "vlat-modified":{
-    "baseComponent":"$vlat.co.line-value"
-    "description":"A new description"
+  "mini-vlat-treemap-modified": {
+      "baseComponent": "$mini-vlat.co.treemap",
+      "instruction": "new instruction."
   }
 },
 "sequence": {
   "order": "fixed",
   "components": [
     ...
-    "vlat-modified",
+    "mini-vlat-treemap-modified",
     ...
   ]
 }
