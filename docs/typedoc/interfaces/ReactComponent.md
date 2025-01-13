@@ -44,8 +44,8 @@ export default function CoolComponent({ parameters, setAnswer }: StimulusParams<
 ```
 
 For in depth examples, see the following studies, and their associated codebases.
-https://revisit.dev/study/demo-click-accuracy-test (https://github.com/revisit-studies/study/tree/v2.0.0-rc2/src/public/demo-click-accuracy-test/assets)
-https://revisit.dev/study/example-brush-interactions (https://github.com/revisit-studies/study/tree/v2.0.0-rc2/src/public/example-brush-interactions/assets)
+https://revisit.dev/study/demo-click-accuracy-test (https://github.com/revisit-studies/study/tree/v2.0.0-rc3/src/public/demo-click-accuracy-test/assets)
+https://revisit.dev/study/example-brush-interactions (https://github.com/revisit-studies/study/tree/v2.0.0-rc3/src/public/example-brush-interactions/assets)
 
 ## Extends
 
