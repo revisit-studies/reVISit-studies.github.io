@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Data Export
+# Data Export and Basic Analysis
 
 reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
 
@@ -10,7 +10,7 @@ reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/t
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the Table View, then click on the **Download all participants' data as a tidy CSV** button.
+2. Open the Table View, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
 
 ![Tidy export](./img/tidy-export-1.jpg)
 
@@ -21,7 +21,7 @@ reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/t
 ![Tidy export](./img/tidy-export-2.jpg)
 
 
-After downloading the Tidy data, you can import it into R for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study.
+After downloading the Tidy data, you can import it into  your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
 
 
 ## Example Workflow in R
