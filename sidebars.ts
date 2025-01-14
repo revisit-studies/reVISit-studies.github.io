@@ -98,7 +98,8 @@ const sidebars: SidebarsConfig = {
       items:[
         'analysis/data-management',
         'analysis/dashboard',
-        'analysis/tableview'
+        'analysis/tableview',
+        'analysis/data-export'
       ]
     },
     'faq'
