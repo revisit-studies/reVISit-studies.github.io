@@ -11,7 +11,7 @@ Below is the general template that should be followed when constructing a Librar
 
 ```js
 {
-  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.0.0-rc3/src/parser/LibraryConfigSchema.json",
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.0.0-rc4/src/parser/LibraryConfigSchema.json",
   "baseComponents": {
     // BaseComponents here are defined exactly as is in the StudyConfig
   },
@@ -32,6 +32,5 @@ Below is the general template that should be followed when constructing a Librar
 | `baseComponents?` | [`BaseComponents`](../type-aliases/BaseComponents.md) | The base components that are used in the study. These components can be used to template other components. See [BaseComponents](../../type-aliases/BaseComponents) for more information. |
 | `components` | `Record`\<`string`, [`IndividualComponent`](../type-aliases/IndividualComponent.md) \| [`InheritedComponent`](../type-aliases/InheritedComponent.md)\> | The components that are used in the study. They must be fully defined here with all properties. Some properties may be inherited from baseComponents. |
 | `description?` | `string` | A description of the library. |
-| `name?` | `string` | The name of the library. |
 | `reference?` | `string` | The reference to the paper where the content of the library is based on. |
 | `sequences` | `Record`\<`string`, [`ComponentBlock`](ComponentBlock.md)\> | The order of the components in the study. This might include some randomness. |

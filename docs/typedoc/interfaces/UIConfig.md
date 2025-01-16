@@ -36,6 +36,7 @@ In the above, the `path/to/assets/` path is referring to the path to your indivi
 | `helpTextPath?` | `string` | The path to the help text file. This is displayed when a participant clicks help. Markdown is supported. |
 | `logoPath` | `string` | The path to the logo image. This is displayed on the landing page and the header. |
 | `numSequences?` | `number` | The number of sequences to generate for the study. This is used to generate the random sequences for the study. The default is 1000. |
+| `participantNameField?` | `string` | The default name field for a participant. Directs revisit to use the task and response id as a name in UI elements. For example, if you wanted the response 'prolificId' from the task 'introduction' to be the name, this field would be 'introduction.prolificId' |
 | `sidebar` | `boolean` | Controls whether the left sidebar is rendered at all. Required to be true if your response's location is set to sidebar for any question. |
 | `sidebarWidth?` | `number` | The width of the left sidebar. Defaults to 300. |
 | `studyEndMsg?` | `string` | The message to display when the study ends. |
