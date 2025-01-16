@@ -30,7 +30,9 @@ jobs:
         run: yarn --cwd=./study install --immutable
 
       - name: Build study docs
-        run: yarn --cwd=./study buildDocs
+        run: |
+          yarn --cwd=./study buildDocs
+          yarn --cwd=./study node libraryDocGenerator.cjs
         working-directory: ./study
 
       - name: Get the 2 latest tags
@@ -59,6 +61,7 @@ jobs:
       - name: Copy new study docs to docs and cleanup
         run: |
           cp -r study/docs/* ./docs/typedoc/
+          cp -r study/docsLibraries/* ./docs/libraries/
           rm -rf study
 
       - name: Modify the current version in docusaurus.config.ts
