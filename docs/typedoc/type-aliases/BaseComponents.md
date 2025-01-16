@@ -52,4 +52,4 @@ In the above code snippet, we have a single base component which holds the infor
 
 ## Source
 
-[parser/types.ts:1179](https://github.com/revisit-studies/study/blob/d40680e297ef7919b6480928cce0c5ed59a62e7e/src/parser/types.ts#L1179)
+[parser/types.ts:1179](https://github.com/revisit-studies/study/blob/0252070cae191860cb3cda672e96a7086fcba69e/src/parser/types.ts#L1179)
