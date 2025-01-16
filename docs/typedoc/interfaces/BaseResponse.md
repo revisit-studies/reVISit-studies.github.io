@@ -35,3 +35,5 @@ Therefore, all responses must include these properties.
 | `requiredLabel?` | `string` | You can provide a required label, which makes it so a participant has to answer with a response that matches label. |
 | `requiredValue?` | `unknown` | You can provide a required value, which makes it so a participant has to answer with that value. |
 | `secondaryText?` | `string` | The secondary text that is displayed to the participant under the prompt. This does not accept markdown. |
+| `withDivider?` | `boolean` | Renders the response with a trailing divider. |
+| `withDontKnow?` | `boolean` | Renders the response with an option for "I don't know". This counts as a completed answer for the validation. |

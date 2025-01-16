@@ -29,7 +29,7 @@ Each item in the window event is given a time, a position an event name, and som
 
 | Property | Type | Description |
 | :------ | :------ | :------ |
-| `answer` | `Record`\<`string`, `object`\> | Object whose keys are the "id"s in the Response list of the component in the StudyConfig and whose value is the inputted value from the participant. |
+| `answer` | `Record`\<`string`, `string` \| `number` \| `boolean` \| `Record`\<`string`, `string`\> \| `string`[]\> | Object whose keys are the "id"s in the Response list of the component in the StudyConfig and whose value is the inputted value from the participant. |
 | `endTime` | `number` | Time that the user ended interaction with the component in epoch milliseconds. |
 | `helpButtonClickedCount` | `number` | A counter indicating how many times participants opened the help tab during a task. Clicking help, or accessing the tab via answer feedback on an incorrect answer both are included in the counter. |
 | `incorrectAnswers` | `Record`\<`string`, `object`\> | Object whose keys are the "id"s in the Response list of the component in the StudyConfig and whose value is a list of incorrect inputted values from the participant. Only relevant for trials with `provideFeedback` and correct answers enabled. |

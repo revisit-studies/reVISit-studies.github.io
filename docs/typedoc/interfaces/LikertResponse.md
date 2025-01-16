@@ -45,3 +45,5 @@ Example for a five-point Likert Scale:
 | `rightLabel?` | `string` | The right label of the likert scale. E.g Strongly Agree | - |
 | `secondaryText?` | `string` | The secondary text that is displayed to the participant under the prompt. This does not accept markdown. | [`BaseResponse`](BaseResponse.md).`secondaryText` |
 | `type` | `"likert"` | - | - |
+| `withDivider?` | `boolean` | Renders the response with a trailing divider. | [`BaseResponse`](BaseResponse.md).`withDivider` |
+| `withDontKnow?` | `boolean` | Renders the response with an option for "I don't know". This counts as a completed answer for the validation. | [`BaseResponse`](BaseResponse.md).`withDontKnow` |

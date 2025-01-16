@@ -28,6 +28,7 @@ Example:
 | Property | Type | Description | Inherited from |
 | :------ | :------ | :------ | :------ |
 | `hidden?` | `boolean` | Controls whether the response is hidden. | [`BaseResponse`](BaseResponse.md).`hidden` |
+| `horizontal?` | `boolean` | Whether to render the radio buttons horizontally. Defaults to false, so they render horizontally. | - |
 | `id` | `string` | The id of the response. This is used to identify the response in the data file. | [`BaseResponse`](BaseResponse.md).`id` |
 | `leftLabel?` | `string` | The left label of the radio group. Used in Likert scales for example | - |
 | `location?` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. Defaults to `belowStimulus` | [`BaseResponse`](BaseResponse.md).`location` |
@@ -40,3 +41,6 @@ Example:
 | `rightLabel?` | `string` | The right label of the radio group. Used in Likert scales for example | - |
 | `secondaryText?` | `string` | The secondary text that is displayed to the participant under the prompt. This does not accept markdown. | [`BaseResponse`](BaseResponse.md).`secondaryText` |
 | `type` | `"radio"` | - | - |
+| `withDivider?` | `boolean` | Renders the response with a trailing divider. | [`BaseResponse`](BaseResponse.md).`withDivider` |
+| `withDontKnow?` | `boolean` | Renders the response with an option for "I don't know". This counts as a completed answer for the validation. | [`BaseResponse`](BaseResponse.md).`withDontKnow` |
+| `withOther?` | `boolean` | Whether to render the radios with an "other" option. | - |

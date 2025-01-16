@@ -28,6 +28,7 @@ CheckboxResponses render as a checkbox input with user specified options.
 | Property | Type | Description | Inherited from |
 | :------ | :------ | :------ | :------ |
 | `hidden?` | `boolean` | Controls whether the response is hidden. | [`BaseResponse`](BaseResponse.md).`hidden` |
+| `horizontal?` | `boolean` | Whether to render the checkboxes horizontally. Defaults to false, so they render horizontally. | - |
 | `id` | `string` | The id of the response. This is used to identify the response in the data file. | [`BaseResponse`](BaseResponse.md).`id` |
 | `location?` | `"sidebar"` \| `"aboveStimulus"` \| `"belowStimulus"` | Controls the response location. These might be the same for all responses, or differ across responses. Defaults to `belowStimulus` | [`BaseResponse`](BaseResponse.md).`location` |
 | `maxSelections?` | `number` | The maximum number of selections that are required. | - |
@@ -40,3 +41,6 @@ CheckboxResponses render as a checkbox input with user specified options.
 | `requiredValue?` | `unknown` | You can provide a required value, which makes it so a participant has to answer with that value. | [`BaseResponse`](BaseResponse.md).`requiredValue` |
 | `secondaryText?` | `string` | The secondary text that is displayed to the participant under the prompt. This does not accept markdown. | [`BaseResponse`](BaseResponse.md).`secondaryText` |
 | `type` | `"checkbox"` | - | - |
+| `withDivider?` | `boolean` | Renders the response with a trailing divider. | [`BaseResponse`](BaseResponse.md).`withDivider` |
+| `withDontKnow?` | `boolean` | Renders the response with an option for "I don't know". This counts as a completed answer for the validation. | [`BaseResponse`](BaseResponse.md).`withDontKnow` |
+| `withOther?` | `boolean` | Whether to render the checkboxes with an "other" option. | - |
