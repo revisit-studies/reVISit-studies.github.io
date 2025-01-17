@@ -40,6 +40,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
+        'designing-studies/vega-stimulus',
         'designing-studies/study-sequences',
         'designing-studies/designing-trainings',
         'designing-studies/provenance-tracking',
