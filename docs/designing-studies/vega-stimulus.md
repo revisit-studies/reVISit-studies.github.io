@@ -1,39 +1,58 @@
 # Designing a VEGA Stimulus
 
-[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating visualizations. 
+[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations. 
+Vega allows you to define the visual appearance and interactive behavior of a visualization in JSON format and generate web-based views using Canvas or SVG.
 
-With Vega, you can describe the visual appearance and interactive behavior of a visualization in a JSON format, and generate web-based views using Canvas or SVG.
+This guide demonstrates how to integrate a Vega-based component into reVISit. There are two ways to add a Vega component:
 
-Here we will show how you can integrate a vega based component into reVISit.
+### 1. Adding Vega Specs Directly to the reVISit Config
 
-
-There are two ways you can add a vega component
-
-1. Add vega specs within the reVISit config
-2. Link a vega specs in the reVISit config
-
-## Add Vega Specs within reVISit Config
-
-To add a vega specs directly into reVISit config, set `type` to `vega` and add your vega specs inside `config`.
+To include Vega specifications directly in the reVISit configuration, set the `type` field to `vega` and add your Vega specifications within the `config` field, as shown below:
 
 ```json
 {
   ...
   "components": {
-    ...
-    "type": "vega",
-    "config": {... your vega config...}
-    ...
-  },
+    "vegademo1": {
+      ...
+      "type": "vega",
+      "config": {... your vega config...}
+      ...
+    },
+  }
   ...
 }
 ```
 
-ReVISit will then take your vega specs and display the visualization.
+### 2. Linking to Vega Specs in the reVISit Config
 
-However, vega can be interactive. For example, you may ask your participants to interact with the stimuli you have. In that case, may can directly send the participant's answer to reVISit.
+If including Vega specifications directly in the configuration file makes it too large, or if you prefer to manage the specifications in a separate file, you can link to the specifications file instead.
 
-To do so, we take advantage of the [Vega signals](https://vega.github.io/vega/docs/signals/) with reserved name of "revisitAnswer".
+In this case, the `type` remains `vega`, but instead of using the _config_ field, you use the `path` field to specify the location of the Vega specifications file.
+
+```json
+{
+  ...
+  "components": {
+    "vegademo2": {
+      ...
+      "type": "vega",
+      "path": "demo-vega/specs/vegademo2.specs.json",
+      ...
+    }
+  }
+  ...
+}
+```
+
+## User Interactions and Data Passing
+
+One of the most powerful features of Vega is its ability to create interactive visualizations. For example, you can design stimuli that allow participants to interact with the visualization and capture their responses. These responses can then be sent directly to reVISit for further processing.
+
+To achieve this, you can use [Vega signals](https://vega.github.io/vega/docs/signals/).
+Specifically, a signal with the reserved name `revisitAnswer` is used to pass participant responses to reVISit.
+Here's an example of how to define the `revisitAnswer` signal:
+
 
 ```json
 {
@@ -48,7 +67,17 @@ To do so, we take advantage of the [Vega signals](https://vega.github.io/vega/do
 }
 ```
 
-With the signal in place inside your vega specs, you can add your response with type `iframe`. This way, the signal from your vega component is captured and sent to the reVISit platform.
+In this example:
+
+- The `events` field specifies the user interaction to listen for (e.g., `rect:click`).
+- The `update` field defines the response structure, which includes a unique `responseId` and the participant's selection (e.g., `datum.category`).
+
+## Capturing and Sending Responses
+Once the signal is defined in your Vega specifications, you can configure the response field in the reVISit configuration. By setting the response type to `iframe`, the signal emitted by the Vega component is captured and sent to the reVISit platform.
+
+:::note
+NOTE: Make sure that the `response.id` matches the one in vega signal's `responseId`.
+:::
 
 ```json
 {
@@ -65,7 +94,13 @@ With the signal in place inside your vega specs, you can add your response with 
 }
 ```
 
-Below is an example config of a bar chart with a complete vega specs where the participants are asked to select the highest bar. Clicking on the bar sends the response to reVISit.
+This setup ensures that the participant's interaction with the visualization is seamlessly recorded and displayed in the reVISit interface.
+
+## Example Config with Complete Vega Specifications
+
+Below is an example configuration for a bar chart with complete Vega specifications.
+In this setup, participants are asked to select the highest bar.
+When a bar is clicked, the response is sent to reVISit.
 
 ```json
 {
@@ -294,40 +329,5 @@ Below is an example config of a bar chart with a complete vega specs where the p
       ]
     },
   }
-}
-```
-
-
-## Link a vega specs in the reVISit config
-
-When you put the vega specs inside reVISit config, the size of the config may be too large, or you may just want a separate file for the vega specs.
-
-You can easily point to an existing vega specs as below.
-In this case, the type is still `vega` but instead of `config`, we have `path` to the vega specs.
-
-```json
-{
-  ...
-  "components: {
-    "vegademo2": {
-      "meta": {
-        "metadata": 1
-      },
-      "description": "Select the highest value.",
-      "instruction": "Select the movie with highest World Wide Gross.",
-      "type": "vega",
-      "path": "demo-vega/specs/vegademo2.specs.json",
-      "nextButtonLocation": "sidebar",
-      "response": [
-        {
-          "id": "vegaDemoResponse1",
-          "prompt": "You selected:",
-          "location": "sidebar",
-          "type": "iframe"
-        }
-      ]
-    }
-  }
-  ...
 }
 ```
