@@ -106,7 +106,7 @@ An additional prompt is added to assess how confident participants are in their 
 ```json
 {
   ...
-  "components: {
+  "components": {
     "vegademo1": {
       "meta": {
         "metadata": 1
