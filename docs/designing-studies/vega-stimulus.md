@@ -70,13 +70,13 @@ Here's an example of how to define the `revisitAnswer` signal:
 In this example:
 
 - The `events` field specifies the user interaction to listen for (e.g., `rect:click`).
-- The `update` field defines the response structure, which includes a unique `responseId` and the participant's selection (e.g., `datum.category`).
+- The `update` field defines the response structure, which includes a `responseId` and the participant's selection (e.g., `datum.category`). The `responseId` should match the id in your response field described below.
 
 ## Capturing and Sending Responses
 Once the signal is defined in your Vega specifications, you can configure the response field in the reVISit configuration. By setting the response type to `iframe`, the signal emitted by the Vega component is captured and sent to the reVISit platform.
 
 :::note
-NOTE: Make sure that the `response.id` matches the one in vega signal's `responseId`.
+Make sure that the `response.id` matches the one in vega signal's `responseId`.
 :::
 
 ```json
@@ -101,6 +101,7 @@ This setup ensures that the participant's interaction with the visualization is 
 Below is an example configuration for a bar chart with complete Vega specifications.
 In this setup, participants are asked to select the highest bar.
 When a bar is clicked, the response is sent to reVISit.
+An additional prompt is added to assess how confident participants are in their answers.
 
 ```json
 {
