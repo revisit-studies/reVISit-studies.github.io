@@ -42,7 +42,7 @@ const sidebars: SidebarsConfig = {
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
         'designing-studies/answers-trainings',
-        'designing-studies/study-sequences',     
+        'designing-studies/study-sequences',
         'designing-studies/provenance-tracking',
         'designing-studies/plugin-libraries',
         {
