@@ -110,6 +110,10 @@ The figure shows the result:
 
 ![The reVISit UI showing a Vega bar chart where one bar is selected and the response is printed in the sidebar.](./img/vega-response.png)
 
+
+Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/replay).
+
+
 ```js
 "components": {
   "vegademo1": {
