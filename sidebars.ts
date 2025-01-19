@@ -38,10 +38,11 @@ const sidebars: SidebarsConfig = {
       },
       collapsed: false,
       items: [
+        'designing-studies/forms',
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
-        'designing-studies/study-sequences',
-        'designing-studies/designing-trainings',
+        'designing-studies/answers-trainings',
+        'designing-studies/study-sequences',     
         'designing-studies/provenance-tracking',
         'designing-studies/plugin-libraries',
         {
