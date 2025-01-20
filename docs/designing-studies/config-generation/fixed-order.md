@@ -172,7 +172,7 @@ initialConfig = {
             "prompt": "Your click distance to circle center",
             "required": True,
             "location": "sidebar",
-            "type": "iframe"
+            "type": "reactive"
           }
         ]
       },
@@ -268,7 +268,7 @@ const initialConfig = {
           prompt: "Your click distance to circle center",
           required: true,
           location: "sidebar",
-          type: "iframe",
+          type: "reactive",
         },
       ],
     },

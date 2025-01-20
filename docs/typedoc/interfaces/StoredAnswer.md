@@ -5,6 +5,8 @@ displayed_sidebar: reference
 
 # StoredAnswer
 
+Defined in: [store/types.ts:67](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L67)
+
 The StoredAnswer object is a data structure describing the participants interaction with an individual component. It is the data structure used as values of the `answers` object of [ParticipantData](../ParticipantData). The general structure for this is below:
 
 ```js
@@ -27,13 +29,13 @@ Each item in the window event is given a time, a position an event name, and som
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `answer` | `Record`\<`string`, `string` \| `number` \| `boolean` \| `Record`\<`string`, `string`\> \| `string`[]\> | Object whose keys are the "id"s in the Response list of the component in the StudyConfig and whose value is the inputted value from the participant. |
-| `endTime` | `number` | Time that the user ended interaction with the component in epoch milliseconds. |
-| `helpButtonClickedCount` | `number` | A counter indicating how many times participants opened the help tab during a task. Clicking help, or accessing the tab via answer feedback on an incorrect answer both are included in the counter. |
-| `incorrectAnswers` | `Record`\<`string`, `object`\> | Object whose keys are the "id"s in the Response list of the component in the StudyConfig and whose value is a list of incorrect inputted values from the participant. Only relevant for trials with `provideFeedback` and correct answers enabled. |
-| `provenanceGraph?` | `TrrackedProvenance` | The entire provenance graph exported from a Trrack instance from a React component. This will only be present if you are using React components and you're utilizing [Trrack](https://apps.vdl.sci.utah.edu/trrack) |
-| `startTime` | `number` | Time that the user began interacting with the component in epoch milliseconds. |
-| `timedOut` | `boolean` | A boolean value that indicates whether the participant timed out on this question. |
-| `windowEvents` | `EventType`[] | <p>A list containing the time (in epoch milliseconds), the action (focus, input, kepress, mousedown, mouseup, mousemove, resize, scroll or visibility), and then either a coordinate pertaining to where the event took place on the screen or string related to such event. Below is an example of the windowEvents list.</p><code>"windowEvents": [<p>  [</p><p>    1711641174878,</p><p>    "mousedown",</p><p>    [ 1843, 286 ]</p><p>  ],</p><p>  [</p><p>    1711641174878,</p><p>    "focus",</p><p>    "BUTTON"</p><p>  ],</p><p>  [</p><p>    1711641174935,</p><p>    "mouseup",</p><p>    [ 1843, 286 ]</p><p>  ],</p><p>  .</p><p>  .</p><p>  .</p><p>  [</p><p>    1711641178706,</p><p>    "mousemove",</p><p>    [ 1868, 728 ]</p><p>  ]</p><p>]</p></code> |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| <a id="answer"></a> `answer` | `Record`\<`string`, `string` \| `number` \| `boolean` \| `Record`\<`string`, `string`\> \| `string`[]\> | Object whose keys are the "id"s in the Response list of the component in the StudyConfig and whose value is the inputted value from the participant. | [store/types.ts:69](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L69) |
+| <a id="endtime"></a> `endTime` | `number` | Time that the user ended interaction with the component in epoch milliseconds. | [store/types.ts:75](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L75) |
+| <a id="helpbuttonclickedcount"></a> `helpButtonClickedCount` | `number` | A counter indicating how many times participants opened the help tab during a task. Clicking help, or accessing the tab via answer feedback on an incorrect answer both are included in the counter. | [store/types.ts:111](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L111) |
+| <a id="incorrectanswers"></a> `incorrectAnswers` | `Record`\<`string`, \{ `id`: `string`; `value`: `unknown`[]; \}\> | Object whose keys are the "id"s in the Response list of the component in the StudyConfig and whose value is a list of incorrect inputted values from the participant. Only relevant for trials with `provideFeedback` and correct answers enabled. | [store/types.ts:71](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L71) |
+| <a id="provenancegraph"></a> `provenanceGraph?` | `TrrackedProvenance` | The entire provenance graph exported from a Trrack instance from a React component. This will only be present if you are using React components and you're utilizing [Trrack](https://apps.vdl.sci.utah.edu/trrack) | [store/types.ts:77](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L77) |
+| <a id="starttime"></a> `startTime` | `number` | Time that the user began interacting with the component in epoch milliseconds. | [store/types.ts:73](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L73) |
+| <a id="timedout"></a> `timedOut` | `boolean` | A boolean value that indicates whether the participant timed out on this question. | [store/types.ts:109](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L109) |
+| <a id="windowevents"></a> `windowEvents` | `EventType`[] | A list containing the time (in epoch milliseconds), the action (focus, input, kepress, mousedown, mouseup, mousemove, resize, scroll or visibility), and then either a coordinate pertaining to where the event took place on the screen or string related to such event. Below is an example of the windowEvents list. `"windowEvents": [ [ 1711641174878, "mousedown", [ 1843, 286 ] ], [ 1711641174878, "focus", "BUTTON" ], [ 1711641174935, "mouseup", [ 1843, 286 ] ], . . . [ 1711641178706, "mousemove", [ 1868, 728 ] ] ]` | [store/types.ts:107](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/store/types.ts#L107) |

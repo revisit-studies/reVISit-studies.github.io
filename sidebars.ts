@@ -38,12 +38,14 @@ const sidebars: SidebarsConfig = {
       },
       collapsed: false,
       items: [
+        'designing-studies/forms',
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
         'designing-studies/vega-stimulus',
+        'designing-studies/answers-trainings',
         'designing-studies/study-sequences',
-        'designing-studies/designing-trainings',
         'designing-studies/provenance-tracking',
+        'designing-studies/think-aloud',
         'designing-studies/plugin-libraries',
         {
           type: 'category',
@@ -101,6 +103,7 @@ const sidebars: SidebarsConfig = {
         'analysis/dashboard',
         'analysis/tableview',
         'analysis/data-export',
+        'analysis/participant-replay',
       ],
     },
     'faq',

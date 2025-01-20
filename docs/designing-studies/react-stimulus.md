@@ -153,7 +153,7 @@ The parameters are an object; you can change the format to suit your needs.
 ## Example 2: Click Accuracy Experiment
 The click accuracy experiment requires participants to click on a moving dot on the screen. The dot will move inside a bounded box. The faster the dot moves, the more difficult it is for the participants to click on it.
 
-In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the 'iFrame' response type, which will receive the user's click data and send it to reVISit.
+In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the 'reactive' response type, which will receive the user's click data and send it to reVISit.
 
 In this example, the React component will take `parameters` and `setAnswer` as props. The parameters work just like in Example 1; it will pass data from the config file to the React component.
 The `setAnswer` function is a built-in function that is used to pass the user's response to the reVISit framework.
@@ -259,7 +259,7 @@ export default ClickAccuracyTest;
 
 ```
 
-In the config file, we pass the `taskid` and speed as parameters. Notice the response type for the trial is `'iFrame'`.
+In the config file, we pass the `taskid` and speed as parameters. Notice the response type for the trial is `'reactive'`.
 
 ```json
 "trial": {
@@ -278,7 +278,7 @@ In the config file, we pass the `taskid` and speed as parameters. Notice the res
                     "prompt": "Your click distance to circle center",
                     "required": true,
                     "location": "sidebar",
-                    "type": "iframe"
+                    "type": "reactive"
                 }
             ]
         }

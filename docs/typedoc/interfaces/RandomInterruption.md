@@ -5,6 +5,8 @@ displayed_sidebar: reference
 
 # RandomInterruption
 
+Defined in: [parser/types.ts:910](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L910)
+
 The RandomInterruption interface is used to define an interruption that will be shown randomly in the block.
 
 For example, if you want to show a single interruption randomly in the block, you would set `"spacing"` to "random" and `"numInterruptions"` to 1. If you want to show 3 interruptions randomly in the block, you would set `"spacing"` to "random" and `"numInterruptions"` to 3.
@@ -50,8 +52,8 @@ The resulting sequence array could be:
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. |
-| `numInterruptions` | `number` | The number of times the interruption will be randomly added |
-| `spacing` | `"random"` | If spacing is set to random, reVISit will add interruptions randomly. These interruptions will not ever be displayed as the first component in the block. |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| <a id="components"></a> `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. | [parser/types.ts:916](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L916) |
+| <a id="numinterruptions"></a> `numInterruptions` | `number` | The number of times the interruption will be randomly added | [parser/types.ts:914](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L914) |
+| <a id="spacing"></a> `spacing` | `"random"` | If spacing is set to random, reVISit will add interruptions randomly. These interruptions will not ever be displayed as the first component in the block. | [parser/types.ts:912](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L912) |
