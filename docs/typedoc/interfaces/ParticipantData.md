@@ -5,6 +5,8 @@ displayed_sidebar: reference
 
 # ParticipantData
 
+Defined in: [storage/types.ts:52](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L52)
+
 The ParticipantData is a JSON object that contains all of the data for all of the participants in your study. It is structured as a list. Each element refers to a participants data or a configuration. While in many cases there is only one configuration per study, the study creator is allowed to change the configuration file after the study has already been completed by other participants. The data for each participant will have a "participantConfigHash" which refers to a particular configuration which is also in this list.
 
 Below we have an example of a participants data.
@@ -54,15 +56,15 @@ We can see at a high level that we are given the answer that the user submitted,
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `answers` | `Record`\<`string`, [`StoredAnswer`](StoredAnswer.md)\> | Object whose keys are the component names and values are StoredAnswer objects. |
-| `completed` | `boolean` | Whether the participant has completed the study. |
-| `metadata` | [`ParticipantMetadata`](ParticipantMetadata.md) | Metadata of a participants browser, resolution, language, and IP. |
-| `participantConfigHash` | `string` | Unique ID corresponding to the Configuration that the participant received. |
-| `participantId` | `string` | Unique ID  associated with the participant |
-| `participantIndex` | `number` | Index of the participant in the study. |
-| `participantTags` | `string`[] | The component blocks that the participant entered. |
-| `rejected` | `false` \| `object` | Whether the participant has been rejected and the reason. |
-| `searchParams` | `Record`\<`string`, `string`\> | Query parameters of the URL used to enter the study. |
-| `sequence` | `Sequence` | Sequence of components that the participant received. This is an internal data type and is compiled from the ComponentBlocks in the StudyConfig sequence. |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| <a id="answers"></a> `answers` | `Record`\<`string`, [`StoredAnswer`](StoredAnswer.md)\> | Object whose keys are the component names and values are StoredAnswer objects. | [storage/types.ts:62](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L62) |
+| <a id="completed"></a> `completed` | `boolean` | Whether the participant has completed the study. | [storage/types.ts:68](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L68) |
+| <a id="metadata"></a> `metadata` | [`ParticipantMetadata`](ParticipantMetadata.md) | Metadata of a participants browser, resolution, language, and IP. | [storage/types.ts:66](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L66) |
+| <a id="participantconfighash"></a> `participantConfigHash` | `string` | Unique ID corresponding to the Configuration that the participant received. | [storage/types.ts:56](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L56) |
+| <a id="participantid"></a> `participantId` | `string` | Unique ID associated with the participant | [storage/types.ts:54](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L54) |
+| <a id="participantindex"></a> `participantIndex` | `number` | Index of the participant in the study. | [storage/types.ts:60](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L60) |
+| <a id="participanttags"></a> `participantTags` | `string`[] | The component blocks that the participant entered. | [storage/types.ts:75](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L75) |
+| <a id="rejected"></a> `rejected` | `false` \| \{ `reason`: `string`; `timestamp`: `number`; \} | Whether the participant has been rejected and the reason. | [storage/types.ts:70](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L70) |
+| <a id="searchparams"></a> `searchParams` | `Record`\<`string`, `string`\> | Query parameters of the URL used to enter the study. | [storage/types.ts:64](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L64) |
+| <a id="sequence"></a> `sequence` | `Sequence` | Sequence of components that the participant received. This is an internal data type and is compiled from the ComponentBlocks in the StudyConfig sequence. | [storage/types.ts:58](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/storage/types.ts#L58) |
