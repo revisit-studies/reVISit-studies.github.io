@@ -47,19 +47,6 @@ const sidebars: SidebarsConfig = {
         'designing-studies/provenance-tracking',
         'designing-studies/think-aloud',
         'designing-studies/plugin-libraries',
-        {
-          type: 'category',
-          label: 'Config File Generation',
-          link: {
-            type: 'doc',
-            id: 'designing-studies/config-generation/index',
-          },
-          items: [
-            'designing-studies/config-generation/fixed-order',
-            'designing-studies/config-generation/random-sample',
-            'designing-studies/config-generation/latin-square',
-          ],
-        },
         // 'designing-studies/config-generation'
       ],
     },
@@ -104,6 +91,42 @@ const sidebars: SidebarsConfig = {
         'analysis/tableview',
         'analysis/data-export',
         'analysis/participant-replay',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'ReVISitPy',
+      link: {
+        type: 'doc',
+        id: 'revisitpy/index',
+      },
+      collapsed: false,
+      items: [
+        'revisitpy/installation',
+        'revisitpy/overview',
+        {
+          type: 'category',
+          label: 'Reference',
+          link: {
+            type: 'doc',
+            id: 'revisitpy/reference/index',
+          },
+          items: [
+            'revisitpy/reference/functions',
+            'revisitpy/reference/classes',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Examples',
+          link: {
+            type: 'doc',
+            id: 'revisitpy/examples/index',
+          },
+          items: [
+            'revisitpy/examples/example_jnd_study',
+          ],
+        },
       ],
     },
     'faq',
