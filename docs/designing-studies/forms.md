@@ -74,7 +74,7 @@ To achieve that, add the `"withDontKnow": true` option to your form element.
 
 ### Dividers
 
-You can structure your forms by adding a divider between form elements. To add a divider, add `"withDivider": true` to the question after which you want the divider to appear. In the following figure, there's a divider added between question 3 and 4. 
+You can structure your forms by adding a divider between form elements. To add a divider, add `"withDivider": true` to the question that you want the divider to appear after. In the following figure, there's a divider added between question 3 and 4. 
 
 ![Two questions separated by a divider.](img/form-divider.png)
 

@@ -1,6 +1,6 @@
 # Responses and Answers
 
-In reVISit, a component typically has a [response](../../typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component. 
+In reVISit, a component typically has a [response](../../typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component and a [ReactiveResponse](../../typedoc/interfaces/ReactiveResponse). 
 
 Responses can optionally also be provided with an [Answer](../../typedoc/interfaces/Answer/) that captures what the correct response is. This answer is used in several ways: 
 
