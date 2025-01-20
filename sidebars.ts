@@ -43,6 +43,7 @@ const sidebars: SidebarsConfig = {
         'designing-studies/study-sequences',
         'designing-studies/designing-trainings',
         'designing-studies/provenance-tracking',
+        'designing-studies/think-aloud',
         'designing-studies/plugin-libraries',
         {
           type: 'category',
@@ -100,6 +101,7 @@ const sidebars: SidebarsConfig = {
         'analysis/dashboard',
         'analysis/tableview',
         'analysis/data-export',
+        'analysis/participant-replay',
       ],
     },
     'faq',
