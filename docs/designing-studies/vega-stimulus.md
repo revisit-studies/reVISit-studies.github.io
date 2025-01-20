@@ -75,7 +75,7 @@ In this example:
 - The `update` field defines the response structure, which includes a `responseId` and the participant's selection (e.g., `datum.category`). The `responseId` should match the id in your response field described below.
 
 :::note
-Make sure that you are using Vega when adding signals. If you are using Vega-Lite, you can convert your specs to the lower-level Vega specs and add signals.
+Ensure that you are using Vega when adding signals. If you are using Vega-Lite, you can convert your specifications to lower-level Vega specifications to add signals.
 :::
 
 ### Capturing Responses
