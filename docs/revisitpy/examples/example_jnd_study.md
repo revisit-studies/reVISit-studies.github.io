@@ -10,7 +10,7 @@ We'll start by defining the basic structure of the study:
 
 ```python
 
-import revisit as rvt
+import revisitpy as rvt
 
 # Meta Data
 study_metadata = rvt.studyMetadata(
@@ -324,15 +324,15 @@ study = rvt.studyConfig(
 
 ```
 
-# Using `revisit_server` to Prepare Our Widget
+# Using `revisitpy_server` to Prepare Our Widget
 
 The `revisitpy` package provides a widget in order to preview our study directly in a Jupyter notebook. We can interact with the study, check that vega signals work, and even create some introductory data ourselves. In order for the widget to work, a local copy of the reVISit must be running on your local computer. If you already have reVISit locally (colloqioully our `study` repo), then all you need to do is navigate to your repository and run `yarn serve`. After this, the widget we create in this jupyter notebook will be useable.
 
-A simpler way to achieve the same goal, however is using the `revisit_server` Python package. This is a simple python package which already has the most recent reVISit repository built and runs a server locally. After installing `revisit_server`, all that is required is the following:
+A simpler way to achieve the same goal, however is using the `revisitpy_server` Python package. This is a simple python package which already has the most recent reVISit repository built and runs a server locally. After installing `revisitpy_server`, all that is required is the following:
 
 
 ```python
-import revisit_server as rs
+import revisitpy_server as rs
 process = rs.serve()
 ```
 **Output:**
@@ -341,7 +341,7 @@ Server is running in the background at http://localhost:8080
 ```
 # The Widget
 
-Now that your server is running, we create the widget with the configuration file we created above. When calling the widget, we are assuming that the assets referenced in the configuration file are relative to this notebook. The widget then copies these static assets to the appropriate directory. Since we're currently using the `revisitpy_server` package, you'll see that they copied into the assets of the local virtual environment `revisit_server` package.
+Now that your server is running, we create the widget with the configuration file we created above. When calling the widget, we are assuming that the assets referenced in the configuration file are relative to this notebook. The widget then copies these static assets to the appropriate directory. Since we're currently using the `revisitpy_server` package, you'll see that they copied into the assets of the local virtual environment `revisitpy_server` package.
 
 
 ```python
@@ -352,9 +352,8 @@ w = rvt.widget(study, server=True)
 ```
 **Output:**
 ```output
-/Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisit
-Copying file from ./assets/introduction.md to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisit_server/static/__revisit-widget/assets/introduction.md
-Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisit_server/static/__revisit-widget/assets/revisitLogoSquare.svg
+Copying file from ./assets/introduction.md to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/introduction.md
+Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/revisitLogoSquare.svg
 ```
 # Optional: Terminate the server
 
