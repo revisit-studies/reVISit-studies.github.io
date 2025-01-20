@@ -101,7 +101,7 @@ In your “config.json” document, create new new key called “baseComponents�
                     "prompt": "Your selected answer:",
                     "required": true,
                     "location": "belowStimulus",
-                    "type": "iframe"
+                    "type": "reactive"
                 }
             ],
             "path": "basic-questionnaire-study/assets/bar-chart.html",
