@@ -1,6 +1,6 @@
-# Checking Answers and Trainings 
+# Responses and Answers
 
-In reVISit, a component typically has a [response](../../typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component. 
+In reVISit, a component typically has a [response](../../typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component and a [ReactiveResponse](../../typedoc/interfaces/ReactiveResponse). 
 
 Responses can optionally also be provided with an [Answer](../../typedoc/interfaces/Answer/) that captures what the correct response is. This answer is used in several ways: 
 
@@ -12,7 +12,8 @@ Responses can optionally also be provided with an [Answer](../../typedoc/interfa
 There might be situations when answers cannot accurately capture whether a response was correct or not (e.g., with text input). In other situations, answers may have “degrees of correctness“. In such cases, you will have to compute correct answers as part of your data analysis process. 
 :::
 
-## Trainings
+
+## Specifying Answers and Trainings
 
 When you develop an online study, it's often important to train participants well before they can take a study. Typically, you want to give them an example task, but also provide help and hints at first. Here we lay out possibilities to develop trainings in reVISit leveraging responses and answers.
 
