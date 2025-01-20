@@ -74,14 +74,13 @@ In this example:
 - The `events` field specifies the user interaction to listen for (`rect:click` in this instance).
 - The `update` field defines the response structure, which includes a `responseId` and the participant's selection (e.g., `datum.category`). The `responseId` should match the id in your response field described below.
 
-
+:::note
+Make sure that you are using Vega when adding signals. If you are using Vega-Lite, you can convert your specs to the lower-level Vega specs and add signals.
+:::
 
 ### Capturing Responses
 Once the signal is defined in your Vega specifications, you can configure the response field in the reVISit configuration. By setting the response type to `iframe`, the signal emitted by the Vega component is captured and sent to the reVISit platform.
 
-:::note
-Make sure that the `response.id` matches the one in vega signal's `responseId`.
-:::
 
 ```js
 {
@@ -99,6 +98,10 @@ Make sure that the `response.id` matches the one in vega signal's `responseId`.
 ```
 
 This setup ensures that the participant's interaction with the visualization is seamlessly recorded and displayed in the reVISit interface.
+
+:::note
+Make sure that the `response.id` matches the one in vega signal's `responseId`.
+:::
 
 ## Example Config with Complete Vega Specifications
 
