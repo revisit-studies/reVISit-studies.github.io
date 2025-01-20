@@ -3,6 +3,7 @@
         "clsx",
         "fontawesome",
         "fortawesome",
-        "papaparse"
+        "papaparse",
+        "revisitpy"
     ]
 }
