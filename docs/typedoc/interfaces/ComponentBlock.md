@@ -5,6 +5,8 @@ displayed_sidebar: reference
 
 # ComponentBlock
 
+Defined in: [parser/types.ts:1187](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L1187)
+
 The ComponentBlock interface is used to define order properties within the sequence. This is used to define the order of components in a study and the skip logic. It supports random assignment of trials using a pure random assignment and a [latin square](https://en.wikipedia.org/wiki/Latin_square).
 
 The pure random assignment is a random assignment with no guarantees. For example, one component _could_ show up in the first position 10 times in a row. However, this situation is unlikely.
@@ -111,11 +113,11 @@ The skip property is used to define skip conditions. This is used to skip to a d
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `components` | (`string` \| [`ComponentBlock`](ComponentBlock.md))[] | The components that are included in the order. |
-| `id?` | `string` | The id of the block. This is used to identify the block in the SkipConditions and is only required if you want to refer to the whole block in the condition.to property. |
-| `interruptions?` | [`InterruptionBlock`](../type-aliases/InterruptionBlock.md)[] | The interruptions property specifies an array of interruptions. These can be used for breaks or attention checks. |
-| `numSamples?` | `number` | The number of samples to use for the random assignments. This means you can randomize across 3 components while only showing a participant 2 at a time. |
-| `order` | `"random"` \| `"latinSquare"` \| `"fixed"` | The type of order. This can be random (pure random), latinSquare (random with some guarantees), or fixed. |
-| `skip?` | [`SkipConditions`](../type-aliases/SkipConditions.md) | The skip conditions for the block. |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| <a id="components"></a> `components` | (`string` \| [`ComponentBlock`](ComponentBlock.md))[] | The components that are included in the order. | [parser/types.ts:1193](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L1193) |
+| <a id="id"></a> `id?` | `string` | The id of the block. This is used to identify the block in the SkipConditions and is only required if you want to refer to the whole block in the condition.to property. | [parser/types.ts:1189](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L1189) |
+| <a id="interruptions"></a> `interruptions?` | [`InterruptionBlock`](../type-aliases/InterruptionBlock.md)[] | The interruptions property specifies an array of interruptions. These can be used for breaks or attention checks. | [parser/types.ts:1197](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L1197) |
+| <a id="numsamples"></a> `numSamples?` | `number` | The number of samples to use for the random assignments. This means you can randomize across 3 components while only showing a participant 2 at a time. | [parser/types.ts:1195](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L1195) |
+| <a id="order"></a> `order` | `"random"` \| `"latinSquare"` \| `"fixed"` | The type of order. This can be random (pure random), latinSquare (random with some guarantees), or fixed. | [parser/types.ts:1191](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L1191) |
+| <a id="skip"></a> `skip?` | [`SkipConditions`](../type-aliases/SkipConditions.md) | The skip conditions for the block. | [parser/types.ts:1199](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L1199) |

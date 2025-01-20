@@ -5,6 +5,8 @@ displayed_sidebar: reference
 
 # Answer
 
+Defined in: [parser/types.ts:508](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L508)
+
 The Answer interface is used to define the properties of an answer. Answers are used to define the correct answer for a task. These are generally used in training tasks or if skip logic is required based on the answer.
 
 Answers are used to defined correct answers for a task. These are generally used in training tasks or if skip logic is required based on the answer. The answer field is used to define the correct answer to the question. The acceptableLow and acceptableHigh fields are used to define a range of acceptable answers (these are currently only used for training). For example, if the correct answer is 5, and the acceptableLow is 4 and the acceptableHigh is 6, then any answer between 4 and 6 will be considered correct.
@@ -34,9 +36,9 @@ In this example, the correct answer to the question "What is 2 + 2?" is 4. If th
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `acceptableHigh?` | `number` | The acceptable high value for the answer. This is used to define a range of acceptable answers. |
-| `acceptableLow?` | `number` | The acceptable low value for the answer. This is used to define a range of acceptable answers. |
-| `answer` | `any` | The correct answer to the question. |
-| `id` | `string` | The id of the answer. This is used to identify the answer in the data file. |
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| <a id="acceptablehigh"></a> `acceptableHigh?` | `number` | The acceptable high value for the answer. This is used to define a range of acceptable answers. | [parser/types.ts:517](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L517) |
+| <a id="acceptablelow"></a> `acceptableLow?` | `number` | The acceptable low value for the answer. This is used to define a range of acceptable answers. | [parser/types.ts:515](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L515) |
+| <a id="answer"></a> `answer` | `any` | The correct answer to the question. | [parser/types.ts:513](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L513) |
+| <a id="id"></a> `id` | `string` | The id of the answer. This is used to identify the answer in the data file. | [parser/types.ts:510](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L510) |
