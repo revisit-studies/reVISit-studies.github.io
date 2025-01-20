@@ -1,4 +1,4 @@
-# Designing a VEGA Stimulus
+# Designing a Vega Stimulus
 
 [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations. 
 Vega allows you to define the visual appearance and interactive behavior of a visualization in JSON format and generate web-based views using Canvas or SVG.
