@@ -161,3 +161,50 @@ study = rvt.studyConfig(
     sequence=sequence # <-- Do not need to add components list separately if they are already in the sequence.
 )
 ```
+
+
+### `data(file_path)`
+
+Parses a CSV file with the given `file_path` and returns a list of DataRows. Output can be passed into the `from_data` method of the `sequence` class to generate components based on the CSV data.
+
+### **Parameters**:
+| Parameter | Type   | Description                     | Default Value |
+|-----------|--------|---------------------------------|---------------|
+| `file_path` | `str` | Path to the CSV file | _None_ |
+
+### **Returns**:
+- `List[DataRow]`: Returns a list of dataclasses called `DataRow`. 
+
+
+### **Example**:
+
+In the below example, we create the study data using the `data` method, then create a sequence from this data using the `from_data` method. Each component shown in the new sequence will have the respective data added to their `metadata__` attribute. From here, you can use the `component` method of the `Sequence` class to transform each component based on their respective `metadata__` attributes that you applied with `from_data` method.
+
+```python
+
+'''
+'my_csv_file.csv' contents
+
+id | value_1 | value_2
+---|---------|--------
+ 1 | 0.3     | 3
+ 2 | 0.1     | 4
+ 3 | 1.2     | 1
+'''
+
+study_data = rvt.data('path/to/my_csv_file.csv')
+
+sequence = rvt.sequence(order='fixed').from_data(study_data)
+
+print(sequence)
+'''
+{
+    "order": "fixed",
+    "components": [
+        'id:1__value_1:0.3__value_2:3',
+        'id:2__value_1:0.1__value_2:4',
+        'id:3__value_1:1.2__value_2:1',
+    ]
+}
+'''
+```
