@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_website=self.webpackChunkdocs_website||[]).push([[1672],{3024:e=>{e.exports=JSON.parse('{"authors":[{"name":"The ReVISit Team","key":"team","page":null,"count":2}]}')}}]);
