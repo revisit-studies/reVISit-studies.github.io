@@ -15,6 +15,7 @@ Components are where study-specific content goes. ReVISit currently supports fiv
 * **[Images](../../typedoc/interfaces/ImageComponent)** can be used as stimuli directly. 
 * **[Web Pages](../../typedoc/interfaces/WebsiteComponent)** can be used to create custom stimuli, including interactive stimuli developed with JavaScript 
 * **[React Components](../../typedoc/interfaces/ReactComponent)** can be used for sophisticated interactive stimuli. In comparison to HTML pages, react components simplify the communication between reVISit and the stimulus. 
+* **[Vega and Vega-lite Components](../../typedoc/type-aliases/VegaComponent)** can be used to create declarative visualization stimuli. Vega components integrate with reVISit's provenance system and track user interactions with the visualization.
 * **[Survey Questions](../../typedoc/interfaces/QuestionnaireComponent)** can be used to elicit structured responses from participants.
 
 All of these stimuli can be (and commonly are) paired with **responses**. Responses are form elements that capture the elicited responses. Survey questions are basically empty components with responses. 
