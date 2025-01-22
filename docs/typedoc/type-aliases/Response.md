@@ -7,4 +7,4 @@ displayed_sidebar: reference
 
 > **Response**: [`NumericalResponse`](../interfaces/NumericalResponse.md) \| [`ShortTextResponse`](../interfaces/ShortTextResponse.md) \| [`LongTextResponse`](../interfaces/LongTextResponse.md) \| [`LikertResponse`](../interfaces/LikertResponse.md) \| [`DropdownResponse`](../interfaces/DropdownResponse.md) \| [`SliderResponse`](../interfaces/SliderResponse.md) \| [`RadioResponse`](../interfaces/RadioResponse.md) \| [`CheckboxResponse`](../interfaces/CheckboxResponse.md) \| [`ReactiveResponse`](../interfaces/ReactiveResponse.md) \| [`MatrixResponse`](../interfaces/MatrixResponse.md)
 
-Defined in: [parser/types.ts:478](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L478)
+Defined in: [parser/types.ts:480](https://github.com/revisit-studies/study/blob/8321281ac346f1aa0a6d05a2638ef2608adef62e/src/parser/types.ts#L480)
