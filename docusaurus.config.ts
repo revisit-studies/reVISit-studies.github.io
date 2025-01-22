@@ -115,6 +115,7 @@ const config: Config = {
           position: 'left',
           label: 'Reference',
         },
+        { to: 'blog', label: 'Blog', position: 'left' }, // or position: 'right'
         { to: '/about', label: 'About', position: 'left' },
         {
           to: '/testimonials',
@@ -177,9 +178,8 @@ const config: Config = {
           `,
         },
       ],
-      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${
-        new Date().toISOString().split('T')[0]
-      }. Built with Docusaurus.`,
+      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${new Date().toISOString().split('T')[0]
+        }. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
