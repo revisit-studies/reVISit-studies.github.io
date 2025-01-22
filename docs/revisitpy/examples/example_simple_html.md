@@ -45,8 +45,7 @@ response_one = rvt.response(
     id='barChart',
     prompt='Your selected answer:',
     location='belowStimulus',
-    # type='reactive'
-    type='iframe',
+    type='reactive',
     required=True
 )
 
@@ -126,7 +125,7 @@ sequence = rvt.sequence(
 
 # Adding 'components' directly is not necessary since they are already defined in the original sequence.
 study = rvt.studyConfig(
-    schema='https://raw.githubusercontent.com/revisit-studies/study/v2.0.0-rc6/src/parser/StudyConfigSchema.json',
+    schema='https://raw.githubusercontent.com/revisit-studies/study/2.0.0-rc7/src/parser/StudyConfigSchema.json',
     uiConfig=ui_config,
     studyMetadata=study_metadata,
     sequence=sequence
@@ -137,7 +136,7 @@ print(study)
 **Output:**
 ```output
 {
-    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.0.0-rc6/src/parser/StudyConfigSchema.json",
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/2.0.0-rc7/src/parser/StudyConfigSchema.json",
     "components": {
         "introduction": {
             "path": "./assets/introduction.md",
@@ -166,7 +165,7 @@ print(study)
                     "location": "belowStimulus",
                     "prompt": "Your selected answer:",
                     "required": true,
-                    "type": "iframe"
+                    "type": "reactive"
                 }
             ],
             "type": "website"
@@ -193,7 +192,7 @@ print(study)
                     "location": "belowStimulus",
                     "prompt": "Your selected answer:",
                     "required": true,
-                    "type": "iframe"
+                    "type": "reactive"
                 }
             ],
             "type": "website"
@@ -404,7 +403,7 @@ print(data_sequence.get_components()[0])
             "location": "belowStimulus",
             "prompt": "Your selected answer:",
             "required": true,
-            "type": "iframe"
+            "type": "reactive"
         }
     ],
     "type": "website"
@@ -457,7 +456,7 @@ ui_config = rvt.uiConfig(
 
 
 study = rvt.studyConfig(
-    schema='https://raw.githubusercontent.com/revisit-studies/study/v2.0.0-rc6/src/parser/StudyConfigSchema.json',
+    schema='https://raw.githubusercontent.com/revisit-studies/study/2.0.0-rc7/src/parser/StudyConfigSchema.json',
     uiConfig=ui_config,
     studyMetadata=study_metadata,
     sequence=sequence

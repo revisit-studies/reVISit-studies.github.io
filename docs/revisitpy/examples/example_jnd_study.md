@@ -15,7 +15,7 @@ import revisitpy as rvt
 # Meta Data
 study_metadata = rvt.studyMetadata(
     authors=["Brian Bollen"],
-    organizations=["Visualization Design La"],
+    organizations=["Visualization Design Lab"],
     title='Showcasing revisit-py',
     description='',
     date='2025-01-13',
@@ -262,7 +262,7 @@ def component_function(visType=None, numPoints=None, corrValues=None):
                     id='vegaDemoResponse1',
                     prompt='You Selected: ',
                     location='sidebar',
-                    type='iframe',
+                    type='reactive',
                     required=True
                 )
             ]
@@ -307,8 +307,7 @@ main_sequence.permute(
     ).permute(
         factors=dataSet,
         order='random',
-        component_function=component_function
-    )
+    ).component(component_function)
     
 sequence = rvt.sequence(order='fixed',components=[introduction]) + main_sequence
 
