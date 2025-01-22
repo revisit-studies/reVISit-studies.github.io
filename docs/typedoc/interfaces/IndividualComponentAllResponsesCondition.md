@@ -5,7 +5,7 @@ displayed_sidebar: reference
 
 # IndividualComponentAllResponsesCondition
 
-Defined in: [parser/types.ts:993](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L993)
+Defined in: [parser/types.ts:995](https://github.com/revisit-studies/study/blob/8321281ac346f1aa0a6d05a2638ef2608adef62e/src/parser/types.ts#L995)
 
 The IndividualComponentAllResponsesCondition interface is used to define a SkipCondition based on all answers to a specific component. The skip logic will be checked for every component in the block that has the specified name.
 
@@ -37,6 +37,6 @@ In this example, if all responses to the component with the ID "attentionCheck" 
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="check"></a> `check` | `"responses"` | The check we'll perform. | [parser/types.ts:997](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L997) |
-| <a id="name"></a> `name` | `string` | The name of the component to check. | [parser/types.ts:995](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L995) |
-| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:999](https://github.com/revisit-studies/study/blob/0a2c8883e69934da9156b86a1efccb1ecaffd2fc/src/parser/types.ts#L999) |
+| <a id="check"></a> `check` | `"responses"` | The check we'll perform. | [parser/types.ts:999](https://github.com/revisit-studies/study/blob/8321281ac346f1aa0a6d05a2638ef2608adef62e/src/parser/types.ts#L999) |
+| <a id="name"></a> `name` | `string` | The name of the component to check. | [parser/types.ts:997](https://github.com/revisit-studies/study/blob/8321281ac346f1aa0a6d05a2638ef2608adef62e/src/parser/types.ts#L997) |
+| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1001](https://github.com/revisit-studies/study/blob/8321281ac346f1aa0a6d05a2638ef2608adef62e/src/parser/types.ts#L1001) |
