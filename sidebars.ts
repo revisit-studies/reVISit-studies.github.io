@@ -113,6 +113,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'revisitpy/examples/example_jnd_study',
+            'revisitpy/examples/example_simple_html'
           ],
         },
       ],
