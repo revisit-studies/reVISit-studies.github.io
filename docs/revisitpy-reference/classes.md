@@ -466,6 +466,37 @@ print(sequence.get_component(name='comp_two'))
 '''
 ```
 
+#### `get_components() -> List[Component]`
+
+Fetches the list of all components in the sequence.
+
+**Parameters**:  
+_None_
+
+**Returns**:
+- `List[Component]`: Returns list of all components in the sequence.
+
+
+**Examples**:
+```python
+
+sequence = rvt.sequence(
+    order='random',
+    components=[comp_one, comp_two]
+)
+
+# Fetches first component in component list.
+print(sequence.get_components()[0])
+'''
+{
+    "type": "markdown",
+    "path": "my_markdown_file.md",
+    "response": []
+}
+'''
+```
+
+
 #### `component(component_function: Optional[Callable]) -> self`
 
 Maps each component in the current sequence to the result of the inputted `component_function`. This will maintain the entire structure of the sequence and will recursively call this function to replace every component.
@@ -567,7 +598,7 @@ Due to how `revisitpy` is structured, the `component__` that is passed into the 
 If you'd like to have your `component_function` always take in all `metadata__` entries and the original component, you can define your component function using the `kwargs` keyword like `def my_component_function(**kwargs)`. Then, to access each entry, you can use `kwargs.get('my_metadata_key')` and `kwargs.get('component__')`.
 :::
 
-You can find more examples of using the `component` method in the [Scatter JND Example](../examples/example_jnd_study) where we first construct a sequence by permuting over multiple factors, then using the `component` method to alter the components based on the `metadata__` that is applied during th permutation method.
+You can find more examples of using the `component` method in the [Scatter JND Example](../../revisitpy/examples/example_jnd_study) where we first construct a sequence by permuting over multiple factors, then using the `component` method to alter the components based on the `metadata__` that is applied during th permutation method.
 
 
 #### `permute(factors: List[dict], order: 'fixed' | 'latinSquare' | 'random', numSamples: Optional[int]) -> self`
