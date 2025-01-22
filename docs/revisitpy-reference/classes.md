@@ -15,7 +15,6 @@ The class that is instantiated when calling the `component` factory function. Us
 
 #### `responses(responses: List[Response]) -> self`
 
-**Description**:  
 Sets responses for the component
 
 **Parameters**:  
@@ -27,7 +26,7 @@ Sets responses for the component
 - `self`: Returns self for method chaining.
 
 **Raises**:  
-- `RevisitError`: If the list is not a valid list of responses, raises and exception.
+- `RevisitError`: If the list is not a valid list of responses, raises an exception.
 
 **Example**:
 ```python
@@ -48,7 +47,7 @@ my_component = rvt.component(
 
 #### `get_response(id: str) -> Response | None`
 
-**Description**:
+
 Returns the response of the component with the given ID. If the Response does not exist, returns `None`.
 
 **Parameters**:  
@@ -69,7 +68,6 @@ if the_response is not None:
 
 #### `edit_response(id: str, **kwargs: dict) -> self`
 
-**Description**:
 Edits the Response in the Component with the given ID. This is done by creating a new copy of the existing Response.
 
 **Parameters**:  
@@ -132,9 +130,19 @@ print(component_two)
 '''
 ```
 
+#### `get(param) -> Any`
+
+Retrieves the given parameter from the component. The param `'name'` can be used as shorthand for `'component_name__'`.
+
+**Parameters**:  
+| Parameter   | Type     | Description                         | Default Value |
+|-------------|----------|-------------------------------------|---------------|
+| `param`    | `str`   | Parameter name to be retrieved      | _None_     |
+
+
 #### `clone(component_name__) -> Component`
 
-**Description**:
+
 Clones the component with the given new component name.
 
 **Parameters**:  
@@ -204,9 +212,19 @@ _No attributes_
 
 ### **Methods**:
 
+#### `get(param) -> Any`
+
+Retrieves the given parameter from the response. The param `'name'` can be used as an alternative for `'id'`.
+
+**Parameters**:  
+| Parameter   | Type     | Description                         | Default Value |
+|-------------|----------|-------------------------------------|---------------|
+| `param`    | `str`   | Parameter name to be retrieved      | _None_     |
+
+
 #### `set(**kwargs: dict) -> self`
 
-**Description**:
+
 
 Sets the values of the response to the input dictionary. The `type` cannot be changed and would require creating a new response
 
@@ -253,7 +271,7 @@ response_one.set(options=[1,2,3])
 
 #### `clone() -> Response`
 
-**Description**:
+
 Clones the response.
 
 **Parameters**:  
@@ -328,7 +346,7 @@ Expected Output:
 
 ## `ComponentBlock`
 
-**Description**:  
+  
 The `ComponentBlock` class (also referred to as a "Sequence"). A well-defined sequence simply contains an order and a set of components, with other optional properties. Just as in the nested structure of component blocks in the reVISit study configuration, `ComponentBlock` classes can be added together.
 
 A `ComponentBlock` automatically tracks all of its existing `Component` classes. When the `ComponentBlock` is added to the study configuration, all components will automatically be added to the high-level components element of the study config.
@@ -341,7 +359,7 @@ _No attributes_
 
 #### `__add__(other: Union[ComponentBlock, Component]) -> self:`
 
-**Description**:
+
 
 Adds two `ComponentBlock` or `Component` to the input sequence. When adding two sequences together, the right sequence gets added as a `ComponentBlock` to the list of components of the left sequence. When the right object is an instance of the `Component` class, the component is added to the `ComponentBlock`'s list of components.
 
@@ -416,7 +434,7 @@ Expected Output:
 
 #### `get_component(name: str) -> Component:`
 
-**Description**:
+
 
 Fetches the `Component` with the given component name from the sequence.
 
@@ -450,7 +468,6 @@ print(sequence.get_component(name='comp_two'))
 
 #### `component(component_function: Optional[Callable]) -> self`
 
-#### **Description**:
 Maps each component in the current sequence to the result of the inputted `component_function`. This will maintain the entire structure of the sequence and will recursively call this function to replace every component.
 
 The `metadata__` attribute of the components are passed in as arguments to the `component_function`. This makes it especially useful after using the `permute` or `from_data` methods since both add `metadata__` attributes to the components. If an exception is raised when calling the `component_function`, the original input component will be used in its stead.  Additionally, the `component_function` can also take in the `component__` parameter which is the original component that is being transformed. 
@@ -555,7 +572,7 @@ You can find more examples of using the `component` method in the [Scatter JND E
 
 #### `permute(factors: List[dict], order: 'fixed' | 'latinSquare' | 'random', numSamples: Optional[int]) -> self`
 
-**Description**:
+
 Permutes the the existing components of the sequence over the given `factors`. The permute method can be chained to complex study sequences. By default, the factors are attached as `metadata__` attributes to each component created.
 
 **Parameters**:  
@@ -670,7 +687,6 @@ sequence = rvt.sequence(order='fixed').permute(
     factors=[{'type':'1'}, {'type': '2'}]
     order='fixed',
     numSamples=1,
-    
 ).component(component_function) # <-- Uses component method to map each component to the result of the component_function
 
 print(sequence)
@@ -705,9 +721,7 @@ Expected Output:
 
 #### `from_data(data_list) -> self`
 
-**Description**
-
-The `from_data` method iterates over a list of `DataRows` and appends the data to the `metadata__` attribute of the components in the sequence.
+The `from_data` method iterates over a list of `DataRows` and appends the data to the `metadata__` attribute of the components in the sequence. You can generate a list of `DataRows` by using the [data function](./functions.md#datafile_path) to parse a CSV file.
 
 ### **Example**:
 
