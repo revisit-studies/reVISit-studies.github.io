@@ -52,7 +52,7 @@ const config: Config = {
     announcementBar: {
       id: 'support_us',
       content:
-        'New Version of ReVISit has been released! <a target="_blank" href="https://revisit.dev/blog/2025/01/20/release-2.0/">Read all about ReVISit v2.0!</a> &#127881; ',
+        'A new Version of ReVISit has been released! <a target="_blank" href="/blog/2025/01/20/release-2.0/">Read all about ReVISit v2.0!</a> &#127881; ',
       backgroundColor: '#fafbfc',
       textColor: '#091E42',
       isCloseable: true,
@@ -115,7 +115,7 @@ const config: Config = {
           position: 'left',
           label: 'Reference',
         },
-        { to: 'blog', label: 'Blog', position: 'left' }, // or position: 'right'
+        { to: 'blog', label: 'Blog', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },
         {
           to: '/testimonials',
@@ -178,8 +178,7 @@ const config: Config = {
           `,
         },
       ],
-      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${new Date().toISOString().split('T')[0]
-        }. Built with Docusaurus.`,
+      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${new Date().toISOString().split('T')[0]}. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

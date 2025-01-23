@@ -111,8 +111,8 @@ const sidebars: SidebarsConfig = {
             id: 'revisitpy/examples/index',
           },
           items: [
+            'revisitpy/examples/example_simple_html',
             'revisitpy/examples/example_jnd_study',
-            'revisitpy/examples/example_simple_html'
           ],
         },
       ],
