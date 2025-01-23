@@ -112,6 +112,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'revisitpy/examples/example_simple_html',
+            'revisitpy/examples/example_expanding_html_study',
             'revisitpy/examples/example_jnd_study',
           ],
         },
