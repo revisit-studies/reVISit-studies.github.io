@@ -271,7 +271,7 @@ Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-
 ```
 # Optional: Enhancing The Study
 
-While the above is still a valid use case for the `revisitpy` package, this may be a configuration that is simpler to right in standard JSON. However, suppose instead that we have a CSV file containing bar chart data and want to create a different bar chart for each set of data. The `revisitpy` package allows us to iterate over such a CSV file to handle this.
+While the above is still a valid use case for the `revisitpy` package, this may be a configuration that is simpler to write in standard JSON. However, suppose instead that we have a CSV file containing bar chart data and want to create a different bar chart for each set of data. The `revisitpy` package allows us to iterate over such a CSV file to handle this.
 
 ## Using the Data Parser and `from_data` method
 
