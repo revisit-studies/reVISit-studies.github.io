@@ -123,7 +123,7 @@ sequence = rvt.sequence(
 
 # Adding 'components' directly is not necessary since they are already defined in the original sequence.
 study = rvt.studyConfig(
-    schema='https://raw.githubusercontent.com/revisit-studies/study/2.0.0-rc7/src/parser/StudyConfigSchema.json',
+    schema='https://raw.githubusercontent.com/revisit-studies/study/v2.0.0/src/parser/StudyConfigSchema.json',
     uiConfig=ui_config,
     studyMetadata=study_metadata,
     sequence=sequence
@@ -134,7 +134,7 @@ print(study)
 **Output:**
 ```output
 {
-    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/2.0.0-rc7/src/parser/StudyConfigSchema.json",
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.0.0/src/parser/StudyConfigSchema.json",
     "components": {
         "introduction": {
             "path": "./assets/introduction.md",
@@ -255,7 +255,6 @@ Launching the widget is also straightforward -- especially when using the `revis
 
 ```python
 w = rvt.widget(study, server=True)
-
 # In your own Jupyter notebook, calling `w` will now display the widget in a fully interactive manner.
 # w
 ```

@@ -199,7 +199,7 @@ ui_config = rvt.uiConfig(
 )
 
 study = rvt.studyConfig(
-    schema='https://raw.githubusercontent.com/revisit-studies/study/2.0.0-rc7/src/parser/StudyConfigSchema.json',
+    schema='https://raw.githubusercontent.com/revisit-studies/study/v2.0.0/src/parser/StudyConfigSchema.json',
     uiConfig=ui_config,
     studyMetadata=study_metadata,
     sequence=sequence
