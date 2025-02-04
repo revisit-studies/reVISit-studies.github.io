@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Tableview
+# Table View
 
 The table view display the user data of a study in a table format. It is designed to allow researchers to inspect each record in detail.
 

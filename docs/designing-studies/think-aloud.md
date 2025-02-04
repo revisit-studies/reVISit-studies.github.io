@@ -30,9 +30,9 @@ By default, this will record audio for every task in the study. However, we reco
 },
 ```
 
-Audio is recorded via browser, and participants will recieve a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the `mic-check` library, which requires participants to have a functioning microphone to continue the study. You can finde more information in the [reVISit libraries](./plugin-libraries.md).
+Audio is recorded via browser, and participants will receive a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the `mic-check` library, which requires participants to have a functioning microphone to continue the study. You can find more information in the [reVISit libraries](./plugin-libraries.md).
 
 All audio data is stored in firebase storage. To listen to participants audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis. 
 
-To download audio data after completing a study, we recommend utilizing gsutil to download firebase files in bulk. Navigate to your firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio .`
+To download audio data after completing a study, we recommend utilizing gsutil to download the audio and transcript files in bulk. Navigate to your firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio .`
 
