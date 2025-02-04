@@ -6,7 +6,6 @@ sidebar_position: 3
 
 The table view display the user data of a study in a table format. It is designed to allow researchers to inspect each record in detail.
 
-On any page of reVISit, you can navigate to the analysis dashboard via the navigation menu in the upper right-hand corner.
 ![Table view](./img/Revisit-analysis-table.svg)
 
 Each row represents a record of a participant in the study. It includes the participant's ID, status indicator, metadata(IP address, screen resolution, user agent), responses to questions in each trial, and the time they spent.
@@ -17,5 +16,5 @@ Right beside the participant's ID, the green checkmark icon indicates that this 
 
 You can quickly navigate to different studies by using the dropdown menu in the top right corner. 
 
-
+For more information about cleaned duration, please refer to the [FAQ](../faq.md#q-i-see-two-different-times-reported-for-the-duration-of-a-trial-one-of-them-is-called-clean-what-is-that).
 
