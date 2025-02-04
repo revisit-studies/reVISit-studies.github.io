@@ -136,8 +136,4 @@ In the components section, add the following objects:
 ```
 The "parameters" key is a dynamically valued key which is used to pass data to your components. When you add the "parameters" key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
 
-To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json). 
-
-:::warning
-In order for reVISit to properly identify users without a server and/or an authentication process, it relies on caching the data for a user in that user's browser. Because of this, the new configuration can only be seen when the user clears their browser cache. Whenever you make an update to the configuration file, make sure to clear your cache so that you can view the updated study
-:::
+To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json).
