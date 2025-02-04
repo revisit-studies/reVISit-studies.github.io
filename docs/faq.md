@@ -19,9 +19,9 @@ However, we are considering making hosting available in a future version to furt
 
 A: reVISit is designed to be a single page web application. If you run `yarn build` inside your forked repository, the storage engine will automatically change to using Firebase and will generate a `dist` directory containing all the necessary code for a static deployment. In this directory is the `index.html` file which is the entry point for the application — no additional set-up is necessary. For example, if you're using <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html" target="_blank">AWS S3 static website hosting</a>, you can upload the `dist` directory to the S3 bucket and then use this `index.html` file as the entry point when prompted.
 
-### Q: How do store data in Firebase in a country outside of the U.S.?
+### Q: I have to store my data in a specific country / region. How do I do this with Firebase?
 
-A: Firebase allows choosing the region for both Firestore and Storage. Please see <a href="https://firebase.google.com/docs/firestore/locations" target="_blank">here</a> for documentation on how to choose these regions for both the Real Time Database and Cloud Firestore/Cloud Storage.
+A: Firebase lets you choose the region for both Firestore and Storage. Please see <a href="https://firebase.google.com/docs/firestore/locations" target="_blank">here</a> for documentation on how to choose these regions for both the Real Time Database and Cloud Firestore/Cloud Storage.
 
 
 ### Q: How do I store data in something other than Firebase?
@@ -30,7 +30,7 @@ A: reVISit is designed with “storage engines” in mind. By default, we use th
 
 ### Q: I had Firebase connected but it no longer works locally. What happened?
 
-A: A common issue is the debug token changing while developing. Whenever you clear the cache, you're debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. [Review the tutorial](../data-and-deployment/firebase-setup#adding-an-app-to-the-firebase-project) to see how to register a debug token.
+A: A common issue is that the debug token changes while you are developing. Whenever you clear the cache, your debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. [Review the tutorial](../data-and-deployment/firebase-setup#adding-an-app-to-the-firebase-project) to see how to register a debug token.
 
 :::warning
 A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.
