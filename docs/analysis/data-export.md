@@ -23,7 +23,12 @@ reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/t
 
 After downloading the Tidy data, you can import it into  your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
 
+:::info What is Tidy data format?
 
+
+Tidy data format is a structured approach to organizing tabular data where each variable is a column, each observation is a row, and each type of observational unit is a separate table.
+You may check more details [Here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
+:::
 ## Example Workflow in R
 
 ### 1. Install Necessary Packages
