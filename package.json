@@ -14,7 +14,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "checkLinks": "linkinator ./build -r --skip revisit.dev --skip localhost:8080 --skip wpi.edu --skip petra.isenberg.cc"
+    "checkLinks": "linkinator ./build -r --skip revisit.dev --skip localhost:8080 --skip wpi.edu --skip petra.isenberg.cc --skip doi.org"
   },
   "dependencies": {
     "@docusaurus/core": "^3.7.0",
