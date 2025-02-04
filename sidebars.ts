@@ -86,8 +86,8 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'analysis/data-management',
-        'analysis/dashboard',
-        'analysis/tableview',
+        'analysis/study-card',
+        'analysis/table',
         'analysis/trial-stats',
         'analysis/data-export',
         'analysis/participant-replay',
