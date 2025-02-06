@@ -2,6 +2,22 @@
 sidebar_position: 3
 ---
 
+import StructuredLinks from '../../src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLink="https://revisit.dev/study/demo-survey/"
+    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-survey"
+    referenceLinks={
+      [
+        {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
+        {name: "Long Text Response", url: "../../typedoc/interfaces/LongTextResponse/"},
+        {name: "Dropdown Response", url: "../../typedoc/interfaces/DropdownResponse/"},
+        {name: "Likert Scale Response", url: "../../typedoc/interfaces/LikertResponse/"}
+      ]
+    }
+/>
+
+
 # Setting Up Your First Study
 
 In this tutorial we will use the example of a simple survey. You will learn: 
@@ -44,7 +60,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
 
 ```js
 {
-    "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.0.2/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
         "title": "Basic Questionnaire Study",
         "version": "pilot",
