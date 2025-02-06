@@ -57,5 +57,31 @@ Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
     * hyphen: - use for hyphenation
 
 
+**Custom Structured Links Component:**
+
+We can add a "structured links" component to any of our Markdown files like so:
+
+```markdown
+import StructuredLinks from '../../src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLink="https://revisit.dev/study/demo-vega/"
+    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-vega"
+    referenceLinks={
+      [
+        {name: "Vega", url:"https://vega.github.io/vega/"},
+        {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
+        {name: "Vega Config Component", url: "../../typedoc/interfaces/VegaComponentConfig/"},
+        {name: "Vega Path Component", url: "../../typedoc/interfaces/VegaComponentPath/"}
+      ]
+    }
+/>
+```
+
+The "demoLink" is a static path and will appear as "Live Demo". The "codeLink" is also static and will appear as "Demo Code". The reference links is a list with the associated displayed names (the "name" key) and the associated URL ( the "url" key).
+
+Note that this wil _only_ render when we have the right-hand sidebar in the markdown file which appears when we have separated headers to navigate.
+
+
 
 
