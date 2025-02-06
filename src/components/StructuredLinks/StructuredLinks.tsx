@@ -6,7 +6,7 @@ import Admonition from '@theme/Admonition';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLink, faFile, faFileAlt } from '@fortawesome/free-solid-svg-icons';
-
+import BrowserOnly from '@docusaurus/BrowserOnly';
 interface ReferenceLink {
     name: string,
     url: string
@@ -18,7 +18,7 @@ interface StructuredLinkProps {
     referenceLinks?: ReferenceLink[];
 }
 
-function StructuredLink({ demoLink, codeLink, referenceLinks }: StructuredLinkProps) {
+function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredLinkProps) {
     const [container, setContainer] = useState<HTMLElement | null>(null);
     // Use placeholder to find element for correct placement
     const [placeholder] = useState(() => document.createElement("div")); // Temporary div for insertion
@@ -86,6 +86,14 @@ function StructuredLink({ demoLink, codeLink, referenceLinks }: StructuredLinkPr
     // return (
     //     <div className={styles.container}>HELLO</div>
     // )
+}
+
+function StructuredLink({ demoLink, codeLink, referenceLinks }: StructuredLinkProps) {
+    return (
+        <BrowserOnly>
+            {() => <StructuredLinkInner demoLink={demoLink} codeLink={codeLink} referenceLinks={referenceLinks} />}
+        </BrowserOnly>
+    )
 }
 
 export default StructuredLink;
