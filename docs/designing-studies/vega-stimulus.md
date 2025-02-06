@@ -1,5 +1,20 @@
 # Designing a Vega Stimulus
 
+import StructuredLinks from '../../src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLink="https://revisit.dev/study/demo-vega/"
+    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-vega"
+    referenceLinks={
+      [
+        {name: "Vega", url:"https://vega.github.io/vega/"},
+        {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
+        {name: "Vega Config Component", url: "../../typedoc/interfaces/VegaComponentConfig/"},
+        {name: "Vega Path Component", url: "../../typedoc/interfaces/VegaComponentPath/"}
+      ]
+    }
+/>
+
 [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations. 
 Vega allows you to define the visual appearance and interactive behavior of a visualization in JSON format and generate web-based views using Canvas or SVG.
 
