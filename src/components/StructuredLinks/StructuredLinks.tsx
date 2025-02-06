@@ -51,7 +51,7 @@ function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredL
                             <div className={styles.demoContainer}>
                                 <div className={styles.iconContainer}>
                                     <FontAwesomeIcon icon={faLink} />
-                                    <a href={demoLink}>Live Demo</a>
+                                    <a target="_blank" href={demoLink}>Live Demo</a>
                                 </div>
                             </div>
                             : null}
@@ -59,7 +59,7 @@ function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredL
                             <div className={styles.codeContainer}>
                                 <div className={styles.iconContainer}>
                                     <FontAwesomeIcon icon={faGithub} />
-                                    <a href={codeLink}>Demo Code</a>
+                                    <a target="_blank" href={codeLink}>Demo Code</a>
                                 </div>
                             </div>
                             : null}
