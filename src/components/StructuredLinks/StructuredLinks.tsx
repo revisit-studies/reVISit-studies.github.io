@@ -5,7 +5,7 @@ import Admonition from '@theme/Admonition';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faLink, faFile, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLink, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 interface ReferenceLink {
     name: string,
@@ -21,7 +21,7 @@ interface StructuredLinkProps {
 function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredLinkProps) {
     const [container, setContainer] = useState<HTMLElement | null>(null);
     // Use placeholder to find element for correct placement
-    const [placeholder] = useState(() => document.createElement("div")); // Temporary div for insertion
+    const [placeholder] = useState(() => document.createElement("div"));
 
     useEffect(() => {
 
@@ -70,7 +70,7 @@ function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredL
                                     <div className={styles.referencesTitle}>References</div>
                                 </div>
                                 <div style={{ marginLeft: '23px' }}>
-                                    {referenceLinks.map((entry, idx) =>
+                                    {referenceLinks.map(entry =>
                                         <a target="_blank" href={entry.url}>{entry.name}</a>
                                     )
                                     }
@@ -83,11 +83,9 @@ function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredL
             container
         )
         : null;
-    // return (
-    //     <div className={styles.container}>HELLO</div>
-    // )
 }
 
+// BrowserOnly wrapper for use in docusaurus. Without this, docusaurus will fail to build.
 function StructuredLink({ demoLink, codeLink, referenceLinks }: StructuredLinkProps) {
     return (
         <BrowserOnly>
