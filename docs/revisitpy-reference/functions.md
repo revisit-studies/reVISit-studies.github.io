@@ -178,7 +178,7 @@ Parses a CSV file with the given `file_path` and returns a list of DataRows. Out
 
 ### **Example**:
 
-In the below example, we create the study data using the `data` method, then create a sequence from this data using the `from_data` method. Each component shown in the new sequence will have the respective data added to their `metadata__` attribute. From here, you can use the `component` method of the `Sequence` class to transform each component based on their respective `metadata__` attributes that you applied with `from_data` method.
+In the below example, we create the study data using the `data` method, then create a sequence from this data using the `from_data` method. Each component shown in the new sequence will have the respective data added to their `meta` attribute. From here, you can use the `component` method of the `Sequence` class to transform each component based on their respective `meta` attributes that you applied with `from_data` method.
 
 ```python
 
