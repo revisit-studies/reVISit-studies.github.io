@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+# Setting Up Your First Study
+
 import StructuredLinks from '../../src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
@@ -17,8 +19,6 @@ import StructuredLinks from '../../src/components/StructuredLinks/StructuredLink
     }
 />
 
-
-# Setting Up Your First Study
 
 In this tutorial we will use the example of a simple survey. You will learn: 
 
