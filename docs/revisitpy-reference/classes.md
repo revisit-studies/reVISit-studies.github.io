@@ -9,7 +9,7 @@ The class that is instantiated when calling the `component` factory function. Us
 |-------------|----------|-------------------------------------|---------------|
 | `component_name__`     | `str`   | Name of the component to be used as the key in the study config.        | _None_     |
 | `base__`     | `Optional[Component]`   | The base component which is inherited by this component.         | _None_        |
-| `metadata__` | `Optional[dict]` | A dictionary specifying metadata of the object. This is purely used for additional properties which are not written to the config and may be used to attach arbitrary data to the component without affecting the final output. | _None_ |
+| `meta` | `Optional[dict]` | A dictionary specifying metadata of the object. These attributes _are_ a part of the underlying component and will be shown when printing the components or the final configuration. These are used to attach arbitrary attributes to the component as well as for use with the `Sequence` class's `component` function. This attribute can also be set through the `Sequence` class's `permute` and `from_data` methods. | _None_ |
 
 ### **Methods**:
 
@@ -501,7 +501,7 @@ print(sequence.get_components()[0])
 
 Maps each component in the current sequence to the result of the inputted `component_function`. This will maintain the entire structure of the sequence and will recursively call this function to replace every component.
 
-The `metadata__` attribute of the components are passed in as arguments to the `component_function`. This makes it especially useful after using the `permute` or `from_data` methods since both add `metadata__` attributes to the components. If an exception is raised when calling the `component_function`, the original input component will be used in its stead.  Additionally, the `component_function` can also take in the `component__` parameter which is the original component that is being transformed. 
+The `met` attribute of the components are passed in as arguments to the `component_function`. This makes it especially useful after using the `permute` or `from_data` methods since both add `meta` attributes to the components. If an exception is raised when calling the `component_function`, the original input component will be used in its stead.  Additionally, the `component_function` can also take in the `component__` parameter which is the original component that is being transformed. 
 
 #### **Examples**:
 
@@ -517,8 +517,8 @@ def my_component_function(id, value):
     )
 
 
-first_boring_component = rvt.component(type='questionnaire',metadata__={'id': 1, 'value': 2}, component_name__='bor-comp-1')
-second_boring_component = rvt.component(type='questionnaire',metadata__={'id': 2, 'value': 7}, component_name__='bor-comp-2')
+first_boring_component = rvt.component(type='questionnaire',meta={'id': 1, 'value': 2}, component_name__='bor-comp-1')
+second_boring_component = rvt.component(type='questionnaire',meta={'id': 2, 'value': 7}, component_name__='bor-comp-2')
 
 sequence = rvt.sequence(order='fixed', components=[first_boring_component, second_boring_component])
 
@@ -549,7 +549,7 @@ print(sequence)
 
 **Passing in Original Components**
 
-In the example below, we'll use the original component to determine if we want to append the `metadata__` as parameters.
+In the example below, we'll use the original component to determine if we want to append the `meta` as parameters.
 
 ```python
 def my_component_function(id, value, component__):
@@ -569,8 +569,8 @@ def my_component_function(id, value, component__):
         type='questionnaire',
     )
 
-first_boring_component = rvt.component(type='questionnaire',metadata__={'id': 1, 'value': 2}, component_name__='bor-comp-1')
-second_boring_component = rvt.component(type='website',metadata__={'id': 2, 'value': 7}, component_name__='bor-comp-2')
+first_boring_component = rvt.component(type='questionnaire',meta={'id': 1, 'value': 2}, component_name__='bor-comp-1')
+second_boring_component = rvt.component(type='website',meta={'id': 2, 'value': 7}, component_name__='bor-comp-2')
 
 sequence = rvt.sequence(
     order='fixed',
@@ -590,21 +590,17 @@ print(sequence)
 '''
 ```
 
-:::warning
-Due to how `revisitpy` is structured, the `component__` that is passed into the component function does not directly have access to the `component_name__`, `base__`, and `metadata__` attributes. It will, however, have access to any of its other standard properties such as `type`, `path`, `parameters`, and `response`.
-:::
-
 :::info
-If you'd like to have your `component_function` always take in all `metadata__` entries and the original component, you can define your component function using the `kwargs` keyword like `def my_component_function(**kwargs)`. Then, to access each entry, you can use `kwargs.get('my_metadata_key')` and `kwargs.get('component__')`.
+If you'd like to have your `component_function` always take in all `meta` entries and the original component, you can define your component function using the `kwargs` keyword like `def my_component_function(**kwargs)`. Then, to access each entry, you can use `kwargs.get('my_metadata_key')` and `kwargs.get('component__')`.
 :::
 
-You can find more examples of using the `component` method in the [Scatter JND Example](../../revisitpy/examples/example_jnd_study) where we first construct a sequence by permuting over multiple factors, then using the `component` method to alter the components based on the `metadata__` that is applied during th permutation method.
+You can find more examples of using the `component` method in the [Scatter JND Example](../../revisitpy/examples/example_jnd_study) where we first construct a sequence by permuting over multiple factors, then using the `component` method to alter the components based on the `meta` that is applied during th permutation method.
 
 
 #### `permute(factors: List[dict], order: 'fixed' | 'latinSquare' | 'random', numSamples: Optional[int]) -> self`
 
 
-Permutes the the existing components of the sequence over the given `factors`. The permute method can be chained to complex study sequences. By default, the factors are attached as `metadata__` attributes to each component created.
+Permutes the the existing components of the sequence over the given `factors`. The permute method can be chained to complex study sequences. By default, the factors are attached as `meta` attributes to each component created.
 
 **Parameters**:  
 | Parameter   | Type     | Description                         | Default Value |
@@ -641,8 +637,8 @@ Expected Output:
     ]
 }
 
-The two components generated are inherently identical, except with different metadata__ attributes. 
-These metadata__ attributes are not outputed into the final JSON study config or seen when printing out
+The two components generated are inherently identical, except with different meta attributes. 
+These meta attributes are not outputed into the final JSON study config or seen when printing out
 the individual components.
 '''
 
@@ -752,11 +748,11 @@ Expected Output:
 
 #### `from_data(data_list) -> self`
 
-The `from_data` method iterates over a list of `DataRows` and appends the data to the `metadata__` attribute of the components in the sequence. You can generate a list of `DataRows` by using the [data function](./functions.md#datafile_path) to parse a CSV file.
+The `from_data` method iterates over a list of `DataRows` and appends the data to the `meta` attribute of the components in the sequence. You can generate a list of `DataRows` by using the [data function](./functions.md#datafile_path) to parse a CSV file.
 
 ### **Example**:
 
-In the below example, we create the study data using the `data` method, then create a sequence from this data using the `from_data` method. Each component shown in the new sequence will have the respective data added to their `metadata__` attribute. From here, you can use the `component` method of the `Sequence` class to transform each component based on their respective `metadata__` attributes that you applied with `from_data` method.
+In the below example, we create the study data using the `data` method, then create a sequence from this data using the `from_data` method. Each component shown in the new sequence will have the respective data added to their `meta` attribute. From here, you can use the `component` method of the `Sequence` class to transform each component based on their respective `meta` attributes that you applied with the `from_data` method.
 
 ```python
 
