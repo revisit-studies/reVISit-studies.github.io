@@ -42,17 +42,27 @@ print(data_sequence.get_components()[0])
 }
 ------- Individual Component -------
 {
+    "meta": {
+        "id": 1,
+        "b1": 0.32,
+        "b2": 0.01,
+        "b3": 1.2,
+        "b4": 1.3,
+        "b5": 0.82,
+        "b6": 0.4,
+        "b7": 0.3
+    },
     "response": [],
     "type": "questionnaire"
 }
 ```
 ## Transforming The Components
 
-Notice that each component in this sequence we created is not the website component that we'd like. Instead, these are "filler components". The idea of the `from_data` method (or the similarly designed `permute` method) is to generate the _structure_ of the sequence. This method applies each of the data rows to the `metadata__` attribute of the components. These attributes will not be immediately printed out when inspecting the individual JSON. Instead, this `metadata__` is used when transforming these filler components into our desired components. Below we inspect the `metadata__` attribute of the first component in the sequence.
+Notice that each component in this sequence we created is not the website component that we'd like. Instead, these are "filler components". The idea of the `from_data` method (or the similarly designed `permute` method) is to generate the _structure_ of the sequence. This method applies each of the data rows to the `meta` attribute of the components. These attributes will be printed out when inspecting the JSON and will appear in the final config. However, in general, the `meta` attribute does not have any tangible effect on the resulting component. This `meta` attribute is used when transforming these filler components into our desired components. Below we inspect the `meta` attribute of the first component in the sequence.
 
 
 ```python
-print(data_sequence.get_components()[0].get('metadata__'))
+print(data_sequence.get_components()[0].get('meta'))
 ```
 **Output:**
 ```output
@@ -99,7 +109,7 @@ def bar_chart_component_function(id, b1, b2, b3, b4, b5, b6, b7):
     return comp
 ```
 
-The component function defined above has the headers of the CSV file as the parameters to the function. When we use this component function, the `metadata__` attributes of each filler component will be passed into as arguments to this function and return the resulting component to overwrite the filler component. 
+The component function defined above has the headers of the CSV file as the parameters to the function. When we use this component function, the `meta` attributes of each filler component will be passed into as arguments to this function and return the resulting component to overwrite the filler component. 
 
 Optionally, we could define this component function with the single parameter `**kwargs`. This will ensure that any argument in the metadata attributes can be passed into the function. However, this would then require you to use syntax like `kwargs.get('b1')` instead of just `b1`. You should consider these options when designing your component function based on your specific needs.
 
