@@ -122,7 +122,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
                     "type": "likert",
                     "leftLabel": "Not Enjoyable",
                     "rightLabel": "Very Enjoyable",
-                    "preset": 5
+                    "numItems": 5
                 }
             ]
         }
