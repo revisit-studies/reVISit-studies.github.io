@@ -182,9 +182,9 @@ After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` fold
   {
     "origin": ["*"],
     "method": ["GET"],
-    "maxAgeSeconds": 3600,
-  },
-];
+    "maxAgeSeconds": 3600
+  }
+]
 ```
 
 Lastly, while still inside this same directory, call the following function:
