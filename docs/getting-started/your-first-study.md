@@ -60,7 +60,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
 
 ```js
 {
-    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.0.2/src/parser/StudyConfigSchema.json",
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
         "title": "Basic Questionnaire Study",
         "version": "pilot",
