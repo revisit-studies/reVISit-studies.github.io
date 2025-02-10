@@ -22,7 +22,7 @@ You can rename the repository to suit your needs, but if you change the name, yo
 
 After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
 
-To continue, you will need [yarn](https://yarnpkg.com/) installed. If you already have yarn installed, you can go to Step 2 below.
+To continue, you will need [node.js](https://nodejs.org/) version 20 or greater, and [yarn](https://yarnpkg.com/) installed. If you already have yarn installed, you can go to Step 2 below.
 
 
 :::info
