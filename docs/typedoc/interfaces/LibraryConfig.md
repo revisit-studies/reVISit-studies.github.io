@@ -13,7 +13,7 @@ Below is the general template that should be followed when constructing a Librar
 
 ```js
 {
-  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.0.2/src/parser/LibraryConfigSchema.json",
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/LibraryConfigSchema.json",
   "baseComponents": {
     // BaseComponents here are defined exactly as is in the StudyConfig
   },
