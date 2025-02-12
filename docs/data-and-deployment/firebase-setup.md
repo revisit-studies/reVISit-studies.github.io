@@ -148,12 +148,12 @@ You should now see a SITE key and a SECRET key. First, copy the secret key and p
 
 ![Console](./img/firebase_steps/step22.jpg)
 
-Now, copy the SITE key. That site should now go back into your `.env` file for the variable `VITE_RECAPTCHAV3TOEKN`.
+Now, copy the SITE key. That site should now go back into your `.env` file for the variable `VITE_RECAPTCHAV3TOKEN`.
 
 Now we will link your browser to your app through a debug key.
 
 :::info
-To see the debug token, you need to enable firebase storage. Open up the <code>.env</code> file in the root of the repository. Change the <code>VITE_STORAGE_ENGINE</code> variable value to "firebase". Once you have firebase already set up, you can switch between "localstorage" and "firebase" freely for development purposes.
+To see the debug token, you need to enable firebase storage. Open up the <code>.env</code> file in the root of the repository. Change the <code>VITE_STORAGE_ENGINE</code> variable value to "firebase". Once you have firebase already set up, you can switch between "localStorage" and "firebase" freely for development purposes.
 :::
 
 - Navigate to http://localhost:8080 and click on any demo study.
