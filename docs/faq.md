@@ -14,6 +14,14 @@ A: reVISit is designed so that the study creators have full control over the dat
 
 However, we are considering making hosting available in a future version to further simplify the process of creating your own study. Let us know if that would be important to you!
 
+### Q: I need a specific type of form element that's not on your library, what can I do? 
+
+There are a few ways you could handle that: 
+
+* You could add a form element as part of the core reVISit code. If you do so, consider submitting a PR that we can integrate it back into reVISit.
+* You could write a custom web-page or react component that does exactly what you want. In that case be mindful that you will also have to handle data storage and provenance tracking yourself, which are “free” if you use a standard revisit form element. 
+
+
 
 ### Q: I already have a website where I'd like to host reVISit. How can I use reVISit in an already existing website?
 
