@@ -34,7 +34,9 @@ If you've used ReVISit for you visualization research, we'd love to see it! Fill
 
 ## Community Activities
 
+- Tutorial at EuroVis 2025, Luxembourg, June 2025
 - Course at [CHI 2025](https://chi2025.acm.org/), Japan, April 2025
+- Tutorial at UNC Chapel Hill, March 12 2025
 - Tutorial at University of Utah, February 5, 2025
 - Tutorial at Georgia Tech, January 2025
 - [Tutorial at IEEE VIS](https://ieeevis.org/year/2024/welcome), October 2024
