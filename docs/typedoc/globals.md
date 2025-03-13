@@ -10,11 +10,13 @@ displayed_sidebar: reference
 - [Answer](interfaces/Answer.md)
 - [BaseIndividualComponent](interfaces/BaseIndividualComponent.md)
 - [BaseResponse](interfaces/BaseResponse.md)
+- [ButtonsResponse](interfaces/ButtonsResponse.md)
 - [CheckboxResponse](interfaces/CheckboxResponse.md)
 - [ComponentBlock](interfaces/ComponentBlock.md)
 - [ComponentBlockCondition](interfaces/ComponentBlockCondition.md)
 - [DeterministicInterruption](interfaces/DeterministicInterruption.md)
 - [DropdownResponse](interfaces/DropdownResponse.md)
+- [DynamicBlock](interfaces/DynamicBlock.md)
 - [GlobalConfig](interfaces/GlobalConfig.md)
 - [ImageComponent](interfaces/ImageComponent.md)
 - [IndividualComponentAllResponsesCondition](interfaces/IndividualComponentAllResponsesCondition.md)
@@ -43,11 +45,13 @@ displayed_sidebar: reference
 - [UIConfig](interfaces/UIConfig.md)
 - [VegaComponentConfig](interfaces/VegaComponentConfig.md)
 - [VegaComponentPath](interfaces/VegaComponentPath.md)
+- [VideoComponent](interfaces/VideoComponent.md)
 - [WebsiteComponent](interfaces/WebsiteComponent.md)
 
 ## Type Aliases
 
 - [BaseComponents](type-aliases/BaseComponents.md)
+- [ConfigResponseBlockLocation](type-aliases/ConfigResponseBlockLocation.md)
 - [IndividualComponent](type-aliases/IndividualComponent.md)
 - [InheritedComponent](type-aliases/InheritedComponent.md)
 - [InterruptionBlock](type-aliases/InterruptionBlock.md)
