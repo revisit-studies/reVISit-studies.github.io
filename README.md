@@ -62,7 +62,7 @@ Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
 We can add a "structured links" component to any of our Markdown files like so:
 
 ```markdown
-import StructuredLinks from '../../src/components/StructuredLinks/StructuredLinks.tsx';
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     demoLink="https://revisit.dev/study/demo-vega/"
