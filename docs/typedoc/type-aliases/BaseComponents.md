@@ -7,7 +7,7 @@ displayed_sidebar: reference
 
 > **BaseComponents**: `Record`\<`string`, `Partial`\<[`IndividualComponent`](IndividualComponent.md)\>\>
 
-Defined in: [parser/types.ts:1254](https://github.com/revisit-studies/study/blob/91e343153031618f8f5789851e5b25c288bf8f4a/src/parser/types.ts#L1254)
+Defined in: [parser/types.ts:1336](https://github.com/revisit-studies/study/blob/31fcae3595a542c4a0975c6994f16db7c44439d4/src/parser/types.ts#L1336)
 
 The baseComponents is an optional set of components which can help template other components. For example, suppose you have a single HTML file that you want to display to the user several times. Instead of having the same component twice in the `components` list, you can have a single baseComponent with all the information that the two HTML components will share. A great example is showing the same HTML component but with two different questions;
 
