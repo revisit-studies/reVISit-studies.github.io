@@ -1,6 +1,6 @@
 # Designing Forms
 
-import StructuredLinks from '../../src/components/StructuredLinks/StructuredLinks.tsx';
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     demoLink="https://revisit.dev/study/demo-survey/"

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Setting Up Your First Study
 
-import StructuredLinks from '../../src/components/StructuredLinks/StructuredLinks.tsx';
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     demoLink="https://revisit.dev/study/demo-survey/"
