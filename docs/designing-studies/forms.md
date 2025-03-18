@@ -10,13 +10,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 Form elements are essential for most studies to capture user responses. reVISit provides rich form elements, such as slides, check-boxes, text fields, etc, so that you can efficiently design your forms. 
 
-This tutorial does not give a comprehensive introduction into all form elements. For this, refer to the demo and the reference, shown below: 
-
-* [Form Element Demo](https://revisit.dev/study/demo-survey/)
-* [Source for Form Element Demo](https://github.com/revisit-studies/study/blob/main/public/demo-survey/config.json)
-* [Overview of Form Elements](../../typedoc/#form-elements)
-
-Instead, we introduce some high-level principles that apply to all form elements. 
+This tutorial does not give a comprehensive introduction into all form elements. For this, refer to the demo and other links in the relevant links panel. Instead, we introduce some high-level principles that apply to all form elements. 
 
 
 ## Principles
