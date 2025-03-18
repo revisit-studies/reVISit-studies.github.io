@@ -104,6 +104,12 @@ This option will create a latin square for any block using one behind the scenes
 
 To further ensure consistency in the latin square, participants may be `rejected` via the [data dashboard](../../analysis/study-card). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc) do not use up a row of any generated latinSquares.
 
+
+## Dynamic Blocks
+
+Some studies require knowledge of the participant's responses to previous questions to determine the next component that is shown. For example, if a participant answers a question incorrectly, they may be shown a simpler task next. This can be achieved with [dynamic blocks](./dynamic-blocks.md). 
+
+
  
 ## Showing a Subset of All Trials
 
