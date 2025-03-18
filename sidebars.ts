@@ -39,6 +39,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'designing-studies/forms',
+        'designing-studies/image-video-stimulus',
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
         'designing-studies/vega-stimulus',
