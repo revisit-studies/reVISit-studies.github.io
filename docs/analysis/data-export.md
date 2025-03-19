@@ -6,6 +6,10 @@ sidebar_position: 4
 
 reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
 
+The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.
+
+The tidy data is missing some data that is available in the JSON download, such as the provenance graphs. If you need this data, you can download the JSON data and parse it in your analysis platform, instead of using this Tidy data.
+
 ## Steps to Download Data
 
 1. Navigate to the **Analysis** platform for the current study.
