@@ -20,7 +20,7 @@ Take the survey that you have created earlier! After you are done, use the menu 
 
 ## Accessing Data
 
-To access the data, go to the [analytics interface](.) by visiting the root of reVISit at http://localhost:8080/, and clicking “Analysis” in the menu on the top-right. This will get you to the analysis interface that will show all studies in your reVISit instance, including the one you just created `basic-questionnaire-study`. You can now download your data either “flattened” in tabular data format (as [“tidy data”](https://r4ds.hadley.nz/data-tidy.html#sec-tidy-data)), or you can download the full nested JSON file. 
+To access the data, go to the [analytics interface](.) by visiting the root of reVISit at http://localhost:8080/, and clicking “Analyze & Manage Study” in the study card on the bottom-right. This will get you to the analysis interface that will show all studies in your reVISit instance, including the one you just created `basic-questionnaire-study`. You can now download your data either “flattened” in tabular data format (as [“tidy data”](https://r4ds.hadley.nz/data-tidy.html#sec-tidy-data)), or you can download the full nested JSON file. 
 
 :::info
 Note that the JSON data contains much more detailed data, including logs about mouse movements and browser fingerprints of participants.
@@ -35,7 +35,7 @@ The data collected locally is stored in your browser and associated with the pag
 
 * Click the Lock Icon in the URL bar
 * Select Site Settings
-* Click Clear Data
+* Click Delete Data
 * Reload the page
 
 This will clear your database. 
