@@ -26,7 +26,6 @@ interface Testimonial {
 }
 
 function Testimonial({ testimonial }: { testimonial: Testimonial }) {
-  const revisitVersionLink = testimonial.revisitVersion === '1.0.5' ? '../docs/introduction' : `../docs/v${testimonial.revisitVersion}/introduction/`;
   return (
     <div className={styles.testimonialContainer}>
       <div className={styles.title}>
@@ -94,13 +93,10 @@ function Testimonial({ testimonial }: { testimonial: Testimonial }) {
             </Link>
           )
             : null}
-          <Link href={revisitVersionLink}>
-            <span>
-              Uses ReVISit v
-              {testimonial.revisitVersion}
-            </span>
-            <FontAwesomeIcon icon={faExternalLink} />
-          </Link>
+          <span>
+            Uses ReVISit v
+            {testimonial.revisitVersion}
+          </span>
         </div>
       </div>
     </div>
@@ -134,7 +130,7 @@ export default function Home() {
             sourceCodeLink: entry['Source Code Link'],
             tags: entry['Study Type'].split(', '),
             published: entry['Has this paper been published?'] === 'Yes',
-            venue: entry['Venue'],
+            venue: entry.Venue,
           }));
           // Sort based on Published then date (descending date).
           parsedTestimonials.sort((a: Testimonial, b: Testimonial) => {
