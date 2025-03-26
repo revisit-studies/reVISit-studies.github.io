@@ -33,7 +33,7 @@ You can also preview your data in the “Table View”, which is especially usef
 
 The data collected locally is stored in your browser and associated with the page. If you want to clear the data, e.g., because you have completed your pilots and are ready to start a study, you will need to reset the local storage of your browser associated with reVISit. How this works varies between browsers. For Chrome: 
 
-* Click the Lock Icon in the URL bar
+* Click the Tune Icon for [ReVISit](http://revisit.dev/study) or the Info Icon for http://localhost:8080/ in the URL bar
 * Select Site Settings
 * Click Delete Data
 * Reload the page
