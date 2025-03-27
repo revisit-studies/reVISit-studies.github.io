@@ -7,6 +7,10 @@ sidebar_position: 1
 
 Below we have a list of some frequently asked questions. We try to make sure that this page is updated as frequently as possible. If you have a question that is not answered by this page or the rest of the [documentation](../introduction/), you can join the [reVISit Slack group](https://join.slack.com/t/revisit-nsf/shared_invite/zt-2g1lwcq5y-Yae8eBEbMO~r7tP~ZQ7Cig). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
 
+### Q: Something weird is happening while I debug my study. What should I do?
+
+If you're debugging your study by re-taking parts of the study over and over, you might get into an awkward state with the data that's stored. This doesn't happen when participants take the study, because they'll only take it once. You can click “Next Participant” in the study browser, and/or clear your browser cache and local storage to resolve this issue. 
+
 
 ### Q: Is there a version of this application that I do not need to host myself?
 
@@ -20,7 +24,6 @@ There are a few ways you could handle that:
 
 * You could add a form element as part of the core reVISit code. If you do so, consider submitting a PR that we can integrate it back into reVISit.
 * You could write a custom web-page or react component that does exactly what you want. In that case be mindful that you will also have to handle data storage and provenance tracking yourself, which are “free” if you use a standard revisit form element. 
-
 
 
 ### Q: I already have a website where I'd like to host reVISit. How can I use reVISit in an already existing website?
@@ -44,6 +47,6 @@ A: A common issue is that the debug token changes while you are developing. When
 A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.
 :::
 
-### Q: I see two different times reported for the duration of a trial, one of them is called "clean". What is that? 
+### Q: I see two different times reported for the duration of a trial, one of them is called "clean time". What is that? 
 
 We report the total time it took a participant to complete a task as duration, but we also report a **clean time** duration that subtracts inactive periods from the total time. Technically, we determine that a browser window is inactive for a period of time based on the [visibilitychange event](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event), which fires, e.g., when the participant switches to a different tab. We subtract that inactive time from the total duration for the clean time. It's often the case that a participant gets distracted and does something unrelated to the study, and then comes back to the study to continue. Clean time is a way to identify these situations and prevent extreme outliers from being considered in timing data. However, there are ways for participants to become distracted that are not tracked by clean time, such as when they step away from their computer and keep their browser open. 
