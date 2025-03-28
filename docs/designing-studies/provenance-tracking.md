@@ -1,5 +1,17 @@
 # Provenance Tracking
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLink="https://revisit.dev/study/demo-html-trrack/"
+    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"
+    referenceLinks={
+      [
+        {name: "Trrack", url:"https://apps.vdl.sci.utah.edu/trrack"}
+      ]
+    }
+/>
+
 ReVISit has integrated provenance tracking with Trrack, a state-based provenance tracking library maintained by the same team that maintains reVISit. The below example shows a simple example for using trrack, for more detailed information on trrack and its API visit the [trrack documentation](https://apps.vdl.sci.utah.edu/trrack) 
 
 ## Integrating into a react or HTML component

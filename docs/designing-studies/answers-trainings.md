@@ -1,5 +1,19 @@
 # Responses and Answers
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLink="https://revisit.dev/study/demo-training/"
+    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-training"
+    referenceLinks={
+      [
+        {name: "Base Response", url:"../../typedoc/interfaces/BaseResponse/"},
+        {name: "Reactive Response", url:"../../typedoc/interfaces/ReactiveResponse/"},
+        {name: "Answer", url:"../../typedoc/interfaces/Answer"}
+      ]
+    }
+/>
+
 In reVISit, a component typically has a [response](../../typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component and a [ReactiveResponse](../../typedoc/interfaces/ReactiveResponse). 
 
 Responses can optionally also be provided with an [Answer](../../typedoc/interfaces/Answer/) that captures what the correct response is. This answer is used in several ways: 
