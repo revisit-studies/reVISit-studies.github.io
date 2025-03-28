@@ -8,7 +8,7 @@ In order to use authentication, you must have a Firebase application already con
 
 Start by navigating to your Firebase application dashboard. In the left-hand sidebar, choose the 'Authentication' tab.
 
-![Console](./img/auth-1.png)
+![Console](./img/auth-1.jpg)
 
 Once here, choose the "Sign-in method" in the top sidebar. Here we can add additional providers for signing in. ReVISit only allows for Google SSO. Click on "Add New Provider".
 
