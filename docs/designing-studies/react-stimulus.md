@@ -1,5 +1,18 @@
 # Designing a React Stimulus
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLink="https://revisit.dev/study/demo-click-accuracy-test/"
+    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"
+    referenceLinks={
+      [
+        {name: "React", url: "https://react.dev/"},
+        {name: "React Component", url:"../../typedoc/interfaces/ReactComponent"}
+      ]
+    }
+/>
+
 React is a popular JavaScript library for building user interfaces, primarily for single-page applications. You can find more details on the official [React documentation](https://react.dev/).
 
 Here we will introduce how to create a React stimulus for reVISit studies through two examples.

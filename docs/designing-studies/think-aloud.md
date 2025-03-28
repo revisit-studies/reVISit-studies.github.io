@@ -1,5 +1,17 @@
 # Think Aloud
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLink="https://revisit.dev/study/test-audio/"
+    codeLink="https://github.com/revisit-studies/study/tree/main/public/test-audio"
+    referenceLinks={
+      [
+        {name: "mic-check Library", url:"../../libraries/mic-check/"}
+      ]
+    }
+/>
+
 ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio is only recorded while using firebase storage, and will not activate if using local storage. 
 
 ## Turning on audio recording 
