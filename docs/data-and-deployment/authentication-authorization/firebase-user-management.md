@@ -1,13 +1,20 @@
 # Firebase User Management
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase Setup", url: "../../firebase-setup"},
+        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
+        {name: "Firebase User Management", url: "../adding-removing-ui/#manage-administrators-in-revisit"}
+    ]}
+/>
+
 :::danger
 In general, we do not advise editing the user management data directly in the Firestore Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../adding-removing-ui) for editing users within the reVISit UI
 :::
 
 ReVISit allows you to handle all necessary user management from the reVISit UI. However, if you are ever in a situation where you have lost access to the reVISit application, you can still edit the user access via the Firestore.
-
-
-
 
 ## `user-management` collection
 
@@ -25,7 +32,6 @@ The `adminUsers` will contain a single list called the `adminUsersList`. Each en
 The `uid` is automatically generated when the user signs in for the first time. If the `uid` field is `null`, then that means the user has not yet signed in.
 
 The `authentication` document will only contained the boolean `isEnabled`. If this is set to `false`, authentication is completely disabled but the users will not be removed from the `adminUsers` collection.
-
 
 ## How to Reset Authentication
 

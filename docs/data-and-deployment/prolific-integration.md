@@ -1,5 +1,14 @@
 # Prolific Integration
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Prolific", url: "https://prolific.com"}
+    ]}
+/>
+
+## Overview
 [Prolific](https://prolific.com) is a popular platform for recruiting crowd-sourced participants. ReVISit has built-in integration to make it easy to run studies on prolific. 
 
 When you create a prolific study and give it the url of your deployed reVISit study site, it will add multiple url parameters to the link. For our purposes, we want to store the `PROLIFIC_PID`. To do this, in the `uiConfig` object of your config file, add the key 

@@ -1,5 +1,13 @@
 # The Lifecycle of a reVISit Study
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Snapshots", url: "../../analysis/data-management/"}
+    ]}
+/>
+
 A reVISit study will go through multiple stages over its lifetime. It'll first start as a local study that is iteratively refined until the study is fully built, it will then be deployed and tested, it will be send out to participants for data to be collected, and finally the study will be disseminated to reviewers. 
 
 ## Revisit Modes
