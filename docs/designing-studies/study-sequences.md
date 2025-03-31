@@ -3,15 +3,13 @@
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    referenceLinks={
-      [
-        {name: "Component Block", url:"../../typedoc/interfaces/ComponentBlock/"},
-        {name: "Dynamic Block", url:"../../typedoc/interfaces/DynamicBlock/"},
-         {name: "Random Interruption", url:"../../typedoc/interfaces/RandomInterruption/"},
-        {name: "Deterministic Interruption", url:"../../typedoc/interfaces/DeterministicInterruption/"},
-         {name: "Skip Conditions", url:"../../typedoc/type-aliases/SkipConditions/"}
-      ]
-    }
+    referenceLinks={[
+        {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
+        {name: "Dynamic Block", url: "../../typedoc/interfaces/DynamicBlock/"},
+        {name: "Random Interruption", url: "../../typedoc/interfaces/RandomInterruption/"},
+        {name: "Deterministic Interruption", url: "../../typedoc/interfaces/DeterministicInterruption/"},
+        {name: "Skip Conditions", url: "../../typedoc/type-aliases/SkipConditions/"}
+    ]}
 />
 
 Once you have defined the components you want to be part of your study, you need to tell reVISit what order to show the components in. This is done by defining a sequence object in the reVISit Spec, which has a variety of powerful options for different randomization types, as well as attention checks, breaks, and advanced skip logic for more complex studies.

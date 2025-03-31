@@ -3,13 +3,16 @@
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLink="https://revisit.dev/study/test-audio/"
-    codeLink="https://github.com/revisit-studies/study/tree/main/public/test-audio"
-    referenceLinks={
-      [
-        {name: "mic-check Library", url:"../../libraries/mic-check/"}
-      ]
-    }
+    demoLinks={[
+      {name: "Test Audio Demo", url: "https://revisit.dev/study/test-audio/"}
+    ]}
+    codeLinks={[
+      {name: "Test Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
+    ]}
+    referenceLinks={[
+        {name: "mic-check Library", url: "../../libraries/mic-check/"},
+        {name: "reVISit Libraries", url: "../plugin-libraries"}
+    ]}
 />
 
 ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio is only recorded while using firebase storage, and will not activate if using local storage. 

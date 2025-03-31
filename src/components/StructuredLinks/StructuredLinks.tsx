@@ -18,7 +18,7 @@ interface CodeLink {
 }
 
 interface DemoLink {
-    name:string,
+    name: string,
     url: string
 }
 
@@ -57,31 +57,29 @@ function StructuredLinkInner({ demoLinks, codeLinks, referenceLinks }: Structure
             <div className={styles.container}>
                 <Admonition type='note' title='Relevant Links'>
                     <div className={styles.linkContainer}>
-                        {demoLinks && demoLinks.length > 0 ? 
+                        {demoLinks && demoLinks.length > 0 ?
                             <div className={styles.demosContainer}>
                                 <div className={styles.iconContainer}>
                                     <FontAwesomeIcon icon={faLink} />
-                                    <div className = {styles.demosTitle}>Live Demo</div>
+                                    <div className={styles.demosTitle}>Live Demos</div>
                                 </div>
                                 <div style={{ marginLeft: '23px' }}>
-                                    {demoLinks.map(entry =>
+                                    {demoLinks.map((entry) => (
                                         <a target="_blank" href={entry.url}>{entry.name}</a>
-                                    )
-                                    }
+                                    ))}
                                 </div>
                             </div>
                             : null}
-                        {codeLinks ?
+                        {codeLinks && codeLinks.length > 0 ?
                             <div className={styles.codesContainer}>
                                 <div className={styles.iconContainer}>
                                     <FontAwesomeIcon icon={faGithub} />
-                                    <div className = {styles.codesTitle}>Demo Code</div>
+                                    <div className={styles.codesTitle}>Demo Codes</div>
                                 </div>
                                 <div style={{ marginLeft: '23px' }}>
-                                    {codeLinks.map(entry =>
+                                    {codeLinks.map((entry) => (
                                         <a target="_blank" href={entry.url}>{entry.name}</a>
-                                    )
-                                    }
+                                    ))}
                                 </div>
                             </div>
                             : null}

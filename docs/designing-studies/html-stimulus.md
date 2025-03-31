@@ -4,7 +4,18 @@ sidebar_position: 3
 
 # Designing an HTML Stimulus
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "D3.js", url: "https:/d3js.org/"},
+        {name: "Base Components", url: "../../typedoc/type-aliases/BaseComponents/"}
+    ]}
+/>
+
 Now, we will take the study we just created and add another component based on a user-created HTML file. This allows for some additional customization of the component. 
+
+## HTML Stimuli 
 
 The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called “bar-chart.html” in the “basic-questionnaire-study/assets” directory.
 
@@ -137,3 +148,4 @@ In the components section, add the following objects:
 The "parameters" key is a dynamically valued key which is used to pass data to your components. When you add the "parameters" key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
 
 To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json).
+
