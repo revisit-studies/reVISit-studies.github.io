@@ -22,10 +22,10 @@
     align-items: center;
 }
 
-.referencesTitle {
+.demosTitle, .codesTitle, .referencesTitle {
     font-weight: bold;
 }
 
-.referencesContainer .iconContainer {
+.demosContainer, .codesContainter, .referencesContainer .iconContainer {
     margin-bottom: 10px;
 }

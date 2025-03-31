@@ -12,13 +12,23 @@ interface ReferenceLink {
     url: string
 }
 
+interface CodeLink {
+    name: string,
+    url: string
+}
+
+interface DemoLink {
+    name:string,
+    url: string
+}
+
 interface StructuredLinkProps {
-    demoLink?: string;
-    codeLink?: string;
+    demoLinks?: DemoLink[];
+    codeLinks?: CodeLink[];
     referenceLinks?: ReferenceLink[];
 }
 
-function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredLinkProps) {
+function StructuredLinkInner({ demoLinks, codeLinks, referenceLinks }: StructuredLinkProps) {
     const [container, setContainer] = useState<HTMLElement | null>(null);
     // Use placeholder to find element for correct placement
     const [placeholder] = useState(() => document.createElement("div"));
@@ -38,7 +48,7 @@ function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredL
         };
     }, [placeholder]);
 
-    if (!demoLink && !codeLink && !referenceLinks) {
+    if (!demoLinks && !codeLinks && !referenceLinks) {
         return null;
     }
 
@@ -47,19 +57,31 @@ function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredL
             <div className={styles.container}>
                 <Admonition type='note' title='Relevant Links'>
                     <div className={styles.linkContainer}>
-                        {demoLink ?
-                            <div className={styles.demoContainer}>
+                        {demoLinks && demoLinks.length > 0 ? 
+                            <div className={styles.demosContainer}>
                                 <div className={styles.iconContainer}>
                                     <FontAwesomeIcon icon={faLink} />
-                                    <a target="_blank" href={demoLink}>Live Demo</a>
+                                    <div className = {styles.demosTitle}>Live Demo</div>
+                                </div>
+                                <div style={{ marginLeft: '23px' }}>
+                                    {demoLinks.map(entry =>
+                                        <a target="_blank" href={entry.url}>{entry.name}</a>
+                                    )
+                                    }
                                 </div>
                             </div>
                             : null}
-                        {codeLink ?
-                            <div className={styles.codeContainer}>
+                        {codeLinks ?
+                            <div className={styles.codesContainer}>
                                 <div className={styles.iconContainer}>
                                     <FontAwesomeIcon icon={faGithub} />
-                                    <a target="_blank" href={codeLink}>Demo Code</a>
+                                    <div className = {styles.codesTitle}>Demo Code</div>
+                                </div>
+                                <div style={{ marginLeft: '23px' }}>
+                                    {codeLinks.map(entry =>
+                                        <a target="_blank" href={entry.url}>{entry.name}</a>
+                                    )
+                                    }
                                 </div>
                             </div>
                             : null}
@@ -86,10 +108,10 @@ function StructuredLinkInner({ demoLink, codeLink, referenceLinks }: StructuredL
 }
 
 // BrowserOnly wrapper for use in docusaurus. Without this, docusaurus will fail to build.
-function StructuredLink({ demoLink, codeLink, referenceLinks }: StructuredLinkProps) {
+function StructuredLink({ demoLinks, codeLinks, referenceLinks }: StructuredLinkProps) {
     return (
         <BrowserOnly>
-            {() => <StructuredLinkInner demoLink={demoLink} codeLink={codeLink} referenceLinks={referenceLinks} />}
+            {() => <StructuredLinkInner demoLinks={demoLinks} codeLinks={codeLinks} referenceLinks={referenceLinks} />}
         </BrowserOnly>
     )
 }
