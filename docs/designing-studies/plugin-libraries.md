@@ -1,5 +1,41 @@
 # reVISit Libraries
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+      {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
+      {name: "Color Blindess Demo", url: "https://revisit.dev/study/library-color-blindness/"},
+      {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
+      {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
+      {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
+      {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
+      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
+      {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"}
+    ]}
+    codeLinks={[
+      {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
+      {name: "Color Blindess Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
+      {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
+      {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
+      {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
+      {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
+      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
+      {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"}
+    ]}
+    referenceLinks={[
+      {name: "Library Config", url: "../../typedoc/interfaces/LibraryConfig"},
+      {name: "Mic Check Library", url:"../../libraries/mic-check/"},
+      {name: "Color Blindess Library", url:"../../libraries/color-blindess/"},
+      {name: "Demographics Library", url:"../../libraries/demographics/"},
+      {name: "VLAT Library", url:"../../libraries/vlat/"},
+      {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},
+      {name: "SUS Library", url:"../../libraries/sus/"},
+      {name: "Beauvis Library", url:"../../libraries/beauvis/"},
+      {name: "PREVis Library", url:"../../libraries/previs/"}
+    ]}
+/>
+
 We provide predefined **libraries** of study components and validated questionnaires for visualization and HCI. These libraries that are easy to integrate into your study configurations as individual components or sequences of components.
 
 We currently provide libraries for: 
