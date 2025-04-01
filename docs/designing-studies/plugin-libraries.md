@@ -26,7 +26,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     referenceLinks={[
       {name: "Library Config", url: "../../typedoc/interfaces/LibraryConfig"},
       {name: "Mic Check Library", url:"../../libraries/mic-check/"},
-      {name: "Color Blindess Library", url:"../../libraries/color-blindess/"},
+      {name: "Color Blindess Library", url:"../../libraries/color-blindness/"},
       {name: "Demographics Library", url:"../../libraries/demographics/"},
       {name: "VLAT Library", url:"../../libraries/vlat/"},
       {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},

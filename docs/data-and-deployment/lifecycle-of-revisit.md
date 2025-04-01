@@ -4,7 +4,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Snapshots", url: "../../analysis/data-management/"}
+        {name: "Snapshots", url: "../../analysis/data-management/#snapshots"}
     ]}
 />
 

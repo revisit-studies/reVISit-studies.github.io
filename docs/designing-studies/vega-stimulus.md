@@ -12,8 +12,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     referenceLinks={[
         {name: "Vega", url: "https://vega.github.io/vega/"},
         {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
-        {name: "Vega Config Component", url: "../../typedoc/interfaces/VegaComponentConfig/"},
-        {name: "Vega Path Component", url: "../../typedoc/interfaces/VegaComponentPath/"}
+        {name: "Vega Component Config", url: "../../typedoc/interfaces/VegaComponentConfig/"},
+        {name: "Vega Component Path", url: "../../typedoc/interfaces/VegaComponentPath/"}
     ]}
 />
 

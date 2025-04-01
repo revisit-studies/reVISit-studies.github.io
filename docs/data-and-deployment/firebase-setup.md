@@ -11,7 +11,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Firebase", url: "https://firebase.google.com/"},
         {name: "Firebase Tier Limits", url: "https://cloud.google.com/storage/pricing#cloud-storage-always-free"},
         {name: "Google Recaptcha", url: "https://www.google.com/recaptcha/admin/create"},
-        {name: "Deploying to Github", url: "../deploying-to-static-website"}
+        {name: "Deploying to GitHub", url: "../deploying-to-static-website"}
     ]}
 />
 

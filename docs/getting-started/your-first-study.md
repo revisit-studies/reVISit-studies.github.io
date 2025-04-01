@@ -17,7 +17,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
         {name: "Long Text Response", url: "../../typedoc/interfaces/LongTextResponse/"},
         {name: "Dropdown Response", url: "../../typedoc/interfaces/DropdownResponse/"},
-        {name: "Likert Scale Response", url: "../../typedoc/interfaces/LikertResponse/"}
+        {name: "Likert Response", url: "../../typedoc/interfaces/LikertResponse/"}
     ]}
 />
 

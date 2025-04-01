@@ -12,7 +12,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Study Config", url: "../../typedoc/interfaces/StudyConfig"},
         {name: "Study Metadata", url: "../../typedoc/interfaces/StudyMetadata/"},
         {name: "UI Config", url: "../../typedoc/interfaces/UIConfig"},
-        {name: "Base Individual Component", url: "../../typedoc/interfaces/BaseIndividualComponenets/"},
+        {name: "Base Individual Component", url: "../../typedoc/interfaces/BaseIndividualComponent/"},
         {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse/"},
         {name: "Sequence", url: "../../typedoc/interfaces/Sequence/"},
         {name: "Analytics Platform", url: "../../analysis"},
