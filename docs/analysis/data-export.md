@@ -4,6 +4,22 @@ sidebar_position: 4
 
 # Data Export and Basic Analysis
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"}
+    ]}
+    codeLinks={[
+        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"}
+    ]}
+    referenceLinks={[
+        {name: "Tidy Data", url: "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"},
+        {name: "R", url: "https://www.r-project.org/other-docs.html"},
+        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"}
+    ]}
+/>
+
 reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
 
 The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.

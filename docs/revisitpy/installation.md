@@ -4,7 +4,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "uv Installation", url: "https://docs.astral.sh/uv/getting-started/installation/"}
+        {name: "uv Installation", url: "https://docs.astral.sh/uv/getting-started/installation/"},
+        {name: "pip Installation", url: "https://pip.pypa.io/en/stable/installation/"}
     ]}
 />
 

@@ -8,7 +8,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "D3.js", url: "https:/d3js.org/"},
+        {name: "D3.js", url: "https://d3js.org/"},
         {name: "Base Components", url: "../../typedoc/type-aliases/BaseComponents/"}
     ]}
 />
