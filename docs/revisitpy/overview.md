@@ -1,5 +1,17 @@
 # Overview
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    codeLinks={[
+        {name: "reVISitPy Examples", url: "https://github.com/revisit-studies/revisitpy-examples"}
+    ]}
+    referenceLinks={[
+        {name: "reVISitPy Installation", url: "../installation"},
+        {name: "reVISitPy Examples", url: "../examples"}
+    ]}
+/>
+
 The reVISit python package wraps the standard items of the reVISit configuration file with readable, easy-to-use functions. We expose a factory function for each top-level item in the reVISit configuration: `studyMetadata`, `uiConfig`, `components`, `sequence`, and `studyMetadata`. Currently, we do not expose a `baseComponents` function. Instead, base components are still well-defined components and can be passed during the creation of another component. The final configuration will not include base components but will have the expected inherited output. 
 
 Each factory function takes in the same parameters as the reVISit configuration file. For example, the `studyMetadata` function requires the author, organizations, title, version, and description parameters. Robust error output will help you, the user, understand what is required in each function. For the sake of brevity, we do not list every possible parameter since these are already defined in the current study configuration. Instead, we will show additional required/optional parameters as well as additional methods and other exposed functions.

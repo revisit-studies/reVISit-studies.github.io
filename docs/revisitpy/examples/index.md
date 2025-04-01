@@ -1,6 +1,16 @@
 # Examples
 
 import DocCardList from '@theme/DocCardList';
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    codeLinks={[
+        {name: "reVISitPy Examples", url: "https://github.com/revisit-studies/revisitpy-examples"}
+    ]}
+    referenceLinks={[
+        {name: "uv Installation", url: "https://docs.astral.sh/uv/getting-started/installation/"}
+    ]}
+/>
 
 Here you'll find several examples for designing full studies using reVISitPy. Each of the examples takes advantage of the `revisitpy_server` and a Jupyter notebook environment. While neither of these are necessary to create complex configuration files, they are the quickest ways to get started with reVISitPy and the best way to create a closed-feedback loop for quick iterations of your study design.
 
