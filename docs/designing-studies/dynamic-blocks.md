@@ -20,7 +20,7 @@ In reVISit, this can be achieved using dynamic blocks. Dynamic blocks are blocks
     "introduction",
     {
       "id": "dynamicBlock",
-      "type": "dynamic",
+      "order": "dynamic",
       "functionPath": "study-name/dynamic.ts",
       "parameters": {
         "param1": "value1",
