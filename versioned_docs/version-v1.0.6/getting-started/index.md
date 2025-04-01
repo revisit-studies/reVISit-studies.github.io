@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-displayed_sidebar: reference
+displayed_sidebar: docs
 ---
 
 # Getting Started
