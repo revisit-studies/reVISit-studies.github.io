@@ -5,6 +5,22 @@ displayed_sidebar: docs
 
 # How Does It Work?
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Study Config", url: "../../typedoc/interfaces/StudyConfig"},
+        {name: "Study Metadata", url: "../../typedoc/interfaces/StudyMetadata/"},
+        {name: "UI Config", url: "../../typedoc/interfaces/UIConfig"},
+        {name: "Base Individual Component", url: "../../typedoc/interfaces/BaseIndividualComponenets/"},
+        {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse/"},
+        {name: "Sequence", url: "../../typedoc/interfaces/Sequence/"},
+        {name: "Analytics Platform", url: "../../analysis"},
+        {name: "Lifecycle of reVISit", url: "../../data-and-deployment/lifecycle-of-revisit"},
+        {name: "Data Management", url: "../../analysis/data-management"}
+    ]}
+/>
+
 To create a study with reVISit, you have to create **components** that contain the content of your study, and you have to create the **study configuration (the reVISit Spec)** that controls when and how these components are shown to participants. Here, we will introduce these at a high level and link to the [detailed documentation](../../typedoc/globals) where appropriate. 
 
 # Components

@@ -3,6 +3,14 @@ sidebar_position: 4
 ---
 # Collecting Data Locally
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase", url: "../../data-and-deployment/firebase-setup/"}
+    ]}
+/>
+
 Now that we have a working study, we'll look at how we can start collecting data. 
 
 By default, reVISit does not collect data. This is because you don't need to collect data while you're developing your study. Rather, you want to work on your stimuli and study design first, and then, when you're ready to test you can enable data collection. 
