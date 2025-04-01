@@ -7,18 +7,19 @@ sidebar_position: 3
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLink="https://revisit.dev/study/demo-survey/"
-    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-survey"
-    referenceLinks={
-      [
+    demoLinks={[
+        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey/"}
+    ]}
+    codeLinks={[
+        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-survey"}
+    ]}
+    referenceLinks={[
         {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
         {name: "Long Text Response", url: "../../typedoc/interfaces/LongTextResponse/"},
         {name: "Dropdown Response", url: "../../typedoc/interfaces/DropdownResponse/"},
         {name: "Likert Scale Response", url: "../../typedoc/interfaces/LikertResponse/"}
-      ]
-    }
+    ]}
 />
-
 
 In this tutorial we will use the example of a simple survey. You will learn: 
 

@@ -1,8 +1,20 @@
 ---
 sidebar_position: 2
 ---
-
 # Installation
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
+        {name: "Node.js Installation", url: "https://nodejs.org/en"},
+        {name: "Yarn Installation", url: "https://yarnpkg.com/"},
+        {name: "NPM Installation", url: "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"}
+    ]}
+/>
+
+## Overview
 
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
