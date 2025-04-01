@@ -1,5 +1,14 @@
 # Correlation Visualization JND Example Study
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
+        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
+    ]}
+/>
+
 In this example, we'll create a full two-alternative forced choice (2AFC) study for visualizations of correlated data (from [1]), using vega components. We'll use numpy and scipy to generate a dataset, pandas to create a well-structured data frame, and the `revisitpy` package to tie it all together.
 
 You'll see that we have a section which uses the `revisitpy` Widget. This widget is a fully interactive jupyter notebook widget which allows us to preview the created study directly in the notebook. You'll notice that we also utilize the `revisitpy_server` package. This is to simplify the process of viewing our widget. Specifically, it removes the requirement of having a version of the reVISit repository running locally on your computer.
@@ -103,7 +112,7 @@ print(generate_correlated_data_uniform(0.6, 10, seed=42))
  [0.60111501 0.50662253]
  [0.70807258 0.45573666]]
 ```
-# Vega ScatterPlots and Parallel Coordinate Plots
+## Vega ScatterPlots and Parallel Coordinate Plots
 
 For this study, we need to generate pairs of scatterplots and pairs of parallel coordinate plots. We will create two generalized functions which take in two data frames whose columns are 'X' and 'Y' and whose entries are tuples, indicating the coordinates. These functions will each return a vega-altair chart that will be added as components.
 
@@ -199,7 +208,7 @@ chart
 
 
 
-# Generate Vega Spec to combine Generated Data and Plots
+## Generate Vega Spec to combine Generated Data and Plots
 
 Now that we have our functions to create the individual chart, we want a function that returns the correct vega spec when given the number of points, the correlation values, and the visualization type ('scatterPlot' or 'parallelPlot'). We'll use the number of points and the pair of correlation values to generate the dataset. Using the visualization type, we'll either return the scatter plot of this data or the parallel coordinates plot. Hover, instead of returning the vega-altair chart, we instead convert the chart to its vega-lite specification, then convert that into the true vega specification.
 
@@ -244,7 +253,7 @@ my_vega_spec = create_vega_chart('parallelPlot', 20, [0.3,0.9])
 
 ```
 
-# Creating The Component Function & Interaction Signals for ReVISit Trials
+## Creating The Component Function & Interaction Signals for ReVISit Trials
 
 The `component_function` is used to transform every component in a given sequence to any new component. If we have a sequence that is the correct _structure_, then we call the `component()` method on that sequence and pass in the desired `component_function`. Any `meta` attributes in the original components are passed in as arguments to the `component_function`. 
 
@@ -316,7 +325,7 @@ def component_function(visType=None, numPoints=None, corrValues=None):
 # print(component_function('scatterPlot',20,corrValues=[0.2,0.9]))
 ```
 
-# Permuting the Final Sequence 
+## Permuting the Final Sequence 
 
 Here we generate the different combinations of the correlation values that we'd like (every combination of two numbers between 0 and 1 with precision 1). Then, we generate a fixed order sequence and being the permutations over our factors. We first permute over the visualization type, then over the number of points, then over all possible correlation value pairs.
 
@@ -363,7 +372,7 @@ study = rvt.studyConfig(
 
 ```
 
-# Using `revisitpy_server` to Prepare Our Widget
+## Using `revisitpy_server` to Prepare Our Widget
 
 The `revisitpy` package provides a widget in order to preview our study directly in a Jupyter notebook. We can interact with the study, check that vega signals work, and even create some introductory data ourselves. In order for the widget to work, a local copy of the reVISit must be running on your local computer. If you already have reVISit locally (colloqioully our `study` repo), then all you need to do is navigate to your repository and run `yarn serve`. After this, the widget we create in this jupyter notebook will be useable.
 
@@ -378,7 +387,7 @@ process = rs.serve()
 ```output
 Server is running in the background at http://localhost:8080
 ```
-# The Widget
+## The Widget
 
 Now that your server is running, we create the widget with the configuration file we created above. When calling the widget, we are assuming that the assets referenced in the configuration file are relative to this notebook. The widget then copies these static assets to the appropriate directory. Since we're currently using the `revisitpy_server` package, you'll see that they copied into the assets of the local virtual environment `revisitpy_server` package.
 
@@ -394,7 +403,7 @@ w = rvt.widget(study, server=True)
 Copying file from ./assets/introduction.md to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/introduction.md
 Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/revisitLogoSquare.svg
 ```
-# Optional: Data Collection
+## Optional: Data Collection
 
 Now that we have the widget running, we can check out some sample data that would be generated from a user. Start by going through a small portion of the study. Once you've gone through the desired number of components inside the widget, navigate to the analysis dashboard using the 'Analysis' tab in the upper left-hand corner. Here you'll see individual participants and the data that they've generated. 
 
@@ -405,7 +414,7 @@ From here, we can export this data back into our Jupyter notebook. Start by clic
 w.get_df()
 ```
 
-# Optional: Terminate the server
+## Optional: Terminate the server
 
 Closing the notebook will automatically terminate the server. If you'd rather do this manually, you can do the following.
 

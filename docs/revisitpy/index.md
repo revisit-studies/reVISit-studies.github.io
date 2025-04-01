@@ -1,7 +1,18 @@
 # ReVISitPy Python Package
 
-The reVISitPy python package is a pip package that aids in the construction of configuration files. Just like in the study configuration file, you can create components, responses, study metadata, UI config, and complex sequences. Then, you can combine these all together in a single study configuration file. Here is an example of creating a simple response and attaching it to a single component.
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
+<StructuredLinks
+    codeLinks={[
+        {name: "reVISitPy Examples", url: "https://github.com/revisit-studies/revisitpy-examples"}
+    ]}
+    referenceLinks={[
+        {name: "reVISitPy Installation", url: "./installation"},
+        {name: "reVISitPy Examples", url: "./examples"}
+    ]}
+/>
+
+The reVISitPy python package is a pip package that aids in the construction of configuration files. Just like in the study configuration file, you can create components, responses, study metadata, UI config, and complex sequences. Then, you can combine these all together in a single study configuration file. Here is an example of creating a simple response and attaching it to a single component.
 
 ```python
 response_one = rvt.response(

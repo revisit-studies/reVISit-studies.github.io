@@ -1,5 +1,18 @@
 # Simple HTML Study
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    codeLinks={[
+        {name: "HTML Input Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json"},
+        {name: "Simple HTML Code", url: "https://github.com/revisit-studies/revisitpy-examples/tree/main/example_simple_html"}
+    ]}
+    referenceLinks={[
+        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
+        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
+    ]}
+/>
+
 Here we will get familiar with the syntax of the reVISitPy package. To do this, we'll recreate the config for the simple html study [here](https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json). We'll start by first creating the study metadata and the UI configuration.
 
 
@@ -33,7 +46,7 @@ ui_config = rvt.uiConfig(
 )
 ```
 
-# Creating Response and Base Components
+## Creating Response and Base Components
 
 Next we'll create the response and the base component that we will be using. Note that in the reVISitPy package, the base components work in a slightly different way. Instead of directly adjusting the `"baseComponent"` top level key in the configuration file, the inheritance is handled directly in the library. So, when you inspect a component that has a base, the component will already have all the appropriate properties from the base. Similar to the config, however, a base component in `revisitpy` is defined in the same exact way as a regular component.
 
@@ -106,7 +119,7 @@ comp_two = rvt.component(
 )
 ```
 
-# Generate The Sequence and Final Config
+## Generate The Sequence and Final Config
 
 Now that all the individual pieces are created, we'll create the sequence and then the final configuration file.
 
@@ -230,7 +243,7 @@ print(study)
     }
 }
 ```
-# Visualizing the Study
+## Visualizing the Study
 
 Now that we have the study completed, let's use the widget to visualize this. We'll start by using the `revisitpy_server` package to run a local copy of the reVISit repo.
 
