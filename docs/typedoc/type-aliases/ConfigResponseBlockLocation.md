@@ -7,4 +7,4 @@ displayed_sidebar: reference
 
 > **ConfigResponseBlockLocation**: `Exclude`\<`ResponseBlockLocation`, `"stimulus"`\>
 
-Defined in: [parser/types.ts:152](https://github.com/revisit-studies/study/blob/31fcae3595a542c4a0975c6994f16db7c44439d4/src/parser/types.ts#L152)
+Defined in: [parser/types.ts:152](https://github.com/revisit-studies/study/blob/2e617a552035dd6d22a4f8cba7e0d8ac40275f33/src/parser/types.ts#L152)
