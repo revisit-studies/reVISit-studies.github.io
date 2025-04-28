@@ -36,26 +36,26 @@ This will provide you with all the functionality that reVISitPy provides -- incl
 
 ## ReVISit Server
 
-The widget functionality of reVISitPy requires that you have a local copy of reVISit running on port 8080. If you do not have the study repository cloned on your local machine, you can still run a local copy or reVISit directly in python without needing to clone our main repository by using our `revisitpy_server` package.
+The widget functionality of reVISitPy requires that you have a local copy of reVISit running on port 8080. If you do not have the study repository cloned on your local machine, you can still run a local copy or reVISit directly in python without needing to clone our main repository by using our `revisitpy-server` package.
 
 <Tabs>
 <TabItem value="pip" label="pip">
 
 ```sh
-pip install revisitpy_server
+pip install revisitpy-server
 ```
 
 </TabItem>
 <TabItem value="uv" label="uv">
 
 ```sh
-uv add revisitpy_server
+uv add revisitpy-server
 ```
 
 </TabItem>
 </Tabs>
 
-Once installed, you will be able to serve a local copy of reVISit like so:
+Once installed, you will be able to serve a local copy of reVISit like so (note the use of an underscore instead of dash in the import statement):
 
 ```python
 import revisitpy_server as rs

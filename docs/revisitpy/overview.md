@@ -20,13 +20,13 @@ The individual classes (`Component`, `Response`, `Sequence`, `StudyMetadata`, `U
 
 ## Using The Widget
 
-As stated previously, the widget requires a local copy of the reVISit application to be running. If you have a local copy already on your machine, you can get started by first navigating to your study repo and running `yarn serve`. If you do not have a local copy of reVISit and would like to handle all this directly in python, use the `revisitpy_server` package. 
+As stated previously, the widget requires a local copy of the reVISit application to be running. If you have a local copy already on your machine, you can get started by first navigating to your study repo and running `yarn serve`. If you do not have a local copy of reVISit and would like to handle all this directly in python, use the `revisitpy-server` package. 
 
 :::info
 While all configuration creation can be done in a standard python environment, the provided widget only has functionality inside of a Jupyter notebook.
 :::
 
-Whether you are using `revisitpy_server` or your local copy of reVISit, the widget requires you to pass in the configuration file that you intend to view in the Jupyter notebook in addition to other parameters.
+Whether you are using `revisitpy-server` or your local copy of reVISit, the widget requires you to pass in the configuration file that you intend to view in the Jupyter notebook in addition to other parameters.
 
 ### Use with A Local reVISit repository
 
@@ -43,7 +43,7 @@ w
 
 ### Using reVISitPy Server
 
-If you're using the `revisit_server` package, the widget does not require the path to the server location by default.
+If you're using the `revisit-server` package, the widget does not require the path to the server location by default.
 
 ```python
 import revisitpy as rvt
@@ -54,7 +54,7 @@ w = rvt.widget(my_study, server=True)
 w
 ```
 
-If you installed the `revisit_server` package in a different environment than the `revisitpy` package, you'll instead need to specify the path to that library.
+If you installed the `revisit-server` package in a different environment than the `revisitpy` package, you'll instead need to specify the path to that library.
 
 ```python
 import revisitpy as rvt
@@ -67,10 +67,10 @@ w
 
 ## Widget And Study Assets
 
-The widget function passes the study configuration file as an iframe to the widget displayed in the Jupyter notebook. The assets, however, are directly copied to the repository (or `revisitpy_server` package). Thus, all the paths you specify in your study should be absolute paths to the assets or relative to your current working directory. The widget handles where they should be moved to. 
+The widget function passes the study configuration file as an iframe to the widget displayed in the Jupyter notebook. The assets, however, are directly copied to the repository (or `revisitpy-server` package). Thus, all the paths you specify in your study should be absolute paths to the assets or relative to your current working directory. The widget handles where they should be moved to. 
 
 :::warning
-Since the `revisitpy_server` package uses an already built version of the reVISit application, `react-component` assets will not be copied over to the package directory. All other assets will work as expected. If your study heavily relies on react components as study assets, we suggest using a local copy of reVISit instead of the `revisitpy_server`, or use placeholder components until you're ready to deploy your study.
+Since the `revisitpy-server` package uses an already built version of the reVISit application, `react-component` assets will not be copied over to the package directory. All other assets will work as expected. If your study heavily relies on react components as study assets, we suggest using a local copy of reVISit instead of the `revisitpy-server`, or use placeholder components until you're ready to deploy your study.
 :::
 
 

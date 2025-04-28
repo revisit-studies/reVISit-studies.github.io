@@ -83,7 +83,7 @@ After you've installed `uv`, navigate to the examples repository you just cloned
 uv install
 ```
 
-This will install all the necessary dependencies for the examples, including the reVISitPy and its support package `revisitpy_server`. 
+This will install all the necessary dependencies for the examples, including reVISitPy (`revisitpy`) and its support package (`revisitpy-server`). 
 
 :::note
 When choosing the Jupyter kernel to use, you should use the one that corresponds to the virtual environment in the `revisit-py-examples` repository. This, by default, will be initialized in the `.venv` directory after running `uv install`.
