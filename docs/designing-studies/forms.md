@@ -98,3 +98,23 @@ Radios and check-boxes can be rendered either vertically (the default) or horizo
 #### “Other” Option
 
 You can allow an “other” option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
+
+### Randomization of form elements 
+Randomizing the order of answers or questions can help reduce bias and improve the quality of your study results. reVISit allows you to shuffle options within a question, or even the order of entire questions on a page.
+
+Each participant will see their own consistent order during the study, and the same order is recorded and shown in the replay, so you can always see exactly what they saw.
+
+#### Randomizing Matrix checkbox, Matrix radio
+For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize both the rows (questions) and the columns (options): `questionOrder = "random"`, `optionOrder = "random"`
+
+#### Randomizing Checkbox, radio, button
+To shuffle the options in a radio, checkbox, or button question, set:
+`optionOrder = "random"`
+
+#### Randomizing form elements in a single page
+You can also randomize the order of multiple questions that appear on the same page. To do so, apply:
+`responseOrder = "random"`
+to the parent response array. 
+![Randomization of form elements](img/form-randomResponseOrder.png)
+This will shuffle the order in which the form elements themselves appear on the page.
+
