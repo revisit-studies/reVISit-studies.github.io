@@ -107,18 +107,18 @@ Each participant will see their own consistent order during the study, and the s
 #### Randomizing Matrix checkbox, Matrix radio
 For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize both the rows (questions). Set `questionOrder = "random"` to randomize questions.
 
-![Randomization of question order](img/form-random-question.png)
+![Randomization of question order](./img/form-random-question.png)
 
 
 #### Randomizing Checkbox, radio, button
 To shuffle the options in a radio, checkbox, or button question, set `optionOrder = "random"`.
 
-![Randomization of form elements](img/form-random-option.png)
+![Randomization of option order](./img/form-random-option.png)
 
 #### Randomizing form elements in a single page
 You can also randomize the order of multiple questions that appear on the same page. To do so, apply `responseOrder = "random"`, which will shuffle the order in which the form elements themselves appear on the page.
 If the form is randomized, a dice icon will appear in the sidebar to indicate that the response order is random.
 
-![Randomization of form elements](img/form-random-response.png)
+![Randomization of form elements](./img/form-random-response.png)
 
 
