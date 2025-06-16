@@ -117,6 +117,7 @@ To shuffle the options in a radio, checkbox, or button question, set `optionOrde
 
 #### Randomizing form elements in a single page
 You can also randomize the order of multiple questions that appear on the same page. To do so, apply `responseOrder = "random"`, which will shuffle the order in which the form elements themselves appear on the page.
+If the form is randomized, a dice icon will appear in the sidebar to indicate that the response order is random.
 
 ![Randomization of form elements](img/form-random-response.png)
 
