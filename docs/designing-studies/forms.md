@@ -105,7 +105,8 @@ Randomizing the order of answers or questions can help reduce bias and improve t
 Each participant will see their own consistent order during the study, and the same order is recorded and shown in the replay, so you can always see exactly what they saw.
 
 #### Randomizing Matrix checkbox, Matrix radio
-For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize both the rows (questions). Set `questionOrder = "random"` to randomize questions.
+For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize the questions. Set `questionOrder = "random"` to randomize questions.
+
 Here is an example to show how to set up questions in random order:
 
 ```js
@@ -133,6 +134,7 @@ Here is an example to show how to set up questions in random order:
 
 #### Randomizing Checkbox, radio, button
 To shuffle the options in a radio, checkbox, or button question, set `optionOrder = "random"`.
+
 Here is an example to show how to set up options in random order:
 
 ```js
