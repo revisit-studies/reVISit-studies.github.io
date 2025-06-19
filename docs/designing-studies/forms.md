@@ -106,21 +106,26 @@ Each participant will see their own consistent order during the study, and the s
 
 #### Randomizing Matrix checkbox, Matrix radio
 For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize both the rows (questions). Set `questionOrder = "random"` to randomize questions.
+Here is an example to show how to set up questions in random order:
+
 ```js
- {
-    "id": "q-multi-satisfaction",
-    "prompt": "Matrix Radio Example",
-    "secondaryText": "The question order is randomized",
-    "location": "aboveStimulus",
-    "type": "matrix-radio",
-    "answerOptions": "satisfaction5",
-    "questionOptions": [
-        "Question 1",
-        "Question 2",
-        "Question 3"
-        ],
-    "questionOrder": "random"
-},        
+"response": [
+    {
+        "id": "5items-response",
+        "prompt": "To what extent do you agree that this visual representation is...?",
+        "location": "belowStimulus",
+        "type": "matrix-radio",
+        "answerOptions": "satisfaction5",
+        "questionOrder": "random", //set randomization here
+        "questionOptions": [
+            "enjoyable",
+            "likable",
+            "pleasing",
+            "nice",
+            "appealing"
+        ]
+    }
+]        
 ```
 
 ![Randomization of question order](./img/form-random-question.png)
@@ -128,21 +133,23 @@ For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize 
 
 #### Randomizing Checkbox, radio, button
 To shuffle the options in a radio, checkbox, or button question, set `optionOrder = "random"`.
+Here is an example to show how to set up options in random order:
+
 ```js
-{
-    "id": "q-radio",
-    "prompt": "Radio button example",
-    "secondaryText": "The option order is randomized",
-    "location": "aboveStimulus",
-    "type": "radio",
-    "options": [
-        "Option 1",
-        "Option 2",
-        "Option 3",
-        "Option 4"
-    ],
-    "optionOrder": "random"
-    },
+"response": [
+    {
+        "id": "fruitPreference",
+        "prompt": "What’s your favorite fruit?",
+        "location": "aboveStimulus",
+        "type": "radio",
+        "optionOrder": "random", //set randomization here
+        "options": [
+        "Apple",
+        "Banana",
+        "Grape"
+        ]
+    }
+]
 ```
 
 ![Randomization of option order](./img/form-random-option.png)
@@ -151,30 +158,29 @@ To shuffle the options in a radio, checkbox, or button question, set `optionOrde
 You can also randomize the order of multiple questions that appear on the same page. To do so, apply `responseOrder = "random"`, which will shuffle the order in which the form elements themselves appear on the page.
 If the form is randomized, a dice icon will appear in the sidebar to indicate that the response order is random.
 
+Here is an example to show how to set up responses in random order:
+
 ```js
 "survey_randomized_form": {
-    "type": "questionnaire",
-    "responseOrder": "random"
-    "response": [
-        {
-            "id": "textField",
-            "type": "textOnly",
-            "location": "aboveStimulus",
-            "prompt": "# Randomize Form\n\n This shows how to randomize the order of questions in the form.",
-            "restartEnumeration": false
-        },
-        {
-          "id": "q-dropdown",
-          "prompt": "Question 1 Dropdown example",
-          "location": "aboveStimulus",
-          "type": "dropdown",
-          "placeholder": "Select an option",
-          "options": [
-            "Option 1",
-            "Option 2"
-          ]
-        },
-    ],
+  "type": "questionnaire",
+  "responseOrder": "random", //set randomization here
+  "response": [
+    {
+      "id": "favoriteFeature",
+      "prompt": "What's your favorite feature?",
+      "type": "shortText",
+      "placeholder": "Enter your answer"
+    },
+    {
+      "id": "recommend",
+      "prompt": "Would you recommend our app?",
+      "type": "dropdown",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  ]
 }
 ```
 ![Randomization of form elements](./img/form-random-response.png)
