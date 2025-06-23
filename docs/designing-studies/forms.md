@@ -98,3 +98,93 @@ Radios and check-boxes can be rendered either vertically (the default) or horizo
 #### “Other” Option
 
 You can allow an “other” option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
+
+### Randomization of form elements 
+Randomizing the order of answers or questions can help reduce bias and improve the quality of your study results. ReVISit allows you to shuffle options within a question, or even the order of entire questions on a page.
+
+Each participant will see their own consistent order during the study, and the same order is recorded and shown in the replay, so you can always see exactly what they saw.
+
+#### Randomizing Matrix checkbox, Matrix radio
+For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize the questions. Set `questionOrder = "random"` to randomize questions.
+
+Here is an example to show how to set up questions in random order:
+
+```js
+"response": [
+    {
+        "id": "5items-response",
+        "prompt": "To what extent do you agree that this visual representation is...?",
+        "location": "belowStimulus",
+        "type": "matrix-radio",
+        "answerOptions": "satisfaction5",
+        "questionOrder": "random", //set randomization here
+        "questionOptions": [
+            "enjoyable",
+            "likable",
+            "pleasing",
+            "nice",
+            "appealing"
+        ]
+    }
+]        
+```
+
+![Randomization of question order](./img/form-random-question.png)
+
+
+#### Randomizing Checkbox, radio, button
+To shuffle the options in a radio, checkbox, or button question, set `optionOrder = "random"`.
+
+Here is an example to show how to set up options in random order:
+
+```js
+"response": [
+    {
+        "id": "fruitPreference",
+        "prompt": "What’s your favorite fruit?",
+        "location": "aboveStimulus",
+        "type": "radio",
+        "optionOrder": "random", //set randomization here
+        "options": [
+        "Apple",
+        "Banana",
+        "Grape"
+        ]
+    }
+]
+```
+
+![Randomization of option order](./img/form-random-option.png)
+
+#### Randomizing form elements in a single page
+You can also randomize the order of multiple questions that appear on the same page. To do so, apply `responseOrder = "random"`, which will shuffle the order in which the form elements themselves appear on the page.
+If the form is randomized, a dice icon will appear in the sidebar to indicate that the response order is random.
+
+Here is an example to show how to set up responses in random order:
+
+```js
+"survey_randomized_form": {
+  "type": "questionnaire",
+  "responseOrder": "random", //set randomization here
+  "response": [
+    {
+      "id": "favoriteFeature",
+      "prompt": "What's your favorite feature?",
+      "type": "shortText",
+      "placeholder": "Enter your answer"
+    },
+    {
+      "id": "recommend",
+      "prompt": "Would you recommend our app?",
+      "type": "dropdown",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  ]
+}
+```
+![Randomization of form elements](./img/form-random-response.png)
+
+
