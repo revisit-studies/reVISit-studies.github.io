@@ -346,23 +346,3 @@ You can also use `skip` to jump around within your study. The example below skip
 ```
 
 After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards. 
-
-## Return link at the study end
-
-This guide shows how to add a return link with the participant’s ID at the end of a reVISit study.
-
-In your study’s `uiConfig`, set:
-
-- `urlParticipantIdParam`: the query parameter that holds the participant ID.
-- `studyEndMsg`: the end message with `{PARTICIPANT_ID}` where the ID should go.
-
-ReVISit reads the participant ID from the URL using `urlParticipantIdParam` and replaces `{PARTICIPANT_ID}` in `studyEndMsg` with that value. Here is an example of what it would look like:
-
-```json
-{
-  "uiConfig": {
-    "urlParticipantIdParam": "PROLIFIC_PID",
-    "studyEndMsg": "Thank you for completing the study! Return to Prolific: [Click here](https://app.prolific.com/submissions/complete?cc={STUDY_ID}&PROLIFIC_ID={PARTICIPANT_ID})"
-  }
-}
-```
