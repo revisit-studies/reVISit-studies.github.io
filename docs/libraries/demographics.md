@@ -5,10 +5,10 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     demoLinks={[
-      {name: "Color-Blindness Demo", url: "https://revisit.dev/study/library-demographics"}
+      {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics"}
     ]}
     codeLinks={[
-      {name: "Color-Blindness Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"}
+      {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"}
     ]}
 />
 
