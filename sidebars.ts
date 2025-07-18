@@ -60,17 +60,15 @@ const sidebars: SidebarsConfig = {
         id: 'data-and-deployment/index',
       },
       items: [
-        'data-and-deployment/firebase-setup',
+        'data-and-deployment/connecting-to-cloud-database',
         {
           type: 'category',
-          label: 'Authentication and Authorization',
-          link: {
-            type: 'doc',
-            id: 'data-and-deployment/authentication-authorization/index',
-          },
+          label: 'Firebase',
           items: [
-            'data-and-deployment/authentication-authorization/adding-removing-ui',
-            'data-and-deployment/authentication-authorization/firebase-user-management',
+            'data-and-deployment/firebase/firebase-setup',
+            'data-and-deployment/firebase/index',
+            'data-and-deployment/firebase/adding-removing-ui',
+            'data-and-deployment/firebase/firebase-user-management',
           ],
         },
         'data-and-deployment/deploying-to-static-website',
