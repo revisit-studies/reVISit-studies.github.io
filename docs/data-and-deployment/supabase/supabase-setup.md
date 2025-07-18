@@ -67,11 +67,17 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
     - The `created_at` column should automatically use the current timestamp.
     - The `data` column can store any JSON object and can be left empty.
 
+    ![Table Creation](./img/table-creation.png)
+
     The new table requires a policy to allow authenticated users to read and write to the table. You can do this by clicking on "Add RLS Policy" in the table editor and adding a new policy to the revisit table.
 
     The policy should be called `allow_authenticated_read_write`, be on public.revisit, be Permissive, and allow all operations. Select "anon", "authenticated", and "service_role" as the roles that can access this policy. In the "using" block add `true`. At the bottom, uncheck "Use check expression". Now click "Save Policy".
 
+    ![Table Policy](./img/table-policy.png)
+
 8. **Create a storage bucket**: In the Supabase dashboard, navigate to the "Storage" section (6th icon) and create a new bucket called `revisit`. This bucket will be used to store participant data, audio, configs, etc. Ensure that the bucket is not public, as we want to restrict access to the data to users of your reVISit deployment.
+
+    ![Storage Bucket](./img/storage-bucket.png)
 
   Since your bucket is not public, you will need to set up a policy to allow authenticated users to read and write to the bucket. You can do this by navigating to the "Policies" tab in the bucket settings and adding a new policy to the revisit bucket.
 
@@ -85,6 +91,8 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
    ```
 
    Click save policy.
+
+   ![Storage Policy](./img/storage-policy.png)
 
 9. **Update your .env file in your deployed reVISit application**: In the root of your reVISit application, you will need to update the `.env` file with the following variables:
 
