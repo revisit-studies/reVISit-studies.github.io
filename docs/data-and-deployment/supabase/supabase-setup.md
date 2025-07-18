@@ -99,7 +99,7 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
    ```env
     VITE_STORAGE_ENGINE="supabase"
 
-   VITE_SUPABASE_URL=http://<your-supabase-instance-ip>:8000
+   VITE_SUPABASE_URL=https://<your-supabase-instance-ip>
    VITE_SUPABASE_ANON_KEY=<your-anon-key>
    ```
   Replace `<your-supabase-instance-ip>` with the IP address or domain name of your Supabase instance, and `<your-anon-key>` with the anon key found in the Supabase `.env` file.
@@ -107,3 +107,35 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
 10. **Redeploy your reVISit application**: After updating the `.env` file, redeploy your reVISit application to ensure that it connects to the Supabase instance correctly.
 
 After following these steps, your reVISit application should be connected to your Supabase instance, and you can start collecting data from participants.
+
+### HTTPS/SSL Configuration
+
+To ensure secure communication between your reVISit application and the Supabase instance, it is recommended to set up HTTPS/SSL. You can use a reverse proxy like Nginx or Caddy to handle SSL termination. It's required that your server or VM has a Fully Qualified Domain Name (FQDN) and a valid SSL certificate. With those in place, you can configure your reverse proxy to redirect HTTP traffic to HTTPS and handle SSL termination.
+
+For example, if you are using Nginx, you can set up a server block like this:
+
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen 443 ssl;
+    server_name your-domain.com;
+
+    ssl_certificate /path/to/your/certificate.crt;
+    ssl_certificate_key /path/to/your/private.key;
+
+    location / {
+        proxy_pass http://localhost:8000; # Assuming your reVISit app runs on port 8000
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+``` 
+Make sure to replace `your-domain.com` with your actual domain name and provide the correct paths to your SSL certificate and private key.
+
+Once the reverse proxy is set up, you can access your reVISit application securely over HTTPS provided that you change the `VITE_SUPABASE_URL` in your `.env` file to use `https://` instead of `http://` and drop the port number if you are using the default port 443 for HTTPS (as shown in the example above).
