@@ -71,6 +71,13 @@ const sidebars: SidebarsConfig = {
             'data-and-deployment/firebase/firebase-user-management',
           ],
         },
+        {
+          type: 'category',
+          label: 'Supabase',
+          items: [
+            'data-and-deployment/supabase/supabase-setup',
+          ],
+        },
         'data-and-deployment/deploying-to-static-website',
         'data-and-deployment/prolific-integration',
         'data-and-deployment/lifecycle-of-revisit',
