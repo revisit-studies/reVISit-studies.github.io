@@ -66,7 +66,6 @@ const sidebars: SidebarsConfig = {
           label: 'Firebase',
           items: [
             'data-and-deployment/firebase/firebase-setup',
-            'data-and-deployment/firebase/index',
             'data-and-deployment/firebase/adding-removing-ui',
             'data-and-deployment/firebase/firebase-user-management',
           ],
@@ -80,6 +79,7 @@ const sidebars: SidebarsConfig = {
         },
         'data-and-deployment/deploying-to-static-website',
         'data-and-deployment/prolific-integration',
+        'data-and-deployment/user-management',
         'data-and-deployment/lifecycle-of-revisit',
       ],
     },
