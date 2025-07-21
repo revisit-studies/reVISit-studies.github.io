@@ -56,7 +56,7 @@ At the end of the study, you typically need to return the participant to the pla
 ```ts
 "uiConfig": {
     ...
-    "studyEndMsg": "Thank you for completing the study! Return to this link to receive credit: [https://your-platform.com/complete?participant_id={PARTICIPANT_ID}](https://your-platform.com/complete?participant_id={PARTICIPANT_ID}"
+    "studyEndMsg": "Thank you for completing the study! Return to this link to receive credit: [https://your-platform.com/complete?participant_id={PARTICIPANT_ID}](https://your-platform.com/complete?participant_id={PARTICIPANT_ID})"
     ...
 }
 ```
