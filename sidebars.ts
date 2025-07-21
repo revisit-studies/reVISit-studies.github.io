@@ -60,21 +60,26 @@ const sidebars: SidebarsConfig = {
         id: 'data-and-deployment/index',
       },
       items: [
-        'data-and-deployment/firebase-setup',
+        'data-and-deployment/connecting-to-cloud-database',
         {
           type: 'category',
-          label: 'Authentication and Authorization',
-          link: {
-            type: 'doc',
-            id: 'data-and-deployment/authentication-authorization/index',
-          },
+          label: 'Firebase',
           items: [
-            'data-and-deployment/authentication-authorization/adding-removing-ui',
-            'data-and-deployment/authentication-authorization/firebase-user-management',
+            'data-and-deployment/firebase/firebase-setup',
+            'data-and-deployment/firebase/adding-removing-ui',
+            'data-and-deployment/firebase/firebase-user-management',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Supabase',
+          items: [
+            'data-and-deployment/supabase/supabase-setup',
           ],
         },
         'data-and-deployment/deploying-to-static-website',
         'data-and-deployment/connecting-to-external-platform',
+        'data-and-deployment/user-management',
         'data-and-deployment/lifecycle-of-revisit',
       ],
     },

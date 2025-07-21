@@ -4,13 +4,13 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Firebase Setup", url: "../../firebase-setup"},
+        {name: "Firebase Setup", url: "../firebase-setup"},
         {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
     ]}
 />
 
 :::warning
-In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../../firebase-setup).
+In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../firebase-setup).
 :::
 
 ## Enabling Authentication in Firebase

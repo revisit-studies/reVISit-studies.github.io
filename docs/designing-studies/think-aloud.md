@@ -19,15 +19,14 @@ ReVISit has integrated audio recording and audio playback for conducting in-pers
 
 ## Turning on audio recording 
 
-Turning on audio recording for your entire study can be done by setting the `recordStudyAudio` flag at the top level of your config file.
-```json 
-"recordStudyAudio": true
+Turning on audio recording for your entire study can be done by setting the `recordAudio` flag at the top level of your config file.
+```ts
+"recordAudio": true
 ```
 
 By default, this will record audio for every task in the study. However, we recommend only recording audio for tasks which you plan on later analyzing, and turning it off for tasks such as consent forms and introductions. Each component can turn off audio for that component by setting the `recordAudio` flag within the component to false, as shown below. 
 
-```json
-
+```ts
 "introduction": {
     "type": "markdown",
     "path": "example-brush-interactions/assets/introduction.md",
