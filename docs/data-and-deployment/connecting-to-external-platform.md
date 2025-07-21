@@ -56,7 +56,7 @@ At the end of the study, you typically need to return the participant to the pla
 ```ts
 "uiConfig": {
     ...
-    "studyEndMsg": "Thank you for completing the study! Return to this link to receive credit: [Click here](https://your-platform.com/complete?participant_id={PARTICIPANT_ID}"
+    "studyEndMsg": "Thank you for completing the study! Return to this link to receive credit: [https://your-platform.com/complete?participant_id={PARTICIPANT_ID}](https://your-platform.com/complete?participant_id={PARTICIPANT_ID}"
     ...
 }
 ```
@@ -94,7 +94,7 @@ To automatically access the `PROLIFIC_PID`, use the `paramCapture` field inside 
 },
 ```
 
-When the study is over, you want to redirect participant back to prolific, so they can be confirmed as finished and paid. This is also done in the `uiConfig` via the `studyEndMsg`, and you should use the link specific to your study that prolific provides. Be sure to use the return URL provided by Prolific, and include `{PARTICIPANT_ID}` where the participant ID should be inserted.
+When the study is over, you want to redirect participant back to prolific, so they can be confirmed as finished and paid. This is also done in the `uiConfig` via the `studyEndMsg`, and you should use the link specific to your study that prolific provides.
 
 ![Prolific participant ID](./img/prolific_participantID.png)
 
@@ -103,7 +103,7 @@ Here's an exmaple:
 ```ts
 "uiConfig": {
     "urlParticipantIdParam": "PROLIFIC_PID",
-    "studyEndMsg": "Thank you for completing the study! Return to Prolific: [Click here](https://app.prolific.com/submissions/complete?cc={STUDY_ID}?PROLIFIC_ID={PARTICIPANT_ID})"
+    "studyEndMsg": "Thank you for completing the study! Return to Prolific: [https://app.prolific.com/submissions/complete?cc=studyID](https://app.prolific.com/submissions/complete?cc=studyID)"
 }
 ```
 
@@ -116,7 +116,7 @@ SONA Systems is another commonly used recruitment platform in academic research.
     "studyEndMsg": "Thank you for completing the study! Return to SONA to receive credit: [Click here](https://yourschool.sonasystems.com/webstudy_credit.aspx?experiement_id=...&credit_token=...&survey_code={PARTICIPANT_ID})"
 }
 ```
-As before, `{PARTICIPANT_ID}` will be replaced with the actual `SURVEY_CODE` value from the URL.
+The `{PARTICIPANT_ID}` will be replaced with the actual `SURVEY_CODE` value from the URL.
 Just like with other platforms, you can display the SONA ID in the introduction or elsewhere in the study using:
 
 ```ts
