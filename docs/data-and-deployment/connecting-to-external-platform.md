@@ -113,7 +113,7 @@ SONA Systems is another commonly used recruitment platform in academic research.
 ```ts
 "uiConfig": {
     "urlParticipantIdParam": "SURVEY_CODE",
-    "studyEndMsg": "Thank you for completing the study! Return to SONA to receive credit: [Click here](https://yourschool.sonasystems.com/webstudy_credit.aspx?experiement_id=...&credit_token=...&survey_code={PARTICIPANT_ID})"
+    "studyEndMsg": "Thank you for completing the study! Return to SONA to receive credit: [https://yourschool.sonasystems.com/webstudy_credit.aspx?experiement_id=...&credit_token=...&survey_code={PARTICIPANT_ID}](https://yourschool.sonasystems.com/webstudy_credit.aspx?experiement_id=...&credit_token=...&survey_code={PARTICIPANT_ID})"
 }
 ```
 The `{PARTICIPANT_ID}` will be replaced with the actual `SURVEY_CODE` value from the URL.
