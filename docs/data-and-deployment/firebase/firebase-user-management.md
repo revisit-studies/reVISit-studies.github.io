@@ -4,7 +4,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Firebase Setup", url: "../../firebase-setup"},
+        {name: "Firebase Setup", url: "../firebase-setup"},
         {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
         {name: "Firebase User Management", url: "../adding-removing-ui/#manage-administrators-in-revisit"}
     ]}
