@@ -40,8 +40,8 @@ Load external CSS files for comprehensive styling across components:
 ```
 :::note
 Target elements using their IDs in CSS:
-- **Component**: Use the component key as the ID (e.g., `#markdown-component`)
-- **Response**: Use the response `id` field as the ID (e.g., `#dropdown-response`)
+- **Component**: Use the component type as the class (e.g., `.image`) or component name as the id (e.g., `#introduction`)
+- **Response**: Use the response type as the class (e.g., `.textOnly`) or `id` field as the ID (e.g., `#final-feedback`)
 :::
 
 ### 2. Inline Styles (`style`)
