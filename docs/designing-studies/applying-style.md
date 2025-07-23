@@ -102,9 +102,10 @@ Apply global styles that affect the entire study interface:
 
 ### Examples
 
+#### Form style
+
 ![Form Style](img/style-form.gif)
 
-#### Form style
 ```ts
 "uiConfig": {
   ...
@@ -369,7 +370,7 @@ Responses can have their own stylesheets. You can target them using their type (
   "component": {
     ...
     "response": [
-      "feedback-question": {
+      {
         "id": "user-feedback",
         "prompt": "Rate your experience:",
         "type": "likert",
@@ -416,7 +417,7 @@ Apply styles directly to response configurations:
   "component": {
     ...
     "response": [
-      "comments": {
+      {
         "id": "user-comments",
         "prompt": "Additional comments:",
         "type": "longText",
@@ -440,65 +441,55 @@ Apply styles directly to response configurations:
 
 ### Response Styling Examples
 
-#### Text Input Styling
+#### Text Response Styling
+
+![Text Response Styling](img/style-text.png)
+
 ```ts
-{
-  "participant-name": {
-    "id": "name-input",
-    "prompt": "Enter your name:",
+"response": [
+  {
+    "id": "short-text-response-style",
+    "prompt": "What's your favorite color?",
     "type": "shortText",
-    "placeholder": "Full name",
+    "location": "belowStimulus",
+    "placeholder": "Enter your favorite color",
+    "required": false,
     "style": {
-      "width": "400px",
-      "padding": "12px",
-      "fontSize": "16px",
-      "border": "2px solid #007bff",
-      "borderRadius": "6px",
-      "backgroundColor": "#f8f9fa"
-    }
-  }
-}
-```
-
-#### Dropdown Styling
-```ts
-{
-  "country-select": {
-    "id": "country",
-    "prompt": "Select your country:",
-    "type": "dropdown",
-    "options": ["USA", "Canada", "UK", "Australia"],
-    "style": {
-      "width": "300px",
+      "fontFamily": "'Courier New', monospace",
+      "width": "700px",
+      "margin": "25px auto",
       "padding": "10px",
-      "fontSize": "14px",
-      "border": "1px solid #6c757d",
-      "borderRadius": "4px"
+      "letterSpacing": "2px"
+    }
+  },
+  {
+    "id": "long-text-response-style",
+    "type": "longText",
+    "prompt": "What makes a website design effective and visually appealing?",
+    "location": "belowStimulus",
+    "placeholder": "Enter your answer",
+    "required": false,
+    "style": {
+      "width": "700px",
+      "margin": "25px auto",
+      "padding": "15px",
+      "border": "2px solid green",
+      "borderRadius": "10px",
+      "backgroundColor": "#f8fff9",
+      "color": "green",
+      "fontStyle": "italic",
+      "fontWeight": "600",
+      "textTransform": "lowercase"
     }
   }
-}
+]
 ```
 
-#### Button Response Styling
-```ts
-{
-  "quick-choice": {
-    "id": "preference",
-    "prompt": "Choose your preference:",
-    "type": "buttons",
-    "options": ["Option A", "Option B", "Option C"],
-    "style": {
-      "display": "flex",
-      "gap": "10px",
-      "justifyContent": "center",
-      "margin": "20px 0"
-    }
-  }
-}
-```
 #### Interactive Response Styling
 
-![InteractiveLikertResponse](img/style-likert.gif)
+You can also make responses interactive using CSS. For example, you can change the background color when a user clicks on a response. You might also make the text appear larger when the user starts typing. Adding interactions like these can improve the overall usability of your study.
+
+![InteractiveResponse](img/style-interactive.gif)
 
 ```ts
 "interactive-responses": {
@@ -515,9 +506,26 @@ Apply styles directly to response configurations:
       "rightLabel": "Excellent design",
       "required": false,
       "stylesheetPath": "demo-style/assets/style/responseStylesheet.css"
+    },
+    {
+      "id": "short-text-response",
+      "prompt": "Try hovering on this response block.",
+      "type": "shortText",
+      "location": "belowStimulus",
+      "required": false,
+      "stylesheetPath": "demo-style/assets/style/responseStylesheet.css"
+    },
+    {
+      "id": "final-feedback",
+      "prompt": "Please provide any feedback on this styling demo.",
+      "type": "longText",
+      "location": "belowStimulus",
+      "placeholder": "Your feedback",
+      "required": false,
+      "stylesheetPath": "demo-style/assets/style/responseStylesheet.css"
     }
   ]
-}
+},
 ```
 
 `responseStylesheet.css`
@@ -546,5 +554,55 @@ Apply styles directly to response configurations:
 #likert-response:active {
   background: #000000;
   color: #ffffff;
+}
+
+#short-text-response {
+  padding: 20px;
+  margin: 15px;
+  background-color: #e5f3fd;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+#short-text-response:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px #9abddc;
+}
+
+#short-text-response input {
+  border: none;
+  border-radius: 10px;
+  margin: 12px auto;
+}
+
+#final-feedback {
+  width: 80%;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: #e5f3fd;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+#final-feedback textarea {
+  border: none;
+  margin: 12px auto;
+  transition: all 0.3s ease;
+}
+
+#final-feedback textarea:focus {
+  font-size: 20px;
+  letter-spacing: 1px;
+  transform: scale(1.01);
+  animation: typing-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes typing-glow {
+  0%, 100% {
+    box-shadow: 0 15px 40px #9abddc;
+  }
+  50% {
+    box-shadow: 0 25px 80px #9abddc, 0 0 30px #9abddc, inset 0 0 20px rgba(154, 189, 220, 0.3);
+  }
 }
 ```
