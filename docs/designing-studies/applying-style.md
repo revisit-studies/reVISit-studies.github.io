@@ -397,11 +397,7 @@ Responses can have their own stylesheets. You can target them using their type (
   margin: 10px 0;
 }
 
-#user-feedback .likert-scale {
-  gap: 15px;
-}
-
-#user-feedback .likert-item {
+.likert{
   background: #e9ecef;
   border-radius: 4px;
   padding: 8px 12px;
