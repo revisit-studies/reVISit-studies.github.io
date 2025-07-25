@@ -49,6 +49,7 @@ const sidebars: SidebarsConfig = {
         'designing-studies/provenance-tracking',
         'designing-studies/think-aloud',
         'designing-studies/plugin-libraries',
+        'designing-studies/applying-style'
       ],
     },
     {
