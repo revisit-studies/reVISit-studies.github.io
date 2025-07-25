@@ -49,9 +49,10 @@ When styling elements with external CSS files, target them using the appropriate
 - Progress Bar: `.progressBar`
 - Help Modal: `.helpModal`
 - Component Container: `.componentType` (e.g., `.markdown`, `.image`)
-- Response Block Container: `.responseBlock`
-- Individual Response: `.response`
 - Response type: `.responseType` (e.g., `.textOnly`, `.likert`)
+- Response Block Container: `.responseBlock`
+- Response Block Container with Location: `.responseBlock-location` (e.g., `responseBlock-aboveStimulus`, `responseBlock-belowStimulus`)
+- Individual Response: `.response`
 
 **ID Selectors:**
 - Component: `#componentName` (e.g., `#introduction`, `#survey-question`)
