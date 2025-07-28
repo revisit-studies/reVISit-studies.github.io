@@ -13,7 +13,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 <a href="https://supabase.com/" target="_blank" >Supabase</a> is an open-source alternative to Firebase that provides a real-time database and storage solution. It is built on top of PostgreSQL, which allows for more complex queries and data structures. Supabase is particularly useful for researchers who need to comply with strict data privacy regulations, as it can be self-hosted.
 
 This guide will be focused on setting up a self hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
-
 ### Pre-requisites
 
 Before you begin, ensure you have the following:
@@ -27,17 +26,11 @@ Once you have your server or VM, you will need to follow these steps:
 
 1. **Install Docker and Docker Compose**: If you don't have Docker installed, you can follow the [official Docker installation guide](https://docs.docker.com/get-docker/). After that, install Docker Compose by following the [Docker Compose installation guide](https://docs.docker.com/compose/install/).
 
-2. **Clone the reVISit repository**: Navigate to the directory where you want to set up Supabase and clone the reVISit repository.
+2. **Clone the reVISit repository**: Navigate to the directory where you want to set up Supabase and clone the reVISit repository. If you already have the reVISit repository, you might just need to pull the latest changes.
 
 3. **Navigate to the Supabase directory**: Inside the reVISit repository, navigate to the `supabase` directory.
 
-4. **Update the `.env` file**: We provide a `.env` file that needs to be updated with your specific configuration. Failure to modify this file will result in an insecure instance with default credentials. Make sure that you update the service key since this key provides elevated access to your Supabase instance. You can generate a new key using the `openssl` command:
-
-   ```bash
-   openssl rand -hex 32
-   ```
-
-   Replace the `SUPABASE_SERVICE_ROLE_KEY` in the `.env` file with the generated key.
+4. **Update the `.env` file**: We provide a `.env` file that needs to be updated with your specific configuration. Failure to modify this file will result in an insecure instance with default credentials. Follow the instructions on the [supabase documentation page](https://supabase.com/docs/guides/self-hosting/docker#securing-your-services) to set up your `.env` file and secure your instance. 
 
 5. **Start Supabase**: Run the following command to start Supabase using Docker Compose:
 
@@ -63,13 +56,13 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
     | data        | JSONB     | Nullable                   |
 
     **Notes:**
-    - Set both `study_id` and `doc_id` as composite primary keys.
-    - The `created_at` column should automatically use the current timestamp.
+    - Set both `studyId` and `docId` as composite primary keys.
+    - The `createdAt` column should automatically use the current timestamp.
     - The `data` column can store any JSON object and can be left empty.
 
     ![Table Creation](./img/table-creation.png)
 
-    The new table requires a policy to allow authenticated users to read and write to the table. You can do this by clicking on "Add RLS Policy" in the table editor and adding a new policy to the revisit table.
+    Save the table. The new table requires a policy to allow authenticated users to read and write to the table. You can do this by clicking on "Add RLS Policy" in the table editor and adding a new policy to the revisit table.
 
     The policy should be called `allow_authenticated_read_write`, be on public.revisit, be Permissive, and allow all operations. Select "anon", "authenticated", and "service_role" as the roles that can access this policy. In the "using" block add `true`. At the bottom, uncheck "Use check expression". Now click "Save Policy".
 
@@ -98,9 +91,8 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
 
    ```env
     VITE_STORAGE_ENGINE="supabase"
-
-   VITE_SUPABASE_URL=https://<your-supabase-instance-ip>
-   VITE_SUPABASE_ANON_KEY=<your-anon-key>
+   VITE_SUPABASE_URL="https://<your-supabase-instance-ip>"
+   VITE_SUPABASE_ANON_KEY="<your-anon-key>"
    ```
   Replace `<your-supabase-instance-ip>` with the IP address or domain name of your Supabase instance, and `<your-anon-key>` with the anon key found in the Supabase `.env` file.
 
