@@ -9,6 +9,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
       {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
       {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
       {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
+      {name: "NASA TLX Demo", url: "https://revisit.dev/study/library-nasa-tlx/"},
       {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
       {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
       {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"}
@@ -19,6 +20,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
       {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
       {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
       {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
+      {name: "NASA TLX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-nasa-tlx"},
       {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
       {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
       {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"}
@@ -30,6 +32,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
       {name: "Demographics Library", url:"../../libraries/demographics/"},
       {name: "VLAT Library", url:"../../libraries/vlat/"},
       {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},
+      {name: "NASA TLX Library", url:"../../libraries/nasa-tlx/"},
       {name: "SUS Library", url:"../../libraries/sus/"},
       {name: "Beauvis Library", url:"../../libraries/beauvis/"},
       {name: "PREVis Library", url:"../../libraries/previs/"}
@@ -157,6 +160,9 @@ S. Pandey and A. Ottley, “Mini‐VLAT: A Short and Effective Measure of Visual
 :::
 
 #### Usability and User Workload
+- `NASA-TLX`: The NASA Task Load Index (TLX) questionnaire for measuring perceived workload.  
+    **Reference**:  Hart, Sandra G., and Lowell E. Staveland. "Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research." Advances in psychology. Vol. 52. North-Holland, 1988. 139-183.
+
 - `SUS`: **The System Usability Scale**   
 :::note[Reference]
 J. Brooke, “SUS: A ‘Quick and Dirty’ Usability Scale,” Usability Evaluation In Industry, pp. 207–212, Jun. 1996, doi: 10.1201/9781498710411-35.
