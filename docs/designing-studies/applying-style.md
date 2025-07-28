@@ -26,8 +26,7 @@ This comprehensive styling feature allows you to create accessible and visually 
 There are two primary ways to apply styles to your study:
 
 ### 1. External CSS Files (`stylesheetPath`)
-For comprehensive styling with multiple rules, pseudo-classes.
-Load external CSS files for comprehensive styling across components:
+For comprehensive styling with complex rules, pseudo-classes, etc. across all components, you can load external CSS files.
 
 ```ts
 "uiConfig": {
