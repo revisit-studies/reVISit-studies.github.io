@@ -67,8 +67,7 @@ Styles are applied in the following order (later styles override earlier ones):
 :::
 
 ### 2. Inline Styles (`style`)
-For basic styling like sizing, colors, and fonts.
-Apply specific CSS properties directly to components or responses:
+For basic styling like sizing, colors, and fonts, apply specific CSS properties directly to components or responses:
 
 ```ts
 "component": {
