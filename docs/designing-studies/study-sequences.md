@@ -14,7 +14,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 Once you have defined the components you want to be part of your study, you need to tell reVISit what order to show the components in. This is done by defining a sequence object in the reVISit Spec, which has a variety of powerful options for different randomization types, as well as attention checks, breaks, and advanced skip logic for more complex studies.
 
-ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. Other components can also optionally be given `id`, which can then be used to jump to them. 
+ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. Other blocks can also optionally be given `id`, which can then be used to jump to them. 
 
 ## Simple Sequence 
 
@@ -22,6 +22,7 @@ If your study has a set order, creating a sequence is simple. Define the compone
 
 ```js
  sequence: {
+    order: 'fixed'
     components: [
         'introduction',
         'consent',
@@ -29,7 +30,6 @@ If your study has a set order, creating a sequence is simple. Define the compone
         'trial2',
         'post-survey'
     ],
-    order: 'fixed'
  }
 ```
 
@@ -39,19 +39,19 @@ Many studies need to randomize the order of some of the components, but not all.
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'random',
             components: [
                 'trial1',
                 'trial2',
-            ],
-            order: 'random'
+            ]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -62,31 +62,31 @@ Studies can be nested to arbitrary depths. A frequent use case is a within subje
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'random',
             components: [
                 {
+                    order: 'random',
                     components: [
                         'ConditionA-1',
                         'ConditionA-2',
-                    ],
-                    order: 'random'
+                    ]
                 },
                 {
+                    order: 'random',
                     components: [
                         'ConditionB-1',
                         'ConditionB-2',
-                    ],
-                    order: 'random'
+                    ]
                 },
-            ],
-            order: 'random'
+            ]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -96,19 +96,19 @@ Studies frequently want portions of their trials to be random, but also want to 
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'latinSquare',
             components: [
                 'trial1',
                 'trial2',
-            ],
-            order: 'latinSquare'
+            ]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -129,22 +129,22 @@ Studies frequently want to only show a subset of all trials to a single particip
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'latinSquare',
+            numSamples: 2,
             components: [
                 'trial1',
                 'trial2',
                 'trial3',
                 'trial4'
-            ],
-            order: 'latinSquare',
-            numSamples: 2
+            ]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -154,26 +154,26 @@ To add attention checks or breaks to your study, there is an `interruptions` obj
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'latinSquare',
             components: [
                 'trial1',
                 'trial2',
                 'trial3',
                 'trial4'
             ],
-            order: 'latinSquare',
-            interruptions: {
+            interruptions: [{
                 spacing: 'random',
                 numInterruptions: 2,
                 components: ['myAttentionCheckComponent']
-            }
+            }]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -181,26 +181,26 @@ You can also add `interruptions` deterministically at set intervals. The example
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'latinSquare',
             components: [
                 'trial1',
                 'trial2',
                 'trial3',
                 'trial4'
             ],
-            order: 'latinSquare',
-            interruptions: {
+            interruptions: [{
                 spacing: 2,
                 firstLocation: 1,
                 components: ['myAttentionCheckComponent']
-            }
+            }]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -212,26 +212,26 @@ The example below will jump straight to `end` if the consent form is answered wi
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         {
-            components: ['consent']
-            'skip': {
+            order: 'fixed',
+            components: ['consent'],
+            skip: [{
                 'name': 'consent',
                 'check': 'response',
                 'responseId': 'consentApproval',
                 'value': 'yes',
                 'to': 'end'
-            }
-            order: 'fixed'
+            }]
         }
         'trial1',
         'trial2',
         'trial3',
         'trial4',
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -239,31 +239,31 @@ To check if multiple components are correct, for example that all attention chec
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'latinSquare',
             components: [
                 'trial1',
                 'trial2',
                 'trial3',
                 'trial4'
             ],
-            order: 'latinSquare',
-            interruptions: {
+            interruptions: [{
                 spacing: 2,
                 firstLocation: 1,
                 components: ['myAttentionCheckComponent']
-            }, 
-            skip: {
+            }], 
+            skip: [{
                 'name': 'myAttentionCheckComponent',
                 'check': 'responses',
                 'to': 'end'
-            }
+            }]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 This example will go through every component named `myAttentionCheckComponent`, and if any response is incorrect, jump immediately to end. 
@@ -272,33 +272,33 @@ You can also wait until multiple attention checks have been answered incorrectly
 
 ```js
  sequence: {
+    order: 'fixed',
     components: [
         'introduction',
         'consent',
         {
+            order: 'latinSquare',
             components: [
                 'trial1',
                 'trial2',
                 'trial3',
                 'trial4'
             ],
-            order: 'latinSquare',
-            interruptions: {
+            interruptions: [{
                 spacing: 2,
                 firstLocation: 1,
                 components: ['myAttentionCheckComponent']
-            }, 
-            skip: {
+            }], 
+            skip: [{
                 'name': 'myAttentionCheckComponent',
                 'check': 'repeatedComponent',
                 'condition': 'numIncorrect',
                 'value': 2,
                 'to': 'end'
-            }
+            }]
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
@@ -306,42 +306,42 @@ You can also use `skip` to jump around within your study. The example below skip
 
 ```js
  sequence: {
+    order: 'fixed'
     components: [
         'introduction',
         'consent',
         {
+            order: 'latinSquare',
             components: [
                 'trial1',
                 'trial2',
             ],
-            order: 'latinSquare',
-            id: 'easyQuestions'
-            skip: {
+            id: 'easyQuestions',
+            skip: [{
                 check: 'block',
                 condition: 'numIncorrect',
                 value: 2,
                 to: 'moreEasyQuestions'
-            }
+            }]
         },
         {
+            order: 'latinSquare',
             components: [
                 'trial3',
                 'trial4'
             ],
-            order: 'latinSquare',
             id: 'hardQuestions'
         },
         {
+            order: 'latinSquare',
             components: [
                 'trial5',
                 'trial6',
             ],
-            order: 'latinSquare',
             id: 'moreEasyQuestions'
         },
         'post-survey'
-    ],
-    order: 'fixed'
+    ]
  }
 ```
 
