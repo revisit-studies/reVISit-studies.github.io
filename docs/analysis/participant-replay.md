@@ -13,3 +13,14 @@ To view the provenance or audio replay for a single participant, click on the `G
 ![Single Replay](./img/single-replay.png)
 
 Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study. 
+
+If you’d like to link to a specific timestamp in the replay, you can use the `&t` query parameter in your URL.  
+For example, this link will jump to 20 seconds in the replay: https://revisit.dev/study/studyID/studyID?participantId=......&t=20s  
+
+You can specify time in different formats:  
+- Milliseconds: `&t=1000`  
+- Seconds: `&t=1s`, `&t=70s`  
+- Minutes: `&t=2m`, `&t=10m30s`  
+- Hours: `&t=1h30m`  
+
+If the entered time exceeds the replay’s maximum length, it will automatically be replaced with the maximum available time in milliseconds.
