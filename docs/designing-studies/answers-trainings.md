@@ -37,7 +37,7 @@ For a working example, refer to [the demo](https://revisit.dev/study/demo-traini
 
 Here's a simple dropbox component asking what the most efficient visual mark is. The `correctAnswer` field contains an answer for the `q-mark-type` response that specifies that the correct answer is `Bar`. 
 
-```JSON
+```ts
 "simple-dropbox": {
   "type": "questionnaire",
   "nextButtonLocation": "sidebar",

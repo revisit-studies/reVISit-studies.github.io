@@ -1,7 +1,16 @@
 
 # beauvis
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
+<StructuredLinks
+    demoLinks={[
+      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis"}
+    ]}
+    codeLinks={[
+      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"}
+    ]}
+/>
 
 BeauVis is a validated scale for assessing the aesthetic pleasure of visualizations. This library contains three components for the 3-, 4-, and 5-item versions of the BeauVis scale.
 
