@@ -1,14 +1,44 @@
 # Study Summary
 
-The participant view display the user data of a study in a table format. It is designed to allow researchers to inspect each record in detail.
+The study summary gives users a quick overview of their study at a glance. It provides a comprehensive overview of their study data in a single, easy-to-understand dashboard.
 
-![Participant view](./img/analysis-table.png)
+The summary is organized into three main sections: Overview Statistics, Component Statistics, and Response Statistics. At the top, participant filters allow you to filter the analysis by including or excluding completed, in-progress, or rejected participants.
 
-Each row represents a record of a participant in the study. It includes the participant's ID, status indicator, metadata(IP address, screen resolution, user agent), and the time they spent.
-For each trial, all question IDs and corresponding answers are displayed in the same cell. The time the participant spent on the trial is shown in a separate cell. 
+![Study Summary](./img/study-summary.png)
 
-Right beside the participant's ID, the green checkmark icon indicates that this participant has completed the study, while the yellow circular icon indicates that this participant is still in progress.
+## Overview Statistics
 
-You can quickly navigate to different studies by using the dropdown menu in the top right corner. 
+This section shows key numbers about the study.
 
-For more information about cleaned duration, please refer to the [FAQ](../faq.md#q-i-see-two-different-times-reported-for-the-duration-of-a-trial-one-of-them-is-called-clean-what-is-that).
+![Study Summary Overview](./img/study-summary-overview.png)
+
+- Total Participants – total number of people in the study  
+- Completed / In Progress / Rejected – counts of participants by status (green = completed, yellow = in progress, red = rejected)  
+- Start Date / End Date – when the first participant started and the last one finished the study
+- Average Time – average time participants spent on the study  
+- Average Clean Time – average time spent without browsing away from the study
+- Correctness – overall percentage of correct answers  
+
+## Component Statistics
+
+![Study Summary Component](./img/study-summary-component.png)
+
+This section shows each part of the study in a table you can sort, filter, and search.
+
+- Component – name of the study part  
+- Participants – number of people who did this part  
+- Avg Time – average time spent  
+- Avg Clean Time – average time without browsing away  
+- Correctness – percentage of correct answers (shows N/A if the component has no correct answer)
+
+## Response Statistics
+
+![Study Summary Response](./img/study-summary-response.png)
+
+This section provides details for each question, with each row representing a single question.
+
+- Component – part of the study with this question  
+- Type – kind of response (see [BaseReponse](../../typedoc/interfaces/BaseResponse) for all response types)
+- Question – question prompt
+- Options – answer options given to the participants
+- Correctness – percentage of correct answers  
