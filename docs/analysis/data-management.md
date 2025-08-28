@@ -12,11 +12,11 @@ A **snapshot** of in the data management platform is an exact copy of the curren
 
 When you archive your data, it first creates a snapshot of the current study data. Then, the current study data is completely removed - allowing you to essentially "reset" the study while creating a backup copy to restore at a later point.
 
-## Restoring A Snapshot
+## Restoring a Snapshot
 
 At any point, the current study data can be restored to a snapshot. In your snapshot list, you will see a "restore" icon which will allow you to do this. When you restore a snapshot, a new snapshot of the current study data will first be created. All data from the snapshot being restored is then copied back into the current study data. Your snapshot will _not_ be removed.
 
-## Deleting A Snapshot
+## Deleting a Snapshot
 
 A snapshot can be deleted at any time in order to free up space in your Firebase application. Simply click the "delete" icon next to any snapshot and follow the onscreen instructions to remove it.
 

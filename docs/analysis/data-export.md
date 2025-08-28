@@ -30,7 +30,7 @@ The tidy data is missing some data that is available in the JSON download, such 
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the Table View, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
+2. Open the Trial Stats, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
 
 ![Tidy export](./img/tidy-export-1.png)
 
