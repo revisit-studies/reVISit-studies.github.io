@@ -8,15 +8,18 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     demoLinks={[
-        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"}
+        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"},
+        {name: "Audio Demo", url: "https://revisit.dev/study/analysis/stats/test-audio"},
     ]}
     codeLinks={[
-        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"}
+        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"},
+        {name: "Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
     ]}
     referenceLinks={[
         {name: "Tidy Data", url: "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"},
         {name: "R", url: "https://www.r-project.org/other-docs.html"},
-        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"}
+        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"},
+        {name: "Think Aloud", url: "https://revisit.dev/docs/designing-studies/think-aloud"}
     ]}
 />
 
@@ -118,20 +121,28 @@ ggsave("plot.pdf", width = 5, height = 2, units = "in")
 
 There are two ways to download audio files if you have enabled `recordAudio: true` in your study. For applying Think Aloud in your study, please visit [Think Aloud](../../designing-studies/think-aloud).
 
-### Download All Participants' Audio
+### Download Participants' Audio
 
 1. Navigate to the **Analysis** platform for the current study.
-2. Open the Participant View, then click on the **Download all participants' audio** button.
 
-![Download all participants' audio](./img/tidy-export-1.png)
+2. Open the **Participant View**, then click on the **Download participants audio** button.
 
-### Download Single Participant's Audio
+![Download participants audio](./img/audio-export-all.png)
+
+:::note
+To download audio from specific participants, select the participants in the table.
+:::
+
+
+### Download Single Participant's Task Audio
 
 1. Navigate to the **Analysis** platform for the current study.
-2. Open the Participant View, then open up the timeline of the participant and click on the task.
-![Download all participants' audio](./img/tidy-export-1.png)
+
+2. Open the **Participant View**, then open up the timeline of the participant and click on the task.
+![Download task audio](./img/audio-export-task-1.png)
+
 3. Click on the **Download Audio** button.
-![Download all participants' audio](./img/tidy-export-1.png)
+![Download task audio](./img/audio-export-task-2.png)
 
 :::note
 If you are using Firebase, it will download the transcript of the audio file as well.
