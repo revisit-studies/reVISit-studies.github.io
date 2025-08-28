@@ -6,9 +6,11 @@ The reVISit analytics platform provides a robust way to manage, backup, and rest
 
 A **snapshot** of in the data management platform is an exact copy of the current state of a particular study dataset. This includes all the data gathered from each participant as well as the current study assignment sequence. To create a snapshot, you can navigate to the "Manage" tab within a particular study's analytics interface and click "Snapshot" in the "Create A Snapshot" section. When a snapshot is created, you will see the name of the snapshot in the "Snapshots" list below. This does not remove the data from the current study dataset.
 
+![Data Management](./img/data-management.png)
+
 ## Archiving Data
 
-When you archive your data, it first creates a snapshot of the current study data. Then, the current study data is completely removed -- allowing you to essentially "reset" the study while creating a backup copy to restore at a later point.
+When you archive your data, it first creates a snapshot of the current study data. Then, the current study data is completely removed - allowing you to essentially "reset" the study while creating a backup copy to restore at a later point.
 
 ## Restoring A Snapshot
 

@@ -94,7 +94,8 @@ const sidebars: SidebarsConfig = {
       items: [
         'analysis/data-management',
         'analysis/study-card',
-        'analysis/table',
+        'analysis/study-summary',
+        'analysis/participant-view',
         'analysis/trial-stats',
         'analysis/data-export',
         'analysis/participant-replay',

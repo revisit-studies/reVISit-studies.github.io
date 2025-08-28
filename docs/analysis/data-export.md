@@ -11,7 +11,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"}
     ]}
     codeLinks={[
-        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"}
+        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"}
     ]}
     referenceLinks={[
         {name: "Tidy Data", url: "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"},
@@ -32,13 +32,13 @@ The tidy data is missing some data that is available in the JSON download, such 
 
 2. Open the Table View, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
 
-![Tidy export](./img/tidy-export-1.jpg)
+![Tidy export](./img/tidy-export-1.png)
 
 3. The **CSV Explorer** will open, where you can select the columns to export. A preview of the first five rows of the output CSV will be displayed.
 
 4. Once ready, click the **Download** button at the bottom right.
 
-![Tidy export](./img/tidy-export-2.jpg)
+![Tidy export](./img/tidy-export-2.png)
 
 
 After downloading the Tidy data, you can import it into  your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
