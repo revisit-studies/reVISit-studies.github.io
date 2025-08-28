@@ -30,7 +30,7 @@ The tidy data is missing some data that is available in the JSON download, such 
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the Trial Stats, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
+2. Open the Participant View, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
 
 ![Tidy export](./img/tidy-export-1.png)
 
@@ -41,7 +41,7 @@ The tidy data is missing some data that is available in the JSON download, such 
 ![Tidy export](./img/tidy-export-2.png)
 
 
-After downloading the Tidy data, you can import it into  your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
+After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
 
 :::info What is Tidy data format?
 
@@ -114,5 +114,26 @@ We find accuracy using paint brush technique is much less than that of the other
 ggsave("plot.pdf", width = 5, height = 2, units = "in")
 ```
 
+## Download Audio 
 
+There are two ways to download audio files if you have enabled `recordAudio: true` in your study. For applying Think Aloud in your study, please visit [Think Aloud](../../designing-studies/think-aloud).
+
+### Download All Participants' Audio
+
+1. Navigate to the **Analysis** platform for the current study.
+2. Open the Participant View, then click on the **Download all participants' audio** button.
+
+![Download all participants' audio](./img/tidy-export-1.png)
+
+### Download Single Participant's Audio
+
+1. Navigate to the **Analysis** platform for the current study.
+2. Open the Participant View, then open up the timeline of the participant and click on the task.
+![Download all participants' audio](./img/tidy-export-1.png)
+3. Click on the **Download Audio** button.
+![Download all participants' audio](./img/tidy-export-1.png)
+
+:::note
+If you are using Firebase, it will download the transcript of the audio file as well.
+:::
 
