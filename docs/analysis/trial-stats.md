@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Trial Stats
 
 Once you click the Trial Stats tab, you will see this page that provide time distribution and answer distribution of each trial.

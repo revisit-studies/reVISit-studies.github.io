@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Designing an HTML Stimulus
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

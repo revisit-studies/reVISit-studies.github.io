@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: docs
----
-
 # How Does It Work?
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
