@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 displayed_sidebar: reference
 ---
 
@@ -28,6 +27,7 @@ displayed_sidebar: reference
 - [MatrixResponse](interfaces/MatrixResponse.md)
 - [NumberOption](interfaces/NumberOption.md)
 - [NumericalResponse](interfaces/NumericalResponse.md)
+- [Option](interfaces/Option.md)
 - [ParticipantData](interfaces/ParticipantData.md)
 - [ParticipantMetadata](interfaces/ParticipantMetadata.md)
 - [QuestionnaireComponent](interfaces/QuestionnaireComponent.md)
@@ -36,6 +36,7 @@ displayed_sidebar: reference
 - [ReactComponent](interfaces/ReactComponent.md)
 - [ReactiveResponse](interfaces/ReactiveResponse.md)
 - [RepeatedComponentBlockCondition](interfaces/RepeatedComponentBlockCondition.md)
+- [Sequence](interfaces/Sequence.md)
 - [ShortTextResponse](interfaces/ShortTextResponse.md)
 - [SliderResponse](interfaces/SliderResponse.md)
 - [StoredAnswer](interfaces/StoredAnswer.md)

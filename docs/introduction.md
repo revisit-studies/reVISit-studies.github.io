@@ -1,8 +1,3 @@
----
-sidebar_position: 1
----
-
-
 # Introduction
 
 reVISit lets you create interactive, web-based studies using a **JSON domain-specific language (DSL), called reVISit Spec, and a set of stimuli contained in components**. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 

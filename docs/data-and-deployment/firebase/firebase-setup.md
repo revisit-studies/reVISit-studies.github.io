@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Configuring Firebase
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
