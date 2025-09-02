@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Participant View
 
 The participant view display the user data of a study in a table format. It is designed to allow researchers to inspect each record in detail.

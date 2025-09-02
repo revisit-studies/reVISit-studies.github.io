@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Data Export and Basic Analysis
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

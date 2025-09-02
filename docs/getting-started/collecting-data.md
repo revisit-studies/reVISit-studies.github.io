@@ -1,6 +1,3 @@
----
-sidebar_position: 4
----
 # Collecting Data Locally
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
