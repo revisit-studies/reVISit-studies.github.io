@@ -15,7 +15,7 @@ The participant replay can be used for an overview of each participants study.
 
 ![Participant Replay](./img/participant-replay.png)
 
-To view the provenance or audio replay for a single participant, click on a task on the timeline. 
+To view the provenance or audio replay for a single participant, click the expand icon to open their data row, then select a task on the timeline. 
 
 ![Single Replay](./img/participant-replay-single.png)
 

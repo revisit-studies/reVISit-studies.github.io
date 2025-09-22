@@ -10,7 +10,7 @@ A **snapshot** of in the data management platform is an exact copy of the curren
 
 ## Archiving Data
 
-When you archive your data, it first creates a snapshot of the current study data. Then, the current study data is completely removed - allowing you to essentially "reset" the study while creating a backup copy to restore at a later point.
+When you archive your data, it first creates a snapshot of the current study data. Then, the current study data is completely removed -- allowing you to essentially "reset" the study while creating a backup copy to restore at a later point.
 
 ## Restoring a Snapshot
 

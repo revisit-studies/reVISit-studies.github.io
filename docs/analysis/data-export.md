@@ -134,11 +134,14 @@ To download audio from specific participants, select the participants in the tab
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the **Participant View**, then open up the timeline of the participant and click on the task.
+2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
 ![Download task audio](./img/audio-export-task-1.png)
 
-3. Click on the **Download Audio** button.
+3. Click on the task.
 ![Download task audio](./img/audio-export-task-2.png)
+
+3. Click on the **Download Audio** button.
+![Download task audio](./img/audio-export-task-3.png)
 
 :::note
 If you are using Firebase, it will download the transcript of the audio file as well.
