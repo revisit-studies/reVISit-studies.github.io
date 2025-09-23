@@ -5,8 +5,8 @@ displayed_sidebar: reference
 
 # InterruptionBlock
 
-> **InterruptionBlock**: [`DeterministicInterruption`](../interfaces/DeterministicInterruption.md) \| [`RandomInterruption`](../interfaces/RandomInterruption.md)
+> **InterruptionBlock** = [`DeterministicInterruption`](../interfaces/DeterministicInterruption.md) \| [`RandomInterruption`](../interfaces/RandomInterruption.md)
 
-Defined in: [parser/types.ts:978](https://github.com/revisit-studies/study/blob/2e617a552035dd6d22a4f8cba7e0d8ac40275f33/src/parser/types.ts#L978)
+Defined in: [parser/types.ts:1147](https://github.com/revisit-studies/study/blob/6d0bcf865c88e39cf1cf0007fe3f55213492c22c/src/parser/types.ts#L1147)
 
 The InterruptionBlock interface is used to define interruptions in a block. These can be used for breaks or attention checks. Interruptions can be deterministic or random.
