@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Setting Up Your First Study
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
@@ -82,7 +78,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,
         "autoDownloadStudy": false,
-        "sidebar": true
+        "withSidebar": true
     },
     "components": {
         "introduction": {

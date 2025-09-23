@@ -13,17 +13,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
       
   />
 
-
-
 This is a library for testing the microphone. It provides a component that listens to the microphone and only enables the next button when audio is detected.
-
-
-
-
-
-
-
-
 
 ## Available Components
 

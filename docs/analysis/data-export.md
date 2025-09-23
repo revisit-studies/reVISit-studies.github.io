@@ -1,22 +1,21 @@
----
-sidebar_position: 4
----
-
 # Data Export and Basic Analysis
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     demoLinks={[
-        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"}
+        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"},
+        {name: "Audio Demo", url: "https://revisit.dev/study/analysis/stats/test-audio"},
     ]}
     codeLinks={[
-        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"}
+        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"},
+        {name: "Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
     ]}
     referenceLinks={[
         {name: "Tidy Data", url: "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"},
         {name: "R", url: "https://www.r-project.org/other-docs.html"},
-        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"}
+        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"},
+        {name: "Think Aloud", url: "https://revisit.dev/docs/designing-studies/think-aloud"}
     ]}
 />
 
@@ -30,18 +29,18 @@ The tidy data is missing some data that is available in the JSON download, such 
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the Table View, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
+2. Open the Participant View, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
 
-![Tidy export](./img/tidy-export-1.jpg)
+![Tidy export](./img/tidy-export-1.png)
 
 3. The **CSV Explorer** will open, where you can select the columns to export. A preview of the first five rows of the output CSV will be displayed.
 
 4. Once ready, click the **Download** button at the bottom right.
 
-![Tidy export](./img/tidy-export-2.jpg)
+![Tidy export](./img/tidy-export-2.png)
 
 
-After downloading the Tidy data, you can import it into  your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
+After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
 
 :::info What is Tidy data format?
 
@@ -114,5 +113,37 @@ We find accuracy using paint brush technique is much less than that of the other
 ggsave("plot.pdf", width = 5, height = 2, units = "in")
 ```
 
+## Download Audio 
 
+There are two ways to download audio files if you have enabled `recordAudio: true` in your study. For applying Think Aloud in your study, please visit [Think Aloud](../../designing-studies/think-aloud).
+
+### Download Participants' Audio
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then click on the **Download participants audio** button.
+
+![Download participants audio](./img/audio-export-all.png)
+
+:::note
+To download audio from specific participants, select the participants in the table.
+:::
+
+
+### Download Single Participant's Task Audio
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
+![Download task audio](./img/audio-export-task-1.png)
+
+3. Click on the task.
+![Download task audio](./img/audio-export-task-2.png)
+
+3. Click on the **Download Audio** button.
+![Download task audio](./img/audio-export-task-3.png)
+
+:::note
+If you are using Firebase, it will download the transcript of the audio file as well.
+:::
 

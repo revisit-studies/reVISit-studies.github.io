@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # InterruptionBlock
 
 > **InterruptionBlock** = [`DeterministicInterruption`](../interfaces/DeterministicInterruption.md) \| [`RandomInterruption`](../interfaces/RandomInterruption.md)

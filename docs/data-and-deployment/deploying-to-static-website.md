@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Deploying To a Static Website
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
@@ -42,7 +38,7 @@ Here we will be able to deploy the site to the Github pages. In the 'Branch' sec
 Click 'Save' once you have made the switch. After a short period of time, your reVISit application will deploy to `<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 :::info
-If you would like to enable admin sign ins when you deploy your static website, you will have to make sure that Firebase has your domain name set as an authorized domain. Please see [here](../authentication-authorization/adding-removing-ui/#adding-authorized-domains) to add your custom domain.
+If you would like to enable admin sign ins when you deploy your static website, you will have to make sure that Firebase has your domain name set as an authorized domain. Please see [here](../firebase/adding-removing-ui/#adding-authorized-domains) to add your custom domain.
 :::
 
 ## Deploying using Netlify
