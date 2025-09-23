@@ -2,15 +2,19 @@
 # previs
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    demoLinks={[
-      {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs"}
-    ]}
-    codeLinks={[
-      {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"}
-    ]}
-/>
+  
+  <StructuredLinks
+      demoLinks={[
+        {name: "previs Demo", url: "https://revisit.dev/study/library-previs"}
+      ]}
+      codeLinks={[
+        {name: "previs Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"}
+      ]}
+      referenceLinks={[
+        {name: "DOI", url: "https://dx.doi.org/10.1109/tvcg.2024.3456318"},
+        {name: "previs", url: "https://aviz.fr/PREVis/"}
+      ]}
+  />
 
 PREVis allows you to quickly and reliably measure how readable people find a data visualization. There are 4 individual scales in PREVis, each measuring a particular dimension of perceived readability. This library includes four components, one for each individual scale, as well as a sequence containing all four scales (the full PREVis). 
 
@@ -36,3 +40,5 @@ Link: [https://aviz.fr/PREVis/](https://aviz.fr/PREVis/)
 ## Available Sequences
 
 - 4dimensions
+
+

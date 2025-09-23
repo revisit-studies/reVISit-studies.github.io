@@ -43,6 +43,7 @@ displayed_sidebar: reference
 - [StringOption](interfaces/StringOption.md)
 - [StudyConfig](interfaces/StudyConfig.md)
 - [StudyMetadata](interfaces/StudyMetadata.md)
+- [TextOnlyResponse](interfaces/TextOnlyResponse.md)
 - [UIConfig](interfaces/UIConfig.md)
 - [VegaComponentConfig](interfaces/VegaComponentConfig.md)
 - [VegaComponentPath](interfaces/VegaComponentPath.md)
@@ -58,4 +59,5 @@ displayed_sidebar: reference
 - [InterruptionBlock](type-aliases/InterruptionBlock.md)
 - [Response](type-aliases/Response.md)
 - [SkipConditions](type-aliases/SkipConditions.md)
+- [Styles](type-aliases/Styles.md)
 - [VegaComponent](type-aliases/VegaComponent.md)

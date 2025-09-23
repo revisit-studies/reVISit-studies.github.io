@@ -12,7 +12,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
 />
 
-Here you'll find several examples for designing full studies using reVISitPy. Each of the examples takes advantage of the `revisitpy_server` and a Jupyter notebook environment. While neither of these are necessary to create complex configuration files, they are the quickest ways to get started with reVISitPy and the best way to create a closed-feedback loop for quick iterations of your study design.
+Here you'll find several examples for designing full studies using reVISitPy. Each of the examples takes advantage of the `revisitpy-server` and a Jupyter notebook environment. While neither of these are necessary to create complex configuration files, they are the quickest ways to get started with reVISitPy and the best way to create a closed-feedback loop for quick iterations of your study design.
 
 
 
@@ -26,7 +26,7 @@ Once you have `uv` installed and the repository successfully cloned, navigate to
 uv sync
 ```
 
-This will initialize a virtual environment with all of the necessary packages for the repository (including `revisitpy` and `revisitpy_server`). Then, when running any of the examples, you just need to choose the `ipykernel` associated with your virtual environment (by default, this is the `.venv` directory).
+This will initialize a virtual environment with all of the necessary packages for the repository (including `revisitpy` and `revisitpy-server`). Then, when running any of the examples, you just need to choose the `ipykernel` associated with your virtual environment (by default, this is the `.venv` directory).
 
 
 <DocCardList />
