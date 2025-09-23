@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Deploying To a Static Website
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

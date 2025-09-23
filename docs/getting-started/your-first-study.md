@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Setting Up Your First Study
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

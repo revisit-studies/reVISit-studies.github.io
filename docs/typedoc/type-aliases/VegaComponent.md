@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # VegaComponent
 
 > **VegaComponent**: [`VegaComponentPath`](../interfaces/VegaComponentPath.md) \| [`VegaComponentConfig`](../interfaces/VegaComponentConfig.md)
