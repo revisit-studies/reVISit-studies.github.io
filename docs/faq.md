@@ -1,8 +1,3 @@
----
-sidebar_position: 1
----
-
-
 # FAQ 
 
 Below we have a list of some frequently asked questions. We try to make sure that this page is updated as frequently as possible. If you have a question that is not answered by this page or the rest of the [documentation](../introduction/), you can join the [reVISit Slack group](https://join.slack.com/t/revisit-nsf/shared_invite/zt-2g1lwcq5y-Yae8eBEbMO~r7tP~ZQ7Cig). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
