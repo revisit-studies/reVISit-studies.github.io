@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # NumberOption
 
 The NumberOption interface is used to define the options for a slider response.

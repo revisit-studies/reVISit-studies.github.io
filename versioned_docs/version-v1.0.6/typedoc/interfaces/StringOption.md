@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # StringOption
 
 The StringOption interface is used to define the options for a dropdown, radio, or checkbox response.

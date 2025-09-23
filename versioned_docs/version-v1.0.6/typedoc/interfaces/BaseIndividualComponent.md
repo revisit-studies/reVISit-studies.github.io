@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # BaseIndividualComponent
 
 The BaseIndividualComponent interface is used to define the required fields for all components.

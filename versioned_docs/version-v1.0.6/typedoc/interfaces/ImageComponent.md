@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # ImageComponent
 
 The ImageComponent interface is used to define the properties of an image component. This component is used to render an image with optional styling.

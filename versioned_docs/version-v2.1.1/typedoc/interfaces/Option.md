@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # Option
 
 The Option interface is used to define the options for a dropdown, slider, radio, or checkbox response.

@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # NumericalResponse
 
 The NumericalResponse interface is used to define the properties of a numerical response.

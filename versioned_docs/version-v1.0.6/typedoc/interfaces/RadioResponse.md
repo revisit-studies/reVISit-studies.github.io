@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # RadioResponse
 
 The RadioResponse interface is used to define the properties of a radio response. Radios have only one allowable selection.

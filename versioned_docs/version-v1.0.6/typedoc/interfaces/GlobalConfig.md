@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # GlobalConfig
 
 The GlobalConfig is used to generate the list of available studies in the UI.

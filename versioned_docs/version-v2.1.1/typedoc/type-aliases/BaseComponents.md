@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # BaseComponents
 
 > **BaseComponents**: `Record`\<`string`, `Partial`\<[`IndividualComponent`](IndividualComponent.md)\>\>

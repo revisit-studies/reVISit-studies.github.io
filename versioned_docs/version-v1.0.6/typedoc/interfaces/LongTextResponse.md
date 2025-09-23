@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # LongTextResponse
 
 The LongTextResponse interface is used to define the properties of a long text response.
