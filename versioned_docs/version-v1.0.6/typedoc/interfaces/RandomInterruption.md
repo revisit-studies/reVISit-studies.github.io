@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # RandomInterruption
 
 The RandomInterruption interface is used to define an interruption that will be shown randomly in the block.

@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # MatrixResponse
 
 The MatrixResponse interface is used to define the properties of a matrix radio or matrix checkbox response.

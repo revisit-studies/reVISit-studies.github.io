@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # Answer
 
 The Answer interface is used to define the properties of an answer. Answers are used to define the correct answer for a task. These are generally used in training tasks or if skip logic is required based on the answer.

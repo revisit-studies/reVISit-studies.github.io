@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # MarkdownComponent
 
 The MarkdownComponent interface is used to define the properties of a markdown component. The components can be used to render many different things, such as consent forms, instructions, and debriefs. Additionally, you can use the markdown component to render images, videos, and other media, with supporting text. Markdown components can have responses (e.g. in a consent form), or no responses (e.g. in a help text file). Here's an example with no responses for a simple help text file:

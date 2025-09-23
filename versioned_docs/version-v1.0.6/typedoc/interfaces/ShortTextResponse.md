@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # ShortTextResponse
 
 The ShortTextResponse interface is used to define the properties of a short text response.

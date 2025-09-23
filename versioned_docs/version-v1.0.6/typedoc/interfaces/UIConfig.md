@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # UIConfig
 
 The UIConfig is used to configure the UI of the app.

@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # SliderResponse
 
 The SliderResponse interface is used to define the properties of a slider response.

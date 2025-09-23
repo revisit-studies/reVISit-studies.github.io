@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # DeterministicInterruption
 
 The DeterministicInterruption interface is used to define an interruption that will be shown at a specific location in the block.

@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # BaseResponse
 
 The BaseResponse interface is used to define the required fields for all responses.

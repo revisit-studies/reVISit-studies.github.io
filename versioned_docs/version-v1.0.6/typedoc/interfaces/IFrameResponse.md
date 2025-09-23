@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # IFrameResponse
 
 The IFrameResponse interface is used to define the properties of an iframe response.

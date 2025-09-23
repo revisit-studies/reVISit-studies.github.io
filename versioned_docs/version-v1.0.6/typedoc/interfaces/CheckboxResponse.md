@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # CheckboxResponse
 
 The CheckboxResponse interface is used to define the properties of a checkbox response.

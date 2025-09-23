@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # DropdownResponse
 
 The DropdownResponse interface is used to define the properties of a dropdown response.
