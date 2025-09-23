@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-displayed_sidebar: reference
----
-
 # InheritedComponent
 
 > **InheritedComponent** = `Partial`\<[`IndividualComponent`](IndividualComponent.md)\> & `object`

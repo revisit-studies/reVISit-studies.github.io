@@ -3,6 +3,12 @@
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
+    demoLinks={[
+      {name: "Dynamic Block Demo", url: "https://revisit.dev/study/demo-dynamic/"}
+    ]}
+    codeLinks={[
+      {name: "Dynamic Block Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-dynamic"}
+    ]}
     referenceLinks={[
         {name: "Dynamic Block", url:"../../typedoc/interfaces/DynamicBlock"}
     ]}
