@@ -2,15 +2,19 @@
 # beauvis
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    demoLinks={[
-      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis"}
-    ]}
-    codeLinks={[
-      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"}
-    ]}
-/>
+  
+  <StructuredLinks
+      demoLinks={[
+        {name: "beauvis Demo", url: "https://revisit.dev/study/library-beauvis"}
+      ]}
+      codeLinks={[
+        {name: "beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"}
+      ]}
+      referenceLinks={[
+        {name: "DOI", url: "https://dx.doi.org/10.1109/tvcg.2022.3209390"},
+        {name: "beauvis", url: "https://www.aviz.fr/Research/BeauVis-Scale"}
+      ]}
+  />
 
 BeauVis is a validated scale for assessing the aesthetic pleasure of visualizations. This library contains three components for the 3-, 4-, and 5-item versions of the BeauVis scale.
 
@@ -35,3 +39,5 @@ Link: [https://www.aviz.fr/Research/BeauVis-Scale](https://www.aviz.fr/Research/
 ## Available Sequences
 
 None
+
+

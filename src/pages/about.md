@@ -45,7 +45,7 @@ reVISit is a project developed at the [University of Utah](https://vdl.sci.utah.
 [Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI  
 [Carolina Nobre](http://carolinanobre.com/), Co-I, University of Toronto  
 [Brian Bollen](http://briancbollen.com/), Senior Software Developer, University of Utah  
-[Zach Cutler](https://vdl.sci.utah.edu/team/zcutler/), PhD Student, University of Utah  
+[Zach Cutler](https://zach-cutler.com/), PhD Student, University of Utah  
 [Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
 [Tingying He](https://tingying-he.github.io/), Postdoc, University of Utah  
 [Andrew McNutt](https://www.mcnutt.in/), Assistant Professor, University of Utah  

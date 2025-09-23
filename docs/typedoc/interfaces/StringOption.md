@@ -1,6 +1,6 @@
 # StringOption
 
-Defined in: [parser/types.ts:141](https://github.com/revisit-studies/study/blob/2e617a552035dd6d22a4f8cba7e0d8ac40275f33/src/parser/types.ts#L141)
+Defined in: [parser/types.ts:230](https://github.com/revisit-studies/study/blob/6d0bcf865c88e39cf1cf0007fe3f55213492c22c/src/parser/types.ts#L230)
 
 The StringOption interface is used to define the options for a dropdown, radio, buttons, or checkbox response.
 The label is the text that is displayed to the user, and the value is the value that is stored in the data file.
@@ -9,5 +9,5 @@ The label is the text that is displayed to the user, and the value is the value 
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="label"></a> `label` | `string` | The label displayed to participants. | [parser/types.ts:143](https://github.com/revisit-studies/study/blob/2e617a552035dd6d22a4f8cba7e0d8ac40275f33/src/parser/types.ts#L143) |
-| <a id="value"></a> `value` | `string` | The value stored in the participant's data. | [parser/types.ts:145](https://github.com/revisit-studies/study/blob/2e617a552035dd6d22a4f8cba7e0d8ac40275f33/src/parser/types.ts#L145) |
+| <a id="label"></a> `label` | `string` | The label displayed to participants. Markdown is supported. | [parser/types.ts:232](https://github.com/revisit-studies/study/blob/6d0bcf865c88e39cf1cf0007fe3f55213492c22c/src/parser/types.ts#L232) |
+| <a id="value"></a> `value` | `string` | The value stored in the participant's data. | [parser/types.ts:234](https://github.com/revisit-studies/study/blob/6d0bcf865c88e39cf1cf0007fe3f55213492c22c/src/parser/types.ts#L234) |
