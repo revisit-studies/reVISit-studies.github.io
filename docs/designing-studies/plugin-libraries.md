@@ -161,14 +161,14 @@ When using these plugins, please ensure that you properly cite the original sour
 ### Basic Checks
 
 
-- `mic-check`: **Tests whether participants' microphone is working properly.**
+- `mic-check`: **Tests whether participants' microphone is working properly**
 
-- `color-blindness`: **The Ishihara color blindness test with 24 plates.**
+- `color-blindness`: **The Ishihara Color Blindness Test**
 	**Images from**: https://www.colour-blindness.com/colour-blindness-tests/ishihara-colour-test-plates/
 
-- `demographics`: **Collects participant demographic information.**
+- `demographics`: **Collects participant demographic information**
 
-- `screen-recording`: **Record participants' screen.**
+- `screen-recording`: **Records participants' screen**
 
 
 ### Questionnaires
