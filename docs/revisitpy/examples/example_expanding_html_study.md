@@ -217,7 +217,7 @@ ui_config = rvt.uiConfig(
     withProgressBar=True,
     autoDownloadStudy=False,
     autoDownloadTime=5000,
-    sidebar=False
+    withSidebar=False
 )
 
 study = rvt.studyConfig(

@@ -37,7 +37,7 @@ study_metadata = rvt.studyMetadata(
 ui_config = rvt.uiConfig(
   contactEmail="briancbollen@gmail.com",
   logoPath="./assets/revisitLogoSquare.svg",
-  sidebar=True,
+  withSidebar=True,
   withProgressBar=False,
   nextOnEnter=True
 )
@@ -194,8 +194,8 @@ test_data_1 = pd.DataFrame({'X':[0.1,0.3,0.6], 'Y':[0.3,0.3,0.4]})
 test_data_2 = pd.DataFrame({'X':[0.1,0.1,0.3], 'Y':[0.4,0.9,0.2]})
 
 # Display chart
-# chart = create_scatter_plot(test_data_1,test_data_2)
-chart = create_parallel_plot(test_data_1,test_data_2)
+# chart = create_parallel_plot(test_data_1,test_data_2)
+chart = create_scatter_plot(test_data_1,test_data_2)
 chart
 ```
 
@@ -208,7 +208,7 @@ chart
 
 
 
-## Generate Vega Spec to combine Generated Data and Plots
+# Generate Vega Spec to combine Generated Data and Plots
 
 Now that we have our functions to create the individual chart, we want a function that returns the correct vega spec when given the number of points, the correlation values, and the visualization type ('scatterPlot' or 'parallelPlot'). We'll use the number of points and the pair of correlation values to generate the dataset. Using the visualization type, we'll either return the scatter plot of this data or the parallel coordinates plot. Hover, instead of returning the vega-altair chart, we instead convert the chart to its vega-lite specification, then convert that into the true vega specification.
 
@@ -342,8 +342,6 @@ combinations = itertools.combinations(range(1, 11), 2)
 
 # Create the dataset with values divided by 10
 dataSet = [{'corrValues': [x / 10, y / 10]} for x, y in combinations]
-# Create the dataset with values divided by 10
-
 
 main_sequence = rvt.sequence(order='fixed')
 
@@ -367,12 +365,12 @@ study = rvt.studyConfig(
     sequence=sequence
 )
 
-# Prints the entire configuration file which is approximately 150,000 lines of JSON
+# Prints the entire configuration file which is approximately 230,000 lines of JSON
 # print(study)
 
 ```
 
-## Using `revisitpy-server` to Prepare Our Widget
+# Using `revisitpy-server` to Prepare Our Widget
 
 The `revisitpy` package provides a widget in order to preview our study directly in a Jupyter notebook. We can interact with the study, check that vega signals work, and even create some introductory data ourselves. In order for the widget to work, a local copy of the reVISit must be running on your local computer. If you already have reVISit locally (colloqioully our `study` repo), then all you need to do is navigate to your repository and run `yarn serve`. After this, the widget we create in this jupyter notebook will be useable.
 
@@ -396,7 +394,7 @@ Now that your server is running, we create the widget with the configuration fil
 w = rvt.widget(study, server=True)
 
 # In your own Jupyter notebook, calling `w` will now display the widget in a fully interactive manner.
-# w
+w
 ```
 **Output:**
 ```output
@@ -411,14 +409,46 @@ From here, we can export this data back into our Jupyter notebook. Start by clic
 
 
 ```python
-w.get_df()
+df = w.get_df()
 ```
 
-## Optional: Terminate the server
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+filtered_df = df[df['trialId'].str.startswith(('parallelCoords-', 'scatterPlot-'))].copy()
+
+filtered_df['visType'] = filtered_df['trialId'].apply(
+    lambda x: 'parallelCoordinates' if x.startswith('parallelCoords-') 
+    else 'scatterPlot' if x.startswith('scatterPlot-') 
+    else x
+)
+
+sns.violinplot(x='visType', y='duration', data=filtered_df)
+plt.title('Duration by Visualization Type')
+plt.xlabel('Visualization Type')
+plt.ylabel('Duration')
+plt.show()
+```
+
+
+    
+![png](example_jnd_study_files/example_jnd_study_19_0.png)
+    
+
+
+# Optional: Terminate the server
 
 Closing the notebook will automatically terminate the server. If you'd rather do this manually, you can do the following.
 
 
 ```python
 process.terminate()
+```
+
+
+```python
+
 ```
