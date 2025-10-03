@@ -99,6 +99,21 @@ Radios and check-boxes can be rendered either vertically (the default) or horizo
 
 You can allow an “other” option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
 
+### Ranking Widget Features
+
+Ranking widget allows participants to order or group items rather than simply selecting them. They are useful when you want to capture relative preferences, priorities, or categories of interest.
+
+#### The "numItems" option
+
+For sublist and categorical rankings, you can use the `numItems` option to control how many items participants must assign:
+
+- In a sublist, `numItems` sets how many items they have to rank (e.g., top 2 out of 5).
+- In a categorical ranking, `numItems` can limit how many items may be placed in each category (e.g., only 3 items per category).  
+
+This option is useful when you want participants to focus on their strongest preferences rather than distributing all items.
+
+![Examples of ranking widgets](img/style-ranking.png)
+
 ### Randomization of form elements 
 Randomizing the order of answers or questions can help reduce bias and improve the quality of your study results. ReVISit allows you to shuffle options within a question, or even the order of entire questions on a page.
 
