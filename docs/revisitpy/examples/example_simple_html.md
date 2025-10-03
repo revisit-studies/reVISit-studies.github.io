@@ -42,7 +42,7 @@ ui_config = rvt.uiConfig(
     withProgressBar=True,
     autoDownloadStudy=False,
     autoDownloadTime=5000,
-    sidebar=False
+    withSidebar=False
 )
 ```
 
@@ -60,12 +60,17 @@ response_one = rvt.response(
     required=True
 )
 
+correct_answer = rvt.answer(
+    id='barChart',
+    answer='A'
+)
 base_component = rvt.component(
     component_name__='bar-chart',
     type='website',
     response=[response_one],
     path="./assets/bar-chart-interaction.html",
-    instructionLocation='aboveStimulus'
+    instructionLocation='aboveStimulus',
+    correctAnswer=[correct_answer],
 )
 ```
 
@@ -155,6 +160,12 @@ print(study)
             "type": "markdown"
         },
         "bar-chart-1": {
+            "correctAnswer": [
+                {
+                    "answer": "A",
+                    "id": "barChart"
+                }
+            ],
             "description": "A trial for the user to click the largest bar",
             "instruction": "Click on the largest bar",
             "instructionLocation": "aboveStimulus",
@@ -182,6 +193,12 @@ print(study)
             "type": "website"
         },
         "bar-chart-2": {
+            "correctAnswer": [
+                {
+                    "answer": "A",
+                    "id": "barChart"
+                }
+            ],
             "description": "A trial for the user to click the smallest bar",
             "instruction": "Click on the smallest bar",
             "instructionLocation": "aboveStimulus",
@@ -238,12 +255,12 @@ print(study)
         "contactEmail": "contact@revisit.dev",
         "helpTextPath": "./assets/help.md",
         "logoPath": "./assets/revisitLogoSquare.svg",
-        "sidebar": false,
-        "withProgressBar": true
+        "withProgressBar": true,
+        "withSidebar": false
     }
 }
 ```
-## Visualizing the Study
+# Visualizing the Study
 
 Now that we have the study completed, let's use the widget to visualize this. We'll start by using the `revisitpy-server` package to run a local copy of the reVISit repo.
 
@@ -263,7 +280,7 @@ Server is running in the background at http://localhost:8080
 ```
 ## Launching The Widget
 
-Launching the widget is also straightforward -- especially when using the `revisitpy-server` package.
+Launching the widget is also straightforward -- especially when using the `revisitpy_server` package.
 
 
 ```python
