@@ -91,8 +91,6 @@ Screen is recorded via browser, and participants will receive a permissions requ
 
 Participants are asked to share the study tab. In Chromium-based browsers, the study tab is usually pre-selected by default. In other browsers, participants must manually select the correct tab, which is labeled "RECORD THIS TAB."
 
-<!-- However, for this purpose we provide the `mic-check` library, which requires participants to have a functioning microphone to continue the study. You can find more information in the [reVISit libraries](./plugin-libraries.md). -->
-
 All recorded videos are stored in Firebase storage. To download participants's screen recorded videos after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis. 
 
 To download video data after completing a study, we recommend utilizing gsutil to download the video files in bulk. Navigate to your firebase storage to find your appspot name, then run the command:
