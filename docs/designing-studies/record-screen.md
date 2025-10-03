@@ -48,7 +48,7 @@ Add `screen-recording` to the `importedLibraries` section of your config. This m
 
 **Step 3: Add the screen recording permission page to your sequence**
 
-Insert the `screenRecordingPermission` page into your study sequence. Any screens that follow it will be able to record the participant’s screen.
+Insert the `screenRecordingPermission` page into your study sequence (ideally after your introduction and consent components). Any screens that follow it will be able to record the participant’s screen.
 
 ```json
 {
