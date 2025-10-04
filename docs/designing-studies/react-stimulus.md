@@ -21,7 +21,7 @@ React is a popular JavaScript library for building user interfaces, primarily fo
 
 Here we will introduce how to create a React stimulus for reVISit studies through two examples.
 
-**Example 1** is a stimulus from the [graphical perception experiment](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Graphical+perception%3A+Theory%2C+experimentation%2C+and+application+to+the+development+of+graphical+methods&btnG=). This example will demonstrate how to pass data from the config file to the stimulus.
+**Example 1** is a stimulus from the [graphical perception experiment](https://doi.org/10.1080/01621459.1984.10478080). This example will demonstrate how to pass data from the config file to the stimulus.
 
 **Example 2** is a stimulus for the click accuracy test. This example will demonstrate how to retrieve user answers from the React component.
 

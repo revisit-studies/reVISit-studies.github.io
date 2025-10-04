@@ -34,6 +34,8 @@ If you've used ReVISit for you visualization research, we'd love to see it! Fill
 
 ## Community Activities
 
+- Open Hackathon at TU Graz, Austria, November 2025
+- Tutorial at IEEE VIS 2025, Vienna, November 2025
 - Tutorial at EuroVis 2025, Luxembourg, June 2025
 - Course at [CHI 2025](https://chi2025.acm.org/), Japan, April 2025
 - Tutorial at UNC Chapel Hill, March 12 2025
