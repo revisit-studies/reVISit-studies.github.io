@@ -1,21 +1,5 @@
 # Applying Styles
-<!--   Importing Links -->
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-  demoLinks={[
-    {name: "Style Demo", url: "https://revisit.dev/study/demo-style"}
-  ]}
-  codeLinks={[
-    {name: "Style Demo Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-style"}
-  ]}
-  referenceLinks={[
-    {name: "UIConfig", url: "../../typedoc/interfaces/UIConfig"},
-    {name: "BaseIndividualComponent", url: "../../typedoc/interfaces/BaseIndividualComponent"},
-    {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"},
-    {name: "CSS Properties", url:"https://developer.mozilla.org/en-US/docs/Web/CSS/Properties"}
-  ]}
-/> 
 
 ReVISit provides flexible styling capabilities to customize the appearance of your study components and responses. You can apply styles at three levels: **globally through UI configuration**, at the **component** level, and at the **response** level.
 
@@ -601,3 +585,22 @@ You can also make responses interactive using CSS. For example, you can change t
   }
 }
 ```
+
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+  demoLinks={[
+    {name: "Style Demo", url: "https://revisit.dev/study/demo-style"}
+  ]}
+  codeLinks={[
+    {name: "Style Demo Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-style"}
+  ]}
+  referenceLinks={[
+    {name: "UIConfig", url: "../../typedoc/interfaces/UIConfig"},
+    {name: "BaseIndividualComponent", url: "../../typedoc/interfaces/BaseIndividualComponent"},
+    {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"},
+    {name: "CSS Properties", url:"https://developer.mozilla.org/en-US/docs/Web/CSS/Properties"}
+  ]}
+/> 

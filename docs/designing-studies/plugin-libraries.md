@@ -1,67 +1,6 @@
 # reVISit Libraries
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    demoLinks={[
-      {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
-      {name: "Color Blindess Demo", url: "https://revisit.dev/study/library-color-blindness/"},
-      {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
-      {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
-      {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
-      {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
-      {name: "Berlin Numeracy Demo", url: "https://revisit.dev/study/library-berlin-num/"},
-      {name: "Graph Literacy Demo", url: "https://revisit.dev/study/library-graph-literacy-scale/"},
-      {name: "CALVI Demo", url: "https://revisit.dev/study/library-calvi/"},
-      {name: "A-VLAT Demo", url: "https://revisit.dev/study/library-adaptive-vlat/"},
-      {name: "NASA TLX Demo", url: "https://revisit.dev/study/library-nasa-tlx/"},
-      {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
-      {name: "QUIS Demo", url: "https://revisit.dev/study/library-quis/"},
-      {name: "SAM Demo", url: "https://revisit.dev/study/library-sam/"},
-      {name: "SMEQ Demo", url: "https://revisit.dev/study/library-smeq/"},
-      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
-      {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"}
-    ]}
-    codeLinks={[
-      {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
-      {name: "Color Blindess Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
-      {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
-      {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
-      {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
-      {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
-      {name: "Berlin Numeracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
-      {name: "Graph Literacy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-graph-literacy-scale/"},
-      {name: "CALVI Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
-      {name: "A-VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat/"},
-      {name: "NASA TLX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-nasa-tlx"},
-      {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
-      {name: "QUIS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-quis/"},
-      {name: "SAM Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sam/"},
-      {name: "SMEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq/"},
-      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
-      {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"}
-    ]}
-    referenceLinks={[
-      {name: "Library Config", url: "../../typedoc/interfaces/LibraryConfig"},
-      {name: "Mic Check Library", url:"../../libraries/mic-check/"},
-      {name: "Color Blindess Library", url:"../../libraries/color-blindness/"},
-      {name: "Demographics Library", url:"../../libraries/demographics/"},
-      {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
-      {name: "VLAT Library", url:"../../libraries/vlat/"},
-      {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},
-      {name: "Berlin Numeracy Library", url:"../../libraries/berlin-num/"},
-      {name: "Graph Literacy Library", url:"../../libraries/graph-literacy-scale/"},
-      {name: "CALVI Library", url:"../../libraries/calvi/"},
-      {name: "A-VLAT Library", url:"../../libraries/adaptive-vlat/"},
-      {name: "NASA TLX Library", url:"../../libraries/nasa-tlx/"},
-      {name: "SUS Library", url:"../../libraries/sus/"},
-      {name: "QUIS Library", url:"../../libraries/quis/"},
-      {name: "SAM Library", url:"../../libraries/sam/"},
-      {name: "SMEQ Library", url:"../../libraries/smeq/"},
-      {name: "Beauvis Library", url:"../../libraries/beauvis/"},
-      {name: "PREVis Library", url:"../../libraries/previs/"}
-    ]}
-/>
 
 We provide predefined **libraries** of study components and validated questionnaires for visualization and HCI. These libraries that are easy to integrate into your study configurations as individual components or sequences of components.
 
@@ -249,3 +188,67 @@ T. He, P. Isenberg, R. Dachselt, and T. Isenberg, “BeauVis: A Validated Scale 
 :::note[Reference]
 A.-F. Cabouat, T. He, P. Isenberg, and T. Isenberg, “PREVis: Perceived Readability Evaluation for Visualizations,” _IEEE Transactions on Visualization and Computer Graphics_, vol. 31, no. 1, pp. 1083–1093, Jan. 2025, doi: 10.1109/tvcg.2024.3456318.
 :::
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+      {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
+      {name: "Color Blindess Demo", url: "https://revisit.dev/study/library-color-blindness/"},
+      {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
+      {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
+      {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
+      {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
+      {name: "Berlin Numeracy Demo", url: "https://revisit.dev/study/library-berlin-num/"},
+      {name: "Graph Literacy Demo", url: "https://revisit.dev/study/library-graph-literacy-scale/"},
+      {name: "CALVI Demo", url: "https://revisit.dev/study/library-calvi/"},
+      {name: "A-VLAT Demo", url: "https://revisit.dev/study/library-adaptive-vlat/"},
+      {name: "NASA TLX Demo", url: "https://revisit.dev/study/library-nasa-tlx/"},
+      {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
+      {name: "QUIS Demo", url: "https://revisit.dev/study/library-quis/"},
+      {name: "SAM Demo", url: "https://revisit.dev/study/library-sam/"},
+      {name: "SMEQ Demo", url: "https://revisit.dev/study/library-smeq/"},
+      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
+      {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"}
+    ]}
+    codeLinks={[
+      {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
+      {name: "Color Blindess Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
+      {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
+      {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
+      {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
+      {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
+      {name: "Berlin Numeracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
+      {name: "Graph Literacy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-graph-literacy-scale/"},
+      {name: "CALVI Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
+      {name: "A-VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat/"},
+      {name: "NASA TLX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-nasa-tlx"},
+      {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
+      {name: "QUIS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-quis/"},
+      {name: "SAM Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sam/"},
+      {name: "SMEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq/"},
+      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
+      {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"}
+    ]}
+    referenceLinks={[
+      {name: "Library Config", url: "../../typedoc/interfaces/LibraryConfig"},
+      {name: "Mic Check Library", url:"../../libraries/mic-check/"},
+      {name: "Color Blindess Library", url:"../../libraries/color-blindness/"},
+      {name: "Demographics Library", url:"../../libraries/demographics/"},
+      {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
+      {name: "VLAT Library", url:"../../libraries/vlat/"},
+      {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},
+      {name: "Berlin Numeracy Library", url:"../../libraries/berlin-num/"},
+      {name: "Graph Literacy Library", url:"../../libraries/graph-literacy-scale/"},
+      {name: "CALVI Library", url:"../../libraries/calvi/"},
+      {name: "A-VLAT Library", url:"../../libraries/adaptive-vlat/"},
+      {name: "NASA TLX Library", url:"../../libraries/nasa-tlx/"},
+      {name: "SUS Library", url:"../../libraries/sus/"},
+      {name: "QUIS Library", url:"../../libraries/quis/"},
+      {name: "SAM Library", url:"../../libraries/sam/"},
+      {name: "SMEQ Library", url:"../../libraries/smeq/"},
+      {name: "Beauvis Library", url:"../../libraries/beauvis/"},
+      {name: "PREVis Library", url:"../../libraries/previs/"}
+    ]}
+/>

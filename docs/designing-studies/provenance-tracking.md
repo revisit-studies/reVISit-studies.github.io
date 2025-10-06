@@ -1,20 +1,6 @@
 # Provenance Tracking
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    demoLinks= {[
-        {name: "HTML Track Demo", url: "https://revisit.dev/study/demo-html-trrack/"},
-        {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test"}
-    ]}
-    codeLinks= {[
-        {name: "HTML Track Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"},
-        {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/src/public/demo-click-accuracy-test"},
-    ]}
-    referenceLinks={[
-        {name: "Trrack", url:"https://apps.vdl.sci.utah.edu/trrack"}
-    ]}
-/>
 
 ReVISit has integrated provenance tracking with Trrack, a state-based provenance tracking library maintained by the same team that maintains reVISit. The below example shows a simple example for using trrack, for more detailed information on trrack and its API visit the [trrack documentation](https://apps.vdl.sci.utah.edu/trrack) 
 
@@ -104,3 +90,18 @@ trrack.undo();
 trrack.redo();
 ```
 
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks= {[
+        {name: "HTML Track Demo", url: "https://revisit.dev/study/demo-html-trrack/"},
+        {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test"}
+    ]}
+    codeLinks= {[
+        {name: "HTML Track Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"},
+        {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/src/public/demo-click-accuracy-test"},
+    ]}
+    referenceLinks={[
+        {name: "Trrack", url:"https://apps.vdl.sci.utah.edu/trrack"}
+    ]}
+/>

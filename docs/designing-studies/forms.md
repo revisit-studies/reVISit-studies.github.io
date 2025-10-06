@@ -1,18 +1,5 @@
 # Designing Forms
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    demoLinks={[
-        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey"}
-    ]}
-    codeLinks={[
-        {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-survey"}
-    ]}
-    referenceLinks={[
-        {name: "Form Elements Overview", url:"../../typedoc/#form-elements"}
-    ]}
-/>
 
 Form elements are essential for most studies to capture user responses. reVISit provides rich form elements, such as slides, check-boxes, text fields, etc, so that you can efficiently design your forms.
 
@@ -186,5 +173,21 @@ Here is an example to show how to set up responses in random order:
 }
 ```
 ![Randomization of form elements](./img/form-random-response.png)
+
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey"}
+    ]}
+    codeLinks={[
+        {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-survey"}
+    ]}
+    referenceLinks={[
+        {name: "Form Elements Overview", url:"../../typedoc/#form-elements"}
+    ]}
+/>
 
 

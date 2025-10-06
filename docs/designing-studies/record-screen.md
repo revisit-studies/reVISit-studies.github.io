@@ -1,20 +1,5 @@
 # Record Screen
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    demoLinks={[
-      {name: "Screen Recording Demo", url: "https://revisit.dev/study/demo-screen-recording/"}
-    ]}
-    codeLinks={[
-      {name: "Screen Recording Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-screen-recording"}
-    ]}
-    referenceLinks={[
-        {name: "screen-recording Library", url: "../../libraries/screen-recording/"},
-        {name: "reVISit Libraries", url: "../plugin-libraries"}
-    ]}
-/>
-
 
 ReVISit provides built-in support for screen recording and playback, enabling both in-person and crowdsourced tracking studies.
 
@@ -118,3 +103,20 @@ When both screen and audio recording are enabled, the permissions page will incl
 Enabling audio with screen recording merges both into a single video file.
 This means that whenever screen recording is enabled, audio recording is also active, and cannot be disabled independently.
 :::
+
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+      {name: "Screen Recording Demo", url: "https://revisit.dev/study/demo-screen-recording/"}
+    ]}
+    codeLinks={[
+      {name: "Screen Recording Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-screen-recording"}
+    ]}
+    referenceLinks={[
+        {name: "screen-recording Library", url: "../../libraries/screen-recording/"},
+        {name: "reVISit Libraries", url: "../plugin-libraries"}
+    ]}
+/>

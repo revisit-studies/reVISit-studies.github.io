@@ -1,13 +1,6 @@
 # Installation
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    referenceLinks={[
-        {name: "uv Installation", url: "https://docs.astral.sh/uv/getting-started/installation/"},
-        {name: "pip Installation", url: "https://pip.pypa.io/en/stable/installation/"}
-    ]}
-/>
 
 Adding reVISitPy to a python project is simple. If you're using `pip`, you can do the following:
 
@@ -66,3 +59,13 @@ process = rs.serve()
 :::note
 Note that this is, by default, serving a copy of reVISit on port 8080. Currently, there are no adjustments in place to change this default port. We intend to allow for more customization in the future.
 :::
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "uv Installation", url: "https://docs.astral.sh/uv/getting-started/installation/"},
+        {name: "pip Installation", url: "https://pip.pypa.io/en/stable/installation/"}
+    ]}
+/>

@@ -1,15 +1,6 @@
 # Participant Replay
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    demoLinks={[
-        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"}
-    ]}
-    codeLinks={[
-        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"}
-    ]}
-/>
 
 The participant replay can be used for an overview of each participants study. 
 
@@ -33,3 +24,15 @@ You can specify time in different formats:
 - Hours: `&t=1h30m`  
 
 If the entered time exceeds the replay’s maximum length, it will automatically be replaced with the maximum available time in milliseconds.
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"}
+    ]}
+    codeLinks={[
+        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"}
+    ]}
+/>

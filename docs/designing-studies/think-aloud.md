@@ -1,19 +1,6 @@
 # Think Aloud
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    demoLinks={[
-      {name: "Test Audio Demo", url: "https://revisit.dev/study/test-audio/"}
-    ]}
-    codeLinks={[
-      {name: "Test Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
-    ]}
-    referenceLinks={[
-        {name: "mic-check Library", url: "../../libraries/mic-check/"},
-        {name: "reVISit Libraries", url: "../plugin-libraries"}
-    ]}
-/>
 
 ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio is only recorded while using firebase storage, and will not activate if using local storage. 
 
@@ -50,3 +37,19 @@ All audio data is stored in firebase storage. To listen to participants audio af
 
 To download audio data after completing a study, we recommend utilizing gsutil to download the audio and transcript files in bulk. Navigate to your firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio .`
 
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+      {name: "Test Audio Demo", url: "https://revisit.dev/study/test-audio/"}
+    ]}
+    codeLinks={[
+      {name: "Test Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
+    ]}
+    referenceLinks={[
+        {name: "mic-check Library", url: "../../libraries/mic-check/"},
+        {name: "reVISit Libraries", url: "../plugin-libraries"}
+    ]}
+/>

@@ -1,21 +1,6 @@
 # Designing a React Stimulus
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    demoLinks={[
-      {name: "Graphical Perception Demo", url: "https://revisit.dev/study/example-cleveland/"},
-      {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test/"}
-    ]}
-    codeLinks={[
-      {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
-      {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
-    ]}
-    referenceLinks={[
-        {name: "React", url: "https://react.dev/"},
-        {name: "React Component", url:"../../typedoc/interfaces/ReactComponent"}
-    ]}
-/>
 
 React is a popular JavaScript library for building user interfaces, primarily for single-page applications. You can find more details on the official [React documentation](https://react.dev/).
 
@@ -307,3 +292,22 @@ At this point, the click accuracy test will be running and be able to collect pa
 1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
 2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
 3) We can make this stimulus more challenge, adding mulitple moving dots and ask the participants to click on the highlighted one. -->
+
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+      {name: "Graphical Perception Demo", url: "https://revisit.dev/study/example-cleveland/"},
+      {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test/"}
+    ]}
+    codeLinks={[
+      {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
+      {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
+    ]}
+    referenceLinks={[
+        {name: "React", url: "https://react.dev/"},
+        {name: "React Component", url:"../../typedoc/interfaces/ReactComponent"}
+    ]}
+/>

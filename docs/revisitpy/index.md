@@ -1,16 +1,6 @@
 # ReVISitPy Python Package
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    codeLinks={[
-        {name: "reVISitPy Examples", url: "https://github.com/revisit-studies/revisitpy-examples"}
-    ]}
-    referenceLinks={[
-        {name: "reVISitPy Installation", url: "./installation"},
-        {name: "reVISitPy Examples", url: "./examples"}
-    ]}
-/>
 
 The reVISitPy python package is a pip package that aids in the construction of configuration files. Just like in the study configuration file, you can create components, responses, study metadata, UI config, and complex sequences. Then, you can combine these all together in a single study configuration file. Here is an example of creating a simple response and attaching it to a single component.
 
@@ -90,3 +80,16 @@ When choosing the Jupyter kernel to use, you should use the one that corresponds
 :::
 
 Each of the examples in the `revisit-py-examples` repository are also shown [here](./examples/index.md) in markdown format.
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    codeLinks={[
+        {name: "reVISitPy Examples", url: "https://github.com/revisit-studies/revisitpy-examples"}
+    ]}
+    referenceLinks={[
+        {name: "reVISitPy Installation", url: "./installation"},
+        {name: "reVISitPy Examples", url: "./examples"}
+    ]}
+/>

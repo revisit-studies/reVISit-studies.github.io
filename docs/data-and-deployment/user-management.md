@@ -1,13 +1,6 @@
 # User Management In reVISit
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    referenceLinks={[
-        {name: "Firebase Setup", url: "../firebase/firebase-setup"},
-        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
-    ]}
-/>
 
 :::tip
 To use the user-management system that is built into reVISit, you must have a Firebase application set up. Please see [here](../firebase/firebase-setup) for how to set up a Firebase application. Additionally, you will need to enable the Google sign-in method for Authentication. You can find this section of the Firebase tutorial [here](../firebase/firebase-setup#authentication).
@@ -38,4 +31,15 @@ When you first set up your reVISit application, authentication is disabled by de
 :::warning
 Authentication should be enabled prior to deployment. This will prevent any unwanted user from enabling authentication and setting themselves as an administrator. Adding or removing administrators can be done before or after deployment.
 :::
+
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase Setup", url: "../firebase/firebase-setup"},
+        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
+    ]}
+/>
 

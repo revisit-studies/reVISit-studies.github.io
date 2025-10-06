@@ -1,23 +1,5 @@
 # Data Export and Basic Analysis
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    demoLinks={[
-        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"},
-        {name: "Audio Demo", url: "https://revisit.dev/study/analysis/stats/test-audio"},
-    ]}
-    codeLinks={[
-        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"},
-        {name: "Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
-    ]}
-    referenceLinks={[
-        {name: "Tidy Data", url: "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"},
-        {name: "R", url: "https://www.r-project.org/other-docs.html"},
-        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"},
-        {name: "Think Aloud", url: "https://revisit.dev/docs/designing-studies/think-aloud"}
-    ]}
-/>
 
 reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
 
@@ -147,3 +129,23 @@ To download audio from specific participants, select the participants in the tab
 If you are using Firebase, it will download the transcript of the audio file as well.
 :::
 
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"},
+        {name: "Audio Demo", url: "https://revisit.dev/study/analysis/stats/test-audio"},
+    ]}
+    codeLinks={[
+        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"},
+        {name: "Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
+    ]}
+    referenceLinks={[
+        {name: "Tidy Data", url: "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"},
+        {name: "R", url: "https://www.r-project.org/other-docs.html"},
+        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"},
+        {name: "Think Aloud", url: "https://revisit.dev/docs/designing-studies/think-aloud"}
+    ]}
+/>
