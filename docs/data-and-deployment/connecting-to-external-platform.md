@@ -1,13 +1,5 @@
 # Connecting with External Participant Platforms
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Prolific", url: "https://prolific.com"},
-        {name: "SONA", url: "https://www.sona-systems.com"}
-    ]}
-/>
 
 ReVISit makes it easy to connect with participant management platforms such as Prolific, SONA Systems, and other custom services. Revisit can automatically collect participant IDs from study links, display those IDs inside the study, and redirect participants to a platform-specific return link after completion.
 
@@ -136,3 +128,15 @@ Just like with other platforms, you can display the SONA ID in the introduction 
     ]
 },
 ```
+
+
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Prolific", url: "https://prolific.com"},
+        {name: "SONA", url: "https://www.sona-systems.com"}
+    ]}
+/>

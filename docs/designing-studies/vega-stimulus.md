@@ -1,21 +1,5 @@
 # Designing a Vega Stimulus
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    demoLinks={[
-      {name: "Vega Demo", url: "https://revisit.dev/study/demo-vega/"}
-    ]}
-    codeLinks={[
-      {name: "Vega Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-vega"}
-    ]}
-    referenceLinks={[
-        {name: "Vega", url: "https://vega.github.io/vega/"},
-        {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
-        {name: "Vega Component Config", url: "../../typedoc/interfaces/VegaComponentConfig/"},
-        {name: "Vega Component Path", url: "../../typedoc/interfaces/VegaComponentPath/"}
-    ]}
-/>
 
 [Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations. 
 Vega allows you to define the visual appearance and interactive behavior of a visualization in JSON format and generate web-based views using Canvas or SVG.
@@ -360,3 +344,23 @@ Remember that all events in this example are fully tracked, so you can inspect t
   }
 }
 ```
+
+
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+      {name: "Vega Demo", url: "https://revisit.dev/study/demo-vega/"}
+    ]}
+    codeLinks={[
+      {name: "Vega Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-vega"}
+    ]}
+    referenceLinks={[
+        {name: "Vega", url: "https://vega.github.io/vega/"},
+        {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
+        {name: "Vega Component Config", url: "../../typedoc/interfaces/VegaComponentConfig/"},
+        {name: "Vega Component Path", url: "../../typedoc/interfaces/VegaComponentPath/"}
+    ]}
+/>
