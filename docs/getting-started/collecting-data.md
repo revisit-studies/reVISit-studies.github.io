@@ -1,12 +1,6 @@
 # Collecting Data Locally
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    referenceLinks={[
-        {name: "Firebase", url: "../../data-and-deployment/firebase/firebase-setup"}
-    ]}
-/>
 
 Now that we have a working study, we'll look at how we can start collecting data. 
 
@@ -48,3 +42,13 @@ This will clear your database.
 :::warning
 This cannot be undone. Be sure to back up your data if it is valuable. 
 :::
+
+
+<!-- Importing links  -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase", url: "../../data-and-deployment/firebase/firebase-setup"}
+    ]}
+/>

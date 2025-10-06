@@ -1,20 +1,5 @@
 # How Does It Work?
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Study Config", url: "../../typedoc/interfaces/StudyConfig"},
-        {name: "Study Metadata", url: "../../typedoc/interfaces/StudyMetadata/"},
-        {name: "UI Config", url: "../../typedoc/interfaces/UIConfig"},
-        {name: "Base Individual Component", url: "../../typedoc/interfaces/BaseIndividualComponent/"},
-        {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse/"},
-        {name: "Sequence", url: "../../typedoc/interfaces/Sequence/"},
-        {name: "Analytics Platform", url: "../../analysis"},
-        {name: "Lifecycle of reVISit", url: "../../data-and-deployment/lifecycle-of-revisit"},
-        {name: "Data Management", url: "../../analysis/data-management"}
-    ]}
-/>
 
 To create a study with reVISit, you have to create **components** that contain the content of your study, and you have to create the **study configuration (the reVISit Spec)** that controls when and how these components are shown to participants. Here, we will introduce these at a high level and link to the [detailed documentation](../../typedoc/) where appropriate. 
 
@@ -154,3 +139,22 @@ When the study navigator is enabled, any user will be able to access the studie'
 ### Publicly Accessible Analysis Interface
 
 The analysis interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the anonymized participants, see the answers given, and download all the data. 
+
+<!-- Importing links  -->
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Study Config", url: "../../typedoc/interfaces/StudyConfig"},
+        {name: "Study Metadata", url: "../../typedoc/interfaces/StudyMetadata/"},
+        {name: "UI Config", url: "../../typedoc/interfaces/UIConfig"},
+        {name: "Base Individual Component", url: "../../typedoc/interfaces/BaseIndividualComponent/"},
+        {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse/"},
+        {name: "Sequence", url: "../../typedoc/interfaces/Sequence/"},
+        {name: "Analytics Platform", url: "../../analysis"},
+        {name: "Lifecycle of reVISit", url: "../../data-and-deployment/lifecycle-of-revisit"},
+        {name: "Data Management", url: "../../analysis/data-management"}
+    ]}
+/>

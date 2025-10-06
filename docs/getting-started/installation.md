@@ -1,17 +1,5 @@
 # Installation
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
-        {name: "Node.js Installation", url: "https://nodejs.org/en"},
-        {name: "Yarn Installation", url: "https://yarnpkg.com/"},
-        {name: "NPM Installation", url: "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"}
-    ]}
-/>
-
-## Overview
 
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
@@ -57,3 +45,16 @@ This will install all the packages that the reVisit requires to run.
 This will launch a local web server which can be accessed to view and interact with reVISit. By default, you can access this by visiting [http://localhost:8080/](http://localhost:8080/). Any change you make to the code will automatically update the website.
 
 When you visit the site, you'll see a list of demo studies, identical to [the demo page](https://revisit.dev/study/). You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
+
+<!-- Importing links  -->
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
+        {name: "Node.js Installation", url: "https://nodejs.org/en"},
+        {name: "Yarn Installation", url: "https://yarnpkg.com/"},
+        {name: "NPM Installation", url: "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"}
+    ]}
+/>

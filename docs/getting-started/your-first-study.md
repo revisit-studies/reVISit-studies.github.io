@@ -1,21 +1,6 @@
 # Setting Up Your First Study
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
-<StructuredLinks
-    demoLinks={[
-        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey/"}
-    ]}
-    codeLinks={[
-        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-survey"}
-    ]}
-    referenceLinks={[
-        {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
-        {name: "Long Text Response", url: "../../typedoc/interfaces/LongTextResponse/"},
-        {name: "Dropdown Response", url: "../../typedoc/interfaces/DropdownResponse/"},
-        {name: "Likert Response", url: "../../typedoc/interfaces/LikertResponse/"}
-    ]}
-/>
 
 In this tutorial we will use the example of a simple survey. You will learn: 
 
@@ -162,3 +147,25 @@ Now, if you start the server (using `yarn serve` as described in the <a href="#i
 
 You should now see your study and be able to navigate quickly through it. However, your study is currently set up for development, so you won't be collecting any data yet. Go to the next getting started guide to learn how to enable data collection and download your data.
 
+
+
+
+<!-- Importing links  -->
+
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey/"}
+    ]}
+    codeLinks={[
+        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-survey"}
+    ]}
+    referenceLinks={[
+        {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
+        {name: "Long Text Response", url: "../../typedoc/interfaces/LongTextResponse/"},
+        {name: "Dropdown Response", url: "../../typedoc/interfaces/DropdownResponse/"},
+        {name: "Likert Response", url: "../../typedoc/interfaces/LikertResponse/"}
+    ]}
+/>
