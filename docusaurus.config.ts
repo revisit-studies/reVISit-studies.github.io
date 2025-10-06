@@ -148,6 +148,10 @@ const config: Config = {
                 <img src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/vdl-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
+              <a class="col " target="_blank" href="https://www.mcnutt.in/#/lab">
+                <img src="/img/logos/havoc-logo-light.png" class='logo light-theme-display-component'/>
+                <img src="/img/logos/havoc-logo-dark.png" class='logo dark-theme-display-component'/>
+              </a>
               <a class="col " target="_blank" href="https://www.sci.utah.edu/">
                 <img src="/img/logos/sci-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/sci-logo-dark.svg" class='logo dark-theme-display-component'/>
@@ -162,14 +166,6 @@ const config: Config = {
               </a>
               <a class="col " target="_blank" href="https://wpi.edu/">
                 <img src="/img/logos/wpi.png" class='logo'/>
-              </a>
-              <a class="col " target="_blank" href="https://www.cs.toronto.edu/~cnobre/">
-                <img src="/img/logos/HIVE_logo.png" class='logo light-theme-display-component'/>
-                <img src="/img/logos/HIVE-logo-dark.svg" class='logo dark-theme-display-component'/>
-              </a>
-              <a class="col " target="_blank" href="https://www.cs.toronto.edu/">
-                <img src="/img/logos/UofTLogo.png" class='logo light-theme-display-component'/>
-                <img src="/img/logos/UofT-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
               <a class="col " target="_blank" href="https://www.nsf.gov/">
                 <img src="/img/logos/nsf.png" class='logo'/>
