@@ -14,7 +14,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
 />
 
-Form elements are essential for most studies to capture user responses. reVISit provides rich form elements, such as slides, check-boxes, text fields, etc, so that you can efficiently design your forms.
+Form elements are essential for most studies to capture user responses. reVISit provides rich form elements, such as sliders, check-boxes, text fields, etc, so that you can efficiently design your forms.
 
 This tutorial does not give a comprehensive introduction into all form elements. For this, refer to the demo and other links in the relevant links panel. Instead, we introduce some high-level principles that apply to all form elements.
 
@@ -99,13 +99,28 @@ Radios and check-boxes can be rendered either vertically (the default) or horizo
 
 You can allow an “other” option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
 
+### Ranking Widget Features
+
+Ranking widget allows participants to order or group items rather than simply selecting them. They are useful when you want to capture relative preferences, priorities, or categories of interest.
+
+#### The "numItems" option
+
+For sublist and categorical rankings, you can use the `numItems` option to control how many items participants must assign:
+
+- In a sublist, `numItems` sets how many items they have to rank (e.g., top 2 out of 5).
+- In a categorical ranking, `numItems` can limit how many items may be placed in each category (e.g., only 3 items per category).  
+
+This option is useful when you want participants to focus on their strongest preferences rather than distributing all items.
+
+![Examples of ranking widgets](img/style-ranking.png)
+
 ### Randomization of form elements 
 Randomizing the order of answers or questions can help reduce bias and improve the quality of your study results. ReVISit allows you to shuffle options within a question, or even the order of entire questions on a page.
 
 Each participant will see their own consistent order during the study, and the same order is recorded and shown in the replay, so you can always see exactly what they saw.
 
 #### Randomizing Matrix checkbox, Matrix radio
-For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize the questions. Set `questionOrder = "random"` to randomize questions.
+For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize the questions. Set `"questionOrder" = "random"` to randomize questions.
 
 Here is an example to show how to set up questions in random order:
 
@@ -132,8 +147,8 @@ Here is an example to show how to set up questions in random order:
 ![Randomization of question order](./img/form-random-question.png)
 
 
-#### Randomizing Checkbox, radio, button
-To shuffle the options in a radio, checkbox, or button question, set `optionOrder = "random"`.
+#### Randomizing Checkbox, Radio, Button
+To shuffle the options in a radio, checkbox, or button question, set `"optionOrder" = "random"`.
 
 Here is an example to show how to set up options in random order:
 
@@ -146,9 +161,9 @@ Here is an example to show how to set up options in random order:
         "type": "radio",
         "optionOrder": "random", //set randomization here
         "options": [
-        "Apple",
-        "Banana",
-        "Grape"
+            "Apple",
+            "Banana",
+            "Grape"
         ]
     }
 ]
@@ -157,7 +172,7 @@ Here is an example to show how to set up options in random order:
 ![Randomization of option order](./img/form-random-option.png)
 
 #### Randomizing form elements in a single page
-You can also randomize the order of multiple questions that appear on the same page. To do so, apply `responseOrder = "random"`, which will shuffle the order in which the form elements themselves appear on the page.
+You can also randomize the order of multiple questions that appear on the same page. To do so, apply `"responseOrder" = "random"`, which will shuffle the order in which the form elements themselves appear on the page.
 If the form is randomized, a dice icon will appear in the sidebar to indicate that the response order is random.
 
 Here is an example to show how to set up responses in random order:
