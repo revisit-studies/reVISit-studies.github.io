@@ -35,3 +35,19 @@ You can specify minimum screen dimensions in the `uiConfig` section of your stud
   }
 }
 ```
+
+## How It Works
+
+When a participant starts the study, reVISit checks whether their browser window meets the minimum screen size requirements. If the screen is too small, a warning screen appears with a one-minute countdown timer showing the current and required dimensions.
+
+![Device Size Check Timer](./img/device-check-timer.gif)
+
+The participant has one minute to resize their browser window. During this time, reVISit continuously monitors the window size. Once both the width and height meet the requirements, the warning disappears and the study begins.
+
+If the timer runs out and the screen is still too small, the participant will see a training failed page and will not be able to continue the study.
+
+![Device Size Check Timeout](./img/device-check-timeout.png)
+
+In the participant table, the participant will be listed as rejected with the reason "Screen resolution too small."
+
+![Device Size Check Rejected Participant](./img/device-check-rejected.png)
