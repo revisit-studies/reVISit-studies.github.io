@@ -76,6 +76,7 @@ const sidebars: SidebarsConfig = {
           label: 'Supabase',
           items: [
             'data-and-deployment/supabase/setup',
+            'data-and-deployment/supabase/enabling-authentication',
           ],
         },
         'data-and-deployment/deploying-to-static-website',
