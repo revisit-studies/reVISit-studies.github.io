@@ -4,13 +4,13 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Firebase Setup", url: "../firebase-setup"},
+        {name: "Firebase Setup", url: "../setup"},
         {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
     ]}
 />
 
 :::warning
-In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../firebase-setup).
+In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../setup).
 :::
 
 ## Enabling Authentication in Firebase
@@ -41,7 +41,7 @@ Once you have deployed your reVISit application to a website, you'll need to ens
 Note that if your application has been deployed but you have _not_ added your custom authorized domain, then attempting to enable authentication will result in an error.
 :::
 
-Through the navigation panel on the right of your reVISit application, navigate to the "settings" page. Here, you will see that authentication will be currently disabled with a button to enable authentication.
+Through the settings cog on the right of your reVISit application, navigate to the "settings" page. Here, you will see that authentication will be currently disabled with a button to enable authentication.
 
 When you first enable authentication, you will be prompted to sign in using Google SSO. The account chosen will automatically be added as a user. Any other account attempting to log in to reVISit and access these protected routes will be redirected to the login screen.
 
