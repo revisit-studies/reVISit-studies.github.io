@@ -68,6 +68,11 @@ Below we list some notable features that apply to all or most form elements.
 
 Each form element requires a `prompt` that introduces the question. You can also provide a more detailed description in `secondaryText` that is shown below the prompt; both are demonstrated in the above example.
 
+### Additional Descriptions
+
+The `infoText` allows you to provide additional description for survey questions that appears when participants hover over an information icon. This helps clarify questions or scales while keeping the `prompt` simple.
+![A likert with info text](img/form-info-text.gif)
+
 ### Required Fields
 
 You can make a field required, in which case a red star is rendered (see above) and it is necessary that a response is given before the “Next” button is activated and the participant can proceed. Required is the default, set `"required": false` if an answer is optional.
