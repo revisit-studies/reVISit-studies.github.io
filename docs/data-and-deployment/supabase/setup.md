@@ -1,14 +1,5 @@
 # Configuring Supabase
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Supabase", url: "https://supabase.com/"},
-        {name: "Supabase Documentation", url: "https://supabase.com/docs/guides"},
-        {name: "Deploying to GitHub", url: "../deploying-to-static-website"}
-    ]}
-/>
 
 <a href="https://supabase.com/" target="_blank" >Supabase</a> is an open-source alternative to Firebase that provides a real-time database and storage solution. It is built on top of PostgreSQL, which allows for more complex queries and data structures. Supabase is particularly useful for researchers who need to comply with strict data privacy regulations, as it can be self-hosted.
 
@@ -131,3 +122,14 @@ server {
 Make sure to replace `your-domain.com` with your actual domain name and provide the correct paths to your SSL certificate and private key.
 
 Once the reverse proxy is set up, you can access your reVISit application securely over HTTPS provided that you change the `VITE_SUPABASE_URL` in your `.env` file to use `https://` instead of `http://` and drop the port number if you are using the default port 443 for HTTPS (as shown in the example above).
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Supabase", url: "https://supabase.com/"},
+        {name: "Supabase Documentation", url: "https://supabase.com/docs/guides"},
+        {name: "Deploying to GitHub", url: "../../deploying-to-static-website"}
+    ]}
+/>

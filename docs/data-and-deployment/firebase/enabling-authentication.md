@@ -1,16 +1,8 @@
 # Setting Up Authentication
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Firebase Setup", url: "../firebase-setup"},
-        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
-    ]}
-/>
 
 :::warning
-In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../firebase-setup).
+In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../setup).
 :::
 
 ## Enabling Authentication in Firebase
@@ -41,7 +33,7 @@ Once you have deployed your reVISit application to a website, you'll need to ens
 Note that if your application has been deployed but you have _not_ added your custom authorized domain, then attempting to enable authentication will result in an error.
 :::
 
-Through the navigation panel on the right of your reVISit application, navigate to the "settings" page. Here, you will see that authentication will be currently disabled with a button to enable authentication.
+Through the settings cog on the right of your reVISit application, navigate to the "settings" page. Here, you will see that authentication will be currently disabled with a button to enable authentication.
 
 When you first enable authentication, you will be prompted to sign in using Google SSO. The account chosen will automatically be added as a user. Any other account attempting to log in to reVISit and access these protected routes will be redirected to the login screen.
 
@@ -54,3 +46,13 @@ To add another administrator, simply navigate to the settings page (where you en
 ### Removing A User
 
 In the "Enabled Users" section, you will see the "delete" icon to the right of each user aside from yourself. Any administrator is capable of deleting any user from the reVISit system. The only restriction is that you cannot delete yourself and there can never be less than one user.
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase Setup", url: "../setup"},
+        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
+    ]}
+/>
