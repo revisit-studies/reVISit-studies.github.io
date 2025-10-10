@@ -1,14 +1,5 @@
 # Deploying To a Static Website
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-referenceLinks={[
-{name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
-{name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"}
-]}
-/>
-
 ## Deploying using GitHub
 
 Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
@@ -68,3 +59,13 @@ Search for the appropriate repo and then select it. This will bring up a configu
 The first build will take a bit, but once it runs, your experiment should be ready!
 
 If you are using netlify as a secondary venue for anonymization purposes, you can specify which branch netlify will use to deploy from. For instance a branch called `for-review' might remove all personnel and affiliation information.
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+referenceLinks={[
+{name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
+{name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"}
+]}
+/>

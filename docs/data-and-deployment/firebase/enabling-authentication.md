@@ -1,13 +1,5 @@
 # Setting Up Authentication
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Firebase Setup", url: "../setup"},
-        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
-    ]}
-/>
 
 :::warning
 In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../setup).
@@ -54,3 +46,13 @@ To add another administrator, simply navigate to the settings page (where you en
 ### Removing A User
 
 In the "Enabled Users" section, you will see the "delete" icon to the right of each user aside from yourself. Any administrator is capable of deleting any user from the reVISit system. The only restriction is that you cannot delete yourself and there can never be less than one user.
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase Setup", url: "../setup"},
+        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
+    ]}
+/>

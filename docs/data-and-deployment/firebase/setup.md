@@ -1,15 +1,5 @@
 # Configuring Firebase
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Firebase", url: "https://firebase.google.com/"},
-        {name: "Firebase Tier Limits", url: "https://cloud.google.com/storage/pricing#cloud-storage-always-free"},
-        {name: "Google Recaptcha", url: "https://www.google.com/recaptcha/admin/create"},
-        {name: "Deploying to GitHub", url: "../../deploying-to-static-website"}
-    ]}
-/>
 
 <a href="https://firebase.google.com/" target="_blank" >Firebase</a> is an app development platform that has extremely useful tools such as storage and real-time synchronization. With Firebase alone, a study creator can capture all data from participants and then export that data for further analysis. In what follows, there are two main products we will be using: the Firestore database and Firebase's storage product.
 
@@ -213,3 +203,15 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 ### Deployment
 
 If you intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to Github pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase", url: "https://firebase.google.com/"},
+        {name: "Firebase Tier Limits", url: "https://cloud.google.com/storage/pricing#cloud-storage-always-free"},
+        {name: "Google Recaptcha", url: "https://www.google.com/recaptcha/admin/create"},
+        {name: "Deploying to GitHub", url: "../../deploying-to-static-website"}
+    ]}
+/>

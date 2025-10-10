@@ -1,13 +1,5 @@
 # User Management In reVISit
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Firebase Setup", url: "../firebase/setup"},
-        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
-    ]}
-/>
 
 :::tip
 To use the user-management system that is built into reVISit, you must have a Firebase application set up. Please see [here](../firebase/setup) for how to set up a Firebase application. Additionally, you will need to enable the Google sign-in method for Authentication. You can find this section of the Firebase tutorial [here](../firebase/setup#authentication).
@@ -118,3 +110,14 @@ If this step is necessary, we advise that you first remove this application from
 Go into the table editor and navigate to the `revisit` table. Find the row with the `docId` of `user_management`. On this row, you should see a checkbox to the left. Select this checkbox and then select the "Delete" button at the top of the table editor. This will delete the row from the table.
 
 Once the row is deleted, your reVISit application will be ready to re-enable authentication.
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Firebase Setup", url: "../firebase/setup"},
+        {name: "Firebase Authentication", url: "https://firebase.google.com/products/auth"},
+        {name: "Supabase Setup", url: "../supabase/setup"},
+    ]}
+/>
