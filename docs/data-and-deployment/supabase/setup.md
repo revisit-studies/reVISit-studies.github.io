@@ -81,7 +81,7 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
 9. **Update your .env file in your deployed reVISit application**: In the root of your reVISit application, you will need to update the `.env` file with the following variables:
 
    ```env
-    VITE_STORAGE_ENGINE="supabase"
+   VITE_STORAGE_ENGINE="supabase"
    VITE_SUPABASE_URL="https://<your-supabase-instance-ip>"
    VITE_SUPABASE_ANON_KEY="<your-anon-key>"
    ```
