@@ -111,7 +111,7 @@ server {
     ssl_certificate_key /path/to/your/private.key;
 
     location / {
-        proxy_pass http://localhost:8000; # Assuming your reVISit app runs on port 8000
+        proxy_pass https://localhost:8443; # This is the default https port for Supabase
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
