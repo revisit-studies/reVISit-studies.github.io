@@ -80,7 +80,7 @@ Ensure that you are using Vega when adding signals. If you are using Vega-Lite, 
 :::
 
 ### Capturing Responses
-Once the signal is defined in your Vega specifications, you can configure the response field in the reVISit configuration. By setting the response type to `iframe`, the signal emitted by the Vega component is captured and sent to the reVISit platform.
+Once the signal is defined in your Vega specifications, you can configure the response field in the reVISit configuration. By setting the response type to `reactive`, the signal emitted by the Vega component is captured and sent to the reVISit platform.
 
 
 ```js
@@ -91,7 +91,7 @@ Once the signal is defined in your Vega specifications, you can configure the re
       "id": "vegaDemoResponse1",
       "prompt": "You selected:",
       "location": "sidebar",
-      "type": "iframe"
+      "type": "reactive"
     }
   ]
   ...
@@ -322,7 +322,7 @@ Remember that all events in this example are fully tracked, so you can inspect t
         "id": "vegaDemoResponse1",
         "prompt": "You selected:",
         "location": "sidebar",
-        "type": "iframe"
+        "type": "reactive"
       },
       {
         "id": "vegaDemoConfidence1",
