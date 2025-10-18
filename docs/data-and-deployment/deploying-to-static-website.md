@@ -1,14 +1,5 @@
 # Deploying To a Static Website
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-referenceLinks={[
-{name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
-{name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"}
-]}
-/>
-
 ## Deploying using GitHub
 
 Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
@@ -38,7 +29,7 @@ Here we will be able to deploy the site to the Github pages. In the 'Branch' sec
 Click 'Save' once you have made the switch. After a short period of time, your reVISit application will deploy to `<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 :::info
-If you would like to enable admin sign ins when you deploy your static website, you will have to make sure that Firebase has your domain name set as an authorized domain. Please see [here](../firebase/adding-removing-ui/#adding-authorized-domains) to add your custom domain.
+If you would like to enable admin sign ins when you deploy your static website, you will have to make sure that Firebase has your domain name set as an authorized domain. Please see [here](../firebase/enabling-authentication/#adding-authorized-domains) to add your custom domain.
 :::
 
 ## Deploying using Netlify
@@ -68,3 +59,13 @@ Search for the appropriate repo and then select it. This will bring up a configu
 The first build will take a bit, but once it runs, your experiment should be ready!
 
 If you are using netlify as a secondary venue for anonymization purposes, you can specify which branch netlify will use to deploy from. For instance a branch called `for-review' might remove all personnel and affiliation information.
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+referenceLinks={[
+{name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
+{name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"}
+]}
+/>
