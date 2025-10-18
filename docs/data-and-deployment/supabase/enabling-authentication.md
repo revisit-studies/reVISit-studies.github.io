@@ -18,7 +18,9 @@ After creating the OAuth application, you will be provided with a Client ID. Cop
 
 Next, generate a new Client Secret by clicking the "Generate a new client secret" button. Copy this in to the `supabase/.env` file in the `GITHUB_OAUTH_CLIENT_SECRET` field.
 
-Finally, set the `GITHUB_OAUTH_REDIRECT_URI` field in the `supabase/.env` file to the same URL you used for the "Authorization callback URL" in GitHub.
+Now, set the `GITHUB_OAUTH_REDIRECT_URI` field in the `supabase/.env` file to the same URL you used for the "Authorization callback URL" in GitHub.
+
+Finally, ensure that your `SITE_URL` field in the `supabase/.env` file is set to the URL where your reVISit application will be hosted (e.g., `https://my-revisit-app.com/study`). If this is not set, the redirects won't work properly.
 
 ## Enabling Authentication in reVISit
 
