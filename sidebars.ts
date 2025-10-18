@@ -68,16 +68,16 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Firebase',
           items: [
-            'data-and-deployment/firebase/firebase-setup',
-            'data-and-deployment/firebase/adding-removing-ui',
-            'data-and-deployment/firebase/firebase-user-management',
+            'data-and-deployment/firebase/setup',
+            'data-and-deployment/firebase/enabling-authentication',
           ],
         },
         {
           type: 'category',
           label: 'Supabase',
           items: [
-            'data-and-deployment/supabase/supabase-setup',
+            'data-and-deployment/supabase/setup',
+            'data-and-deployment/supabase/enabling-authentication',
           ],
         },
         'data-and-deployment/deploying-to-static-website',

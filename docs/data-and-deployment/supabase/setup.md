@@ -1,14 +1,5 @@
 # Configuring Supabase
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "Supabase", url: "https://supabase.com/"},
-        {name: "Supabase Documentation", url: "https://supabase.com/docs/guides"},
-        {name: "Deploying to GitHub", url: "../deploying-to-static-website"}
-    ]}
-/>
 
 <a href="https://supabase.com/" target="_blank" >Supabase</a> is an open-source alternative to Firebase that provides a real-time database and storage solution. It is built on top of PostgreSQL, which allows for more complex queries and data structures. Supabase is particularly useful for researchers who need to comply with strict data privacy regulations, as it can be self-hosted.
 
@@ -90,7 +81,7 @@ If you are running Supabase on a remote server, ensure that port 8000 is open in
 9. **Update your .env file in your deployed reVISit application**: In the root of your reVISit application, you will need to update the `.env` file with the following variables:
 
    ```env
-    VITE_STORAGE_ENGINE="supabase"
+   VITE_STORAGE_ENGINE="supabase"
    VITE_SUPABASE_URL="https://<your-supabase-instance-ip>"
    VITE_SUPABASE_ANON_KEY="<your-anon-key>"
    ```
@@ -120,7 +111,7 @@ server {
     ssl_certificate_key /path/to/your/private.key;
 
     location / {
-        proxy_pass http://localhost:8000; # Assuming your reVISit app runs on port 8000
+        proxy_pass https://localhost:8443; # This is the default https port for Supabase
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -131,3 +122,14 @@ server {
 Make sure to replace `your-domain.com` with your actual domain name and provide the correct paths to your SSL certificate and private key.
 
 Once the reverse proxy is set up, you can access your reVISit application securely over HTTPS provided that you change the `VITE_SUPABASE_URL` in your `.env` file to use `https://` instead of `http://` and drop the port number if you are using the default port 443 for HTTPS (as shown in the example above).
+
+<!--   Importing Links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "Supabase", url: "https://supabase.com/"},
+        {name: "Supabase Documentation", url: "https://supabase.com/docs/guides"},
+        {name: "Deploying to GitHub", url: "../../deploying-to-static-website"}
+    ]}
+/>
