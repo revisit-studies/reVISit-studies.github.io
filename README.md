@@ -84,4 +84,8 @@ Note that this wil _only_ render when we have the right-hand sidebar in the mark
 
 
 
+## Testimonials
 
+Testimonials about papers that use revisit can be submitted via a form: https://forms.gle/nYqAoqESHdDtK2yH6 
+
+To update the website, copy the responses as a csv into `static/testimonials.csv' from [here](https://docs.google.com/spreadsheets/d/1ox3MUu6sLJlPZA_ULuawBroC0CicxcSkdGcItRTQwb4/edit?gid=1547627539#gid=1547627539). 

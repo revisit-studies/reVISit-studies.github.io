@@ -159,7 +159,6 @@ To download screen recording from specific participants, select the participants
 ![Download screen recording video](./img/screen-recording-export-single.png)
 
 
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

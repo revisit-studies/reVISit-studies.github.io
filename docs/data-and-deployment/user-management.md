@@ -1,6 +1,5 @@
 # User Management In reVISit
 
-
 :::tip
 To use the user-management system that is built into reVISit, you must have a Firebase application set up. Please see [here](../firebase/setup) for how to set up a Firebase application. Additionally, you will need to enable the Google sign-in method for Authentication. You can find this section of the Firebase tutorial [here](../firebase/setup#authentication).
 :::

@@ -64,8 +64,8 @@ If you are using netlify as a secondary venue for anonymization purposes, you ca
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-referenceLinks={[
-{name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
-{name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"}
-]}
+  referenceLinks={[
+    {name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
+    {name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"}
+  ]}
 />
