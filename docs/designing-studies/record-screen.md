@@ -1,6 +1,5 @@
 # Record Screen
-
-
+ 
 ReVISit provides built-in support for screen recording and playback, enabling both in-person and crowdsourced tracking studies.
 
 ## Turning on screen recording 
@@ -9,6 +8,8 @@ You can enable screen recording in your study by setting the `recordScreen` flag
 
 
 **Step 1: Enable screen recording in your study**
+
+*A. Enabling screen recording through out the study*
 
 Set the `recordScreen` flag in the `uiConfig` section of your config file. You can optionally specify the FPS (frames per second) for screen recording.
 
@@ -20,6 +21,29 @@ Set the `recordScreen` flag in the `uiConfig` section of your config file. You c
     }
 }
 ```
+
+This enables screen recording to your entire study. However, you can also disable screen recording on individual component.
+
+```json
+{
+    "barchart": {
+        "recordScreen": false
+    }
+}
+```
+
+*B. Enabling screen recording on specific screens*
+
+If you want to enable screen recording on certain screens, you can leave `recordScreen` in the `uiConfig` as `false` and enable `recordScreen` at the component level. Settings in the component level overrides the global config. 
+
+```json
+{
+    "barchart": {
+        "recordScreen": true
+    }
+}
+```
+
 
 **Step 2: Import the screen recording library**
 
@@ -74,11 +98,15 @@ To disable recording for a component, set its `recordScreen` flag to `false`:
 
 Screen is recorded via browser, and participants will receive a permissions request from their browser to allow screen capture. If they do not grant permissions, they will be automatically stopped from continuing the study. This is done through the `screen-recording` library. You can find more information in the [reVISit libraries](./plugin-libraries.md).
 
-Participants are asked to share the study tab. In Chromium-based browsers, the study tab is usually pre-selected by default. In other browsers, participants must manually select the correct tab, which is labeled "RECORD THIS TAB."
+Participants are asked to share the study tab. In Chromium-based browsers, the study tab is usually pre-selected by default. In other browsers, participants must manually select the correct tab, which is labeled _"RECORD THIS TAB."_
 
 All recorded videos are stored in Firebase storage. To download participants's screen recorded videos after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis. 
 
-To download video data after completing a study, we recommend utilizing gsutil to download the video files in bulk. Navigate to your firebase storage to find your appspot name, then run the command:
+## Downloading screen recording videos
+
+You can [download screen recording videos](../analysis/data-export.md#download-screen-recording) from the analysis page of the study.
+
+Alternatively, you can use `gsutils` to download screen recorded videos. We recommend utilizing `gsutil` to download the video files in bulk. Navigate to your firebase storage to find your appspot name, then run the command:
 
 ```bash
 gsutil -m cp -r gs://my-bucket/studyName/screenRecording .
@@ -99,11 +127,6 @@ ReVISit also supports think-aloud protocols alongside screen recording. To enabl
 
 When both screen and audio recording are enabled, the permissions page will include a microphone check.
 
-:::note
-Enabling audio with screen recording merges both into a single video file.
-This means that whenever screen recording is enabled, audio recording is also active, and cannot be disabled independently.
-:::
-
 
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
@@ -117,6 +140,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
     referenceLinks={[
         {name: "screen-recording Library", url: "../../libraries/screen-recording/"},
-        {name: "reVISit Libraries", url: "../plugin-libraries"}
+        {name: "reVISit Libraries", url: "../plugin-libraries"},
+        {name: "Downloading recorded videos", url: "../../analysis/data-export/#download-screen-recording"}
     ]}
 />
