@@ -33,7 +33,7 @@ A: Firebase lets you choose the region for both Firestore and Storage. Please se
 
 ### Q: I don't want to use Firebase, what other option do I have? 
 
-A: We also support an open, self-hosted alternative to Firebase called Supabase. You will have to run this on a server you control. For details, see the [documentation](../data-and-deployment/supabase/supabase-setup/).
+A: We also support an open, self-hosted alternative to Firebase called Supabase. You will have to run this on a server you control. For details, see the [documentation](../data-and-deployment/supabase/setup/).
 
 ### Q: How do I store data in some other database?
 

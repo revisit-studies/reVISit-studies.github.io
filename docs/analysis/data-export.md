@@ -130,7 +130,7 @@ If you are using Firebase, it will download the transcript of the audio file as 
 
 ## Download Screen Recording 
 
-There are two ways to download screen recording video files if you have enabled `recordScreen: true` in your study. For applying screen recording feature in your study, please visit [Screen Recording](../../designing-studies/screen-recording).
+There are two ways to download screen recording video files if you have enabled `recordScreen: true` in your study. For applying screen recording feature in your study, please visit [Record Screen](../../designing-studies/record-screen).
 
 ### Download Participants' Audio
 
