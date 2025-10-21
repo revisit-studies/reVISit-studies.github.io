@@ -1,7 +1,5 @@
 # Collecting Data Locally
 
-
-
 Now that we have a working study, we'll look at how we can start collecting data. 
 
 By default, reVISit does not collect data. This is because you don't need to collect data while you're developing your study. Rather, you want to work on your stimuli and study design first, and then, when you're ready to test you can enable data collection. 
@@ -11,7 +9,7 @@ reVISit supports two modes of data collection:
 1. Storing data on your **local computer**. This is useful for testing and if you are running an in-lab study. Local storage is also easy to set up. 
 2. Storing data on **Firebase, a cloud storage provider**. This is useful and necessary if you want to run an online study. 
 
-In this getting-started guide, we will **only cover local storage**. For setting up cloud storage, please refer to the [Firebase tutorial](../data-and-deployment/firebase/firebase-setup.md).
+In this getting-started guide, we will **only cover local storage**. For setting up cloud storage, please refer to the [Firebase tutorial](../data-and-deployment/firebase/setup.md) or [Supabase tutorial](../data-and-deployment/supabase/setup.md). 
 
 ## Recording Data
 
@@ -43,12 +41,11 @@ This will clear your database.
 This cannot be undone. Be sure to back up your data if it is valuable. 
 :::
 
-
 <!-- Importing links  -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Firebase", url: "../../data-and-deployment/firebase/firebase-setup"}
+        {name: "Firebase", url: "../../data-and-deployment/firebase/setup"}
     ]}
 />

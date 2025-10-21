@@ -11,7 +11,7 @@ If you're debugging your study by re-taking parts of the study over and over, yo
 
 ### Q: Is there a version of this application that I do not need to host myself?
 
-A: reVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offers no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using GitHub Pages and Firebase. Using these two tools requires no domain name setups, no external server to host the application, and no backend database to store your data; all of this can be achieved by using Firebase and GitHub pages. Please see [here](../data-and-deployment/firebase/firebase-setup/) to get started with setting up Firebase and see [here](../data-and-deployment/deploying-to-static-website) for deploying to GitHub pages. 
+A: reVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offer no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using Github Pages and Firebase. Using these two tools requires no domain name setups, no external server to host the application, and no backend database to store your data; all of this can be achieved by using Firebase and Github pages. Please see [here](../data-and-deployment/firebase/setup/) to get started with setting up Firebase and see [here](../data-and-deployment/deploying-to-static-website) for deploying to Github pages. 
 
 However, we are considering making hosting available in a future version to further simplify the process of creating your own study. Let us know if that would be important to you!
 
@@ -33,7 +33,7 @@ A: Firebase lets you choose the region for both Firestore and Storage. Please se
 
 ### Q: I don't want to use Firebase, what other option do I have? 
 
-A: We also support an open, self-hosted alternative to Firebase called Supabase. You will have to run this on a server you control. For details, see the [documentation](../data-and-deployment/supabase/supabase-setup/).
+A: We also support an open, self-hosted alternative to Firebase called Supabase. You will have to run this on a server you control. For details, see the [documentation](../data-and-deployment/supabase/setup/).
 
 ### Q: How do I store data in some other database?
 
@@ -41,7 +41,7 @@ A: In short: we don't support other databases. However, reVISit is designed with
 
 ### Q: I had Firebase connected but it no longer works locally. What happened?
 
-A: A common issue is that the debug token changes while you are developing. Whenever you clear the cache, your debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. [Review the tutorial](../data-and-deployment/firebase/firebase-setup/#adding-an-app-to-the-firebase-project) to see how to register a debug token.
+A: A common issue is that the debug token changes while you are developing. Whenever you clear the cache, your debug token might change which means you'll have to re-register the debug token in the App Check section of Firebase. [Review the tutorial](../data-and-deployment/firebase/setup/#adding-an-app-to-the-firebase-project) to see how to register a debug token.
 
 :::warning
 A common issue in Google Chrome is the debug token changing whenever the application is restarted or the page is refreshed. To solve this issue you will have to exit Chrome and re-launch it.

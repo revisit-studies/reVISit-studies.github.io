@@ -1,6 +1,5 @@
 # Data Export and Basic Analysis
 
-
 reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
 
 The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.
@@ -129,6 +128,35 @@ To download audio from specific participants, select the participants in the tab
 If you are using Firebase, it will download the transcript of the audio file as well.
 :::
 
+## Download Screen Recording 
+
+There are two ways to download screen recording video files if you have enabled `recordScreen: true` in your study. For applying screen recording feature in your study, please visit [Record Screen](../../designing-studies/record-screen).
+
+### Download Participants' Audio
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then click on the **Download participants screen recording** button.
+
+![Download participants screen recording](./img/screen-recording-export-all.png)
+
+:::note
+To download screen recording from specific participants, select the participants in the table.
+:::
+
+
+### Download Single Participant's Screen Recording
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
+![Download task audio](./img/audio-export-task-1.png)
+
+3. Click on the task.
+![Download task audio](./img/audio-export-task-2.png)
+
+3. Click on the **Download Screen Recording** button.
+![Download screen recording video](./img/screen-recording-export-single.png)
 
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
