@@ -1,5 +1,5 @@
 # Record Screen
-
+ 
 ReVISit provides built-in support for screen recording and playback, enabling both in-person and crowdsourced tracking studies.
 
 ## Turning on screen recording 
