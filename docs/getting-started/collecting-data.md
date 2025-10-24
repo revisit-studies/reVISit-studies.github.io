@@ -7,7 +7,7 @@ By default, reVISit does not collect data. This is because you don't need to col
 reVISit supports two modes of data collection: 
 
 1. Storing data on your **local computer**. This is useful for testing and if you are running an in-lab study. Local storage is also easy to set up. 
-2. Storing data on **Firebase, a cloud storage provider**. This is useful and necessary if you want to run an online study. 
+2. Storing data on **Firebase or Supabase, a cloud storage provider**. This is useful and necessary if you want to run an online study. 
 
 In this getting-started guide, we will **only cover local storage**. For setting up cloud storage, please refer to the [Firebase tutorial](../data-and-deployment/firebase/setup.md) or [Supabase tutorial](../data-and-deployment/supabase/setup.md). 
 
@@ -46,6 +46,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Firebase", url: "../../data-and-deployment/firebase/setup"}
+        {name: "Firebase Setup", url: "../../data-and-deployment/firebase/setup"},
+        {name: "Supabase Setup", url: "../../data-and-deployment/supabase/setup"}
     ]}
 />
