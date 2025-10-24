@@ -15,25 +15,34 @@ In this getting-started guide, we will **only cover local storage**. For setting
 
 Take the survey that you have created earlier! After you are done, use the menu on the top right, select “Next Participant“ and take the survey again (using different values). Now you have recorded data for two participants. 
 
+![Next Partcipant](img/next-participant.png)
+
 ## Accessing Data
 
-To access the data, go to the [analytics interface](.) by visiting the root of reVISit at http://localhost:8080/, and clicking “Analyze & Manage Study” in the study card on the bottom-right. This will get you to the analysis interface that will show all studies in your reVISit instance, including the one you just created `basic-questionnaire-study`. You can now download your data either “flattened” in tabular data format (as [“tidy data”](https://r4ds.hadley.nz/data-tidy.html#sec-tidy-data)), or you can download the full nested JSON file. 
+To access the data, go to the [analytics interface](.) by visiting the root of reVISit at http://localhost:8080/, and clicking “Analyze & Manage Study” in the study card on the bottom-right. This will get you to the analysis interface that will show all studies in your reVISit instance, including the one you just created `basic-questionnaire-study`.
+
+![Analyze and Manage Study](img/analyze-manage-study.png)
+
+You can now download your data either “flattened” in tabular data format (as [“tidy data”](https://r4ds.hadley.nz/data-tidy.html#sec-tidy-data)), or you can download the full nested JSON file. 
+
+![Download Data](img/download-data.png)
 
 :::info
 Note that the JSON data contains much more detailed data, including logs about mouse movements and browser fingerprints of participants.
 :::
 
-You can also preview your data in the “Table View”, which is especially useful if you're debugging your study. 
-
+You can also preview your data in the “Participant View” or "Trial Stats", which is especially useful if you're debugging your study. 
 
 ## Resetting your Local Database
 
 The data collected locally is stored in your browser and associated with the page. If you want to clear the data, e.g., because you have completed your pilots and are ready to start a study, you will need to reset the local storage of your browser associated with reVISit. How this works varies between browsers. For Chrome: 
 
-* Click the Tune Icon for ReVISit or the Info Icon for localhost in the URL bar
+* Click the Tune Icon for reVISit or the Info Icon for localhost in the URL bar
 * Select Site Settings
 * Click Delete Data
 * Reload the page
+
+![Delete Local Database](img/delete-local-database.png)
 
 This will clear your database. 
 
