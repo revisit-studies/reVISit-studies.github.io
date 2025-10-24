@@ -23,7 +23,7 @@ To access the data, go to the [analytics interface](.) by visiting the root of r
 Note that the JSON data contains much more detailed data, including logs about mouse movements and browser fingerprints of participants.
 :::
 
-You can also preview your data in the “Table View”, which is especially usefull if you're debugging your study. 
+You can also preview your data in the “Table View”, which is especially useful if you're debugging your study. 
 
 
 ## Resetting your Local Database
