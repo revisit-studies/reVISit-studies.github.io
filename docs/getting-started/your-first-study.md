@@ -1,14 +1,11 @@
 # Setting Up Your First Study
 
-
-
 In this tutorial we will use the example of a simple survey. You will learn: 
 
 * How to set up your own copy of revisit.
 * How to write a simple reVISit spec with survey questions split into multiple pages.
 * How to register your study with reVISit so it shows up on your local web-server.
 * How to run the local webserver and access / preview your study. 
-
 
 :::note
 It is easiest to best to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
@@ -26,7 +23,7 @@ Once that is done, we will make an intro markdown component. Create a file `intr
 Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
 ```
 
-Next, let’s create a `help.md` file in the same folder, so that particiapnts during the study are able to get help.
+Next, let’s create a `help.md` file in the same folder, so that participants during the study are able to get help.
 
 ```markdown
 # Help
@@ -129,7 +126,7 @@ Now, our study is almost set up to view. The last step is to make sure that reVI
 ```js
 "basic-questionnaire-study": {
 	"path": "basic-questionnaire-study/config.json"
-},
+}
 ```
 
 After this, add `basic-questionnaire-study` into the `configsList` list in the same file. Because the configs list is ordered, make sure to put `basic-questionnaire-study` at the top of the list so you can immediately see it. This is what this should look like: 
@@ -139,6 +136,7 @@ After this, add `basic-questionnaire-study` into the `configsList` list in the s
     "basic-questionnaire-study",
     "demo-html",
     ...
+]
 ```
 
 ## Running the Server
@@ -147,11 +145,7 @@ Now, if you start the server (using `yarn serve` as described in the <a href="#i
 
 You should now see your study and be able to navigate quickly through it. However, your study is currently set up for development, so you won't be collecting any data yet. Go to the next getting started guide to learn how to enable data collection and download your data.
 
-
-
-
 <!-- Importing links  -->
-
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

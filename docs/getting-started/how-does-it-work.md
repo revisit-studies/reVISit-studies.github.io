@@ -1,6 +1,5 @@
 # How Does It Work?
 
-
 To create a study with reVISit, you have to create **components** that contain the content of your study, and you have to create the **study configuration (the reVISit Spec)** that controls when and how these components are shown to participants. Here, we will introduce these at a high level and link to the [detailed documentation](../../typedoc/) where appropriate. 
 
 # Components
@@ -9,7 +8,7 @@ Components are where study-specific content goes. ReVISit supports many types of
 
 * **[Markdown Files](../../typedoc/interfaces/MarkdownComponent)** contain formatted text, including links, images, embedded videos, etc. They are useful for introductions, consent forms, help pages, etc. 
 * **[Images](../../typedoc/interfaces/ImageComponent) and [Videos](../../typedoc/interfaces/VideoComponent)** can be used as stimuli directly. 
-* **[Web Pages](../../typedoc/interfaces/WebsiteComponent)** can be used to create custom stimuli, including interactive stimuli developed with JavaScript 
+* **[Web Pages](../../typedoc/interfaces/WebsiteComponent)** can be used to create custom stimuli, including interactive stimuli developed with JavaScript.
 * **[React Components](../../typedoc/interfaces/ReactComponent)** can be used for sophisticated interactive stimuli. In comparison to HTML pages, react components simplify the communication between reVISit and the stimulus. 
 * **[Vega and Vega-lite Components](../../typedoc/type-aliases/VegaComponent)** can be used to create declarative visualization stimuli. Vega components integrate with reVISit's provenance system and track user interactions with the visualization.
 * **[Survey Questions](../../typedoc/interfaces/QuestionnaireComponent)** can be used to elicit structured responses from participants.
@@ -25,7 +24,7 @@ The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define t
 * **Study Metadata** — specifying things like the name of the study, authors, contact e-mails
 * **UI Config** — parameterizing the appearance of reVISit
 * **Components** and **BaseComponents** — setting up the content of the study
-* **Sequence** — choosing the order and the selection of tasks participants see. 
+* **Sequence** — choosing the order and the selection of tasks participants see
 
 We'll explain the ideas in the next section, and link to the documentation for more details. 
 
@@ -45,7 +44,7 @@ Components are the building blocks for each study. Each component extends the [B
 
 ### Collecting Responses
 
-Each component has a list of responses which represents a set of questions to ask to the user for that particular component. The user can describe where the question should be displayed in the UI, the instruction for the response, and the type of response input (e.g., a [numerical response](../../typedoc/interfaces/NumericalResponse), a [dropdown](../../typedoc/interfaces/DropdownResponse), a [slider](../../typedoc/interfaces/SliderResponse), etc). Each response interface extends the [BaseResponse](../../typedoc/interfaces/BaseResponse) interface.
+Each component has a list of responses which represents a set of questions to ask to the user for that particular component. The user can describe where the question should be displayed in the UI, the instruction for the response, and the type of response input (e.g., a [numerical response](../../typedoc/interfaces/NumericalResponse), a [dropdown](../../typedoc/interfaces/DropdownResponse), a [slider](../../typedoc/interfaces/SliderResponse), etc.). Each response interface extends the [BaseResponse](../../typedoc/interfaces/BaseResponse) interface.
 
 The below example illustrates a simple consent component that is based on a Markdown file and has a response that asks for a signature, nested inside the `components` block: 
 
@@ -84,15 +83,15 @@ For examples of how to write a base component, refer to the [documentation](../.
 
 ## Sequence
 
-The sequence object of the study configuration defines (a) the order participants see your components and (b) determines which components they see. ReVISit supports sophisticated ordering strategies, interruptions and skip logic. Specifically, revisit supports: 
+The sequence object of the study configuration defines (a) the order participants see your components and (b) determines which components they see. ReVISit supports sophisticated ordering strategies, interruptions and skip logic. Specifically, reVISit supports: 
 
 * **Ordering Strategies:** 
     * **Fixed** order: participants see the components the way they are defined in the sequence
     * **Random** order: the order of the components are randomized
-    * **[Latin Square](https://en.wikipedia.org/wiki/Latin_square) order**: permute the order of stimuli but ensure that for a set of participants, each component occurs at each index an equal amount of times throughout the sequence (e.g. if there are 100 participants and 10 components, each component is seen at each index 10 times).
-* **Sampling:**  `numSamples` draws a given number of items from a block. numSamples can be used in combination with each ordering strategy (while preserving ordering guarantees)
-* **Interruptions**  can be used to insert breaks and attention checks into a block
-* **Skips** can be used to control flow based on the response to a question or a component block. 
+    * **[Latin Square](https://en.wikipedia.org/wiki/Latin_square)** order: permute the order of stimuli but ensure that for a set of participants, each component occurs at each index an equal amount of times throughout the sequence (e.g. if there are 100 participants and 10 components, each component is seen at each index 10 times)
+* **Sampling:** `numSamples` draws a given number of items from a block. `numSamples` can be used in combination with each ordering strategy (while preserving ordering guarantees)
+* **Interruptions** can be used to insert breaks and attention checks into a block
+* **Skips** can be used to control flow based on the response to a question or a component block
 
 All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order:  
 
@@ -120,7 +119,6 @@ All of these can be applied on arbitrarily nested “blocks”: an entry in the 
 
 You can find more detailed documentation about the sequencing strategies [here](../../typedoc/interfaces/ComponentBlock).
 
-
 ## reVISit Study Modes
 
 Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analytics interface. Here we give a brief introduction to these modes. Check out our [Analytics Platform Documentation](../../analysis) for more information on managing your data and studies. Additionally, you can find our [best practices](../../data-and-deployment/lifecycle-of-revisit) for using these modes to manage the lifecycle of your reVISit study.
@@ -131,18 +129,15 @@ With Data Collection enabled, all data that is captured by participants will be 
 
 Disabling data collection for a particular study will be shown to the user with a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
 
-
 ### Study Navigator
 
-When the study navigator is enabled, any user will be able to access the studie's "study browser". This allows users to move between any two components in the study freely. This is especially useful when you are disseminating your study after all data collection has completed and you'd like to share your study with the broader public.
+When the study navigator is enabled, any user will be able to access the study's "study browser". This allows users to move between any two components in the study freely. This is especially useful when you are disseminating your study after all data collection has completed and you'd like to share your study with the broader public.
 
 ### Publicly Accessible Analysis Interface
 
 The analysis interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the anonymized participants, see the answers given, and download all the data. 
 
 <!-- Importing links  -->
-
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
