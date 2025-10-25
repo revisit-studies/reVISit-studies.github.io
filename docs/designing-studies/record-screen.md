@@ -126,15 +126,14 @@ ReVISit also supports [think-aloud](../think-aloud) protocols alongside screen r
 When both screen and audio recording are enabled, the permissions page will include a microphone check.
 
 <!-- Importing links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     demoLinks={[
-      {name: "Screen Recording Demo", url: "https://revisit.dev/study/demo-screen-recording/"}
+        {name: "Screen Recording Demo", url: "https://revisit.dev/study/demo-screen-recording/"}
     ]}
     codeLinks={[
-      {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-screen-recording"}
+        {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-screen-recording"}
     ]}
     referenceLinks={[
         {name: "Screen Recording Library", url: "../../libraries/screen-recording/"},

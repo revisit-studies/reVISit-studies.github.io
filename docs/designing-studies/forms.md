@@ -237,19 +237,18 @@ If the form is randomized, a dice icon will appear in the sidebar to indicate th
 
 ![Randomization of form elements](./img/form-random-response.png)
 
-<!-- Importing links  -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey"}
-    ]}
-    codeLinks={[
-        {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-survey"}
-    ]}
-    referenceLinks={[
-        {name: "Form Elements Overview", url: "../../typedoc/#form-elements"},
-        {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse"}
-    ]}
+  demoLinks={[
+    {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey"}
+  ]}
+  codeLinks={[
+    {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-survey"}
+  ]}
+  referenceLinks={[
+    {name: "Form Elements Overview", url: "../../typedoc/#form-elements"},
+    {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse"}
+  ]}
 />

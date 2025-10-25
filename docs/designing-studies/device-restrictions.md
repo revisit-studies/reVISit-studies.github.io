@@ -38,8 +38,7 @@ In the participant table, the participant will be listed as rejected with the re
 
 ![Device Size Check Rejected Participant](./img/device-check-rejected.png)
 
-<!--   Importing Links -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

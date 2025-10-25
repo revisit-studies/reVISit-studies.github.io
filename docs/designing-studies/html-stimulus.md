@@ -135,20 +135,19 @@ The `parameters` key is a dynamically valued key which is used to pass data to y
 
 To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2` to the sequence in `config.json`).
 
-<!-- Importing links  -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-        {name: "HTML Demo", url: "https://revisit.dev/study/demo-html"}
-    ]}
-    codeLinks={[
-        {name: "HTML Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html"}
-    ]}
-    referenceLinks={[
-        {name: "D3.js", url: "https://d3js.org/"},
-        {name: "Website Component", url: "../../typedoc/interfaces/WebsiteComponent"},
-        {name: "Base Components", url: "../../typedoc/type-aliases/BaseComponents/"}
-    ]}
+  demoLinks={[
+    {name: "HTML Demo", url: "https://revisit.dev/study/demo-html"}
+  ]}
+  codeLinks={[
+    {name: "HTML Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html"}
+  ]}
+  referenceLinks={[
+    {name: "D3.js", url: "https://d3js.org/"},
+    {name: "Website Component", url: "../../typedoc/interfaces/WebsiteComponent"},
+    {name: "Base Components", url: "../../typedoc/type-aliases/BaseComponents/"}
+  ]}
 />

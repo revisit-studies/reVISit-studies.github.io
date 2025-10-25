@@ -295,21 +295,20 @@ At this point, the click accuracy test will be running and be able to collect pa
 3) We can make this stimulus more challenge, adding multiple moving dots and ask the participants to click on the highlighted one. -->
 
 <!-- Importing links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-      {name: "Graphical Perception Demo", url: "https://revisit.dev/study/example-cleveland/"},
-      {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test/"}
-    ]}
-    codeLinks={[
-      {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
-      {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
-    ]}
-    referenceLinks={[
-        {name: "React", url: "https://react.dev/"},
-        {name: "React Component", url: "../../typedoc/interfaces/ReactComponent"},
-        {name: "Reactive Response", url: "../../typedoc/interfaces/ReactiveResponse"}
-    ]}
+  demoLinks={[
+    {name: "Graphical Perception Demo", url: "https://revisit.dev/study/example-cleveland/"},
+    {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test/"}
+  ]}
+  codeLinks={[
+    {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
+    {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
+  ]}
+  referenceLinks={[
+    {name: "React", url: "https://react.dev/"},
+    {name: "React Component", url: "../../typedoc/interfaces/ReactComponent"},
+    {name: "Reactive Response", url: "../../typedoc/interfaces/ReactiveResponse"}
+  ]}
 />

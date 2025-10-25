@@ -84,8 +84,7 @@ export default function func({ answers } : JumpFunctionParameters<{name: string}
 
 In this example, the function checks how many questions the participant has answered so far. If the participant has answered 5 questions, the function returns `null`, which exits the dynamic block. Otherwise, the function returns the id of the next component to show, along with any parameters to pass to the component. In this case, the `reactComponent` component is shown, and the parameter `n` is passed to the component with the value of the number of questions the participant has answered so far.
 
-<!-- Importing Links -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
@@ -96,6 +95,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Dynamic Block Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-dynamic"}
   ]}
   referenceLinks={[
-      {name: "Dynamic Block", url:"../../typedoc/interfaces/DynamicBlock"}
+    {name: "Dynamic Block", url:"../../typedoc/interfaces/DynamicBlock"}
   ]}
 />

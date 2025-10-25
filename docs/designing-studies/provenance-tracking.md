@@ -89,7 +89,6 @@ trrack.redo();
 ```
 
 <!-- Importing links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
@@ -102,6 +101,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/src/public/demo-click-accuracy-test"},
     ]}
     referenceLinks={[
-        {name: "Trrack", url:"https://apps.vdl.sci.utah.edu/trrack"}
+        {name: "Trrack", url: "https://apps.vdl.sci.utah.edu/trrack"}
     ]}
 />
