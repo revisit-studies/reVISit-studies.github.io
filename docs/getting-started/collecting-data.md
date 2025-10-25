@@ -50,7 +50,7 @@ This will clear your database.
 This cannot be undone. Be sure to back up your data if it is valuable. 
 :::
 
-<!-- Importing links  -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
