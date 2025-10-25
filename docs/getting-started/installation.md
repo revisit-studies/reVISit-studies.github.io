@@ -1,6 +1,5 @@
 # Installation
 
-
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by “forking the repository”.
 
 Start by navigating to the following github repository: https://github.com/revisit-studies/study
@@ -21,12 +20,9 @@ After the repository is on your local machine, you will have the entire codebase
 
 To continue, you will need the Active LTS [node.js](https://nodejs.org/) version, and [yarn](https://yarnpkg.com/) installed. If you already have yarn installed, you can go to Step 2 below.
 
-
 :::info
 Yarn requires that you have the package manager NPM installed. If you do not have NPM installed, please see review [the NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started. These docs will also direct you on how to install Node – a prerequisite of NPM.
 :::
-
-
 
 **Step 1: Install yarn on your local computer using NPM:**
 
