@@ -12,7 +12,7 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "example-cleveland," so we put this code into `src/public/example-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
 
-We have a few reusable components and hooks available in the `src/public/example-cleveland/assets/hooks` and `src/public/example-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks helps creating charts using D3.js in React. You may copy them to your own experiment folder.
+We have a few reusable components and hooks available in the `src/public/example-cleveland/assets/hooks` and `src/public/example-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks help creating charts using D3.js in React. You may copy them to your own experiment folder.
 
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
 In this example, we pass two data arrays to the BarChart component. One is the data array contains 5 objects, each object has a name and a value. The other is the selectedIndices array, which contains the indices of the data array that we want to highlight with dots.
@@ -200,8 +200,8 @@ function ClickAccuracyTest({ parameters, setAnswer }: StimulusParams<any>) {
     const circle = d3.select('#movingCircle');
     const svg = d3.select('#clickAccuracySvg');
     const pointer = d3.pointer(e, svg.node());
-    const circelPos = [+circle.attr('cx'), +circle.attr('cy')];
-    const distance = `${Math.round(Math.sqrt((pointer[0] - circelPos[0]) ** 2 + (pointer[1] - circelPos[1]) ** 2))}px`;
+    const circlePos = [+circle.attr('cx'), +circle.attr('cy')];
+    const distance = `${Math.round(Math.sqrt((pointer[0] - circlePos[0]) ** 2 + (pointer[1] - circlePos[1]) ** 2))}px`;
     // This will record the distance between the click location and the center of the dot, passing answer to reVISit.
     setAnswer({
       status: true,
@@ -288,7 +288,9 @@ At this point, the click accuracy test will be running and be able to collect pa
 <!-- As an additional We have three assignments for you. 
 1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
 2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
-3) We can make this stimulus more challenge, adding mulitple moving dots and ask the participants to click on the highlighted one. -->
+3) We can make this stimulus more challenge, adding multiple moving dots and ask the participants to click on the highlighted one. -->
+
+<!-- Importing links  -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

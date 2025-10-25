@@ -1,11 +1,8 @@
 # Responses and Answers
 
+In reVISit, a [component](../../typedoc/interfaces/BaseIndividualComponent) typically has a [response](../../typedoc/interfaces/BaseResponse) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component and a [ReactiveResponse](../../typedoc/interfaces/ReactiveResponse). 
 
-
-
-In reVISit, a component typically has a [response](../../typedoc/interfaces/BaseResponse/) that is recorded when a participant completes a task. Responses can be provided via form elements or via some other kind of payload through your custom component and a [ReactiveResponse](../../typedoc/interfaces/ReactiveResponse). 
-
-Responses can optionally also be provided with an [Answer](../../typedoc/interfaces/Answer/) that captures what the correct response is. This answer is used in several ways: 
+Responses can optionally also be provided with an [Answer](../../typedoc/interfaces/Answer) that captures what the correct response is. This answer is used in several ways: 
 
  * If an answer is present, the data export will include a data for the task that lists True and False for each response. 
  * In the analysis interface, tasks will be shown as correct or incorrect depending on the answer. 
@@ -14,7 +11,6 @@ Responses can optionally also be provided with an [Answer](../../typedoc/interfa
 :::note
 There might be situations when answers cannot accurately capture whether a response was correct or not (e.g., with text input). In other situations, answers may have “degrees of correctness“. In such cases, you will have to compute correct answers as part of your data analysis process. 
 :::
-
 
 ## Specifying Answers and Trainings
 
@@ -27,7 +23,6 @@ Here's a simple dropbox component asking what the most efficient visual mark is.
 ```ts
 "simple-dropbox": {
   "type": "questionnaire",
-  "nextButtonLocation": "sidebar",
   "response": [
     {
       "id": "q-mark-type",
@@ -35,7 +30,6 @@ Here's a simple dropbox component asking what the most efficient visual mark is.
       "required": true,
       "prompt": "What is the most efficient visual mark?",
       "secondaryText": "Hint: it's not round.",
-      "location": "sidebar",
       "placeholder": "Choose mark",
       "options": [
         "Bar",
@@ -59,14 +53,17 @@ Here's a simple dropbox component asking what the most efficient visual mark is.
 
 The last three lines specify that this is used for training: 
 
-The `provideFeedback` field adds a “Check Answer” button to the UI, which can be used to validated the answer based on the provided correct Answer. 
+The `provideFeedback` field adds a “Check Answer” button to the UI, which can be used to validated the answer based on the provided correct answer. 
 
-![Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts.](img/training-failed.png)
+![Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts.](img/training-incorrect-answer.png)
 
 The above screenshot shows an example for when the response was incorrect. 
 
 Optionally, you can specify that trainings have to be successfully completed with the `allowFailedTraining` flag. You can specify the number of attempts with the `trainingAttempts` field. When failing is not allowed and the participant exceeds the number of failed attempts, **the study will terminate**. 
 
+![Training failed](img/training-failed.png)
+
+<!-- Importing links  -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -79,7 +76,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
     referenceLinks={[
         {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse/"},
-        {name: "Reactive Response", url: "../../typedoc/interfaces/ReactiveResponse/"},
         {name: "Answer", url: "../../typedoc/interfaces/Answer"}
     ]}
 /> 
