@@ -143,6 +143,12 @@ To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
+    demoLinks={[
+        {name: "HTML Demo", url: "https://revisit.dev/study/demo-html"}
+    ]}
+    codeLinks={[
+        {name: "HTML Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html"}
+    ]}
     referenceLinks={[
         {name: "D3.js", url: "https://d3js.org/"},
         {name: "Base Components", url: "../../typedoc/type-aliases/BaseComponents/"}
