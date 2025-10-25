@@ -6,7 +6,6 @@ ReVISit provides built-in support for screen recording and playback, enabling bo
 
 You can enable screen recording in your study by setting the `recordScreen` flag, importing the `screen-recording` library, and adding the `screenRecordingPermission` component to your study sequence.
 
-
 **Step 1: Enable screen recording in your study**
 
 *A. Enabling screen recording through out the study*
@@ -43,7 +42,6 @@ If you want to enable screen recording on certain screens, you can leave `record
     }
 }
 ```
-
 
 **Step 2: Import the screen recording library**
 
@@ -100,7 +98,7 @@ Screen is recorded via browser, and participants will receive a permissions requ
 
 Participants are asked to share the study tab. In Chromium-based browsers, the study tab is usually pre-selected by default. In other browsers, participants must manually select the correct tab, which is labeled _"RECORD THIS TAB."_
 
-All recorded videos are stored in Firebase storage. To download participants's screen recorded videos after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis. 
+All recorded videos are stored in Firebase storage. To download participants' screen recorded videos after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis. 
 
 ## Downloading screen recording videos
 
@@ -114,7 +112,7 @@ gsutil -m cp -r gs://my-bucket/studyName/screenRecording .
 
 ## Screen recording with think-aloud (audio recording)
 
-ReVISit also supports think-aloud protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
+ReVISit also supports [think-aloud](../think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
 
 ```json
 {
@@ -127,7 +125,7 @@ ReVISit also supports think-aloud protocols alongside screen recording. To enabl
 
 When both screen and audio recording are enabled, the permissions page will include a microphone check.
 
-
+<!-- Importing links -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -136,11 +134,12 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
       {name: "Screen Recording Demo", url: "https://revisit.dev/study/demo-screen-recording/"}
     ]}
     codeLinks={[
-      {name: "Screen Recording Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-screen-recording"}
+      {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-screen-recording"}
     ]}
     referenceLinks={[
-        {name: "screen-recording Library", url: "../../libraries/screen-recording/"},
+        {name: "Screen Recording Library", url: "../../libraries/screen-recording/"},
         {name: "reVISit Libraries", url: "../plugin-libraries"},
-        {name: "Downloading recorded videos", url: "../../analysis/data-export/#download-screen-recording"}
+        {name: "Downloading recorded videos", url: "../../analysis/data-export/#download-screen-recording"},
+        {name: "ThinkAloud", url: "../think-aloud"}
     ]}
 />

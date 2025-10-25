@@ -1,8 +1,6 @@
 # reVISit Libraries
 
-
-
-We provide predefined **libraries** of study components and validated questionnaires for visualization and HCI. These libraries that are easy to integrate into your study configurations as individual components or sequences of components.
+We provide predefined **libraries** of study components and validated questionnaires for visualization and HCI. These libraries are easy to integrate into your study configurations as individual components or sequences of components.
 
 We currently provide libraries for: 
 
@@ -17,7 +15,6 @@ You can find details [below](#available-libraries).
 When we mention “library” here, we are not referring to external libraries like NPM packages. If you’d like to use an NPM package in your study, you will need to create a React component that incorporates the package and reference that component in your study configuration.
 :::
 
-
 ## Using Libraries in Your Study  
 
 Using libraries is simple. You can import the library into your study and then use the components and/or whole sequences that are provided by the library.
@@ -28,10 +25,10 @@ The libraries are in [`public/libraries`](https://github.com/revisit-studies/stu
 
 To import a library, add its name to the `importedLibraries` top-level field of your study's config. For example:  
 
-```js
-
-"components": {...}
-
+```json
+"components": {
+  ...
+},
 "importedLibraries": [   
   // Add the library names you want to import, e.g. "vlat" 
   "mic-check",
@@ -41,14 +38,14 @@ To import a library, add its name to the `importedLibraries` top-level field of 
 
 ### Step 2: Use Components and Sequences
 
-Libraries expose one ore multiple “components“ and possible also “sequences” – predefined collections of components. You can use its components and sequences in the `sequence` section of your study configuration. The format for referencing components and sequences is:
+Libraries expose one or multiple “components“ and possible also “sequences” – predefined collections of components. You can use its components and sequences in the `sequence` section of your study configuration. The format for referencing components and sequences is:
 
 - **Components**: `$name.co.componentName`
 - **Sequences**: `$name.se.sequenceName`
 
 For example: 
 
-```js
+```json
 "sequence": {   
   // Configuration of the sequence for your study
   "components": [    
@@ -64,7 +61,7 @@ You can also modify the components in your study configuration directly via [inh
 
 For example, here we add a new `instruction` to the `mini-vlat` library's `treemap` component: 
 
-```js
+```json
 "importedLibraries": ["mini-vlat"],
 "components": {
   "mini-vlat-treemap-modified": {
@@ -99,16 +96,22 @@ When using these plugins, please ensure that you properly cite the original sour
 
 ### Basic Checks
 
-
 - `mic-check`: **Tests whether participants' microphone is working properly**
 
 - `color-blindness`: **The Ishihara Color Blindness Test**
-	**Images from**: https://www.colour-blindness.com/colour-blindness-tests/ishihara-colour-test-plates/
+:::note[Reference]
+Images from [Ishihara Color Test](https://www.colour-blindness.com/colour-blindness-tests/ishihara-colour-test-plates/)
+:::
+
 
 - `demographics`: **Collects participant demographic information**
 
 - `screen-recording`: **Records participants' screen**
 
+- `virtual-chinrest`: **Controls Participants’ Viewing Distance Using a Virtual Chinrest**
+:::note[Reference]
+Li, Q., Joo, S. J., Yeatman, J. D., & Reinecke, K. (2020). Controlling for Participants’ Viewing Distance in Large-Scale, Psychophysical Online Experiments Using a Virtual Chinrest. Scientific Reports, 10(1), 1-11. doi: 10.1038/s41598-019-57204-1.
+:::
 
 ### Questionnaires
 
@@ -116,7 +119,7 @@ When using these plugins, please ensure that you properly cite the original sour
 
 - `vlat`: **VLAT: The Visualization Literacy Assessment Test**    
 :::note[Reference]
-     S. Lee, S.-H. Kim, and B. C. Kwon, "VLAT: Development of a Visualization Literacy Assessment Test," _IEEE Transactions on Visualization and Computer Graphics_, vol. 23, no. 1, pp. 551-560, Jan. 2017, doi: 10.1109/TVCG.2016.2598920.
+S. Lee, S.-H. Kim, and B. C. Kwon, "VLAT: Development of a Visualization Literacy Assessment Test," _IEEE Transactions on Visualization and Computer Graphics_, vol. 23, no. 1, pp. 551-560, Jan. 2017, doi: 10.1109/TVCG.2016.2598920.
 :::
 
 - `mini-vlat`: **Mini-VLAT: A shorter version of VLAT designed for efficient assessment of visualization literacy**    
@@ -136,19 +139,21 @@ M. Galesic and R. Garcia-Retamero, “Graph literacy: A cross-cultural compariso
 
 - `calvi`: **CALVI: The Critical Thinking Assessment for Literacy in Visualizations**
 :::note[Reference]
-L. W. Ge, Y. Cui, and M. Kay, “CALVI: Critical Thinking Assessment for Literacy in Visualizations,” in _Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI ’23)_, article no. 815 pp. 1–18, 2023, doi: 10.1145/3544548.3581406.  
+L. W. Ge, Y. Cui, and M. Kay, “CALVI: Critical Thinking Assessment for Literacy in Visualizations,” in _Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI ’23)_, article no. 815 pp. 1–18, 2023, doi: 10.1145/3544548.3581406.
 :::
 
 - `adaptive-vlat`: **A-VLAT: A short, adaptive visualization literacy test**
 :::note[Reference]
-Y. Cui, L. W. Ge, Y. Ding, F. Yang, L. Harrison and M. Kay, Adaptive Assessment of Visualization Literacy, _IEEE Transactions on Visualization and Computer Graphics_, vol. 30, no. 1, pp. 628-637, Jan. 2024, doi: 10.1109/TVCG.2023.3327165
+Y. Cui, L. W. Ge, Y. Ding, F. Yang, L. Harrison and M. Kay, Adaptive Assessment of Visualization Literacy, _IEEE Transactions on Visualization and Computer Graphics_, vol. 30, no. 1, pp. 628-637, Jan. 2024, doi: 10.1109/TVCG.2023.3327165.
 :::
 
 #### Usability and User Workload
-- `NASA-TLX`: The NASA Task Load Index (TLX) questionnaire for measuring perceived workload.  
-    **Reference**:  Hart, Sandra G., and Lowell E. Staveland. "Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research." Advances in psychology. Vol. 52. North-Holland, 1988. 139-183.
+- `nasa-tlx`: **NASA-TLX: The NASA Task Load Index (TLX) questionnaire for measuring perceived workload**
+:::note[Reference]
+Hart, Sandra G., and Lowell E. Staveland. "Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research." Advances in psychology. Vol. 52. North-Holland, 1988. 139-183.
+:::
 
-- `SUS`: **SUS: The System Usability Scale**   
+- `sus`: **SUS: The System Usability Scale**   
 :::note[Reference]
 J. Brooke, “SUS: A ‘Quick and Dirty’ Usability Scale,” Usability Evaluation In Industry, pp. 207–212, Jun. 1996, doi: 10.1201/9781498710411-35.
 :::
@@ -166,7 +171,6 @@ J. P. Chin, K. L. Norman, and B. Shneiderman, “Subjective user evaluation of C
 B. D. Harper and K. L. Norman, “Improving user satisfaction: The Questionnaire for User Interaction Satisfaction Version 5.5,” in _Proceedings of the First Annual Mid-Atlantic Human Factors Conference_, Virginia Beach, VA, USA, 1993, pp. 224–228.
 :::
 
-
 - `sam`: **SAM: The Self-Assessment Manikin for measuring the affective reaction**
 :::note[Reference]
 M. M. Bradley and P. J. Lang, “Measuring emotion: The Self-Assessment Manikin and the semantic differential,” _Journal of Behavior Therapy and Experimental Psychiatry_, vol. 25, no. 1, pp. 49–59, 1994, doi: 10.1016/0005-7916(94)90063-9.
@@ -177,9 +181,8 @@ M. M. Bradley and P. J. Lang, “Measuring emotion: The Self-Assessment Manikin 
 F. R. H. Zijlstra and L. Van Doorn, The Construction of a Scale to Measure Perceived Effort. Delft University of Technology, 1985.
 :::
 
-
 #### Visualization Quality Metrics  
--  `beauvis`: BeauVis: A scale for assessing the aesthetic pleasure of visualizations**    
+- `beauvis`: **BeauVis: A scale for assessing the aesthetic pleasure of visualizations**    
 :::note[Reference]
 T. He, P. Isenberg, R. Dachselt, and T. Isenberg, “BeauVis: A Validated Scale for Measuring the Aesthetic Pleasure of Visual Representations,” _IEEE Transactions on Visualization and Computer Graphics_, pp. 1–11, 2022, doi: 10.1109/tvcg.2022.3209390.
 :::
@@ -189,66 +192,70 @@ T. He, P. Isenberg, R. Dachselt, and T. Isenberg, “BeauVis: A Validated Scale 
 A.-F. Cabouat, T. He, P. Isenberg, and T. Isenberg, “PREVis: Perceived Readability Evaluation for Visualizations,” _IEEE Transactions on Visualization and Computer Graphics_, vol. 31, no. 1, pp. 1083–1093, Jan. 2025, doi: 10.1109/tvcg.2024.3456318.
 :::
 
+<!-- Importing links  -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     demoLinks={[
-      {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
+      {name: "A-VLAT Demo", url: "https://revisit.dev/study/library-adaptive-vlat/"},
+      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
+      {name: "Berlin Numeracy Demo", url: "https://revisit.dev/study/library-berlin-num/"},
+      {name: "CALVI Demo", url: "https://revisit.dev/study/library-calvi/"},
       {name: "Color Blindess Demo", url: "https://revisit.dev/study/library-color-blindness/"},
       {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
-      {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
-      {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
-      {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
-      {name: "Berlin Numeracy Demo", url: "https://revisit.dev/study/library-berlin-num/"},
       {name: "Graph Literacy Demo", url: "https://revisit.dev/study/library-graph-literacy-scale/"},
-      {name: "CALVI Demo", url: "https://revisit.dev/study/library-calvi/"},
-      {name: "A-VLAT Demo", url: "https://revisit.dev/study/library-adaptive-vlat/"},
+      {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
+      {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
       {name: "NASA TLX Demo", url: "https://revisit.dev/study/library-nasa-tlx/"},
-      {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
+      {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"},
       {name: "QUIS Demo", url: "https://revisit.dev/study/library-quis/"},
       {name: "SAM Demo", url: "https://revisit.dev/study/library-sam/"},
+      {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
       {name: "SMEQ Demo", url: "https://revisit.dev/study/library-smeq/"},
-      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
-      {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"}
+      {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
+      {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
+      {name: "Virtual Chinrest Demo", url: "https://revisit.dev/study/library-virtual-chinrest/"}
     ]}
     codeLinks={[
-      {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
+      {name: "A-VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat/"},
+      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
+      {name: "Berlin Numeracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
+      {name: "CALVI Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
       {name: "Color Blindess Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
       {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
-      {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
-      {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
-      {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
-      {name: "Berlin Numeracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
       {name: "Graph Literacy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-graph-literacy-scale/"},
-      {name: "CALVI Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
-      {name: "A-VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat/"},
+      {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
+      {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
       {name: "NASA TLX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-nasa-tlx"},
-      {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
+      {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"},
       {name: "QUIS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-quis/"},
       {name: "SAM Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sam/"},
+      {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
       {name: "SMEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq/"},
-      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
-      {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"}
+      {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
+      {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
+      {name: "Virtual Chinrest Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-virtual-chinrest"}
     ]}
     referenceLinks={[
+      {name: "A-VLAT Library", url:"../../libraries/adaptive-vlat/"},
+      {name: "Beauvis Library", url:"../../libraries/beauvis/"},
+      {name: "Berlin Numeracy Library", url:"../../libraries/berlin-num/"},
+      {name: "CALVI Library", url:"../../libraries/calvi/"},
+      {name: "Color Blindness Library", url:"../../libraries/color-blindness/"},
+      {name: "Demographics Library", url:"../../libraries/demographics/"},
+      {name: "Graph Literacy Library", url:"../../libraries/graph-literacy-scale/"},
       {name: "Library Config", url: "../../typedoc/interfaces/LibraryConfig"},
       {name: "Mic Check Library", url:"../../libraries/mic-check/"},
-      {name: "Color Blindess Library", url:"../../libraries/color-blindness/"},
-      {name: "Demographics Library", url:"../../libraries/demographics/"},
-      {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
-      {name: "VLAT Library", url:"../../libraries/vlat/"},
       {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},
-      {name: "Berlin Numeracy Library", url:"../../libraries/berlin-num/"},
-      {name: "Graph Literacy Library", url:"../../libraries/graph-literacy-scale/"},
-      {name: "CALVI Library", url:"../../libraries/calvi/"},
-      {name: "A-VLAT Library", url:"../../libraries/adaptive-vlat/"},
       {name: "NASA TLX Library", url:"../../libraries/nasa-tlx/"},
-      {name: "SUS Library", url:"../../libraries/sus/"},
+      {name: "PREVis Library", url:"../../libraries/previs/"},
       {name: "QUIS Library", url:"../../libraries/quis/"},
       {name: "SAM Library", url:"../../libraries/sam/"},
+      {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
       {name: "SMEQ Library", url:"../../libraries/smeq/"},
-      {name: "Beauvis Library", url:"../../libraries/beauvis/"},
-      {name: "PREVis Library", url:"../../libraries/previs/"}
+      {name: "SUS Library", url:"../../libraries/sus/"},
+      {name: "VLAT Library", url:"../../libraries/vlat/"},
+      {name: "Virtual Chinrest Library", url:"../../libraries/virtual-chinrest"}
     ]}
 />

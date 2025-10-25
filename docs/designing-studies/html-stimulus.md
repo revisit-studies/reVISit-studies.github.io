@@ -1,7 +1,5 @@
 # Designing an HTML Stimulus
 
-
-
 Now, we will take the study we just created and add another component based on a user-created HTML file. This allows for some additional customization of the component. 
 
 ## HTML Stimuli 
@@ -87,28 +85,27 @@ One of the interesting pieces of the above code is that this HTML document inter
 
 Furthermore, you’ll see that we have also created an “onClick” function and attached it to each of the bars in the bar graph. This click function uses the “Revisit.postAnswers” method to send information back to reVISit. 
 
-Now that we have this HTML document in our study directory, we are ready to adjust our “config.json” file to account for these new components.
+Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to account for these new components.
 
-In your “config.json” document, create new new key called “baseComponents” as a sibling to the keys “uiConfig”, “components”, “sequence”, etc. In this newly created key, paste the code below:
+In your `config.json` document, create new key called “baseComponents” as a sibling to the keys “uiConfig”, “components”, “sequence”, etc. In this newly created key, paste the code below:
 
 ```js
-    "baseComponents": {
-        "bar-chart": {
-            "type": "website",
-            "response": [
-                {
-                    "id": "barChart",
-                    "prompt": "Your selected answer:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "reactive"
-                }
-            ],
-            "path": "basic-questionnaire-study/assets/bar-chart.html",
-            "instructionLocation": "aboveStimulus"
-        
-        }
-    }
+"baseComponents": {
+  "bar-chart": {
+    "type": "website",
+    "response": [
+      {
+        "id": "barChart",
+        "prompt": "Your selected answer:",
+        "required": true,
+        "location": "belowStimulus",
+        "type": "reactive"
+      }
+    ],
+    "path": "basic-questionnaire-study/assets/bar-chart.html",
+    "instructionLocation": "aboveStimulus"
+  }
+}
 ```
 This creates a component that new components can be based off of. Each component using the “bar-chart” as the value to the “baseComponent” key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating these next components.
 
@@ -117,28 +114,28 @@ In the components section, add the following objects:
 ```js
 ...
 "bar-chart-1":{
-    "baseComponent": "bar-chart",
-    "description": "A trial for the user to click the largest bar",
-    "instruction": "Click on the largest bar",
-    "parameters": {
-        "barData": [0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
-    }
+  "baseComponent": "bar-chart",
+  "description": "A trial for the user to click the largest bar",
+  "instruction": "Click on the largest bar",
+  "parameters": {
+    "barData": [0.32, 0.01, 1.2, 1.3, 0.82, 0.4, 0.3]
+  }
 },
 "bar-chart-2":{
-    "baseComponent": "bar-chart",
-    "description": "A trial for the user to click the smallest bar",
-    "instruction": "Click on the smallest bar",
-    "parameters": {
-        "barData": [1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
-    }
+  "baseComponent": "bar-chart",
+  "description": "A trial for the user to click the smallest bar",
+  "instruction": "Click on the smallest bar",
+  "parameters": {
+    "barData": [1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
+  }
 }
 ...
 ```
-The "parameters" key is a dynamically valued key which is used to pass data to your components. When you add the "parameters" key, any data contained within the objet will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
+The "parameters" key is a dynamically valued key which is used to pass data to your components. When you add the "parameters" key, any data contained within the object will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts. 
 
-To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in config.json).
+To finish this tutorial, add these two components ("bar-chart-1" and "bar-chart-2" to the sequence in `config.json`).
 
-
+<!-- Importing links  -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

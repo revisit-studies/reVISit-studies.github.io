@@ -1,6 +1,5 @@
 # Designing Forms
 
-
 Form elements are essential for most studies to capture user responses. ReVISit provides rich form elements, such as sliders, checkboxes, text fields, etc., so that you can efficiently design your forms.
 
 This tutorial does not give a comprehensive introduction into all form elements. For this, refer to the demo and other links in the relevant links panel. Instead, we introduce some high-level principles that apply to all form elements.
@@ -11,26 +10,26 @@ Form elements are components of type `questionnaire`. Here is a simple example w
 
 ```js
 "components": {
-    "survey": {
-        "type": "questionnaire",
-        "response": [
-          {
-            "id": "q-dropdown",
-            "prompt": "Dropdown example – which chart do you like best?",
-            "secondaryText": "You can specify secondary text to clarify your question.",
-            "infoText": "Select the chart type you prefer from the dropdown menu.",
-            "location": "aboveStimulus",
-            "type": "dropdown",
-            "placeholder": "Enter your preference",
-            "options": [
-                "Bar",
-                "Bubble",
-                "Pie",
-                "Stacked Bar"
-            ]
-          }
+  "survey": {
+    "type": "questionnaire",
+    "response": [
+      {
+        "id": "q-dropdown",
+        "prompt": "Dropdown example – which chart do you like best?",
+        "secondaryText": "You can specify secondary text to clarify your question.",
+        "infoText": "Select the chart type you prefer from the dropdown menu.",
+        "location": "aboveStimulus",
+        "type": "dropdown",
+        "placeholder": "Enter your preference",
+        "options": [
+          "Bar",
+          "Bubble",
+          "Pie",
+          "Stacked Bar"
         ]
-    }
+      }
+    ]
+  }
 }
 ```
 
@@ -156,59 +155,58 @@ A dice icon is shown in the sidebar to indicate that at least one item on this p
 Each participant will see their own consistent order during the study, and the same order is recorded and shown in the replay, so you can always see exactly what they saw.
 
 ### Randomizing Matrix Checkbox, Matrix Radio
-For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize the questions. Set `"questionOrder" = "random"` to randomize questions.
+For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize the questions. Set `"questionOrder": "random"` to randomize questions.
 
 Here is an example to show how to set up questions in random order:
 
 ```js
 "response": [
-    {
-        "id": "5items-response",
-        "prompt": "To what extent do you agree that this visual representation is...?",
-        "location": "belowStimulus",
-        "type": "matrix-radio",
-        "answerOptions": "satisfaction5",
-        "questionOrder": "random", //set randomization here
-        "questionOptions": [
-            "enjoyable",
-            "likable",
-            "pleasing",
-            "nice",
-            "appealing"
-        ]
-    }
+  {
+    "id": "5items-response",
+    "prompt": "To what extent do you agree that this visual representation is...?",
+    "location": "belowStimulus",
+    "type": "matrix-radio",
+    "answerOptions": "satisfaction5",
+    "questionOrder": "random", //set randomization here
+    "questionOptions": [
+        "enjoyable",
+        "likable",
+        "pleasing",
+        "nice",
+        "appealing"
+    ]
+  }
 ]        
 ```
 
 ![Randomization of question order](./img/form-random-question.png)
 
-
 ### Randomizing Checkbox, Radio, Button
-To shuffle the options in a radio, checkbox, or button question, set `"optionOrder" = "random"`.
+To shuffle the options in a radio, checkbox, or button question, set `"optionOrder": "random"`.
 
 Here is an example to show how to set up options in random order:
 
 ```js
 "response": [
-    {
-        "id": "fruitPreference",
-        "prompt": "What’s your favorite fruit?",
-        "location": "aboveStimulus",
-        "type": "radio",
-        "optionOrder": "random", //set randomization here
-        "options": [
-            "Apple",
-            "Banana",
-            "Grape"
-        ]
-    }
+  {
+    "id": "fruitPreference",
+    "prompt": "What’s your favorite fruit?",
+    "location": "aboveStimulus",
+    "type": "radio",
+    "optionOrder": "random", //set randomization here
+    "options": [
+        "Apple",
+        "Banana",
+        "Grape"
+    ]
+  }
 ]
 ```
 
 ![Randomization of option order](./img/form-random-option.png)
 
 ### Randomizing form elements in a single page
-You can also randomize the order of multiple questions that appear on the same page. To do so, apply `"responseOrder" = "random"`, which will shuffle the order in which the form elements themselves appear on the page.
+You can also randomize the order of multiple questions that appear on the same page. To do so, apply `"responseOrder": "random"`, which will shuffle the order in which the form elements themselves appear on the page.
 
 Here is an example to show how to set up responses in random order:
 
@@ -239,7 +237,7 @@ If the form is randomized, a dice icon will appear in the sidebar to indicate th
 
 ![Randomization of form elements](./img/form-random-response.png)
 
-
+<!-- Importing links  -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -255,5 +253,3 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse"}
     ]}
 />
-
-

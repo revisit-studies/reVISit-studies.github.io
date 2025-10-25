@@ -1,7 +1,5 @@
 # Designing Image/Video Stimuli
 
-
-
 Image and video stimuli are essential for most studies. They can be used to present visual information, such as charts, images, or videos, to participants. This tutorial provides an overview of how to use image and video stimuli in your study.
 
 ## Image Stimuli
@@ -29,8 +27,8 @@ Image stimuli are components of type `image`. Here is a simple example with an i
           "No"
         ]
       }
-    ],
-  },
+    ]
+  }
 }
 ```
 
@@ -38,7 +36,7 @@ This renders like that:
 
 ![An image stimulus](img/image-stimulus.png)
 
-In this example, the image is rendered in the main window with a response in the sidebar. The image is given an optional parameter `style` to specify the width of the image. This object support arbitrary CSS properties.
+In this example, the image is rendered in the main window with a response in the sidebar. The image is given an optional parameter `style` to specify the width of the image. This object supports arbitrary CSS properties.
 
 ## Video Stimuli
 
@@ -83,6 +81,7 @@ This renders as so:
 
 In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. In this case, the video does not need to be watched in full, so the `forceCompletion` parameter is set to `false`. The `withTimeline` parameter adds a timeline to the video, allowing participants to skip/scrub to specific parts of the video.
 
+<!-- Importing links  -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
