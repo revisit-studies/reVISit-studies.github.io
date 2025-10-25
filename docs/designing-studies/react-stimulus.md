@@ -150,10 +150,12 @@ The parameters are an object; you can change the format to suit your needs.
 }
 ```
 
+![Bar charts created with React component](img/react-stimulus-cleveland.png)
+
 ## Example 2: Click Accuracy Experiment
 The click accuracy experiment requires participants to click on a moving dot on the screen. The dot will move inside a bounded box. The faster the dot moves, the more difficult it is for the participants to click on it.
 
-In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the 'reactive' response type, which will receive the user's click data and send it to reVISit.
+In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the `reactive` response type, which will receive the user's click data and send it to reVISit.
 
 In this example, the React component will take `parameters` and `setAnswer` as props. The parameters work just like in Example 1; it will pass data from the config file to the React component.
 The `setAnswer` function is a built-in function that is used to pass the user's response to the reVISit framework.
@@ -285,12 +287,14 @@ In the config file, we pass the `taskid` and speed as parameters. Notice the res
 
 At this point, the click accuracy test will be running and be able to collect participant's data.
 
+![Click accuracy test](img/react-stimulus-click.png)
+
 <!-- As an additional We have three assignments for you. 
 1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
 2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
 3) We can make this stimulus more challenge, adding multiple moving dots and ask the participants to click on the highlighted one. -->
 
-<!-- Importing links  -->
+<!-- Importing links -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -305,6 +309,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
     referenceLinks={[
         {name: "React", url: "https://react.dev/"},
-        {name: "React Component", url:"../../typedoc/interfaces/ReactComponent"}
+        {name: "React Component", url: "../../typedoc/interfaces/ReactComponent"},
+        {name: "Reactive Response", url: "../../typedoc/interfaces/ReactiveResponse"}
     ]}
 />
