@@ -81,21 +81,20 @@ This renders as so:
 
 In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. In this case, the video does not need to be watched in full, so the `forceCompletion` parameter is set to `false`. The `withTimeline` parameter adds a timeline to the video, allowing participants to skip/scrub to specific parts of the video.
 
-<!-- Importing links  -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-        {name: "Image Demo", url: "https://revisit.dev/study/demo-image/"},
-        {name: "Video Demo", url: "https://revisit.dev/study/demo-video/"}
-    ]}
-    codeLinks={[
-        {name: "Image Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-image"},
-        {name: "Video Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-video"}
-    ]}
-    referenceLinks={[
-        {name: "Image Component", url: "../../typedoc/interfaces/ImageComponent/"},
-        {name: "Video Component", url: "../../typedoc/interfaces/VideoComponent/"}
-    ]}
+  demoLinks={[
+    {name: "Image Demo", url: "https://revisit.dev/study/demo-image/"},
+    {name: "Video Demo", url: "https://revisit.dev/study/demo-video/"}
+  ]}
+  codeLinks={[
+    {name: "Image Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-image"},
+    {name: "Video Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-video"}
+  ]}
+  referenceLinks={[
+    {name: "Image Component", url: "../../typedoc/interfaces/ImageComponent/"},
+    {name: "Video Component", url: "../../typedoc/interfaces/VideoComponent/"}
+  ]}
 />

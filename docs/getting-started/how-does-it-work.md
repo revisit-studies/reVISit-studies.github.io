@@ -137,7 +137,7 @@ When the study navigator is enabled, any user will be able to access the study's
 
 The analysis interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the anonymized participants, see the answers given, and download all the data. 
 
-<!-- Importing links  -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

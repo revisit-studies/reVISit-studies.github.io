@@ -348,29 +348,28 @@ You can also use `skip` to jump around within your study. The example below skip
 
 After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards. 
 
-<!-- Importing links  -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-        {name: "Randomization Demo", url: "https://revisit.dev/study/test-randomization"},
-        {name: "Dynamic Block Demo", url: "https://revisit.dev/study/demo-dynamic"},
-        {name: "Step Logic Demo", url: "https://revisit.dev/study/test-step-logic"},
-        {name: "Skip Logic Demo", url: "https://revisit.dev/study/test-skip-logic"}
-    ]}
-    codeLinks={[
-        {name: "Randomization Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-randomization"},
-        {name: "Dynamic Block Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-dynamic"},
-        {name: "Step Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-step-logic"},
-        {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"}
-    ]}
-    referenceLinks={[
-        {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
-        {name: "Dynamic Block", url: "../../typedoc/interfaces/DynamicBlock/"},
-        {name: "Interruption Block", url: "../../typedoc/type-aliases/InterruptionBlock/"},
-        {name: "Random Interruption", url: "../../typedoc/interfaces/RandomInterruption/"},
-        {name: "Deterministic Interruption", url: "../../typedoc/interfaces/DeterministicInterruption/"},
-        {name: "Skip Conditions", url: "../../typedoc/type-aliases/SkipConditions/"}
-    ]}
+  demoLinks={[
+    {name: "Randomization Demo", url: "https://revisit.dev/study/test-randomization"},
+    {name: "Dynamic Block Demo", url: "https://revisit.dev/study/demo-dynamic"},
+    {name: "Step Logic Demo", url: "https://revisit.dev/study/test-step-logic"},
+    {name: "Skip Logic Demo", url: "https://revisit.dev/study/test-skip-logic"}
+  ]}
+  codeLinks={[
+    {name: "Randomization Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-randomization"},
+    {name: "Dynamic Block Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-dynamic"},
+    {name: "Step Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-step-logic"},
+    {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"}
+  ]}
+  referenceLinks={[
+    {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
+    {name: "Dynamic Block", url: "../../typedoc/interfaces/DynamicBlock/"},
+    {name: "Interruption Block", url: "../../typedoc/type-aliases/InterruptionBlock/"},
+    {name: "Random Interruption", url: "../../typedoc/interfaces/RandomInterruption/"},
+    {name: "Deterministic Interruption", url: "../../typedoc/interfaces/DeterministicInterruption/"},
+    {name: "Skip Conditions", url: "../../typedoc/type-aliases/SkipConditions/"}
+  ]}
 />

@@ -586,8 +586,7 @@ You can also make responses interactive using CSS. For example, you can change t
 }
 ```
 
-<!--   Importing Links -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

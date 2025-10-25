@@ -192,70 +192,69 @@ T. He, P. Isenberg, R. Dachselt, and T. Isenberg, “BeauVis: A Validated Scale 
 A.-F. Cabouat, T. He, P. Isenberg, and T. Isenberg, “PREVis: Perceived Readability Evaluation for Visualizations,” _IEEE Transactions on Visualization and Computer Graphics_, vol. 31, no. 1, pp. 1083–1093, Jan. 2025, doi: 10.1109/tvcg.2024.3456318.
 :::
 
-<!-- Importing links  -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-      {name: "A-VLAT Demo", url: "https://revisit.dev/study/library-adaptive-vlat/"},
-      {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
-      {name: "Berlin Numeracy Demo", url: "https://revisit.dev/study/library-berlin-num/"},
-      {name: "CALVI Demo", url: "https://revisit.dev/study/library-calvi/"},
-      {name: "Color Blindess Demo", url: "https://revisit.dev/study/library-color-blindness/"},
-      {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
-      {name: "Graph Literacy Demo", url: "https://revisit.dev/study/library-graph-literacy-scale/"},
-      {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
-      {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
-      {name: "NASA TLX Demo", url: "https://revisit.dev/study/library-nasa-tlx/"},
-      {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"},
-      {name: "QUIS Demo", url: "https://revisit.dev/study/library-quis/"},
-      {name: "SAM Demo", url: "https://revisit.dev/study/library-sam/"},
-      {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
-      {name: "SMEQ Demo", url: "https://revisit.dev/study/library-smeq/"},
-      {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
-      {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
-      {name: "Virtual Chinrest Demo", url: "https://revisit.dev/study/library-virtual-chinrest/"}
-    ]}
-    codeLinks={[
-      {name: "A-VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat/"},
-      {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
-      {name: "Berlin Numeracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
-      {name: "CALVI Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
-      {name: "Color Blindess Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
-      {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
-      {name: "Graph Literacy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-graph-literacy-scale/"},
-      {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
-      {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
-      {name: "NASA TLX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-nasa-tlx"},
-      {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"},
-      {name: "QUIS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-quis/"},
-      {name: "SAM Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sam/"},
-      {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
-      {name: "SMEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq/"},
-      {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
-      {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
-      {name: "Virtual Chinrest Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-virtual-chinrest"}
-    ]}
-    referenceLinks={[
-      {name: "A-VLAT Library", url:"../../libraries/adaptive-vlat/"},
-      {name: "Beauvis Library", url:"../../libraries/beauvis/"},
-      {name: "Berlin Numeracy Library", url:"../../libraries/berlin-num/"},
-      {name: "CALVI Library", url:"../../libraries/calvi/"},
-      {name: "Color Blindness Library", url:"../../libraries/color-blindness/"},
-      {name: "Demographics Library", url:"../../libraries/demographics/"},
-      {name: "Graph Literacy Library", url:"../../libraries/graph-literacy-scale/"},
-      {name: "Library Config", url: "../../typedoc/interfaces/LibraryConfig"},
-      {name: "Mic Check Library", url:"../../libraries/mic-check/"},
-      {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},
-      {name: "NASA TLX Library", url:"../../libraries/nasa-tlx/"},
-      {name: "PREVis Library", url:"../../libraries/previs/"},
-      {name: "QUIS Library", url:"../../libraries/quis/"},
-      {name: "SAM Library", url:"../../libraries/sam/"},
-      {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
-      {name: "SMEQ Library", url:"../../libraries/smeq/"},
-      {name: "SUS Library", url:"../../libraries/sus/"},
-      {name: "VLAT Library", url:"../../libraries/vlat/"},
-      {name: "Virtual Chinrest Library", url:"../../libraries/virtual-chinrest"}
-    ]}
+  demoLinks={[
+    {name: "A-VLAT Demo", url: "https://revisit.dev/study/library-adaptive-vlat/"},
+    {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
+    {name: "Berlin Numeracy Demo", url: "https://revisit.dev/study/library-berlin-num/"},
+    {name: "CALVI Demo", url: "https://revisit.dev/study/library-calvi/"},
+    {name: "Color Blindess Demo", url: "https://revisit.dev/study/library-color-blindness/"},
+    {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
+    {name: "Graph Literacy Demo", url: "https://revisit.dev/study/library-graph-literacy-scale/"},
+    {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
+    {name: "Mini VLAT Demo", url: "https://revisit.dev/study/library-mini-vlat/"},
+    {name: "NASA TLX Demo", url: "https://revisit.dev/study/library-nasa-tlx/"},
+    {name: "PREVis Demo", url: "https://revisit.dev/study/library-previs/"},
+    {name: "QUIS Demo", url: "https://revisit.dev/study/library-quis/"},
+    {name: "SAM Demo", url: "https://revisit.dev/study/library-sam/"},
+    {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
+    {name: "SMEQ Demo", url: "https://revisit.dev/study/library-smeq/"},
+    {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
+    {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
+    {name: "Virtual Chinrest Demo", url: "https://revisit.dev/study/library-virtual-chinrest/"}
+  ]}
+  codeLinks={[
+    {name: "A-VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat/"},
+    {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
+    {name: "Berlin Numeracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
+    {name: "CALVI Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
+    {name: "Color Blindess Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
+    {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
+    {name: "Graph Literacy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-graph-literacy-scale/"},
+    {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
+    {name: "Mini VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
+    {name: "NASA TLX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-nasa-tlx"},
+    {name: "PREVis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-previs"},
+    {name: "QUIS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-quis/"},
+    {name: "SAM Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sam/"},
+    {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
+    {name: "SMEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq/"},
+    {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
+    {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
+    {name: "Virtual Chinrest Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-virtual-chinrest"}
+  ]}
+  referenceLinks={[
+    {name: "A-VLAT Library", url:"../../libraries/adaptive-vlat/"},
+    {name: "Beauvis Library", url:"../../libraries/beauvis/"},
+    {name: "Berlin Numeracy Library", url:"../../libraries/berlin-num/"},
+    {name: "CALVI Library", url:"../../libraries/calvi/"},
+    {name: "Color Blindness Library", url:"../../libraries/color-blindness/"},
+    {name: "Demographics Library", url:"../../libraries/demographics/"},
+    {name: "Graph Literacy Library", url:"../../libraries/graph-literacy-scale/"},
+    {name: "Library Config", url: "../../typedoc/interfaces/LibraryConfig"},
+    {name: "Mic Check Library", url:"../../libraries/mic-check/"},
+    {name: "Mini VLAT Library", url:"../../libraries/mini-vlat/"},
+    {name: "NASA TLX Library", url:"../../libraries/nasa-tlx/"},
+    {name: "PREVis Library", url:"../../libraries/previs/"},
+    {name: "QUIS Library", url:"../../libraries/quis/"},
+    {name: "SAM Library", url:"../../libraries/sam/"},
+    {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
+    {name: "SMEQ Library", url:"../../libraries/smeq/"},
+    {name: "SUS Library", url:"../../libraries/sus/"},
+    {name: "VLAT Library", url:"../../libraries/vlat/"},
+    {name: "Virtual Chinrest Library", url:"../../libraries/virtual-chinrest"}
+  ]}
 />

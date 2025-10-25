@@ -63,19 +63,18 @@ Optionally, you can specify that trainings have to be successfully completed wit
 
 ![Training failed](img/training-failed.png)
 
-<!-- Importing links  -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-      {name: "Training Demo", url: "https://revisit.dev/study/demo-training/"}
-    ]}
-    codeLinks={[
-      {name: "Training Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-training"}
-    ]}
-    referenceLinks={[
-        {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse/"},
-        {name: "Answer", url: "../../typedoc/interfaces/Answer"}
-    ]}
+  demoLinks={[
+    {name: "Training Demo", url: "https://revisit.dev/study/demo-training/"}
+  ]}
+  codeLinks={[
+    {name: "Training Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-training"}
+  ]}
+  referenceLinks={[
+    {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse/"},
+    {name: "Answer", url: "../../typedoc/interfaces/Answer"}
+  ]}
 /> 

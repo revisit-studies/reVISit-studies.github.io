@@ -42,8 +42,7 @@ This will launch a local web server which can be accessed to view and interact w
 
 When you visit the site, you'll see a list of demo studies, identical to [the demo page](https://revisit.dev/study/). You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
 
-<!-- Importing links  -->
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
