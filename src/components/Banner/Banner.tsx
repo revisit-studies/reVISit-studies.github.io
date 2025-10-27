@@ -6,9 +6,9 @@ export default function Banner() {
     <section className={styles.banner}>
       <div className="container">
         <div className={styles.bannerColumn}>
-          <div className={styles.bannerTitle}>ReVISit Version 2.0 Is Out! &#127881;</div>
+          <div className={styles.bannerTitle}>ReVISit Version 2.3. Is Out! &#127881;</div>
           <div className={styles.bannerSubtitle}>
-            <Link href="/blog/2025/01/20/release-2.0/">Read the blog post.</Link>
+            <Link href="/blog/2025/10/27/release-2.3/">Read the blog post.</Link>
           </div>
         </div>
       </div>
