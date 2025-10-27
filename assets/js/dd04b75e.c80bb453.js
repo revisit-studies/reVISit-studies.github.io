@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkdocs_website=globalThis.webpackChunkdocs_website||[]).push([[21672],{33024:e=>{e.exports=JSON.parse('{"authors":[{"name":"The ReVISit Team","key":"team","page":null,"count":2}]}')}}]);
