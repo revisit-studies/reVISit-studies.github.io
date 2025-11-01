@@ -5,4 +5,3 @@ If you'd like to get started right out of the gates with a small tutorial, you c
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
-
