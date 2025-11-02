@@ -4,7 +4,7 @@ Now that we have a working study, we'll look at how we can start collecting data
 
 By default, reVISit does not collect data. This is because you don't need to collect data while you're developing your study. Rather, you want to work on your stimuli and study design first, and then, when you're ready to test you can enable data collection. 
 
-reVISit supports two modes of data collection: 
+ReVISit supports two modes of data collection: 
 
 1. Storing data on your **local computer**. This is useful for testing and if you are running an in-lab study. Local storage is also easy to set up. 
 2. Storing data on **Firebase or Supabase, a cloud storage provider**. This is useful and necessary if you want to run an online study. 
@@ -15,7 +15,7 @@ In this getting-started guide, we will **only cover local storage**. For setting
 
 Take the survey that you have created earlier! After you are done, use the menu on the top right, select “Next Participant“ and take the survey again (using different values). Now you have recorded data for two participants. 
 
-![Next Partcipant](img/next-participant.png)
+![Next Participant](img/next-participant.png)
 
 ## Accessing Data
 

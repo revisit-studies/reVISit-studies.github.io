@@ -204,7 +204,7 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 
 If you intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to Github pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
 
-<!--   Importing Links -->
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

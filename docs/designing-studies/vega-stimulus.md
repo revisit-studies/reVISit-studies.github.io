@@ -342,7 +342,6 @@ Remember that all events in this example are fully tracked, so you can inspect t
 ```
 
 <!-- Importing links  -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
