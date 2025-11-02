@@ -77,7 +77,7 @@ For more detailed documentation on the response section, check out the [document
 * You might have a stimulus, such as an image, about which you want to ask multiple different questions on separate pages.  
 * You might have a generic implementation of a stimulus, such as a bar chart, and you want to pass in data to change how the stimulus appears. 
 
-In both of these cases, you can set up a component once as a `baseComponent`, including linking to the stimulus and including (partial) responses, but then later write inherited, short components that extend the base component with the specific functionality you want. 
+In both of these cases, you can set up a component once as a `BaseComponent`, including linking to the stimulus and including (partial) responses, but then later write inherited, short components that extend the base component with the specific functionality you want. 
 
 For examples of how to write a base component, refer to the [documentation](../../typedoc/interfaces/StudyConfig#properties) and to the [relevant tutorial](../designing-studies/html-stimulus.md).
 
@@ -119,13 +119,13 @@ All of these can be applied on arbitrarily nested “blocks”: an entry in the 
 
 You can find more detailed documentation about the sequencing strategies [here](../../typedoc/interfaces/ComponentBlock).
 
-## reVISit Study Modes
+## ReVISit Study Modes
 
 Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analytics interface. Here we give a brief introduction to these modes. Check out our [Analytics Platform Documentation](../../analysis) for more information on managing your data and studies. Additionally, you can find our [best practices](../../data-and-deployment/lifecycle-of-revisit) for using these modes to manage the lifecycle of your reVISit study.
 
 ### Data Collection
 
-With Data Collection enabled, all data that is captured by participants will be stored either Locally or in your Firestore database (dependent on your current setup). You can check out our [data management documentation](../../analysis/data-management) to learn how to manage participants, create backup datasets, and more. 
+With Data Collection enabled, all data that is captured by participants will be stored either Locally or in your cloud database (dependent on your current setup). You can check out our [data management documentation](../../analysis/data-management) to learn how to manage participants, create backup datasets, and more. 
 
 Disabling data collection for a particular study will be shown to the user with a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
 

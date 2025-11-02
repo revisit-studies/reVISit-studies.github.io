@@ -60,7 +60,7 @@ The first build will take a bit, but once it runs, your experiment should be rea
 
 If you are using netlify as a secondary venue for anonymization purposes, you can specify which branch netlify will use to deploy from. For instance a branch called `for-review' might remove all personnel and affiliation information.
 
-<!--   Importing Links -->
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

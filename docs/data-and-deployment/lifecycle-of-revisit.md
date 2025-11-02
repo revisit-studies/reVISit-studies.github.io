@@ -49,13 +49,11 @@ When disseminating your study to reviewers and the wider public, you should:
 
 If your are submitting to a venue that requires anonymization, such as ACM SIGCHI, consider creating a second deployment. If your primary deployment is on GitHub, consider adding a secondary one on [netlify](/docs/data-and-deployment/deploying-to-static-website/#deploying-using-netlify).
 
-
-
-
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-referenceLinks={[
-{name: "Snapshots", url: "../../analysis/data-management/#snapshots"}
-]}
+    referenceLinks={[
+        {name: "Snapshots", url: "../../analysis/data-management/#snapshots"}
+    ]}
 />

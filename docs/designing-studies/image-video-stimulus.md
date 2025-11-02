@@ -59,9 +59,9 @@ This renders as so:
 
 In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. This is useful for ensuring that participants watch the entire video before answering questions.
 
-## Youtube Videos
+## External Videos
 
-You can also embed Youtube videos in your study, using the same syntax. Here is an example with a Youtube video element: 
+You can also embed external videos, such as YouTube or Vimeo videos in your study, using the same syntax. Here is an example with a YouTube video element: 
 
 ```js
 "components": {
@@ -77,7 +77,7 @@ You can also embed Youtube videos in your study, using the same syntax. Here is 
 
 This renders as so:
 
-![A Youtube video stimulus](img/youtube-stimulus.png)
+![A YouTube video stimulus](img/youtube-stimulus.png)
 
 In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. In this case, the video does not need to be watched in full, so the `forceCompletion` parameter is set to `false`. The `withTimeline` parameter adds a timeline to the video, allowing participants to skip/scrub to specific parts of the video.
 

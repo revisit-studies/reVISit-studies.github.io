@@ -1,16 +1,19 @@
 # Data Export and Basic Analysis
 
-reVISit allows you to export in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
+
+
+## Download as Tidy CSV
+ReVISit allows you to export data in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
 
 The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.
 
 The tidy data is missing some data that is available in the JSON download, such as the provenance graphs. If you need this data, you can download the JSON data and parse it in your analysis platform, instead of using this Tidy data.
 
-## Steps to Download Data
+### Steps to Download Data
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the Participant View, then click on the **Download all participants' data as a tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
+2. Open the Participant View, then click on the **Download participants data as tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
 
 ![Tidy export](./img/tidy-export-1.png)
 
@@ -21,13 +24,13 @@ The tidy data is missing some data that is available in the JSON download, such 
 ![Tidy export](./img/tidy-export-2.png)
 
 
-After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplots](https://revisit.dev/study/example-brush-interactions) study in R.
+After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplot](https://revisit.dev/study/example-brush-interactions) study in R.
 
 :::info What is Tidy data format?
 
 
 Tidy data format is a structured approach to organizing tabular data where each variable is a column, each observation is a row, and each type of observational unit is a separate table.
-You may check more details [Here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
+You may check more details [here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
 :::
 ## Example Workflow in R
 
@@ -63,8 +66,6 @@ head(df)
 ```r
 q2 <- subset(df, grepl("_q2", trialId) & status == "completed")
 q2$isCorrect <- ifelse(q2$answer == q2$correctAnswer, 1, 0)
-q2 <- subset(df, grepl("_q2", trialId) & status == "completed")
-q2$isCorrect <- ifelse(q2$answer == q2$correctAnswer, 1, 0)
 ```
 
 
@@ -94,7 +95,9 @@ We find accuracy using paint brush technique is much less than that of the other
 ggsave("plot.pdf", width = 5, height = 2, units = "in")
 ```
 
-## Download Audio 
+## Download as JSON
+
+## Download Audio
 
 There are two ways to download audio files if you have enabled `recordAudio: true` in your study. For applying Think Aloud in your study, please visit [Think Aloud](../../designing-studies/think-aloud).
 
@@ -104,7 +107,7 @@ There are two ways to download audio files if you have enabled `recordAudio: tru
 
 2. Open the **Participant View**, then click on the **Download participants audio** button.
 
-![Download participants audio](./img/audio-export-all.png)
+![Download participants' audio](./img/audio-export-all.png)
 
 :::note
 To download audio from specific participants, select the participants in the table.
@@ -132,13 +135,13 @@ If you are using Firebase, it will download the transcript of the audio file as 
 
 There are two ways to download screen recording video files if you have enabled `recordScreen: true` in your study. For applying screen recording feature in your study, please visit [Record Screen](../../designing-studies/record-screen).
 
-### Download Participants' Audio
+### Download Participants' Screen Recording
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the **Participant View**, then click on the **Download participants screen recording** button.
+2. Open the **Participant View**, then click on the **Download participants' screen recording** button.
 
-![Download participants screen recording](./img/screen-recording-export-all.png)
+![Download participants' screen recording](./img/screen-recording-export-all.png)
 
 :::note
 To download screen recording from specific participants, select the participants in the table.
@@ -158,7 +161,7 @@ To download screen recording from specific participants, select the participants
 3. Click on the **Download Screen Recording** button.
 ![Download screen recording video](./img/screen-recording-export-single.png)
 
-
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

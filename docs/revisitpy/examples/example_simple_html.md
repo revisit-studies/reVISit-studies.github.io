@@ -1,20 +1,6 @@
 # Simple HTML Study
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    codeLinks={[
-        {name: "HTML Input Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json"},
-        {name: "Simple HTML Code", url: "https://github.com/revisit-studies/revisitpy-examples/tree/main/example_simple_html"}
-    ]}
-    referenceLinks={[
-        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
-        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
-    ]}
-/>
-
 Here we will get familiar with the syntax of the reVISitPy package. To do this, we'll recreate the config for the simple html study [here](https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json). We'll start by first creating the study metadata and the UI configuration.
-
 
 ```python
 import revisitpy as rvt
@@ -296,3 +282,17 @@ Copying file from ./assets/bar-chart-interaction.html to /Users/bbollen23/revisi
 Copying file from ./assets/help.md to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/help.md
 Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/revisitLogoSquare.svg
 ```
+
+<!-- Importing links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    codeLinks={[
+        {name: "HTML Input Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json"},
+        {name: "Simple HTML Code", url: "https://github.com/revisit-studies/revisitpy-examples/tree/main/example_simple_html"}
+    ]}
+    referenceLinks={[
+        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
+        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
+    ]}
+/>

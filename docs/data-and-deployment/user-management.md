@@ -110,7 +110,7 @@ Go into the table editor and navigate to the `revisit` table. Find the row with 
 
 Once the row is deleted, your reVISit application will be ready to re-enable authentication.
 
-<!--   Importing Links -->
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

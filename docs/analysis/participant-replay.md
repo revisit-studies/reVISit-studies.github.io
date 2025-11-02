@@ -26,6 +26,7 @@ You can specify time in different formats:
 If the entered time exceeds the replay’s maximum length, it will automatically be replaced with the maximum available time in milliseconds.
 
 
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
