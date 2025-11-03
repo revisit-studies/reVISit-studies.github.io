@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'getting-started/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'getting-started/how-does-it-work',
         'getting-started/installation',
@@ -36,7 +36,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'designing-studies/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'designing-studies/forms',
         'designing-studies/image-video-stimulus',
@@ -57,7 +57,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Data And Deployment',
-      collapsed: false,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'data-and-deployment/index',
@@ -95,13 +95,32 @@ const sidebars: SidebarsConfig = {
         id: 'analysis/index',
       },
       items: [
-        'analysis/data-management',
         'analysis/study-card',
         'analysis/study-summary',
-        'analysis/participant-view',
+        {
+          type: 'category',
+          label: 'Participant View',
+          link: {
+            type: 'doc',
+            id: 'analysis/participant-view',
+          },
+          items: [
+            'analysis/data-export',
+            'analysis/participant-replay',
+          ],
+        },
         'analysis/trial-stats',
-        'analysis/data-export',
-        'analysis/participant-replay',
+        'analysis/think-aloud-coding',
+        'analysis/live-monitor',
+        {
+          type: 'category',
+          label: 'Data Management',
+          items: [
+            'analysis/revisit-modes',
+            'analysis/data-management',
+            'analysis/stage-management',
+          ],
+        },
       ],
     },
     {
@@ -111,7 +130,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'revisitpy/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'revisitpy/overview',
         'revisitpy/installation',
