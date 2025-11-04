@@ -117,8 +117,8 @@ const sidebars: SidebarsConfig = {
           label: 'Data Management',
           items: [
             'analysis/revisit-modes',
-            'analysis/data-management',
             'analysis/stage-management',
+            'analysis/data-management',
           ],
         },
       ],
