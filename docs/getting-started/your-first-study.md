@@ -1,14 +1,14 @@
 # Setting Up Your First Study
 
-In this tutorial we will use the example of a simple survey. You will learn: 
+In this tutorial we will use the example of a simple survey. You will learn:
 
-* How to set up your own copy of revisit.
+* How to set up your own copy of reVISit.
 * How to write a simple reVISit spec with survey questions split into multiple pages.
 * How to register your study with reVISit so it shows up on your local web-server.
-* How to run the local webserver and access / preview your study. 
+* How to run the local webserver and access / preview your study.
 
 :::note
-It is easiest to best to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
+It is easiest to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
 :::
 
 ## Setting Up Repos and Files
@@ -33,7 +33,7 @@ This is a questionnaire. For each question, be sure to provide and answer and th
 
 ## Writing a reVISit Spec
 
-Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study. 
+Now we are ready to create the configuration file for the study. This configuration defines how our study is laid out, provides some basic information about yourself (the creator), and describes which components will be added to the study.
 
 Create a new file called `config.json` in `basic-questionnaire-study`. Then, copy and paste the following code into the new file.
 
@@ -50,8 +50,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
         "description": "A simple questionnaire study",
         "organizations": [
             "University of Utah",
-            "WPI",
-            "University of Toronto"
+            "WPI"
         ]
     },
     "uiConfig": {
@@ -129,7 +128,7 @@ Now, our study is almost set up to view. The last step is to make sure that reVI
 }
 ```
 
-After this, add `basic-questionnaire-study` into the `configsList` list in the same file. Because the configs list is ordered, make sure to put `basic-questionnaire-study` at the top of the list so you can immediately see it. This is what this should look like: 
+After this, add `basic-questionnaire-study` into the `configsList` list in the same file. Because the configs list is ordered, make sure to put `basic-questionnaire-study` at the top of the list so you can immediately see it. This is what this should look like:
 
 ```js
 "configsList": [
@@ -141,24 +140,6 @@ After this, add `basic-questionnaire-study` into the `configsList` list in the s
 
 ## Running the Server
 
-Now, if you start the server (using `yarn serve` as described in the <a href="#installation">Installation</a> section), you'll be able to navigate to http://localhost:8080/ and view your study in the list of studies. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to view the study directly.
+Now, if you start the server (using `yarn serve` as described in the [Installation](./installation.md) section), you'll be able to navigate to http://localhost:8080/ and view your study in the list of studies. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to view the study directly.
 
 You should now see your study and be able to navigate quickly through it. However, your study is currently set up for development, so you won't be collecting any data yet. Go to the next getting started guide to learn how to enable data collection and download your data.
-
-<!-- Importing links -->
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    demoLinks={[
-        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey/"}
-    ]}
-    codeLinks={[
-        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-survey"}
-    ]}
-    referenceLinks={[
-        {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
-        {name: "Long Text Response", url: "../../typedoc/interfaces/LongTextResponse/"},
-        {name: "Dropdown Response", url: "../../typedoc/interfaces/DropdownResponse/"},
-        {name: "Likert Response", url: "../../typedoc/interfaces/LikertResponse/"}
-    ]}
-/>

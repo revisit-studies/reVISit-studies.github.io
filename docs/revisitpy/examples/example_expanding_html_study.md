@@ -193,8 +193,7 @@ study_metadata = rvt.studyMetadata(
     description="A demo of how to pass visualization data from reVISit to HTML and send user answers from HTML back to the reVISit.",
     organizations=[
         "University of Utah",
-        "WPI",
-        "University of Toronto"
+        "WPI"
     ]
 )
 
