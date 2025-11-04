@@ -29,12 +29,9 @@ In addition to pushes from the `main` branch in this repo, the documentation is 
 
 Whenever our Github action for the `study` repository runs, it versions the current documentation. This gets labeled as the previous recent version. So if we are about to release `v1` and our previous release was `v1-beta`, then the versioning system will create a `version-v1-beta` folder in the `version_docs` folder. The contents of these files will be identical to the `docs` folder when this action is taken. Then, the `docs/` folder will be `v1`.
 
-
 ### Writing Documentation
 
 Because we have a versioning system in docusaurus, all old documentation is placed in the "versioned_docs" folder. This is done automatically with the help of our Github workflow and Docusaurus. The latest version of our documentation is always in the `docs/` folder. This should be the only folder you need to edit unless you are specifically attempting to update an old version of the documentation.
-
-
 
 ### Typesetting Conventions
 
@@ -46,16 +43,15 @@ Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
 
 :::
 ```
-* Use opening and closing double quotes “ ” when you want to use quotes. 
+* Use opening and closing double quotes “ ” when you want to use quotes.
     * “ opening - is Option + [ on Mac
     * ” closing - is Option + Shift + [ on Mac.
-    * Don't use code-style quotes ". Don't use single quotes at all. 
-* Use code highlighting whenever you're mentioning something that's code, like a `function_name()`. 
+    * Don't use code-style quotes ". Don't use single quotes at all.
+* Use code highlighting whenever you're mentioning something that's code, like a `function_name()`.
 * Use dashes properly:
     * em-dash: — use instead of comma; use sparingly. [Option + Shift + Dash (-) on Mac]
-    * en-dash: – use for number ranges, 2–3 items. [Option + Dash (-) on Mac] 
+    * en-dash: – use for number ranges, 2–3 items. [Option + Dash (-) on Mac]
     * hyphen: - use for hyphenation
-
 
 **Custom Structured Links Component:**
 
@@ -65,16 +61,18 @@ We can add a "structured links" component to any of our Markdown files like so:
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLink="https://revisit.dev/study/demo-vega/"
-    codeLink="https://github.com/revisit-studies/study/tree/main/public/demo-vega"
-    referenceLinks={
-      [
-        {name: "Vega", url:"https://vega.github.io/vega/"},
-        {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
-        {name: "Vega Config Component", url: "../../typedoc/interfaces/VegaComponentConfig/"},
-        {name: "Vega Path Component", url: "../../typedoc/interfaces/VegaComponentPath/"}
-      ]
-    }
+  demoLinks={[
+    {name: "Vega Demo", url: "https://revisit.dev/study/demo-vega/"}
+  ]}
+  codeLinks={[
+    {name: "Vega Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-vega"}
+  ]}
+  referenceLinks={[
+    {name: "Vega", url: "https://vega.github.io/vega/"},
+    {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
+    {name: "Vega Component Config", url: "../../typedoc/interfaces/VegaComponentConfig/"},
+    {name: "Vega Component Path", url: "../../typedoc/interfaces/VegaComponentPath/"}
+  ]}
 />
 ```
 
@@ -82,10 +80,8 @@ The "demoLink" is a static path and will appear as "Live Demo". The "codeLink" i
 
 Note that this wil _only_ render when we have the right-hand sidebar in the markdown file which appears when we have separated headers to navigate.
 
-
-
 ## Testimonials
 
-Testimonials about papers that use revisit can be submitted via a form: https://forms.gle/nYqAoqESHdDtK2yH6 
+Testimonials about papers that use reVISit can be submitted via a form: https://forms.gle/nYqAoqESHdDtK2yH6
 
-To update the website, copy the responses as a csv into `static/testimonials.csv' from [here](https://docs.google.com/spreadsheets/d/1ox3MUu6sLJlPZA_ULuawBroC0CicxcSkdGcItRTQwb4/edit?gid=1547627539#gid=1547627539). 
+To update the website, copy the responses as a csv into `static/testimonials.csv' from [here](https://docs.google.com/spreadsheets/d/1ox3MUu6sLJlPZA_ULuawBroC0CicxcSkdGcItRTQwb4/edit?gid=1547627539#gid=1547627539).
