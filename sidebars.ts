@@ -110,7 +110,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'analysis/trial-stats',
-        'analysis/think-aloud-coding',
+        'analysis/coding',
         'analysis/live-monitor',
         {
           type: 'category',
