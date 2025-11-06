@@ -48,3 +48,7 @@ A common issue in Google Chrome is the debug token changing whenever the applica
 ### Q: I see two different times reported for the duration of a trial, one of them is called "clean time". What is that?
 
 A: We report the total time it took a participant to complete a task as duration, but we also report a **clean time** duration that subtracts inactive periods from the total time. Technically, we determine that a browser window is inactive for a period of time based on the [`visibilitychange event`](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event), which fires, e.g., when the participant switches to a different tab. We subtract that inactive time from the total duration for the clean time. It's often the case that a participant gets distracted and does something unrelated to the study, and then comes back to the study to continue. Clean time is a way to identify these situations and prevent extreme outliers from being considered in timing data. However, there are ways for participants to become distracted that are not tracked by clean time, such as when they step away from their computer and keep their browser open.
+
+### Q: What happens if there's an error during study initialization?
+
+A: ReVISit has built-in error handling so your study can still run even if something goes wrong when it starts. If an error happens during setup, reVISit will show a warning message, then automatically use the first available study setup, and continue running so participants can still complete the study.

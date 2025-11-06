@@ -1,6 +1,7 @@
 # Data Export and Basic Analysis
 
 ## Download as Tidy CSV
+
 ReVISit allows you to export data in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
 
 The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.
@@ -13,13 +14,13 @@ The tidy data is missing some data that is available in the JSON download, such 
 
 2. Open the Participant View, then click on the **Download as tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
 
-![Tidy export](./img/tidy-export.png)
+![Tidy export](./img/data-export/tidy-export.png)
 
 3. The **CSV Exporter** will open, where you can select the columns to export. A preview of the first five rows of the output CSV will be displayed.
 
 4. Once ready, click the **Download** button at the bottom right.
 
-![Tidy export CSV explorer](./img/tidy-export-csv-exporter.png)
+![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
 
 After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplot](https://revisit.dev/study/example-brush-interactions) study in R.
 
@@ -77,7 +78,7 @@ ggplot(q2, aes(x = isCorrect, y = trialId)) +
   )
 ```
 
-![Violin Plot](./img/r-violin-plot.png)
+![Violin Plot](./img/data-export/r-violin-plot.png)
 
 We find accuracy using paint brush technique is much less than that of the others.
 
@@ -94,7 +95,7 @@ ggsave("plot.pdf", width = 5, height = 2, units = "in")
 
 2. Open the Participant View, then click on the **Download as JSON** button.
 
-![JSON export](./img/json-export.png)
+![JSON export](./img/data-export/json-export.png)
 
 ## Download Audio
 
@@ -106,31 +107,30 @@ There are two ways to download audio files if you have enabled `recordAudio: tru
 
 2. Open the **Participant View**, then click on the **Download participants audio** button.
 
-![Download participants' audio](./img/audio-export-all.png)
+![Download participants' audio](./img/data-export/audio-export-all.png)
 
 :::note
 To download audio from specific participants, select the participants in the table.
 :::
-
 
 ### Download Single Participant's Task Audio
 
 1. Navigate to the **Analysis** platform for the current study.
 
 2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
-![Download task audio](./img/audio-export-task-1.png)
+![Download task audio](./img/data-export/audio-export-1.png)
 
 3. Click on the task.
-![Download task audio](./img/audio-export-task-2.png)
+![Download task audio](./img/data-export/audio-export-2.png)
 
 3. Click on the **Download Audio** button.
-![Download task audio](./img/audio-export-task-3.png)
+![Download task audio](./img/data-export/audio-export-3.png)
 
 :::note
 If you are using Firebase, it will download the transcript of the audio file as well.
 :::
 
-## Download Screen Recording 
+## Download Screen Recording
 
 There are two ways to download screen recording video files if you have enabled `recordScreen: true` in your study. For applying screen recording feature in your study, please visit [Record Screen](../../designing-studies/record-screen).
 
@@ -140,25 +140,24 @@ There are two ways to download screen recording video files if you have enabled 
 
 2. Open the **Participant View**, then click on the **Download participants' screen recording** button.
 
-![Download participants' screen recording](./img/screen-recording-export-all.png)
+![Download participants' screen recording](./img/data-export/screen-recording-export-all.png)
 
 :::note
 To download screen recording from specific participants, select the participants in the table.
 :::
-
 
 ### Download Single Participant's Screen Recording
 
 1. Navigate to the **Analysis** platform for the current study.
 
 2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
-![Download task audio](./img/audio-export-task-1.png)
+![Download task audio](./img/data-export/screen-recording-export-1.png)
 
 3. Click on the task.
-![Download task audio](./img/audio-export-task-2.png)
+![Download task audio](./img/data-export/screen-recording-export-2.png)
 
 3. Click on the **Download Screen Recording** button.
-![Download screen recording video](./img/screen-recording-export-single.png)
+![Download screen recording video](./img/data-export/screen-recording-export-3.png)
 
 <!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

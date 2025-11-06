@@ -4,13 +4,13 @@ The study summary gives users a quick overview of their study at a glance. It pr
 
 The summary is organized into three main sections: Overview Statistics, Component Statistics, and Response Statistics. At the top, participant filter allows you to filter the analysis by including or excluding completed, in-progress, or rejected participants. A stage selector is also available for filtering different study stages. For more details on stage management, see [here](./../stage-management).
 
-![Study Summary](./img/study-summary.png)
+![Study Summary](./img/study-summary/study-summary.png)
 
 ## Overview Statistics
 
 This section shows key numbers about the study.
 
-![Study Summary Overview Statistics](./img/study-summary-overview.png)
+![Study Summary Overview Statistics](./img/study-summary/study-summary-overview.png)
 
 - Total Participants – total number of people in the study
 - Completed / In-Progress / Rejected – counts of participants by status (green = completed, yellow = in-progress, red = rejected)
@@ -21,7 +21,7 @@ This section shows key numbers about the study.
 
 ## Component Statistics
 
-![Study Summary Component Statistics](./img/study-summary-component.png)
+![Study Summary Component Statistics](./img/study-summary/study-summary-component.png)
 
 This section shows each part of the study in a table you can sort, filter, and search.
 
@@ -33,7 +33,7 @@ This section shows each part of the study in a table you can sort, filter, and s
 
 ## Response Statistics
 
-![Study Summary Response Statistics](./img/study-summary-response.png)
+![Study Summary Response Statistics](./img/study-summary/study-summary-response.png)
 
 This section provides details for each question, with each row representing a single question.
 

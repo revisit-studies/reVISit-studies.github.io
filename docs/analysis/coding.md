@@ -15,17 +15,11 @@ Coding is available only when using the Firebase storage engine. It also needs a
 Here are the main features:
 
 - **Transcripts**: Each line shows a small part of what the participant said. You can edit it, press **Enter** to split a line, or press **Backspace** to merge it with the line above. All changes are saved automatically.
-
 - **Text Tags**: Labels you can add to transcript lines to organize each segment and show what was said or how it was said.
-
 - **Annotations**: Short notes or comments about a transcript line. Use them for observations, thoughts, or extra context.
-
 - **Replay Timeline**: Follow along as the current line highlights in blue during playback. Clicking a line jumps the audio to that part, keeping text and sound in sync.
-
 - **Playback Speed**: Change how fast the audio plays, from **0.5×** to **8×**.
-
 - **Participant Tags**: Labels for participants that let you group or filter them.
-
 - **Task Tags**: Labels you can add to the current task to categorize it.
 
 <!-- Importing Links -->

@@ -17,7 +17,7 @@ We have a few reusable components and hooks available in the `src/public/example
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
 In this example, we pass two data arrays to the BarChart component. One is the data array contains 5 objects, each object has a name and a value. The other is the selectedIndices array, which contains the indices of the data array that we want to highlight with dots.
 
-```typescript
+```ts
 import * as d3 from 'd3';
 import { useChartDimensions } from './hooks/useChartDimensions';
 import { Bars } from './chartcomponents/Bars';
@@ -160,11 +160,11 @@ In this example, the response from the user is no longer the traditional respons
 In this example, the React component will take `parameters` and `setAnswer` as props. The parameters work just like in Example 1; it will pass data from the config file to the React component.
 The `setAnswer` function is a built-in function that is used to pass the user's response to the reVISit framework.
 
-We will use 'demo-click-accuracy-test' as experiment name in this example. Start by creating the `demo-click-accuracy-test` directory in the `src/public` directory. Make sure to also add the `assets` directory within the `demo-click-accuracy-test` directory for the best organization. 
+We will use 'demo-click-accuracy-test' as experiment name in this example. Start by creating the `demo-click-accuracy-test` directory in the `src/public` directory. Make sure to also add the `assets` directory within the `demo-click-accuracy-test` directory for the best organization.
 
 Now, create a new file called `ClickAccuracyTest.tsx` with the following contents:
 
-```typescript
+```ts
 import * as d3 from 'd3';
 import {
   useCallback, useEffect, useState,
@@ -289,7 +289,7 @@ At this point, the click accuracy test will be running and be able to collect pa
 
 ![Click accuracy test](img/react-stimulus-click.png)
 
-<!-- As an additional We have three assignments for you. 
+<!-- As an additional We have three assignments for you.
 1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
 2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
 3) We can make this stimulus more challenge, adding multiple moving dots and ask the participants to click on the highlighted one. -->
@@ -308,7 +308,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
   ]}
   referenceLinks={[
     {name: "React", url: "https://react.dev/"},
-    {name: "React Component", url: "../../typedoc/interfaces/ReactComponent"},
-    {name: "Reactive Response", url: "../../typedoc/interfaces/ReactiveResponse"}
+    {name: "ReactComponent", url: "../../typedoc/interfaces/ReactComponent"},
+    {name: "ReactiveResponse", url: "../../typedoc/interfaces/ReactiveResponse"}
   ]}
 />

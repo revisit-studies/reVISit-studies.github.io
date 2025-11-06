@@ -1,8 +1,8 @@
 # Think Aloud
 
-ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio is only recorded while using Firebase or Supabase storage, and will not activate if using local storage. 
+ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio is only recorded while using Firebase or Supabase storage, and will not activate if using local storage.
 
-## Turning on audio recording 
+## Turning on audio recording
 
 Turning on audio recording for your entire study can be done by setting the `recordAudio` flag at the top level of your config file.
 
@@ -10,7 +10,7 @@ Turning on audio recording for your entire study can be done by setting the `rec
 "recordAudio": true
 ```
 
-By default, this will record audio for every task in the study. However, we recommend only recording audio for tasks which you plan on later analyzing, and turning it off for tasks such as consent forms and introductions. Each component can turn off audio for that component by setting the `recordAudio` flag within the component to false, as shown below. 
+By default, this will record audio for every task in the study. However, we recommend only recording audio for tasks which you plan on later analyzing, and turning it off for tasks such as consent forms and introductions. Each component can turn off audio for that component by setting the `recordAudio` flag within the component to false, as shown below.
 
 ```json
 "introduction": {
@@ -30,11 +30,11 @@ By default, this will record audio for every task in the study. However, we reco
 },
 ```
 
-Audio is recorded via browser, and participants will receive a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the `mic-check` library, which requires participants to have a functioning microphone to continue the study. You can find more information in the [reVISit libraries](./plugin-libraries.md).
+Audio is recorded via browser, and participants will receive a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the [`mic-check`](../libraries/mic-check.md) library, which requires participants to have a functioning microphone to continue the study. You can find more information in the [reVISit libraries](./plugin-libraries.md).
 
 ## Downloading audio
 
-All audio data is stored in Firebase or Supabase storage. To listen to participants audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis. 
+All audio data is stored in Firebase or Supabase storage. To listen to participants audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis.
 
 To download audio data after completing a study, navigate to [Participant View](../analysis/data-export.md) in analysis.
 
