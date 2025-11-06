@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'getting-started/index',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'getting-started/how-does-it-work',
         'getting-started/installation',
@@ -36,7 +36,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'designing-studies/index',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'designing-studies/forms',
         'designing-studies/image-video-stimulus',
@@ -57,7 +57,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Data And Deployment',
-      collapsed: true,
+      collapsed: false,
       link: {
         type: 'doc',
         id: 'data-and-deployment/index',
