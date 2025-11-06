@@ -4,7 +4,7 @@
 
 Some studies require knowledge of the participant's responses to previous questions to determine the next component that is shown. For example, if a participant answers a question incorrectly, they may be shown a simpler task next. Alternatively, if a participant answers a question correctly, they may be shown a more difficult task next. This is a common feature in adaptive testing, where the difficulty of the questions adapts to the participant's performance.
 
-In reVISit, this can be achieved using dynamic blocks. Dynamic blocks are blocks that use a function to calculate what the next component will be. This function is a typescript/javascript function that is defined in the `src/public/study-name/` folder and is referenced in the study configuration file like so:
+In reVISit, this can be achieved using dynamic blocks. [Dynamic blocks](../typedoc/interfaces/DynamicBlock.md) are blocks that use a function to calculate what the next component will be. This function is a TypeScript/JavaScript function that is defined in the `src/public/study-name/` folder and is referenced in the study configuration file like so:
 
 ```json
 "sequence": {

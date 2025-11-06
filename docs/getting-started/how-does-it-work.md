@@ -6,12 +6,12 @@ To create a study with reVISit, you have to create **components** that contain t
 
 Components are where study-specific content goes. ReVISit supports many types of components:
 
-* **[Markdown Files](../../typedoc/interfaces/MarkdownComponent)** contain formatted text, including links, images, embedded videos, etc. They are useful for introductions, consent forms, help pages, etc.
-* **[Images](../../typedoc/interfaces/ImageComponent)** and **[Videos](../../typedoc/interfaces/VideoComponent)** can be used as stimuli directly. 
-* **[Web Pages](../../typedoc/interfaces/WebsiteComponent)** can be used to create custom stimuli, including interactive stimuli developed with JavaScript.
-* **[React Components](../../typedoc/interfaces/ReactComponent)** can be used for sophisticated interactive stimuli. In comparison to HTML pages, react components simplify the communication between reVISit and the stimulus.
-* **[Vega and Vega-lite Components](../../typedoc/type-aliases/VegaComponent)** can be used to create declarative visualization stimuli. Vega components integrate with reVISit's provenance system and track user interactions with the visualization.
-* **[Survey Questions](../../typedoc/interfaces/QuestionnaireComponent)** can be used to elicit structured responses from participants.
+- **[Markdown Files](../../typedoc/interfaces/MarkdownComponent)** contain formatted text, including links, images, embedded videos, etc. They are useful for introductions, consent forms, help pages, etc.
+- **[Images](../../typedoc/interfaces/ImageComponent)** and **[Videos](../../typedoc/interfaces/VideoComponent)** can be used as stimuli directly. 
+- **[Web Pages](../../typedoc/interfaces/WebsiteComponent)** can be used to create custom stimuli, including interactive stimuli developed with JavaScript.
+- **[React Components](../../typedoc/interfaces/ReactComponent)** can be used for sophisticated interactive stimuli. In comparison to HTML pages, react components simplify the communication between reVISit and the stimulus.
+- **[Vega and Vega-lite Components](../../typedoc/type-aliases/VegaComponent)** can be used to create declarative visualization stimuli. Vega components integrate with reVISit's provenance system and track user interactions with the visualization.
+- **[Survey Questions](../../typedoc/interfaces/QuestionnaireComponent)** can be used to elicit structured responses from participants.
 
 All of these stimuli can be (and commonly are) paired with **responses**. Responses are form elements that capture the elicited responses. Survey questions are basically empty components with responses.
 
@@ -21,10 +21,10 @@ A component is typically defined in the spec, with the text, code, or image incl
 
 The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define the details of your experiment as a JSON (or YAML) file. The reVISit Spec has four top-level concepts:
 
-* **Study Metadata** — specifying things like the name of the study, authors, contact e-mails
-* **UI Config** — parameterizing the appearance of reVISit
-* **Components** and **BaseComponents** — setting up the content of the study
-* **Sequence** — choosing the order and the selection of tasks participants see
+- **Study Metadata** — specifying things like the name of the study, authors, contact e-mails
+- **UI Config** — parameterizing the appearance of reVISit
+- **Components** and **BaseComponents** — setting up the content of the study
+- **Sequence** — choosing the order and the selection of tasks participants see
 
 We'll explain the ideas in the next section, and link to the documentation for more details.
 
@@ -72,7 +72,7 @@ For more detailed documentation on the response section, check out the [document
 
 ## Base Components and Inheritance
 
-[Base Components](../../typedoc/interfaces/StudyConfig#properties) can be used to implement inheritance for components. This is often useful if you want to parameterize a component. For example:
+[BaseComponents](../../typedoc/interfaces/StudyConfig#properties) can be used to implement inheritance for components. This is often useful if you want to parameterize a component. For example:
 
 * You might have a stimulus, such as an image, about which you want to ask multiple different questions on separate pages.
 * You might have a generic implementation of a stimulus, such as a bar chart, and you want to pass in data to change how the stimulus appears.
@@ -85,13 +85,13 @@ For examples of how to write a base component, refer to the [documentation](../.
 
 The sequence object of the study configuration defines (a) the order participants see your components and (b) determines which components they see. ReVISit supports sophisticated ordering strategies, interruptions and skip logic. Specifically, reVISit supports:
 
-* **Ordering Strategies:**
-    * **Fixed** order: participants see the components the way they are defined in the sequence
-    * **Random** order: the order of the components are randomized
-    * **[Latin Square](https://en.wikipedia.org/wiki/Latin_square)** order: permute the order of stimuli but ensure that for a set of participants, each component occurs at each index an equal amount of times throughout the sequence (e.g. if there are 100 participants and 10 components, each component is seen at each index 10 times)
-* **Sampling:** `numSamples` draws a given number of items from a block. `numSamples` can be used in combination with each ordering strategy (while preserving ordering guarantees)
-* **Interruptions** can be used to insert breaks and attention checks into a block
-* **Skips** can be used to control flow based on the response to a question or a component block
+- **Ordering Strategies:**
+    - **Fixed** order: participants see the components the way they are defined in the sequence
+    - **Random** order: the order of the components are randomized
+    - **[Latin Square](https://en.wikipedia.org/wiki/Latin_square)** order: permute the order of stimuli but ensure that for a set of participants, each component occurs at each index an equal amount of times throughout the sequence (e.g. if there are 100 participants and 10 components, each component is seen at each index 10 times)
+- **Sampling:** `numSamples` draws a given number of items from a block. `numSamples` can be used in combination with each ordering strategy (while preserving ordering guarantees)
+- **Interruptions** can be used to insert breaks and attention checks into a block
+- **Skips** can be used to control flow based on the response to a question or a component block
 
 All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order
 
@@ -119,6 +119,27 @@ All of these can be applied on arbitrarily nested “blocks”: an entry in the 
 
 You can find more detailed documentation about the sequencing strategies [here](../../typedoc/interfaces/ComponentBlock).
 
+## Stored Data
+
+When participants interact with your study, reVISit automatically collects and stores data about their participation. This data is structured as [ParticipantData](../../typedoc/interfaces/ParticipantData) objects, which contain all information about each participant's session.
+
+### Participant Data
+
+Each participant's data includes:
+
+- **Participant Information**: A unique identifier for each participant and metadata (browser type, screen size, language, and IP address)
+- **Study Config**: Which version of your study configuration the participant received
+- **Sequence**: The order in which components were shown to the participant
+- **Responses**: All answers provided by the participant across all components
+
+### Stored Answer
+
+For each component a participant interacts with, reVISit stores a [StoredAnswer](../../typedoc/interfaces/StoredAnswer) object that includes:
+
+- **Responses**: The responses the participant provided
+- **Interaction Data**: Timing information (start and end times) and a log of interactions including mouse movements, keyboard input, scrolling, and visibility events
+- **Provenance Graphs**: A graph structure that tracks the sequence of meaningful state changes in the component.
+
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -129,6 +150,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "UIConfig", url: "../../typedoc/interfaces/UIConfig"},
         {name: "BaseIndividualComponent", url: "../../typedoc/interfaces/BaseIndividualComponent/"},
         {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse/"},
-        {name: "Sequence", url: "../../typedoc/interfaces/Sequence/"}
+        {name: "Sequence", url: "../../typedoc/interfaces/Sequence/"},
+        {name: "ParticipantData", url: "../../typedoc/interfaces/ParticipantData/"},
+        {name: "StoredAnswer", url: "../../typedoc/interfaces/StoredAnswer/"}
     ]}
 />

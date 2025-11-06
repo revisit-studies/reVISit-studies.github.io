@@ -1,10 +1,10 @@
 # Record Screen
- 
+
 ReVISit provides built-in support for screen recording and playback, enabling both in-person and crowdsourced tracking studies.
 
-## Turning on screen recording 
+## Turning on screen recording
 
-You can enable screen recording in your study by setting the `recordScreen` flag, importing the `screen-recording` library, and adding the `screenRecordingPermission` component to your study sequence.
+You can enable screen recording in your study by setting the `recordScreen` flag, importing the [`screen-recording`](../libraries/screen-recording.md) library, and adding the `screenRecordingPermission` component to your study sequence.
 
 **Step 1: Enable screen recording in your study**
 
@@ -33,7 +33,7 @@ This enables screen recording to your entire study. However, you can also disabl
 
 *B. Enabling screen recording on specific screens*
 
-If you want to enable screen recording on certain screens, you can leave `recordScreen` in the `uiConfig` as `false` and enable `recordScreen` at the component level. Settings in the component level overrides the global config. 
+If you want to enable screen recording on certain screens, you can leave `recordScreen` in the `uiConfig` as `false` and enable `recordScreen` at the component level. Settings in the component level overrides the global config.
 
 ```json
 {
@@ -98,21 +98,21 @@ Screen is recorded via browser, and participants will receive a permissions requ
 
 Participants are asked to share the study tab. In Chromium-based browsers, the study tab is usually pre-selected by default. In other browsers, participants must manually select the correct tab, which is labeled _"RECORD THIS TAB."_
 
-All recorded videos are stored in Firebase storage. To download participants' screen recorded videos after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis. 
+All recorded videos are stored in Firebase storage.
 
 ## Downloading screen recording videos
 
 You can [download screen recording videos](../analysis/data-export.md#download-screen-recording) from the analysis page of the study.
 
-Alternatively, you can use `gsutils` to download screen recorded videos. We recommend utilizing `gsutil` to download the video files in bulk. Navigate to your firebase storage to find your appspot name, then run the command:
+Alternatively, you can use `gsutils` to download screen recorded videos. We recommend utilizing `gsutil` to download the video files in bulk. Navigate to your Firebase storage to find your appspot name, then run the command:
 
 ```bash
-gsutil -m cp -r gs://my-bucket/studyName/screenRecording .
+gsutil -m cp -r gs://my-bucket/studyName/screenRecording
 ```
 
-## Screen recording with think-aloud (audio recording)
+## Screen recording with Think Aloud (audio recording)
 
-ReVISit also supports [think-aloud](../think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
+ReVISit also supports [Think Aloud](../think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
 
 ```json
 {
@@ -137,7 +137,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
     referenceLinks={[
         {name: "Screen Recording Library", url: "../../libraries/screen-recording/"},
-        {name: "reVISit Libraries", url: "../plugin-libraries"},
+        {name: "ReVISit Libraries", url: "../plugin-libraries"},
         {name: "Downloading recorded videos", url: "../../analysis/data-export/#download-screen-recording"},
         {name: "ThinkAloud", url: "../think-aloud"}
     ]}

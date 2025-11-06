@@ -4,7 +4,7 @@ Image and video stimuli are essential for most studies. They can be used to pres
 
 ## Image Stimuli
 
-Image stimuli are components of type `image`. Here is a simple example with an image element: 
+Image stimuli are components of type `image`. Here is a simple example with an image element:
 
 ```js
 "components": {
@@ -36,11 +36,11 @@ This renders like that:
 
 ![An image stimulus](img/image-stimulus.png)
 
-In this example, the image is rendered in the main window with a response in the sidebar. The image is given an optional parameter `style` to specify the width of the image. This object supports arbitrary CSS properties.
+In this example, the image is rendered in the main window with a response in the sidebar. The image is given an optional parameter [`style`](./applying-style.md) to specify the width of the image. This object supports arbitrary CSS properties.
 
 ## Video Stimuli
 
-Video stimuli are components of type `video`. Here is a simple example with a video element: 
+Video stimuli are components of type `video`. Here is a simple example with a video element:
 
 ```js
 "components": {
@@ -61,7 +61,7 @@ In this example, the video is rendered in the main window. The video is given an
 
 ## External Videos
 
-You can also embed external videos, such as YouTube or Vimeo videos in your study, using the same syntax. Here is an example with a YouTube video element: 
+You can also embed external videos, such as YouTube or Vimeo videos in your study, using the same syntax. Here is an example with a YouTube video element:
 
 ```js
 "components": {
@@ -94,7 +94,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Video Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-video"}
   ]}
   referenceLinks={[
-    {name: "Image Component", url: "../../typedoc/interfaces/ImageComponent/"},
-    {name: "Video Component", url: "../../typedoc/interfaces/VideoComponent/"}
+    {name: "ImageComponent", url: "../../typedoc/interfaces/ImageComponent/"},
+    {name: "VideoComponent", url: "../../typedoc/interfaces/VideoComponent/"}
   ]}
 />

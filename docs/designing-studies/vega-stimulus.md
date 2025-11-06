@@ -1,19 +1,19 @@
 # Designing a Vega Stimulus
 
-[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations. 
+[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations.
 Vega allows you to define the visual appearance and interactive behavior of a visualization in JSON format and generate web-based views using Canvas or SVG.
 
 A key benefit of using Vega with reVISit is that **you get provenance tracking (interaction logs) and the detailed replay of every single participant's interactions for free!**
 
-This guide demonstrates how to integrate a Vega-based component into reVISit. 
+This guide demonstrates how to integrate a Vega-based component into reVISit.
 
 You can check out the [live demo](https://revisit.dev/study/demo-vega/) and the [code for these examples](https://github.com/revisit-studies/study/tree/main/public/demo-vega).
 
-Also Review the relevant reference for 
+Also Review the relevant reference for
 * [Vega Components](https://revisit.dev/docs/typedoc/interfaces/VegaComponentConfig/)
 * [Vega Paths](https://revisit.dev/docs/typedoc/interfaces/VegaComponentPath/)
 
-There are two ways to add a Vega component: directly in the config, and in an external file. 
+There are two ways to add a Vega component: directly in the config, and in an external file.
 
 ### 1. Adding Vega Specs Directly to the reVISit Config
 
@@ -111,7 +111,7 @@ The figure shows the result:
 
 ![The reVISit UI showing a Vega bar chart where one bar is selected and the response is printed in the sidebar.](./img/vega-response.png)
 
-Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/replay).
+Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/table).
 
 
 ```js
@@ -354,7 +354,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
   referenceLinks={[
     {name: "Vega", url: "https://vega.github.io/vega/"},
     {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
-    {name: "Vega Component Config", url: "../../typedoc/interfaces/VegaComponentConfig/"},
-    {name: "Vega Component Path", url: "../../typedoc/interfaces/VegaComponentPath/"}
+    {name: "VegaComponentConfig", url: "../../typedoc/interfaces/VegaComponentConfig/"},
+    {name: "VegaComponentPath", url: "../../typedoc/interfaces/VegaComponentPath/"}
   ]}
 />

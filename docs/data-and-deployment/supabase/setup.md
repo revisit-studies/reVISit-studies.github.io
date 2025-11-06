@@ -30,7 +30,7 @@ Once you have your server or VM, you will need to follow these steps:
    ```
 
    This will pull the docker images and start the Supabase services in detached mode.
-  
+
 6. **Access the Supabase Dashboard**: Once the services are up and running, you can access the Supabase dashboard by navigating to `http://localhost:8000` in your web browser. Alternatively, if you are running this on a remote server, replace `localhost` with your server's IP address or domain name. You can log in using the credentials you set in the `.env` file.
 
 :::info
@@ -118,7 +118,7 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
-``` 
+```
 Make sure to replace `your-domain.com` with your actual domain name and provide the correct paths to your SSL certificate and private key.
 
 Once the reverse proxy is set up, you can access your reVISit application securely over HTTPS provided that you change the `VITE_SUPABASE_URL` in your `.env` file to use `https://` instead of `http://` and drop the port number if you are using the default port 443 for HTTPS (as shown in the example above).

@@ -1,6 +1,6 @@
 # Designing Forms
 
-Form elements are essential for most studies to capture user responses. ReVISit provides rich form elements, such as sliders, checkboxes, text fields, etc., so that you can efficiently design your forms.
+Form elements are essential for most studies to capture user [responses](../typedoc/interfaces/BaseResponse.md). ReVISit provides rich form elements, such as [sliders](../typedoc/interfaces/SliderResponse.md), [checkboxes](../typedoc/interfaces/CheckboxResponse.md), text fields, etc., so that you can efficiently design your forms.
 
 This tutorial does not give a comprehensive introduction into all form elements. For this, refer to the demo and other links in the relevant links panel. Instead, we introduce some high-level principles that apply to all form elements.
 
@@ -39,7 +39,7 @@ This renders like that:
 
 In this example, the drop-down is rendered in the main window, as indicated by the `"location": "aboveStimulus"` line. As documented in the [`BaseResponse`](../../typedoc/interfaces/BaseResponse/), the other options are `sidebar` and `belowStimulus`.
 
-Form elements can be placed either in a side-bar, or as the main content of a study page. The side-bar version is useful if you're showing another kind of stimulus in the main part of the window. The main page location is useful for stand-alone survey questions, or if you want to integrate your response with your stimulus.
+Form elements can be placed either in a sidebar, or as the main content of a study page. The sidebar version is useful if you're showing another kind of stimulus in the main part of the window. The main page location is useful for stand-alone survey questions, or if you want to integrate your response with your stimulus.
 
 Because form elements are so commonly combined with other stimuli, a standalone questionnaire component as shown above is just a stripped down component with “only” a response.
 
@@ -76,6 +76,12 @@ To achieve that, add the `"withDontKnow": true` option to your form element.
 You can structure your forms by adding a divider between form elements. To add a divider, add `"withDivider": true` to the question that you want the divider to appear after. In the following figure, there's a divider added between question 1 and 2.
 
 ![Two questions separated by a divider.](img/form-divider.png)
+
+### Enumerating Questions
+
+You can automatically number questions by setting `"enumerateQuestions": true`. This will prepend each question with its index number (starting from 1). This feature should only be used when all questions are in the same location (e.g., all questions are in the sidebar).
+
+![Enumerate questions](img/form-enumerate-questions.png)
 
 ### Radio and Checkbox Features
 
@@ -145,7 +151,7 @@ This option is useful when you want participants to focus on their strongest pre
 
 ![Examples of ranking widgets](img/form-ranking.png)
 
-## Randomization of form elements 
+## Randomization of form elements
 Randomizing the order of answers or questions can help reduce bias and improve the quality of your study results. ReVISit allows you to shuffle options within a question, or even the order of entire questions on a page.
 
 A dice icon is shown in the sidebar to indicate that at least one item on this page has a randomized order.
@@ -176,7 +182,7 @@ Here is an example to show how to set up questions in random order:
         "appealing"
     ]
   }
-]        
+]
 ```
 
 ![Randomization of question order](./img/form-random-question.png)
@@ -237,6 +243,57 @@ If the form is randomized, a dice icon will appear in the sidebar to indicate th
 
 ![Randomization of form elements](./img/form-random-response.png)
 
+## Sidebar Configuration
+
+The sidebar is a left panel that can be used to display form elements alongside your stimulus. This is particularly useful when you want participants to see both the stimulus and the questions simultaneously.
+
+### Enabling the Sidebar
+
+To use the sidebar, you must set `"withSidebar": true` in your component or globally in the `uiConfig`. The sidebar is required if any of your responses have `"location": "sidebar"`.
+
+```js
+"components": {
+  "survey": {
+    "type": "questionnaire",
+    "withSidebar": true,
+    "response": [
+      {
+        "id": "q-sidebar",
+        "prompt": "Rate this visualization",
+        "location": "sidebar",
+        "type": "likert",
+        "numItems": 5
+      }
+    ]
+  }
+}
+```
+
+### Sidebar Width
+
+You can customize the width of the sidebar by setting `"sidebarWidth"` (in pixels). The default width is 300 pixels. This can be set globally in `uiConfig` or overridden on individual components.
+
+```js
+"components": {
+  "survey": {
+    "type": "questionnaire",
+    "withSidebar": true,
+    "sidebarWidth": 400,
+    "response": [
+      {
+        "id": "q-sidebar",
+        "prompt": "Rate this visualization",
+        "location": "sidebar",
+        "type": "likert",
+        "numItems": 5
+      }
+    ]
+  }
+}
+```
+
+For more details on sidebar configuration, see the [`UIConfig`](../../typedoc/interfaces/UIConfig/) and [`BaseIndividualComponent`](../../typedoc/interfaces/BaseIndividualComponent/) documentation.
+
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -248,7 +305,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-survey"}
   ]}
   referenceLinks={[
-    {name: "Form Elements Overview", url: "../../typedoc/#form-elements"},
-    {name: "Base Response", url: "../../typedoc/interfaces/BaseResponse"}
+    {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"}
   ]}
 />

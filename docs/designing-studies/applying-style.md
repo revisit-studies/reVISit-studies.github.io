@@ -2,7 +2,7 @@
 
 ReVISit provides flexible styling capabilities to customize the appearance of your study components and responses. You can apply styles at three levels: **globally through UI configuration**, at the **component** level, and at the **response** level.
 
-This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience. 
+This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience.
 
 ## Styling Methods
 
@@ -521,7 +521,7 @@ You can also make responses interactive using CSS. For example, you can change t
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
-  width: 70%;  
+  width: 70%;
   color: #333333;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out, width 0.3s ease-in-out;
 }
@@ -602,4 +602,4 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"},
     {name: "CSS Properties", url:"https://developer.mozilla.org/en-US/docs/Web/CSS/Properties"}
   ]}
-/> 
+/>

@@ -4,16 +4,16 @@ ReVISit has integrated provenance tracking with Trrack, a state-based provenance
 
 ## Integrating into a React or HTML component
 
-Building off the [bar chart example](../react-stimulus) we created in the React stimulus tutorial, we will add simple provenance tracking that keeps track of which bar in the bar chart is selected. 
+Building off the [bar chart example](../react-stimulus) we created in the React stimulus tutorial, we will add simple provenance tracking that keeps track of which bar in the bar chart is selected.
 
-Because Trrack is state-based, you must define a state for your tracked application. In this case, the state is simply 
+Because Trrack is state-based, you must define a state for your tracked application. In this case, the state is simply
 ```ts
 {
     selectedBar: string | null;
 }
 ```
 
-Next, we need to create a Trrack instance, and an action that we will call when the bar gets clicked. We only need to do this once. 
+Next, we need to create a Trrack instance, and an action that we will call when the bar gets clicked. We only need to do this once.
 
 ```ts
 const { actions, trrack } = useMemo(() => {
@@ -36,9 +36,9 @@ const { actions, trrack } = useMemo(() => {
 }, []);
 ```
 
-Finally, all that's left is to call the action! When calling the action you can add a label to the created node, either for analysis or if you wish to visualize your provenance graph. 
+Finally, all that's left is to call the action! When calling the action you can add a label to the created node, either for analysis or if you wish to visualize your provenance graph.
 
-Once you have a graph, you save it to storage by calling the `setAnswer` callback which is passed as a prop to all React components used in revisit. 
+Once you have a graph, you save it to storage by calling the `setAnswer` callback which is passed as a prop to all React components used in reVISit.
 
 ```ts
 const clickCallback = useCallback((barName: string) => {

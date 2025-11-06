@@ -1,6 +1,5 @@
 # The Lifecycle of a reVISit Study
 
-
 A reVISit study will go through multiple stages over its lifetime. It'll first start as a local study that is iteratively refined until the study is fully built, it will then be deployed and tested, it will be send out to participants for data to be collected, and finally the study will be disseminated to reviewers.
 
 ## Revisit Modes
@@ -47,13 +46,14 @@ When disseminating your study to reviewers and the wider public, you should:
 - Enable the study navigator
 - Make the analytics interface publicly accessible
 
-If your are submitting to a venue that requires anonymization, such as ACM SIGCHI, consider creating a second deployment. If your primary deployment is on GitHub, consider adding a secondary one on [netlify](/docs/data-and-deployment/deploying-to-static-website/#deploying-using-netlify).
+If your are submitting to a venue that requires anonymization, such as ACM SIGCHI, consider creating a second deployment. If your primary deployment is on GitHub, consider adding a secondary one on [Netlify](/docs/data-and-deployment/deploying-to-static-website/#deploying-using-netlify).
 
 <!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     referenceLinks={[
+        {name: "ReVISit Modes", url: "../../analysis/revisit-modes"},
         {name: "Snapshots", url: "../../analysis/data-management/#snapshots"}
     ]}
 />

@@ -2,9 +2,9 @@
 
 Once you have defined the components you want to be part of your study, you need to tell reVISit what order to show the components in. This is done by defining a sequence object in the reVISit Spec, which has a variety of powerful options for different randomization types, as well as attention checks, breaks, and advanced skip logic for more complex studies.
 
-ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. Other blocks can also optionally be given `id`, which can then be used to jump to them. 
+ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. Other blocks can also optionally be given `id`, which can then be used to jump to them.
 
-## Simple Sequence 
+## Simple Sequence
 
 If your study has a set order, creating a sequence is simple. Define the components in the order you want to see them, and set your order to `fixed`.
 
@@ -43,8 +43,7 @@ Many studies need to randomize the order of some of the components, but not all.
  }
 ```
 
-In this case all participants will first see `introduction` and `consent`, and then randomly either `trial1` or `trial2` first, and then the other trial second, followed by the `post-survey` for everyone. 
-
+In this case all participants will first see `introduction` and `consent`, and then randomly either `trial1` or `trial2` first, and then the other trial second, followed by the `post-survey` for everyone.
 
 Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, and then also randomize the order of the trials within each condition. That would look like the following. 
 
@@ -100,14 +99,14 @@ Studies frequently want portions of their trials to be random, but also want to 
 }
 ```
 
-This option will create a latin square for any block using one behind the scenes, iterate through the latin square as new participants request sequences, and refill it when empty. 
+This option will create a latin square for any block using one behind the scenes, iterate through the latin square as new participants request sequences, and refill it when empty.
 
 To further ensure consistency in the latin square, participants may be `rejected` via the [data dashboard](../../analysis/study-card). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc.) do not use up a row of any generated latin squares.
 
 ## Dynamic Blocks
 
-Some studies require knowledge of the participant's responses to previous questions to determine the next component that is shown. For example, if a participant answers a question incorrectly, they may be shown a simpler task next. This can be achieved with [dynamic blocks](./dynamic-blocks.md). 
- 
+Some studies require knowledge of the participant's responses to previous questions to determine the next component that is shown. For example, if a participant answers a question incorrectly, they may be shown a simpler task next. This can be achieved with [dynamic blocks](./dynamic-blocks.md).
+
 ## Showing a Subset of All Trials
 
 Studies frequently want to only show a subset of all trials to a single participant. For this, each block in the sequence has a `numSamples` variable. The following example will show each participant 2 of the 4 trials. `numSamples` works with all sequence orders, but is likely only useful in combination with `random` and `latinSquare`. If used with `latinSquare`, choosing a `numSamples` will ensure that each trial is seen the same amount.
@@ -164,7 +163,7 @@ To add attention checks or breaks to your study, there is an `interruptions` obj
 }
 ```
 
-You can also add `interruptions` deterministically at set intervals. The example below will put an attention check after the first and third trial. 
+You can also add `interruptions` deterministically at set intervals. The example below will put an attention check after the first and third trial.
 
 ```json
 "sequence": {
@@ -195,7 +194,7 @@ You can also add `interruptions` deterministically at set intervals. The example
 
 ## Skip Logic
 
-Some studies need more advanced sequencing logic, based on a participant's response to previous questions. For example, a participant should only be shown a second, simpler task if they got a first, difficult task wrong. This is possible to implement in reVISit sequences with the `skip` object. 
+Some studies need more advanced sequencing logic, based on a participant's response to previous questions. For example, a participant should only be shown a second, simpler task if they got a first, difficult task wrong. This is possible to implement in reVISit sequences with the `skip` object.
 
 The example below will jump straight to `end` if the consent form is answered with anything but `yes` to the field `consentApproval`, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for the keyword `end`, which always jumps to the default final component of the study. 
 
@@ -261,7 +260,7 @@ To check if multiple components are correct, for example that all attention chec
   ]
 }
 ```
-This example will go through every component named `myAttentionCheckComponent`, and if any response is incorrect, jump immediately to end. 
+This example will go through every component named `myAttentionCheckComponent`, and if any response is incorrect, jump immediately to end.
 
 You can also wait until multiple attention checks have been answered incorrectly to jump to end with the `repeatedComponent` check.
 
@@ -346,7 +345,7 @@ You can also use `skip` to jump around within your study. The example below skip
 }
 ```
 
-After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards. 
+After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards.
 
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
@@ -365,11 +364,11 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"}
   ]}
   referenceLinks={[
-    {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},
-    {name: "Dynamic Block", url: "../../typedoc/interfaces/DynamicBlock/"},
-    {name: "Interruption Block", url: "../../typedoc/type-aliases/InterruptionBlock/"},
-    {name: "Random Interruption", url: "../../typedoc/interfaces/RandomInterruption/"},
-    {name: "Deterministic Interruption", url: "../../typedoc/interfaces/DeterministicInterruption/"},
-    {name: "Skip Conditions", url: "../../typedoc/type-aliases/SkipConditions/"}
+    {name: "ComponentBlock", url: "../../typedoc/interfaces/ComponentBlock/"},
+    {name: "DynamicBlock", url: "../../typedoc/interfaces/DynamicBlock/"},
+    {name: "InterruptionBlock", url: "../../typedoc/type-aliases/InterruptionBlock/"},
+    {name: "RandomInterruption", url: "../../typedoc/interfaces/RandomInterruption/"},
+    {name: "DeterministicInterruption", url: "../../typedoc/interfaces/DeterministicInterruption/"},
+    {name: "SkipConditions", url: "../../typedoc/type-aliases/SkipConditions/"}
   ]}
 />
