@@ -1,8 +1,8 @@
 # Coding
 
-## Overview
-
 [Think Aloud](../../designing-studies/think-aloud) Coding lets you review and code what participants said during your study. You can edit transcripts, add tags, write notes, and play the audio in sync with the text.
+
+## Overview
 
 To open Think Aloud Coding, go to the **Coding** tab under **Analysis**. The first participant and task with audio will load automatically.
 
@@ -22,7 +22,7 @@ Here are the main features:
 - **Participant Tags**: Labels for participants that let you group or filter them.
 - **Task Tags**: Labels you can add to the current task to categorize it.
 
-<!-- Importing Links -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

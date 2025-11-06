@@ -42,7 +42,7 @@ In the “Enabled Users” section, you will see the “delete” icon to the ri
 
 ![Remove User](./../img/manage_admin/remove_user.png)
 
-<!-- Importing Links -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
