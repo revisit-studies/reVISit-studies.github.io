@@ -81,7 +81,7 @@ For example, here we add a new `instruction` to the `mini-vlat` library's `treem
 
 ## Creating your Own Plugins
 
-Beyond the libraries we provide, you can also define your own plugins in your study. See [LibraryConfig](https://revisit.dev/docs/typedoc/interfaces/LibraryConfig/) for the details of how to define a plugin libraries.
+Beyond the libraries we provide, you can also define your own plugins in your study. See [LibraryConfig](https://revisit.dev/docs/typedoc/interfaces/LibraryConfig/) for the details of how to define plugin libraries.
 
 We are happy to **accept community contributions for libraries!** If you have a library that you think would be useful for others, please reach out to us and we will help you merge it into our repository.
 
@@ -201,7 +201,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Beauvis Demo", url: "https://revisit.dev/study/library-beauvis/"},
     {name: "Berlin Numeracy Demo", url: "https://revisit.dev/study/library-berlin-num/"},
     {name: "CALVI Demo", url: "https://revisit.dev/study/library-calvi/"},
-    {name: "Color Blindess Demo", url: "https://revisit.dev/study/library-color-blindness/"},
+    {name: "Color Blindness Demo", url: "https://revisit.dev/study/library-color-blindness/"},
     {name: "Demographics Demo", url: "https://revisit.dev/study/library-demographics/"},
     {name: "Graph Literacy Demo", url: "https://revisit.dev/study/library-graph-literacy-scale/"},
     {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"},
@@ -221,7 +221,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Beauvis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-beauvis"},
     {name: "Berlin Numeracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
     {name: "CALVI Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
-    {name: "Color Blindess Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
+    {name: "Color Blindness Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-color-blindness"},
     {name: "Demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
     {name: "Graph Literacy Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-graph-literacy-scale/"},
     {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},

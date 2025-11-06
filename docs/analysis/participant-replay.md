@@ -1,6 +1,6 @@
 # Participant Replay
 
-The participant replay can be used for an overview of each participants study.
+The participant replay can be used for an overview of each participant's study.
 
 ![Participant Replay](./img/participant-replay/participant-replay.png)
 

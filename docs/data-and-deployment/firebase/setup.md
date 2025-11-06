@@ -86,12 +86,12 @@ service firebase.storage {
 
 ### Adding an App to the Firebase Project
 
-We are now going to add an app to your firebase project:
+We are now going to add an app to your Firebase project:
 ![Console](./img/firebase_steps/step9.jpg)
 
 ![Console](./img/firebase_steps/step10.jpg)
 
-With the app set up, we are ready to copy over the app configuration to your revisit project. In the image below you will see a JSON object denoted as `const firebase = { ... }`.
+With the app set up, we are ready to copy over the app configuration to your reVISit project. In the image below you will see a JSON object denoted as `const firebase = { ... }`.
 
 ![Console](./img/firebase_steps/step11.jpg)
 
@@ -99,7 +99,7 @@ Copy the contents of that JSON object into the `.env` file for the variable `VIT
 
 #### Authentication
 
-We are now going to set up the authentication so that your browser is authorized to communicate with your firebase database.
+We are now going to set up the authentication so that your browser is authorized to communicate with your Firebase database.
 ![Console](./img/firebase_steps/step12.jpg)
 
 ![Console](./img/firebase_steps/step13.jpg)
@@ -109,7 +109,7 @@ We are now going to set up the authentication so that your browser is authorized
 ![Console](./img/firebase_steps/step15.jpg)
 
 :::info
-In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for particpants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](../enabling-authentication) for more detailed authentication information and set up instructions.
+In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for participants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](../enabling-authentication) for more detailed authentication information and set up instructions.
 :::
 
 #### App Check
@@ -128,10 +128,10 @@ At this point you will need to navigate to [Recaptcha](https://www.google.com/re
 
 ![Console](./img/firebase_steps/step19.jpg)
 
-The important part here is filling out the domains that you will allow to access the firebase database. Add localhost and 127.0.0.1 to test your survey on your local machine.
+The important part here is filling out the domains that you will allow to access the Firebase database. Add localhost and 127.0.0.1 to test your survey on your local machine.
 
 :::info
-If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the Github pages deployment, you should enter your base github pages url (i.e. <code>&lt;username&gt;.github.io</code>).
+If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the GitHub pages deployment, you should enter your base GitHub pages URL (i.e. <code>&lt;username&gt;.github.io</code>).
 :::
 
 ![Console](./img/firebase_steps/step20.jpg)
@@ -147,7 +147,7 @@ Now, copy the SITE key. That site should now go back into your `.env` file for t
 Now we will link your browser to your app through a debug key.
 
 :::info
-To see the debug token, you need to enable firebase storage. Open up the <code>.env</code> file in the root of the repository. Change the <code>VITE_STORAGE_ENGINE</code> variable value to "firebase". Once you have firebase already set up, you can switch between "localStorage" and "firebase" freely for development purposes.
+To see the debug token, you need to enable Firebase storage. Open up the <code>.env</code> file in the root of the repository. Change the <code>VITE_STORAGE_ENGINE</code> variable value to "firebase". Once you have Firebase already set up, you can switch between "localStorage" and "firebase" freely for development purposes.
 :::
 
 - Navigate to http://localhost:8080 and click on any demo study.
@@ -157,7 +157,7 @@ To see the debug token, you need to enable firebase storage. Open up the <code>.
 - Copy the debug token from the console.
   ![Console](./img/console.png)
 
-- Navigate to your firebase instance and add the token as shown below:
+- Navigate to your Firebase instance and add the token as shown below:
 
 ![Console](./img/firebase_steps/step23.jpg)
 
@@ -167,7 +167,7 @@ To see the debug token, you need to enable firebase storage. Open up the <code>.
 
 ### Allowing for CORS requests
 
-Once that is finished, we'll have to use Google's `gsutil` function in the terminal to set up a CORS policy so that the application can communicate with Firebase storage. Follow <a href="https://cloud.google.com/storage/docs/gsutil_install" targe="_blank">these steps on how to install gsutil on your local machine</a>.
+Once that is finished, we'll have to use Google's `gsutil` function in the terminal to set up a CORS policy so that the application can communicate with Firebase storage. Follow <a href="https://cloud.google.com/storage/docs/gsutil_install" target="_blank">these steps on how to install gsutil on your local machine</a>.
 
 After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` folder on your local machine. Create a new file called "cors.json" with the following contents:
 
@@ -201,7 +201,7 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 
 ### Deployment
 
-If you intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
+If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
 
 <!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

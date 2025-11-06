@@ -10,7 +10,7 @@ Supabase provides a variety of authentication methods, but reVISit only supports
 
 Give your application a name, such as `ReVISit Supabase`. For the “Homepage URL”, enter the URL where your reVISit application will be hosted (e.g., `https://my-revisit-app.com`). This must include the `https://` prefix.
 
-Lastly set the “Authorization callback URL” to `https://<your-supabase-domain>/auth/v1/callback`, replacing `<your-supabase-domain>` with your actual Supabase domain (e.g., `https://supabase.organizaion.com/auth/v1/callback`).
+Lastly set the “Authorization callback URL” to `https://<your-supabase-domain>/auth/v1/callback`, replacing `<your-supabase-domain>` with your actual Supabase domain (e.g., `https://supabase.organization.com/auth/v1/callback`).
 
 ![GitHub OAuth Setup](./img/github-oauth-setup.png)
 

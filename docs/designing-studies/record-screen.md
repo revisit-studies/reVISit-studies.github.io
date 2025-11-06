@@ -8,7 +8,7 @@ You can enable screen recording in your study by setting the `recordScreen` flag
 
 **Step 1: Enable screen recording in your study**
 
-*A. Enabling screen recording through out the study*
+*A. Enabling screen recording throughout the study*
 
 Set the `recordScreen` flag in the `uiConfig` section of your config file. You can optionally specify the FPS (frames per second) for screen recording.
 
@@ -21,7 +21,7 @@ Set the `recordScreen` flag in the `uiConfig` section of your config file. You c
 }
 ```
 
-This enables screen recording to your entire study. However, you can also disable screen recording on individual component.
+This enables screen recording to your entire study. However, you can also disable screen recording on individual components.
 
 ```json
 {
@@ -104,7 +104,7 @@ All recorded videos are stored in Firebase storage.
 
 You can [download screen recording videos](../analysis/data-export.md#download-screen-recording) from the analysis page of the study.
 
-Alternatively, you can use `gsutils` to download screen recorded videos. We recommend utilizing `gsutil` to download the video files in bulk. Navigate to your Firebase storage to find your appspot name, then run the command:
+Alternatively, you can use `gsutil` to download screen recorded videos. We recommend utilizing `gsutil` to download the video files in bulk. Navigate to your Firebase storage to find your appspot name, then run the command:
 
 ```bash
 gsutil -m cp -r gs://my-bucket/studyName/screenRecording

@@ -4,7 +4,7 @@ ReVISit lets you create interactive, web-based studies using a **JSON domain-spe
 
 The overall process is shown in the following figure:
 
-![Revisit teaser image showing revisit workflow](./img/revisit-overview.png)
+![ReVISit teaser image showing reVISit workflow](./img/revisit-overview.png)
 
 Based on your custom reVISit Spec and the components, you will use the reVISit software to compile your spec and stimuli into an interactive webpage. You can then deploy that web-page to a web-server. Your study automatically tracks all the responses of participants, and you can download the data after participants completed your study.
 

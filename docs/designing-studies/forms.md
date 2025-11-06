@@ -91,7 +91,7 @@ Radio buttons and checkboxes have some shared noteworthy features. Here is an ex
 
 #### Vertical and Horizontal Layouts
 
-Radios and check-boxes can be rendered either vertically (the default) or horizontally. The above figure shows radios for both. Set `"horizontal": true` to get the horizontal version.
+Radios and checkboxes can be rendered either vertically (the default) or horizontally. The above figure shows radios for both. Set `"horizontal": true` to get the horizontal version.
 
 #### “Other” Option
 

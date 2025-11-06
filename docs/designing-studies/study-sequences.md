@@ -35,7 +35,7 @@ Many studies need to randomize the order of some of the components, but not all.
             "order": "random",
             "components": [
                 "trial1",
-                "trial2",
+                "trial2"
             ]
         },
         "post-survey"
