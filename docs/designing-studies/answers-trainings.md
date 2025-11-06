@@ -4,7 +4,7 @@ In reVISit, a [component](../../typedoc/interfaces/BaseIndividualComponent) typi
 
 Responses can optionally also be provided with an [Answer](../../typedoc/interfaces/Answer) that captures what the correct response is. This answer is used in several ways:
 
- * If an answer is present, the data export will include a data for the task that lists True and False for each response.
+ * If an answer is present, the data export will include data for the task that lists True and False for each response.
  * In the analysis interface, tasks will be shown as correct or incorrect depending on the answer.
  * Answers can be used to check the response during the experiment, which is useful for **training**.
 
@@ -18,7 +18,7 @@ When you develop an online study, it's often important to train participants wel
 
 For a working example, refer to [the demo](https://revisit.dev/study/demo-training/) and the [associated config](https://github.com/revisit-studies/study/tree/main/public/demo-training).
 
-Here's a simple dropbox component asking what the most efficient visual mark is. The `correctAnswer` field contains an answer for the `q-mark-type` response that specifies that the correct answer is `Bar`.
+Here's a simple dropdown component asking what the most efficient visual mark is. The `correctAnswer` field contains an answer for the `q-mark-type` response that specifies that the correct answer is `Bar`.
 
 ```ts
 "simple-dropbox": {
@@ -53,7 +53,7 @@ Here's a simple dropbox component asking what the most efficient visual mark is.
 
 The last three lines specify that this is used for training:
 
-The `provideFeedback` field adds a “Check Answer” button to the UI, which can be used to validated the answer based on the provided correct answer.
+The `provideFeedback` field adds a “Check Answer” button to the UI, which can be used to validate the answer based on the provided correct answer.
 
 ![Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts.](img/training-incorrect-answer.png)
 

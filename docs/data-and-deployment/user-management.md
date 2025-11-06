@@ -1,4 +1,4 @@
-# User Management In reVISit
+# User Management in reVISit
 
 :::tip
 To use the user-management system that is built into reVISit, you must have a Firebase application set up. Please see [here](../firebase/setup) for how to set up a Firebase application. Additionally, you will need to enable the Google sign-in method for Authentication. You can find this section of the Firebase tutorial [here](../firebase/setup#authentication).
@@ -55,7 +55,7 @@ The `adminUsers` will contain a single list called the `adminUsersList`. Each en
 
 The `uid` is automatically generated when the user signs in for the first time. If the `uid` field is `null`, then that means the user has not yet signed in.
 
-The `authentication` document will only contained the boolean `isEnabled`. If this is set to `false`, authentication is completely disabled but the users will not be removed from the `adminUsers` collection.
+The `authentication` document will only contain the boolean `isEnabled`. If this is set to `false`, authentication is completely disabled but the users will not be removed from the `adminUsers` collection.
 
 #### How to Reset Authentication
 

@@ -34,12 +34,12 @@ Audio is recorded via browser, and participants will receive a permissions reque
 
 ## Downloading audio
 
-All audio data is stored in Firebase or Supabase storage. To listen to participants audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis.
+All audio data is stored in Firebase or Supabase storage. To listen to participants' audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis.
 
 To download audio data after completing a study, navigate to [Participant View](../analysis/data-export.md) in analysis.
 
 :::note
-To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your Appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio` .
+To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio` .
 :::
 
 <!-- Importing links -->

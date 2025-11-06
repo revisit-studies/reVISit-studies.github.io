@@ -3,7 +3,7 @@
 
 <a href="https://supabase.com/" target="_blank" >Supabase</a> is an open-source alternative to Firebase that provides a real-time database and storage solution. It is built on top of PostgreSQL, which allows for more complex queries and data structures. Supabase is particularly useful for researchers who need to comply with strict data privacy regulations, as it can be self-hosted.
 
-This guide will be focused on setting up a self hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
+This guide will be focused on setting up a self hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the Firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
 ### Pre-requisites
 
 Before you begin, ensure you have the following:

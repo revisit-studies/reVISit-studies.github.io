@@ -2,7 +2,7 @@
 
 
 :::warning
-In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../setup).
+In order to use authentication, you must have a Firebase application already configured. To set up your Firebase application, please see [here](../setup).
 :::
 
 ## Enabling Authentication in Firebase

@@ -15,7 +15,7 @@ Components are where study-specific content goes. ReVISit supports many types of
 
 All of these stimuli can be (and commonly are) paired with **responses**. Responses are form elements that capture the elicited responses. Survey questions are basically empty components with responses.
 
-A component is typically defined in the spec, with the text, code, or image included from a file/URL. The only exception are survey questions, which do not need a file/URL and are specified directly in the spec.
+A component is typically defined in the spec, with the text, code, or image included from a file/URL. The only exception is survey questions, which do not need a file/URL and are specified directly in the spec.
 
 # The reVISit Spec
 
@@ -44,7 +44,7 @@ Components are the building blocks for each study. Each component extends the [B
 
 ### Collecting Responses
 
-Each component has a list of responses which represents a set of questions to ask to the user for that particular component. The user can describe where the question should be displayed in the UI, the instruction for the response, and the type of response input (e.g., a [numerical response](../../typedoc/interfaces/NumericalResponse), a [dropdown](../../typedoc/interfaces/DropdownResponse), a [slider](../../typedoc/interfaces/SliderResponse), etc.). Each response interface extends the [BaseResponse](../../typedoc/interfaces/BaseResponse) interface.
+Each component has a list of responses which represents a set of questions to ask the user for that particular component. The user can describe where the question should be displayed in the UI, the instruction for the response, and the type of response input (e.g., a [numerical response](../../typedoc/interfaces/NumericalResponse), a [dropdown](../../typedoc/interfaces/DropdownResponse), a [slider](../../typedoc/interfaces/SliderResponse), etc.). Each response interface extends the [BaseResponse](../../typedoc/interfaces/BaseResponse) interface.
 
 The below example illustrates a simple consent component that is based on a Markdown file and has a response that asks for a signature, nested inside the `components` block:
 
@@ -93,7 +93,7 @@ The sequence object of the study configuration defines (a) the order participant
 - **Interruptions** can be used to insert breaks and attention checks into a block
 - **Skips** can be used to control flow based on the response to a question or a component block
 
-All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order
+All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order.
 
 ```js
 "sequence": {

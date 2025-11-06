@@ -22,17 +22,17 @@ After the repository is on your local machine, you will have the entire codebase
 
 ## Installing Required Software
 
-To continue, you will need the Active LTS [node.js](https://nodejs.org/) version, and [yarn](https://yarnpkg.com/) installed. If you already have yarn installed, you can go to Step 2 below.
+To continue, you will need the Active LTS [Node.js](https://nodejs.org/) version, and [Yarn](https://yarnpkg.com/) installed. If you already have Yarn installed, you can go to Step 2 below.
 
 :::info
-Yarn requires that you have the package manager NPM installed. If you do not have NPM installed, please see review [the NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started. These docs will also direct you on how to install Node – a prerequisite of NPM.
+Yarn requires that you have the package manager NPM installed. If you do not have NPM installed, please review [the NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started. These docs will also direct you on how to install Node – a prerequisite of NPM.
 :::
 
-**Step 1: Install yarn on your local computer using NPM:**
+**Step 1: Install Yarn on your local computer using NPM:**
 
 ```npm i -g yarn```
 
-**Step 2: Once yarn is successfully installed, navigate to your forked repository and run the following yarn command:**
+**Step 2: Once Yarn is successfully installed, navigate to your forked repository and run the following Yarn command:**
 
 ```yarn install```
 
