@@ -51,12 +51,12 @@ If you've used reVISit for your visualization research, we'd love to see it! Fil
 
 ReVISit is advised by a board of community members who regularly run a diverse set of studies.
 
-[Danielle Albers Szafir](https://danielleszafir.com/), University of North Carolina-Chapel Hill
-[Cindy Xiong Bearfield](https://cyxiong.com/), Georgia Tech
-[Ana Crisan](https://amcrisan.github.io/), Tableau Research
-[Alex Endert](https://va.gatech.edu/endert/), Georgia Tech
-[Jean-Daniel Fekete](https://www.aviz.fr/~fekete/), INRIA Paris
-[Petra Isenberg](https://petra.isenberg.cc/wiki/pmwiki.php), INRIA Paris
-[Lace Padilla](https://www.lacepadilla.com/), Northeastern University
-[John Stasko](https://faculty.cc.gatech.edu/~john.stasko/), Georgia Tech
+[Danielle Albers Szafir](https://danielleszafir.com/), University of North Carolina-Chapel Hill  
+[Cindy Xiong Bearfield](https://cyxiong.com/), Georgia Tech  
+[Ana Crisan](https://amcrisan.github.io/), Tableau Research  
+[Alex Endert](https://va.gatech.edu/endert/), Georgia Tech  
+[Jean-Daniel Fekete](https://www.aviz.fr/~fekete/), INRIA Paris  
+[Petra Isenberg](https://petra.isenberg.cc/wiki/pmwiki.php), INRIA Paris  
+[Lace Padilla](https://www.lacepadilla.com/), Northeastern University  
+[John Stasko](https://faculty.cc.gatech.edu/~john.stasko/), Georgia Tech  
 [Manuela Waldner](https://www.cg.tuwien.ac.at/staff/ManuelaWaldner), TU Vienna

@@ -1,7 +1,5 @@
 # Live Monitor
 
-## Overview
-
 The Live Monitor gives you a real-time view of participant progress throughout your study. It automatically updates using Firebase listeners, so you’ll see changes the moment they happen — no need to refresh the page.
 
 Check out the [Live Monitor Demo](https://revisit.dev/study/analysis/stats/demo-dynamic/live-monitor).
@@ -33,7 +31,7 @@ If your study uses a [dynamic block](../../typedoc/interfaces/DynamicBlock/), yo
 
 ![Live monitor dynamic block](./img/live-monitor/live-monitor-in-progress-dynamic.png)
 
-<!-- Importing Links -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

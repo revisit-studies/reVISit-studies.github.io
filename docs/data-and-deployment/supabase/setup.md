@@ -123,7 +123,7 @@ Make sure to replace `your-domain.com` with your actual domain name and provide 
 
 Once the reverse proxy is set up, you can access your reVISit application securely over HTTPS provided that you change the `VITE_SUPABASE_URL` in your `.env` file to use `https://` instead of `http://` and drop the port number if you are using the default port 443 for HTTPS (as shown in the example above).
 
-<!-- Importing Links -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

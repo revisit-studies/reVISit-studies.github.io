@@ -159,7 +159,7 @@ To download screen recording from specific participants, select the participants
 3. Click on the **Download Screen Recording** button.
 ![Download screen recording video](./img/data-export/screen-recording-export-3.png)
 
-<!-- Importing Links -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

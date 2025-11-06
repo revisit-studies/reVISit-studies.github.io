@@ -16,6 +16,7 @@ The key innovations of this project are:
 4. **Open source and free** – share your study design with anyone, no license required.
 5. **Compatible with crowdsourcing platforms** — recruit your participants through your preferred provider, such as Prolific, Mechanical Turk, or Lab in the Wild.
 6. **Keep track of study progress** — see how participants are doing and identify issues with your study quickly.
+7. **Export your data** — in a format suitable for your analysis.
 
 ## Demo
 
@@ -44,22 +45,23 @@ IEEE Visualization and Visual Analytics (VIS), 31-35, [doi:10.1109/VIS54172.2023
 
 ## Project Team
 
-reVISit is a project developed at the [University of Utah](https://visdesignlab.net) and [Worcester Polytechnic Institute](http://web.cs.wpi.edu/~ltharrison/).
+ReVISit is a project developed at the [University of Utah](https://visdesignlab.net) and [Worcester Polytechnic Institute](http://web.cs.wpi.edu/~ltharrison/).
 
-[Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, University of Utah
-[Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI
-[Zach Cutler](https://zach-cutler.com/), PhD Student, University of Utah
-[Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI
-[Tingying He](https://tingying-he.github.io/), Postdoc, University of Utah
-[Jay Kim](https://www.visdesignlab.net/team/jay/), Software Engineer, University of Utah
-[Andrew McNutt](https://www.mcnutt.in/), Assistant Professor, University of Utah
-[Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI
+[Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, University of Utah  
+[Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI  
+[Zach Cutler](https://zach-cutler.com/), PhD Student, University of Utah  
+[Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
+[Tingying He](https://tingying-he.github.io/), Postdoc, University of Utah  
+[Jay Kim](https://www.visdesignlab.net/team/jay/), Software Engineer, University of Utah  
+[Andrew McNutt](https://www.mcnutt.in/), Assistant Professor, University of Utah  
+[Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI  
 [Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah
 
 ### Alumni
-[Carolina Nobre](http://carolinanobre.com/), Co-I, University of Toronto
-[Brian Bollen](http://briancbollen.com/), Senior Software Developer, University of Utah
-[Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah
+
+[Carolina Nobre](http://carolinanobre.com/), Co-I, University of Toronto  
+[Brian Bollen](http://briancbollen.com/), Senior Software Developer, University of Utah  
+[Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah  
 [Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI
 
 ## Contact
