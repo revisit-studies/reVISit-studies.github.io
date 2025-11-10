@@ -1,10 +1,10 @@
-# Coding
+# Coding - Think Aloud
 
-[Think Aloud](../../designing-studies/think-aloud) Coding lets you review and code what participants said during your study. You can edit transcripts, add tags, write notes, and play the audio in sync with the text.
+[Think Aloud](../../designing-studies/think-aloud) coding lets you review and code what participants said during your study. You can edit transcripts, add tags, write notes, and play the audio in sync with the text.
 
 ## Overview
 
-To open Think Aloud Coding, go to the **Coding** tab under **Analysis**. The first participant and task with audio will load automatically.
+To open Think Aloud coding, go to the **Coding** tab under **Analysis**. The first participant and task with audio will load automatically.
 
 :::note
 Coding is available only when using the Firebase storage engine. It also needs audio recordings to be turned on in your study setup (`"recordAudio" = true`).
