@@ -10,9 +10,9 @@ Here we give a brief introduction to these modes. Check out our [Analysis Platfo
 
 ## Data Collection
 
-With Data Collection enabled, all data that is captured by participants will be stored either Locally or in your cloud database (dependent on your current setup). You can check out our [data management documentation](../../analysis/data-management) to learn how to manage participants, create backup datasets, and more.
+With Data Collection enabled, all data that is captured by participants will be stored either locally or in your cloud database (dependent on your currently specified storage engine). You can check out our [data management documentation](../../analysis/data-management) to learn how to manage participants, create backup datasets, and more.
 
-Disabling data collection for a particular study will be shown to the user with a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
+Disabling data collection on a particular study will cause the user to see a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
 
 ## Study Navigator
 
@@ -20,4 +20,4 @@ When the study navigator is enabled, any user will be able to access the study's
 
 ## Analytics Interface Publicly Accessible
 
-The analytics interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the anonymized participants, see the answers given, and download all the data.
+The analytics interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the participants, see the answers given, and download all the data.
