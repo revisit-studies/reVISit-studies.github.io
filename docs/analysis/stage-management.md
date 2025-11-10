@@ -2,7 +2,7 @@
 
 ## Overview
 
-Stage Management helps you organize participants into different parts of your study. It’s useful for studies that have multiple sections or happen over time. Using stages makes it easier to track, filter, and analyze participants based on where they are in the study.
+Stage Management helps you organize participants into different parts of your study. It’s useful for studies that have multiple sections or happen over time. Using stages makes it easier to track, filter, and analyze participants based on when they took part in the study, either as a pilot participant or during different phases of data collection.
 
 ## Getting Started
 
