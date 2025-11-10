@@ -2,7 +2,7 @@
 
 The study summary gives users a quick overview of their study at a glance. It provides a comprehensive overview of their study data in a single, easy-to-understand dashboard.
 
-The summary is organized into three main sections: Overview Statistics, Component Statistics, and Response Statistics. At the top, participant filter allows you to filter the analysis by including or excluding completed, in-progress, or rejected participants. A stage selector is also available for filtering different study stages. For more details on stage management, see [here](./../stage-management).
+The summary is organized into three main sections: Overview Statistics, Component Statistics, and Response Statistics. At the top, participant filters allow you to filter the analysis by including or excluding completed, in-progress, or rejected participants. A stage selector is also available for filtering different study stages. For more details on stage management, see [here](./../stage-management).
 
 ![Study Summary](./img/study-summary/study-summary.png)
 

@@ -69,7 +69,7 @@ const [selectedBar, setSelectedBar] = useState<string | null>(null);
 We will keep this, but where we would normally call `setSelectedBar`, such as in an `onClick` of the bar, we instead call our Trrack action.
 
 ```ts
-Trrack.apply('Select Bar', actions.selectBarAction(barName));
+trrack.apply('Select Bar', actions.selectBarAction(barName));
 ```
 
 Now, to update our frontend, we will add an observer onto Trrack that will get called whenever our current node changes. This gets called not only when new clicks are made, but also when `undo` or `redo` are called.

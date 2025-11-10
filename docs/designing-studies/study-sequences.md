@@ -10,14 +10,14 @@ If your study has a set order, creating a sequence is simple. Define the compone
 
 ```json
 "sequence": {
-    "order": "fixed",
-    "components": [
-        "introduction",
-        "consent",
-        "trial1",
-        "trial2",
-        "post-survey"
-    ]
+  "order": "fixed",
+  "components": [
+    "introduction",
+    "consent",
+    "trial1",
+    "trial2",
+    "post-survey"
+  ]
 }
 ```
 
@@ -27,19 +27,19 @@ Many studies need to randomize the order of some of the components, but not all.
 
 ```json
  "sequence": {
-    "order": "fixed",
-    "components": [
-        "introduction",
-        "consent",
-        {
-            "order": "random",
-            "components": [
-                "trial1",
-                "trial2"
-            ]
-        },
-        "post-survey"
-    ]
+  "order": "fixed",
+  "components": [
+    "introduction",
+    "consent",
+    {
+      "order": "random",
+      "components": [
+        "trial1",
+        "trial2"
+      ]
+    },
+    "post-survey"
+  ]
  }
 ```
 
@@ -48,33 +48,33 @@ In this case all participants will first see `introduction` and `consent`, and t
 Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, and then also randomize the order of the trials within each condition. That would look like the following. 
 
 ```json
- "sequence": {
-    "order": "fixed",
-    "components": [
-        "introduction",
-        "consent",
+"sequence": {
+  "order": "fixed",
+  "components": [
+    "introduction",
+    "consent",
+    {
+      "order": "random",
+      "components": [
         {
-            "order": "random",
-            "components": [
-                {
-                    "order": "random",
-                    "components": [
-                        "ConditionA-1",
-                        "ConditionA-2",
-                    ]
-                },
-                {
-                    "order": "random",
-                    "components": [
-                        "ConditionB-1",
-                        "ConditionB-2",
-                    ]
-                },
-            ]
+          "order": "random",
+          "components": [
+            "ConditionA-1",
+            "ConditionA-2"
+          ]
         },
-        "post-survey"
-    ]
- }
+        {
+          "order": "random",
+          "components": [
+            "ConditionB-1",
+            "ConditionB-2"
+          ]
+        },
+      ]
+    },
+    "post-survey"
+  ]
+}
 ```
 
 ## Latin Square
@@ -83,19 +83,19 @@ Studies frequently want portions of their trials to be random, but also want to 
 
 ```json
 "sequence": {
-    "order": "fixed",
+  "order": "fixed",
+  "components": [
+  "introduction",
+  "consent",
+  {
+    "order": "latinSquare",
     "components": [
-      "introduction",
-      "consent",
-      {
-        "order": "latinSquare",
-        "components": [
-          "trial1",
-          "trial2"
-        ]
-      },
-      "post-survey"
+      "trial1",
+      "trial2"
     ]
+  },
+  "post-survey"
+  ]
 }
 ```
 
@@ -113,22 +113,22 @@ Studies frequently want to only show a subset of all trials to a single particip
 
 ```json
 "sequence": {
-    "order": "fixed",
-    "components": [
-        "introduction",
-        "consent",
-        {
+  "order": "fixed",
+  "components": [
+      "introduction",
+      "consent",
+      {
         "order": "latinSquare",
         "numSamples": 2,
         "components": [
-            "trial1",
-            "trial2",
-            "trial3",
-            "trial4"
+          "trial1",
+          "trial2",
+          "trial3",
+          "trial4"
         ]
-        },
-        "post-survey"
-    ]
+      },
+      "post-survey"
+  ]
 }
 ```
 
@@ -138,28 +138,28 @@ To add attention checks or breaks to your study, there is an `interruptions` obj
 
 ```json
 "sequence": {
-    "order": "fixed",
-    "components": [
-      "introduction",
-      "consent",
-      {
-        "order": "latinSquare",
-        "components": [
-          "trial1",
-          "trial2",
-          "trial3",
-          "trial4"
-        ],
-        "interruptions": [
-          {
-            "spacing": "random",
-            "numInterruptions": 2,
-            "components": ["myAttentionCheckComponent"]
-          }
-        ]
-      },
-      "post-survey"
-    ]
+  "order": "fixed",
+  "components": [
+    "introduction",
+    "consent",
+    {
+      "order": "latinSquare",
+      "components": [
+        "trial1",
+        "trial2",
+        "trial3",
+        "trial4"
+      ],
+      "interruptions": [
+        {
+          "spacing": "random",
+          "numInterruptions": 2,
+          "components": ["myAttentionCheckComponent"]
+        }
+      ]
+    },
+    "post-survey"
+  ]
 }
 ```
 
@@ -167,28 +167,28 @@ You can also add `interruptions` deterministically at set intervals. The example
 
 ```json
 "sequence": {
-    "order": "fixed",
-    "components": [
-      "introduction",
-      "consent",
-      {
-        "order": "latinSquare",
-        "components": [
-          "trial1",
-          "trial2",
-          "trial3",
-          "trial4"
-        ],
-        "interruptions": [
-          {
-            "spacing": 2,
-            "firstLocation": 1,
-            "components": ["myAttentionCheckComponent"]
-          }
-        ]
-      },
-      "post-survey"
-    ]
+  "order": "fixed",
+  "components": [
+    "introduction",
+    "consent",
+    {
+      "order": "latinSquare",
+      "components": [
+        "trial1",
+        "trial2",
+        "trial3",
+        "trial4"
+      ],
+      "interruptions": [
+        {
+          "spacing": 2,
+          "firstLocation": 1,
+          "components": ["myAttentionCheckComponent"]
+        }
+      ]
+    },
+    "post-survey"
+  ]
 }
 ```
 
@@ -200,20 +200,20 @@ The example below will jump straight to `end` if the consent form is answered wi
 
 ```json
 "sequence": {
-"order": "fixed",
-"components": [
+  "order": "fixed",
+  "components": [
     "introduction",
     {
     "order": "fixed",
     "components": ["consent"],
     "skip": [
-        {
+      {
         "name": "consent",
         "check": "response",
         "responseId": "consentApproval",
         "value": "yes",
         "to": "end"
-        }
+      }
     ]
     },
     "trial1",
@@ -221,7 +221,7 @@ The example below will jump straight to `end` if the consent form is answered wi
     "trial3",
     "trial4",
     "post-survey"
-]
+  ]
 }
 ```
 
@@ -304,44 +304,44 @@ You can also use `skip` to jump around within your study. The example below skip
 
 ```json
 "sequence": {
-    "order": "fixed",
-    "components": [
-        "introduction",
-        "consent",
+  "order": "fixed",
+  "components": [
+    "introduction",
+    "consent",
+    {
+      "id": "easyQuestions",
+      "order": "latinSquare",
+      "components": [
+        "trial1",
+        "trial2"
+      ],
+      "skip": [
         {
-        "order": "latinSquare",
-        "components": [
-            "trial1",
-            "trial2"
-        ],
-        "id": "easyQuestions",
-        "skip": [
-            {
-            "check": "block",
-            "condition": "numIncorrect",
-            "value": 2,
-            "to": "moreEasyQuestions"
-            }
-        ]
-        },
-        {
-        "order": "latinSquare",
-        "components": [
-            "trial3",
-            "trial4"
-        ],
-        "id": "hardQuestions"
-        },
-        {
-        "order": "latinSquare",
-        "components": [
-            "trial5",
-            "trial6"
-        ],
-        "id": "moreEasyQuestions"
-        },
-        "post-survey"
-    ]
+        "check": "block",
+        "condition": "numIncorrect",
+        "value": 2,
+        "to": "moreEasyQuestions"
+        }
+      ]
+    },
+    {
+      "id": "hardQuestions",
+      "order": "latinSquare",
+      "components": [
+        "trial3",
+        "trial4"
+      ]
+    },
+    {
+      "id": "moreEasyQuestions",
+      "order": "latinSquare",
+      "components": [
+        "trial5",
+        "trial6"
+      ]
+    },
+    "post-survey"
+  ]
 }
 ```
 
