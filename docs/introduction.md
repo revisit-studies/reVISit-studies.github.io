@@ -20,3 +20,24 @@ You can then **(7) monitor your study** using ReVISit’s replay tools and parti
 Finally, **(8) download your data** for analysis in your preferred environment, such as R or Python.
 
 In the tutorials section, we’ll walk you through a simple example to create your first study with ReVISit!
+
+
+You can also check out this video introduction to reVISit:
+
+<div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9' }}>
+  <iframe
+    src="https://www.youtube.com/embed/1aa9UM2M3_Q?si=7ul6janppYiL2B_u"
+    title="YouTube video player"
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      border: 0,
+    }}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+  />
+</div>
