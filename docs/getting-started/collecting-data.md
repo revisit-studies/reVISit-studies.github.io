@@ -13,17 +13,17 @@ In this getting-started guide, we will **only cover local storage**. For setting
 
 ## Recording Data
 
-Take the survey that you have created earlier! After you are done, use the menu on the top right, select “Next Participant“ and take the survey again (using different values). Now you have recorded data for two participants.
+Take the survey that you have created earlier! After you are done, use the menu on the top right, select "Next Participant" and take the survey again (using different values). Now you have recorded data for two participants.
 
 ![Next Participant](img/next-participant.png)
 
 ## Accessing Data
 
-To access the data, go to the analysis interface by visiting the root of reVISit at http://localhost:8080/, and clicking “Analyze & Manage Study” in the study card on the bottom-right. This will get you to the analysis interface that will show all studies in your reVISit instance, including the one you just created `basic-questionnaire-study`.
+To access the data, go to the analysis interface by visiting the root of reVISit at http://localhost:8080/, and clicking "Analyze & Manage Study" in the study card on the bottom-right. This will get you to the analysis interface that will show all studies in your reVISit instance, including the one you just created `basic-questionnaire-study`.
 
 ![Analyze and Manage Study](img/analyze-manage-study.png)
 
-You can now download your data either “flattened” in tabular data format (as [“tidy data”](https://r4ds.hadley.nz/data-tidy.html#sec-tidy-data)), or you can download the full nested JSON file. For more information on downloading data, refer to [Data Export](../../analysis/data-export/).
+You can now download your data either "flattened" in tabular data format (as ["tidy data"](https://r4ds.hadley.nz/data-tidy.html#sec-tidy-data)), or you can download the full nested JSON file. For more information on downloading data, refer to [Data Export](../../analysis/data-export/).
 
 ![Download Data](img/download-data.png)
 
@@ -31,7 +31,7 @@ You can now download your data either “flattened” in tabular data format (as
 Note that the JSON data contains much more detailed data, including logs about mouse movements and browser fingerprints of participants.
 :::
 
-You can also preview your data in the “Participant View” or “Trial Stats”, which is especially useful if you're debugging your study.
+You can also preview your data in the "Participant View" or "Trial Stats", which is especially useful if you're debugging your study.
 
 ## Resetting your Local Database
 

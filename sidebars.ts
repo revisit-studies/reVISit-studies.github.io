@@ -114,7 +114,7 @@ const sidebars: SidebarsConfig = {
         'analysis/live-monitor',
         {
           type: 'category',
-          label: 'Manage',
+          label: 'Management',
           items: [
             'analysis/revisit-modes',
             'analysis/stage-management',

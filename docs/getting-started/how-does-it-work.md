@@ -72,7 +72,7 @@ For more detailed documentation on the response section, check out the [document
 
 ## Base Components and Inheritance
 
-[BaseComponents](../../typedoc/interfaces/StudyConfig#properties) can be used to implement inheritance for components. This is often useful if you want to parameterize a component. For example:
+[Base Components](../../typedoc/interfaces/StudyConfig#properties) can be used to implement inheritance for components. This is often useful if you want to parameterize a component. For example:
 
 * You might have a stimulus, such as an image, about which you want to ask multiple different questions on separate pages.
 * You might have a generic implementation of a stimulus, such as a bar chart, and you want to pass in data to change how the stimulus appears.

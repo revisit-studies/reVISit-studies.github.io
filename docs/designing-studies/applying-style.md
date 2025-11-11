@@ -11,7 +11,7 @@ There are two primary ways to apply styles to your study:
 ### 1. External CSS Files (`stylesheetPath`)
 For comprehensive styling with complex rules, pseudo-classes, etc. across all components, you can load external CSS files.
 
-```ts
+```json
 "uiConfig": {
   ...
   "stylesheetPath": "study-name/assets/style.css"

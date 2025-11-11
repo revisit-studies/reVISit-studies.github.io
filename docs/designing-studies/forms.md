@@ -41,7 +41,7 @@ In this example, the drop-down is rendered in the main window, as indicated by t
 
 Form elements can be placed either in a sidebar, or as the main content of a study page. The sidebar version is useful if you're showing another kind of stimulus in the main part of the window. The main page location is useful for stand-alone survey questions, or if you want to integrate your response with your stimulus.
 
-Because form elements are so commonly combined with other stimuli, a standalone questionnaire component as shown above is just a stripped down component with “only” a response.
+Because form elements are so commonly combined with other stimuli, a standalone questionnaire component as shown above is just a stripped down component with "only" a response.
 
 :::note
 You can also add form-based responses to all other stimuli using exactly the same syntax!
@@ -62,9 +62,9 @@ The `infoText` allows you to provide additional description for survey questions
 
 ### Required Fields
 
-You can make a field required, in which case a red star is rendered (see above) and it is necessary that a response is given before the “Next” button is activated and the participant can proceed. Required is the default, set `"required": false` if an answer is optional.
+You can make a field required, in which case a red star is rendered (see above) and it is necessary that a response is given before the "Next" button is activated and the participant can proceed. Required is the default, set `"required": false` if an answer is optional.
 
-### “Don't Know” Option
+### "Don't Know" Option
 
 You can explicitly allow participants to state that they don't know the response with a dedicated checkbox:
 ![A numerical input example with a don't know option.](img/form-dont-know.png)
@@ -93,9 +93,9 @@ Radio buttons and checkboxes have some shared noteworthy features. Here is an ex
 
 Radios and checkboxes can be rendered either vertically (the default) or horizontally. The above figure shows radios for both. Set `"horizontal": true` to get the horizontal version.
 
-#### “Other” Option
+#### "Other" Option
 
-You can allow an “other” option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
+You can allow an "other" option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
 
 ### Matrix Features
 Matrix questions let you ask several questions at the same time, using the same set of answer choices. You can either provide your own custom answers or use our built-in answer options.

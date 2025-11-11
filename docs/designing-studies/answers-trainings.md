@@ -9,7 +9,7 @@ Responses can optionally also be provided with an [Answer](../../typedoc/interfa
  * Answers can be used to check the response during the experiment, which is useful for **training**.
 
 :::note
-There might be situations when answers cannot accurately capture whether a response was correct or not (e.g., with text input). In other situations, answers may have “degrees of correctness”. In such cases, you will have to compute correct answers as part of your data analysis process.
+There might be situations when answers cannot accurately capture whether a response was correct or not (e.g., with text input). In other situations, answers may have "degrees of correctness". In such cases, you will have to compute correct answers as part of your data analysis process.
 :::
 
 ## Specifying Answers and Trainings
@@ -53,7 +53,7 @@ Here's a simple dropdown component asking what the most efficient visual mark is
 
 The last three lines specify that this is used for training:
 
-The `provideFeedback` field adds a “Check Answer” button to the UI, which can be used to validate the answer based on the provided correct answer.
+The `provideFeedback` field adds a "Check Answer" button to the UI, which can be used to validate the answer based on the provided correct answer.
 
 ![Screenshot of the drop-down box asking about the most efficient visual mark, with an incorrect answer (Bubble). A warning is displayed that the answer is incorrect and the participant has three more attempts.](img/training-incorrect-answer.png)
 
