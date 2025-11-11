@@ -28,7 +28,7 @@ Trying to run your own study? Here is how you can learn about how to use reVISit
 
 Running into a bug? Or want to write an extension? Use the [GitHub issue tracker](https://github.com/revisit-studies/study/issues) to submit a bug report or submit a pull request after forking [the repository](https://github.com/revisit-studies/study).
 
-## Submit Your reVISit Study
+## Submit Your ReVISit Study
 
 If you've used reVISit for your visualization research, we'd love to see it! Fill out [this Google form](https://forms.gle/CE82n3V1bcmZ4ahY9) and you'll be added to our [testimonials page](../testimonials).
 

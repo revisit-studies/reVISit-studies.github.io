@@ -9,7 +9,7 @@ This guide demonstrates how to integrate a Vega-based component into reVISit.
 
 You can check out the [live demo](https://revisit.dev/study/demo-vega/) and the [code for these examples](https://github.com/revisit-studies/study/tree/main/public/demo-vega).
 
-Also Review the relevant reference for
+Also review the relevant reference for
 * [Vega Components](https://revisit.dev/docs/typedoc/interfaces/VegaComponentConfig/)
 * [Vega Paths](https://revisit.dev/docs/typedoc/interfaces/VegaComponentPath/)
 
