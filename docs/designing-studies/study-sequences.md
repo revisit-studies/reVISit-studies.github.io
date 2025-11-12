@@ -10,14 +10,14 @@ ReVISit also always injects a special `end` component at the very end of the stu
 If your study has a set order, creating a sequence is simple. Define the components in the order you want to see them, and set your order to `fixed`
 
 ```js
- sequence: {
-    order: 'fixed'
-    components: [
-        'introduction',
-        'consent',
-        'trial1',
-        'trial2',
-        'post-survey'
+ "sequence": {
+    "order": "fixed"
+    "components": [
+        "introduction",
+        "consent",
+        "trial1",
+        "trial2",
+        "post-survey"
     ],
  }
 ```
@@ -27,19 +27,19 @@ If your study has a set order, creating a sequence is simple. Define the compone
 Many studies need to randomize the order of some of the components, but not all. You may want every participant to see `introduction` and `consent` first, but then randomize the order they see trials in. To do this, sequences can be nested. Create another object around your trials, and change the order to `random`.
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'random',
-            components: [
-                'trial1',
-                'trial2',
+            "order": "random",
+            "components": [
+                "trial1",
+                "trial2",
             ]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -50,31 +50,31 @@ In this case all participants will first see `introduction` and `consent`, and t
 Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, and then also randomize the order of the trials within each condition. That would look like the following. 
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'random',
-            components: [
+            "order": "random",
+            "components": [
                 {
-                    order: 'random',
-                    components: [
-                        'ConditionA-1',
-                        'ConditionA-2',
+                    "order": "random",
+                    "components": [
+                        "ConditionA-1",
+                        "ConditionA-2",
                     ]
                 },
                 {
-                    order: 'random',
-                    components: [
-                        'ConditionB-1',
-                        'ConditionB-2',
+                    "order": "random",
+                    "components": [
+                        "ConditionB-1",
+                        "ConditionB-2",
                     ]
                 },
             ]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -84,19 +84,19 @@ Studies can be nested to arbitrary depths. A frequent use case is a within subje
 Studies frequently want portions of their trials to be random, but also want to ensure that their trials are not susceptible to ordering effects due to bad luck in the randomization process. A [latin square study design](https://en.wikipedia.org/wiki/Latin_square) is commonly used to combat this, and we have latin squares as a built-in option for randomization. Just change the order to `latinSquare`.
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'latinSquare',
-            components: [
-                'trial1',
-                'trial2',
+            "order": "latinSquare",
+            "components": [
+                "trial1",
+                "trial2",
             ]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -117,22 +117,22 @@ Some studies require knowledge of the participant's responses to previous questi
 Studies frequently want to only show a subset of all trials to a single participant. For this, each block in the sequence has a `numSamples` variable. The following example will show each participant 2 of the 4 trials. `numSamples` works with all sequence orders, but is likely only useful in combination with `random` and `latinSquare`. If used with `latinSquare`, choosing a `numSamples` will ensure that each trial is seen the same amount.
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'latinSquare',
-            numSamples: 2,
-            components: [
-                'trial1',
-                'trial2',
-                'trial3',
-                'trial4'
+            "order": "latinSquare",
+            "numSamples": 2,
+            "components": [
+                "trial1",
+                "trial2",
+                "trial3",
+                "trial4"
             ]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -142,26 +142,26 @@ Studies frequently want to only show a subset of all trials to a single particip
 To add attention checks or breaks to your study, there is an `interruptions` object, which has its own components. The example below adds two attention checks randomly spaced out between trials 1-4. You are guaranteed that the first component will not be an attention check, and that you won't see two attention checks back to back.
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'latinSquare',
-            components: [
-                'trial1',
-                'trial2',
-                'trial3',
-                'trial4'
+            "order": "latinSquare",
+            "components": [
+                "trial1",
+                "trial2",
+                "trial3",
+                "trial4"
             ],
-            interruptions: [{
-                spacing: 'random',
-                numInterruptions: 2,
-                components: ['myAttentionCheckComponent']
+            "interruptions": [{
+                "spacing": "random",
+                "numInterruptions": 2,
+                "components": ["myAttentionCheckComponent"]
             }]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -169,26 +169,26 @@ To add attention checks or breaks to your study, there is an `interruptions` obj
 You can also add `interruptions` deterministically at set intervals. The example below will put an attention check after the first and third trial. 
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'latinSquare',
-            components: [
-                'trial1',
-                'trial2',
-                'trial3',
-                'trial4'
+            "order": "latinSquare",
+            "components": [
+                "trial1",
+                "trial2",
+                "trial3",
+                "trial4"
             ],
-            interruptions: [{
-                spacing: 2,
-                firstLocation: 1,
-                components: ['myAttentionCheckComponent']
+            "interruptions": [{
+                "spacing": 2,
+                "firstLocation": 1,
+                "components": ["myAttentionCheckComponent"]
             }]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -200,26 +200,26 @@ Some studies need more advanced sequencing logic, based on a participant's respo
 The example below will jump straight to `end` if the consent form is answered with anything but `yes` to the field `consentApproval`, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for they keyword `end`, which always jumps to the default final component of the study. 
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
         {
-            order: 'fixed',
-            components: ['consent'],
-            skip: [{
-                'name': 'consent',
-                'check': 'response',
-                'responseId': 'consentApproval',
-                'value': 'yes',
-                'to': 'end'
+            "order": "fixed",
+            "components": ["consent"],
+            "skip": [{
+                "name": "consent",
+                "check": "response",
+                "responseId": "consentApproval",
+                "value": "yes",
+                "to": "end"
             }]
         }
-        'trial1',
-        'trial2',
-        'trial3',
-        'trial4',
-        'post-survey'
+        "trial1",
+        "trial2",
+        "trial3",
+        "trial4",
+        "post-survey"
     ]
  }
 ```
@@ -227,31 +227,31 @@ The example below will jump straight to `end` if the consent form is answered wi
 To check if multiple components are correct, for example that all attention checks were correct, you can do the following:
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'latinSquare',
-            components: [
-                'trial1',
-                'trial2',
-                'trial3',
-                'trial4'
+            "order": "latinSquare",
+            "components": [
+                "trial1",
+                "trial2",
+                "trial3",
+                "trial4"
             ],
-            interruptions: [{
-                spacing: 2,
-                firstLocation: 1,
-                components: ['myAttentionCheckComponent']
+            "interruptions": [{
+                "spacing": 2,
+                "firstLocation": 1,
+                "components": ["myAttentionCheckComponent"]
             }], 
-            skip: [{
-                'name': 'myAttentionCheckComponent',
-                'check': 'responses',
-                'to': 'end'
+            "skip": [{
+                "name": "myAttentionCheckComponent",
+                "check": "responses",
+                "to": "end"
             }]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -260,33 +260,33 @@ This example will go through every component named `myAttentionCheckComponent`, 
 You can also wait until multiple attention checks have been answered incorrectly to jump to end with the `repeatedComponent` check.
 
 ```js
- sequence: {
-    order: 'fixed',
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed",
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'latinSquare',
-            components: [
-                'trial1',
-                'trial2',
-                'trial3',
-                'trial4'
+            "order": "latinSquare",
+            "components": [
+                "trial1",
+                "trial2",
+                "trial3",
+                "trial4"
             ],
-            interruptions: [{
-                spacing: 2,
-                firstLocation: 1,
-                components: ['myAttentionCheckComponent']
+            "interruptions": [{
+                "spacing": 2,
+                "firstLocation": 1,
+                "components": ["myAttentionCheckComponent"]
             }], 
-            skip: [{
-                'name': 'myAttentionCheckComponent',
-                'check': 'repeatedComponent',
-                'condition': 'numIncorrect',
-                'value': 2,
-                'to': 'end'
+            "skip": [{
+                "name": "myAttentionCheckComponent",
+                "check": "repeatedComponent",
+                "condition": "numIncorrect",
+                "value": 2,
+                "to": "end"
             }]
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
@@ -294,42 +294,42 @@ You can also wait until multiple attention checks have been answered incorrectly
 You can also use `skip` to jump around within your study. The example below skips the block `hardQuestions` if the participant gets both questions wrong in `easyQuestions`.
 
 ```js
- sequence: {
-    order: 'fixed'
-    components: [
-        'introduction',
-        'consent',
+ "sequence": {
+    "order": "fixed"
+    "components": [
+        "introduction",
+        "consent",
         {
-            order: 'latinSquare',
-            components: [
-                'trial1',
-                'trial2',
+            "order": "latinSquare",
+            "components": [
+                "trial1",
+                "trial2",
             ],
-            id: 'easyQuestions',
-            skip: [{
-                check: 'block',
-                condition: 'numIncorrect',
-                value: 2,
-                to: 'moreEasyQuestions'
+            "id": "easyQuestions",
+            "skip": [{
+                "check": "block",
+                "condition": "numIncorrect",
+                "value": 2,
+                "to": "moreEasyQuestions"
             }]
         },
         {
-            order: 'latinSquare',
-            components: [
-                'trial3',
-                'trial4'
+            "order": "latinSquare",
+            "components": [
+                "trial3",
+                "trial4"
             ],
-            id: 'hardQuestions'
+            "id": "hardQuestions"
         },
         {
-            order: 'latinSquare',
-            components: [
-                'trial5',
-                'trial6',
+            "order": "latinSquare",
+            "components": [
+                "trial5",
+                "trial6",
             ],
-            id: 'moreEasyQuestions'
+            "id": "moreEasyQuestions"
         },
-        'post-survey'
+        "post-survey"
     ]
  }
 ```
