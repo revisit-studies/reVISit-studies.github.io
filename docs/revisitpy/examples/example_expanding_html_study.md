@@ -1,17 +1,5 @@
 # Enhancing The Simple HTML Study
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    codeLinks={[
-        {name: "HTML Input Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json"}
-    ]}
-    referenceLinks={[
-        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
-        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
-    ]}
-/>
-
 In the previous example, we went over creating the configuration file shown [here](https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json). While that example is still a valid use case for the `revisitpy` package, this may be a configuration that is simpler to write in standard JSON. In this example, we'll go over a use case which more readily requires the `revisitpy` package.
 
 Instead of defining the data for each bar chart directly in the python notebook, suppose we have a CSV file which contains the data for each bar chart. Depending on your specific needs, you may be generating data in R or some other separate Python environment. In these cases, it is extremely useful to have a seamless way to convert raw data into well-defined reVISit components.
@@ -205,8 +193,7 @@ study_metadata = rvt.studyMetadata(
     description="A demo of how to pass visualization data from reVISit to HTML and send user answers from HTML back to the reVISit.",
     organizations=[
         "University of Utah",
-        "WPI",
-        "University of Toronto"
+        "WPI"
     ]
 )
 
@@ -273,3 +260,16 @@ Copying file from ./assets/bar-chart-interaction.html to /Users/bbollen23/revisi
 Copying file from ./assets/help.md to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/help.md
 Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/revisitLogoSquare.svg
 ```
+
+<!-- Importing links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    codeLinks={[
+        {name: "HTML Input Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-html-input/config.json"}
+    ]}
+    referenceLinks={[
+        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
+        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
+    ]}
+/>

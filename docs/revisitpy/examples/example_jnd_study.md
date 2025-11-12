@@ -1,14 +1,5 @@
 # Correlation Visualization JND Example Study
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-
-<StructuredLinks
-    referenceLinks={[
-        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
-        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
-    ]}
-/>
-
 In this example, we'll create a full two-alternative forced choice (2AFC) study for visualizations of correlated data (from [1]), using vega components. We'll use numpy and scipy to generate a dataset, pandas to create a well-structured data frame, and the `revisitpy` package to tie it all together.
 
 You'll see that we have a section which uses the `revisitpy` Widget. This widget is a fully interactive jupyter notebook widget which allows us to preview the created study directly in the notebook. You'll notice that we also utilize the `revisitpy-server` package. This is to simplify the process of viewing our widget. Specifically, it removes the requirement of having a version of the reVISit repository running locally on your computer.
@@ -452,3 +443,13 @@ process.terminate()
 ```python
 
 ```
+
+<!-- Importing links -->
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    referenceLinks={[
+        {name: "reVISitPy Classes", url: "https://revisit.dev/docs/revisitpy-reference/classes/"},
+        {name: "reVISitPy Functions", url: "https://revisit.dev/docs/revisitpy-reference/functions/"}
+    ]}
+/>

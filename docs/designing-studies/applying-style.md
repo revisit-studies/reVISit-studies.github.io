@@ -1,9 +1,8 @@
 # Applying Styles
 
-
 ReVISit provides flexible styling capabilities to customize the appearance of your study components and responses. You can apply styles at three levels: **globally through UI configuration**, at the **component** level, and at the **response** level.
 
-This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience. 
+This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience.
 
 ## Styling Methods
 
@@ -12,7 +11,7 @@ There are two primary ways to apply styles to your study:
 ### 1. External CSS Files (`stylesheetPath`)
 For comprehensive styling with complex rules, pseudo-classes, etc. across all components, you can load external CSS files.
 
-```ts
+```json
 "uiConfig": {
   ...
   "stylesheetPath": "study-name/assets/style.css"
@@ -52,7 +51,7 @@ Styles are applied in the following order (later styles override earlier ones):
 ### 2. Inline Styles (`style`)
 For basic styling like sizing, colors, and fonts, apply specific CSS properties directly to components or responses:
 
-```ts
+```json
 "component": {
     ...
     "style": {
@@ -73,7 +72,7 @@ For basic styling like sizing, colors, and fonts, apply specific CSS properties 
 
 Apply global styles that affect the entire study interface:
 
-```ts
+```json
 "uiConfig": {
   "contactEmail": "contact@revisit.dev",
   "logoPath": "study-name/assets/logo.svg",
@@ -89,7 +88,7 @@ Apply global styles that affect the entire study interface:
 
 ![Form Style](img/style-form.gif)
 
-```ts
+```json
 "uiConfig": {
   ...
   "stylesheetPath": "demo-style/assets/style/form.css"
@@ -144,7 +143,7 @@ label {
 
 ![Large Text Style](img/style-large-text.png)
 
-```ts
+```json
 "uiConfig": {
   ...
   "stylesheetPath": "demo-style/assets/style/largeText.css"
@@ -184,7 +183,7 @@ label {
 
 Components can load their own CSS files using `stylesheetPath`:
 
-```ts
+```json
 {
   "markdown-intro": {
     "type": "markdown",
@@ -228,7 +227,7 @@ If you would like to target all markdown components across your study, use the c
 
 Apply styles directly to component configurations:
 
-```ts
+```json
 {
   "chart": {
     "type": "image",
@@ -252,7 +251,8 @@ Apply styles directly to component configurations:
 ![Markdown Component Style](img/style-introduction.png)
 
 `config.json`
-```ts
+
+```json
 "components": {
   "introduction": {
     "type": "markdown",
@@ -287,7 +287,7 @@ Apply styles directly to component configurations:
 
 ![Image Component Style](img/style-image.png)
 
-```ts
+```json
 "components": {
   "chart": {
     "type": "image",
@@ -313,7 +313,7 @@ Apply styles directly to component configurations:
 
 ![Vega Component Style](img/style-vega.png)
 
-```ts
+```json
 "components": {
   "vega-component": {
     "type": "vega",
@@ -348,7 +348,7 @@ Responses can have their own stylesheets. You can target them using their type (
 - Use `.responseBlock` to select the whole block that holds the responses.
 - Use `.response` to target any individual response element across the study.
 
-```ts
+```json
 "components": {
   "component": {
     ...
@@ -391,7 +391,7 @@ Responses can have their own stylesheets. You can target them using their type (
 
 Apply styles directly to response configurations:
 
-```ts
+```json
 "components": {
   "component": {
     ...
@@ -424,7 +424,7 @@ Apply styles directly to response configurations:
 
 ![Text Response Styling](img/style-text.png)
 
-```ts
+```json
 "response": [
   {
     "id": "short-text-response-style",
@@ -470,7 +470,7 @@ You can also make responses interactive using CSS. For example, you can change t
 
 ![InteractiveResponse](img/style-interactive.gif)
 
-```ts
+```
 "interactive-responses": {
   "type": "markdown",
   "path": "demo-style/assets/responseStylesheet.md",
@@ -521,7 +521,7 @@ You can also make responses interactive using CSS. For example, you can change t
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
-  width: 70%;  
+  width: 70%;
   color: #333333;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out, width 0.3s ease-in-out;
 }
@@ -586,8 +586,7 @@ You can also make responses interactive using CSS. For example, you can change t
 }
 ```
 
-
-<!--   Importing Links -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
@@ -603,4 +602,4 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"},
     {name: "CSS Properties", url:"https://developer.mozilla.org/en-US/docs/Web/CSS/Properties"}
   ]}
-/> 
+/>

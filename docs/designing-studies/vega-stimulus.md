@@ -1,21 +1,19 @@
 # Designing a Vega Stimulus
 
-
-[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations. 
+[Vega](https://vega.github.io/vega/) and [Vega-Lite](https://vega.github.io/vega-lite/) are popular visualization grammars for creating data visualizations.
 Vega allows you to define the visual appearance and interactive behavior of a visualization in JSON format and generate web-based views using Canvas or SVG.
 
-A key benefit of using Vega with reVISit is that **you get provenance tracking (interaction logs) and the associated detailed replay of every single participants interactions for free!**
+A key benefit of using Vega with reVISit is that **you get provenance tracking (interaction logs) and the detailed replay of every single participant's interactions for free!**
 
-This guide demonstrates how to integrate a Vega-based component into reVISit. 
+This guide demonstrates how to integrate a Vega-based component into reVISit.
 
 You can check out the [live demo](https://revisit.dev/study/demo-vega/) and the [code for these examples](https://github.com/revisit-studies/study/tree/main/public/demo-vega).
 
-Also Review the relevant reference for 
+Also review the relevant reference for
 * [Vega Components](https://revisit.dev/docs/typedoc/interfaces/VegaComponentConfig/)
 * [Vega Paths](https://revisit.dev/docs/typedoc/interfaces/VegaComponentPath/)
 
-
-There are two ways to add a Vega component: directly in the config, and in an external file. 
+There are two ways to add a Vega component: directly in the config, and in an external file.
 
 ### 1. Adding Vega Specs Directly to the reVISit Config
 
@@ -29,6 +27,7 @@ To include Vega specifications directly in the reVISit configuration, set the `t
     "config": {... your vega config...}
     ...
   }
+}
 ```
 
 ### 2. Linking to Vega Specs in the reVISit Config
@@ -56,7 +55,6 @@ To achieve this, you can use [Vega signals](https://vega.github.io/vega/docs/sig
 Specifically, a signal with the reserved name `revisitAnswer` is used to pass participant responses to reVISit.
 Here's an example of how to define the `revisitAnswer` signal:
 
-
 ```js
 {
   "name": "revisitAnswer",
@@ -81,7 +79,6 @@ Ensure that you are using Vega when adding signals. If you are using Vega-Lite, 
 
 ### Capturing Responses
 Once the signal is defined in your Vega specifications, you can configure the response field in the reVISit configuration. By setting the response type to `reactive`, the signal emitted by the Vega component is captured and sent to the reVISit platform.
-
 
 ```js
 {
@@ -114,8 +111,7 @@ The figure shows the result:
 
 ![The reVISit UI showing a Vega bar chart where one bar is selected and the response is printed in the sidebar.](./img/vega-response.png)
 
-
-Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/replay).
+Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/table).
 
 
 ```js
@@ -345,22 +341,20 @@ Remember that all events in this example are fully tracked, so you can inspect t
 }
 ```
 
-
-
-
+<!-- Importing links  -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-      {name: "Vega Demo", url: "https://revisit.dev/study/demo-vega/"}
-    ]}
-    codeLinks={[
-      {name: "Vega Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-vega"}
-    ]}
-    referenceLinks={[
-        {name: "Vega", url: "https://vega.github.io/vega/"},
-        {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
-        {name: "Vega Component Config", url: "../../typedoc/interfaces/VegaComponentConfig/"},
-        {name: "Vega Component Path", url: "../../typedoc/interfaces/VegaComponentPath/"}
-    ]}
+  demoLinks={[
+    {name: "Vega Demo", url: "https://revisit.dev/study/demo-vega/"}
+  ]}
+  codeLinks={[
+    {name: "Vega Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-vega"}
+  ]}
+  referenceLinks={[
+    {name: "Vega", url: "https://vega.github.io/vega/"},
+    {name: "Vega-Lite", url: "https://vega.github.io/vega-lite/"},
+    {name: "VegaComponentConfig", url: "../../typedoc/interfaces/VegaComponentConfig/"},
+    {name: "VegaComponentPath", url: "../../typedoc/interfaces/VegaComponentPath/"}
+  ]}
 />

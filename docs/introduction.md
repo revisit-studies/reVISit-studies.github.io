@@ -1,11 +1,43 @@
 # Introduction
 
-reVISit lets you create interactive, web-based studies using a **JSON domain-specific language (DSL), called reVISit Spec, and a set of stimuli contained in components**. Once you have created a spec and the stimuli, you can build your study and deploy it to the web. You can use stimuli that are images, (interactive) html pages, or react components. 
+ReVISit lets you create interactive, web-based studies using a **JSON-based domain-specific language (the reVISit DSL)** and a set of **stimuli contained in components**.  
+The overall process is illustrated in the figure below:
 
-The overall process is shown in the following figure: 
+![Diagram showing the ReVISit workflow from study specification to analysis](./img/revisit-overview.png)
 
-![Revisit teaser image showing revisit workflow](./img/revisit-overview.png)
+First, specify the details of your study in the **reVISit DSL (1)** — including which components to use, what data to collect, and in what sequence they will appear.
 
-Based on your custom reVISit Spec and the components, you will use the reVISit software to compile your spec and stimuli into an interactive webpage. You can then deploy that web-page to a web-server. Your study automatically tracks all the responses of participants, and you can download the data after participants completed your study.  
+**Your stimuli live in components (2).** Components can be images, videos, interactive HTML pages, React components, or Vega code. You can use existing components from the reVISit library or create your own custom ones.
 
-In the tutorials section, we'll walk you through a simple example to create your first study with reVISit! 
+Next, use the **(3) Compile & Deploy** process to combine your reVISit specification and components into an **(4) interactive study web app.** You can then deploy this app to any web server.
+
+When you’re ready to run your study, **(5) recruit participants** through platforms like Prolific or Mechanical Turk, or via social media, e-mail, or in-person recruitment.
+
+Participant responses are automatically stored in the **(6) data store**, which can be local storage or cloud-based options such as Firebase or Supabase.
+
+You can then **(7) monitor your study** using ReVISit’s replay tools and participant overviews to review preliminary results.
+
+Finally, **(8) download your data** for analysis in your preferred environment, such as R or Python.
+
+In the tutorials section, we’ll walk you through a simple example to create your first study with ReVISit!
+
+
+You can also check out this video introduction to reVISit:
+
+<div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9' }}>
+  <iframe
+    src="https://www.youtube.com/embed/1aa9UM2M3_Q?si=7ul6janppYiL2B_u"
+    title="YouTube video player"
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      border: 0,
+    }}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+  />
+</div>
