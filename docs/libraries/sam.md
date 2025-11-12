@@ -28,7 +28,8 @@ DOI: [10.1016/0005-7916(94)90063-9](https://dx.doi.org/10.1016/0005-7916(94)9006
 
 
 <!-- Importing Links -->
-  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
       demoLinks={[

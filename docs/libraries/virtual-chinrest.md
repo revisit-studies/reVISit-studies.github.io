@@ -27,7 +27,8 @@ Link: [https://github.com/QishengLi/virtual_chinrest](https://github.com/Qisheng
 
 
 <!-- Importing Links -->
-  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
       demoLinks={[
