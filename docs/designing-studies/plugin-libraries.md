@@ -40,8 +40,8 @@ To import a library, add its name to the `importedLibraries` top-level field of 
 
 Libraries expose one or multiple "components" and possibly also "sequences" – predefined collections of components. You can use its components and sequences in the `sequence` section of your study configuration. The format for referencing components and sequences is:
 
-- **Components**: `$name.co.componentName`
-- **Sequences**: `$name.se.sequenceName`
+- **Components**: `$libraryName.co.componentName`
+- **Sequences**: `$libraryName.se.sequenceName`
 
 For example:
 
