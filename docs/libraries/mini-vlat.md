@@ -37,7 +37,8 @@ DOI: [10.1111/cgf.14809](https://dx.doi.org/10.1111/cgf.14809)
 
 
 <!-- Importing Links -->
-  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
       demoLinks={[

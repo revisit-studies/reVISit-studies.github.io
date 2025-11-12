@@ -48,7 +48,8 @@ Link: [https://www.colour-blindness.com/colour-blindness-tests/ishihara-colour-t
 
 
 <!-- Importing Links -->
-  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
       demoLinks={[

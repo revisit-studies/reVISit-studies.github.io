@@ -78,7 +78,8 @@ DOI: [10.1109/TVCG.2016.2598920](https://dx.doi.org/10.1109/TVCG.2016.2598920)
 
 
 <!-- Importing Links -->
-  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
       demoLinks={[

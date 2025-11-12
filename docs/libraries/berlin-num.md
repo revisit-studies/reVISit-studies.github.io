@@ -31,7 +31,8 @@ Link: [http://www.riskliteracy.org/](http://www.riskliteracy.org/)
 
 
 <!-- Importing Links -->
-  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
       demoLinks={[
