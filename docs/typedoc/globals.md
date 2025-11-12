@@ -10,6 +10,7 @@
 - [ComponentBlock](interfaces/ComponentBlock.md)
 - [ComponentBlockCondition](interfaces/ComponentBlockCondition.md)
 - [DeterministicInterruption](interfaces/DeterministicInterruption.md)
+- [DividerResponse](interfaces/DividerResponse.md)
 - [DropdownResponse](interfaces/DropdownResponse.md)
 - [DynamicBlock](interfaces/DynamicBlock.md)
 - [GlobalConfig](interfaces/GlobalConfig.md)

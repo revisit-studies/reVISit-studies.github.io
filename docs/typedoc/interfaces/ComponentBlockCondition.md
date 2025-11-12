@@ -1,6 +1,6 @@
 # ComponentBlockCondition
 
-Defined in: [parser/types.ts:1302](https://github.com/revisit-studies/study/blob/3f9f0405fd0a640035b224bca9821c931f0fdb91/src/parser/types.ts#L1302)
+Defined in: [parser/types.ts:1333](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1333)
 
 The ComponentBlockCondition interface is used to define a SkipCondition based on the number of correct or incorrect components in a block. All answers on all components in the block are checked.
 
@@ -31,7 +31,7 @@ When the condition is met, the participant will immediately be redirected to the
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="check"></a> `check` | `"block"` | The check we'll perform. | [parser/types.ts:1304](https://github.com/revisit-studies/study/blob/3f9f0405fd0a640035b224bca9821c931f0fdb91/src/parser/types.ts#L1304) |
-| <a id="condition"></a> `condition` | `"numCorrect"` \| `"numIncorrect"` | The condition to check. | [parser/types.ts:1306](https://github.com/revisit-studies/study/blob/3f9f0405fd0a640035b224bca9821c931f0fdb91/src/parser/types.ts#L1306) |
-| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1310](https://github.com/revisit-studies/study/blob/3f9f0405fd0a640035b224bca9821c931f0fdb91/src/parser/types.ts#L1310) |
-| <a id="value"></a> `value` | `number` | The number of correct or incorrect responses to check for. | [parser/types.ts:1308](https://github.com/revisit-studies/study/blob/3f9f0405fd0a640035b224bca9821c931f0fdb91/src/parser/types.ts#L1308) |
+| <a id="check"></a> `check` | `"block"` | The check we'll perform. | [parser/types.ts:1335](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1335) |
+| <a id="condition"></a> `condition` | `"numCorrect"` \| `"numIncorrect"` | The condition to check. | [parser/types.ts:1337](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1337) |
+| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1341](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1341) |
+| <a id="value"></a> `value` | `number` | The number of correct or incorrect responses to check for. | [parser/types.ts:1339](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1339) |
