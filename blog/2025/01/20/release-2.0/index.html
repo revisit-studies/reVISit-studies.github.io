@@ -14,8 +14,8 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Home | ReVISit" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.7b9d32b0.css">
-<script src="/assets/js/runtime~main.08510eb0.js" defer="defer"></script>
-<script src="/assets/js/main.6aaddcd8.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.4a55a7bf.js" defer="defer"></script>
+<script src="/assets/js/main.fd64b96e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -48,7 +48,7 @@
 <p>First, we implemented a widget that lets you <strong>run the study you created from inside the Jupyter notebook</strong>. Now you have a fast way of inspecting experiments, randomization, etc.</p>
 <p>Next, you can <strong>run through the study and download the data you generated straight into your notebook</strong>, so that you can immediately see whether you’re actually collecting all the data you need, and even pilot your analysis!</p>
 <iframe width="100%" height="450" src="https://www.youtube.com/embed/8Nad_oSNgKY?si=uTfbBtN-fmMx_wvZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-<p>Finally, with the Python bindings we also enable you to design arbitrarily complex studies from <strong>permutations</strong>. What does that mean? Say, you have a stimulus, such as a scatterplot, that can render any compatible dataset, and you want to test how good participants are at judging correlations. You might want to feed in hundreds of different datasets that you’re automatically generating. If you were to do this in the reVISit JSON spec, it would be very painful, because you have to create components for every single stimulus. In reVISitPy, it’s just a few lines of code. And of course, this isn’t limited to passing data into a component, you can premute over tasks, visual stimuli, or even phrasings of your questions, etc.</p>
+<p>Finally, with the Python bindings we also enable you to design arbitrarily complex studies from <strong>permutations</strong>. What does that mean? Say, you have a stimulus, such as a scatterplot, that can render any compatible dataset, and you want to test how good participants are at judging correlations. You might want to feed in hundreds of different datasets that you’re automatically generating. If you were to do this in the reVISit JSON spec, it would be very painful, because you have to create components for every single stimulus. In reVISitPy, it’s just a few lines of code. And of course, this isn’t limited to passing data into a component, you can permute over tasks, visual stimuli, or even phrasings of your questions, etc.</p>
 <p>Check out the <a href="https://revisit.dev/docs/revisitpy/" target="_blank" rel="noopener noreferrer" class="">documentation</a>, the <a href="https://github.com/revisit-studies/revisitpy-examples" target="_blank" rel="noopener noreferrer" class="">examples</a>, and the <a href="https://github.com/revisit-studies/revisitpy" target="_blank" rel="noopener noreferrer" class="">reVISitPy repository</a> to learn more about how to use it.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-features--changes">Other Features / Changes<a href="#other-features--changes" class="hash-link" aria-label="Direct link to Other Features / Changes" title="Direct link to Other Features / Changes" translate="no">​</a></h2>
 <ul>
@@ -61,12 +61,9 @@
 <li class="">You can allow “I don’t know” as an option for most form elements.</li>
 <li class="">You can allow “Other” options for checkboxes and radios.</li>
 <li class="">You can choose horizontal and vertical layouts for checkboxes and radios.</li>
+<li class="">You can now <a href="https://revisit.dev/docs/designing-studies/answers-trainings/" target="_blank" rel="noopener noreferrer" class="">design trainings</a> where participants can validate answers</li>
 </ul>
 </li>
-</ul>
-<ul>
-<li class="">You can now <a href="https://revisit.dev/docs/designing-studies/answers-trainings/" target="_blank" rel="noopener noreferrer" class="">design trainings</a>
-where participants can validate answers</li>
 <li class="">Data export has improved, including things like participant numbers, clean time (time on task minus task where the browser tab was not active), etc.</li>
 </ul>
 <p>These new features represent several months of work from the reVISit team, and we’re excited to share them with the community. We’re aiming to make reVISit more versatile, powerful, and easy to use. As always, we welcome your feedback and ideas for how we can support new directions for research in visualization and interactive systems. The best way to get in touch is to join our <a href="https://join.slack.com/t/revisit-nsf/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ" target="_blank" rel="noopener noreferrer" class="">Slack Team</a>!</p>
