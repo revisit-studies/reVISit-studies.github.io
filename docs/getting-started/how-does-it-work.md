@@ -19,12 +19,13 @@ A component is typically defined in the spec, with the text, code, or image incl
 
 # The reVISit Spec
 
-The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define the details of your experiment as a JSON (or YAML) file. The reVISit Spec has four top-level concepts:
+The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define the details of your experiment as a JSON (or YAML) file. The reVISit Spec has five top-level concepts:
 
 - **Study Metadata** — specifying things like the name of the study, authors, contact e-mails
 - **UI Config** — parameterizing the appearance of reVISit
 - **Components** and **BaseComponents** — setting up the content of the study
 - **Sequence** — choosing the order and the selection of tasks participants see
+- **Imported Libraries** — specifying common components/sequences that you can use in your study
 
 We'll explain the ideas in the next section, and link to the documentation for more details.
 

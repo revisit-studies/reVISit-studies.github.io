@@ -10,7 +10,7 @@ A: If you're debugging your study by re-taking parts of the study over and over,
 
 ### Q: Is there a version of this application that I do not need to host myself?
 
-A: ReVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offers no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using GitHub Pages and Firebase or Supabase. Using these tools requires no domain name setup, no external server to host the application, and no backend database to store your data; all of this can be achieved by using Firebase/Supabase and GitHub pages. Please see [Firebase Setup](../data-and-deployment/firebase/setup/) or [Supabase Setup](../data-and-deployment/supabase/setup/). See [here](../data-and-deployment/deploying-to-static-website) for deploying to GitHub pages.
+A: ReVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offers no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using GitHub Pages and Firebase or Supabase. Using these tools requires no domain name setup, no external server to host the application (unless self hosting Supabase), and no backend database to store your data; all of this can be achieved by using Firebase/Supabase and GitHub pages. Please see [Firebase Setup](../data-and-deployment/firebase/setup/) or [Supabase Setup](../data-and-deployment/supabase/setup/). See [here](../data-and-deployment/deploying-to-static-website) for deploying to GitHub pages.
 
 However, we are considering making hosting available in a future version to further simplify the process of creating your own study. Let us know if that would be important to you!
 
@@ -23,7 +23,7 @@ A: There are a few ways you could handle that:
 
 ### Q: I already have a website where I'd like to host reVISit. How can I use reVISit in an already existing website?
 
-A: ReVISit is designed to be a single page web application. If you run `yarn build` inside your forked repository, the storage engine will automatically switch to cloud storage and will generate a `dist` directory containing all the necessary code for a static deployment. In this directory is the `index.html` file which is the entry point for the application — no additional setup is necessary. For example, if you are using <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html" target="_blank">AWS S3 static website hosting</a>, you can upload the `dist` directory to the S3 bucket and then use this `index.html` file as the entry point when prompted.
+A: ReVISit is designed to be a single page web application. If you run `yarn build` inside your forked repository, the bundler will generate a `dist` directory containing all the necessary code for a static deployment. In this directory is the `index.html` file which is the entry point for the application — no additional setup is necessary. For example, if you are using <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html" target="_blank">AWS S3 static website hosting</a>, you can upload the `dist` directory to the S3 bucket and then use this `index.html` file as the entry point when prompted. Please note that you will still need to set up a storage engine (e.g., Firebase or Supabase) to store the data collected from your study and update the `.env` file accordingly.
 
 ### Q: I have to store my data in a specific country / region. How do I do this with Firebase?
 
@@ -51,4 +51,4 @@ A: We report the total time it took a participant to complete a task as duration
 
 ### Q: What happens if there's an error during study initialization?
 
-A: ReVISit has built-in error handling so your study can still run even if something goes wrong when it starts. If an error happens during setup, reVISit will show a warning message, then automatically use the first available study setup, and continue running so participants can still complete the study.
+A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. If an error happens during setup, reVISit will show a warning message, fallback to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud, with a prompt to contact the study administrator.
