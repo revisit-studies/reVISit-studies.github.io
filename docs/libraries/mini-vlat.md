@@ -1,21 +1,6 @@
 
 # mini-vlat
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-  
-  <StructuredLinks
-      demoLinks={[
-        {name: "mini-vlat Demo", url: "https://revisit.dev/study/library-mini-vlat"}
-      ]}
-      codeLinks={[
-        {name: "mini-vlat Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"}
-      ]}
-      referenceLinks={[
-        {name: "DOI", url: "https://dx.doi.org/10.1111/cgf.14809"}
-        
-      ]}
-  />
-
 
 
 Mini-VLAT is a short and effective measure of visualization literacy. Mini-VLAT has 12 questions and participants should answer each question within 25 seconds. This library contains 12 components. Each component contains one question of the Mini-VLAT. This library also contains a sequence of all 12 components (the full Mini-VLAT).
@@ -50,3 +35,19 @@ DOI: [10.1111/cgf.14809](https://dx.doi.org/10.1111/cgf.14809)
 - full
 
 
+
+<!-- Importing Links -->
+  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+  <StructuredLinks
+      demoLinks={[
+        {name: "mini-vlat Demo", url: "https://revisit.dev/study/library-mini-vlat"}
+      ]}
+      codeLinks={[
+        {name: "mini-vlat Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"}
+      ]}
+      referenceLinks={[
+        {name: "DOI", url: "https://dx.doi.org/10.1111/cgf.14809"}
+        
+      ]}
+  />

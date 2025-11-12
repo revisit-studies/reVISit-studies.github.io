@@ -1,21 +1,6 @@
 
 # adaptive-vlat
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-  
-  <StructuredLinks
-      demoLinks={[
-        {name: "adaptive-vlat Demo", url: "https://revisit.dev/study/library-adaptive-vlat"}
-      ]}
-      codeLinks={[
-        {name: "adaptive-vlat Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat"}
-      ]}
-      referenceLinks={[
-        {name: "DOI", url: "https://dx.doi.org/10.1109/TVCG.2023.3327165"}
-        
-      ]}
-  />
-
 
 
 A-VLAT is a short, adaptive visualization literacy test, which are built upon the existing static assessments VLAT. 
@@ -43,3 +28,19 @@ DOI: [10.1109/TVCG.2023.3327165](https://dx.doi.org/10.1109/TVCG.2023.3327165)
 - adaptive-vlat
 
 
+
+<!-- Importing Links -->
+  import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+  <StructuredLinks
+      demoLinks={[
+        {name: "adaptive-vlat Demo", url: "https://revisit.dev/study/library-adaptive-vlat"}
+      ]}
+      codeLinks={[
+        {name: "adaptive-vlat Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat"}
+      ]}
+      referenceLinks={[
+        {name: "DOI", url: "https://dx.doi.org/10.1109/TVCG.2023.3327165"}
+        
+      ]}
+  />
