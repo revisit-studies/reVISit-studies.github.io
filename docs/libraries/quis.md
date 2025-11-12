@@ -1,21 +1,6 @@
 
 # quis
 
-import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
-  
-  <StructuredLinks
-      demoLinks={[
-        {name: "quis Demo", url: "https://revisit.dev/study/library-quis"}
-      ]}
-      codeLinks={[
-        {name: "quis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-quis"}
-      ]}
-      referenceLinks={[
-        
-        {name: "quis", url: "https://isr.umd.edu/news/story/quis-questionnaire-for-user-interaction-satisfaction-70-isr-ip"}
-      ]}
-  />
-
 
 
 The Questionnaire for User Interaction Satisfaction (QUIS) is a measurement tool designed to assess a computer user's subjective satisfaction with the human-computer interface. The QUIS contains measures of overall system satisfaction and specific interface factors such as screen visibility, terminology and system information, learning factors, and system capabilities. This library includes six components, one for each individual dimension, as well as a sequence containing all dimensions.
@@ -48,3 +33,20 @@ Link: [https://isr.umd.edu/news/story/quis-questionnaire-for-user-interaction-sa
 - 6-dimensions
 
 
+
+<!-- Importing Links -->
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+  <StructuredLinks
+      demoLinks={[
+        {name: "quis Demo", url: "https://revisit.dev/study/library-quis"}
+      ]}
+      codeLinks={[
+        {name: "quis Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-quis"}
+      ]}
+      referenceLinks={[
+        
+        {name: "quis", url: "https://isr.umd.edu/news/story/quis-questionnaire-for-user-interaction-satisfaction-70-isr-ip"}
+      ]}
+  />
