@@ -6,11 +6,11 @@ In order to use authentication, you must have a Supabase application already con
 
 ## Enabling Authentication in Supabase
 
-Supabase provides a variety of authentication methods, but reVISit only supports GitHub OAuth for authentication. To enable GitHub OAuth, start by navigating to GitHub and creating a new OAuth application [here](http://github.com/settings/developers). 
+Supabase provides a variety of authentication methods, but reVISit only supports GitHub OAuth for authentication. To enable GitHub OAuth, start by navigating to GitHub and creating a new OAuth application [here](http://github.com/settings/developers).
 
 Give your application a name, such as `ReVISit Supabase`. For the "Homepage URL", enter the URL where your reVISit application will be hosted (e.g., `https://my-revisit-app.com`). This must include the `https://` prefix.
 
-Lastly set the "Authorization callback URL" to `https://<your-supabase-domain>/auth/v1/callback`, replacing `<your-supabase-domain>` with your actual Supabase domain (e.g., `https://supabase.organizaion.com/auth/v1/callback`).
+Lastly set the "Authorization callback URL" to `https://<your-supabase-domain>/auth/v1/callback`, replacing `<your-supabase-domain>` with your actual Supabase domain (e.g., `https://supabase.organization.com/auth/v1/callback`).
 
 ![GitHub OAuth Setup](./img/github-oauth-setup.png)
 
@@ -32,13 +32,17 @@ When you first enable authentication, you will be prompted to sign in using GitH
 
 ### Adding Additional Users
 
-To add another administrator, simply navigate to the settings page (where you enabled authentication) and click on the 'Add User' icon to the right of the "Enable Users" section. Enter the Google account email for the user and click save. They will now be an administrator and will immediately be able to log into your reVISit application
+To add another administrator, simply navigate to the settings page (where you enabled authentication) and click on the "Add User" icon to the right of the "Enabled Users" section. Enter the Google account email for the user and click save. They will now be an administrator and will immediately be able to log into your reVISit application.
+
+![Add User](./../img/manage_admin/add_user.png)
 
 ### Removing A User
 
 In the "Enabled Users" section, you will see the "delete" icon to the right of each user aside from yourself. Any administrator is capable of deleting any user from the reVISit system. The only restriction is that you cannot delete yourself and there can never be less than one user.
 
-<!--   Importing Links -->
+![Remove User](./../img/manage_admin/remove_user.png)
+
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

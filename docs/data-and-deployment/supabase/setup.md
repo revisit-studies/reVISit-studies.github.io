@@ -3,7 +3,7 @@
 
 <a href="https://supabase.com/" target="_blank" >Supabase</a> is an open-source alternative to Firebase that provides a real-time database and storage solution. It is built on top of PostgreSQL, which allows for more complex queries and data structures. Supabase is particularly useful for researchers who need to comply with strict data privacy regulations, as it can be self-hosted.
 
-This guide will be focused on setting up a self hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
+This guide will be focused on setting up a self hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the Firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
 ### Pre-requisites
 
 Before you begin, ensure you have the following:
@@ -30,7 +30,7 @@ Once you have your server or VM, you will need to follow these steps:
    ```
 
    This will pull the docker images and start the Supabase services in detached mode.
-  
+
 6. **Access the Supabase Dashboard**: Once the services are up and running, you can access the Supabase dashboard by navigating to `http://localhost:8000` in your web browser. Alternatively, if you are running this on a remote server, replace `localhost` with your server's IP address or domain name. You can log in using the credentials you set in the `.env` file.
 
 :::info
@@ -118,12 +118,12 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
-``` 
+```
 Make sure to replace `your-domain.com` with your actual domain name and provide the correct paths to your SSL certificate and private key.
 
 Once the reverse proxy is set up, you can access your reVISit application securely over HTTPS provided that you change the `VITE_SUPABASE_URL` in your `.env` file to use `https://` instead of `http://` and drop the port number if you are using the default port 443 for HTTPS (as shown in the example above).
 
-<!--   Importing Links -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -155,7 +155,7 @@ export default function Home() {
           <div className="col col--10">
             <Heading as="h1" className={styles.pageTitle}>Studies Using reVISit</Heading>
             <div className={styles.pageIntro}>
-              Many people have already gotten started using ReVISit in their data visualization research. Check out all the different ways people are using reVISit to produce novel research. If you&apos;ve used reVISit as part of your research, we strongly encourage you to fill out
+              Many people have already gotten started using reVISit in their data visualization research. Check out all the different ways people are using reVISit to produce novel research. If you&apos;ve used reVISit as part of your research, we strongly encourage you to fill out
               {' '}
               <Link href="https://forms.gle/CE82n3V1bcmZ4ahY9" target="_blank" rel="noreferrer">this Google form</Link>
               . Once we verify your work, your research will be added to the testimonials list below.

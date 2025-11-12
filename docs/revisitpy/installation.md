@@ -61,6 +61,7 @@ Note that this is, by default, serving a copy of reVISit on port 8080. Currently
 :::
 
 
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

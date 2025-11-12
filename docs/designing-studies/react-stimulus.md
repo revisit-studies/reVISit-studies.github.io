@@ -1,7 +1,5 @@
 # Designing a React Stimulus
 
-
-
 React is a popular JavaScript library for building user interfaces, primarily for single-page applications. You can find more details on the official [React documentation](https://react.dev/).
 
 Here we will introduce how to create a React stimulus for reVISit studies through two examples.
@@ -12,14 +10,14 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 ## Example 1: Graphical Perception Experiment
 
-The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "demo-cleveland," so we put this code into `src/public/demo-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
+The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "example-cleveland," so we put this code into `src/public/example-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
 
-We have a few reusable components and hooks available in the `src/public/demo-cleveland/assets/hooks` and `src/public/demo-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks helps creating charts using D3.js in React. You may copy them to your own experiment folder.
+We have a few reusable components and hooks available in the `src/public/example-cleveland/assets/hooks` and `src/public/example-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks help creating charts using D3.js in React. You may copy them to your own experiment folder.
 
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
 In this example, we pass two data arrays to the BarChart component. One is the data array contains 5 objects, each object has a name and a value. The other is the selectedIndices array, which contains the indices of the data array that we want to highlight with dots.
 
-```typescript
+```ts
 import * as d3 from 'd3';
 import { useChartDimensions } from './hooks/useChartDimensions';
 import { Bars } from './chartcomponents/Bars';
@@ -112,65 +110,67 @@ The parameters contain data and selectedIndices. Both are decoded in the above c
 The parameters are an object; you can change the format to suit your needs.
 
 ```json
- "barChart": {
-            "meta": {
-                "difficulty": 5,
-                "chart": "Bar"
-            },
-            "description": "A chart with correct answer of 0.66",
-            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
-            "type": "react-component",
-            "path": "demo-cleveland/assets/BarChart.tsx",
-            "parameters": {
-                "data": [
-                    {
-                        "name": "A",
-                        "value": "30"
-                    },
-                    {
-                        "name": "B",
-                        "value": "40"
-                    },
-                    {
-                        "name": "C",
-                        "value": "50"
-                    },
-                    {
-                        "name": "D",
-                        "value": "40"
-                    },
-                    {
-                        "name": "E",
-                        "value": "60"
-                    }
-                ],
-                "selectedIndices": [
-                    1,
-                    4
-                ]
-            },
+"barChart": {
+  "meta": {
+    "difficulty": 5,
+    "chart": "Bar"
+  },
+  "description": "A chart with correct answer of 0.66",
+  "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
+  "type": "react-component",
+  "path": "example-cleveland/assets/BarChart.tsx",
+  "parameters": {
+    "data": [
+      {
+        "name": "A",
+        "value": "30"
+      },
+      {
+        "name": "B",
+        "value": "40"
+      },
+      {
+        "name": "C",
+        "value": "50"
+      },
+      {
+        "name": "D",
+        "value": "40"
+      },
+      {
+        "name": "E",
+        "value": "60"
+      }
+    ],
+    "selectedIndices": [
+      1,
+      4
+    ]
+  }
+}
 ```
 
+![Bar charts created with React component](img/react-stimulus-cleveland.png)
 
 ## Example 2: Click Accuracy Experiment
 The click accuracy experiment requires participants to click on a moving dot on the screen. The dot will move inside a bounded box. The faster the dot moves, the more difficult it is for the participants to click on it.
 
-In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the 'reactive' response type, which will receive the user's click data and send it to reVISit.
+In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the `reactive` response type, which will receive the user's click data and send it to reVISit.
 
 In this example, the React component will take `parameters` and `setAnswer` as props. The parameters work just like in Example 1; it will pass data from the config file to the React component.
 The `setAnswer` function is a built-in function that is used to pass the user's response to the reVISit framework.
 
-We will use 'demo-click-accuracy-test' as experiment name in this example. Start by creating the `demo-click-accuracy-test` directory in the `src/public` directory. Make sure to also add the `assets` directory within the `demo-click-accuracy-test` directory for the best organization. 
+We will use 'demo-click-accuracy-test' as experiment name in this example. Start by creating the `demo-click-accuracy-test` directory in the `src/public` directory. Make sure to also add the `assets` directory within the `demo-click-accuracy-test` directory for the best organization.
 
 Now, create a new file called `ClickAccuracyTest.tsx` with the following contents:
 
-```typescript
+```ts
 import * as d3 from 'd3';
 import {
   useCallback, useEffect, useState,
 } from 'react';
 import { Box, Slider } from '@mantine/core';
-import { useChartDimensions } from '../../demo-cleveland/assets/hooks/useChartDimensions';
+import { useChartDimensions } from '../../example-cleveland/assets/hooks/useChartDimensions';
 import { StimulusParams } from '../../../store/types';
 
 const chartSettings = {
@@ -191,7 +191,7 @@ interface ClickAccuracyTest {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ClickAccuracyTest({ parameters, setAnswer }: StimulusParams<any>) {
-    // useChartDimensions is a custom hook to create a chart with D3.js in React, you can find it in src/public/demo-cleveland/assets/hooks/useChartDimensions.ts
+  // useChartDimensions is a custom hook to create a chart with D3.js in React, you can find it in src/public/example-cleveland/assets/hooks/useChartDimensions.ts
   const [ref, dms] = useChartDimensions(chartSettings);
   const [x, setX] = useState(100);
   const [y, setY] = useState(100);
@@ -202,16 +202,16 @@ function ClickAccuracyTest({ parameters, setAnswer }: StimulusParams<any>) {
     const circle = d3.select('#movingCircle');
     const svg = d3.select('#clickAccuracySvg');
     const pointer = d3.pointer(e, svg.node());
-    const circelPos = [+circle.attr('cx'), +circle.attr('cy')];
-    const distance = `${Math.round(Math.sqrt((pointer[0] - circelPos[0]) ** 2 + (pointer[1] - circelPos[1]) ** 2))}px`;
+    const circlePos = [+circle.attr('cx'), +circle.attr('cy')];
+    const distance = `${Math.round(Math.sqrt((pointer[0] - circlePos[0]) ** 2 + (pointer[1] - circlePos[1]) ** 2))}px`;
     // This will record the distance between the click location and the center of the dot, passing answer to reVISit.
     setAnswer({
+      status: true,
       answers: {
-          status: true,
-          [taskid]: distance,
+        [taskid]: distance,
       },
     });
-  }, [ setAnswer, taskid]);
+  }, [setAnswer, taskid]);
 
   // Making the moving dot
   useEffect(() => {
@@ -258,56 +258,57 @@ function ClickAccuracyTest({ parameters, setAnswer }: StimulusParams<any>) {
 }
 
 export default ClickAccuracyTest;
-
 ```
 
 In the config file, we pass the `taskid` and speed as parameters. Notice the response type for the trial is `'reactive'`.
 
 ```json
 "trial": {
-            "description": "try to click on the center of the moving dot",
-            "instruction": "Click on the moving dot",
-            "type": "react-component",
-            "path": "demo-click-accuracy-test/assets/ClickAccuracyTest.tsx",
-            "parameters": {
-                "speed": 100,
-                "taskid": "accuracy"
-            },
-            "nextButtonLocation": "sidebar",
-            "response": [
-                {
-                    "id": "accuracy",
-                    "prompt": "Your click distance to circle center",
-                    "required": true,
-                    "location": "sidebar",
-                    "type": "reactive"
-                }
-            ]
-        }
+  "description": "try to click on the center of the moving dot",
+  "instruction": "Click on the moving dot",
+  "type": "react-component",
+  "path": "demo-click-accuracy-test/assets/ClickAccuracyTest.tsx",
+  "parameters": {
+    "speed": 100,
+    "taskid": "accuracy"
+  },
+  "nextButtonLocation": "sidebar",
+  "response": [
+    {
+      "id": "accuracy",
+      "prompt": "Your click distance to circle center",
+      "required": true,
+      "location": "sidebar",
+      "type": "reactive"
+    }
+  ]
+}
 ```
 
 At this point, the click accuracy test will be running and be able to collect participant's data.
 
-<!-- As an additional We have three assignments for you. 
+![Click accuracy test](img/react-stimulus-click.png)
+
+<!-- As an additional We have three assignments for you.
 1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
 2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
-3) We can make this stimulus more challenge, adding mulitple moving dots and ask the participants to click on the highlighted one. -->
+3) We can make this stimulus more challenge, adding multiple moving dots and ask the participants to click on the highlighted one. -->
 
-
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-      {name: "Graphical Perception Demo", url: "https://revisit.dev/study/example-cleveland/"},
-      {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test/"}
-    ]}
-    codeLinks={[
-      {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
-      {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
-    ]}
-    referenceLinks={[
-        {name: "React", url: "https://react.dev/"},
-        {name: "React Component", url:"../../typedoc/interfaces/ReactComponent"}
-    ]}
+  demoLinks={[
+    {name: "Graphical Perception Demo", url: "https://revisit.dev/study/example-cleveland/"},
+    {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test/"}
+  ]}
+  codeLinks={[
+    {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
+    {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
+  ]}
+  referenceLinks={[
+    {name: "React", url: "https://react.dev/"},
+    {name: "ReactComponent", url: "../../typedoc/interfaces/ReactComponent"},
+    {name: "ReactiveResponse", url: "../../typedoc/interfaces/ReactiveResponse"}
+  ]}
 />

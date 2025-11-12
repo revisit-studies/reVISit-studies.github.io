@@ -1,13 +1,13 @@
 # Connecting with External Participant Platforms
 
 
-ReVISit makes it easy to connect with participant management platforms such as Prolific, SONA Systems, and other custom services. Revisit can automatically collect participant IDs from study links, display those IDs inside the study, and redirect participants to a platform-specific return link after completion.
+ReVISit makes it easy to connect with participant management platforms such as Prolific, SONA Systems, and other custom services. ReVISit can automatically collect participant IDs from study links, display those IDs inside the study, and redirect participants to a platform-specific return link after completion.
 
 ## General Integration
 
 ### Capture Participant ID from URL
 
-When participants are recruited through a third-party platform, their unique ID is should be appended to the study URL. ReVISit supports automatic capture of that ID using the `urlParticipantIdParam` field in the `uiConfig`.
+When participants are recruited through a third-party platform, their unique ID should be appended to the study URL. ReVISit supports automatic capture of that ID using the `urlParticipantIdParam` field in the `uiConfig`.
 
 ```ts
 "uiConfig": {
@@ -54,9 +54,9 @@ At the end of the study, you typically need to return the participant to the pla
 ```
 
 ## Prolific
-[Prolific](https://prolific.com) is a popular platform for recruiting crowd-sourced participants. 
+[Prolific](https://prolific.com) is a popular platform for recruiting crowd-sourced participants.
 
-When you create a prolific study and give it the url of your deployed reVISit study site, it will add multiple url parameters to the link. For our purposes, we want to store the `PROLIFIC_PID`. To do this, in the `uiConfig` object of your config file, add the key 
+When you create a prolific study and give it the url of your deployed reVISit study site, it will add multiple url parameters to the link. For our purposes, we want to store the `PROLIFIC_PID`. To do this, in the `uiConfig` object of your config file, add the key
 
 ```ts
 'uiConfig': {
@@ -66,7 +66,7 @@ When you create a prolific study and give it the url of your deployed reVISit st
 }
 ```
 
-To automatically access the `PROLIFIC_PID`, use the `paramCapture` field inside of your response. The below example will automatically answer the id field in the introduction with the linked `PROLIFIC_PID`, and will not allow the participant to change it. This way, you are guaranteed to properly keep track of your participants without relying on them to enter their prolific id. 
+To automatically access the `PROLIFIC_PID`, use the `paramCapture` field inside of your response. The below example will automatically answer the id field in the introduction with the linked `PROLIFIC_PID`, and will not allow the participant to change it. This way, you are guaranteed to properly keep track of your participants without relying on them to enter their prolific id.
 
 ```ts
 'introduction': {
@@ -90,7 +90,7 @@ When the study is over, you want to redirect participant back to prolific, so th
 
 ![Prolific participant ID](./img/prolific_participantID.png)
 
-Here's an exmaple:
+Here's an example:
 
 ```ts
 "uiConfig": {
@@ -105,7 +105,7 @@ SONA Systems is another commonly used recruitment platform in academic research.
 ```ts
 "uiConfig": {
     "urlParticipantIdParam": "SURVEY_CODE",
-    "studyEndMsg": "Thank you for completing the study! Return to SONA to receive credit: [https://yourschool.sonasystems.com/webstudy_credit.aspx?experiement_id=...&credit_token=...&survey_code={PARTICIPANT_ID}](https://yourschool.sonasystems.com/webstudy_credit.aspx?experiement_id=...&credit_token=...&survey_code={PARTICIPANT_ID})"
+    "studyEndMsg": "Thank you for completing the study! Return to SONA to receive credit: [https://yourschool.sonasystems.com/webstudy_credit.aspx?experiment_id=...&credit_token=...&survey_code={PARTICIPANT_ID}](https://yourschool.sonasystems.com/webstudy_credit.aspx?experiment_id=...&credit_token=...&survey_code={PARTICIPANT_ID})"
 }
 ```
 The `{PARTICIPANT_ID}` will be replaced with the actual `SURVEY_CODE` value from the URL.
@@ -129,9 +129,7 @@ Just like with other platforms, you can display the SONA ID in the introduction 
 },
 ```
 
-
-
-
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -2,7 +2,7 @@
 
 
 :::warning
-In order to use authentication, you must have a Firebase application already configured. To set up your firebase application, please see [here](../setup).
+In order to use authentication, you must have a Firebase application already configured. To set up your Firebase application, please see [here](../setup).
 :::
 
 ## Enabling Authentication in Firebase
@@ -41,13 +41,17 @@ When you first enable authentication, you will be prompted to sign in using Goog
 
 ### Adding Additional Users
 
-To add another administrator, simply navigate to the settings page (where you enabled authentication) and click on the 'Add User' icon to the right of the "Enable Users" section. Enter the Google account email for the user and click save. They will now be an administrator and will immediately be able to log into your reVISit application
+To add another administrator, simply navigate to the settings page (where you enabled authentication) and click on the "Add User" icon to the right of the "Enabled Users" section. Enter the Google account email for the user and click save. They will now be an administrator and will immediately be able to log into your reVISit application.
+
+![Add User](./../img/manage_admin/add_user.png)
 
 ### Removing A User
 
 In the "Enabled Users" section, you will see the "delete" icon to the right of each user aside from yourself. Any administrator is capable of deleting any user from the reVISit system. The only restriction is that you cannot delete yourself and there can never be less than one user.
 
-<!--   Importing Links -->
+![Remove User](./../img/manage_admin/remove_user.png)
+
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

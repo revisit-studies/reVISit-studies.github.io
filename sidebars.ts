@@ -95,13 +95,32 @@ const sidebars: SidebarsConfig = {
         id: 'analysis/index',
       },
       items: [
-        'analysis/data-management',
         'analysis/study-card',
         'analysis/study-summary',
-        'analysis/participant-view',
+        {
+          type: 'category',
+          label: 'Participant View',
+          link: {
+            type: 'doc',
+            id: 'analysis/participant-view',
+          },
+          items: [
+            'analysis/data-export',
+            'analysis/participant-replay',
+          ],
+        },
         'analysis/trial-stats',
-        'analysis/data-export',
-        'analysis/participant-replay',
+        'analysis/coding',
+        'analysis/live-monitor',
+        {
+          type: 'category',
+          label: 'Management',
+          items: [
+            'analysis/revisit-modes',
+            'analysis/stage-management',
+            'analysis/data-management',
+          ],
+        },
       ],
     },
     {
@@ -111,7 +130,7 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'revisitpy/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'revisitpy/overview',
         'revisitpy/installation',
