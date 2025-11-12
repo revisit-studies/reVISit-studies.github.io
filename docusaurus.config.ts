@@ -15,7 +15,6 @@ const config: Config = {
   projectName: 'ReVISit', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -38,7 +37,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           lastVersion: 'current',
           versions: {
-            current: { label: 'v2.3.1', path: '' },
+            current: { label: 'v2.3.2', path: '' },
           },
         },
 
