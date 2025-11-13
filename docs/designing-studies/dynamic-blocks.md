@@ -4,7 +4,9 @@ Some studies require knowledge of the participant's responses to previous questi
 
 ## Overview
 
-In reVISit, this can be achieved using dynamic blocks. [Dynamic blocks](../typedoc/interfaces/DynamicBlock.md) are blocks that use a function to calculate what the next component will be. This function is a TypeScript/JavaScript function that is defined in the `src/public/study-name/` folder and is referenced in the study configuration file like so:
+In reVISit, this can be achieved using dynamic blocks. Dynamic blocks are blocks that use a function to calculate what the next component will be. See the [DynamicBlock](../typedoc/interfaces/DynamicBlock.md) for the complete interface definition.
+
+The dynamic block function is a TypeScript/JavaScript function that is defined in the `src/public/study-name/` folder and is referenced in the study configuration file like so:
 
 ```json
 "sequence": {
