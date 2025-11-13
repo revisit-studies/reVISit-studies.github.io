@@ -1,6 +1,5 @@
 # Connecting with External Participant Platforms
 
-
 ReVISit makes it easy to connect with participant management platforms such as Prolific, SONA Systems, and other custom services. ReVISit can automatically collect participant IDs from study links, display those IDs inside the study, and redirect participants to a platform-specific return link after completion.
 
 ## General Integration
