@@ -8,7 +8,7 @@ This tutorial does not give a comprehensive introduction into all form elements.
 
 Form elements are components of type `questionnaire`. Here is a simple example with a drop-down element:
 
-```js
+```json
 "components": {
   "survey": {
     "type": "questionnaire",
@@ -73,7 +73,35 @@ To achieve that, add the `"withDontKnow": true` option to your form element.
 
 ### Dividers
 
-You can structure your forms by adding a divider between form elements. To add a divider, add `"withDivider": true` to the question that you want the divider to appear after. In the following figure, there's a divider added between question 1 and 2.
+You can structure your forms by adding a divider between form elements. This is useful when your study has multiple multiple topics or transitioning between different types of tasks. To add a divider, add `"withDivider": true` to the question that you want the divider to appear after. In the following figure, there's a divider added between question 1 and 2.
+
+```json
+"response": [
+  {
+    "id": "q-likert",
+    "type": "likert",
+    "numItems": 9,
+    ...
+    "withDivider": true
+  }
+]
+
+Alternatively, if you want to position dividers independently of specific questions, you can use [`DividerResponse`](../../docs/typedoc/interfaces/DividerResponse.md) as a standalone response element.
+
+```json
+"components": {
+  ...
+  "barChart": {
+    ...
+    "response": [
+      {
+        "id": "divider",
+        "type": "divider"
+      }
+    ]
+  }
+}
+```
 
 ![Two questions separated by a divider.](img/form-divider.png)
 
@@ -115,11 +143,13 @@ A dropdown allows participants to choose one or more from a list. By default, th
 ![A multiselect dropdown](img/form-dropdown-multiselect.png)
 
 ### Likert Features
-A Likert response allows participants to rate something on a scale. You can customize the scale in several ways -- you can set where the scale starts, how large the steps between values are, and how many options it has.
+A Likert response allows participants to rate something on a scale. You can customize the scale in several ways -- you can set where the scale starts, how large the steps between values are, the label locations, and how many options it has.
 
 For example, here is a Likert example with `"start": 1`, `"spacing": 2`, and `"numItems": 10`.
 
 ![A likert response with spacing 2](img/form-likert.png)
+
+You can control the label location in Likert responses to better fit your layout requirements. The `labelLocation` property accepts two values: `"above"` (the default) places labels above the scale, while `"inline"` positions labels inline with the scale items. This flexibility is particularly useful when you need to optimize space usage or align the Likert scale with other elements on the page. The inline option can help create more compact layouts and improve visual alignment in constrained spaces.
 
 ### Slider Features
 A slider response lets participants pick a value by moving a handle on a line. You can change how the slider works by setting where it starts, how big each step is, and how far apart the tick marks are.
@@ -165,7 +195,7 @@ For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize 
 
 Here is an example to show how to set up questions in random order:
 
-```js
+```json
 "response": [
   {
     "id": "5items-response",
@@ -192,7 +222,7 @@ To shuffle the options in a radio, checkbox, or button question, set `"optionOrd
 
 Here is an example to show how to set up options in random order:
 
-```js
+```json
 "response": [
   {
     "id": "fruitPreference",
@@ -214,13 +244,28 @@ Here is an example to show how to set up options in random order:
 ### Randomizing form elements in a single page
 You can also randomize the order of multiple questions that appear on the same page. To do so, apply `"responseOrder": "random"`, which will shuffle the order in which the form elements themselves appear on the page.
 
+In some cases, you may want to exclude certain responses from randomization. For example, you might want to keep demographic questions at the beginning or end of a form, or ensure that introductory questions always appear first. To exclude a specific response from randomization, set `"excludeFromRandomization": true` on that response element. This setting will override the component-level `responseOrder` randomization, ensuring that the specified response maintains its position in the original order while other responses are randomized.
+
 Here is an example to show how to set up responses in random order:
 
-```js
+```json
 "survey_randomized_form": {
   "type": "questionnaire",
   "responseOrder": "random", //set randomization here
   "response": [
+    {
+      "id": "demographics",
+      "prompt": "What is your gender?",
+      "type": "shortText",
+      "placeholder": "Enter your answer",
+      "excludeFromRandomization": true
+    },
+    {
+      "id": "duration",
+      "prompt": "How long have you used this web?",
+      "type": "shortText",
+      "placeholder": "Enter your answer"
+    },
     {
       "id": "favoriteFeature",
       "prompt": "What's your favorite feature?",
@@ -241,6 +286,7 @@ Here is an example to show how to set up responses in random order:
 ```
 If the form is randomized, a dice icon will appear in the sidebar to indicate that the response order is random.
 
+**TODO: Update the photo**
 ![Randomization of form elements](./img/form-random-response.png)
 
 ## Sidebar Configuration
@@ -251,7 +297,7 @@ The sidebar is a left panel that can be used to display form elements alongside 
 
 To use the sidebar, you must set `"withSidebar": true` in your component or globally in the `uiConfig`. The sidebar is required if any of your responses have `"location": "sidebar"`.
 
-```js
+```json
 "components": {
   "survey": {
     "type": "questionnaire",
@@ -273,7 +319,7 @@ To use the sidebar, you must set `"withSidebar": true` in your component or glob
 
 You can customize the width of the sidebar by setting `"sidebarWidth"` (in pixels). The default width is 300 pixels. This can be set globally in `uiConfig` or overridden on individual components.
 
-```js
+```json
 "components": {
   "survey": {
     "type": "questionnaire",
