@@ -212,7 +212,7 @@ Here is an example to show how to set up questions in random order:
     "location": "belowStimulus",
     "type": "matrix-radio",
     "answerOptions": "satisfaction5",
-    "questionOrder": "random", //set randomization here
+    "questionOrder": "random", // Set randomization here
     "questionOptions": [
         "enjoyable",
         "likable",
@@ -239,7 +239,7 @@ Here is an example to show how to set up options in random order:
     "prompt": "What’s your favorite fruit?",
     "location": "aboveStimulus",
     "type": "radio",
-    "optionOrder": "random", //set randomization here
+    "optionOrder": "random", // Set randomization here
     "options": [
         "Apple",
         "Banana",
@@ -253,27 +253,25 @@ Here is an example to show how to set up options in random order:
 
 ### Randomizing form elements in a single page
 
-You can also randomize the order of multiple questions that appear on the same page. To do so, apply `"responseOrder": "random"`, which will shuffle the order in which the form elements themselves appear on the page.
-
-In some cases, you may want to exclude certain responses from randomization. For example, you might want to keep demographic questions at the beginning or end of a form, or ensure that introductory questions always appear first. To exclude a specific response from randomization, set `"excludeFromRandomization": true` on that response element. This setting will override the component-level `responseOrder` randomization, ensuring that the specified response maintains its position in the original order while other responses are randomized.
+You can randomize the order of multiple questions that appear on the same page by setting `"responseOrder": "random"`, which will shuffle the order in which the form elements themselves appear on the page. In some cases, however, you may want certain responses to stay in a fixed position. To exclude a specific response from randomization, set `"excludeFromRandomization": true` on that response element. This setting overrides the component-level `responseOrder` configuration and ensures the specified response maintains its original position while other responses are randomized.
 
 Here is an example to show how to set up responses in random order:
 
 ```json
 "survey_randomized_form": {
   "type": "questionnaire",
-  "responseOrder": "random", //set randomization here
+  "responseOrder": "random", // Set randomization here
   "response": [
     {
       "id": "demographics",
       "prompt": "What is your gender?",
       "type": "shortText",
       "placeholder": "Enter your answer",
-      "excludeFromRandomization": true
+      "excludeFromRandomization": true // Exclude from randomization here
     },
     {
       "id": "duration",
-      "prompt": "How long have you used this web?",
+      "prompt": "How long have you used this webite?",
       "type": "shortText",
       "placeholder": "Enter your answer"
     },
@@ -295,9 +293,8 @@ Here is an example to show how to set up responses in random order:
   ]
 }
 ```
-If the form is randomized, a dice icon will appear in the sidebar to indicate that the response order is random.
+If the form is randomized, a die icon will appear in the sidebar to indicate that the response order is random.
 
-**TODO: Update the photo**
 ![Randomization of form elements](./img/form-random-response.png)
 
 ## Sidebar Configuration
