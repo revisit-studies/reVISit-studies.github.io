@@ -85,6 +85,7 @@ You can structure your forms by adding a divider between form elements. This is 
     "withDivider": true
   }
 ]
+```
 
 Alternatively, if you want to position dividers independently of specific questions, you can use [`DividerResponse`](../../docs/typedoc/interfaces/DividerResponse.md) as a standalone response element.
 
@@ -126,6 +127,7 @@ Radios and checkboxes can be rendered either vertically (the default) or horizon
 You can allow an "other" option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
 
 ### Matrix Features
+
 Matrix questions let you ask several questions at the same time, using the same set of answer choices. You can either provide your own custom answers or use our built-in answer options.
 
 Built-in options include:
@@ -138,20 +140,25 @@ Here is an example of Matrix Radio questions using `"answerOptions": "likely7"` 
 ![Matrix Radio examples with likely7 and satisfaction5 answer options](img/form-matrix-answer-options.png)
 
 ### Dropdown Features
+
 A dropdown allows participants to choose one or more from a list. By default, they can only pick one item. If you want to allow multiple selections, add `minSelections` or `maxSelections` and the dropdown will then automatically become a multiselect dropdown.
 
 ![A multiselect dropdown](img/form-dropdown-multiselect.png)
 
 ### Likert Features
+
 A Likert response allows participants to rate something on a scale. You can customize the scale in several ways -- you can set where the scale starts, how large the steps between values are, the label locations, and how many options it has.
 
 For example, here is a Likert example with `"start": 1`, `"spacing": 2`, and `"numItems": 10`.
 
 ![A likert response with spacing 2](img/form-likert.png)
 
-You can control the label location in Likert responses to better fit your layout requirements. The `labelLocation` property accepts two values: `"above"` (the default) places labels above the scale, while `"inline"` positions labels inline with the scale items. This flexibility is particularly useful when you need to optimize space usage or align the Likert scale with other elements on the page. The inline option can help create more compact layouts and improve visual alignment in constrained spaces.
+You can control the label location in Likert responses to better fit your layout. The `labelLocation` property supports multiple options: `above`, `inline` (default), and `below`. The `above` and `below` options are useful when the width of the section containing the Likert question is limited and the `inline` layout does not work well.
+
+![A likert respone label location](img/form-likert-label-location.png)
 
 ### Slider Features
+
 A slider response lets participants pick a value by moving a handle on a line. You can change how the slider works by setting where it starts, how big each step is, and how far apart the tick marks are.
 Here is a slider example with `"step": 10` and `"spacing": 10`.
 
@@ -182,6 +189,7 @@ This option is useful when you want participants to focus on their strongest pre
 ![Examples of ranking widgets](img/form-ranking.png)
 
 ## Randomization of form elements
+
 Randomizing the order of answers or questions can help reduce bias and improve the quality of your study results. ReVISit allows you to shuffle options within a question, or even the order of entire questions on a page.
 
 A dice icon is shown in the sidebar to indicate that at least one item on this page has a randomized order.
@@ -191,6 +199,7 @@ A dice icon is shown in the sidebar to indicate that at least one item on this p
 Each participant will see their own consistent order during the study, and the same order is recorded and shown in the replay, so you can always see exactly what they saw.
 
 ### Randomizing Matrix Checkbox, Matrix Radio
+
 For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize the questions. Set `"questionOrder": "random"` to randomize questions.
 
 Here is an example to show how to set up questions in random order:
@@ -218,6 +227,7 @@ Here is an example to show how to set up questions in random order:
 ![Randomization of question order](./img/form-random-question.png)
 
 ### Randomizing Checkbox, Radio, Button
+
 To shuffle the options in a radio, checkbox, or button question, set `"optionOrder": "random"`.
 
 Here is an example to show how to set up options in random order:
@@ -242,6 +252,7 @@ Here is an example to show how to set up options in random order:
 ![Randomization of option order](./img/form-random-option.png)
 
 ### Randomizing form elements in a single page
+
 You can also randomize the order of multiple questions that appear on the same page. To do so, apply `"responseOrder": "random"`, which will shuffle the order in which the form elements themselves appear on the page.
 
 In some cases, you may want to exclude certain responses from randomization. For example, you might want to keep demographic questions at the beginning or end of a form, or ensure that introductory questions always appear first. To exclude a specific response from randomization, set `"excludeFromRandomization": true` on that response element. This setting will override the component-level `responseOrder` randomization, ensuring that the specified response maintains its position in the original order while other responses are randomized.
