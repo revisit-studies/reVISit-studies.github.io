@@ -1,0 +1,9 @@
+{
+  "queries": [
+    "Where do I add a new doc page and how is it linked in the sidebar?",
+    "How is the documentation versioning system described in the repo?",
+    "Where are the typedoc files located and how are they referenced?",
+    "How do I run the site locally and what script starts the dev server?",
+    "What is the StructuredLinks component and how is it used in docs?"
+  ]
+}

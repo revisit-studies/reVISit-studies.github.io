@@ -1,0 +1,24 @@
+{
+  "projectRoot": ".",
+  "includePaths": [
+    "docs",
+    "docs/typedoc",
+    "src",
+    "docusaurus.config.ts",
+    "sidebars.ts",
+    "README.md"
+  ],
+  "excludePaths": [
+    "build",
+    "node_modules",
+    "versioned_docs",
+    ".docusaurus",
+    ".cache-loader"
+  ],
+  "includeVersionedDocs": false,
+  "extensions": [".md", ".mdx", ".ts", ".tsx", ".js", ".jsx", ".json", ".yaml", ".yml"],
+  "chunk": {
+    "maxChars": 4000,
+    "overlapChars": 400
+  }
+}

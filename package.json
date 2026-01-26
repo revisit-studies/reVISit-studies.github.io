@@ -14,7 +14,9 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "checkLinks": "linkinator ./build -r --skip revisit.dev --skip localhost:8080 --skip wpi.edu --skip petra.isenberg.cc --skip doi.org --skip acm.org --skip cs.utah.edu"
+    "checkLinks": "linkinator ./build -r --skip revisit.dev --skip localhost:8080 --skip wpi.edu --skip petra.isenberg.cc --skip doi.org --skip acm.org --skip cs.utah.edu",
+    "rag:build": "python rag/build_index.py --config rag/config.json --output rag-data",
+    "rag:query": "python rag/query.py"
   },
   "dependencies": {
     "@docusaurus/core": "^3.7.0",
