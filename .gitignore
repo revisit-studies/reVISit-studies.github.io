@@ -7,9 +7,12 @@
 # Generated files
 .docusaurus
 .cache-loader
+rag-data
 
 # Misc
 .DS_Store
+.venv
+venv
 .env.local
 .env.development.local
 .env.test.local
