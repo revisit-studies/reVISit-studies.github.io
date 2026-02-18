@@ -21,3 +21,7 @@ When the study navigator is enabled, any user will be able to access the study's
 ## Analytics Interface Publicly Accessible
 
 The analytics interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the participants, see the answers given, and download all the data.
+
+:::note
+If you are using older version mode names, reVISit will automatically update the old mode names to the new mode names in storage engines.
+:::
