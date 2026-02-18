@@ -52,3 +52,5 @@ A: We report the total time it took a participant to complete a task as duration
 ### Q: What happens if there's an error during study initialization?
 
 A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. If an error happens during setup, reVISit will show a warning message, fallback to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud, with a prompt to contact the study administrator.
+
+![Storage disconnected](./img/faq/storage-disconnected.png)
