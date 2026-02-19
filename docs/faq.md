@@ -54,3 +54,11 @@ A: We report the total time it took a participant to complete a task as duration
 A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. If an error happens during setup, reVISit will show a warning message, fallback to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud, with a prompt to contact the study administrator.
 
 ![Storage disconnected](./img/faq/storage-disconnected.png)
+
+### Q: How can I ensure balanced numbers of participants between conditions in my study design?
+
+A: There are several strategies to ensure balanced participant numbers between conditions in your study design using reVISit:
+1. **Latin Square Design**: As described in the [Study Sequences documentation](../designing-studies/study-sequences/#latin-square), you can use Latin square sequences to systematically vary the order of conditions across participants. This helps ensure that each condition appears in each position equally often. However, be aware that if participants drop out or are rejected, this can affect the balance (see the documentation of latin squares for more details).
+2. **Random Assignments**: If you are recruiting a large number of participants, random assignment to conditions can help achieve balance over time. While this method may not guarantee perfect balance at any given moment, it tends to even out as more participants are added. This is a viable option when strict balancing is less critical.
+3. **Setting up Separate Studies**: When precise control is needed, consider setting up separate studies for each condition. This allows you to monitor and control the number of participants in each condition directly. However, this comes at the cost of increased administrative overhead (e.g., separate recruitment links, separate datasets, separate specifications)
+4. **Assigning participants via URL parameters (Upcoming Feature)**: We are working on a feature that will allow you to assign participants to specific conditions via URL parameters. This will enable you to create custom recruitment links for each condition, making it easier to control participant distribution. Stay tuned for updates on this feature!
