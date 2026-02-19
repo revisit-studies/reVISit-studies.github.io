@@ -16,63 +16,37 @@ This guide will be focused on setting up a self hosted Supabase instance for use
 ### Pre-requisites
 
 Before you begin, ensure you have the following:
-- A Linux server or cloud VM where you can install Supabase (EC2, DigitalOcean Droplet, etc.; Ubuntu LTS is recommended)
+- A server or cloud instance where you can install Supabase (we suggest the latest lts version of Ubuntu since it likely has the most documentation online)
 - Basic knowledge of Docker and Docker Compose
-- SSH access to the remote server
-- Access to your cloud firewall controls (EC2 Security Groups, DigitalOcean Cloud Firewall, or `ufw`)
-- A domain name is strongly recommended if you plan to enable HTTPS/SSL
+- Access to a terminal or command line interface
 
 ### Setting Up Supabase
 
-Once your server or VM is running, follow these steps:
+Once you have your server or VM, you will need to follow these steps:
 
-1. **SSH into the remote server**: From your local machine, connect to your server:
+1. **Install Docker and Docker Compose**: If you don't have Docker installed, you can follow the [official Docker installation guide](https://docs.docker.com/get-docker/). After that, install Docker Compose by following the [Docker Compose installation guide](https://docs.docker.com/compose/install/).
 
-   ```bash
-   ssh <user>@<server-ip>
-   ```
+2. **Clone the reVISit repository**: Navigate to the directory where you want to set up Supabase and clone the reVISit repository. If you already have the reVISit repository, you might just need to pull the latest changes.
 
-   All remaining setup commands in this section should be run on the remote server.
+3. **Navigate to the Supabase directory**: Inside the reVISit repository, navigate to the `supabase` directory.
 
-2. **Install Docker and Docker Compose**: If you don't have Docker installed, follow the [official Docker installation guide](https://docs.docker.com/get-docker/). Then install Docker Compose using the [Docker Compose installation guide](https://docs.docker.com/compose/install/).
+4. **Update the `.env` file**: We provide a `.env` file that needs to be updated with your specific configuration. Failure to modify this file will result in an insecure instance with default credentials. Follow the instructions on the [supabase documentation page](https://supabase.com/docs/guides/self-hosting/docker#securing-your-services) to set up your `.env` file and secure your instance. 
 
-3. **Clone the reVISit repository on the server**: Navigate to the directory where you want to host Supabase and clone the reVISit repository. If it already exists on the server, pull the latest changes.
-
-4. **Navigate to the Supabase directory**: Inside the reVISit repository, navigate to the `supabase` directory.
-
-5. **Update the `.env` file**: We provide a `.env` file that must be updated with your own credentials and secrets. Leaving defaults in place creates an insecure deployment. Follow the instructions on the [Supabase self-hosting documentation](https://supabase.com/docs/guides/self-hosting/docker#securing-your-services) to secure your `.env` file.
-
-6. **Start Supabase**: Run the following command to start Supabase using Docker Compose:
+5. **Start Supabase**: Run the following command to start Supabase using Docker Compose:
 
    ```bash
    docker-compose up -d
    ```
 
    This will pull the docker images and start the Supabase services in detached mode.
-
-7. **Configure remote network access (important)**: For a remote server deployment, explicitly configure inbound firewall rules:
-
-   - **EC2 Security Group**: Allow `22` (SSH) from your admin IP; allow `80` and `443` from the internet if using a reverse proxy; only allow `8000` from trusted admin IPs if you must expose it directly.
-   - **DigitalOcean Cloud Firewall / `ufw`**: Same pattern as above. Keep dashboard/admin ports restricted whenever possible.
-   - Do **not** open database/internal ports publicly unless you have a specific, secured need.
-
-8. **Access the Supabase Dashboard**:
-   - Direct access (less secure): `http://<server-ip>:8000`
-   - Recommended while administering remotely: use an SSH tunnel from your local machine:
-
-     ```bash
-     ssh -L 8000:localhost:8000 <user>@<server-ip>
-     ```
-
-     Then open `http://localhost:8000` locally.
-
-   Log in using the credentials you set in the Supabase `.env` file.
+  
+6. **Access the Supabase Dashboard**: Once the services are up and running, you can access the Supabase dashboard by navigating to `http://localhost:8000` in your web browser. Alternatively, if you are running this on a remote server, replace `localhost` with your server's IP address or domain name. You can log in using the credentials you set in the `.env` file.
 
 :::info
-For long-term deployments, prefer exposing Supabase through HTTPS on `443` via a reverse proxy and keep `8000` private.
+If you are running Supabase on a remote server, ensure that port 8000 is open in your firewall settings to allow access to the dashboard and API.
 :::
 
-9. **Create a table for reVISit data**: You will need to create a table for storing user data. In the Supabase dashboard you should see that you're in the default project. From here click on "Table Editor" (the second icon) and then "New table" to create a new table.  The table should be called `revisit` and should have the following columns
+7. **Create a table for reVISit data**: You will need to create a table for storing user data. In the Supabase dashboard you should see that you're in the default project. From here click on "Table Editor" (the second icon) and then "New table" to create a new table.  The table should be called `revisit` and should have the following columns
 
     | Column Name | Data Type | Constraints                |
     |-------------|-----------|----------------------------|
@@ -94,7 +68,7 @@ For long-term deployments, prefer exposing Supabase through HTTPS on `443` via a
 
     ![Table Policy](./img/table-policy.png)
 
-10. **Create a storage bucket**: In the Supabase dashboard, navigate to the "Storage" section (6th icon) and create a new bucket called `revisit`. This bucket will be used to store participant data, audio, configs, etc. Ensure that the bucket is not public, as we want to restrict access to the data to users of your reVISit deployment.
+8. **Create a storage bucket**: In the Supabase dashboard, navigate to the "Storage" section (6th icon) and create a new bucket called `revisit`. This bucket will be used to store participant data, audio, configs, etc. Ensure that the bucket is not public, as we want to restrict access to the data to users of your reVISit deployment.
 
     ![Storage Bucket](./img/storage-bucket.png)
 
@@ -113,16 +87,16 @@ For long-term deployments, prefer exposing Supabase through HTTPS on `443` via a
 
    ![Storage Policy](./img/storage-policy.png)
 
-11. **Update your `.env` file in your deployed reVISit application**: In the root of your reVISit application, update the `.env` file with the following variables:
+9. **Update your .env file in your deployed reVISit application**: In the root of your reVISit application, you will need to update the `.env` file with the following variables:
 
    ```env
-   VITE_STORAGE_ENGINE="supabase"
-   VITE_SUPABASE_URL="https://<your-supabase-base-url>"
+    VITE_STORAGE_ENGINE="supabase"
+   VITE_SUPABASE_URL="https://<your-supabase-instance-ip>"
    VITE_SUPABASE_ANON_KEY="<your-anon-key>"
    ```
-  Replace `<your-supabase-base-url>` with the public URL used by clients to reach Supabase (for example, `supabase.your-domain.com` or your server IP/port during testing), and `<your-anon-key>` with the anon key found in the Supabase `.env` file.
+  Replace `<your-supabase-instance-ip>` with the IP address or domain name of your Supabase instance, and `<your-anon-key>` with the anon key found in the Supabase `.env` file.
 
-12. **Redeploy your reVISit application**: After updating the `.env` file, redeploy your reVISit application to ensure that it connects to the Supabase instance correctly.
+10. **Redeploy your reVISit application**: After updating the `.env` file, redeploy your reVISit application to ensure that it connects to the Supabase instance correctly.
 
 After following these steps, your reVISit application should be connected to your Supabase instance, and you can start collecting data from participants.
 
@@ -146,7 +120,7 @@ server {
     ssl_certificate_key /path/to/your/private.key;
 
     location / {
-        proxy_pass http://localhost:8000; # Supabase endpoint exposed by Docker Compose
+        proxy_pass http://localhost:8000; # Assuming your reVISit app runs on port 8000
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -156,4 +130,4 @@ server {
 ``` 
 Make sure to replace `your-domain.com` with your actual domain name and provide the correct paths to your SSL certificate and private key.
 
-Once the reverse proxy is set up, you can access your Supabase instance securely over HTTPS. Update `VITE_SUPABASE_URL` in your reVISit `.env` file to use `https://` and drop the port if you are using default `443` (as shown in the example above).
+Once the reverse proxy is set up, you can access your reVISit application securely over HTTPS provided that you change the `VITE_SUPABASE_URL` in your `.env` file to use `https://` instead of `http://` and drop the port number if you are using the default port 443 for HTTPS (as shown in the example above).
