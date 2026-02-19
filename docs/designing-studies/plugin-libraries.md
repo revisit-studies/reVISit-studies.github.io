@@ -40,8 +40,8 @@ To import a library, add its name to the `importedLibraries` top-level field of 
 
 Libraries expose one or multiple "components" and possibly also "sequences" – predefined collections of components. You can use its components and sequences in the `sequence` section of your study configuration. The format for referencing components and sequences is:
 
-- **Components**: `$libraryName.co.componentName`
-- **Sequences**: `$libraryName.se.sequenceName`
+- **Components**: `$libraryName.components.componentName`
+- **Sequences**: `$libraryName.sequences.sequenceName`
 
 For example:
 
@@ -50,8 +50,8 @@ For example:
   // Configuration of the sequence for your study
   "components": [
     // List the components used in your study
-    "$mic-check.co.audioTest",
-    "$vlat.se.full"
+    "$mic-check.components.audioTest",
+    "$vlat.sequences.full"
   ]
 }
 ```
@@ -66,7 +66,7 @@ Here's an example adding a new `instruction` to the `mini-vlat` library's `treem
 "importedLibraries": ["mini-vlat"],
 "components": {
   "mini-vlat-treemap-modified": {
-      "baseComponent": "$mini-vlat.co.treemap",
+      "baseComponent": "$mini-vlat.components.treemap",
       "instruction": "new instruction."
   }
 },
@@ -87,7 +87,7 @@ Here's another example overriding the sidebar setting:
   "importedLibraries": ["sam"],
   "components": {
     "sam-pleasure-no-sidebar": {
-      "baseComponent": "$sam.co.pleasure",
+      "baseComponent": "$sam.components.pleasure",
       "withSidebar": true,
       "nextButtonLocation": "belowStimulus"
     }
