@@ -124,7 +124,7 @@ To achieve that, add the `"withDontKnow": true` option to your form element.
 
 ### Dividers
 
-You can structure your forms by adding a divider between form elements. This is useful when your study has multiple multiple topics or transitioning between different types of tasks. To add a divider, add `"withDivider": true` to the question that you want the divider to appear after. In the following figure, there's a divider added between question 1 and 2.
+You can structure your forms by adding a divider between form elements. This is useful when your study has multiple topics or transitioning between different types of tasks. To add a divider, add `"withDivider": true` to the question that you want the divider to appear after. In the following figure, there's a divider added between question 1 and 2.
 
 ```json
 "response": [
@@ -251,7 +251,7 @@ For example, here is a Likert example with `"start": 1`, `"spacing": 2`, and `"n
 
 You can control the label location in Likert responses to better fit your layout. The `labelLocation` property supports multiple options: `above`, `inline` (default), and `below`. The `above` and `below` options are useful when the width of the section containing the Likert question is limited and the `inline` layout does not work well.
 
-![A likert respone label location](img/designing-forms/likert-label-location.png)
+![A likert response label location](img/designing-forms/likert-label-location.png)
 
 ### Numerical Response Features
 

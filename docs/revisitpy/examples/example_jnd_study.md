@@ -363,7 +363,7 @@ study = rvt.studyConfig(
 
 # Using `revisitpy-server` to Prepare Our Widget
 
-The `revisitpy` package provides a widget in order to preview our study directly in a Jupyter notebook. We can interact with the study, check that vega signals work, and even create some introductory data ourselves. In order for the widget to work, a local copy of the reVISit must be running on your local computer. If you already have reVISit locally (colloqioully our `study` repo), then all you need to do is navigate to your repository and run `yarn serve`. After this, the widget we create in this jupyter notebook will be useable.
+The `revisitpy` package provides a widget in order to preview our study directly in a Jupyter notebook. We can interact with the study, check that vega signals work, and even create some introductory data ourselves. In order for the widget to work, a local copy of the reVISit must be running on your local computer. If you already have reVISit locally (colloquially our `study` repo), then all you need to do is navigate to your repository and run `yarn serve`. After this, the widget we create in this jupyter notebook will be usable.
 
 A simpler way to achieve the same goal, however is using the `revisitpy-server` Python package. This is a simple python package which already has the most recent reVISit repository built and runs a server locally. After installing `revisitpy-server`, all that is required is the following:
 
