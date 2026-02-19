@@ -353,6 +353,52 @@ You can also use `skip` to jump around within your study. The example below skip
 
 After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards.
 
+
+## Study Condition
+
+You can pick study conditions directly from the URL. This works well when one config needs multiple condition blocks and you want shareable links or clean condition-level analysis.
+
+Pass conditions with the `condition` query parameter, for example `/path/to/study?condition=color`. When the study starts, reVISit reads the URL and only runs conditional blocks whose `id` matches one of the values. Non-conditional blocks still run as usual.
+
+Use `"conditional": true` on a block in `sequence`, and give that block an `id`. The `id` is the condition name used in the URL.
+
+```json
+{
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      "introduction",
+      {
+        "id": "color",
+        "conditional": true,
+        "components": ["color-trial-1", "color-trial-2"],
+        "order": "random"
+      },
+      {
+        "id": "shape",
+        "conditional": true,
+        "components": ["shape-trial-1", "shape-trial-2"],
+        "order": "fixed"
+      }
+    ]
+  }
+}
+```
+
+With this setup, `/path/to/study?condition=color` includes the `color` block and skips `shape`. You can also pass multiple conditions like `/path/to/study?condition=color,shape`.
+
+### Study Card with Study Condition
+
+The landing page study card lets you pick one or more conditions and copy a link with those values set.
+
+![Condition study card](./img/study-sequences/condition-study-card.png)
+
+The condition picker lists the available conditions and the current participant counts. Select a condition and click Go to Study.
+
+:::note
+After assignment, changing stored study condition values is gated behind dev mode. In normal participant mode, condition assignment stays fixed.
+:::
+
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -361,13 +407,15 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Randomization Demo", url: "https://revisit.dev/study/test-randomization"},
     {name: "Dynamic Block Demo", url: "https://revisit.dev/study/demo-dynamic"},
     {name: "Step Logic Demo", url: "https://revisit.dev/study/test-step-logic"},
-    {name: "Skip Logic Demo", url: "https://revisit.dev/study/test-skip-logic"}
+    {name: "Skip Logic Demo", url: "https://revisit.dev/study/test-skip-logic"},
+    {name: "Study Condition Demo", url: "https://revisit.dev/study/demo-condition/"}
   ]}
   codeLinks={[
     {name: "Randomization Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-randomization"},
     {name: "Dynamic Block Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-dynamic"},
     {name: "Step Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-step-logic"},
-    {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"}
+    {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"},
+    {name: "Study Condition Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-condition"}
   ]}
   referenceLinks={[
     {name: "ComponentBlock", url: "../../typedoc/interfaces/ComponentBlock/"},
