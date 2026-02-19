@@ -58,9 +58,9 @@ For example:
 
 ## Modifying Components in Existing Libraries
 
-You can also modify the components in your study configuration directly via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Any attributes you specify in your study config for a component will overwrite the original attributes of that component as defined in the plugin library.
+You can modify library components in your study configuration via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Import a library with `importedLibraries`, then create a local component that inherits from a library component using `baseComponent`. Any attributes you specify will overwrite the original attributes from the plugin library. Libraries are located at `public/libraries/{library-name}/config.json`.
 
-For example, here we add a new `instruction` to the `mini-vlat` library's `treemap` component:
+Here's an example adding a new `instruction` to the `mini-vlat` library's `treemap` component:
 
 ```json
 "importedLibraries": ["mini-vlat"],
@@ -79,6 +79,27 @@ For example, here we add a new `instruction` to the `mini-vlat` library's `treem
   ]
 }
 ```
+
+Here's another example overriding the sidebar setting:
+
+```json
+{
+  "importedLibraries": ["sam"],
+  "components": {
+    "sam-pleasure-no-sidebar": {
+      "baseComponent": "$sam.co.pleasure",
+      "withSidebar": true,
+      "nextButtonLocation": "belowStimulus"
+    }
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": ["sam-pleasure-no-sidebar"]
+  }
+}
+```
+
+Inherited values can be changed at the component level, such as `withSidebar`, `nextButtonLocation`, and `instructionLocation`.
 
 ## Creating your Own Plugins
 
