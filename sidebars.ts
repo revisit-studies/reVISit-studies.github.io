@@ -112,6 +112,7 @@ const sidebars: SidebarsConfig = {
         'analysis/trial-stats',
         'analysis/coding',
         'analysis/live-monitor',
+        'analysis/config',
         {
           type: 'category',
           label: 'Management',
