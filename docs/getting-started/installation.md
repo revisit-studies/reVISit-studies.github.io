@@ -4,9 +4,12 @@ The reVISit project is open-source – meaning anyone can see the entire codebas
 
 ## Forking Repository
 
-Start by navigating to the following GitHub repository: https://github.com/revisit-studies/study
+Start by navigating to the following GitHub repository: https://github.com/revisit-studies/study or [template repo](https://github.com/revisit-studies/template/).
 
 You should see a "fork" button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies.
+If you are using the template repo, you can click the "Use this template" button to create a new repository in your account.
+
+![Forking a repository](./img/fork-repo.png)
 
 :::info
 GitHub only allows you to fork a repository once. If you have already forked the repository, you will need to clone the repository to your local machine, create a new repo on your account, and run `git remote set-url origin new.git.url/here` to allow you to have 2 versions of the repository in your account.
