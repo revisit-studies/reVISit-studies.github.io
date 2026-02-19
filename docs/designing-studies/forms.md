@@ -323,7 +323,7 @@ This option is useful when you want participants to focus on their strongest pre
 
 Randomizing the order of answers or questions can help reduce bias and improve the quality of your study results. ReVISit allows you to shuffle options within a question, or even the order of entire questions on a page.
 
-A dice icon is shown in the sidebar to indicate that at least one item on this page has a randomized order.
+A die icon is shown in the sidebar to indicate that at least one item on this page has a randomized order.
 
 ![Randomize options icon](img/designing-forms/random-option-icon.png)
 
