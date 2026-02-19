@@ -33,7 +33,6 @@ Audio is recorded via browser, and participants will receive a permissions reque
 The `clickToRecord` option enables a click-and-hold microphone button instead of continuous recording. When enabled, audio is muted by default and is recorded only while the button is held. When disabled, recording starts immediately and can be paused or resumed via the microphone button. You can set `"clickToRecord": true` in `uiConfig` for the whole study or at the individual component level.
 
 ![Click to record](./img/think-aloud/click-to-record.png)
-```
 
 ## Downloading audio
 
@@ -42,7 +41,7 @@ All audio data is stored in Firebase or Supabase storage. To listen to participa
 To download audio data after completing a study, navigate to [Participant View](../analysis/data-export.md) in analysis.
 
 :::note
-To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio` .
+To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio`.
 :::
 
 <!-- Importing links -->

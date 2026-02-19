@@ -46,7 +46,7 @@ Select exactly two configs using the checkboxes, then click Compare Configs. You
 ![Compare Config](./img/config/compare-config.png)
 
 :::note
-Compare Config cannot track white space changes
+Compare Config cannot track white space changes.
 :::
 
 ## Filter Config
