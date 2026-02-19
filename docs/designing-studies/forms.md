@@ -402,7 +402,7 @@ Here is an example to show how to set up responses in random order:
     },
     {
       "id": "duration",
-      "prompt": "How long have you used this webite?",
+      "prompt": "How long have you used this website?",
       "type": "shortText",
       "placeholder": "Enter your answer"
     },
