@@ -93,6 +93,7 @@ The sequence object of the study configuration defines (a) the order participant
 - **Sampling:** `numSamples` draws a given number of items from a block. `numSamples` can be used in combination with each ordering strategy (while preserving ordering guarantees)
 - **Interruptions** can be used to insert breaks and attention checks into a block
 - **Skips** can be used to control flow based on the response to a question or a component block
+- **Study Conditions** can be used to run different versions of your study using URL parameters
 
 All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order.
 
