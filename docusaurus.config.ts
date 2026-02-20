@@ -57,8 +57,8 @@ const config: Config = {
       id: 'support_us',
       content:
         'We released a new version of reVISit! <a href="/blog/2025/10/27/release-2.3/">Read all about reVISit v2.3!</a> &#127881; ',
-      backgroundColor: '#fafbfc',
-      textColor: '#091E42',
+      backgroundColor: '#f05a30',
+      textColor: '#ffffff',
       isCloseable: true,
     },
     algolia: {

@@ -107,3 +107,28 @@ html[data-theme='dark'] .light-theme-display-component {
   height: 160%;
   margin-top: -10px;
 }
+
+.announcementBar {
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 1rem 0;
+}
+
+.announcementBar a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.announcementBarContent {
+  justify-content: center;
+}
+
+.announcementBarClose {
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 996px) {
+  .announcementBar {
+    font-size: 1.2rem;
+  }
+}
