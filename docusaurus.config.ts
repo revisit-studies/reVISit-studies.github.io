@@ -122,8 +122,8 @@ const config: Config = {
         { to: 'blog', label: 'Blog', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },
         {
-          to: '/testimonials',
-          label: 'Testimonials',
+          to: '/adoption',
+          label: 'Adoption',
           position: 'left',
         },
         {
