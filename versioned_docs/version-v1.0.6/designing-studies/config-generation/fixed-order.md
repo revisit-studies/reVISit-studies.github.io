@@ -347,7 +347,3 @@ fs.writeFile("out/seq-fixed-order.json", seqData, (err) => {
 </TabItem>
 </Tabs>
 
-You can check the code and output at CodeSandbox using the link below:
-
-- [Python](https://codesandbox.io/p/devbox/config-gen-demo1-cgzlg5)
-- [Node](https://codesandbox.io/p/devbox/cpsmvd)
