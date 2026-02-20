@@ -36,25 +36,19 @@ html[data-theme='dark'] .light-theme-display-component {
   opacity: 1;
 }
 
-@media only screen and (max-width: 1230px) {
-  .navbar__title {
-    display: none;
+@media only screen and (max-width: 1280px) {
+  .navbar__toggle {
+    display: flex;
   }
-}
 
-@media only screen and (max-width: 1200px) {
   .navbar__items {
-    font-size: 0.8rem;
+    display: none;
   }
 }
 
 @media only screen and (max-width: 1024px) {
   .footer-wrapper .logo {
     height: 40px;
-  }
-
-  .navbar__items {
-    font-size: 0.7rem;
   }
 }
 
