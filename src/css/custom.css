@@ -59,6 +59,15 @@ html[data-theme='dark'] .light-theme-display-component {
   }
 
   .navbar__items--right {
+    display: flex !important;
+    margin-left: auto;
+  }
+
+  .navbar__items--right .navbar__item {
+    display: none !important;
+  }
+
+  .navbar__items--right > button {
     display: none !important;
   }
 
