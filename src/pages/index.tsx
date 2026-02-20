@@ -25,7 +25,7 @@ function HomepageHeader() {
             className={clsx(styles.smallItem, styles.homepageLogo)}
           />
           <div className={clsx('hero__title', styles.description)}>
-            A study creation platform allowing you to quickly create, publish, and disseminate your customized visualization study.
+            A study creation platform allowing you to quickly <em>create, publish, and disseminate</em> your customized visualization study.
           </div>
         </div>
         {/* <img src="img/logos/revisitLogoLong.svg" style={{width:'60%'}}/> */}
@@ -35,23 +35,34 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p> */}
         <div className={styles.buttons} style={{ marginTop: '50px' }}>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx('button button--secondary button--lg', styles.buttonWithSubtext)}
             to="/about"
           >
             About ReVISit
+            <span className={styles.buttonSubtext}>Explore the reVISit Story</span>
           </Link>
           <Link
-            className="button button--primary button--lg"
+            className={clsx('button button--primary button--lg', styles.buttonWithSubtext)}
             style={{ color: 'white' }}
             to="https://revisit.dev/study"
           >
             Try The Demo
+            <span className={styles.buttonSubtext}>Look at individual features in action</span>
           </Link>
           <Link
-            className="button button--info button--lg"
+            className={clsx('button button--primary button--lg', styles.buttonWithSubtext)}
+            style={{ color: 'white' }}
+            to="https://revisit.dev/replication-studies/"
+          >
+            Explore Example Studies
+            <span className={styles.buttonSubtext}>See real studies with data</span>
+          </Link>
+          <Link
+            className={clsx('button button--info button--lg', styles.buttonWithSubtext)}
             to="/docs/introduction"
           >
             Get Started
+            <span className={styles.buttonSubtext}>Set up your first experiment</span>
           </Link>
         </div>
       </div>
