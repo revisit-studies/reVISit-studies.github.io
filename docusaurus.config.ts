@@ -140,6 +140,11 @@ const config: Config = {
           label: 'Demo',
           position: 'right',
         },
+        {
+          href: 'https://revisit.dev/replication-studies/',
+          label: 'Example Studies',
+          position: 'right',
+        },
       ],
     },
     footer: {
