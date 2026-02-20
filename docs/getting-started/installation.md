@@ -1,12 +1,31 @@
 # Installation
 
-The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase. Because of this, we will start by "forking the repository".
+The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase.
 
-## Forking Repository
+For most users, the best place to start is the template repository (first option below). If you  want all demos and tighter upstream parity, or are considering contributing to revisit, we recommend you fork the repository instead.
 
-Start by navigating to the following GitHub repository: https://github.com/revisit-studies/study
+## Starting from the Template Repository (Recommended)
 
-You should see a "fork" button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. Instead, you or your organization will be able to have a central location for all of your studies.
+Navigate to the [template repository](https://github.com/revisit-studies/template), and click the "Use this template" button. This will create a new repository in your GitHub account with the same files as the template repository, based on the latest stable release of reVISit.
+
+:::info
+You can choose a name for the repository to suit your needs, but if you choose anything other than `study`, you also need to adjust the `VITE_BASE_PATH` in your [`.env` file](https://github.com/revisit-studies/study/blob/main/.env) to reflect that change.
+:::
+
+You can then clone this new repository to your local machine and start making changes to it and share it with collaborators as desired.
+
+This template is a minimal setup intended for creating your own study project quickly. Unlike the main `study` repository, it does not include all demo studies, so the codebase is easier to navigate and customize.
+
+This is the preferred approach when you do not need cutting-edge changes (for example, from `dev`) and want a more stable baseline to build from. Unlike a fork, the new repository is not linked to the upstream repository's fork network, which helps keep your project lightweight and focused on your own study. You can also create as many repositories as you want from the template, which is not possible with forking.
+
+
+## Forking Repository (Advanced Alternative to Template Repository)
+
+Forking the repository is a more advanced option that allows you to have a copy of the entire `study` repository in your GitHub account. This means that you will have access to all the demo studies and that you can choose to follow the latest changes from the main repository (e.g., by following the `dev` branch). However, it also means that your repository will be linked to the upstream repository's fork network, which can make it more complex to manage.
+
+To fork, start by navigating to the following GitHub repository: https://github.com/revisit-studies/study
+
+You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. 
 
 :::info
 GitHub only allows you to fork a repository once. If you have already forked the repository, you will need to clone the repository to your local machine, create a new repo on your account, and run `git remote set-url origin new.git.url/here` to allow you to have 2 versions of the repository in your account.
@@ -32,7 +51,7 @@ Yarn requires that you have the package manager NPM installed. If you do not hav
 
 ```npm i -g yarn```
 
-**Step 2: Once Yarn is successfully installed, navigate to your forked repository and run the following Yarn command:**
+**Step 2: Once Yarn is successfully installed, navigate to your local repository and run the following Yarn command:**
 
 ```yarn install```
 
@@ -55,6 +74,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
+        {name: "Template Repository", url: "https://github.com/revisit-studies/template"},
         {name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
         {name: "Node.js Installation", url: "https://nodejs.org/en"},
         {name: "Yarn Installation", url: "https://yarnpkg.com/"},
