@@ -1,5 +1,9 @@
 # Deploying To a Static Website
 
+- [Deploying using GitHub](#deploying-using-github)
+- [Deploying using Netlify](#deploying-using-netlify)
+- [Deploying using Vercel](#deploying-using-vercel)
+
 ## Deploying using GitHub
 
 Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
@@ -60,13 +64,33 @@ The first build will take a bit, but once it runs, your experiment should be rea
 
 If you are using Netlify as a secondary venue for anonymization purposes, you can specify which branch Netlify will use to deploy from. For instance a branch called `for-review' might remove all personnel and affiliation information.
 
+## Deploying using Vercel
+
+Deploying with Vercel is also straightforward and follows a very similar configuration process as the other platforms. Ensure that your VITE_BASE_PATH in your .env is like the following:
+
+```
+VITE_BASE_PATH="/"
+```
+
+Then, navigate to Vercel. This will likely require you to sign in or to make an account. From the home page, create a new project.
+
+![Clicking the vercel navbar to pick a new project](./img/vercel_steps/vercel_0.png)
+
+Then, on the next page, select GitHub. This will require you to authorize Vercel as a GitHub app. This will then bring up a list of repos. Select the appropriate repo. This will bring up a configuration screen for the new Vercel project.
+
+![Vercel Demo](./img/vercel_steps/vercel_1.png)
+
+You likely will not need to make any changes to the configuration. After a short period of time, this will yield a website like `https://<APP_NAME>.vercel.app/`
+
 <!-- Importing links -->
+
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-  referenceLinks={[
-    {name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
-    {name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"},
-    {name: "Netlify", url: "https://www.netlify.com/"}
-  ]}
+referenceLinks={[
+{name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
+{name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"},
+{name: "Netlify", url: "https://www.netlify.com/"},
+{name: "Vercel", url: "https://vercel.com/"},
+]}
 />
