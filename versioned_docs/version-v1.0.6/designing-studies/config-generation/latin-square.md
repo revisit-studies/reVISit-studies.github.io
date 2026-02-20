@@ -119,7 +119,4 @@ const seq = createOrder();
 </TabItem>
 </Tabs>
 
-You can check the complete code and output at Codesandbox using the link below:
-- [Python](https://codesandbox.io/p/devbox/stupefied-wescoff-znppwr)
-- [Node](https://codesandbox.io/p/devbox/tcl5yw)
 

@@ -192,6 +192,3 @@ const seq = createOrder();
 
 </Tabs>
 
-You can check the complete code and output at CodeSandbox using the link below:
-- [Python](https://codesandbox.io/p/devbox/festive-vaughan-ggl46v)
-- [Node](https://codesandbox.io/p/devbox/tg3st5)
