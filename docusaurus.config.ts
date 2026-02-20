@@ -104,9 +104,7 @@ const config: Config = {
         src: 'img/logos/revisitLogoThumbnail-dotted-light.svg',
         srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
-      items: [
-        { to: '/community', label: 'Community', position: 'left' },
-
+      items: [    
         {
           type: 'docSidebar',
           sidebarId: 'docs',
@@ -119,8 +117,9 @@ const config: Config = {
           position: 'left',
           label: 'Reference',
         },
-        { to: 'blog', label: 'Blog', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/community', label: 'Community', position: 'left' },
         {
           to: '/adoption',
           label: 'Adoption',
