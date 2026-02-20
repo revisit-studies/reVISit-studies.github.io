@@ -18,6 +18,10 @@ This template is a minimal setup intended for creating your own study project qu
 
 This is the preferred approach when you do not need cutting-edge changes (for example, from `dev`) and want a more stable baseline to build from. Unlike a fork, the new repository is not linked to the upstream repository's fork network, which helps keep your project lightweight and focused on your own study. You can also create as many repositories as you want from the template, which is not possible with forking.
 
+:::info
+Most likely, you will **receive a warning from GitHub about a potential security issue** as an API key is being shared, with a subject like “Possible valid secrets detected“. 
+You can safely ignore this warning. The reason for this is that the Firebase API key is not a secret key, and it is intended to be shared publicly in client-side code. For more information, see the [Firebase documentation on API keys](https://firebase.google.com/docs/projects/api-keys#api_key_security_recommendations).
+:::
 
 ## Forking Repository (Advanced Alternative to Template Repository)
 
