@@ -6,21 +6,26 @@ hide_table_of_contents: false
 
 # What is reVISit?
 
-The reVISit project addresses a critical bottleneck in visualization research: how can we better and more efficiently empirically evaluate visualization techniques? ReVISit aims to democratize evaluation of interactive visualization techniques, an area that has been under-explored, due in part to the high technical burden and skills required to create complex online experiments.
+The reVISit project addresses a critical bottleneck in user-centered research: how can we better and more efficiently run web-based experiments? ReVISit aims to democratize evaluation of all kinds of experiments, ranging from perceptual experiments to interactive visualization techniques. ReVISit is most useful for complex, interactive experiments, an area that has been under-explored, due in part to the high technical burden and skills required to them.
 
 The key innovations of this project are:
 
 1. **Flexible study creation** based on a domain-specific language, the reVISit Spec.
 2. **Simple data collection** — out of the box for standard response types, but with the ability to track detailed events based on provenance-enabled stimuli.
-3. **Simple data storage** — no need to run your own servers: data is stored in a relatively easy to set-up Firebase instance.
+4. **Advanced modalities** — record participants audio (think aloud studies) and screens (video) which is useful for debugging and qualitative analysis.
+3. **Simple data storage** — no need to run your own servers: data is stored in a relatively easy to set-up Firebase instance. Of course, you can also self-hosted server if you want full control.
 4. **Open source and free** – share your study design with anyone, no license required.
 5. **Compatible with crowdsourcing platforms** — recruit your participants through your preferred provider, such as Prolific, Mechanical Turk, or Lab in the Wild.
 6. **Keep track of study progress** — see how participants are doing and identify issues with your study quickly.
 7. **Export your data** — in a format suitable for your analysis.
 
-## Demo
+## Demo and Examples
 
-You can check out a few example projects on our [demo page](https://revisit.dev/study/). All of the demos on this site are built from stimuli and examples that you can find in the [GitHub repo](https://github.com/revisit-studies/study).
+You can check out **demonstrations of individual features** on our [demo page](https://revisit.dev/study/). All of the demos on this site are built from stimuli and examples that you can find in the [GitHub repo](https://github.com/revisit-studies/study).
+
+You can also check out **example studies** that have been built with reVISit on our [example studies page](https://revisit.dev/replication-studies/). These are full studies with all the complexities that you encounter, and that have been analyzed and published. You can also explore the analytics interface for these studies to see how the data is collected and stored.
+
+
 
 Check out the [getting started tutorial](../docs/introduction/) to learn how to build your own experiment.
 
@@ -47,13 +52,14 @@ IEEE Visualization and Visual Analytics (VIS), 31-35, [doi:10.1109/VIS54172.2023
 
 ReVISit is a project developed at the [University of Utah](https://visdesignlab.net) and [Worcester Polytechnic Institute](http://web.cs.wpi.edu/~ltharrison/).
 
-[Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, University of Utah  
+[Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, Graz University of Technology and University of Utah  
 [Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI  
 [Zach Cutler](https://zach-cutler.com/), PhD Student, University of Utah  
 [Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
 [Tingying He](https://tingying-he.github.io/), Postdoc, University of Utah  
 [Jay Kim](https://www.visdesignlab.net/team/jay/), Software Engineer, University of Utah  
 [Andrew McNutt](https://www.mcnutt.in/), Assistant Professor, University of Utah  
+[Abhraneel Sarma ](https://abhsarma.github.io/), Postdoc, Graz University of Technology
 [Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI  
 [Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah
 
@@ -64,13 +70,17 @@ ReVISit is a project developed at the [University of Utah](https://visdesignlab.
 [Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah  
 [Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI
 
+### Contributors
+
+[Sheng Long](https://mika-long.github.io/), PhD Student, Northwestern University
+
 ## Contact
 
 If you have any questions, please [e-mail us](mailto:contact@revisit.dev).
 
 ## Acknowledgements
 
-ReVISit is funded by the [National Science Foundation](https://vdl.sci.utah.edu/projects/2022-nsf-revisit/), under the title "Collaborative Research: CCRI: New: reVISit: Scalable Empirical Evaluation of Interactive Visualizations", through CNS with award numbers [2213756](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2213756) and [2213757](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2213757).
+ReVISit is funded by the [National Science Foundation](https://vdl.sci.utah.edu/projects/2022-nsf-revisit/), under the title “Collaborative Research: CCRI: New: reVISit: Scalable Empirical Evaluation of Interactive Visualizations”, through CNS with award numbers [2213756](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2213756) and [2213757](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2213757).
 
 We are grateful to Cindy Xiong Bearfield, Lace Padilla, and Danielle Albers Szafir for advice on the requirements of a study platform.
 
