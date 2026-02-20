@@ -142,7 +142,7 @@ const config: Config = {
         },
         {
           href: 'https://revisit.dev/replication-studies/',
-          label: 'Example Studies',
+          label: 'Examples',
           position: 'right',
         },
       ],
