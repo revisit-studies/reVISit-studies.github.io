@@ -8,86 +8,95 @@ import Heading from '@theme/Heading';
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Papa from 'papaparse';
-import { Chip } from '../../components/Chip/Chip';
-import styles from './testimonials.module.css';
+import styles from './adoption.module.css';
 
-interface Testimonial {
+interface Adoption {
   title: string;
   authors: string;
-  date: string;
+  year: string;
   paperUrl: string;
   revisitStudyUrl?: string;
   subtitle: string;
   sourceCodeLink?: string;
   revisitVersion: string;
-  tags: string[];
   published: boolean;
   venue: string;
+  doi?: string;
 }
 
-function Testimonial({ testimonial }: { testimonial: Testimonial }) {
+function Adoption({ adoption }: { adoption: Adoption }) {
+  const normalizedDoi = adoption.doi?.trim();
+  const doiHref = normalizedDoi
+    ? (normalizedDoi.startsWith('http') ? normalizedDoi : `https://dx.doi.org/${normalizedDoi.replace(/^doi:\s*/i, '')}`)
+    : undefined;
+
   return (
-    <div className={styles.testimonialContainer}>
+    <div className={styles.adoptionContainer}>
       <div className={styles.title}>
-        {testimonial.title}
+        {adoption.title}
       </div>
       <div className={styles.authors}>
-        {testimonial.authors}
+        {adoption.authors}
+        .
+        {' '}
+        {adoption.venue !== '' ? adoption.venue : 'Preprint'}
+        {doiHref ? (
+          <>
+            {', '}
+            <Link href={doiHref} target="_blank" rel="noreferrer">
+              DOI:
+              {' '}
+              {normalizedDoi}
+            </Link>
+          </>
+        ) : null}
+        {`, ${adoption.year}`}
       </div>
-      {testimonial.tags.length !== 0}
-      <div className={styles.tagsRow}>
-        {testimonial.tags.map((tag: string) => (
-          <Chip key={tag} type={tag} />
-        ))}
-      </div>
-      <p>
-        {testimonial.subtitle}
+      <p className={styles.description}>
+        {adoption.subtitle}
       </p>
-      <div className={styles.date}>
-        {`${testimonial.venue !== '' ? testimonial.venue : 'Preprint'}, ${testimonial.date}`}
-      </div>
       <div className={styles.buttonContainer}>
         <div className={styles.primaryButtons}>
-          {testimonial.revisitStudyUrl ? (
+          {adoption.revisitStudyUrl ? (
             <Link
               className={clsx('button button--primary', styles.buttonDesktop)}
               style={{ color: 'white' }}
-              to={testimonial.revisitStudyUrl}
+              to={adoption.revisitStudyUrl}
             >
               See ReVISit Study
             </Link>
           ) : null}
-          {testimonial.paperUrl === '#' ? null
+          {adoption.paperUrl === '#' ? null
             : (
               <Link
                 className={clsx('button button--secondary', styles.buttonDesktop)}
-                to={testimonial.paperUrl}
+                to={adoption.paperUrl}
               >
                 See the paper
               </Link>
             )}
-          {testimonial.revisitStudyUrl ? (
+          {adoption.revisitStudyUrl ? (
             <Link
               className={clsx('button button--primary button--sm', styles.buttonMobile)}
               style={{ color: 'white' }}
-              to={testimonial.revisitStudyUrl}
+              to={adoption.revisitStudyUrl}
             >
               See ReVISit Study
             </Link>
           ) : null}
-          {testimonial.paperUrl === '#' ? null
+          {adoption.paperUrl === '#' ? null
             : (
               <Link
                 className={clsx('button button--secondary button--sm', styles.buttonMobile)}
-                to={testimonial.paperUrl}
+                to={adoption.paperUrl}
               >
                 See the paper
               </Link>
             )}
         </div>
         <div className={styles.secondaryButtons}>
-          {testimonial.sourceCodeLink ? (
-            <Link href={testimonial.sourceCodeLink}>
+          {adoption.sourceCodeLink ? (
+            <Link href={adoption.sourceCodeLink}>
               <span>Source Code</span>
               <FontAwesomeIcon icon={faExternalLink} />
             </Link>
@@ -95,7 +104,7 @@ function Testimonial({ testimonial }: { testimonial: Testimonial }) {
             : null}
           <span>
             Uses ReVISit v
-            {testimonial.revisitVersion}
+            {adoption.revisitVersion}
           </span>
         </div>
       </div>
@@ -106,11 +115,11 @@ function Testimonial({ testimonial }: { testimonial: Testimonial }) {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
-  const [testimonials, setTestimonials] = useState([]);
+  const [adoption, setAdoption] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/testimonials.csv');
+      const response = await fetch('/adoption.csv');
       if (!response.ok) {
         console.error('Error fetching the CSV file:', response.statusText);
         return;
@@ -119,28 +128,28 @@ export default function Home() {
       Papa.parse(text, {
         header: true,
         complete: (results) => {
-          const parsedTestimonials = results.data.map((entry) => ({
+          const parsedAdoption = results.data.map((entry) => ({
             title: entry['Paper Title'],
             authors: entry['List of Authors'],
-            date: entry['Date of Publication'],
+            year: entry['Year of Publication'],
             revisitStudyUrl: entry['Study URL'],
             paperUrl: entry['Paper URL'],
             subtitle: entry['Short Description'],
             revisitVersion: entry['ReVISit Version'],
             sourceCodeLink: entry['Source Code Link'],
-            tags: entry['Study Type'].split(', '),
             published: entry['Has this paper been published?'] === 'Yes',
-            venue: entry.Venue,
+            venue: entry['Journal, Conference or Veune'],
+            doi: entry.DOI,
           }));
-          // Sort based on Published then date (descending date).
-          parsedTestimonials.sort((a: Testimonial, b: Testimonial) => {
+          // Sort based on Published then year (descending year).
+          parsedAdoption.sort((a: Adoption, b: Adoption) => {
             if (a.published !== b.published) {
               return a.published ? -1 : 1;
             }
 
-            return new Date(b.date).getTime() - new Date(a.date).getTime();
+            return Number(b.year) - Number(a.year);
           });
-          setTestimonials(parsedTestimonials);
+          setAdoption(parsedAdoption);
         },
       });
     };
@@ -151,16 +160,16 @@ export default function Home() {
   return (
     <Layout description={`${siteConfig.tagline}`}>
       <main className="container container--fluid margin-vert--lg">
-        <div className="row mdxPageWrapper_node_modules-@docusaurus-theme-classic-lib-theme-MDXPage-styles-module">
+        <div className="row">
           <div className="col col--10">
             <Heading as="h1" className={styles.pageTitle}>Studies Using reVISit</Heading>
             <div className={styles.pageIntro}>
               Many people have already gotten started using reVISit in their data visualization research. Check out all the different ways people are using reVISit to produce novel research. If you&apos;ve used reVISit as part of your research, we strongly encourage you to fill out
               {' '}
               <Link href="https://forms.gle/CE82n3V1bcmZ4ahY9" target="_blank" rel="noreferrer">this Google form</Link>
-              . Once we verify your work, your research will be added to the testimonials list below.
+              . Once we verify your work, your research will be added to the list of papers using reVISit below.
             </div>
-            {testimonials.map((testimonial: Testimonial, index: number) => <Testimonial key={index} testimonial={testimonial} />)}
+            {adoption.map((adoption: Adoption, index: number) => <Adoption key={index} adoption={adoption} />)}
           </div>
         </div>
       </main>

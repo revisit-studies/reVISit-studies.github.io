@@ -1,20 +1,20 @@
-.testimonialContainer {
+.adoptionContainer {
     border-top: 1px solid var(--ifm-color-gray-300);
     margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-html[data-theme="dark"] .testimonialContainer {
+html[data-theme="dark"] .adoptionContainer {
     border-top: 1px solid var(--ifm-color-gray-700);
 }
 
-.testimonialContainer .authors {
+.authors {
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
-.testimonialContainer .title {
+.title {
     margin: 10px 0px;
     font-size: 1.6rem;
     font-weight: bold;
@@ -22,14 +22,18 @@ html[data-theme="dark"] .testimonialContainer {
     color: var(--ifm-color-primary);
 }
 
-.testimonialContainer .buttonContainer {
+.description {
+    font-style: italic;
+}
+
+.buttonContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.testimonialContainer .buttonContainer div {
+.buttonContainer div {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -37,16 +41,8 @@ html[data-theme="dark"] .testimonialContainer {
     margin-top: 20px;
 }
 
-.testimonialContainer .buttonContainer .secondaryButtons a span {
+.secondaryButtons a span {
     margin-right: 5px;
-}
-
-.tagsRow {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-    margin-left: -5px;
-    flex-wrap: wrap;
 }
 
 .buttonMobile {
@@ -54,15 +50,15 @@ html[data-theme="dark"] .testimonialContainer {
 }
 
 @media only screen and (max-width: 1024px) {
-    .testimonialContainer .authors {
+    .authors {
         font-size: 1.0rem;
     }
 
-    .testimonialContainer .date {
+    .date {
         font-size: 1.0rem;
     }
 
-    .testimonialContainer .title {
+    .title {
         font-size: 1.4rem;
     }
 }
@@ -87,7 +83,7 @@ html[data-theme="dark"] .testimonialContainer {
 }
 
 @media only screen and (max-width: 375px) {
-    .testimonialContainer .buttonContainer div {
+    .buttonContainer div {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -95,15 +91,15 @@ html[data-theme="dark"] .testimonialContainer {
 }
 
 @media only screen and (max-width: 320px) {
-    .testimonialContainer .authors {
+    .authors {
         font-size: 1.0rem;
     }
 
-    .testimonialContainer .date {
+    .date {
         font-size: 1.0rem;
     }
 
-    .testimonialContainer .title {
+    .title {
         font-size: 1.2rem;
     }
 }
