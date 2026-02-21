@@ -78,7 +78,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Template Repository", url: "https://github.com/revisit-studies/template"},
+        {name: "reVISit Template Repository", url: "https://github.com/revisit-studies/template"},
+        {name: "reVISit Main Repository", url: "https://github.com/revisit-studies/study"},
         {name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
         {name: "Node.js Installation", url: "https://nodejs.org/en"},
         {name: "Yarn Installation", url: "https://yarnpkg.com/"},

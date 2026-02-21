@@ -87,8 +87,59 @@ We are grateful to Cindy Xiong Bearfield, Lace Padilla, and Danielle Albers Szaf
 <img src="/img/logos/nsf.png" style={{"height":'200px'}}/>
 
 
+## Papers Published as part of the NSF CCRI Grant
+
+
+
+:::note[Paper Reference]
+Zach Cutler, Jack Wilburn, Hilson Shrestha, Yiren Ding, Brian Bollen, Khandaker Abrar Nadib, Tingying He, Andrew McNutt, Lane Harrison, Alexander Lex.
+[ReVISit 2: A Full Experiment Life Cycle User Study Framework](https://www.visdesignlab.net/publications/2025_vis_revisit/).
+IEEE Transactions on Visualization and Computer Graphics (VIS), 32(1): 13-23, [doi:10.1109/TVCG.2025.3633896](https://dx.doi.org/10.1109/TVCG.2025.3633896), 2026.
+<svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 640 640"><path d="M208.3 64L432.3 64C458.8 64 480.4 85.8 479.4 112.2C479.2 117.5 479 122.8 478.7 128L528.3 128C554.4 128 577.4 149.6 575.4 177.8C567.9 281.5 514.9 338.5 457.4 368.3C441.6 376.5 425.5 382.6 410.2 387.1C390 415.7 369 430.8 352.3 438.9L352.3 512L416.3 512C434 512 448.3 526.3 448.3 544C448.3 561.7 434 576 416.3 576L224.3 576C206.6 576 192.3 561.7 192.3 544C192.3 526.3 206.6 512 224.3 512L288.3 512L288.3 438.9C272.3 431.2 252.4 416.9 233 390.6C214.6 385.8 194.6 378.5 175.1 367.5C121 337.2 72.2 280.1 65.2 177.6C63.3 149.5 86.2 127.9 112.3 127.9L161.9 127.9C161.6 122.7 161.4 117.5 161.2 112.1C160.2 85.6 181.8 63.9 208.3 63.9zM165.5 176L113.1 176C119.3 260.7 158.2 303.1 198.3 325.6C183.9 288.3 172 239.6 165.5 176zM444 320.8C484.5 297 521.1 254.7 527.3 176L475 176C468.8 236.9 457.6 284.2 444 320.8z"/></svg>&nbsp;**IEEE VIS 2025 Best Paper Award**
+:::
+
+
+:::note[Paper Reference]
+Yiren Ding, Jack Wilburn, Hilson Shrestha, Akim Ndlovu, Kiran Gadhave, Carolina Nobre, Alexander Lex, Lane Harrison.
+[reVISit: Supporting Scalable Evaluation of Interactive Visualizations](https://visdesignlab.net/publications/2023_shortpaper_revisit/)
+IEEE Visualization and Visual Analytics (VIS), 31-35, [doi:10.1109/VIS54172.2023.00015](https://dx.doi.org/10.1109/VIS54172.2023.00015), 2023.
+:::
+
+:::note[Paper Reference]
+Maxim Lisnic, Zach Cutler, Marina Kogan, Alexander Lex
+Visualization Guardrails: Designing Interventions Against Cherry-Picking in Interactive Data Explorers
+SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-19, doi:10.1145/3706598.3713385, 2025.
+:::
+
+:::note[Paper Reference]
+Zach Cutler, Lane Harrison, Carolina Nobre, Alexander Lex
+Crowdsourced Think-Aloud Studies
+SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-23, doi:10.1145/3706598.3714305, 2025.
+:::
 
 
 
 
 
+
+
+
+
+
+
+
+
+Zach Cutler, Jack Wilburn, Hilson Shrestha, Yiren Ding, Brian Bollen, Khandaker Abrar Nadib, Tingying He, Andrew McNutt, Lane Harrison, Alexander Lex. ReVISit 2: A Full Experiment Life Cycle User Study Framework. IEEE Transactions on Visualization and Computer Graphics (VIS), 32(1): 13-23, doi:10.1109/TVCG.2025.3633896, 2026. IEEE VIS 2025 Best Paper Award
+
+
+
+Yiren Ding, Jack Wilburn, Hilson Shrestha, Akim Ndlovu, Kiran Gadhave, Carolina Nobre, Alexander Lex, Lane Harrison.
+reVISit: Supporting Scalable Evaluation of Interactive Visualizations. IEEE Visualization and Visual Analytics (VIS), 31-35, doi:10.1109/VIS54172.2023.00015, 2023.
+
+Maxim Lisnic, Zach Cutler, Marina Kogan, Alexander Lex
+Visualization Guardrails: Designing Interventions Against Cherry-Picking in Interactive Data Explorers
+SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-19, doi:10.1145/3706598.3713385, 2025.
+
+Zach Cutler, Lane Harrison, Carolina Nobre, Alexander Lex
+Crowdsourced Think-Aloud Studies
+SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-23, doi:10.1145/3706598.3714305, 2025.
