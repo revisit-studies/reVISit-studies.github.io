@@ -19,7 +19,7 @@ Here's an example of how to use the Answer interface to define the correct answe
      "location": "belowStimulus",
      "type": "numerical"
    }
- ],
+ ]
  "correctAnswer": [{
    "id": "response1",
    "answer": 4
