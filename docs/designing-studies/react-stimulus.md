@@ -119,6 +119,17 @@ The parameters are an object; you can change the format to suit your needs.
   "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
   "type": "react-component",
   "path": "example-cleveland/assets/BarChart.tsx",
+  "response": [
+    {
+      "id": "barChartAnswer",
+      "prompt": "Your answer (1-100):",
+      "required": true,
+      "location": "belowStimulus",
+      "type": "numerical",
+      "min": 1,
+      "max": 100
+    }
+  ],
   "parameters": {
     "data": [
       {
