@@ -47,15 +47,15 @@ For the next two steps, there is no need to change the defaults. Simply click "N
 
 ![Console](./img/firebase_steps/step7.jpg)
 
-With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and copy and paste the following code. Then click "publish".
+With the new database created, we'll want to change the read/write rules to allow any user to create documents, while only authenticated users can read, update, or delete. Go to the 'rules' tab (second tab) and copy and paste the following code. Then click "publish".
 
 ```
 rules_version = '2';
 service cloud.firestore {
- match /databases/{database}/documents {
+  match /databases/{database}/documents {
     match /{document=**} {
-    	allow read: if true
-      allow write: if request.auth != null;
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
     }
   }
 }
@@ -87,7 +87,8 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
     match /{allPaths=**} {
-      allow read, write: if true;
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
     }
   }
 }
