@@ -23,11 +23,11 @@ setAnswer is a callback function allowing the creator of the ReactComponent to p
 So, for example, if I had the following ReactComponent in my config
 ```js
 {
- type: 'react-component',
- path: 'my_study/CoolComponent.tsx',
+ type: 'react-component';
+ path: 'my_study/CoolComponent.tsx';
  parameters: {
-   name: 'Zach',
-   age: 26,
+   name: 'Zach';
+   age: 26;
  }
 }
 ```
@@ -71,7 +71,7 @@ https://revisit.dev/study/example-brush-interactions (https://github.com/revisit
 | <a id="previousbuttontext"></a> `previousButtonText?` | `string` | The text that is displayed on the previous button. If present, will override the previous button text setting in the uiConfig. | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`previousButtonText`](BaseIndividualComponent.md#previousbuttontext) | [parser/types.ts:816](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L816) |
 | <a id="providefeedback"></a> `provideFeedback?` | `boolean` | Controls whether the component should provide feedback to the participant, such as in a training trial. If present, will override the provide feedback setting in the uiConfig. | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`provideFeedback`](BaseIndividualComponent.md#providefeedback) | [parser/types.ts:818](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L818) |
 | <a id="recordaudio"></a> `recordAudio?` | `boolean` | Whether or not we want to utilize think-aloud features. If present, will override the record audio setting in the uiConfig. | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`recordAudio`](BaseIndividualComponent.md#recordaudio) | [parser/types.ts:824](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L824) |
-| <a id="recordscreen"></a> `recordScreen?` | `boolean` | Whether or not we want to utilize screen recording feature. If present, will override the record screen setting in the uiConfig. If true, the uiConfig must have recordScreen set to true or the screen will not be captured. It's also required that the library component, $screen-recording.components.screenRecordingPermission, be included in the study at some point before this component to ensure permissions are granted and screen capture has started. | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`recordScreen`](BaseIndividualComponent.md#recordscreen) | [parser/types.ts:826](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L826) |
+| <a id="recordscreen"></a> `recordScreen?` | `boolean` | Whether or not we want to utilize screen recording feature. If present, will override the record screen setting in the uiConfig. If true, the uiConfig must have recordScreen set to true or the screen will not be captured. It's also required that the library component, $screen-recording.co.screenRecordingPermission, be included in the study at some point before this component to ensure permissions are granted and screen capture has started. | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`recordScreen`](BaseIndividualComponent.md#recordscreen) | [parser/types.ts:826](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L826) |
 | <a id="response"></a> `response` | [`Response`](../type-aliases/Response.md)[] | The responses to the component | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`response`](BaseIndividualComponent.md#response) | [parser/types.ts:778](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L778) |
 | <a id="responsedividers"></a> `responseDividers?` | `boolean` | Whether to show the response dividers. If present, will override the response dividers setting in the uiConfig. | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`responseDividers`](BaseIndividualComponent.md#responsedividers) | [parser/types.ts:830](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L830) |
 | <a id="responseorder"></a> `responseOrder?` | `"fixed"` \| `"random"` | The order of the responses. Defaults to 'fixed'. | [`BaseIndividualComponent`](BaseIndividualComponent.md).[`responseOrder`](BaseIndividualComponent.md#responseorder) | [parser/types.ts:834](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L834) |
