@@ -1,5 +1,10 @@
 # Deploying To a Static Website
 
+- [Deploying using GitHub](#deploying-using-github)
+- [Deploying using Netlify](#deploying-using-netlify)
+- [Deploying using Vercel](#deploying-using-vercel)
+- [Deploying using render.com](#deploying-using-rendercom)
+
 ## Deploying using GitHub
 
 Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
@@ -60,13 +65,71 @@ The first build will take a bit, but once it runs, your experiment should be rea
 
 If you are using Netlify as a secondary venue for anonymization purposes, you can specify which branch Netlify will use to deploy from. For instance a branch called `for-review' might remove all personnel and affiliation information.
 
+## Deploying using Vercel
+
+Deploying with Vercel is also straightforward and follows a very similar configuration process as the other platforms. Ensure that your VITE_BASE_PATH in your .env is like the following:
+
+```
+VITE_BASE_PATH="/"
+```
+
+At the root of your project, create a `vercel.json` file with the following contents:
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+Then, navigate to Vercel. This will likely require you to sign in or to make an account. From the home page, create a new project.
+
+![Clicking the vercel navbar to pick a new project](./img/vercel_steps/vercel_0.png)
+
+Then, on the next page, select GitHub. This will require you to authorize Vercel as a GitHub app. This will then bring up a list of repos. Select the appropriate repo. This will bring up a configuration screen for the new Vercel project.
+
+![Vercel Demo](./img/vercel_steps/vercel_1.png)
+
+You likely will not need to make any changes to the configuration. After a short period of time, this will yield a website like `https://<APP_NAME>.vercel.app/`
+
+## Deploying using render.com
+
+Deploying with render.com is a little more involved than some of the other options, but has similar bones as the other platforms. Ensure that your VITE_BASE_PATH in your .env is like the following:
+
+```
+VITE_BASE_PATH="/"
+```
+
+Then, navigate to render.com. This will likely require you to sign in or to make an account. From the home page, create a new project. Select "Static Site" as the type of project you want to create.
+
+![Clicking the render navbar to pick a new project](./img/render_steps/render_0.png)
+
+Then, on the next page, select GitHub. This will require you to authorize render.com as a GitHub app. This will then bring up a list of repos. Select the appropriate repo. This will bring up a configuration screen for the new render.com project.
+
+![Render Demo](./img/render_steps/render_1.png)
+
+On this configuration screen, make sure the following options are set (or accept these defaults if Render has already filled them in for you):
+
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
+
+After saving these settings, you will also need to add a rewrite rule. Go to your static site on Render → Redirects/Rewrites tab → Add Rule:
+```
+Type: Rewrite
+Source: /*
+Destination: /index.html
+```
+
+After adding the rewrite rule, deploy your site. After a protracted period of time, this will yield a website like `https://<APP_NAME>.onrender.com/`
+
 <!-- Importing links -->
+
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-  referenceLinks={[
-    {name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
-    {name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"},
-    {name: "Netlify", url: "https://www.netlify.com/"}
-  ]}
-/>
+referenceLinks={[
+{name: "GitHub Pages", url: "https://docs.github.com/en/pages/quickstart"},
+{name: "GitHub Custom Domain", url: "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site"},
+{name: "Netlify", url: "https://www.netlify.com/"},
+{name: "Vercel", url: "https://vercel.com/"},
+{name: "render.com", url: "https://render.com/"}
+]}/>
