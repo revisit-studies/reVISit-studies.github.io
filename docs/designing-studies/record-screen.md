@@ -61,7 +61,7 @@ Insert the `screenRecordingPermission` page into your study sequence (ideally af
 {
     "sequence": {
         "order": "fixed",
-        "components": ["introduction", "$screen-recording.co.screenRecordingPermission", "external_website", "barChart"]
+        "components": ["introduction", "$screen-recording.components.screenRecordingPermission", "external_website", "barChart"]
     }
 }
 ```
