@@ -28,8 +28,8 @@ If you are using Vega, you can use signals with `revisitAnswer` to send the user
    }
  ]
 }
-```
 In this example, when a user clicks on a rectangle in the Vega chart, the `revisitAnswer` signal is updated with the responseId and response. This signal is then passed to reVISit as the participant's response.
+```
 
 ## Extends
 
