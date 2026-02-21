@@ -4,20 +4,15 @@ ReVISit lets you set a minimum screen size for your study to make sure participa
 
 ## Setting Screen Size Requirements
 
-You can specify minimum screen dimensions in the `uiConfig` section of your study configuration file by setting the `minWidthSize` and `minHeightSize` properties. These values are measured in pixels.
+You can specify minimum screen dimensions in the `studyRules.display` section of your study configuration file by setting the `minWidth` and `minHeight` properties. These values are measured in pixels.
 
 ```json
 {
-  "uiConfig": {
-    "contactEmail": "contact@revisit.dev",
-    "helpTextPath": "demo-html/assets/help.md",
-    "logoPath": "revisitAssets/revisitLogoSquare.svg",
-    "withProgressBar": true,
-    "autoDownloadStudy": false,
-    "withSidebar": true,
-    "windowEventDebounceTime": 200,
-    "minHeightSize": 800,
-    "minWidthSize": 400
+  "studyRules": {
+    "display": {
+      "minHeight": 800,
+      "minWidth": 400
+    }
   }
 }
 ```
