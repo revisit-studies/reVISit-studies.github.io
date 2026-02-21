@@ -1,17 +1,48 @@
 # Device Restrictions
 
-ReVISit lets you set a minimum screen size for your study to make sure participants have enough space to view the content and complete tasks. If their screen is too small, they’ll see a message asking them to resize their browser window or switch to a larger device.
+ReVISit lets you control whether participants can enter a study based on screen size, browser version, device type, and input method.
+These checks are configured in `studyRules`.
 
-## Setting Screen Size Requirements
+## Configuring Study Rules
 
-You can specify minimum screen dimensions in the `studyRules.display` section of your study configuration file by setting the `minWidth` and `minHeight` properties. These values are measured in pixels.
+`studyRules` supports:
+
+- `display`: minimum viewport dimensions in pixels
+- `browsers`: allowed browser names and optional minimum versions
+- `devices`: allowed device types (`desktop`, `tablet`, `mobile`)
+- `inputs`: allowed input types (`mouse`, `touch`)
+
+The following snippet shows how to config device restrictions:
 
 ```json
 {
   "studyRules": {
     "display": {
-      "minHeight": 800,
-      "minWidth": 400
+      "minHeight": 400,
+      "minWidth": 800
+    },
+    "browsers": {
+      "allowed": [
+        {
+          "name": "chrome",
+          "minVersion": 100
+        },
+        {
+          "name": "firefox",
+          "minVersion": 100
+        },
+        {
+          "name": "safari",
+          "minVersion": 10
+        }
+      ],
+      "blockedMessage": "You must be on a relatively modern browser, Chrome > 100, Firefox > 100, Safari > 10."
+    },
+    "devices": {
+      "allowed": ["tablet", "desktop", "mobile"]
+    },
+    "inputs": {
+      "allowed": ["touch", "mouse"]
     }
   }
 }
@@ -19,7 +50,10 @@ You can specify minimum screen dimensions in the `studyRules.display` section of
 
 ## How It Works
 
-When a participant starts the study, reVISit checks whether their browser window meets the minimum screen size requirements. If the screen is too small, a warning screen appears with a one-minute countdown timer showing the current and required dimensions.
+When a participant starts the study, reVISit validates the participant environment against `studyRules`.
+If requirements are not met, a blocking screen is shown with the rule that failed.
+
+For display-size checks, participants see a warning screen with a one-minute countdown timer showing current and required dimensions.
 
 ![Device Size Check Timer](./img/device-check-timer.gif)
 
@@ -44,6 +78,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "HTML Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html"}
   ]}
   referenceLinks={[
-    {name: "UI Config", url:"../../typedoc/interfaces/UIConfig"}
+    {name: "StudyConfig", url:"../../typedoc/interfaces/StudyConfig"},
+    {name: "UIConfig", url:"../../typedoc/interfaces/UIConfig"}
   ]}
 />
