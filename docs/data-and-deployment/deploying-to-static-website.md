@@ -107,15 +107,19 @@ Then, on the next page, select GitHub. This will require you to authorize render
 
 ![Render Demo](./img/render_steps/render_1.png)
 
-You likely will not need to make any changes to the configuration. The one exception is, you will need to add a rewrite rule. Go to your static site on Render → Redirects/Rewrites tab → Add Rule:
+On this configuration screen, make sure the following options are set (or accept these defaults if Render has already filled them in for you):
 
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
+
+After saving these settings, you will also need to add a rewrite rule. Go to your static site on Render → Redirects/Rewrites tab → Add Rule:
 ```
 Type: Rewrite
 Source: /*
 Destination: /index.html
 ```
 
-Deploy again and then after a protracted period of time, this will yield a website like `https://<APP_NAME>.onrender.com/`
+After adding the rewrite rule, deploy your site. After a protracted period of time, this will yield a website like `https://<APP_NAME>.onrender.com/`
 
 <!-- Importing links -->
 
