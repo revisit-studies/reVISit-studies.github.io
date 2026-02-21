@@ -70,6 +70,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'data-and-deployment/firebase/setup',
             'data-and-deployment/firebase/enabling-authentication',
+            'data-and-deployment/firebase/data-recovery',
           ],
         },
         {
