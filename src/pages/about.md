@@ -129,17 +129,4 @@ SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-23, doi:10.1145
 
 
 
-Zach Cutler, Jack Wilburn, Hilson Shrestha, Yiren Ding, Brian Bollen, Khandaker Abrar Nadib, Tingying He, Andrew McNutt, Lane Harrison, Alexander Lex. ReVISit 2: A Full Experiment Life Cycle User Study Framework. IEEE Transactions on Visualization and Computer Graphics (VIS), 32(1): 13-23, doi:10.1109/TVCG.2025.3633896, 2026. IEEE VIS 2025 Best Paper Award
 
-
-
-Yiren Ding, Jack Wilburn, Hilson Shrestha, Akim Ndlovu, Kiran Gadhave, Carolina Nobre, Alexander Lex, Lane Harrison.
-reVISit: Supporting Scalable Evaluation of Interactive Visualizations. IEEE Visualization and Visual Analytics (VIS), 31-35, doi:10.1109/VIS54172.2023.00015, 2023.
-
-Maxim Lisnic, Zach Cutler, Marina Kogan, Alexander Lex
-Visualization Guardrails: Designing Interventions Against Cherry-Picking in Interactive Data Explorers
-SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-19, doi:10.1145/3706598.3713385, 2025.
-
-Zach Cutler, Lane Harrison, Carolina Nobre, Alexander Lex
-Crowdsourced Think-Aloud Studies
-SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-23, doi:10.1145/3706598.3714305, 2025.
