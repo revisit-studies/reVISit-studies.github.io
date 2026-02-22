@@ -19,6 +19,14 @@ This section shows key numbers about the study.
 - Average Clean Time – average time spent without browsing away from the study
 - Correctness – overall percentage of correct answers
 
+:::warning
+Window visibility events are sometimes unreliable and may not fire consistently in certain browsers or situations. When clean time cannot be calculated reliably, the system sets the value to -1 to indicate an issue with the calculation.
+
+![Average Clean Time Warning](./img/study-summary/clean-time-warning.png)
+
+For example, a warning icon may appear next to Average Clean Time in the Overview Statistics. Hovering over the clean time value shows how many data points were excluded from the overall clean time calculation.
+:::
+
 ## Component Statistics
 
 ![Study Summary Component Statistics](./img/study-summary/study-summary-component.png)

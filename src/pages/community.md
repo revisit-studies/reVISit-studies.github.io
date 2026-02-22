@@ -34,18 +34,18 @@ If you've used reVISit for your visualization research, we'd love to see it! Fil
 
 ## Community Activities
 
-- Open Hackathon at TU Graz, Austria, November 2025
-- Tutorial at IEEE VIS 2025, Vienna, November 2025
-- Tutorial at EuroVis 2025, Luxembourg, June 2025
-- Course at [CHI 2025](https://chi2025.acm.org/), Japan, April 2025
-- Tutorial at UNC Chapel Hill, March 12 2025
-- Tutorial at University of Utah, February 5, 2025
-- Tutorial at Georgia Tech, January 2025
-- [Tutorial at IEEE VIS](https://ieeevis.org/year/2024/welcome), October 2024
-- Getting Started session at Georgia Tech (virtual), November 2023
-- Meetup at VIS 2023, Melbourne, Australia
-- Steering Committee Meeting (virtual), September 2023
-- Meetup at VIS 2020 (virtual)
+- Open Hackathon at [TU Graz](https://www.tugraz.at/), Austria, November 2025  
+- Tutorial at [IEEE VIS 2025](https://ieeevis.org/year/2025/welcome), Vienna, November 2025  
+- Tutorial at [EuroVis 2025](https://www.eurovis2025.lu/), Luxembourg, June 2025  
+- Course at [CHI 2025](https://chi2025.acm.org/), Japan, April 2025  
+- Tutorial at [UNC Chapel Hill](https://www.unc.edu/), March 12, 2025  
+- Tutorial at [University of Utah](https://www.utah.edu/), February 5, 2025  
+- Tutorial at [Georgia Tech](https://www.gatech.edu/), January 2025  
+- Tutorial at [IEEE VIS 2024](https://ieeevis.org/year/2024/welcome), October 2024  
+- Getting Started session at [Georgia Tech](https://www.gatech.edu/) (virtual), November 2023  
+- Meetup at [IEEE VIS 2023](https://ieeevis.org/year/2023/welcome), Melbourne, Australia  
+- Steering Committee Meeting (virtual), September 2023  
+- Meetup at [IEEE VIS 2020](https://ieeevis.org/year/2020/welcome) (virtual)  
 
 ## Community Advisory Board
 

@@ -4,15 +4,15 @@ We provide predefined **libraries** of study components and validated questionna
 
 We currently provide libraries for:
 
-* basic checks, such as microphone checks
-* visualization literacy checks
-* visualization quality metrics
-* usability and user workload assessments
+- basic checks, such as microphone checks
+- usability and user workload assessments
+- visualization literacy checks
+- visualization quality metrics
 
 You can find details [below](#available-libraries).
 
 :::note
-When we mention "library" here, we are not referring to external libraries like NPM packages. If you’d like to use an NPM package in your study, you will need to create a React component that incorporates the package and reference that component in your study configuration.
+When we mention "library" here, we are not referring to external libraries like NPM packages. If you'd like to use an NPM package in your study, you will need to create a React component that incorporates the package and reference that component in your study configuration.
 :::
 
 ## Using Libraries in Your Study
@@ -40,8 +40,8 @@ To import a library, add its name to the `importedLibraries` top-level field of 
 
 Libraries expose one or multiple "components" and possibly also "sequences" – predefined collections of components. You can use its components and sequences in the `sequence` section of your study configuration. The format for referencing components and sequences is:
 
-- **Components**: `$libraryName.co.componentName`
-- **Sequences**: `$libraryName.se.sequenceName`
+- **Components**: `$libraryName.components.componentName`
+- **Sequences**: `$libraryName.sequences.sequenceName`
 
 For example:
 
@@ -50,22 +50,23 @@ For example:
   // Configuration of the sequence for your study
   "components": [
     // List the components used in your study
-    "$mic-check.co.audioTest",
-    "$vlat.se.full"
+    "$mic-check.components.audioTest",
+    "$vlat.sequences.full"
   ]
 }
 ```
 
 ## Modifying Components in Existing Libraries
-You can also modify the components in your study configuration directly via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Any attributes you specify in your study config for a component will overwrite the original attributes of that component as defined in the plugin library.
 
-For example, here we add a new `instruction` to the `mini-vlat` library's `treemap` component:
+You can modify library components in your study configuration via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Import a library with `importedLibraries`, then create a local component that inherits from a library component using `baseComponent`. Any attributes you specify will overwrite the original attributes from the plugin library. Libraries are located at `public/libraries/{library-name}/config.json`.
+
+Here's an example adding a new `instruction` to the `mini-vlat` library's `treemap` component:
 
 ```json
 "importedLibraries": ["mini-vlat"],
 "components": {
   "mini-vlat-treemap-modified": {
-      "baseComponent": "$mini-vlat.co.treemap",
+      "baseComponent": "$mini-vlat.components.treemap",
       "instruction": "new instruction."
   }
 },
@@ -78,6 +79,27 @@ For example, here we add a new `instruction` to the `mini-vlat` library's `treem
   ]
 }
 ```
+
+Here's another example overriding the sidebar setting:
+
+```json
+{
+  "importedLibraries": ["sam"],
+  "components": {
+    "sam-pleasure-no-sidebar": {
+      "baseComponent": "$sam.components.pleasure",
+      "withSidebar": true,
+      "nextButtonLocation": "belowStimulus"
+    }
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": ["sam-pleasure-no-sidebar"]
+  }
+}
+```
+
+Inherited values can be changed at the component level, such as `withSidebar`, `nextButtonLocation`, and `instructionLocation`.
 
 ## Creating your Own Plugins
 
@@ -93,72 +115,40 @@ Check out the [repository](https://github.com/revisit-studies/study/tree/main/pu
 
 When using these plugins, please ensure that you properly cite the original sources in your work.
 
+:::note
+All references listed below follow the IEEE citation style.
+:::
+
 ### Basic Checks
 
-- `mic-check`: **Tests whether participants' microphone is working properly**
-
-- `color-blindness`: **The Ishihara Color Blindness Test**
+- [`color-blindness`](../../libraries/color-blindness/): **The Ishihara Color Blindness Test**
 :::note[Reference]
 Images from [Ishihara Color Test](https://www.colour-blindness.com/colour-blindness-tests/ishihara-colour-test-plates/)
 :::
 
-- `demographics`: **Collects participant demographic information**
+- [`demographics`](../../libraries/demographics): **Collects participant demographic information**
 
-- `screen-recording`: **Records participants' screen**
+- [`mic-check`](../../libraries/mic-check): **Tests whether participants' microphone is working properly**
 
-- `virtual-chinrest`: **Controls Participants’ Viewing Distance Using a Virtual Chinrest**
+- [`screen-recording`](../../libraries/screen-recording): **Records participants' screen**
+
+- [`virtual-chinrest`](../../libraries/virtual-chinrest): **Controls participants' viewing distance using a Virtual Chinrest**
 :::note[Reference]
-Li, Q., Joo, S. J., Yeatman, J. D., & Reinecke, K. (2020). Controlling for Participants’ Viewing Distance in Large-Scale, Psychophysical Online Experiments Using a Virtual Chinrest. Scientific Reports, 10(1), 1-11. doi: 10.1038/s41598-019-57204-1.
+Q. Li, S. J. Joo, J. D. Yeatman, and K. Reinecke, "Controlling for participants' viewing distance in large-scale, psychophysical online experiments using a virtual chinrest," _Scientific Reports_, vol. 10, no. 1, pp. 1–11, 2020, doi: 10.1038/s41598-019-57204-1.
 :::
 
 ### Questionnaires
 
-#### Visual Literacy
-
-- `vlat`: **VLAT: The Visualization Literacy Assessment Test**
-:::note[Reference]
-S. Lee, S.-H. Kim, and B. C. Kwon, "VLAT: Development of a Visualization Literacy Assessment Test," _IEEE Transactions on Visualization and Computer Graphics_, vol. 23, no. 1, pp. 551-560, Jan. 2017, doi: 10.1109/TVCG.2016.2598920.
-:::
-
-- `mini-vlat`: **Mini-VLAT: A shorter version of VLAT designed for efficient assessment of visualization literacy**
-:::note[Reference]
-S. Pandey and A. Ottley, "Mini‐VLAT: A Short and Effective Measure of Visualization Literacy," _Computer Graphics Forum_, vol. 42, no. 3, pp. 1–11, Jun. 2023, doi: 10.1111/cgf.14809.
-:::
-
-- `berlin-num`: **The Berlin Numeracy Test**
-:::note[Reference]
-E. T. Cokely, M. Galesic, E. Schulz, S. Ghazal, and R. Garcia-Retamero, "Measuring Risk Literacy: The Berlin Numeracy Test," _Judgment and Decision Making_, vol. 7, no. 1, pp. 25–47, Jan. 2012, doi: 10.1017/S1930297500001819.
-:::
-
-- `graph-literacy-scale`: **The Graph Literacy Scale**
-:::note[Reference]
-M. Galesic and R. Garcia-Retamero, "Graph literacy: A cross-cultural comparison," _Medical Decision Making_, vol. 31, no. 3, pp. 444–457, May–Jun. 2011, doi: 10.1177/0272989X10373805.
-:::
-
-- `calvi`: **CALVI: The Critical Thinking Assessment for Literacy in Visualizations**
-:::note[Reference]
-L. W. Ge, Y. Cui, and M. Kay, "CALVI: Critical Thinking Assessment for Literacy in Visualizations," in _Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI ’23)_, article no. 815 pp. 1–18, 2023, doi: 10.1145/3544548.3581406.
-:::
-
-- `adaptive-vlat`: **A-VLAT: A short, adaptive visualization literacy test**
-:::note[Reference]
-Y. Cui, L. W. Ge, Y. Ding, F. Yang, L. Harrison and M. Kay, "Adaptive Assessment of Visualization Literacy," _IEEE Transactions on Visualization and Computer Graphics_, vol. 30, no. 1, pp. 628-637, Jan. 2024, doi: 10.1109/TVCG.2023.3327165.
-:::
-
 #### Usability and User Workload
-- `nasa-tlx`: **NASA-TLX: The NASA Task Load Index (TLX) questionnaire for measuring perceived workload**
+
+- [`nasa-tlx`](../../libraries/nasa-tlx): **NASA-TLX: The NASA Task Load Index (TLX) questionnaire for measuring perceived workload**
 :::note[Reference]
-Hart, Sandra G., and Lowell E. Staveland. "Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research." Advances in psychology. Vol. 52. North-Holland, 1988. 139-183.
+S. G. Hart and L. E. Staveland, "Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research," in _Advances in Psychology_, vol. 52, Amsterdam, The Netherlands: North-Holland, 1988, pp. 139–183, doi: 10.1016/S0166-4115(08)62386-9.
 :::
 
-- `sus`: **SUS: The System Usability Scale**
+- [`quis`](../../libraries/quis): **QUIS: The Questionnaire for User Interaction Satisfaction**
 :::note[Reference]
-J. Brooke, "SUS: A ‘Quick and Dirty’ Usability Scale," Usability Evaluation In Industry, pp. 207–212, Jun. 1996, doi: 10.1201/9781498710411-35.
-:::
-
-- `quis`: **QUIS: The Questionnaire for User Interaction Satisfaction**
-:::note[Reference]
-J. P. Chin, V. A. Diehl, and K. L. Norman, "Development of an instrument measuring user satisfaction of the human-computer interface," in _Proceedings of the SIGCHI Conference on Human Factors in Computing Systems_, New York, NY, USA: Association for Computing Machinery, 1988, pp. 213–218.
+J. P. Chin, V. A. Diehl, and K. L. Norman, "Development of an instrument measuring user satisfaction of the human-computer interface," in _Proceedings of the SIGCHI Conference on Human Factors in Computing Systems_, New York, NY, USA: Association for Computing Machinery, 1988, pp. 213–218, doi: 10.1145/57167.57203.
 :::
 
 :::note[Reference]
@@ -169,25 +159,73 @@ J. P. Chin, K. L. Norman, and B. Shneiderman, "Subjective user evaluation of CF 
 B. D. Harper and K. L. Norman, "Improving user satisfaction: The Questionnaire for User Interaction Satisfaction Version 5.5," in _Proceedings of the First Annual Mid-Atlantic Human Factors Conference_, Virginia Beach, VA, USA, 1993, pp. 224–228.
 :::
 
-- `sam`: **SAM: The Self-Assessment Manikin for measuring the affective reaction**
+- [`sam`](../../libraries/sam): **SAM: The Self-Assessment Manikin for measuring the affective reaction**
 :::note[Reference]
 M. M. Bradley and P. J. Lang, "Measuring emotion: The Self-Assessment Manikin and the semantic differential," _Journal of Behavior Therapy and Experimental Psychiatry_, vol. 25, no. 1, pp. 49–59, 1994, doi: 10.1016/0005-7916(94)90063-9.
 :::
 
-- `smeq`: **SMEQ: The Subjective Mental Effort Questionnaire**
+- [`smeq`](../../libraries/smeq): **SMEQ: The Subjective Mental Effort Questionnaire**
 :::note[Reference]
-F. R. H. Zijlstra and L. Van Doorn, "The Construction of a Scale to Measure Perceived Effort," Delft University of Technology, 1985.
+F. R. H. Zijlstra and L. Van Doorn, "The construction of a scale to measure perceived effort," Delft University of Technology, Delft, The Netherlands, 1985.
+:::
+
+- [`sus`](../../libraries/sus): **SUS: The System Usability Scale**
+:::note[Reference]
+J. Brooke, "SUS: A 'quick and dirty' usability scale," in _Usability Evaluation in Industry_, P. W. Jordan et al., Eds. London, U.K.: Taylor & Francis, 1996, pp. 207–212, doi: 10.1201/9781498710411-35.
+:::
+
+- [`umux`](../../libraries/umux): **UMUX: The Usability Metric for User Experience**
+:::note[Reference]
+K. Finstad, "The usability metric for user experience," _Interacting with Computers_, vol. 22, no. 5, pp. 323–327, Sep. 2010, doi: 10.1016/j.intcom.2010.04.004.
+:::
+
+- [`umux-lite`](../../libraries/umux-lite): **UMUX-Lite: A shorter version of the Usability Metric for User Experience**
+:::note[Reference]
+J. R. Lewis, B. S. Utesch, and D. E. Maher, "UMUX-LITE: When there's no time for the SUS," in _Proceedings of the SIGCHI Conference on Human Factors in Computing Systems_, Paris, France, 2013, pp. 2099–2102, doi: 10.1145/2470654.2481287.
+:::
+
+#### Visual Literacy
+
+- [`adaptive-vlat`](../../libraries/adaptive-vlat): **A-VLAT: A short, adaptive visualization literacy test**
+:::note[Reference]
+Y. Cui, L. W. Ge, Y. Ding, F. Yang, L. Harrison, and M. Kay, "Adaptive assessment of visualization literacy," _IEEE Transactions on Visualization and Computer Graphics_, vol. 30, no. 1, pp. 628–637, Jan. 2024, doi: 10.1109/TVCG.2023.3327165.
+:::
+
+- [`berlin-num`](../../libraries/berlin-num): **The Berlin Numeracy Test**
+:::note[Reference]
+E. T. Cokely, M. Galesic, E. Schulz, S. Ghazal, and R. Garcia-Retamero, "Measuring risk literacy: The Berlin Numeracy Test," _Judgment and Decision Making_, vol. 7, no. 1, pp. 25–47, Jan. 2012, doi: 10.1017/S1930297500001819.
+:::
+
+- [`calvi`](../../libraries/calvi): **CALVI: The Critical Thinking Assessment for Literacy in Visualizations**
+:::note[Reference]
+L. W. Ge, Y. Cui, and M. Kay, "CALVI: Critical thinking assessment for literacy in visualizations," in _Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems_, Hamburg, Germany, 2023, Art. no. 815, pp. 1–18, doi: 10.1145/3544548.3581406.
+:::
+
+- [`graph-literacy-scale`](../../libraries/graph-literacy-scale): **The Graph Literacy Scale**
+:::note[Reference]
+M. Galesic and R. Garcia-Retamero, "Graph literacy: A cross-cultural comparison," _Medical Decision Making_, vol. 31, no. 3, pp. 444–457, May–Jun. 2011, doi: 10.1177/0272989X10373805.
+:::
+
+- [`mini-vlat`](../../libraries/mini-vlat): **Mini-VLAT: A shorter version of VLAT designed for efficient assessment of visualization literacy**
+:::note[Reference]
+S. Pandey and A. Ottley, "Mini-VLAT: A short and effective measure of visualization literacy," _Computer Graphics Forum_, vol. 42, no. 3, pp. 1–11, Jun. 2023, doi: 10.1111/cgf.14809.
+:::
+
+- [`vlat`](../../libraries/vlat): **VLAT: The Visualization Literacy Assessment Test**
+:::note[Reference]
+S. Lee, S.-H. Kim, and B. C. Kwon, "VLAT: Development of a visualization literacy assessment test," _IEEE Transactions on Visualization and Computer Graphics_, vol. 23, no. 1, pp. 551–560, Jan. 2017, doi: 10.1109/TVCG.2016.2598920.
 :::
 
 #### Visualization Quality Metrics
-- `beauvis`: **BeauVis: A scale for assessing the aesthetic pleasure of visualizations**
+
+- [`beauvis`](../../libraries/beauvis): **BeauVis: A scale for assessing the aesthetic pleasure of visualizations**
 :::note[Reference]
-T. He, P. Isenberg, R. Dachselt, and T. Isenberg, "BeauVis: A Validated Scale for Measuring the Aesthetic Pleasure of Visual Representations," _IEEE Transactions on Visualization and Computer Graphics_, pp. 1–11, 2022, doi: 10.1109/tvcg.2022.3209390.
+T. He, P. Isenberg, R. Dachselt, and T. Isenberg, "BeauVis: A validated scale for measuring the aesthetic pleasure of visual representations," _IEEE Transactions on Visualization and Computer Graphics_, pp. 1–11, 2022, doi: 10.1109/TVCG.2022.3209390.
 :::
 
-- `previs`: **PREVis: A questionnaire for evaluating the perceived readability of visualizations**
+- [`previs`](../../libraries/previs): **PREVis: A questionnaire for evaluating the perceived readability of visualizations**
 :::note[Reference]
-A.-F. Cabouat, T. He, P. Isenberg, and T. Isenberg, "PREVis: Perceived Readability Evaluation for Visualizations," _IEEE Transactions on Visualization and Computer Graphics_, vol. 31, no. 1, pp. 1083–1093, Jan. 2025, doi: 10.1109/tvcg.2024.3456318.
+A.-F. Cabouat, T. He, P. Isenberg, and T. Isenberg, "PREVis: Perceived readability evaluation for visualizations," _IEEE Transactions on Visualization and Computer Graphics_, vol. 31, no. 1, pp. 1083–1093, Jan. 2025, doi: 10.1109/TVCG.2024.3456318.
 :::
 
 <!-- Importing links -->
@@ -210,9 +248,11 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "SAM Demo", url: "https://revisit.dev/study/library-sam/"},
     {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
     {name: "SMEQ Demo", url: "https://revisit.dev/study/library-smeq/"},
-    {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"},
     {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
-    {name: "Virtual Chinrest Demo", url: "https://revisit.dev/study/library-virtual-chinrest/"}
+    {name: "UMUX Demo", url: "https://revisit.dev/study/library-umux/"},
+    {name: "UMUX Lite Demo", url: "https://revisit.dev/study/library-umux-lite/"},
+    {name: "Virtual Chinrest Demo", url: "https://revisit.dev/study/library-virtual-chinrest/"},
+    {name: "VLAT Demo", url: "https://revisit.dev/study/library-vlat/"}
   ]}
   codeLinks={[
     {name: "A-VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-adaptive-vlat/"},
@@ -231,8 +271,10 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
     {name: "SMEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq/"},
     {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
-    {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
-    {name: "Virtual Chinrest Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-virtual-chinrest"}
+    {name: "UMUX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-umux/"},
+    {name: "UMUX Lite Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-umux-lite/"},
+    {name: "Virtual Chinrest Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-virtual-chinrest"},
+    {name: "VLAT Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"}
   ]}
   referenceLinks={[
     {name: "A-VLAT Library", url:"../../libraries/adaptive-vlat/"},
@@ -252,7 +294,9 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
     {name: "SMEQ Library", url:"../../libraries/smeq/"},
     {name: "SUS Library", url:"../../libraries/sus/"},
-    {name: "VLAT Library", url:"../../libraries/vlat/"},
-    {name: "Virtual Chinrest Library", url:"../../libraries/virtual-chinrest"}
+    {name: "UMUX Library", url:"../../libraries/umux/"},
+    {name: "UMUX Lite Library", url:"../../libraries/umux-lite/"},
+    {name: "Virtual Chinrest Library", url:"../../libraries/virtual-chinrest"},
+    {name: "VLAT Library", url:"../../libraries/vlat/"}
   ]}
 />

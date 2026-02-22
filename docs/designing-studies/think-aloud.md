@@ -4,11 +4,7 @@ ReVISit has integrated audio recording and audio playback for conducting in-pers
 
 ## Turning on audio recording
 
-Turning on audio recording for your entire study can be done by setting the `recordAudio` flag at the top level of your config file.
-
-```ts
-"recordAudio": true
-```
+Turning on audio recording for your entire study can be done by setting the `recordAudio` flag at the top level of your config file. `"recordAudio": true`
 
 By default, this will record audio for every task in the study. However, we recommend only recording audio for tasks which you plan on later analyzing, and turning it off for tasks such as consent forms and introductions. Each component can turn off audio for that component by setting the `recordAudio` flag within the component to false, as shown below.
 
@@ -32,6 +28,12 @@ By default, this will record audio for every task in the study. However, we reco
 
 Audio is recorded via browser, and participants will receive a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the [`mic-check`](../libraries/mic-check.md) library, which requires participants to have a functioning microphone to continue the study. You can find more information in the [reVISit libraries](./plugin-libraries.md).
 
+## Click-to-record
+
+The `clickToRecord` option enables a click-and-hold microphone button instead of continuous recording. When enabled, audio is muted by default and is recorded only while the button is held. When disabled, recording starts immediately and can be paused or resumed via the microphone button. You can set `"clickToRecord": true` in `uiConfig` for the whole study or at the individual component level.
+
+![Click to record](./img/think-aloud/click-to-record.png)
+
 ## Downloading audio
 
 All audio data is stored in Firebase or Supabase storage. To listen to participants' audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis.
@@ -39,7 +41,7 @@ All audio data is stored in Firebase or Supabase storage. To listen to participa
 To download audio data after completing a study, navigate to [Participant View](../analysis/data-export.md) in analysis.
 
 :::note
-To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio` .
+To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio`.
 :::
 
 <!-- Importing links -->

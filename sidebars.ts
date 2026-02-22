@@ -45,6 +45,7 @@ const sidebars: SidebarsConfig = {
         'designing-studies/vega-stimulus',
         'designing-studies/answers-trainings',
         'designing-studies/study-sequences',
+        'designing-studies/url-conditions',
         'designing-studies/dynamic-blocks',
         'designing-studies/provenance-tracking',
         'designing-studies/think-aloud',
@@ -52,6 +53,7 @@ const sidebars: SidebarsConfig = {
         'designing-studies/applying-style',
         'designing-studies/device-restrictions',
         'designing-studies/plugin-libraries',
+        'designing-studies/parser-errors',
       ],
     },
     {
@@ -112,6 +114,7 @@ const sidebars: SidebarsConfig = {
         'analysis/trial-stats',
         'analysis/coding',
         'analysis/live-monitor',
+        'analysis/config',
         {
           type: 'category',
           label: 'Management',
