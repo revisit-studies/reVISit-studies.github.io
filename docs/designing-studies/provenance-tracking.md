@@ -49,7 +49,7 @@ const clickCallback = useCallback((barName: string) => {
         provenanceGraph: trrack.graph.backend,
         answers: {}, // You can set the answers here if you want to control it manually, otherwise leave empty.
     });
-}, [actions, setAnswer, taskid, trrack]);
+}, [actions, setAnswer, trrack]);
 ```
 
 For a full React example, see our [ClickAccuracyTest example](https://github.com/revisit-studies/study/blob/main/src/public/demo-click-accuracy-test/assets/ClickAccuracyTest.tsx).
