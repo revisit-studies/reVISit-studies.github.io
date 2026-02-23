@@ -5,22 +5,22 @@ authors:
   - team
 ---
 
-Scheduling one-on-one usability sessions is time-consuming, expensive, and hard to scale. With reVISit's **screen recording** and **think-aloud audio** features, you can run instrumented prototype studies asynchronously-- participants navigate your Figma prototype while their screen and voice are captured, and you can run multiple participants at once!
+Scheduling one-on-one usability sessions is time-consuming, expensive, and hard to scale. With reVISit's **screen recording** and **think-aloud audio** features, you can run instrumented prototype studies asynchronously — participants navigate your Figma prototype while their screen and voice are captured, and you can run multiple participants at once!
 
 <!-- truncate -->
 
 ## Why Test Figma Prototypes with reVISit?
 
-Usability testing can be difficult. You have to track people down, schedule a time for the session, and repeat for each user. Remote testing, e.g. via Zoom is possible, but still requires you to be online at the same time. 
+Usability testing can be difficult. You have to track people down, schedule a time for the session, and repeat for each user. Remote testing, e.g., via Zoom is possible, but still requires you to be online at the same time. 
 
-reVISit now offers an alternative through it's new screen recording and audio think-aloud features. Because Figma provides shareable embed URLs for interactive prototypes, you can drop one directly into a reVISit `website` component using iframes— little coding needed. Layering on `recordScreen: true` and `recordAudio: true` gives you:
+reVISit now offers an alternative through it's new screen recording and audio think-aloud features. Because Figma provides shareable embed URLs for interactive prototypes, you can drop one directly into a reVISit `website` component using iframes — with very little coding needed. Layering on `recordScreen: true` and `recordAudio: true` gives you:
 
 - **Screen recordings** of every participant's navigation path through the prototype
 - **Synchronized think-aloud audio** so you can hear their reasoning alongside what they see
 - **Structured questionnaires** before and after the prototype task — in the same study, same dataset
 - **Participant Replay** to watch recordings back with audio aligned on a single timeline
 
-The entire study is defined in a single JSON config, and all data lands in your reVISit Firebase or Supabase storage automatically.
+The entire study is defined in a single JSON config, and all data lands in your reVISit storage automatically.
 
 ## Step 1: Enable Screen Recording and Think-Aloud Audio
 
