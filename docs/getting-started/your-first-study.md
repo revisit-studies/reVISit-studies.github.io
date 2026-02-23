@@ -9,6 +9,8 @@ In this tutorial we will use the example of a simple survey. You will learn:
 
 :::note
 It is easiest to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
+
+While this tutorial uses JSON, you can also write your configuration in YAML format.
 :::
 
 ## Setting Up Repos and Files

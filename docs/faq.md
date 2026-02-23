@@ -8,6 +8,12 @@ If you have a question that is not answered by this page or the rest of the [doc
 
 A: If you're debugging your study by re-taking parts of the study over and over, you might get into an awkward state with the data that's stored. This doesn't happen when participants take the study, because they'll only take it once. You can click "Next Participant" in the study browser, and/or clear your browser cache and local storage to resolve this issue.
 
+### Q: Should I use JSON or YAML for my reVISit study configuration?
+
+A: Both JSON and YAML are fully supported for reVISit study configurations. JSON is recommended for most users, especially beginners, because it provides full schema validation support in IDEs like VSCode, giving you autocomplete and error detection.
+
+YAML is a good alternative if you prefer cleaner, more readable syntax and want to add comments to your configuration. However, YAML doesn't support the same level of IDE schema validation.
+
 ### Q: Is there a version of this application that I do not need to host myself?
 
 A: ReVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offers no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using GitHub Pages and Firebase or Supabase. Using these tools requires no domain name setup, no external server to host the application (unless self hosting Supabase), and no backend database to store your data; all of this can be achieved by using Firebase/Supabase and GitHub pages. Please see [Firebase Setup](../data-and-deployment/firebase/setup/) or [Supabase Setup](../data-and-deployment/supabase/setup/). See [here](../data-and-deployment/deploying-to-static-website) for deploying to GitHub pages.
