@@ -487,7 +487,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey"}
   ]}
   codeLinks={[
-    {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-survey"}
+    {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/"}
   ]}
   referenceLinks={[
     {name: "Answer", url: "../../typedoc/interfaces/Answer"},
