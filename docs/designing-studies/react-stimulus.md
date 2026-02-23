@@ -259,7 +259,6 @@ Below is a minimal config with two Stroop trials. Each trial passes `displayText
     "trial-red-blue": {
       "baseComponent": "trial",
       "parameters": {
-        "taskid": "stroopAnswer",
         "displayText": "RED",
         "textColor": "blue"
       }
@@ -267,7 +266,6 @@ Below is a minimal config with two Stroop trials. Each trial passes `displayText
     "trial-green-pink": {
       "baseComponent": "trial",
       "parameters": {
-        "taskid": "stroopAnswer",
         "displayText": "GREEN",
         "textColor": "pink"
       }

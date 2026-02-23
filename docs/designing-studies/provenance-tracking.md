@@ -47,9 +47,9 @@ const updateAnswer = useCallback((value: string) => {
   setAnswer({
     status: value.trim().length > 0,
     provenanceGraph: trrack.graph.backend,
-    answers: { [taskid]: value },
+    answers: { stroopAnswer: value },
   });
-}, [actions, setAnswer, taskid, trrack]);
+}, [actions, setAnswer, trrack]);
 
 ```
 
@@ -58,9 +58,11 @@ const updateAnswer = useCallback((value: string) => {
 During replay, reVISit passes `provenanceState` with the restored state. Sync it to your textbox so the input updates visibly when the user seeks through the timeline:
 
 ```ts
-useEffect(() => {
-  setResponseText(toCapped(provenanceState?.response ?? ''));
-}, [provenanceState?.response]);
+  useEffect(() => {
+    if (provenanceState) {
+      setResponseText(provenanceState.response);
+    }
+  }, [provenanceState]);
 ```
 
 ### Full component example
