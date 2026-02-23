@@ -62,11 +62,13 @@ Insert the permission step near the start of your study sequence:
 
 ## Step 2: Embed Your Figma Prototype
 
-In Figma, open your prototype, click **Share → Open embed code**, and copy the URL from the `src` attribute of the generated `<iframe>` tag. It will look something like:
+In Figma, open your prototype, click **Share → Open embed code** or **Publish**, and copy the URL from the `src` attribute of the generated `<iframe>` tag. It will look something like:
 
 ```
 https://embed.figma.com/proto/<FILE_ID>/<PROTOTYPE_NAME>?node-id=...&scaling=min-zoom&embed-host=share
 ```
+
+![The interface on Figma for publishing a prototype.](/img/blog_posts/figma-4.png)
 
 Paste that URL into a `website` component in your reVISit config:
 
@@ -87,7 +89,8 @@ Setting `recordAudio` and `recordScreen` on the component itself is optional whe
 
 ## Step 3: Guide Participants with Sidebar Instructions
 
-Without a moderator in the room, participants need clear on-screen prompts to stay in the think-aloud mindset. Add a `textOnly` response at `location: "sidebar"` to keep instructions visible throughout the entire task:
+Without a moderator in the room, it can be easy for participants to forget to think aloud or to drift into their working process. It can be useful to include an on screen prompt to remind them to stay on task
+Add a `textOnly` response at `location: "sidebar"` to keep instructions visible throughout the entire task:
 
 ```json
 "response": [
@@ -104,7 +107,7 @@ Sidebar content remains pinned while participants scroll or interact, so the ins
 
 ## Step 4: Collect Structured Post-Task Feedback
 
-Follow the prototype task with a `questionnaire` component. Setting `recordAudio: true` on it means participants can continue to narrate their thoughts while they fill out rating scales and open-ended questions — a useful signal for interpreting their written responses:
+Follow the prototype task with a `questionnaire` component. Setting `recordAudio: true` on it means participants can continue to narrate their thoughts while they fill out rating scales and open-ended questions — a useful signal for interpreting their written responses. Alternately, you might design a series of pages with one spoken question per page, which will automatically be segmented by reVISit's trial management architecture.
 
 ```json
 "postTaskQuestions": {
@@ -228,6 +231,6 @@ Here is a complete, ready-to-use config. The only change you need to make is swa
 }
 ```
 
-## Getting Started
+## Next Steps
 
 To learn more, check out the [Screen Recording setup guide](https://revisit.dev/docs/designing-studies/record-screen/) and the [Think-Aloud documentation](https://revisit.dev/docs/designing-studies/think-aloud/). If you have questions or want to share what you build, come find us in the [reVISit Slack](https://revisit.dev/contact/). We'd love to see what kinds of prototypes you put to the test.
