@@ -8,6 +8,8 @@ For most users, the best place to start is the template repository (first option
 
 Navigate to the [template repository](https://github.com/revisit-studies/template), and click the "Use this template" button. This will create a new repository in your GitHub account with the same files as the template repository, based on the latest stable release of reVISit.
 
+![Use this template button](./img/template-repo.png)
+
 :::info
 You can choose a name for the repository to suit your needs, but if you choose anything other than `study`, you also need to adjust the `VITE_BASE_PATH` in your [`.env` file](https://github.com/revisit-studies/study/blob/main/.env) to reflect that change.
 :::
@@ -30,6 +32,8 @@ Forking the repository is a more advanced option that allows you to have a copy 
 To fork, start by navigating to the following GitHub repository: https://github.com/revisit-studies/study
 
 You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. 
+
+![Fork button](./img/fork-repo.png)
 
 :::info
 GitHub only allows you to fork a repository once. If you have already forked the repository, you will need to clone the repository to your local machine, create a new repo on your account, and run `git remote set-url origin new.git.url/here` to allow you to have 2 versions of the repository in your account.
