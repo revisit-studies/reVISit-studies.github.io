@@ -83,6 +83,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'data-and-deployment/deploying-to-static-website',
+        'data-and-deployment/deploying-with-docker',
         'data-and-deployment/connecting-to-external-platform',
         'data-and-deployment/user-management',
         'data-and-deployment/lifecycle-of-revisit',
