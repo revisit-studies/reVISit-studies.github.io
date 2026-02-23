@@ -6,9 +6,9 @@ ReVISit has integrated provenance tracking with Trrack, a state-based provenance
 
 Building off the [Stroop color experiment](react-stimulus.md#example-2-stroop-color-experiment-with-reactive-response) from the React stimulus tutorial, we add provenance tracking to record each keystroke and enable replay.
 
-### 1. Define state and create Trrack
+### 1. Define state and create Trrack with `useMemo`
 
-Because Trrack is state-based, you must define a state for your tracked application. For the Stroop text input, the state is:
+Because Trrack is state-based, you must define a state for your tracked application. For the Stroop text input:
 
 ```ts
 interface StroopState {
@@ -16,43 +16,48 @@ interface StroopState {
 }
 ```
 
-Create a Trrack registry and an action that records response changes:
+Create the Trrack registry, action, and instance **once** using `useMemo` (empty deps). This ensures the instance is stable across renders:
 
 ```ts
-const reg = Registry.create();
-const setResponseAction = reg.register('setResponse', (state, nextResponse: string) => {
-  state.response = nextResponse;
-  return state;
-});
-
-const trrack = initializeTrrack({
-  registry: reg,
-  initialState: {
-    response: provenanceState?.response ?? '',
-  },
-});
+const { actions, trrack } = useMemo(() => {
+  const reg = Registry.create();
+  const setResponseAction = reg.register('setResponse', (state, nextResponse: string) => {
+    state.response = nextResponse;
+    return state;
+  });
+  const trrackInst = initializeTrrack({
+    registry: reg,
+    initialState: { response: '' },
+  });
+  return {
+    actions: { setResponseAction },
+    trrack: trrackInst,
+  };
+}, []);
 ```
 
 ### 2. Call the action and pass `provenanceGraph` to `setAnswer`
 
-When the user types, call the Trrack action and include `provenanceGraph` in `setAnswer` so reVISit stores the provenance:
+When the user types, call the Trrack action and include `provenanceGraph` in `setAnswer` so reVISit stores the provenance. Use a `useCallback` to keep the handler stable:
 
 ```ts
-onChange={(event) => {
-  const value = toCapped(event.currentTarget.value);
+const updateAnswer = useCallback((value: string) => {
   setResponseText(value);
-  trrack.apply('Set response', setResponseAction(value));
+  trrack.apply('Set response', actions.setResponseAction(value));
   setAnswer({
     status: value.trim().length > 0,
     provenanceGraph: trrack.graph.backend,
     answers: { [taskid]: value },
   });
-}}
+}, [actions, setAnswer, taskid, trrack]);
+
+// In your TextInput:
+onChange={(event) => updateAnswer(toCapped(event.currentTarget.value))}
 ```
 
 ### 3. Sync from `provenanceState` for replay
 
-During replay, reVISit passes `provenanceState` with the restored state. Sync it to your textbox so the input updates visibly:
+During replay, reVISit passes `provenanceState` with the restored state. Sync it to your textbox so the input updates visibly when the user seeks through the timeline:
 
 ```ts
 useEffect(() => {
@@ -105,6 +110,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "HTML Track Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"}
     ]}
     referenceLinks={[
-        {name: "Trrack", url: "https://apps.vdl.sci.utah.edu/trrack"}
+        {name: "Trrack", url: "https://apps.vdl.sci.utah.edu/trrack"},
+        {name: "React Stimulus", url: "react-stimulus"}
     ]}
 />
