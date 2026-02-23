@@ -6,7 +6,7 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 **Example 1** is a stimulus from the [graphical perception experiment](https://doi.org/10.1080/01621459.1984.10478080). This example will demonstrate how to pass data from the config file to the stimulus.
 
-**Example 2** is a stimulus for the click accuracy test. This example will demonstrate how to retrieve user answers from the React component.
+**Example 2** is a Stroop color experiment. This example will demonstrate how to retrieve user answers from the React component using the `reactive` response type.
 
 ## Example 1: Graphical Perception Experiment
 
@@ -152,142 +152,125 @@ The parameters are an object; you can change the format to suit your needs.
 
 ![Bar charts created with React component](img/react-stimulus-cleveland.png)
 
-## Example 2: Click Accuracy Experiment
-The click accuracy experiment requires participants to click on a moving dot on the screen. The dot will move inside a bounded box. The faster the dot moves, the more difficult it is for the participants to click on it.
+## Example 2: Stroop Color Experiment (with `reactive` response)
 
-In this example, the response from the user is no longer the traditional response type that can be reused from reVISit. Instead, you will use the `reactive` response type, which will receive the user's click data and send it to reVISit.
+When building experiments with React, we can allow users to interact with a component to answer questions. In this example, we will build a Stroop color test using a React component and a reactive response type.
+In the Stroop color test, you are required to identify the color of the word, not what the word says. For example, for the word RED printed in blue ink, you should type 'BLUE.' The text content and text color are passed from the config file through `parameters`.
 
-In this example, the React component will take `parameters` and `setAnswer` as props. The parameters work just like in Example 1; it will pass data from the config file to the React component.
-The `setAnswer` function is a built-in function that is used to pass the user's response to the reVISit framework.
+The component uses:
+- `parameters` for trial-specific values (`displayText`, `textColor`, `taskid`)
+- `setAnswer` to send typed responses to reVISit
+- a `reactive` response in config
 
-We will use 'demo-click-accuracy-test' as experiment name in this example. Start by creating the `demo-click-accuracy-test` directory in the `src/public` directory. Make sure to also add the `assets` directory within the `demo-click-accuracy-test` directory for the best organization.
-
-Now, create a new file called `ClickAccuracyTest.tsx` with the following contents:
+We will use `demo-react-trrack` as the experiment name. Create the React stimulus file in `src/public/demo-react-trrack/assets/`.
 
 ```ts
-import * as d3 from 'd3';
-import {
-  useCallback, useEffect, useState,
-} from 'react';
-import { Box, Slider } from '@mantine/core';
-import { useChartDimensions } from '../../example-cleveland/assets/hooks/useChartDimensions';
+import { useState } from 'react';
+import { Box, Center, Stack, Text, TextInput } from '@mantine/core';
 import { StimulusParams } from '../../../store/types';
 
-const chartSettings = {
-  marginBottom: 40,
-  marginLeft: 40,
-  marginTop: 15,
-  marginRight: 15,
-  height: 650,
-  width: 850,
-};
-
-interface ClickAccuracyTest {
-  distance: number;
-  speed: number;
-  clickX: number;
-  clickY: number;
+// Trial parameters from config: displayText and textColor
+interface StroopTrialParams {
+  displayText?: string;
+  textColor?: string;
 }
 
+// Normalize input to uppercase for consistent answers
+const toCapped = (value: string) => value.toUpperCase();
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function ClickAccuracyTest({ parameters, setAnswer }: StimulusParams<any>) {
-  // useChartDimensions is a custom hook to create a chart with D3.js in React, you can find it in src/public/example-cleveland/assets/hooks/useChartDimensions.ts
-  const [ref, dms] = useChartDimensions(chartSettings);
-  const [x, setX] = useState(100);
-  const [y, setY] = useState(100);
-  const [speed, setSpeed] = useState(300);
+function StroopColorTask({ parameters, setAnswer }: StimulusParams<any>) {
   const { taskid } = parameters;
+  const { displayText = '', textColor = 'black' } = parameters as StroopTrialParams;
 
-  const clickCallback = useCallback((e: React.MouseEvent) => {
-    const circle = d3.select('#movingCircle');
-    const svg = d3.select('#clickAccuracySvg');
-    const pointer = d3.pointer(e, svg.node());
-    const circlePos = [+circle.attr('cx'), +circle.attr('cy')];
-    const distance = `${Math.round(Math.sqrt((pointer[0] - circlePos[0]) ** 2 + (pointer[1] - circlePos[1]) ** 2))}px`;
-    // This will record the distance between the click location and the center of the dot, passing answer to reVISit.
-    setAnswer({
-      status: true,
-      answers: {
-        [taskid]: distance,
-      },
-    });
-  }, [setAnswer, taskid]);
-
-  // Making the moving dot
-  useEffect(() => {
-    const nxtX = Math.random() * 800;
-    const nxtY = Math.random() * 600;
-    const distance = Math.sqrt((nxtX - x) ** 2 + (nxtY - y) ** 2);
-    const time = (distance / speed) * 1000;
-    const svgElement = d3.select(ref.current);
-    svgElement.select('circle')
-      .transition()
-      .duration(time)
-      .ease(d3.easeLinear)
-      .attr('cx', nxtX)
-      .attr('cy', nxtY)
-      .on('end', () => {
-        setX(nxtX);
-        setY(nxtY);
-      });
-  }, [ref, speed, x, y]);
+  const [responseText, setResponseText] = useState('');
 
   return (
-    <>
-      <div className="Chart__wrapper" ref={ref} onClick={clickCallback} style={{ height: '650px' }}>
-        <svg id="clickAccuracySvg" width={dms.width} height={dms.height}>
-          <g
-            transform={`translate(${[dms.marginLeft / 2, dms.marginTop / 2].join(
-              ',',
-            )})`}
-          >
-            <rect width="800" height="600" stroke="black" strokeWidth="5" fill="none" />
-            <circle id="movingCircle" cx="100" cy="100" r="10" />
+    <Stack gap="xl" style={{ maxWidth: 520, margin: '0 auto' }}>
+      {/* Display the Stroop word in the configured color */}
+      <Center>
+        <Box>
+          <Text fw={700} size="2rem" style={{ color: textColor }}>
+            {displayText}
+          </Text>
+        </Box>
+      </Center>
 
-          </g>
-        </svg>
-      </div>
-      <Box>
-        Adjust speed (px/s):
-        <Slider w={800} min={10} max={1000} value={speed} onChange={setSpeed} />
-
-      </Box>
-    </>
-
+      {/* Text input for participant's color response */}
+      <Center>
+        <TextInput
+          value={responseText}
+          onChange={(event) => {
+            const value = toCapped(event.currentTarget.value);
+            setResponseText(value);
+            setAnswer({
+              status: value.trim().length > 0,
+              answers: { [taskid]: value },
+            });
+          }}
+        />
+      </Center>
+    </Stack>
   );
 }
 
-export default ClickAccuracyTest;
+export default StroopColorTask;
 ```
 
-In the config file, we pass the `taskid` and speed as parameters. Notice the response type for the trial is `'reactive'`.
+Below is a minimal config with two Stroop trials. Each trial passes `displayText` (the word shown) and `textColor` (the color of the text) via `parameters`. The `reactive` response type receives the typed answer from the component.
 
 ```json
-"trial": {
-  "description": "try to click on the center of the moving dot",
-  "instruction": "Click on the moving dot",
-  "type": "react-component",
-  "path": "demo-click-accuracy-test/assets/ClickAccuracyTest.tsx",
-  "parameters": {
-    "speed": 100,
-    "taskid": "accuracy"
-  },
-  "nextButtonLocation": "sidebar",
-  "response": [
-    {
-      "id": "accuracy",
-      "prompt": "Your click distance to circle center",
-      "required": true,
-      "location": "sidebar",
-      "type": "reactive"
+{
+  "baseComponents": {
+    "trial": {
+      "description": "identify the text color in a Stroop trial",
+      "instruction": "In this experiment you are required to say the color of the word, not what the word says. For example, for the word, RED, you should say \"Blue.\"",
+      "type": "react-component",
+      "path": "demo-react-trrack/assets/DemoReactTrrack.tsx",
+      "nextButtonLocation": "sidebar",
+      "response": [
+        {
+          "id": "stroopAnswer",
+          "prompt": "Your typed Stroop color response",
+          "location": "sidebar",
+          "type": "reactive"
+        }
+      ]
     }
-  ]
+  },
+  "components": {
+    "trial-red-blue": {
+      "baseComponent": "trial",
+      "parameters": {
+        "taskid": "stroopAnswer",
+        "displayText": "RED",
+        "textColor": "blue"
+      }
+    },
+    "trial-green-pink": {
+      "baseComponent": "trial",
+      "parameters": {
+        "taskid": "stroopAnswer",
+        "displayText": "GREEN",
+        "textColor": "pink"
+      }
+    }
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": ["trial-red-blue", "trial-green-pink"]
+  }
 }
 ```
 
-At this point, the click accuracy test will be running and be able to collect participant's data.
+### Adding provenance tracking
 
-![Click accuracy test](img/react-stimulus-click.png)
+To record user interactions and enable replay, you can add provenance tracking with Trrack. This involves:
+- Creating a Trrack registry and actions for state changes
+- Passing `provenanceGraph` in `setAnswer` so reVISit stores the provenance
+- Using `provenanceState` to restore the textbox during replay
+
+For a full walkthrough, see the [Provenance Tracking](provenance-tracking.md) tutorial.
 
 <!-- As an additional We have three assignments for you.
 1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
@@ -300,15 +283,16 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 <StructuredLinks
   demoLinks={[
     {name: "Graphical Perception Demo", url: "https://revisit.dev/study/example-cleveland/"},
-    {name: "Click Accuracy Demo", url: "https://revisit.dev/study/demo-click-accuracy-test/"}
+    {name: "React Stroop Demo", url: "https://revisit.dev/study/demo-react-trrack/"}
   ]}
   codeLinks={[
     {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
-    {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
+    {name: "React Stroop Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-react-trrack"}
   ]}
   referenceLinks={[
     {name: "React", url: "https://react.dev/"},
     {name: "ReactComponent", url: "../../typedoc/interfaces/ReactComponent"},
-    {name: "ReactiveResponse", url: "../../typedoc/interfaces/ReactiveResponse"}
+    {name: "ReactiveResponse", url: "../../typedoc/interfaces/ReactiveResponse"},
+    {name: "Provenance Tracking", url: "provenance-tracking"}
   ]}
 />
