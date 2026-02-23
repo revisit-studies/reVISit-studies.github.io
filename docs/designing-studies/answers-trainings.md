@@ -62,6 +62,7 @@ The above screenshot shows an example for when the response was incorrect.
 Optionally, you can specify that trainings have to be successfully completed with the `allowFailedTraining` flag. You can specify the number of attempts with the `trainingAttempts` field. When failing is not allowed and the participant exceeds the number of failed attempts, **the study will terminate**.
 
 ![Training failed](img/training-failed.png)
+If a user fails the training and `allowFailedTraining` is set to `false`, they’ll automatically be marked as rejected. After a 5-second delay, they’ll be taken to a "Training Failed" page that informs them that they didn’t meet the training requirements and cannot continue with the study.
 
 ## Navigation Buttons
 
@@ -181,3 +182,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Answer", url: "../../typedoc/interfaces/Answer"}
   ]}
 />
+
+:::warning
+**You should only use the previous button with simple stimuli, like form elements, images, markdown, etc.** If you have interactive components, use provenance tracking, use screen capture or audio capture, going back to a previous state will result in undesired behavior: all states, video, audio, will be overwritten. 
+:::

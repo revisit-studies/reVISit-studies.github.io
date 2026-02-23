@@ -29,6 +29,12 @@ Tidy data format is a structured approach to organizing tabular data where each 
 You may check more details [here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
 :::
 
+:::note
+If your study includes [audio recording](../../designing-studies/think-aloud), you can optionally include a transcript column in your tidy CSV export. This column contains the transcribed text from each trial, making it easy to analyze what participants said alongside their responses. You must be using Firebase as your storage engine.
+
+Downloading transcripts for large datasets can take significant time. If you're downloading data for **50 or more participants** with transcripts, you'll see a warning about potential delays. The system fetches transcripts with concurrency limits to avoid overwhelming the browser.
+:::
+
 ## Example Workflow in R
 
 ### 1. Install Necessary Packages

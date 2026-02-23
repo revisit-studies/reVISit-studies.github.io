@@ -19,7 +19,13 @@ A component is typically defined in the spec, with the text, code, or image incl
 
 # The reVISit Spec
 
-The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define the details of your experiment as a JSON (or YAML) file. The reVISit Spec has five top-level concepts:
+The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define the details of your experiment as a configuration file. This configuration file can be written in either **JSON** or **YAML** format—both are fully supported and work identically.
+
+:::note
+JSON is recommended for most users because it provides schema validation support in IDEs like VSCode, giving you autocomplete and error detection. YAML is an alternative that offers cleaner syntax and comment support but has limited IDE validation.
+:::
+
+The reVISit Spec has five top-level concepts:
 
 - **Study Metadata** — specifying things like the name of the study, authors, contact e-mails
 - **UI Config** — parameterizing the appearance of reVISit
@@ -93,6 +99,7 @@ The sequence object of the study configuration defines (a) the order participant
 - **Sampling:** `numSamples` draws a given number of items from a block. `numSamples` can be used in combination with each ordering strategy (while preserving ordering guarantees)
 - **Interruptions** can be used to insert breaks and attention checks into a block
 - **Skips** can be used to control flow based on the response to a question or a component block
+- **Study Conditions** can be used to run different versions of your study using URL parameters
 
 All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order.
 
