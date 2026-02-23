@@ -8,6 +8,12 @@ If you have a question that is not answered by this page or the rest of the [doc
 
 A: If you're debugging your study by re-taking parts of the study over and over, you might get into an awkward state with the data that's stored. This doesn't happen when participants take the study, because they'll only take it once. You can click "Next Participant" in the study browser, and/or clear your browser cache and local storage to resolve this issue.
 
+### Q: Should I use JSON or YAML for my reVISit study configuration?
+
+A: Both JSON and YAML are fully supported for reVISit study configurations. JSON is recommended for most users, especially beginners, because it provides full schema validation support in IDEs like VSCode, giving you autocomplete and error detection.
+
+YAML is a good alternative if you prefer cleaner, more readable syntax and want to add comments to your configuration. However, YAML doesn't support the same level of IDE schema validation.
+
 ### Q: Is there a version of this application that I do not need to host myself?
 
 A: ReVISit is designed so that the study creators have full control over the data collected from their study. While the reVISit team (currently) offers no hosting platform, we designed the reVISit repository to make hosting the application yourself as simple as possible using GitHub Pages and Firebase or Supabase. Using these tools requires no domain name setup, no external server to host the application (unless self hosting Supabase), and no backend database to store your data; all of this can be achieved by using Firebase/Supabase and GitHub pages. Please see [Firebase Setup](../data-and-deployment/firebase/setup/) or [Supabase Setup](../data-and-deployment/supabase/setup/). See [here](../data-and-deployment/deploying-to-static-website) for deploying to GitHub pages.
@@ -23,11 +29,11 @@ A: There are a few ways you could handle that:
 
 ### Q: I already have a website where I'd like to host reVISit. How can I use reVISit in an already existing website?
 
-A: ReVISit is designed to be a single page web application. If you run `yarn build` inside your forked repository, the bundler will generate a `dist` directory containing all the necessary code for a static deployment. In this directory is the `index.html` file which is the entry point for the application — no additional setup is necessary. For example, if you are using <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html" target="_blank">AWS S3 static website hosting</a>, you can upload the `dist` directory to the S3 bucket and then use this `index.html` file as the entry point when prompted. Please note that you will still need to set up a storage engine (e.g., Firebase or Supabase) to store the data collected from your study and update the `.env` file accordingly.
+A: ReVISit is designed to be a single page web application. If you run `yarn build` inside your forked repository, the bundler will generate a `dist` directory containing all the necessary code for a static deployment. In this directory is the `index.html` file which is the entry point for the application — no additional setup is necessary. For example, if you are using [AWS S3 static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html), you can upload the `dist` directory to the S3 bucket and then use this `index.html` file as the entry point when prompted. Please note that you will still need to set up a storage engine (e.g., Firebase or Supabase) to store the data collected from your study and update the `.env` file accordingly.
 
 ### Q: I have to store my data in a specific country / region. How do I do this with Firebase?
 
-A: Firebase lets you choose the region for both Firestore and Storage. Please see <a href="https://firebase.google.com/docs/firestore/locations" target="_blank">here</a> for documentation on how to choose these regions for both the Real Time Database and Cloud Firestore/Cloud Storage.
+A: Firebase lets you choose the region for both Firestore and Storage. Please see [here](https://firebase.google.com/docs/firestore/locations) for documentation on how to choose these regions for both the Real Time Database and Cloud Firestore/Cloud Storage.
 
 ### Q: I don't want to use Firebase, what other options do I have?
 
@@ -35,7 +41,7 @@ A: We also support an open, self-hosted alternative to Firebase called Supabase.
 
 ### Q: How do I store data in some other database?
 
-A: In short: we don't support other databases. However, reVISit is designed with "storage engines" in mind. By default, we use the local storage engine (data being stored directly on the user's computer) for development or for in-lab studies and the firebase storage engine for production builds. However, we do have plans to create additional storage engines for cases where a study creator has a backend server hooked up to a database (such as MySQL). In the meantime, you can view the <a href="https://github.com/revisit-studies/study/tree/main/src/storage/engines" target="_blank">source code</a> to design your own storage engine that best fits your needs. If you make a storage engine to suit your own needs, please consider making a pull request so that we can improve reVISit for all users.
+A: In short: we don't support other databases. However, reVISit is designed with "storage engines" in mind. By default, we use the local storage engine (data being stored directly on the user's computer) for development or for in-lab studies and the firebase storage engine for production builds. However, we do have plans to create additional storage engines for cases where a study creator has a backend server hooked up to a database (such as MySQL). In the meantime, you can view the [source code](https://github.com/revisit-studies/study/tree/main/src/storage/engines) to design your own storage engine that best fits your needs. If you make a storage engine to suit your own needs, please consider making a [pull request](https://github.com/revisit-studies/study/pulls) so that we can improve reVISit for all users.
 
 ### Q: I had Firebase connected but it no longer works locally. What happened?
 
@@ -53,10 +59,12 @@ A: We report the total time it took a participant to complete a task as duration
 
 A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. If an error happens during setup, reVISit will show a warning message, fallback to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud, with a prompt to contact the study administrator.
 
+![Storage disconnected](./img/faq/storage-disconnected.png)
+
 ### Q: How can I ensure balanced numbers of participants between conditions in my study design?
 
 A: There are several strategies to ensure balanced participant numbers between conditions in your study design using reVISit:
-1. **Latin Square Design**: As described in the [Study Sequences documentation](../designing-studies/study-sequences/#latin-square), you can use Latin square sequences to systematically vary the order of conditions across participants. This helps ensure that each condition appears in each position equally often. However, be aware that if participants drop out or are rejected, this can affect the balance (see the documentation of latin squares for more details).
+1. **Latin Square Design**: As described in the [Study Sequences documentation](../designing-studies/study-sequences/#latin-square), you can use Latin square sequences to systematically vary the order of conditions across participants. This helps ensure that each condition appears in each position equally often. However, be aware that if participants drop out or are rejected, this can affect the balance (see the documentation of [latin squares](../designing-studies/study-sequences/#latin-square) for more details).
 2. **Random Assignments**: If you are recruiting a large number of participants, random assignment to conditions can help achieve balance over time. While this method may not guarantee perfect balance at any given moment, it tends to even out as more participants are added. This is a viable option when strict balancing is less critical.
-3. **Setting up Separate Studies**: When precise control is needed, consider setting up separate studies for each condition. This allows you to monitor and control the number of participants in each condition directly. However, this comes at the cost of increased administrative overhead (e.g., separate recruitment links, separate datasets, separate specifications)
-4. **Assigning participants via URL parameters (Upcoming Feature)**: We are working on a feature that will allow you to assign participants to specific conditions via URL parameters. This will enable you to create custom recruitment links for each condition, making it easier to control participant distribution. Stay tuned for updates on this feature!
+3. **Setting up Separate Studies**: When precise control is needed, consider setting up separate studies for each condition. This allows you to monitor and control the number of participants in each condition directly. However, this comes at the cost of increased administrative overhead (e.g., separate recruitment links, separate datasets, separate specifications).
+4. **Assigning participants via URL parameters**: You can assign participants to specific conditions via URL parameters using [study conditions](../designing-studies/study-sequences/#study-condition). This enables you to create custom recruitment links for each condition, making it easier to control participant distribution.

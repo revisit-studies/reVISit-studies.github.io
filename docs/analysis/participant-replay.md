@@ -10,6 +10,11 @@ To view the provenance or audio replay for a single participant, click the expan
 
 Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study.
 
+:::note
+If a participant hasn't completed any tasks yet, you'll see a warning message indicating that no task data is available for replay. This typically happens when a participant is still in progress or dropped out before submitting any responses.
+![Incomplete task](./img/participant-replay/participant-replay-incomplete.png)
+:::
+
 If you’d like to link to a specific timestamp in the replay, you can use the `&t` query parameter in your URL.
 For example, this link will jump to 40 seconds in the replay: https://revisit.dev/study/example-brush-interactions/LzE2MTl4ZVRMTk5nSFlNYmd1ZDhjZz09?participantId=e4377e49-0f35-461a-bd9c-c31523599db7&t=40s
 
