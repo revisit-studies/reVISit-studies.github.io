@@ -32,17 +32,17 @@ In this example, the `dynamicBlock` component is a dynamic block that uses the f
 The function in `src/public/study-name/dynamic.ts` uses the following types provided by reVISit:
 
 ```ts
-export default function dynamicFunction({ components, answers, sequenceSoFar, customParameters } : JumpFunctionParameters<T>): JumpFunctionReturnVal
+export default function dynamicFunction({ answers, customParameters, currentStep, currentBlock } : JumpFunctionParameters<T>): JumpFunctionReturnVal
 ```
 
 Where `JumpFunctionParameters` is defined as:
 
 ```ts
 export interface JumpFunctionParameters<T> {
-  components: (string | ComponentBlock)[],
   answers: ParticipantData['answers'],
-  sequenceSoFar: string[],
-  customParameters: T
+  customParameters: T,
+  currentStep: number,
+  currentBlock: string,
 }
 ```
 
@@ -56,7 +56,7 @@ export interface JumpFunctionReturnVal {
 }
 ```
 
-The `components` field is an array of all the components in the study. The `answers` field is an object that contains the participant's answers to all the questions so far. The `sequenceSoFar` field is an array of the ids of the components that have been shown so far. The `customParameters` field is an object that contains any parameters passed to the function from the study configuration file.
+The `answers` field is an object that contains the participant's answers to all the questions so far. The `customParameters` field is an object that contains any parameters passed to the function from the study configuration file. The `currentStep` field is the current step index in the flattened sequence, and `currentBlock` is the id/path prefix for the active dynamic block.
 
 The function should return an object with the following fields:
 
