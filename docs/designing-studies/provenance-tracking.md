@@ -51,8 +51,6 @@ const updateAnswer = useCallback((value: string) => {
   });
 }, [actions, setAnswer, taskid, trrack]);
 
-// In your TextInput:
-onChange={(event) => updateAnswer(toCapped(event.currentTarget.value))}
 ```
 
 ### 3. Sync from `provenanceState` for replay

@@ -176,17 +176,19 @@ The component uses:
 We will use `demo-react-trrack` as the experiment name. Create the React stimulus file in `src/public/demo-react-trrack/assets/`.
 
 ```ts
-import { useState } from 'react';
-import { Box, Center, Stack, Text, TextInput } from '@mantine/core';
+import { useCallback, useState } from 'react';
+import {
+  Box, Center, Stack, Text, TextInput,
+} from '@mantine/core';
 import { StimulusParams } from '../../../store/types';
 
-// Trial parameters from config: displayText and textColor
+/** Trial parameters from config: displayText and textColor */
 interface StroopTrialParams {
   displayText?: string;
   textColor?: string;
 }
 
-// Normalize input to uppercase for consistent answers
+/** Normalize input to uppercase for consistent answers */
 const toCapped = (value: string) => value.toUpperCase();
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -195,6 +197,15 @@ function StroopColorTask({ parameters, setAnswer }: StimulusParams<any>) {
   const { displayText = '', textColor = 'black' } = parameters as StroopTrialParams;
 
   const [responseText, setResponseText] = useState('');
+
+  // Update local state and pass to reVISit
+  const updateAnswer = useCallback((value: string) => {
+    setResponseText(value);
+    setAnswer({
+      status: value.trim().length > 0,
+      answers: { [taskid]: value },
+    });
+  }, [setAnswer, taskid]);
 
   return (
     <Stack gap="xl" style={{ maxWidth: 520, margin: '0 auto' }}>
@@ -206,18 +217,13 @@ function StroopColorTask({ parameters, setAnswer }: StimulusParams<any>) {
           </Text>
         </Box>
       </Center>
-
       {/* Text input for participant's color response */}
       <Center>
         <TextInput
           value={responseText}
           onChange={(event) => {
             const value = toCapped(event.currentTarget.value);
-            setResponseText(value);
-            setAnswer({
-              status: value.trim().length > 0,
-              answers: { [taskid]: value },
-            });
+            updateAnswer(value);
           }}
         />
       </Center>
