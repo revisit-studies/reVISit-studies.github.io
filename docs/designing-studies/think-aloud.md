@@ -5,7 +5,6 @@ ReVISit has integrated audio recording and audio playback for conducting in-pers
 ## Turning on audio recording
 
 Turning on audio recording for your entire study can be done by setting the `recordAudio` flag in the `uiConfig` section of your config file.
-
 ```json
 {
   "uiConfig": {
