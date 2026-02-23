@@ -1,7 +1,6 @@
 # Data Recovery
 
-AL: Add a bit more intro. What's the point of this. 
-Sometimes you want to back this up manually, or restore a deleted file, or see the history of changes to a file. This page describes how to do that with Firebase.
+ReVISit stores study and participant data in Firebase, which is backed by Google Cloud services. Over time, you may need to restore an accidentally deleted file, or review the history of changes to a stored object. This page describes how to recover data and view history of changes to a file using Firebase and Google Cloud Storage.
 
 :::warning
 By default, Object Versioning is disabled for Firebase storage buckets. Without it, there is still a  **one-week soft delete recovery window** in which data can be restored.
