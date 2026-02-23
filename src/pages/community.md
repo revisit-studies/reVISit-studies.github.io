@@ -30,10 +30,11 @@ Running into a bug? Or want to write an extension? Use the [GitHub issue tracker
 
 ## Submit Your ReVISit Study
 
-If you've used reVISit for your visualization research, we'd love to see it! Fill out [this Google form](https://forms.gle/CE82n3V1bcmZ4ahY9) and you'll be added to our [testimonials page](../testimonials).
+If you've used reVISit for your visualization research, we'd love to see it! Fill out [this Google form](https://forms.gle/CE82n3V1bcmZ4ahY9) and you'll be added to our [adoption page](../adoption).
 
 ## Community Activities
 
+- Open Hackathon at University of Utah, February 2026
 - Open Hackathon at TU Graz, Austria, November 2025
 - Tutorial at IEEE VIS 2025, Vienna, November 2025
 - Tutorial at EuroVis 2025, Luxembourg, June 2025

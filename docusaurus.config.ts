@@ -57,8 +57,8 @@ const config: Config = {
       id: 'support_us',
       content:
         'We released a new version of reVISit! <a href="/blog/2025/10/27/release-2.3/">Read all about reVISit v2.3!</a> &#127881; ',
-      backgroundColor: '#fafbfc',
-      textColor: '#091E42',
+      backgroundColor: '#f05a30',
+      textColor: '#ffffff',
       isCloseable: true,
     },
     algolia: {
@@ -104,9 +104,7 @@ const config: Config = {
         src: 'img/logos/revisitLogoThumbnail-dotted-light.svg',
         srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
-      items: [
-        { to: '/community', label: 'Community', position: 'left' },
-
+      items: [    
         {
           type: 'docSidebar',
           sidebarId: 'docs',
@@ -119,11 +117,12 @@ const config: Config = {
           position: 'left',
           label: 'Reference',
         },
-        { to: 'blog', label: 'Blog', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/community', label: 'Community', position: 'left' },
         {
-          to: '/testimonials',
-          label: 'Testimonials',
+          to: '/adoption',
+          label: 'Adoption',
           position: 'left',
         },
         {
@@ -138,6 +137,11 @@ const config: Config = {
         {
           href: 'https://revisit.dev/study',
           label: 'Demo',
+          position: 'right',
+        },
+        {
+          href: 'https://revisit.dev/replication-studies/',
+          label: 'Examples',
           position: 'right',
         },
       ],
