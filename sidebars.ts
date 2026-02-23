@@ -44,9 +44,15 @@ const sidebars: SidebarsConfig = {
         'designing-studies/react-stimulus',
         'designing-studies/vega-stimulus',
         'designing-studies/answers-trainings',
-        'designing-studies/study-sequences',
-        'designing-studies/url-conditions',
-        'designing-studies/dynamic-blocks',
+        {
+          type: 'category',
+          label: 'Sequences',
+          items: [
+            'designing-studies/sequences/study-sequences',
+            'designing-studies/sequences/dynamic-blocks',
+            'designing-studies/sequences/url-conditions',
+          ],
+        },
         'designing-studies/provenance-tracking',
         'designing-studies/think-aloud',
         'designing-studies/record-screen',
