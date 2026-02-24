@@ -42,11 +42,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           lastVersion: "current",
           versions: {
-<<<<<<< Updated upstream
-            current: { label: 'v2.4.0', path: '' },
-=======
-            current: { label: "v2.3.2", path: "" },
->>>>>>> Stashed changes
+            current: { label: "v2.4.0", path: "" },
           },
         },
 
@@ -66,13 +62,8 @@ const config: Config = {
       id: "support_us",
       content:
         'We released a new version of reVISit! <a href="/blog/2025/10/27/release-2.3/">Read all about reVISit v2.3!</a> &#127881; ',
-<<<<<<< Updated upstream
-      backgroundColor: '#f05a30',
-      textColor: '#ffffff',
-=======
-      backgroundColor: "#fafbfc",
-      textColor: "#091E42",
->>>>>>> Stashed changes
+      backgroundColor: "#f05a30",
+      textColor: "#ffffff",
       isCloseable: true,
     },
     algolia: {
@@ -118,13 +109,7 @@ const config: Config = {
         src: "img/logos/revisitLogoThumbnail-dotted-light.svg",
         srcDark: "img/logos/revisitLogoThumbnail-dotted-dark.svg",
       },
-<<<<<<< Updated upstream
-      items: [    
-=======
       items: [
-        { to: "/community", label: "Community", position: "left" },
-
->>>>>>> Stashed changes
         {
           type: "docSidebar",
           sidebarId: "docs",
@@ -137,22 +122,13 @@ const config: Config = {
           position: "left",
           label: "Reference",
         },
-<<<<<<< Updated upstream
-        { to: '/about', label: 'About', position: 'left' },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/community', label: 'Community', position: 'left' },
-        {
-          to: '/adoption',
-          label: 'Adoption',
-          position: 'left',
-=======
-        { to: "blog", label: "Blog", position: "left" },
         { to: "/about", label: "About", position: "left" },
+        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/community", label: "Community", position: "left" },
         {
-          to: "/testimonials",
-          label: "Testimonials",
+          to: "/adoption",
+          label: "Adoption",
           position: "left",
->>>>>>> Stashed changes
         },
         {
           type: "docsVersionDropdown",
@@ -169,9 +145,9 @@ const config: Config = {
           position: "right",
         },
         {
-          href: 'https://revisit.dev/replication-studies/',
-          label: 'Examples',
-          position: 'right',
+          href: "https://revisit.dev/replication-studies/",
+          label: "Examples",
+          position: "right",
         },
       ],
     },
