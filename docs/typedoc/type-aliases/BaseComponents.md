@@ -2,7 +2,7 @@
 
 > **BaseComponents** = `Record`\<`string`, `Partial`\<[`IndividualComponent`](IndividualComponent.md)\>\>
 
-Defined in: [parser/types.ts:1584](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1584)
+Defined in: [parser/types.ts:1704](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1704)
 
 The baseComponents is an optional set of components which can help template other components. For example, suppose you have a single HTML file that you want to display to the user several times. Instead of having the same component twice in the `components` list, you can have a single baseComponent with all the information that the two HTML components will share. A great example is showing the same HTML component but with two different questions;
 
