@@ -1,6 +1,6 @@
 # RandomInterruption
 
-Defined in: [parser/types.ts:1216](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1216)
+Defined in: [parser/types.ts:1332](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1332)
 
 The RandomInterruption interface is used to define an interruption that will be shown randomly in the block.
 
@@ -49,6 +49,6 @@ The resulting sequence array could be:
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="components"></a> `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. | [parser/types.ts:1222](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1222) |
-| <a id="numinterruptions"></a> `numInterruptions` | `number` | The number of times the interruption will be randomly added | [parser/types.ts:1220](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1220) |
-| <a id="spacing"></a> `spacing` | `"random"` | If spacing is set to random, reVISit will add interruptions randomly. These interruptions will not ever be displayed as the first component in the block. | [parser/types.ts:1218](https://github.com/revisit-studies/study/blob/4a2d066376abc40f420535b2f018065ea046908c/src/parser/types.ts#L1218) |
+| <a id="components"></a> `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. | [parser/types.ts:1338](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1338) |
+| <a id="numinterruptions"></a> `numInterruptions` | `number` | The number of times the interruption will be randomly added | [parser/types.ts:1336](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1336) |
+| <a id="spacing"></a> `spacing` | `"random"` | If spacing is set to random, reVISit will add interruptions randomly. These interruptions will not ever be displayed as the first component in the block. | [parser/types.ts:1334](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1334) |

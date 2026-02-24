@@ -3,7 +3,7 @@
 
 
 
-The Graph Literacy Scale is a 13-item instrument that measures people’s ability to understand common graphical formats, with a focus on health-related graphs. This library contains 13 components, each corresponding to a question of the Graph Literacy Scale. It also includes a sequence of all 13 components (the full Graph Literacy Scale).
+The Graph Literacy Scale is a 13-item instrument that measures people's ability to understand common graphical formats, with a focus on health-related graphs. This library contains 13 components, each corresponding to a question of the Graph Literacy Scale. It also includes a sequence of all 13 components (the full Graph Literacy Scale).
 
 ## Reference
 
@@ -38,7 +38,6 @@ DOI: [10.1177/0272989X10373805](https://dx.doi.org/10.1177/0272989X10373805)
 
 
 <!-- Importing Links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
