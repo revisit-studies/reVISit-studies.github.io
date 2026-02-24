@@ -31,7 +31,6 @@ Link: [https://aviz.fr/PREVis/](https://aviz.fr/PREVis/)
 
 
 <!-- Importing Links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks

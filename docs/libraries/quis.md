@@ -35,7 +35,6 @@ Link: [https://isr.umd.edu/news/story/quis-questionnaire-for-user-interaction-sa
 
 
 <!-- Importing Links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
