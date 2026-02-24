@@ -60,9 +60,6 @@ we recommend flattening the conditions into components, like this:
 
 
 
-
-
-
 ### Choosing a Condition from the Study Card
 
 The landing page study card lets you pick one or more conditions and copy a link with those values set.
@@ -72,7 +69,7 @@ The landing page study card lets you pick one or more conditions and copy a link
 The condition picker lists the available conditions and the current participant counts. Select a condition and click Go to Study.
 
 :::note
-After assignment, changing stored study condition values is gated behind dev mode. In normal participant mode, condition assignment stays fixed.
+After the initial assignment that happens when you visit a URL with a condition, changing conditions is not possible, even in dev mode, except by starting as a new participant with the “Next Participant” button.
 :::
 
 <!-- Importing links -->
