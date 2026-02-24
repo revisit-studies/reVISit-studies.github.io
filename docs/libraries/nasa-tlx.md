@@ -62,7 +62,6 @@ Overall Workload = Σ(Adjusted Scores) ÷ 15
 This weighted workload score accounts for both perceived intensity and individual prioritization, improving sensitivity and personalization in workload analysis.
 
 <!-- Importing Links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
