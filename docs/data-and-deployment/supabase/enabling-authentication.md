@@ -6,7 +6,13 @@ In order to use authentication, you must have a Supabase application already con
 
 ## Enabling Authentication in Supabase
 
-Supabase provides a variety of authentication methods, but reVISit only supports GitHub OAuth for authentication. To enable GitHub OAuth, start by navigating to GitHub and creating a new OAuth application [here](http://github.com/settings/developers).
+Supabase provides a variety of authentication methods.
+
+:::note
+Supabase supports multiple OAuth providers, but reVISit currently only officially supports GitHub OAuth. If you want to configure other providers in Supabase look at the [gotrue docs](https://github.com/netlify/gotrue).
+:::
+
+To enable GitHub OAuth, start by navigating to GitHub and creating a new OAuth application [here](http://github.com/settings/developers).
 
 Give your application a name, such as `ReVISit Supabase`. For the "Homepage URL", enter the URL where your reVISit application will be hosted (e.g., `https://my-revisit-app.com`). This must include the `https://` prefix.
 

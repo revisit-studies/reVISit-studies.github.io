@@ -44,14 +44,22 @@ const sidebars: SidebarsConfig = {
         'designing-studies/react-stimulus',
         'designing-studies/vega-stimulus',
         'designing-studies/answers-trainings',
-        'designing-studies/study-sequences',
-        'designing-studies/dynamic-blocks',
+        {
+          type: 'category',
+          label: 'Sequences',
+          items: [
+            'designing-studies/sequences/study-sequences',
+            'designing-studies/sequences/dynamic-blocks',
+            'designing-studies/sequences/url-conditions',
+          ],
+        },
         'designing-studies/provenance-tracking',
         'designing-studies/think-aloud',
         'designing-studies/record-screen',
         'designing-studies/applying-style',
         'designing-studies/device-restrictions',
         'designing-studies/plugin-libraries',
+        'designing-studies/parser-errors',
       ],
     },
     {
@@ -70,6 +78,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'data-and-deployment/firebase/setup',
             'data-and-deployment/firebase/enabling-authentication',
+            'data-and-deployment/firebase/data-recovery',
           ],
         },
         {
@@ -81,6 +90,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'data-and-deployment/deploying-to-static-website',
+        'data-and-deployment/deploying-with-docker',
         'data-and-deployment/connecting-to-external-platform',
         'data-and-deployment/user-management',
         'data-and-deployment/lifecycle-of-revisit',
@@ -112,6 +122,7 @@ const sidebars: SidebarsConfig = {
         'analysis/trial-stats',
         'analysis/coding',
         'analysis/live-monitor',
+        'analysis/config',
         {
           type: 'category',
           label: 'Management',

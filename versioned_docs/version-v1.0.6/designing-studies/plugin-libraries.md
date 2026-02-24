@@ -72,8 +72,8 @@ To import a library, add its name to the `"importedLibraries"` section of your s
 
 Once the plugin library is imported, you can use its components and sequences in the `"sequence"` section of your study configuration (`config.json`). The format for referencing components and sequences is:
 
-- **Components**: `$libraryName.co.componentName`
-- **Sequences**: `$libraryName.se.sequenceName`
+- **Components**: `$libraryName.components.componentName`
+- **Sequences**: `$libraryName.sequences.sequenceName`
 
 For example: 
 
@@ -86,8 +86,8 @@ For example:
 	  "components": [    
 	    // List the components used in your study
 	    ...
-	    "$mic-check.co.audioTest",
-	    "$vlat.se.latinSquare",
+	    "$mic-check.components.audioTest",
+	    "$vlat.sequences.latinSquare",
             ...
 	  ] 
 	}
@@ -108,7 +108,7 @@ For example:
   "importedLibraries": ["vlat"],
   "components": {
     "vlat-modified":{
-      "baseComponent":"$vlat.co.line-value"
+      "baseComponent":"$vlat.components.line-value"
       "description":"A new description"
     }
   },
