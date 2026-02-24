@@ -104,7 +104,7 @@ const config: Config = {
         src: 'img/logos/revisitLogoThumbnail-dotted-light.svg',
         srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
       },
-      items: [    
+      items: [
         {
           type: 'docSidebar',
           sidebarId: 'docs',
@@ -135,7 +135,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://revisit.dev/study',
+          href: 'https://revisit.dev/study/',
           label: 'Demo',
           position: 'right',
         },
@@ -150,7 +150,7 @@ const config: Config = {
       style: 'light',
       links: [
         {
-          html: ` 
+          html: `
             <div class="footer-wrapper row">
               <a class="col " target="_blank" href="https://vdl.sci.utah.edu/">
                 <img src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
@@ -160,7 +160,7 @@ const config: Config = {
                 <img src="/img/logos/havoc-logo-light.png" class='logo light-theme-display-component'/>
                 <img src="/img/logos/havoc-logo-dark.png" class='logo dark-theme-display-component'/>
               </a>
-              <a class="col " target="_blank" href="https://www.sci.utah.edu/">
+              <a class="col " target="_blank" href="https://sci.utah.edu/">
                 <img src="/img/logos/sci-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/sci-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
@@ -172,12 +172,12 @@ const config: Config = {
                 <img src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/view-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a class="col " target="_blank" href="https://wpi.edu/">
+              <a class="col " target="_blank" href="https://www.wpi.edu/">
                 <img src="/img/logos/wpi.png" class='logo'/>
               </a>
               <a class="col " target="_blank" href="https://www.nsf.gov/">
                 <img src="/img/logos/nsf.png" class='logo'/>
-              </a>                                                       
+              </a>
             </div>
           `,
         },
