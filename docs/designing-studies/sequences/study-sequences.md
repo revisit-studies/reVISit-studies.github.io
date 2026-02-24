@@ -102,16 +102,12 @@ Studies frequently want portions of their trials to be random, but also want to 
 This option will create a latin square for any block using one behind the scenes, iterate through the latin square as new participants request sequences, and refill it when empty.
 
 :::warning
-The Latin square theoretically ensures proper balance between conditions, however the balance is only guaranteed if all participants complete the study, which is frequently not the case in online studies. If a participant doesn't complete the study and should be discarded, that “draw” from the latin square is used up, which could lead to inconsistencies (e.g., if more participants don't complete one condition of the study more often than others). You can counter that effect by `rejecting` participants via the [data dashboard](../../analysis/study-summary/). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc.) do not use up a row of any generated latin squares
+The Latin square theoretically ensures proper balance between conditions, however the balance is only guaranteed if all participants complete the study, which is frequently not the case in online studies. If a participant doesn't complete the study and should be discarded, that “draw” from the latin square is used up, which could lead to inconsistencies (e.g., if more participants don't complete one condition of the study more often than others). You can counter that effect by `rejecting` participants via the [data dashboard](../../analysis/study-summary/). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc.) do not use up a row of any generated latin squares.
 
 In practice, it is useful to recruit participant in batches and reject incomplete participants before starting a new batch, to ensure that the latin square remains balanced. 
 
-For other ways to ensure balance in your study design, please review this [FAQ item](../faq.md#q-how-can-i-ensure-balanced-numbers-of-participants-between-conditions-in-my-study-design).
+For other ways to ensure balance in your study design, please review this [FAQ item](../faq.md#q-how-can-i-ensure-balanced-numbers-of-participants-between-conditions-in-my-study-design) and consider using [URL-based conditions](../url-conditions/).
 :::
-
-## Dynamic Blocks
-
-Some studies require knowledge of the participant's responses to previous questions to determine the next component that is shown. For example, if a participant answers a question incorrectly, they may be shown a simpler task next. This can be achieved with [dynamic blocks](./dynamic-blocks.md).
 
 ## Showing a Subset of All Trials
 
@@ -353,25 +349,25 @@ You can also use `skip` to jump around within your study. The example below skip
 
 After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards.
 
+
+
+
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
   demoLinks={[
     {name: "Randomization Demo", url: "https://revisit.dev/study/test-randomization"},
-    {name: "Dynamic Block Demo", url: "https://revisit.dev/study/demo-dynamic"},
     {name: "Step Logic Demo", url: "https://revisit.dev/study/test-step-logic"},
-    {name: "Skip Logic Demo", url: "https://revisit.dev/study/test-skip-logic"}
-  ]}
+    {name: "Skip Logic Demo", url: "https://revisit.dev/study/test-skip-logic"},
+   ]}
   codeLinks={[
     {name: "Randomization Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-randomization"},
-    {name: "Dynamic Block Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-dynamic"},
     {name: "Step Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-step-logic"},
-    {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"}
-  ]}
+    {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"},
+   ]}
   referenceLinks={[
     {name: "ComponentBlock", url: "../../typedoc/interfaces/ComponentBlock/"},
-    {name: "DynamicBlock", url: "../../typedoc/interfaces/DynamicBlock/"},
     {name: "InterruptionBlock", url: "../../typedoc/type-aliases/InterruptionBlock/"},
     {name: "RandomInterruption", url: "../../typedoc/interfaces/RandomInterruption/"},
     {name: "DeterministicInterruption", url: "../../typedoc/interfaces/DeterministicInterruption/"},

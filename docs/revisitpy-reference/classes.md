@@ -204,7 +204,7 @@ print(component_two)
 
 ## `Response`
 
-This is the `Responsse` class. When calling the `response` factory function, an instantiation of this class is returned.
+This is the `Response` class. When calling the `response` factory function, an instantiation of this class is returned.
 
 ### **Attributes**:
 _No attributes_
@@ -600,7 +600,7 @@ You can find more examples of using the `component` method in the [Scatter JND E
 #### `permute(factors: List[dict], order: 'fixed' | 'latinSquare' | 'random', numSamples: Optional[int]) -> self`
 
 
-Permutes the the existing components of the sequence over the given `factors`. The permute method can be chained to complex study sequences. By default, the factors are attached as `meta` attributes to each component created.
+Permutes the existing components of the sequence over the given `factors`. The permute method can be chained to complex study sequences. By default, the factors are attached as `meta` attributes to each component created.
 
 **Parameters**:  
 | Parameter   | Type     | Description                         | Default Value |
