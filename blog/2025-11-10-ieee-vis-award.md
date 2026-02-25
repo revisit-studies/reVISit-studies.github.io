@@ -7,7 +7,7 @@ authors:
 
 We’re happy to share that our paper on reVISit 2 received a Best Paper Award at IEEE VIS 2025. ReVISit 2 is an open framework for designing, deploying, and disseminating browser-based visualization studies across the full experiment life cycle. In this post, we summarize the contributions of the paper, describe the replication studies that demonstrate the system’s capabilities, reflect on feedback from users, and outline how reVISit can support more reproducible and expressive experimental research.
 
-![Selfie by the reVISit team on stage at IEEE VIS in Vienna after receiving the award.](/img/blog_posts/2026_award_photo.jpg)
+![Selfie by the reVISit team on stage at IEEE VIS in Vienna after receiving the award.](/img/blog_posts/2025-11-10-ieee-vis-award/award_photo.jpg)
 
 <!-- truncate -->
 
@@ -27,7 +27,7 @@ We also describe technical advances in reVISit 2, including first-class Vega sup
 
 To demonstrate that these capabilities are not merely architectural, we conducted a series of replication studies.
 
-![Screenshot of the revisit analysis interface showing a replay of an interactive study with think aloud and provenance tracking. A large bubble chart is the main stimulus.](/img/blog_posts/2026_bubble_chart.png)
+![Screenshot of the revisit analysis interface showing a replay of an interactive study with think aloud and provenance tracking. A large bubble chart is the main stimulus.](/img/blog_posts/2025-11-10-ieee-vis-award/bubble_chart.png)
 
 Each study highlights a different capability of the system. In one, we implement adaptive and staircase-style designs to [evaluate visualizations of correlations](https://revisit.dev/replication-studies/?tab=JND) using [dynamic sequencing logic](https://revisit.dev/docs/typedoc/interfaces/DynamicBlock/), showing how complex control flow can be expressed directly in the study configuration. In another, we integrate [think-aloud protocols](https://revisit.dev/docs/designing-studies/think-aloud/) by embedding audio recording and transcription into browser-based experiments, allowing [researchers to capture reasoning during interaction](https://revisit.dev/replication-studies/?tab=Search) rather than only after the fact. Finally, we demonstrate [provenance tracking and replay](https://revisit.dev/replication-studies/?tab=Pattern) by instrumenting interactive visualizations to capture detailed interaction histories, enabling fine-grained participant replay and qualitative analysis. reVISit 2 also provides deep linking to specific trials or moments in user studies, to aid in dissemination and transparency. For example, [this link](https://revisit.dev/replication-studies/bubblechart-study/LzE2MTl4ZVRMTk5nSFlNYmd1ZDhjZz09?participantId=936e6c58-fc6e-4e1f-9af9-9c9ce2a65952) takes you to the exact state you see in the above image.
 
@@ -48,7 +48,7 @@ Overall, feedback confirmed that reVISit is most effective for technically orien
 
 We were very honored to receive an [**IEEE VIS Best Paper Award**](https://ieeevis.org/year/2025/info/awards/best-paper-awards#:~:text=ReVISit%202%3A%20A%20Full%20Experiment%20Life%20Cycle%20User%20Study%20Framework) for this work. Zach Cutler presented the paper on the main stage in Vienna.
 
-![Zach Cutler presenting the paper at IEEE VIS in Vienna.](/img/blog_posts/2026_zach_presenting.jpg)
+![Zach Cutler presenting the paper at IEEE VIS in Vienna.](/img/blog_posts/2025-11-10-ieee-vis-award/zach_presenting.jpg)
 
 This recognition reflects years of iterative development, community feedback, tutorials, documentation work, and, most importantly, the researchers who have trusted reVISit in their own studies.
 
