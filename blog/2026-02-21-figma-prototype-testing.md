@@ -11,9 +11,9 @@ Scheduling one-on-one usability sessions is time-consuming, expensive, and hard 
 
 ## Why Test Figma Prototypes with reVISit?
 
-Usability testing can be difficult. You have to track people down, schedule a time for the session, and repeat for each user. Remote testing, e.g., via Zoom is possible, but still requires you to be online at the same time. 
+Usability testing can be difficult. You have to track people down, schedule a time for the session, and repeat for each user. Remote testing, e.g., via Zoom, is possible, but still requires you to be online at the same time.
 
-reVISit now offers an alternative through it's new screen recording and audio think-aloud features. Because Figma provides shareable embed URLs for interactive prototypes, you can drop one directly into a reVISit `website` component using iframes — with very little coding needed. Layering on `recordScreen: true` and `recordAudio: true` gives you:
+ReVISit now offers an alternative through its new screen recording and audio think-aloud features. Because Figma provides shareable embed URLs for interactive prototypes, you can drop one directly into a reVISit `website` component using iframes — with very little coding needed. Layering on `"recordScreen": true` and `"recordAudio": true` gives you:
 
 - **Screen recordings** of every participant's navigation path through the prototype
 - **Synchronized think-aloud audio** so you can hear their reasoning alongside what they see
@@ -42,7 +42,7 @@ Then import the companion library that handles participant permissions:
 "importedLibraries": ["screen-recording"]
 ```
 
-The **`screen-recording`** library provides a `screenRecordingPermission` component that asks participants to share their browser tab — similar to screen-sharing in a video call. When `recordAudio: true` is also set, the permissions step requests microphone access at the same time. reVISit blocks progression if either permission is denied.
+The **`screen-recording`** library provides a `screenRecordingPermission` component that asks participants to share their browser tab — similar to screen-sharing in a video call. When `recordAudio: true` is also set, the permissions step requests microphone access at the same time. ReVISit blocks progression if either permission is denied.
 
 Insert the permission step near the start of your study sequence:
 
@@ -89,8 +89,8 @@ Setting `recordAudio` and `recordScreen` on the component itself is optional whe
 
 ## Step 3: Guide Participants with Sidebar Instructions
 
-Without a moderator in the room, it can be easy for participants to forget to think aloud or to drift into their working process. It can be useful to include an on screen prompt to remind them to stay on task
-Add a `textOnly` response at `location: "sidebar"` to keep instructions visible throughout the entire task:
+Without a moderator in the room, it can be easy for participants to forget to think aloud or to drift into their working process. It can be useful to include an on screen prompt to remind them to stay on task.
+Add a `textOnly` response at `"location": "sidebar"` to keep instructions visible throughout the entire task:
 
 ```json
 "response": [
@@ -107,7 +107,7 @@ Sidebar content remains pinned while participants scroll or interact, so the ins
 
 ## Step 4: Collect Structured Post-Task Feedback
 
-Follow the prototype task with a `questionnaire` component. Setting `recordAudio: true` on it means participants can continue to narrate their thoughts while they fill out rating scales and open-ended questions — a useful signal for interpreting their written responses. Alternately, you might design a series of pages with one spoken question per page, which will automatically be segmented by reVISit's trial management architecture.
+Follow the prototype task with a `questionnaire` component. Setting `"recordAudio": true` on it means participants can continue to narrate their thoughts while they fill out rating scales and open-ended questions — a useful signal for interpreting their written responses. Alternately, you might design a series of pages with one spoken question per page, which will automatically be segmented by reVISit's trial management architecture.
 
 ```json
 "postTaskQuestions": {
@@ -154,7 +154,7 @@ Here is a complete, ready-to-use config. The only change you need to make is swa
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.3.0/src/parser/StudyConfigSchema.json",
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
   "studyMetadata": {
     "title": "Prototype Usability Study",
     "version": "pilot",
@@ -233,4 +233,4 @@ Here is a complete, ready-to-use config. The only change you need to make is swa
 
 ## Next Steps
 
-To learn more, check out the [Screen Recording setup guide](https://revisit.dev/docs/designing-studies/record-screen/) and the [Think-Aloud documentation](https://revisit.dev/docs/designing-studies/think-aloud/). If you have questions or want to share what you build, come find us in the [reVISit Slack](https://revisit.dev/contact/). We'd love to see what kinds of prototypes you put to the test.
+To learn more, check out the [Screen Recording setup guide](https://revisit.dev/docs/designing-studies/record-screen/) and the [Think-Aloud documentation](https://revisit.dev/docs/designing-studies/think-aloud/). If you have questions or want to share what you build, come find us in the [reVISit Slack](https://revisit-nsf.slack.com/join/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ). We'd love to see what kinds of prototypes you put to the test.
