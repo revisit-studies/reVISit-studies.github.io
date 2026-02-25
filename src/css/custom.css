@@ -93,8 +93,6 @@ html[data-theme='dark'] .light-theme-display-component {
   }
 }
 
-
-
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #f05a30;

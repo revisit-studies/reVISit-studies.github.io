@@ -21,13 +21,11 @@ function ImageSwitcher({
     <>
       <img
         style={style}
-        alt="Example banner"
         src={lightImageSrc}
         className={lightClassName}
       />
       <img
         style={style}
-        alt="Example banner"
         src={darkImageSrc}
         className={darkClassName}
       />
