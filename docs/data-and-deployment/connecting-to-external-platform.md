@@ -17,7 +17,9 @@ When participants are recruited through a third-party platform, their unique ID 
 ```
 
 When a participant visits the following link, reVISit will store abc123 as their participant ID for the duration of the study:
+```
 https://revisit.dev/study/studyName?PARTICIPANT_ID=abc123
+```
 
 
 ### Display the ID in the Study
