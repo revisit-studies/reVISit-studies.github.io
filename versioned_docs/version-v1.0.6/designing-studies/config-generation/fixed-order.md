@@ -1,7 +1,7 @@
 # Example 1: Fixed Order
 
 :::info
-The example we provide below is very similar to our [click accuracy test](https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test) that you can view in our demo page.
+The example we provide below is very similar to our [click accuracy test](https://github.com/revisit-studies/study/tree/aaafddb0c4dc8a052a9d999b7b37a7008935d86d/public/demo-click-accuracy-test) that you can view in our demo page.
 :::
 
 Suppose we have a base component which allows the parameters `speed` and `taskid` and metadata fields `nr-dots` and `speed`. Now suppose we want to create 100 copies of this base component with varying speeds. In this example, we'll walk through the generation of these base components by iterating through a loop 100 times.

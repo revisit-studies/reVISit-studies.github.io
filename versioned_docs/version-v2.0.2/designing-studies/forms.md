@@ -4,7 +4,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     demoLink="https://revisit.dev/study/demo-survey/"
-    codeLink="https://github.com/revisit-studies/study/blob/main/public/demo-survey/config.json"
+    codeLink="https://github.com/revisit-studies/study/blob/aaafddb0c4dc8a052a9d999b7b37a7008935d86d/public/demo-survey/config.json"
     referenceLinks={[{name: "Form Elements Overview", url:"../../typedoc/#form-elements"}]}
 />
 
@@ -13,7 +13,7 @@ Form elements are essential for most studies to capture user responses. reVISit 
 This tutorial does not give a comprehensive introduction into all form elements. For this, refer to the demo and the reference, shown below: 
 
 * [Form Element Demo](https://revisit.dev/study/demo-survey/)
-* [Source for Form Element Demo](https://github.com/revisit-studies/study/blob/main/public/demo-survey/config.json)
+* [Source for Form Element Demo](https://github.com/revisit-studies/study/blob/aaafddb0c4dc8a052a9d999b7b37a7008935d86d/public/demo-survey/config.json)
 * [Overview of Form Elements](../../typedoc/#form-elements)
 
 Instead, we introduce some high-level principles that apply to all form elements. 

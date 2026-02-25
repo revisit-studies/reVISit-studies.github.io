@@ -68,7 +68,7 @@ const clickCallback = useCallback((barName: string) => {
 }, [actions, setAnswer, trrack]);
 ```
 
-For a full react example, see our [ClickAccuracyTest example](https://github.com/revisit-studies/study/blob/main/src/public/demo-click-accuracy-test/assets/ClickAccuracyTest.tsx)
+For a full react example, see our [ClickAccuracyTest example](https://github.com/revisit-studies/study/blob/aaafddb0c4dc8a052a9d999b7b37a7008935d86d/src/public/demo-click-accuracy-test/assets/ClickAccuracyTest.tsx)
 
 For a basic HTML + D3 example, see our [Dots example](https://github.com/revisit-studies/study/blob/main/public/demo-html-trrack/assets/dots-count.html). Creating a trrack instance and actions works the same as above, just without the react hooks.
 
