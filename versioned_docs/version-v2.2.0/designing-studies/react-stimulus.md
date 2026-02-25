@@ -304,7 +304,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
     codeLinks={[
       {name: "Graphical Perception Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-cleveland"},
-      {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-click-accuracy-test"}
+      {name: "Click Accuracy Code", url: "https://github.com/revisit-studies/study/tree/aaafddb0c4dc8a052a9d999b7b37a7008935d86d/public/demo-click-accuracy-test"}
     ]}
     referenceLinks={[
         {name: "React", url: "https://react.dev/"},
