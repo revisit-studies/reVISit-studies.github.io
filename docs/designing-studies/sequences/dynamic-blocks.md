@@ -8,7 +8,7 @@ In reVISit, this can be achieved using dynamic blocks. Dynamic blocks are blocks
 
 The dynamic block function is a TypeScript/JavaScript function that is defined in the `src/public/study-name/` folder and is referenced in the study configuration file like so:
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -31,13 +31,13 @@ In this example, the `dynamicBlock` component is a dynamic block that uses the f
 
 The function in `src/public/study-name/dynamic.ts` uses the following types provided by reVISit:
 
-```ts
+```ts title="src/public/study-name/dynamic.ts"
 export default function dynamicFunction({ answers, customParameters, currentStep, currentBlock } : JumpFunctionParameters<T>): JumpFunctionReturnVal
 ```
 
 Where `JumpFunctionParameters` is defined as:
 
-```ts
+```ts title="src/store/types.ts"
 export interface JumpFunctionParameters<T> {
   answers: ParticipantData['answers'],
   customParameters: T,
@@ -48,7 +48,7 @@ export interface JumpFunctionParameters<T> {
 
 And `JumpFunctionReturnVal` is defined as:
 
-```ts
+```ts title="src/store/types.ts"
 export interface JumpFunctionReturnVal {
   component: string | null,
   parameters?: Record<string, any>,
@@ -68,7 +68,7 @@ It is required that the function you provide is deterministic, and has no random
 
 Here is an example of a dynamic function that shows a different component based on the participant's answers:
 
-```ts
+```ts title="src/public/test-step-logic/func.ts"
 import { JumpFunctionParameters, JumpFunctionReturnVal } from '../../store/types';
 
 export default function func({ answers } : JumpFunctionParameters<{name: string}>) : JumpFunctionReturnVal {
@@ -97,6 +97,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Dynamic Block Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-dynamic"}
   ]}
   referenceLinks={[
-    {name: "Dynamic Block", url:"../../typedoc/interfaces/DynamicBlock"}
+    {name: "Dynamic Block", url:"../../../typedoc/interfaces/DynamicBlock"}
   ]}
 />

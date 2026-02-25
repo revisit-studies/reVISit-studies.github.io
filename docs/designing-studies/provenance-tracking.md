@@ -10,7 +10,7 @@ Building off the [Stroop color experiment](react-stimulus.md#example-2-stroop-co
 
 Because Trrack is state-based, you must define a state for your tracked application. For the Stroop text input:
 
-```ts
+```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
 interface StroopState {
   response: string;
 }
@@ -18,7 +18,7 @@ interface StroopState {
 
 Create the Trrack registry, action, and instance **once** using `useMemo` (empty deps). This ensures the instance is stable across renders:
 
-```ts
+```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
 const { actions, trrack } = useMemo(() => {
   const reg = Registry.create();
   const setResponseAction = reg.register('setResponse', (state, nextResponse: string) => {
@@ -40,7 +40,7 @@ const { actions, trrack } = useMemo(() => {
 
 When the user types, call the Trrack action and include `provenanceGraph` in `setAnswer` so reVISit stores the provenance. Use a `useCallback` to keep the handler stable:
 
-```ts
+```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
 const updateAnswer = useCallback((value: string) => {
   setResponseText(value);
   trrack.apply('Set response', actions.setResponseAction(value));
@@ -57,7 +57,7 @@ const updateAnswer = useCallback((value: string) => {
 
 During replay, reVISit passes `provenanceState` with the restored state. Sync it to your textbox so the input updates visibly when the user seeks through the timeline:
 
-```ts
+```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
   useEffect(() => {
     if (provenanceState) {
       setResponseText(provenanceState.response);
@@ -111,6 +111,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
     referenceLinks={[
         {name: "Trrack", url: "https://apps.vdl.sci.utah.edu/trrack"},
-        {name: "React Stimulus", url: "react-stimulus"}
+        {name: "React Stimulus", url: "../react-stimulus"}
     ]}
 />

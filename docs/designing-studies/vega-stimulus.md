@@ -19,10 +19,9 @@ There are two ways to add a Vega component: directly in the config, and in an ex
 
 To include Vega specifications directly in the reVISit configuration, set the `type` field of your component to `vega` and add your Vega specifications within the `config` field, as shown below:
 
-```js
+```json title="public/demo-vega/config.json"
 "components": {
   "vegademo1": {
-    ...
     "type": "vega",
     "config": {... your vega config...}
     ...
@@ -36,10 +35,9 @@ Including Vega specifications directly in the configuration may make your config
 
 In this case, the `type` remains `vega`, but instead of using the _config_ field, you use the `path` field to specify the location of the Vega specifications file.
 
-```js
+```json title="public/demo-vega/config.json"
 "components": {
   "vegademo2": {
-    ...
     "type": "vega",
     "path": "demo-vega/specs/vegademo2.specs.json",
     ...
@@ -55,7 +53,7 @@ To achieve this, you can use [Vega signals](https://vega.github.io/vega/docs/sig
 Specifically, a signal with the reserved name `revisitAnswer` is used to pass participant responses to reVISit.
 Here's an example of how to define the `revisitAnswer` signal:
 
-```js
+```json title="public/demo-vega/config.json"
 {
   "name": "revisitAnswer",
   "value": {},
@@ -73,31 +71,27 @@ In this example:
 - The `events` field specifies the user interaction to listen for (`rect:click` in this instance).
 - The `update` field defines the response structure, which includes a `responseId` and the participant's selection (e.g., `datum.category`). The `responseId` should match the id in your response field described below.
 
-:::note
+:::info
 Ensure that you are using Vega when adding signals. If you are using Vega-Lite, you can convert your specifications to lower-level Vega specifications to add signals.
 :::
 
 ### Capturing Responses
 Once the signal is defined in your Vega specifications, you can configure the response field in the reVISit configuration. By setting the response type to `reactive`, the signal emitted by the Vega component is captured and sent to the reVISit platform.
 
-```js
-{
-  ...
-  "response": [
-    {
-      "id": "vegaDemoResponse1",
-      "prompt": "You selected:",
-      "location": "sidebar",
-      "type": "reactive"
-    }
-  ]
-  ...
-}
+```json title="public/demo-vega/config.json"
+"response": [
+  {
+    "id": "vegaDemoResponse1",
+    "prompt": "You selected:",
+    "location": "sidebar",
+    "type": "reactive"
+  }
+]
 ```
 
 This setup ensures that the participant's interaction with the visualization is seamlessly recorded and displayed in the reVISit interface.
 
-:::note
+:::info
 Make sure that the `response.id` matches the one in vega signal's `responseId`.
 :::
 
@@ -114,7 +108,7 @@ The figure shows the result:
 Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/table).
 
 
-```js
+```json title="public/demo-vega/config.json"
 "components": {
   "vegademo1": {
     "meta": {

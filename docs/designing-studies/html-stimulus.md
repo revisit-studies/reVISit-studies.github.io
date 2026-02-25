@@ -6,7 +6,7 @@ Now, we will take the study we just created and add another component based on a
 
 The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called `bar-chart.html` in the `basic-questionnaire-study/assets` directory.
 
-```html
+```html title="public/basic-questionnaire-study/assets/bar-chart.html"
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -89,7 +89,7 @@ Now that we have this HTML document in our study directory, we are ready to adju
 
 In your `config.json` document, create new key called `baseComponents` as a sibling to the keys `uiConfig`, `components`, `sequence`, etc. In this newly created key, paste the code below:
 
-```js
+```json title="public/basic-questionnaire-study/config.json"
 "baseComponents": {
   "bar-chart": {
     "type": "website",
@@ -111,8 +111,7 @@ This creates a component that new components can be based off of. Each component
 
 In the components section, add the following objects:
 
-```js
-...
+```json title="public/basic-questionnaire-study/config.json"
 "bar-chart-1":{
   "baseComponent": "bar-chart",
   "description": "A trial for the user to click the largest bar",
@@ -129,7 +128,6 @@ In the components section, add the following objects:
     "barData": [1.2, 1.2, 1.2, 1.3, 0.82, 0.4, 0.3]
   }
 }
-...
 ```
 The `parameters` key is a dynamically valued key which is used to pass data to your components. When you add the `parameters` key, any data contained within the object will be sent via the event bus as a message to the component. Since we designed the HTML above to listen for this message, we were able to parse these parameters and use them as variables to control the sizes of the various bar charts.
 

@@ -29,7 +29,7 @@ Tidy data format is a structured approach to organizing tabular data where each 
 You may check more details [here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
 :::
 
-:::note
+:::info
 If your study includes [audio recording](../../designing-studies/think-aloud), you can optionally include a transcript column in your tidy CSV export. This column contains the transcribed text from each trial, making it easy to analyze what participants said alongside their responses. You must be using Firebase as your storage engine.
 
 Downloading transcripts for large datasets can take significant time. If you're downloading data for **50 or more participants** with transcripts, you'll see a warning about potential delays. The system fetches transcripts with concurrency limits to avoid overwhelming the browser.
@@ -132,7 +132,7 @@ To download audio from specific participants, select the participants in the tab
 3. Click on the **Download Audio** button.
 ![Download task audio](./img/data-export/audio-export-3.png)
 
-:::note
+:::info
 If you are using Firebase, it will download the transcript of the audio file as well.
 :::
 
@@ -159,7 +159,7 @@ To download screen recording from specific participants, select the participants
 2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
 ![Download task audio](./img/data-export/screen-recording-export-1.png)
 
-3. Click on the task.
+3. Click on the stask.
 ![Download task audio](./img/data-export/screen-recording-export-2.png)
 
 3. Click on the **Download Screen Recording** button.

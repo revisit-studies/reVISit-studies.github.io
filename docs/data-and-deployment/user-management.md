@@ -35,7 +35,7 @@ Authentication should be enabled prior to deployment. This will prevent any unwa
 ### Firebase
 
 :::danger
-In general, we do not advise editing the user management data directly in the Firestore Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../firebase/enabling-authentication) for editing users within the reVISit UI
+In general, we do not advise editing the user management data directly in the Firestore Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../firebase/enabling-authentication) for editing users within the reVISit UI.
 :::
 
 ReVISit allows you to handle all necessary user management from the reVISit UI. However, if you are ever in a situation where you have lost access to the reVISit application, you can still edit the user access via the Firestore.
@@ -48,8 +48,8 @@ The `adminUsers` will contain a single list called the `adminUsersList`. Each en
 
 ```json
 {
-    "email": "myemail@gmail.com",
-    "uid": "<UID>"
+   "email": "myemail@gmail.com",
+   "uid": "<UID>"
 }
 ```
 
@@ -72,7 +72,7 @@ Once the collection is deleted, your reVISit application will be ready to re-ena
 ### Supabase
 
 :::danger
-In general, we do not advise editing the user management data directly in the Supabase Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../supabase/enabling-authentication) for editing users within the reVISit UI
+In general, we do not advise editing the user management data directly in the Supabase Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../supabase/enabling-authentication) for editing users within the reVISit UI.
 :::
 
 #### The `user_management` table row

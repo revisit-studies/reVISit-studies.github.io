@@ -14,36 +14,34 @@ These checks are configured in `studyRules`.
 
 The following snippet shows how to config device restrictions:
 
-```json
-{
-  "studyRules": {
-    "display": {
-      "minHeight": 400,
-      "minWidth": 800
-    },
-    "browsers": {
-      "allowed": [
-        {
-          "name": "chrome",
-          "minVersion": 100
-        },
-        {
-          "name": "firefox",
-          "minVersion": 100
-        },
-        {
-          "name": "safari",
-          "minVersion": 10
-        }
-      ],
-      "blockedMessage": "You must be on a relatively modern browser, Chrome > 100, Firefox > 100, Safari > 10."
-    },
-    "devices": {
-      "allowed": ["tablet", "desktop", "mobile"]
-    },
-    "inputs": {
-      "allowed": ["touch", "mouse"]
-    }
+```json title="public/study-name/config.json"
+"studyRules": {
+  "display": {
+    "minHeight": 400,
+    "minWidth": 800
+  },
+  "browsers": {
+    "allowed": [
+      {
+        "name": "chrome",
+        "minVersion": 100
+      },
+      {
+        "name": "firefox",
+        "minVersion": 100
+      },
+      {
+        "name": "safari",
+        "minVersion": 10
+      }
+    ],
+    "blockedMessage": "You must be on a relatively modern browser, Chrome > 100, Firefox > 100, Safari > 10."
+  },
+  "devices": {
+    "allowed": ["tablet", "desktop", "mobile"]
+  },
+  "inputs": {
+    "allowed": ["touch", "mouse"]
   }
 }
 ```
@@ -59,7 +57,6 @@ The participant has one minute to resize their browser window. During this time,
 
 If the timer runs out and the screen is still too small, the participant will see a training failed page and will not be able to continue the study.
 
-
 In the participant table, the participant will be listed as rejected with the reason "Screen resolution too small."
 
 ![Device Size Check Rejected Participant](./img/device-check/screen-resolution-too-small.png)
@@ -70,26 +67,24 @@ You can restrict your study to specific browsers and their minimum versions to e
 
 Configure browser restrictions in the `studyRules` section:
 
-```json
-{
-  "studyRules": {
-    "browsers": {
-      "allowed": [
-        {
-          "name": "chrome",
-          "minVersion": 100
-        },
-        {
-          "name": "firefox",
-          "minVersion": 100
-        },
-        {
-          "name": "safari",
-          "minVersion": 15
-        }
-      ],
-      "blockedMessage": "This study requires Chrome, Firefox, or Safari with the minimum versions specified."
-    }
+```json title="public/study-name/config.json"
+"studyRules": {
+  "browsers": {
+    "allowed": [
+      {
+        "name": "chrome",
+        "minVersion": 100
+      },
+      {
+        "name": "firefox",
+        "minVersion": 100
+      },
+      {
+        "name": "safari",
+        "minVersion": 15
+      }
+    ],
+    "blockedMessage": "This study requires Chrome, Firefox, or Safari with the minimum versions specified."
   }
 }
 ```
@@ -108,13 +103,11 @@ You can control which device types (desktop, tablet, mobile) can access your stu
 
 Configure device type restrictions in the `studyRules` section:
 
-```json
-{
-  "studyRules": {
-    "devices": {
-      "allowed": ["desktop", "tablet", "mobile"],
-      "blockedMessage": "This study requires a desktop or tablet device."
-    }
+```json title="public/study-name/config.json"
+"studyRules": {
+  "devices": {
+    "allowed": ["desktop", "tablet", "mobile"],
+    "blockedMessage": "This study requires a desktop or tablet device."
   }
 }
 ```
@@ -130,13 +123,11 @@ You can specify which input methods your study supports, such as mouse and/or to
 
 Configure input restrictions in the `studyRules` section:
 
-```json
-{
-  "studyRules": {
-    "inputs": {
-      "allowed": ["mouse", "touch"],
-      "blockedMessage": "This study requires a device with mouse or touch input capability."
-    }
+```json title="public/study-name/config.json"
+"studyRules": {
+  "inputs": {
+    "allowed": ["mouse", "touch"],
+    "blockedMessage": "This study requires a device with mouse or touch input capability."
   }
 }
 ```
@@ -149,38 +140,36 @@ The `allowed` array specifies which input methods are supported:
 
 Here's a complete example combining all restriction types:
 
-```json
-{
-  "studyRules": {
-    "display": {
-      "minHeight": 400,
-      "minWidth": 800
-    },
-    "browsers": {
-      "allowed": [
-        {
-          "name": "chrome",
-          "minVersion": 100
-        },
-        {
-          "name": "firefox",
-          "minVersion": 100
-        },
-        {
-          "name": "safari",
-          "minVersion": 10
-        }
-      ],
-    },
-    "devices": {
-      "allowed": ["tablet", "desktop", "mobile"]
-    },
-    "inputs": {
-      "allowed": ["touch"],
-      "blockedMessage": "Only touch devices are supported"
-    }
+```json title="public/study-name/config.json"
+"studyRules": {
+  "display": {
+    "minHeight": 400,
+    "minWidth": 800
   },
-}
+  "browsers": {
+    "allowed": [
+      {
+        "name": "chrome",
+        "minVersion": 100
+      },
+      {
+        "name": "firefox",
+        "minVersion": 100
+      },
+      {
+        "name": "safari",
+        "minVersion": 10
+      }
+    ],
+  },
+  "devices": {
+    "allowed": ["tablet", "desktop", "mobile"]
+  },
+  "inputs": {
+    "allowed": ["touch"],
+    "blockedMessage": "Only touch devices are supported"
+  }
+},
 ```
 
 ![Browser or device not supported](./img/device-check/device-not-supported.png)

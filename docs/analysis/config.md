@@ -14,12 +14,12 @@ The date column shows when you created that version (from `studyMetadata.date`).
 
 Update your `studyMetadata` in `config.json` every time you make changes:
 
-```json
+```json title="public/study-name/config.json"
 {
   "studyMetadata": {
-    ...
     "version": "pilot",
     "date": "2026-02-17",
+    ...
   }
 }
 ```
@@ -45,7 +45,7 @@ Select exactly two configs using the checkboxes, then click Compare Configs. You
 
 ![Compare Config](./img/config/compare-config.png)
 
-:::note
+:::warning
 Compare Config cannot track whitespace changes.
 :::
 
