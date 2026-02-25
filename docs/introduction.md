@@ -1,6 +1,6 @@
 # Introduction
 
-ReVISit lets you create interactive, web-based studies using a **JSON-based domain-specific language (the reVISit DSL)** and a set of **stimuli contained in components**.  
+ReVISit lets you create interactive, web-based studies using a **JSON-based domain-specific language (the reVISit DSL)** and a set of **stimuli contained in components**.
 The overall process is illustrated in the figure below:
 
 ![Diagram showing the reVISit workflow from study specification to analysis](./img/revisit-overview.png)
