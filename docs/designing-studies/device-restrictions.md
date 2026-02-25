@@ -95,9 +95,9 @@ Configure browser restrictions in the `studyRules` section:
 ```
 
 You can specify browser restrictions for:
-- `chrome` 
-- `firefox` 
-- `safari` 
+- `chrome`
+- `firefox`
+- `safari`
 - `edge`
 
 Each browser can have an optional `minVersion` to ensure participants have a recent version with necessary features.

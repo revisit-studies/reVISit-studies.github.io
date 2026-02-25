@@ -173,7 +173,7 @@ Parses a CSV file with the given `file_path` and returns a list of DataRows. Out
 | `file_path` | `str` | Path to the CSV file | _None_ |
 
 ### **Returns**:
-- `List[DataRow]`: Returns a list of dataclasses called `DataRow`. 
+- `List[DataRow]`: Returns a list of dataclasses called `DataRow`.
 
 
 ### **Example**:

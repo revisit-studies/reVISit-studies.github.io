@@ -184,5 +184,5 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 />
 
 :::warning
-**You should only use the previous button with simple stimuli, like form elements, images, markdown, etc.** If you have interactive components, use provenance tracking, use screen capture or audio capture, going back to a previous state will result in undesired behavior: all states, video, audio, will be overwritten. 
+**You should only use the previous button with simple stimuli, like form elements, images, markdown, etc.** If you have interactive components, use provenance tracking, use screen capture or audio capture, going back to a previous state will result in undesired behavior: all states, video, audio, will be overwritten.
 :::

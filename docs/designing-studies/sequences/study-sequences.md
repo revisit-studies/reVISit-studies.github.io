@@ -45,7 +45,7 @@ Many studies need to randomize the order of some of the components, but not all.
 
 In this case all participants will first see `introduction` and `consent`, and then randomly either `trial1` or `trial2` first, and then the other trial second, followed by the `post-survey` for everyone.
 
-Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, and then also randomize the order of the trials within each condition. That would look like the following. 
+Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, and then also randomize the order of the trials within each condition. That would look like the following.
 
 ```json
 "sequence": {
@@ -104,7 +104,7 @@ This option will create a latin square for any block using one behind the scenes
 :::warning
 The Latin square theoretically ensures proper balance between conditions, however the balance is only guaranteed if all participants complete the study, which is frequently not the case in online studies. If a participant doesn't complete the study and should be discarded, that “draw” from the latin square is used up, which could lead to inconsistencies (e.g., if more participants don't complete one condition of the study more often than others). You can counter that effect by `rejecting` participants via the [data dashboard](../../../analysis/study-summary/). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc.) do not use up a row of any generated latin squares.
 
-In practice, it is useful to recruit participant in batches and reject incomplete participants before starting a new batch, to ensure that the latin square remains balanced. 
+In practice, it is useful to recruit participants in batches and reject incomplete participants before starting a new batch, to ensure that the Latin square remains balanced.
 
 For other ways to ensure balance in your study design, please review this [FAQ item](../../../faq/#q-how-can-i-ensure-balanced-numbers-of-participants-between-conditions-in-my-study-design) and consider using [URL-based conditions](../url-conditions/).
 :::
@@ -198,7 +198,7 @@ You can also add `interruptions` deterministically at set intervals. The example
 
 Some studies need more advanced sequencing logic, based on a participant's response to previous questions. For example, a participant should only be shown a second, simpler task if they got a first, difficult task wrong. This is possible to implement in reVISit sequences with the `skip` object.
 
-The example below will jump straight to `end` if the consent form is answered with anything but `yes` to the field `consentApproval`, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for the keyword `end`, which always jumps to the default final component of the study. 
+The example below will jump straight to `end` if the consent form is answered with anything but `yes` to the field `consentApproval`, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for the keyword `end`, which always jumps to the default final component of the study.
 
 ```json
 "sequence": {
