@@ -2,7 +2,7 @@
 
 The reVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase.
 
-For most users, the best place to start is the template repository (first option below). If you  want all demos and tighter upstream parity, or are considering contributing to revisit, we recommend you fork the repository instead.
+For most users, the best place to start is the template repository (first option below). If you want all demos and tighter upstream parity, or are considering contributing to reVISit, we recommend you fork the repository instead.
 
 ## Starting from the Template Repository (Recommended)
 
@@ -21,7 +21,7 @@ This template is a minimal setup intended for creating your own study project qu
 This is the preferred approach when you do not need cutting-edge changes (for example, from `dev`) and want a more stable baseline to build from. Unlike a fork, the new repository is not linked to the upstream repository's fork network, which helps keep your project lightweight and focused on your own study. You can also create as many repositories as you want from the template, which is not possible with forking.
 
 :::info
-Most likely, you will **receive a warning from GitHub about a potential security issue** as an API key is being shared, with a subject like “Possible valid secrets detected“. 
+Most likely, you will **receive a warning from GitHub about a potential security issue** as an API key is being shared, with a subject like "Possible valid secrets detected".
 You can safely ignore this warning. The reason for this is that the Firebase API key is not a secret key, and it is intended to be shared publicly in client-side code. For more information, see the [Firebase documentation on API keys](https://firebase.google.com/docs/projects/api-keys#api_key_security_recommendations).
 :::
 
@@ -31,7 +31,7 @@ Forking the repository is a more advanced option that allows you to have a copy 
 
 To fork, start by navigating to the following GitHub repository: https://github.com/revisit-studies/study
 
-You should see a “fork” button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code. 
+You should see a "fork" button on the same row as the name of the repository. When you fork a repository, you are essentially creating your own copy of the repository in your GitHub account. This means that any changes you commit and push to this new repository will not affect the main source code.
 
 ![Fork button](./img/fork-repo.png)
 

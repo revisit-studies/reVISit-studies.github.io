@@ -19,7 +19,7 @@ When we mention "library" here, we are not referring to external libraries like 
 
 Using libraries is simple. You can import the library into your study and then use the components and/or whole sequences that are provided by the library.
 
-The libraries are in [`public/libraries`](https://github.com/revisit-studies/study/tree/main/public/libraries) folder in your study. The folder name corresponds to the library's `name`.  Below are the steps for using a library.
+The libraries are in [`public/libraries`](https://github.com/revisit-studies/study/tree/main/public/libraries) folder in your study. The folder name corresponds to the library's `name`. Below are the steps for using a library.
 
 ### Step 1: Import the Library
 
@@ -103,11 +103,11 @@ Inherited values can be changed at the component level, such as `withSidebar`, `
 
 ## Creating your Own Plugins
 
-Beyond the libraries we provide, you can also define your own plugins in your study. 
+Beyond the libraries we provide, you can also define your own plugins in your study.
 
-A natural starting point for creating libraries is if you find yourself creating components that could be re-used across your own studies, or be shared with the broader community. Let's say you have two custom created components, `A.tsx` and `B.tsx`, and you want to turn them into a plugin library. 
+A natural starting point for creating libraries is if you find yourself creating components that could be re-used across your own studies, or be shared with the broader community. Let's say you have two custom created components, `A.tsx` and `B.tsx`, and you want to turn them into a plugin library.
 
-Here is an overview of the folders you will be creating: 
+Here is an overview of the folders you will be creating:
 
 ```
 study/
@@ -124,25 +124,25 @@ study/
 |  |- library-my-plugin/                <- NEW FOLDER (STEP 3)
 |- src/
 |  |- analysis/
-|  |- ... 
+|  |- ...
 |  |- public/
-|    |- demo-click-accuracy-test/
+|    |- demo-html/
 |    |- ...
 |    |- libraries/
 |       |- mini-vlat/
-|       |- ... 
+|       |- ...
 |       |- my-plugin/assets/            <- NEW FOLDER (STEP 1)
 ```
 
-Suppose you create a new plugin library called `my-plugin`. 
+Suppose you create a new plugin library called `my-plugin`.
 
 1. **STEP 1**. Create a folder: `src/public/libraries/my-plugin/assets`.
-    - The components that will make up of your library, e.g., `A.tsx`, `B.tsx` as well as any image or video files that go into these components, will sit in this folder. 
+    - The components that will make up your library, e.g., `A.tsx`, `B.tsx` as well as any image or video files that go into these components, will sit in this folder.
 2. **STEP 2**. Create a folder: `public/libraries/my-plugin`.
-    - Initialize a `config.json` file within this newly created folder. This `config.json` should follow [LibraryConfig](https://revisit.dev/docs/typedoc/interfaces/LibraryConfig/). 
+    - Initialize a `config.json` file within this newly created folder. This `config.json` should follow [LibraryConfig](https://revisit.dev/docs/typedoc/interfaces/LibraryConfig/).
 3. **STEP 3**. Create a folder: `public/library-my-plugin`.
-    - Initialize a `config.json` file within this newly created folder. This config file should follow how a study configuration is typically defined (see [StudyConfig](https://revisit.dev/docs/typedoc/interfaces/StudyConfig/)) for more details. 
-    - A typical practice is to include some introductory information before showcasing the full library. To achieve this, create an `introduction.md` file and place it in `public/library/my-plugin/assets/`. 
+    - Initialize a `config.json` file within this newly created folder. This config file should follow how a study configuration is typically defined (see [StudyConfig](https://revisit.dev/docs/typedoc/interfaces/StudyConfig/)) for more details.
+    - A typical practice is to include some introductory information before showcasing the full library. To achieve this, create an `introduction.md` file and place it in `public/library-my-plugin/assets/`.
 
 We are happy to **accept community contributions for libraries!** If you have a library that you think would be useful for others, please reach out to us and we will help you merge it into our repository.
 

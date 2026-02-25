@@ -214,7 +214,7 @@ A dropdown allows participants to choose one or more from a list. By default, th
 
 ![Multiselect dropdown](img/designing-forms/dropdown-multiselect.png)
 
-When `minSelections` or `maxSelections` are specified for a dropdown, it automatically becomes a multiselect dropdown, allowing participants to choose multiple options. 
+When `minSelections` or `maxSelections` are specified for a dropdown, it automatically becomes a multiselect dropdown, allowing participants to choose multiple options.
 
 Example with minimum selections:
 
@@ -309,7 +309,7 @@ A ranking widget allows participants to order or group items rather than simply 
 For sublist and categorical rankings, you can use the `numItems` option to control how many items participants must assign:
 
 - In a sublist, `numItems` sets how many items they have to rank (e.g., top 2 out of 5).
-- In a categorical ranking, `numItems` can limit how many items may be placed in each category (e.g., only 3 items per category).  
+- In a categorical ranking, `numItems` can limit how many items may be placed in each category (e.g., only 3 items per category).
 
 :::note
 The `numItems` option cannot be used in pairwise rankings, since their purpose is to compare and rank items by pairs.
@@ -499,7 +499,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "LikertResponse", url: "../../typedoc/interfaces/LikertResponse"},
     {name: "LongTextResponse", url: "../../typedoc/interfaces/LongTextResponse"},
     {name: "MatrixResponse", url: "../../typedoc/interfaces/MatrixResponse"},
-    {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"}, 
+    {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"},
     {name: "RadioResponse", url: "../../typedoc/interfaces/RadioResponse"},
     {name: "RankingResponse", url: "../../typedoc/interfaces/RankingResponse"},
     {name: "ShortTextResponse", url: "../../typedoc/interfaces/ShortTextResponse"},

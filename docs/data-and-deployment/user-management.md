@@ -12,9 +12,9 @@ It is not required that you use the authentication system in reVISit, but it is 
 
 ## How does authentication work in reVISit?
 
-There are a few different personas that we consider when talking about accessing the reVISit platform. To start, we will consider the personas "participant" and "administrator". A "participant" would be any user who is meant to participate in one or more studies. In general, participants are given a link to the study itself and have no immediate way to navigate to the main page, the analysis dashboard, or the settings page. In other words, there are no specific navigation buttons within an individual study which direct to any of these three pages. 
+There are a few different personas that we consider when talking about accessing the reVISit platform. To start, we will consider the personas "participant" and "administrator". A "participant" would be any user who is meant to participate in one or more studies. In general, participants are given a link to the study itself and have no immediate way to navigate to the main page, the analysis dashboard, or the settings page. In other words, there are no specific navigation buttons within an individual study which direct to any of these three pages.
 
-However, this does not necessarily prevent a user from accessing these pages; if a user knows the URL for these other pages, they are free to access them if authentication is not enabled. We want to make sure that the participant is not only solely focused on the study, but also that the participant does not have the ability to navigate to pages containing sensitive information. 
+However, this does not necessarily prevent a user from accessing these pages; if a user knows the URL for these other pages, they are free to access them if authentication is not enabled. We want to make sure that the participant is not only solely focused on the study, but also that the participant does not have the ability to navigate to pages containing sensitive information.
 
 An "administrator" should, conversely, have access to all information that is in reVISit. This means they should have access to all user data, the analysis dashboard, and any study that is created within this particular application.
 
@@ -42,7 +42,7 @@ ReVISit allows you to handle all necessary user management from the reVISit UI. 
 
 #### `user-management` collection
 
-In the Firebase application, you will see that your Firestore Database contains many different collections pertaining to the data collected for each study. There is an additional collection called `user-management`. If authentication was enabled, you should see two documents in the collection labeled `adminUsers` and `authentication`. 
+In the Firebase application, you will see that your Firestore Database contains many different collections pertaining to the data collected for each study. There is an additional collection called `user-management`. If authentication was enabled, you should see two documents in the collection labeled `adminUsers` and `authentication`.
 
 The `adminUsers` will contain a single list called the `adminUsersList`. Each entry of this list is of the following form:
 
@@ -65,9 +65,9 @@ The easiest and cleanest way to reset the authentication is to essentially remov
 If this step is necessary, we advise that you first remove this application from any public facing website. This is the same protocol when setting up authentication for the first time; ensure that there are no other unwanted users who can access the reVISit application while you set up authentication.
 :::
 
-Go into the Firestore Database and navigate to the `user-management` collection. On this collection, you should see three vertical dots to the right. This will provide an option for deleting this collection. 
+Go into the Firestore Database and navigate to the `user-management` collection. On this collection, you should see three vertical dots to the right. This will provide an option for deleting this collection.
 
-Once the collection is deleted, your reVISit application will be ready to re-enable authentication. 
+Once the collection is deleted, your reVISit application will be ready to re-enable authentication.
 
 ### Supabase
 

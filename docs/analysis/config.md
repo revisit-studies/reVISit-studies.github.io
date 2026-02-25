@@ -4,7 +4,7 @@ The Config tab shows all the different versions of your study configuration that
 
 ## Overview
 
-Each time you change your `config.json` file and deploy it, reVISit creates a unique hash for that version. 
+Each time you change your `config.json` file and deploy it, reVISit creates a unique hash for that version.
 
 ![Config tab](./img/config/config.png)
 
@@ -46,7 +46,7 @@ Select exactly two configs using the checkboxes, then click Compare Configs. You
 ![Compare Config](./img/config/compare-config.png)
 
 :::note
-Compare Config cannot track white space changes.
+Compare Config cannot track whitespace changes.
 :::
 
 ## Filter Config
