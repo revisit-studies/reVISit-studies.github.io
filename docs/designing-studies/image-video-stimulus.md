@@ -6,7 +6,7 @@ Image and video stimuli are essential for most studies. They can be used to pres
 
 Image stimuli are components of type `image`. Here is a simple example with an image element:
 
-```js
+```json title="public/demo-image/config.json"
 "components": {
   "dotplot-low": {
     "type": "image",
@@ -40,9 +40,11 @@ In this example, the image is rendered in the main window with a response in the
 
 ## Video Stimuli
 
+### Internal Videos
+
 Video stimuli are components of type `video`. Here is a simple example with a video element:
 
-```js
+```json title="public/demo-video/config.json"
 "components": {
   "internal": {
     "type": "video",
@@ -59,11 +61,11 @@ This renders as so:
 
 In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. This is useful for ensuring that participants watch the entire video before answering questions.
 
-## External Videos
+### External Videos
 
 You can also embed external videos, such as YouTube or Vimeo videos in your study, using the same syntax. Here is an example with a YouTube video element:
 
-```js
+```json title="public/demo-video/config.json"
 "components": {
   "external": {
     "type": "video",

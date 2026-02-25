@@ -8,7 +8,7 @@ ReVISit also always injects a special `end` component at the very end of the stu
 
 If your study has a set order, creating a sequence is simple. Define the components in the order you want to see them, and set your order to `fixed`.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -25,7 +25,7 @@ If your study has a set order, creating a sequence is simple. Define the compone
 
 Many studies need to randomize the order of some of the components, but not all. You may want every participant to see `introduction` and `consent` first, but then randomize the order they see trials in. To do this, sequences can be nested. Create another object around your trials, and change the order to `random`.
 
-```json
+```json title="public/study-name/config.json"
  "sequence": {
   "order": "fixed",
   "components": [
@@ -47,7 +47,7 @@ In this case all participants will first see `introduction` and `consent`, and t
 
 Studies can be nested to arbitrary depths. A frequent use case is a within subjects study where you want to randomize the order a participant sees two conditions in, and then also randomize the order of the trials within each condition. That would look like the following.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -81,7 +81,7 @@ Studies can be nested to arbitrary depths. A frequent use case is a within subje
 
 Studies frequently want portions of their trials to be random, but also want to ensure that their trials are not susceptible to ordering effects due to bad luck in the randomization process. A [latin square study design](https://en.wikipedia.org/wiki/Latin_square) is commonly used to combat this, and we have latin squares as a built-in option for randomization. Just change the order to `latinSquare`.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -102,9 +102,9 @@ Studies frequently want portions of their trials to be random, but also want to 
 This option will create a latin square for any block using one behind the scenes, iterate through the latin square as new participants request sequences, and refill it when empty.
 
 :::warning
-The Latin square theoretically ensures proper balance between conditions, however the balance is only guaranteed if all participants complete the study, which is frequently not the case in online studies. If a participant doesn't complete the study and should be discarded, that “draw” from the latin square is used up, which could lead to inconsistencies (e.g., if more participants don't complete one condition of the study more often than others). You can counter that effect by `rejecting` participants via the [data dashboard](../../../analysis/study-summary/). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc.) do not use up a row of any generated latin squares.
+The latin square theoretically ensures proper balance between conditions, however the balance is only guaranteed if all participants complete the study, which is frequently not the case in online studies. If a participant doesn't complete the study and should be discarded, that "draw" from the latin square is used up, which could lead to inconsistencies (e.g., if more participants don't complete one condition of the study more often than others). You can counter that effect by `rejecting` participants via the [data dashboard](../../../analysis/study-summary/). When a participant is rejected, their data gets flagged (but not deleted), and the sequence they had is returned to the sequence pool. This ensures that participants that start a study but do not complete it or are stopped before completing it (failed attention check, refused consent form, etc.) do not use up a row of any generated latin squares.
 
-In practice, it is useful to recruit participants in batches and reject incomplete participants before starting a new batch, to ensure that the Latin square remains balanced.
+In practice, it is useful to recruit participants in batches and reject incomplete participants before starting a new batch, to ensure that the latin square remains balanced.
 
 For other ways to ensure balance in your study design, please review this [FAQ item](../../../faq/#q-how-can-i-ensure-balanced-numbers-of-participants-between-conditions-in-my-study-design) and consider using [URL-based conditions](../url-conditions/).
 :::
@@ -113,7 +113,7 @@ For other ways to ensure balance in your study design, please review this [FAQ i
 
 Studies frequently want to only show a subset of all trials to a single participant. For this, each block in the sequence has a `numSamples` variable. The following example will show each participant 2 of the 4 trials. `numSamples` works with all sequence orders, but is likely only useful in combination with `random` and `latinSquare`. If used with `latinSquare`, choosing a `numSamples` will ensure that each trial is seen the same amount.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -138,7 +138,7 @@ Studies frequently want to only show a subset of all trials to a single particip
 
 To add attention checks or breaks to your study, there is an `interruptions` object, which has its own components. The example below adds two attention checks randomly spaced out between trials 1-4. You are guaranteed that the first component will not be an attention check, and that you won't see two attention checks back to back.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -167,7 +167,7 @@ To add attention checks or breaks to your study, there is an `interruptions` obj
 
 You can also add `interruptions` deterministically at set intervals. The example below will put an attention check after the first and third trial.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -200,7 +200,7 @@ Some studies need more advanced sequencing logic, based on a participant's respo
 
 The example below will jump straight to `end` if the consent form is answered with anything but `yes` to the field `consentApproval`, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for the keyword `end`, which always jumps to the default final component of the study.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -229,7 +229,7 @@ The example below will jump straight to `end` if the consent form is answered wi
 
 To check if multiple components are correct, for example that all attention checks were correct, you can do the following:
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -266,7 +266,7 @@ This example will go through every component named `myAttentionCheckComponent`, 
 
 You can also wait until multiple attention checks have been answered incorrectly to jump to end with the `repeatedComponent` check.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -304,7 +304,7 @@ You can also wait until multiple attention checks have been answered incorrectly
 
 You can also use `skip` to jump around within your study. The example below skips the block `hardQuestions` if the participant gets both questions wrong in `easyQuestions`.
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
   "components": [
@@ -349,9 +349,6 @@ You can also use `skip` to jump around within your study. The example below skip
 
 After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards.
 
-
-
-
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -367,10 +364,10 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Skip Logic Code", url: "https://github.com/revisit-studies/study/blob/main/public/test-skip-logic"},
    ]}
   referenceLinks={[
-    {name: "ComponentBlock", url: "../../typedoc/interfaces/ComponentBlock/"},
-    {name: "InterruptionBlock", url: "../../typedoc/type-aliases/InterruptionBlock/"},
-    {name: "RandomInterruption", url: "../../typedoc/interfaces/RandomInterruption/"},
-    {name: "DeterministicInterruption", url: "../../typedoc/interfaces/DeterministicInterruption/"},
-    {name: "SkipConditions", url: "../../typedoc/type-aliases/SkipConditions/"}
+    {name: "ComponentBlock", url: "../../../typedoc/interfaces/ComponentBlock/"},
+    {name: "InterruptionBlock", url: "../../../typedoc/type-aliases/InterruptionBlock/"},
+    {name: "RandomInterruption", url: "../../../typedoc/interfaces/RandomInterruption/"},
+    {name: "DeterministicInterruption", url: "../../../typedoc/interfaces/DeterministicInterruption/"},
+    {name: "SkipConditions", url: "../../../typedoc/type-aliases/SkipConditions/"}
   ]}
 />

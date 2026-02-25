@@ -21,7 +21,7 @@ A component is typically defined in the spec, with the text, code, or image incl
 
 The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define the details of your experiment as a configuration file. This configuration file can be written in either **JSON** or **YAML** format—both are fully supported and work identically.
 
-:::note
+:::info
 JSON is recommended for most users because it provides schema validation support in IDEs like VSCode, giving you autocomplete and error detection. YAML is an alternative that offers cleaner syntax and comment support but has limited IDE validation.
 :::
 
@@ -55,11 +55,11 @@ Each component has a list of responses which represents a set of questions to as
 
 The below example illustrates a simple consent component that is based on a Markdown file and has a response that asks for a signature, nested inside the `components` block:
 
-```js
+```json title="public/example-brush-interactions/config.json"
 "components":{
     "consent": {
         "type": "markdown",
-        "path": "demo-brush-interactions/assets/consent.md",
+        "path": "example-brush-interactions/assets/consent.md",
         "nextButtonText": "Agree",
         "response": [
             {
@@ -81,8 +81,8 @@ For more detailed documentation on the response section, check out the [document
 
 [Base Components](../../typedoc/interfaces/StudyConfig#properties) can be used to implement inheritance for components. This is often useful if you want to parameterize a component. For example:
 
-* You might have a stimulus, such as an image, about which you want to ask multiple different questions on separate pages.
-* You might have a generic implementation of a stimulus, such as a bar chart, and you want to pass in data to change how the stimulus appears.
+- You might have a stimulus, such as an image, about which you want to ask multiple different questions on separate pages.
+- You might have a generic implementation of a stimulus, such as a bar chart, and you want to pass in data to change how the stimulus appears.
 
 In both of these cases, you can set up a component once as a `BaseComponent`, including linking to the stimulus and including (partial) responses, but then later write inherited, short components that extend the base component with the specific functionality you want.
 
@@ -95,15 +95,15 @@ The sequence object of the study configuration defines (a) the order participant
 - **Ordering Strategies:**
     - **Fixed** order: participants see the components the way they are defined in the sequence
     - **Random** order: the order of the components are randomized
-    - **[Latin Square](https://en.wikipedia.org/wiki/Latin_square)** order: permute the order of stimuli but ensure that for a set of participants, each component occurs at each index an equal amount of times throughout the sequence (e.g. if there are 100 participants and 10 components, each component is seen at each index 10 times)
+    - **[Latin square](https://en.wikipedia.org/wiki/Latin_square)** order: permute the order of stimuli but ensure that for a set of participants, each component occurs at each index an equal amount of times throughout the sequence (e.g. if there are 100 participants and 10 components, each component is seen at each index 10 times)
 - **Sampling:** `numSamples` draws a given number of items from a block. `numSamples` can be used in combination with each ordering strategy (while preserving ordering guarantees)
 - **Interruptions** can be used to insert breaks and attention checks into a block
 - **Skips** can be used to control flow based on the response to a question or a component block
 - **Study Conditions** can be used to run different versions of your study using URL parameters
 
-All of these can be applied on arbitrarily nested “blocks”: an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order.
+All of these can be applied on arbitrarily nested "blocks": an entry in the `components` list can either be the name of a component or another component block. For example, the overall structure of a study can be linear (introduction, consent, tutorial, trials, survey), but within trials we can use random order.
 
-```js
+```json title="public/example-brush-interactions/config.json"
 "sequence": {
     "order": "fixed",
     "components": [

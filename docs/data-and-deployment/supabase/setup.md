@@ -106,7 +106,7 @@ For long-term deployments, prefer exposing Supabase through HTTPS on `443` via a
 
 11. **Update your `.env` file in your deployed reVISit application**: In the root of your reVISit application, update the `.env` file with the following variables:
 
-   ```env
+   ```env title=".env"
    VITE_STORAGE_ENGINE="supabase"
    VITE_SUPABASE_URL="https://<your-supabase-base-url>"
    VITE_SUPABASE_ANON_KEY="<your-anon-key>"

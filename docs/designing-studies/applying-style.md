@@ -11,11 +11,9 @@ There are two primary ways to apply styles to your study:
 ### 1. External CSS Files (`stylesheetPath`)
 For comprehensive styling with complex rules, pseudo-classes, etc. across all components, you can load external CSS files.
 
-```json
+```json title="public/study-name/config.json"
 "uiConfig": {
-  ...
   "stylesheetPath": "study-name/assets/style.css"
-  ...
 }
 ```
 
@@ -40,7 +38,7 @@ When styling elements with external CSS files, target them using the appropriate
 - Component: `#componentName` (e.g., `#introduction`, `#survey-question`)
 - Response: `#responseId` (e.g., `#final-feedback`, `#user-rating`)
 
-:::note
+:::info
 Styles are applied in the following order (later styles override earlier ones):
 
 1. **Global UI Styles** (`uiConfig.stylesheetPath`)
@@ -51,9 +49,8 @@ Styles are applied in the following order (later styles override earlier ones):
 ### 2. Inline Styles (`style`)
 For basic styling like sizing, colors, and fonts, apply specific CSS properties directly to components or responses:
 
-```json
+```json title="public/study-name/config.json"
 "component": {
-    ...
     "style": {
         "width": "800px",
         "margin": "20px auto",
@@ -62,7 +59,6 @@ For basic styling like sizing, colors, and fonts, apply specific CSS properties 
         "border": "1px solid #aeaeae",
         "borderRadius": "12px"
     }
-    ...
 },
 ```
 
@@ -72,9 +68,9 @@ For basic styling like sizing, colors, and fonts, apply specific CSS properties 
 
 Apply global styles that affect the entire study interface:
 
-```json
+```json title="public/study-name/config.json"
 "uiConfig": {
-  "contactEmail": "contact@revisit.dev",
+  "contactEmail": "your@email.com",
   "logoPath": "study-name/assets/logo.svg",
   "withProgressBar": true,
   "withSidebar": true,
@@ -88,17 +84,13 @@ Apply global styles that affect the entire study interface:
 
 ![Form Style](img/style-form.gif)
 
-```json
+```json title="public/demo-style/config.json"
 "uiConfig": {
-  ...
   "stylesheetPath": "demo-style/assets/style/form.css"
-  ...
 },
 ```
 
-`form.css`
-
-```css
+```css title="public/demo-style/assets/style/form.css"
 .main {
   background-color: #f5f7fa;
 }
@@ -143,17 +135,13 @@ label {
 
 ![Large Text Style](img/style-large-text.png)
 
-```json
+```json title="public/demo-style/config.json"
 "uiConfig": {
-  ...
   "stylesheetPath": "demo-style/assets/style/largeText.css"
-  ...
 },
 ```
 
-`largeText.css`
-
-```css
+```css title="public/demo-style/assets/style/largeText.css"
 .studyTitle {
   font-size: 24px;
   font-weight: bold;
@@ -183,14 +171,12 @@ label {
 
 Components can load their own CSS files using `stylesheetPath`:
 
-```json
-{
-  "markdown-intro": {
-    "type": "markdown",
-    "path": "study-name/assets/introduction.md",
-    "stylesheetPath": "study-name/assets/componentStyle.css",
-    "response": []
-  }
+```json title="public/study-name/config.json"
+"markdown-intro": {
+  "type": "markdown",
+  "path": "study-name/assets/introduction.md",
+  "stylesheetPath": "study-name/assets/componentStyle.css",
+  "response": []
 }
 ```
 
@@ -200,9 +186,7 @@ You can select components with their name. For example, if your component name i
 Use `#markdown-intro` to select your component. You can also use `#markdown-intro code` to select code elements inside that component.
 If you would like to target all markdown components across your study, use the class selector `.markdown`.
 
-`componentStyle.css`
-
-```css
+```css title="public/study-name/assets/style/componentStyle.css"
 .markdown {
   color: blue;
 }
@@ -227,20 +211,18 @@ If you would like to target all markdown components across your study, use the c
 
 Apply styles directly to component configurations:
 
-```json
-{
-  "chart": {
-    "type": "image",
-    "path": "assets/chart.png",
-    "style": {
-      "width": "500px",
-      "border": "2px solid #333",
-      "borderRadius": "10px",
-      "margin": "20px auto",
-      "boxShadow": "0 4px 8px rgba(0,0,0,0.1)"
-    },
-    "response": []
-  }
+```json title="public/study-name/config.json"
+"chart": {
+  "type": "image",
+  "path": "assets/chart.png",
+  "style": {
+    "width": "500px",
+    "border": "2px solid #333",
+    "borderRadius": "10px",
+    "margin": "20px auto",
+    "boxShadow": "0 4px 8px rgba(0,0,0,0.1)"
+  },
+  "response": []
 }
 ```
 
@@ -250,22 +232,18 @@ Apply styles directly to component configurations:
 
 ![Markdown Component Style](img/style-introduction.png)
 
-`config.json`
-
-```json
+```json title="public/study-name/config.json"
 "components": {
   "introduction": {
     "type": "markdown",
-    "path": "demo-style/assets/introduction.md",
-    "stylesheetPath": "demo-style/assets/style/introductionStylesheet.css",
+    "path": "study-name/assets/introduction.md",
+    "stylesheetPath": "study-name/assets/style/introductionStylesheet.css",
     "response": []
   }
 }
 ```
 
-`introductionStylesheet.css`
-
-```css
+```css title="public/study-name/assets/style/introductionStylesheet.css"
 .markdown {
   background-color: #f1f1f1;
   padding: 30px;
@@ -287,11 +265,11 @@ Apply styles directly to component configurations:
 
 ![Image Component Style](img/style-image.png)
 
-```json
+```json title="public/demo-style/config.json"
 "components": {
   "chart": {
     "type": "image",
-    "path": "demo-image/assets/image.png",
+    "path": "demo-style/assets/image.png",
     "response": [
       {
         "id": "image-component-style",
@@ -313,11 +291,11 @@ Apply styles directly to component configurations:
 
 ![Vega Component Style](img/style-vega.png)
 
-```json
+```json title="public/demo-style/config.json"
 "components": {
   "vega-component": {
     "type": "vega",
-    "path": "demo-vega/specs/vegademo1.specs.json",
+    "path": "demo-style/specs/vegademo1.specs.json",
     "response": [
       {
         "id": "vega-path-component-style",
@@ -348,7 +326,7 @@ Responses can have their own stylesheets. You can target them using their type (
 - Use `.responseBlock` to select the whole block that holds the responses.
 - Use `.response` to target any individual response element across the study.
 
-```json
+```json title="public/demo-style/config.json"
 "components": {
   "component": {
     ...
@@ -360,18 +338,15 @@ Responses can have their own stylesheets. You can target them using their type (
         "numItems": 5,
         "leftLabel": "Poor",
         "rightLabel": "Excellent",
-        "stylesheetPath": "study-name/assets/responseStyle.css",
+        "stylesheetPath": "demo-style/assets/style/responseStyle.css",
         "location": "belowStimulus"
       }
     ]
-    ...
   }
 }
 ```
 
-`responseStyle.css`
-
-```css
+```css title="public/demo-style/assets/style/responseStyle.css",
 #user-feedback {
   background: #f8f9fa;
   border: 1px solid #dee2e6;
@@ -391,7 +366,7 @@ Responses can have their own stylesheets. You can target them using their type (
 
 Apply styles directly to response configurations:
 
-```json
+```json title="public/demo-style/config.json"
 "components": {
   "component": {
     ...
@@ -413,7 +388,6 @@ Apply styles directly to response configurations:
         }
       }
     ]
-    ...
   }
 }
 ```
@@ -424,7 +398,7 @@ Apply styles directly to response configurations:
 
 ![Text Response Styling](img/style-text.png)
 
-```json
+```json title="public/demo-style/config.json"
 "response": [
   {
     "id": "short-text-response-style",
@@ -468,9 +442,9 @@ Apply styles directly to response configurations:
 
 You can also make responses interactive using CSS. For example, you can change the background color when a user clicks on a response. You might also make the text appear larger when the user starts typing. Adding interactions like these can improve the overall usability of your study.
 
-![InteractiveResponse](img/style-interactive.gif)
+![Interactive Response](img/style-interactive.gif)
 
-```
+```json title="public/demo-style/config.json"
 "interactive-responses": {
   "type": "markdown",
   "path": "demo-style/assets/responseStylesheet.md",
@@ -507,9 +481,7 @@ You can also make responses interactive using CSS. For example, you can change t
 },
 ```
 
-`responseStylesheet.css`
-
-```css
+```css title="public/demo-style/assets/style/responseStylesheet.css"
 .responseBlock {
   display: flex;
   flex-direction: column;

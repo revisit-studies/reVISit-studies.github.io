@@ -10,7 +10,7 @@ Conditions will be available as a column in your data automatically.
 
 To define conditional blocks, use `"conditional": true` on a block in `sequence`, and give that block an `id`. The `id` is the condition name used in the URL.
 
-```json
+```json title="public/demo-condition/config.json"
 {
   "sequence": {
     "order": "fixed",
@@ -48,7 +48,7 @@ If you'd like to combine multiple conditions, like in the following example:
   - dark
   - light
 
-we recommend flattening the conditions into components, like this:
+We recommend flattening the conditions into components, like this:
 
 - rectangle-dark
 - rectangle-light
@@ -65,7 +65,7 @@ The landing page study card lets you pick one or more conditions and copy a link
 
 The condition picker lists the available conditions and the current participant counts. Select a condition and click "Go to Study".
 
-:::note
+:::info
 After the initial assignment that happens when you visit a URL with a condition, changing conditions is not possible, even in dev mode, except by starting as a new participant with the "Next Participant" button.
 :::
 

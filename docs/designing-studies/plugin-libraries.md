@@ -11,7 +11,7 @@ We currently provide libraries for:
 
 You can find details [below](#available-libraries).
 
-:::note
+:::info
 When we mention "library" here, we are not referring to external libraries like NPM packages. If you'd like to use an NPM package in your study, you will need to create a React component that incorporates the package and reference that component in your study configuration.
 :::
 
@@ -25,7 +25,7 @@ The libraries are in [`public/libraries`](https://github.com/revisit-studies/stu
 
 To import a library, add its name to the `importedLibraries` top-level field of your study's config. For example:
 
-```json
+```json title="public/study-name/config.json"
 "components": {
   ...
 },
@@ -45,7 +45,7 @@ Libraries expose one or multiple "components" and possibly also "sequences" – 
 
 For example:
 
-```json
+```json title="public/study-name/config.json"
 "sequence": {
   // Configuration of the sequence for your study
   "components": [
@@ -58,22 +58,21 @@ For example:
 
 ## Modifying Components in Existing Libraries
 
-You can modify library components in your study configuration via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Import a library with `importedLibraries`, then create a local component that inherits from a library component using `baseComponent`. Any attributes you specify will overwrite the original attributes from the plugin library. Libraries are located at `public/libraries/{library-name}/config.json`.
+You can modify library components in your study configuration via [inheritance](../../getting-started/how-does-it-work/#base-components-and-inheritance). Import a library with `importedLibraries`, then create a local component that inherits from a library component using `baseComponent`. Any attributes you specify will overwrite the original attributes from the plugin library. Libraries are located at `public/libraries/library-name/config.json`.
 
 Here's an example adding a new `instruction` to the `mini-vlat` library's `treemap` component:
 
-```json
+```json title="public/study-name/config.json"
 "importedLibraries": ["mini-vlat"],
 "components": {
   "mini-vlat-treemap-modified": {
       "baseComponent": "$mini-vlat.components.treemap",
-      "instruction": "new instruction."
+      "instruction": "new instruction"
   }
 },
 "sequence": {
   "order": "fixed",
   "components": [
-    ...
     "mini-vlat-treemap-modified",
     ...
   ]
@@ -82,20 +81,18 @@ Here's an example adding a new `instruction` to the `mini-vlat` library's `treem
 
 Here's another example overriding the sidebar setting:
 
-```json
-{
-  "importedLibraries": ["sam"],
-  "components": {
-    "sam-pleasure-no-sidebar": {
-      "baseComponent": "$sam.components.pleasure",
-      "withSidebar": true,
-      "nextButtonLocation": "belowStimulus"
-    }
-  },
-  "sequence": {
-    "order": "fixed",
-    "components": ["sam-pleasure-no-sidebar"]
+```json title="public/study-name/config.json"
+"importedLibraries": ["sam"],
+"components": {
+  "sam-pleasure-no-sidebar": {
+    "baseComponent": "$sam.components.pleasure",
+    "withSidebar": true,
+    "nextButtonLocation": "belowStimulus"
   }
+},
+"sequence": {
+  "order": "fixed",
+  "components": ["sam-pleasure-no-sidebar"]
 }
 ```
 
