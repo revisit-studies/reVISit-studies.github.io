@@ -123,3 +123,19 @@ html[data-theme='dark'] .light-theme-display-component {
   height: 160%;
   margin-top: -10px;
 }
+
+/* Improve JSON token contrast for non-string values. */
+.theme-code-block .language-json .token.number,
+.theme-code-block .language-json .token.boolean,
+.theme-code-block .language-json .token.null,
+.theme-code-block .language-json .token.constant {
+  color: #0550ae !important;
+  font-weight: 600;
+}
+
+html[data-theme='dark'] .theme-code-block .language-json .token.number,
+html[data-theme='dark'] .theme-code-block .language-json .token.boolean,
+html[data-theme='dark'] .theme-code-block .language-json .token.null,
+html[data-theme='dark'] .theme-code-block .language-json .token.constant {
+  color: #79c0ff !important;
+}
