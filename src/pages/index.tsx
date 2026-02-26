@@ -16,11 +16,13 @@ function HomepageHeader() {
           <ImageSwitcher
             lightImageSrc="img/logos/revisitLogoThumbnail-dotted-light.svg"
             darkImageSrc="img/logos/revisitLogoThumbnail-dotted-dark.svg"
+            alt="ReVISit logo"
             className={clsx(styles.largeItem, styles.homepageLogo)}
           />
           <ImageSwitcher
             lightImageSrc="img/logos/revisitLogoLong.svg"
             darkImageSrc="img/logos/revisitLogoLong-dark.svg"
+            alt="ReVISit logo"
             className={clsx(styles.smallItem, styles.homepageLogo)}
           />
           <div className={clsx('hero__title', styles.description)}>
