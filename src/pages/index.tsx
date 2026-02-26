@@ -37,7 +37,7 @@ function HomepageHeader() {
             className={clsx('button button--secondary button--lg', styles.buttonWithSubtext)}
             to="/about"
           >
-            About reVISit
+            About ReVISit
             <span className={styles.buttonSubtext}>Explore the reVISit Story</span>
           </Link>
           <Link
