@@ -8,6 +8,7 @@ import mobileApp from '@site/static/img/mobile-app.svg';
 import dns from '@site/static/img/dns.svg';
 
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 type FeatureItem = {
   title: string;
@@ -20,10 +21,10 @@ const FeatureListOne: FeatureItem[] = [
   {
     title: 'Flexible And Powerful Study Design',
     Svg: pageAnalysis,
-    description: (
-      <>
-        ReVISit is designed with researchers from all disciplines in mind. It is simple enough to allow study creators to stand up small questionnaires quickly but powerful enough for creators to implement interactive visualizations for more complex stimuli.
-      </>
+   description: (
+  <>
+     ReVISit is designed with researchers from all disciplines in mind. It is simple enough to allow study creators to stand up small <Link to="/docs/designing-studies/forms/">questionnaires</Link> quickly but powerful enough for creators to implement interactive visualizations for more complex stimuli.
+  </>
     ),
   },
   {
@@ -31,7 +32,7 @@ const FeatureListOne: FeatureItem[] = [
     Svg: cloudAcceleration,
     description: (
       <>
-        ReVISit allows researchers to focus on the visual stimuli without the hassle of setting up storage, capturing user events, and complicated randomization of studies.
+        ReVISit allows researchers to focus on the visual stimuli without the hassle of setting up <Link to="/docs/data-and-deployment/">storage</Link>, capturing user events, and complicated randomization of studies.
       </>
     ),
   },
@@ -40,7 +41,7 @@ const FeatureListOne: FeatureItem[] = [
     Svg: dataAnalysis,
     description: (
       <>
-        With the Analysis Dashboard, you can preview the results from your study with an easy-to-use UI or download the data directory for use in your analysis platform of choice.
+        With the <Link to="/docs/analysis/">analysis</Link> dashboard, you can preview the results from your study with an easy-to-use UI or download the data directory for use in your analysis platform of choice.
       </>
     ),
   },
@@ -49,7 +50,7 @@ const FeatureListOne: FeatureItem[] = [
     Svg: mobileApp,
     description: (
       <>
-        From user inputs to complex events, reVISit handles all data collection in a robust manner. You can then download the data in either JSON or tidy data format.
+        From user inputs to complex events, reVISit handles all data collection in a robust manner. You can then <Link to="/docs/analysis/data-export/">download the data</Link> in either JSON or tidy data format.
       </>
     ),
     inputClass: 'col--offset-2',
@@ -59,7 +60,7 @@ const FeatureListOne: FeatureItem[] = [
     Svg: dns,
     description: (
       <>
-        With reVISit, it&apos;s simple to move from the data collection phase to widely sharing your studies with the public, so reviewers and readers will know exactly what you did!
+        With reVISit, it&apos;s simple to move from the data collection phase to widely <Link to="/docs/analysis/revisit-modes/#share-data-and-make-analytics-interface-public">sharing your studies</Link> with the public, so reviewers and readers will know exactly what you did!
       </>
     ),
   },

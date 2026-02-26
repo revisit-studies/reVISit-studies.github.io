@@ -1,4 +1,4 @@
-# Classes 
+# Classes
 
 ## `Component`
 
@@ -501,7 +501,7 @@ print(sequence.get_components()[0])
 
 Maps each component in the current sequence to the result of the inputted `component_function`. This will maintain the entire structure of the sequence and will recursively call this function to replace every component.
 
-The `met` attribute of the components are passed in as arguments to the `component_function`. This makes it especially useful after using the `permute` or `from_data` methods since both add `meta` attributes to the components. If an exception is raised when calling the `component_function`, the original input component will be used in its stead.  Additionally, the `component_function` can also take in the `component__` parameter which is the original component that is being transformed. 
+The `meta` attributes of components are passed in as arguments to the `component_function`. This makes it especially useful after using the `permute` or `from_data` methods since both add `meta` attributes to the components. If an exception is raised when calling the `component_function`, the original input component will be used in its stead. Additionally, the `component_function` can also take in the `component__` parameter which is the original component that is being transformed.
 
 #### **Examples**:
 
@@ -637,7 +637,7 @@ Expected Output:
     ]
 }
 
-The two components generated are inherently identical, except with different meta attributes. 
+The two components generated are inherently identical, except with different meta attributes.
 These meta attributes are not outputed into the final JSON study config or seen when printing out
 the individual components.
 '''

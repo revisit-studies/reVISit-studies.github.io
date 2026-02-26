@@ -1,10 +1,5 @@
 # Deploying To a Static Website
 
-- [Deploying using GitHub](#deploying-using-github)
-- [Deploying using Netlify](#deploying-using-netlify)
-- [Deploying using Vercel](#deploying-using-vercel)
-- [Deploying using render.com](#deploying-using-rendercom)
-
 ## Deploying using GitHub
 
 Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
@@ -39,15 +34,15 @@ If you would like to enable admin sign ins when you deploy your static website, 
 
 ## Deploying using Netlify
 
-Similarly deploying your study to Netlify is relatively straightforward. First, modify the VITE_BASE_PATH in your .env to be
+Similarly deploying your study to Netlify is relatively straightforward. First, modify the VITE_BASE_PATH in your `.env` to be
 
-```
+```env title=".env"
 VITE_BASE_PATH="/"
 ```
 
 Then create a new file called `public/_redirects`, the contents of the file should be
 
-```
+```txt title="public/_redirects"
 /*    /index.html   200
 ```
 
@@ -63,19 +58,19 @@ Search for the appropriate repo and then select it. This will bring up a configu
 
 The first build will take a bit, but once it runs, your experiment should be ready!
 
-If you are using Netlify as a secondary venue for anonymization purposes, you can specify which branch Netlify will use to deploy from. For instance a branch called `for-review' might remove all personnel and affiliation information.
+If you are using Netlify as a secondary venue for anonymization purposes, you can specify which branch Netlify will use to deploy from. For instance a branch called `for-review` might remove all personnel and affiliation information.
 
 ## Deploying using Vercel
 
-Deploying with Vercel is also straightforward and follows a very similar configuration process as the other platforms. Ensure that your VITE_BASE_PATH in your .env is like the following:
+Deploying with Vercel is also straightforward and follows a very similar configuration process as the other platforms. Ensure that your VITE_BASE_PATH in your `.env` is like the following:
 
-```
+```env title=".env"
 VITE_BASE_PATH="/"
 ```
 
 At the root of your project, create a `vercel.json` file with the following contents:
 
-```json
+```json title="vercel.json"
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
@@ -93,9 +88,9 @@ You likely will not need to make any changes to the configuration. After a short
 
 ## Deploying using render.com
 
-Deploying with render.com is a little more involved than some of the other options, but has similar bones as the other platforms. Ensure that your VITE_BASE_PATH in your .env is like the following:
+Deploying with render.com is a little more involved than some of the other options, but has similar bones as the other platforms. Ensure that your VITE_BASE_PATH in your `.env` is like the following:
 
-```
+```env title=".env"
 VITE_BASE_PATH="/"
 ```
 

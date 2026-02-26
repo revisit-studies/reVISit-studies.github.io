@@ -5,17 +5,16 @@ ReVISit has integrated audio recording and audio playback for conducting in-pers
 ## Turning on audio recording
 
 Turning on audio recording for your entire study can be done by setting the `recordAudio` flag in the `uiConfig` section of your config file.
-```json
-{
-  "uiConfig": {
+
+```json title="public/study-name/config.json"
+"uiConfig": {
     "recordAudio": true
-  }
 }
 ```
 
 By default, this will record audio for every task in the study. However, we recommend only recording audio for tasks which you plan on later analyzing, and turning it off for tasks such as consent forms and introductions. Each component can turn off audio for that component by setting the `recordAudio` flag within the component to false, as shown below.
 
-```json
+```json title="public/example-brush-interactions/config.json"
 "introduction": {
     "type": "markdown",
     "path": "example-brush-interactions/assets/introduction.md",
@@ -47,7 +46,7 @@ All audio data is stored in Firebase or Supabase storage. To listen to participa
 
 To download audio data after completing a study, navigate to [Participant View](../analysis/data-export.md) in analysis.
 
-:::note
+:::info
 To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio`.
 :::
 
@@ -65,7 +64,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
     referenceLinks={[
         {name: "Mic Check Library", url: "../../libraries/mic-check/"},
-        {name: "reVISit Libraries", url: "../plugin-libraries"},
+        {name: "ReVISit Libraries", url: "../plugin-libraries"},
         {name: "Downloading audio", url: "../../analysis/data-export/#download-audio"}
     ]}
 />

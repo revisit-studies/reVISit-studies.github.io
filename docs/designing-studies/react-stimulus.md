@@ -17,7 +17,7 @@ We have a few reusable components and hooks available in the `src/public/example
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
 In this example, we pass two data arrays to the BarChart component. One is the data array contains 5 objects, each object has a name and a value. The other is the selectedIndices array, which contains the indices of the data array that we want to highlight with dots.
 
-```ts
+```ts title="src/public/example-cleveland/assets/chartcomponents/BarChart.tsx"
 import * as d3 from 'd3';
 import { useChartDimensions } from './hooks/useChartDimensions';
 import { Bars } from './chartcomponents/Bars';
@@ -109,7 +109,7 @@ The parameters contain data and selectedIndices. Both are decoded in the above c
 
 The parameters are an object; you can change the format to suit your needs.
 
-```json
+```json title="public/example-cleveland/config.json"
 "barChart": {
   "meta": {
     "difficulty": 5,
@@ -171,11 +171,11 @@ In the Stroop color test, you are required to identify the color of the word, no
 The component uses:
 - `parameters` for trial-specific values (`displayText`, `textColor`, `taskid`)
 - `setAnswer` to send typed responses to reVISit
-- a `reactive` response in config
+- `reactive` response in config
 
 We will use `demo-react-trrack` as the experiment name. Create the React stimulus file in `src/public/demo-react-trrack/assets/`.
 
-```ts
+```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
 import { useCallback, useState } from 'react';
 import {
   Box, Center, Stack, Text, TextInput,
@@ -236,7 +236,7 @@ export default StroopColorTask;
 
 Below is a minimal config with two Stroop trials. Each trial passes `displayText` (the word shown) and `textColor` (the color of the text) via `parameters`. The `reactive` response type receives the typed answer from the component.
 
-```json
+```json title="public/demo-react-trrack/config.json"
 {
   "baseComponents": {
     "trial": {
@@ -287,11 +287,6 @@ To record user interactions and enable replay, you can add provenance tracking w
 
 For a full walkthrough, see the [Provenance Tracking](provenance-tracking.md) tutorial.
 
-<!-- As an additional We have three assignments for you.
-1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
-2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
-3) We can make this stimulus more challenge, adding multiple moving dots and ask the participants to click on the highlighted one. -->
-
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -308,6 +303,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "React", url: "https://react.dev/"},
     {name: "ReactComponent", url: "../../typedoc/interfaces/ReactComponent"},
     {name: "ReactiveResponse", url: "../../typedoc/interfaces/ReactiveResponse"},
-    {name: "Provenance Tracking", url: "provenance-tracking"}
+    {name: "Provenance Tracking", url: "../provenance-tracking"}
   ]}
 />
