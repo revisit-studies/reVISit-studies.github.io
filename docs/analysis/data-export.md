@@ -159,7 +159,7 @@ To download screen recording from specific participants, select the participants
 2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
 ![Download task audio](./img/data-export/screen-recording-export-1.png)
 
-3. Click on the stask.
+3. Click on the task.
 ![Download task audio](./img/data-export/screen-recording-export-2.png)
 
 3. Click on the **Download Screen Recording** button.
