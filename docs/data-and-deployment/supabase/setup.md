@@ -3,7 +3,7 @@
 
 <a href="https://supabase.com/" target="_blank" >Supabase</a> is an open-source alternative to Firebase that provides a real-time database and storage solution. It is built on top of PostgreSQL, which allows for more complex queries and data structures. Supabase is particularly useful for researchers who need to comply with strict data privacy regulations, as it can be self-hosted.
 
-This guide will be focused on setting up a self hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the Firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
+This guide will be focused on setting up a self-hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the Firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
 ### Pre-requisites
 
 Before you begin, ensure you have the following:
@@ -63,7 +63,7 @@ Once your server or VM is running, follow these steps:
 For long-term deployments, prefer exposing Supabase through HTTPS on `443` via a reverse proxy and keep `8000` private.
 :::
 
-9. **Create a table for reVISit data**: You will need to create a table for storing user data. In the Supabase dashboard you should see that you're in the default project. From here click on "Table Editor" (the second icon) and then "New table" to create a new table.  The table should be called `revisit` and should have the following columns
+9. **Create a table for reVISit data**: You will need to create a table for storing user data. In the Supabase dashboard you should see that you're in the default project. From here click on "Table Editor" (the second icon) and then "New table" to create a new table. The table should be called `revisit` and should have the following columns
 
     | Column Name | Data Type | Constraints                |
     |-------------|-----------|----------------------------|
@@ -106,7 +106,7 @@ For long-term deployments, prefer exposing Supabase through HTTPS on `443` via a
 
 11. **Update your `.env` file in your deployed reVISit application**: In the root of your reVISit application, update the `.env` file with the following variables:
 
-   ```env
+   ```env title=".env"
    VITE_STORAGE_ENGINE="supabase"
    VITE_SUPABASE_URL="https://<your-supabase-base-url>"
    VITE_SUPABASE_ANON_KEY="<your-anon-key>"

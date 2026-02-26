@@ -8,9 +8,8 @@ ReVISit makes it easy to connect with participant management platforms such as P
 
 When participants are recruited through a third-party platform, their unique ID should be appended to the study URL. ReVISit supports automatic capture of that ID using the `urlParticipantIdParam` field in the `uiConfig`.
 
-```ts
+```json title="public/study-name/config.json"
 "uiConfig": {
-  ...
   "urlParticipantIdParam": "PARTICIPANT_ID"
   ...
 }
@@ -21,11 +20,10 @@ When a participant visits the following link, reVISit will store abc123 as their
 https://revisit.dev/study/studyName?PARTICIPANT_ID=abc123
 ```
 
-
 ### Display the ID in the Study
 You can use the captured participant ID as a response value by adding the paramCapture field to a `shortText` response. This automatically fills in the participant’s ID from the URL and disables editing to prevent manual tampering.
 
-```ts
+```json title="public/study-name/config.json"
 "introduction": {
     "type": "markdown",
     "path": "myPath/path",
@@ -46,10 +44,9 @@ You can use the captured participant ID as a response value by adding the paramC
 ### Redirecting back with Participant ID at Study End
 At the end of the study, you typically need to return the participant to the platform to confirm their participation and issue credit or payment. Use the `studyEndMsg` field in `uiConfig` to display a final message with a return link. Use `{PARTICIPANT_ID}` as a placeholder. ReVISit will replace this with the actual ID from the URL.
 
-```ts
+```json title="public/study-name/config.json"
 "uiConfig": {
-    ...
-    "studyEndMsg": "Thank you for completing the study! Return to this link to receive credit: [https://your-platform.com/complete?participant_id={PARTICIPANT_ID}](https://your-platform.com/complete?participant_id={PARTICIPANT_ID})"
+    "studyEndMsg": "Thank you for completing the study! Return to this link to receive credit: [https://your-platform.com/complete?participant_id={PARTICIPANT_ID}](https://your-platform.com/complete?participant_id={PARTICIPANT_ID})",
     ...
 }
 ```
@@ -59,29 +56,28 @@ At the end of the study, you typically need to return the participant to the pla
 
 When you create a prolific study and give it the url of your deployed reVISit study site, it will add multiple url parameters to the link. For our purposes, we want to store the `PROLIFIC_PID`. To do this, in the `uiConfig` object of your config file, add the key
 
-```ts
-'uiConfig': {
-    ...
-    'urlParticipantIdParam': 'PROLIFIC_PID'
+```json title="public/study-name/config.json"
+"uiConfig": {
+    "urlParticipantIdParam": "PROLIFIC_PID"
     ...
 }
 ```
 
 To automatically access the `PROLIFIC_PID`, use the `paramCapture` field inside of your response. The below example will automatically answer the id field in the introduction with the linked `PROLIFIC_PID`, and will not allow the participant to change it. This way, you are guaranteed to properly keep track of your participants without relying on them to enter their prolific id.
 
-```ts
-'introduction': {
-    'type': 'markdown',
-    'path': 'myPath/path',
-    'response': [
+```json title="public/study-name/config.json"
+"introduction": {
+    "type": "markdown",
+    "path": "myPath/path",
+    "response": [
         {
-            'id': 'prolificId',
-            'prompt': 'Please enter your Prolific ID',
-            'required': true,
-            'location': 'belowStimulus',
-            'type': 'shortText',
-            'placeholder': 'Prolific ID',
-            'paramCapture': 'PROLIFIC_PID'
+            "id": "prolificId",
+            "prompt": "Please enter your Prolific ID",
+            "required": true,
+            "location": "belowStimulus",
+            "type": "shortText",
+            "placeholder": "Prolific ID",
+            "paramCapture": "PROLIFIC_PID"
         }
     ]
 },
@@ -93,7 +89,7 @@ When the study is over, you want to redirect participant back to prolific, so th
 
 Here's an example:
 
-```ts
+```json title="public/study-name/config.json"
 "uiConfig": {
     "urlParticipantIdParam": "PROLIFIC_PID",
     "studyEndMsg": "Thank you for completing the study! Return to Prolific: [https://app.prolific.com/submissions/complete?cc=studyID](https://app.prolific.com/submissions/complete?cc=studyID)"
@@ -103,7 +99,7 @@ Here's an example:
 ## SONA
 SONA Systems is another commonly used recruitment platform in academic research. SONA can append a unique participant ID `SURVEY_CODE` to the study URL. To ensure participants are redirected properly at the end of the study, you can configure reVISit as follows:
 
-```ts
+```json title="public/study-name/config.json"
 "uiConfig": {
     "urlParticipantIdParam": "SURVEY_CODE",
     "studyEndMsg": "Thank you for completing the study! Return to SONA to receive credit: [https://yourschool.sonasystems.com/webstudy_credit.aspx?experiment_id=...&credit_token=...&survey_code={PARTICIPANT_ID}](https://yourschool.sonasystems.com/webstudy_credit.aspx?experiment_id=...&credit_token=...&survey_code={PARTICIPANT_ID})"
@@ -112,7 +108,7 @@ SONA Systems is another commonly used recruitment platform in academic research.
 The `{PARTICIPANT_ID}` will be replaced with the actual `SURVEY_CODE` value from the URL.
 Just like with other platforms, you can display the SONA ID in the introduction or elsewhere in the study using:
 
-```ts
+```json title="public/study-name/config.json"
 "introduction": {
     "type": "markdown",
     "path": "myPath/path",

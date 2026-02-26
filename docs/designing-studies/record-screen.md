@@ -12,22 +12,18 @@ You can enable screen recording in your study by setting the `recordScreen` flag
 
 Set the `recordScreen` flag in the `uiConfig` section of your config file. You can optionally specify the FPS (frames per second) for screen recording.
 
-```json
-{
-    "uiConfig": {
-        "recordScreen": true,
-        "recordScreenFPS": 30
-    }
+```json title="public/study-name/config.json"
+"uiConfig": {
+    "recordScreen": true,
+    "recordScreenFPS": 30
 }
 ```
 
 This enables screen recording to your entire study. However, you can also disable screen recording on individual components.
 
-```json
-{
-    "barchart": {
-        "recordScreen": false
-    }
+```json title="public/study-name/config.json"
+"barchart": {
+    "recordScreen": false
 }
 ```
 
@@ -35,11 +31,9 @@ This enables screen recording to your entire study. However, you can also disabl
 
 If you want to enable screen recording on certain screens, you can leave `recordScreen` in the `uiConfig` as `false` and enable `recordScreen` at the component level. Settings in the component level overrides the global config.
 
-```json
-{
-    "barchart": {
-        "recordScreen": true
-    }
+```json title="public/study-name/config.json"
+"barchart": {
+    "recordScreen": true
 }
 ```
 
@@ -47,7 +41,7 @@ If you want to enable screen recording on certain screens, you can leave `record
 
 Add `screen-recording` to the `importedLibraries` section of your config. This makes the `screenRecordingPermission` component available, which is required to request user permission for screen capture.
 
-```json
+```json title="public/study-name/config.json"
 "importedLibraries": [
     "screen-recording"
 ],
@@ -57,12 +51,10 @@ Add `screen-recording` to the `importedLibraries` section of your config. This m
 
 Insert the `screenRecordingPermission` page into your study sequence (ideally after your introduction and consent components). Any screens that follow it will be able to record the participant’s screen.
 
-```json
-{
-    "sequence": {
-        "order": "fixed",
-        "components": ["introduction", "$screen-recording.components.screenRecordingPermission", "external_website", "barChart"]
-    }
+```json title="public/study-name/config.json"
+"sequence": {
+    "order": "fixed",
+    "components": ["introduction", "$screen-recording.components.screenRecordingPermission", "external_website", "barChart"]
 }
 ```
 
@@ -72,23 +64,21 @@ By default, the screen is recorded for all tasks that follow the `screenRecordin
 
 To disable recording for a component, set its `recordScreen` flag to `false`:
 
-```json
-{
-    "introduction": {
-        "type": "markdown",
-        "path": "example-brush-interactions/assets/introduction.md",
-        "recordScreen": false,
-        "response": [
-            {
-                "id": "prolificId",
-                "prompt": "Please enter your Prolific ID",
-                "location": "belowStimulus",
-                "type": "shortText",
-                "placeholder": "Prolific ID",
-                "paramCapture": "PROLIFIC_PID"
-            }
-        ]
-    }
+```json title="public/example-brush-interactions/config.json"
+"introduction": {
+    "type": "markdown",
+    "path": "example-brush-interactions/assets/introduction.md",
+    "recordScreen": false,
+    "response": [
+        {
+            "id": "prolificId",
+            "prompt": "Please enter your Prolific ID",
+            "location": "belowStimulus",
+            "type": "shortText",
+            "placeholder": "Prolific ID",
+            "paramCapture": "PROLIFIC_PID"
+        }
+    ]
 }
 ```
 
@@ -114,12 +104,10 @@ gsutil -m cp -r gs://my-bucket/studyName/screenRecording
 
 ReVISit also supports [Think Aloud](../think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
 
-```json
-{
-    "uiConfig": {
-        "recordScreen": true,
-        "recordAudio": true
-    }
+```json title="public/study-name/config.json"
+"uiConfig": {
+    "recordScreen": true,
+    "recordAudio": true
 }
 ```
 

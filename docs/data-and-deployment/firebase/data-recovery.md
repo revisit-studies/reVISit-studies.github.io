@@ -3,7 +3,7 @@
 ReVISit stores study and participant data in Firebase, which is backed by Google Cloud services. Over time, you may need to restore an accidentally deleted file, or review the history of changes to a stored object. This page describes how to recover data and view history of changes to a file using Firebase and Google Cloud Storage.
 
 :::warning
-By default, Object Versioning is disabled for Firebase storage buckets. Without it, there is still a  **one-week soft delete recovery window** in which data can be restored.
+By default, Object Versioning is disabled for Firebase storage buckets. Without it, there is still a **one-week soft delete recovery window** in which data can be restored.
 :::
 
 reVISit data stored with Firebase lives in Google Cloud services:
@@ -11,7 +11,7 @@ reVISit data stored with Firebase lives in Google Cloud services:
 - Study and participant records are stored in **Cloud Firestore**.
 - Files (for example, audio and screen recordings) are stored in **Cloud Storage for Firebase**, which uses a **Google Cloud Storage bucket**.
 
-## Viewing Version History for A Single Stored Object
+## Viewing Version History for a Single Stored Object
 
 Object version history is managed through Google Cloud Storage, not directly in the Firebase UI.
 

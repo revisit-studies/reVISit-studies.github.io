@@ -12,7 +12,7 @@ Before you run `docker build`, configure your `.env` file at the repository root
 
 At minimum, set `VITE_BASE_PATH` correctly for your deployment target:
 
-```bash
+```env title=".env"
 # Root deployment
 VITE_BASE_PATH="/"
 

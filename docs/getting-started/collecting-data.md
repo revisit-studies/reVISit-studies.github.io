@@ -31,16 +31,16 @@ You can now download your data either "flattened" in tabular data format (as ["t
 Note that the JSON data contains much more detailed data, including logs about mouse movements and browser fingerprints of participants.
 :::
 
-You can also preview your data in the "Participant View" or "Trial Stats", which is especially useful if you're debugging your study.
+You can also preview your data in the [Participant View](../analysis/participant-view.md) or [Trial Stats](../analysis/trial-stats.md), which is especially useful if you're debugging your study.
 
 ## Resetting your Local Database
 
 The data collected locally is stored in your browser and associated with the page. If you want to clear the data, e.g., because you have completed your pilots and are ready to start a study, you will need to reset the local storage of your browser associated with reVISit. How this works varies between browsers. For Chrome:
 
-* Click the Tune Icon for reVISit or the Info Icon for localhost in the URL bar
-* Select Site Settings
-* Click Delete Data
-* Reload the page
+- Click the Tune Icon for reVISit or the Info Icon for localhost in the URL bar
+- Select "Site Settings"
+- Click "Delete Data"
+- Reload the page
 
 ![Delete Local Database](img/delete-local-database.png)
 
