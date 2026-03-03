@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import EditThisPage from '@theme/EditThisPage';
 
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -170,6 +171,9 @@ export default function Home() {
               . Once we verify your work, your research will be added to the list of papers using reVISit below.
             </div>
             {adoption.map((adoption: Adoption, index: number) => <Adoption key={index} adoption={adoption} />)}
+            <div className="margin-top--md">
+              <EditThisPage editUrl="https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/src/pages/adoption/index.tsx" />
+            </div>
           </div>
         </div>
       </main>
