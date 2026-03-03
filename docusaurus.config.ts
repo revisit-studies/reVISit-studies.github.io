@@ -28,7 +28,7 @@ const config: Config = {
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace 'en' with 'zh-Hans'.
+  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -156,32 +156,32 @@ const config: Config = {
       links: [
         {
           html: ` 
-            <div class='footer-wrapper row'>
-              <a class='col ' target='_blank' href='https://vdl.sci.utah.edu/'>
-                <img src='/img/logos/vdl-logo-light.svg' class='logo light-theme-display-component'/>
-                <img src='/img/logos/vdl-logo-dark.svg' class='logo dark-theme-display-component'/>
+            <div class="footer-wrapper row">
+              <a class="col " target="_blank" href="https://vdl.sci.utah.edu/">
+                <img src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
+                <img src="/img/logos/vdl-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a class='col ' target='_blank' href='https://www.mcnutt.in/#/lab'>
-                <img src='/img/logos/havoc-logo-light.png' class='logo light-theme-display-component'/>
-                <img src='/img/logos/havoc-logo-dark.png' class='logo dark-theme-display-component'/>
+              <a class="col " target="_blank" href="https://www.mcnutt.in/#/lab">
+                <img src="/img/logos/havoc-logo-light.png" class='logo light-theme-display-component'/>
+                <img src="/img/logos/havoc-logo-dark.png" class='logo dark-theme-display-component'/>
               </a>
-              <a class='col ' target='_blank' href='https://www.sci.utah.edu/'>
-                <img src='/img/logos/sci-logo-light.svg' class='logo light-theme-display-component'/>
-                <img src='/img/logos/sci-logo-dark.svg' class='logo dark-theme-display-component'/>
+              <a class="col " target="_blank" href="https://www.sci.utah.edu/">
+                <img src="/img/logos/sci-logo-light.svg" class='logo light-theme-display-component'/>
+                <img src="/img/logos/sci-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a class='col ' target='_blank' href='https://www.cs.utah.edu/'>
-                <img src='/img/logos/ULogo-light.svg' class='logo light-theme-display-component'/>
-                <img src='/img/logos/ULogo-dark.svg' class='logo dark-theme-display-component'/>
+              <a class="col " target="_blank" href="https://www.cs.utah.edu/">
+                <img src="/img/logos/ULogo-light.svg" class='logo light-theme-display-component'/>
+                <img src="/img/logos/ULogo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a class='col ' target='_blank' href='http://web.cs.wpi.edu/~ltharrison/'>
-                <img src='/img/logos/view-logo-light.svg' class='logo light-theme-display-component'/>
-                <img src='/img/logos/view-logo-dark.svg' class='logo dark-theme-display-component'/>
+              <a class="col " target="_blank" href="http://web.cs.wpi.edu/~ltharrison/">
+                <img src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>
+                <img src="/img/logos/view-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a class='col ' target='_blank' href='https://wpi.edu/'>
-                <img src='/img/logos/wpi.png' class='logo'/>
+              <a class="col " target="_blank" href="https://wpi.edu/">
+                <img src="/img/logos/wpi.png" class='logo'/>
               </a>
-              <a class='col ' target='_blank' href='https://www.nsf.gov/'>
-                <img src='/img/logos/nsf.png' class='logo'/>
+              <a class="col " target="_blank" href="https://www.nsf.gov/">
+                <img src="/img/logos/nsf.png" class='logo'/>
               </a>                                                       
             </div>
           `,
