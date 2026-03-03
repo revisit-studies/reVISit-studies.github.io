@@ -35,6 +35,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
           editUrl: ({versionDocsDirPath, docPath}) => {
             if (docPath.startsWith('typedoc/')) {
               return undefined;
