@@ -4,6 +4,8 @@ description: About reVISit team
 hide_table_of_contents: false
 ---
 
+import EditThisPage from '@theme/EditThisPage';
+
 # What is reVISit?
 
 The reVISit project addresses a critical bottleneck in user-centered research: how can we better and more efficiently run web-based experiments? ReVISit aims to democratize evaluation of all kinds of experiments, ranging from perceptual experiments to interactive visualization techniques. ReVISit is most useful for complex, interactive experiments, an area that has been under-explored, due in part to the high technical burden and skills required to run them.
@@ -110,3 +112,5 @@ Zach Cutler, Lane Harrison, Carolina Nobre, Alexander Lex.
 [Crowdsourced Think-Aloud Studies](https://visdesignlab.net/publications/2025_chi_crowdaloud/).
 SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-23, [doi:10.1145/3706598.3714305](https://dl.acm.org/doi/10.1145/3706598.3714305), 2025.
 :::
+
+<EditThisPage editUrl="https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/src/pages/about.md" />
