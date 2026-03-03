@@ -4,6 +4,8 @@ description: Main page for reVISit
 hide_table_of_contents: false
 ---
 
+import EditThisPage from '@theme/EditThisPage';
+
 # Community
 
 ReVISit is designed to benefit the visualization community! We appreciate feedback, suggestions, bug reports, code contributions.
@@ -61,3 +63,7 @@ ReVISit is advised by a board of community members who regularly run a diverse s
 [Lace Padilla](https://www.lacepadilla.com/), Northeastern University  
 [John Stasko](https://faculty.cc.gatech.edu/~john.stasko/), Georgia Tech  
 [Manuela Waldner](https://www.cg.tuwien.ac.at/staff/ManuelaWaldner), TU Vienna
+
+<div className="margin-top--md">
+	<EditThisPage editUrl="https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/src/pages/community.md" />
+</div>

@@ -113,4 +113,6 @@ Zach Cutler, Lane Harrison, Carolina Nobre, Alexander Lex.
 SIGCHI Conference on Human Factors in Computing Systems (CHI), 1-23, [doi:10.1145/3706598.3714305](https://dl.acm.org/doi/10.1145/3706598.3714305), 2025.
 :::
 
-<EditThisPage editUrl="https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/src/pages/about.md" />
+<div className="margin-top--md">
+	<EditThisPage editUrl="https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/src/pages/about.md" />
+</div>
