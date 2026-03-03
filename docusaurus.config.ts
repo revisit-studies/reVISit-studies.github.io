@@ -35,6 +35,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          editUrl: 'https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/',
           lastVersion: 'current',
           versions: {
             current: { label: 'v2.4.0', path: '' },
