@@ -7,7 +7,7 @@ In this tutorial we will use the example of a simple survey. You will learn:
 * How to register your study with reVISit so it shows up on your local web-server.
 * How to run the local webserver and access / preview your study.
 
-:::note
+:::info
 It is easiest to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
 
 While this tutorial uses JSON, you can also write your configuration in YAML format.
@@ -19,7 +19,7 @@ After cloning your fork of the repository to your computer, you’ll see that th
 
 Once that is done, we will make an intro markdown component. Create a file `introduction.md` in the `basic-questionnaire-study/assets` folder with the following contents:
 
-```markdown
+```markdown title="public/basic-questionnaire-study/assets/introduction.md"
 # Introduction
 
 Welcome to our study. This is a basic questionnaire study. We will only ask you a few questions and then we will be done.
@@ -27,7 +27,7 @@ Welcome to our study. This is a basic questionnaire study. We will only ask you 
 
 Next, let’s create a `help.md` file in the same folder, so that participants during the study are able to get help.
 
-```markdown
+```markdown title="public/basic-questionnaire-study/assets/help.md"
 # Help
 
 This is a questionnaire. For each question, be sure to provide an answer and then click **Next** when you’re ready to move onto the next question.
@@ -39,16 +39,17 @@ Now we are ready to create the configuration file for the study. This configurat
 
 Create a new file called `config.json` in `basic-questionnaire-study`. Then, copy and paste the following code into the new file.
 
-```js
+```json title="public/basic-questionnaire-study/config.json"
 {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
         "title": "Basic Questionnaire Study",
         "version": "pilot",
         "authors": [
-            "The reVISit Team"
+            "The reVISit Team",
+            "You :)"
         ],
-        "date": "2024-03-19",
+        "date": "2026-02-23",
         "description": "A simple questionnaire study",
         "organizations": [
             "University of Utah",
@@ -56,7 +57,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
         ]
     },
     "uiConfig": {
-        "contactEmail": "contact@revisit.dev",
+        "contactEmail": "your@email.com",
         "helpTextPath": "basic-questionnaire-study/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,
@@ -124,7 +125,7 @@ The above code uses a [long text input](../../typedoc/interfaces/LongTextRespons
 
 Now, our study is almost set up to view. The last step is to make sure that reVISit knows where to find your study. To do that, you will need to edit the `global.json` file in the `public` directory and add the following code to the `configs` object:
 
-```js
+```json title="public/global.json"
 "basic-questionnaire-study": {
 	"path": "basic-questionnaire-study/config.json"
 }
@@ -132,7 +133,7 @@ Now, our study is almost set up to view. The last step is to make sure that reVI
 
 After this, add `basic-questionnaire-study` into the `configsList` list in the same file. Because the configs list is ordered, make sure to put `basic-questionnaire-study` at the top of the list so you can immediately see it. This is what this should look like:
 
-```js
+```json title="public/global.json"
 "configsList": [
     "basic-questionnaire-study",
     "demo-html",
@@ -146,16 +147,15 @@ Now, if you start the server (using `yarn serve` as described in the [Installati
 
 You should now see your study and be able to navigate quickly through it. However, your study is currently set up for development, so you won't be collecting any data yet. Go to the next getting started guide to learn how to enable data collection and download your data.
 
-
-<!-- Importing links  -->
+<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
     demoLinks={[
-        {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey/"}
+        {name: "Form Elements Demo", url: "https://revisit.dev/study/demo-form-elements/"}
     ]}
     codeLinks={[
-        {name: "Survey Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-survey"}
+        {name: "Form Elements Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-form-elements"}
     ]}
     referenceLinks={[
         {name: "Component Block", url: "../../typedoc/interfaces/ComponentBlock/"},

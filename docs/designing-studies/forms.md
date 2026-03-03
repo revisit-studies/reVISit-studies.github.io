@@ -8,7 +8,7 @@ This tutorial does not give a comprehensive introduction into all form elements.
 
 Form elements are components of type `questionnaire`. Here is a simple example with a drop-down element:
 
-```json
+```json title="public/study-name/config.json"
 "components": {
   "survey": {
     "type": "questionnaire",
@@ -60,8 +60,8 @@ Each form element requires a `prompt` that introduces the question. You can also
 The `infoText` allows you to provide additional description for survey questions or response options that appears when participants hover over an information icon. This helps clarify questions or scales while keeping the `prompt` simple.
 ![A likert with info text](img/designing-forms/info-text.png)
 
-:::note
-For response option, `infoText` is only supported in `button`, `checkbox`, `radio`, and `ranking` responses.
+:::info
+For response option, `infoText` is only supported in `button`, `checkbox`, `radio`, `dropdown`, `matrix` and `ranking` responses.
 :::
 
 ### Required Fields
@@ -72,7 +72,7 @@ You can also force participants to provide a specific answer value using `requir
 
 For single-select responses (`radio`, `shortText`, `longText`, `numerical`, etc.), `requiredValue` requires an exact match:
 
-```json
+```json title="public/study-name/config.json"
 {
   "id": "accept",
   "prompt": "Do you consent to the study and wish to continue?",
@@ -88,7 +88,7 @@ For single-select responses (`radio`, `shortText`, `longText`, `numerical`, etc.
 
 For multi-select responses (`checkbox`, `dropdown` with multiple selections), `requiredValue` can be an array of values that must all be selected:
 
-```json
+```json title="public/study-name/config.json"
 {
   "id": "multi-check",
   "prompt": "Please select both Option 1 and Option 2",
@@ -102,7 +102,7 @@ When using `requiredValue` with arrays, the system checks that the participant h
 
 The `requiredLabel` property is similar to `requiredValue` but is more user-friendly. Instead of matching against the value stored in the data, it matches against the label displayed to participants. This is particularly useful when options have both labels and values, as it allows you to specify requirements using the human-readable label.
 
-```json
+```json title="public/study-name/config.json"
 {
   "id": "attention-check",
   "prompt": "Please select 'I agree' to continue",
@@ -126,7 +126,7 @@ To achieve that, add the `"withDontKnow": true` option to your form element.
 
 You can structure your forms by adding a divider between form elements. This is useful when your study has multiple topics or transitioning between different types of tasks. To add a divider, add `"withDivider": true` to the question that you want the divider to appear after. In the following figure, there's a divider added between question 1 and 2.
 
-```json
+```json title="public/study-name/config.json"
 "response": [
   {
     "id": "q-likert",
@@ -140,7 +140,7 @@ You can structure your forms by adding a divider between form elements. This is 
 
 Alternatively, if you want to position dividers independently of specific questions, you can use [`DividerResponse`](../../docs/typedoc/interfaces/DividerResponse.md) as a standalone response element.
 
-```json
+```json title="public/study-name/config.json"
 "components": {
   ...
   "barChart": {
@@ -181,7 +181,7 @@ You can allow an "other" option for radios and checkboxes, as shown for the firs
 
 For checkboxes, you can specify the minimum and maximum number of selections required using `minSelections` and `maxSelections`. These properties control how many options must be selected before the participant can proceed.
 
-```json
+```json title="public/study-name/config.json"
 {
   "id": "checkbox-min",
   "prompt": "Select at least 2 options",
@@ -214,11 +214,11 @@ A dropdown allows participants to choose one or more from a list. By default, th
 
 ![Multiselect dropdown](img/designing-forms/dropdown-multiselect.png)
 
-When `minSelections` or `maxSelections` are specified for a dropdown, it automatically becomes a multiselect dropdown, allowing participants to choose multiple options. 
+When `minSelections` or `maxSelections` are specified for a dropdown, it automatically becomes a multiselect dropdown, allowing participants to choose multiple options.
 
 Example with minimum selections:
 
-```json
+```json title="public/study-name/config.json"
 {
   "id": "dropdown-multi",
   "prompt": "Select at least 2 options",
@@ -230,7 +230,7 @@ Example with minimum selections:
 
 Example with both minimum and maximum:
 
-```json
+```json title="public/study-name/config.json"
 {
   "id": "dropdown-range",
   "prompt": "Select between 2 and 3 options",
@@ -257,7 +257,7 @@ You can control the label location in Likert responses to better fit your layout
 
 Numerical response inputs support `min` and `max` fields that define the acceptable range of values for the answer. These constraints help ensure that participants provide values within the expected bounds, and warnings will be displayed if their input falls outside this range.
 
-```json
+```json title="public/study-name/config.json"
 {
   "id": "q-numerical",
   "prompt": "Numerical example",
@@ -275,7 +275,7 @@ The `min` and `max` properties work together to define a range. When participant
 
 You can also define a range of acceptable answers using the `acceptableLow` and `acceptableHigh` properties in the `Answer` interface. This is particularly useful for numerical answers where you want to accept values within a certain range rather than requiring an exact match.
 
-```json
+```json title="public/study-name/config.json"
 {
   "correctAnswer": [{
     "id": "q-numerical",
@@ -309,9 +309,9 @@ A ranking widget allows participants to order or group items rather than simply 
 For sublist and categorical rankings, you can use the `numItems` option to control how many items participants must assign:
 
 - In a sublist, `numItems` sets how many items they have to rank (e.g., top 2 out of 5).
-- In a categorical ranking, `numItems` can limit how many items may be placed in each category (e.g., only 3 items per category).  
+- In a categorical ranking, `numItems` can limit how many items may be placed in each category (e.g., only 3 items per category).
 
-:::note
+:::info
 The `numItems` option cannot be used in pairwise rankings, since their purpose is to compare and rank items by pairs.
 :::
 
@@ -335,7 +335,7 @@ For matrix questions (e.g., matrix radio or matrix checkbox), you can randomize 
 
 Here is an example to show how to set up questions in random order:
 
-```json
+```json title="public/study-name/config.json"
 "response": [
   {
     "id": "5items-response",
@@ -363,7 +363,7 @@ To shuffle the options in a radio, checkbox, or button question, set `"optionOrd
 
 Here is an example to show how to set up options in random order:
 
-```json
+```json title="public/study-name/config.json"
 "response": [
   {
     "id": "fruitPreference",
@@ -388,7 +388,7 @@ You can randomize the order of multiple questions that appear on the same page b
 
 Here is an example to show how to set up responses in random order:
 
-```json
+```json title="public/study-name/config.json"
 "survey_randomized_form": {
   "type": "questionnaire",
   "responseOrder": "random", // Set randomization here
@@ -436,7 +436,7 @@ The sidebar is a left panel that can be used to display form elements alongside 
 
 To use the sidebar, you must set `"withSidebar": true` in your component or globally in the `uiConfig`. The sidebar is required if any of your responses have `"location": "sidebar"`.
 
-```json
+```json title="public/study-name/config.json"
 "components": {
   "survey": {
     "type": "questionnaire",
@@ -458,7 +458,7 @@ To use the sidebar, you must set `"withSidebar": true` in your component or glob
 
 You can customize the width of the sidebar by setting `"sidebarWidth"` (in pixels). The default width is 300 pixels. This can be set globally in `uiConfig` or overridden on individual components.
 
-```json
+```json title="public/study-name/config.json"
 "components": {
   "survey": {
     "type": "questionnaire",
@@ -484,10 +484,10 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
   demoLinks={[
-    {name: "Survey Demo", url: "https://revisit.dev/study/demo-survey"}
+    {name: "Form Elements Demo", url: "https://revisit.dev/study/demo-form-elements"}
   ]}
   codeLinks={[
-    {name: "Survey Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/"}
+    {name: "Form Elements Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/"}
   ]}
   referenceLinks={[
     {name: "Answer", url: "../../typedoc/interfaces/Answer"},
@@ -499,7 +499,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "LikertResponse", url: "../../typedoc/interfaces/LikertResponse"},
     {name: "LongTextResponse", url: "../../typedoc/interfaces/LongTextResponse"},
     {name: "MatrixResponse", url: "../../typedoc/interfaces/MatrixResponse"},
-    {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"}, 
+    {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"},
     {name: "RadioResponse", url: "../../typedoc/interfaces/RadioResponse"},
     {name: "RankingResponse", url: "../../typedoc/interfaces/RankingResponse"},
     {name: "ShortTextResponse", url: "../../typedoc/interfaces/ShortTextResponse"},

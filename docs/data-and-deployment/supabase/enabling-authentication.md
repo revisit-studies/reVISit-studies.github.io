@@ -8,7 +8,7 @@ In order to use authentication, you must have a Supabase application already con
 
 Supabase provides a variety of authentication methods.
 
-:::note
+:::info
 Supabase supports multiple OAuth providers, but reVISit currently only officially supports GitHub OAuth. If you want to configure other providers in Supabase look at the [gotrue docs](https://github.com/netlify/gotrue).
 :::
 

@@ -8,7 +8,7 @@ Responses can optionally also be provided with an [Answer](../../typedoc/interfa
  * In the analysis interface, tasks will be shown as correct or incorrect depending on the answer.
  * Answers can be used to check the response during the experiment, which is useful for **training**.
 
-:::note
+:::info
 There might be situations when answers cannot accurately capture whether a response was correct or not (e.g., with text input). In other situations, answers may have "degrees of correctness". In such cases, you will have to compute correct answers as part of your data analysis process.
 :::
 
@@ -20,7 +20,7 @@ For a working example, refer to [the demo](https://revisit.dev/study/demo-traini
 
 Here's a simple dropdown component asking what the most efficient visual mark is. The `correctAnswer` field contains an answer for the `q-mark-type` response that specifies that the correct answer is `Bar`.
 
-```ts
+```json title="public/demo-training/config.json"
 "simple-dropbox": {
   "type": "questionnaire",
   "response": [
@@ -80,7 +80,7 @@ You can also combine `nextButtonDisableTime` with `timeoutReject` to automatical
 
 ![Next button](./img/next-button.png)
 
-```js
+```json title="public/study-name/config.json"
 "uiConfig": {
   ...
   "timeoutReject": true
@@ -111,7 +111,7 @@ The Check Answer button uses `trainingAttempts` to limit how many times particip
 
 You can choose what happens when participants fail training by setting `allowFailedTraining`. When set to `false`, participants who use up all their tries without getting the answer right will be rejected from the study.
 
-```js
+```json title="public/study-name/config.json"
 "components": {
   "training-task": {
     "type": "questionnaire",
@@ -142,7 +142,7 @@ You can choose what happens when participants fail training by setting `allowFai
 
 You can enable the previous button by setting `previousButton` to `true`, which lets participants move back through earlier parts of the study if needed. You can also customize the button text with `previousButtonText`.
 
-```js
+```json title="public/study-name/config.json"
 "components": {
   "survey": {
     "type": "questionnaire",
@@ -167,6 +167,10 @@ You can enable the previous button by setting `previousButton` to `true`, which 
 
 ![Previous button](./img/previous-button.png)
 
+:::warning
+**You should only use the previous button with simple stimuli, like form elements, images, markdown, etc.** If you have interactive components, use provenance tracking, use screen capture or audio capture, going back to a previous state will result in undesired behavior: all states, video, audio, will be overwritten.
+:::
+
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -182,7 +186,3 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Answer", url: "../../typedoc/interfaces/Answer"}
   ]}
 />
-
-:::warning
-**You should only use the previous button with simple stimuli, like form elements, images, markdown, etc.** If you have interactive components, use provenance tracking, use screen capture or audio capture, going back to a previous state will result in undesired behavior: all states, video, audio, will be overwritten. 
-:::

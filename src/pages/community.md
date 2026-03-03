@@ -4,6 +4,8 @@ description: Main page for reVISit
 hide_table_of_contents: false
 ---
 
+import EditThisPage from '@theme/EditThisPage';
+
 # Community
 
 ReVISit is designed to benefit the visualization community! We appreciate feedback, suggestions, bug reports, code contributions.
@@ -26,7 +28,7 @@ Trying to run your own study? Here is how you can learn about how to use reVISit
 
 ## Report Bugs & Contribute
 
-Running into a bug? Or want to write an extension? Use the [GitHub issue tracker](https://github.com/revisit-studies/study/issues) to submit a bug report or submit a pull request after forking [the repository](https://github.com/revisit-studies/study).
+Running into a bug? Or want to write an extension? Use the [GitHub issue tracker](https://github.com/revisit-studies/study/issues) to submit a bug report or open a [pull request](https://github.com/revisit-studies/study/pulls) after forking [the repository](https://github.com/revisit-studies/study).
 
 ## Submit Your ReVISit Study
 
@@ -35,18 +37,18 @@ If you've used reVISit for your visualization research, we'd love to see it! Fil
 ## Community Activities
 
 - Open Hackathon at [University of Utah](https://www.utah.edu/), February 2026
-- Open Hackathon at [TU Graz](https://www.tugraz.at/), Austria, November 2025  
-- Tutorial at [IEEE VIS 2025](https://ieeevis.org/year/2025/welcome), Vienna, November 2025  
-- Tutorial at [EuroVis 2025](https://www.eurovis2025.lu/), Luxembourg, June 2025  
-- Course at [CHI 2025](https://chi2025.acm.org/), Japan, April 2025  
-- Tutorial at [UNC Chapel Hill](https://www.unc.edu/), March 12, 2025  
-- Tutorial at [University of Utah](https://www.utah.edu/), February 5, 2025  
-- Tutorial at [Georgia Tech](https://www.gatech.edu/), January 2025  
-- Tutorial at [IEEE VIS 2024](https://ieeevis.org/year/2024/welcome), October 2024  
-- Getting Started session at [Georgia Tech](https://www.gatech.edu/) (virtual), November 2023  
-- Meetup at [IEEE VIS 2023](https://ieeevis.org/year/2023/welcome), Melbourne, Australia  
-- Steering Committee Meeting (virtual), September 2023  
-- Meetup at [IEEE VIS 2020](https://ieeevis.org/year/2020/welcome) (virtual)  
+- Open Hackathon at [TU Graz](https://www.tugraz.at/), Austria, November 2025
+- Tutorial at [IEEE VIS 2025](https://ieeevis.org/year/2025/welcome), Vienna, November 2025
+- Tutorial at [EuroVis 2025](https://www.eurovis2025.lu/), Luxembourg, June 2025
+- Course at [CHI 2025](https://chi2025.acm.org/), Japan, April 2025
+- Tutorial at [UNC Chapel Hill](https://www.unc.edu/), March 12, 2025
+- Tutorial at [University of Utah](https://www.utah.edu/), February 5, 2025
+- Tutorial at [Georgia Tech](https://www.gatech.edu/), January 2025
+- Tutorial at [IEEE VIS 2024](https://ieeevis.org/year/2024/welcome), October 2024
+- Getting Started session at [Georgia Tech](https://www.gatech.edu/) (virtual), November 2023
+- Meetup at [IEEE VIS 2023](https://ieeevis.org/year/2023/welcome), Melbourne, Australia
+- Steering Committee Meeting (virtual), September 2023
+- Meetup at [IEEE VIS 2020](https://ieeevis.org/year/2020/welcome) (virtual)
 
 ## Community Advisory Board
 
@@ -61,3 +63,7 @@ ReVISit is advised by a board of community members who regularly run a diverse s
 [Lace Padilla](https://www.lacepadilla.com/), Northeastern University  
 [John Stasko](https://faculty.cc.gatech.edu/~john.stasko/), Georgia Tech  
 [Manuela Waldner](https://www.cg.tuwien.ac.at/staff/ManuelaWaldner), TU Vienna
+
+<div className="margin-top--md">
+	<EditThisPage editUrl="https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/src/pages/community.md" />
+</div>

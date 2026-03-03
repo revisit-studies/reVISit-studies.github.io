@@ -8,7 +8,7 @@ Stage Management helps you organize participants into different parts of your st
 
 Go to the **Manage** tab under **Analysis** and open the **Stage Management** section.
 
-:::note
+:::info
 All studies start with a **DEFAULT** stage, which cannot be removed. The default color is orange (`#F05A30`), but you can change it if you want.
 :::
 
@@ -48,7 +48,7 @@ Each stage has a color to help you identify it in the analysis views. To change 
 
 ![Stage Management Edit](./img/stage-management/stage-management-edit-2.png)
 
-:::note
+:::warning
 Stage names cannot be changed after you create them, but you can always change the color.
 :::
 

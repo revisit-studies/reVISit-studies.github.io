@@ -35,7 +35,7 @@ Because we have a versioning system in docusaurus, all old documentation is plac
 
 ### Typesetting Conventions
 
-* Use [Admonitions](https://docusaurus.io/docs/markdown-features/admonitions) for info, tip, warning, etc. For example, a tip would look like this in Markdown: 
+* Use [Admonitions](https://docusaurus.io/docs/markdown-features/admonitions) for info, tip, warning, etc. For example, a tip would look like this in Markdown:
 ```
 :::warning
 

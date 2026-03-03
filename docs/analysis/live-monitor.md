@@ -4,8 +4,8 @@ The Live Monitor gives you a real-time view of participant progress throughout y
 
 Check out the [Live Monitor Demo](https://revisit.dev/study/analysis/stats/demo-dynamic/live-monitor).
 
-:::note
-The Live Monitor currently works only with the Firebase storage engine and requires an active internet connection.
+:::warning
+Live Monitor currently works only with the Firebase storage engine and requires an active internet connection.
 :::
 
 ## Real-Time Updates

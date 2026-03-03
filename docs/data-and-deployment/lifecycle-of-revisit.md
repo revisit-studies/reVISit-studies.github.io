@@ -46,7 +46,7 @@ When disseminating your study to reviewers and the wider public, you should:
 - Enable development mode
 - Make the analytics interface publicly accessible
 
-If you are submitting to a venue that requires anonymization, such as ACM SIGCHI, consider creating a second deployment. If your primary deployment is on GitHub, consider adding a secondary one on [Netlify](/docs/data-and-deployment/deploying-to-static-website/#deploying-using-netlify).
+If you are submitting to a venue that requires anonymization, such as ACM SIGCHI, consider creating a second deployment. If your primary deployment is on GitHub, consider adding a secondary one on such as Netlify or Vercel. For more information about deploying to other websites, see [deploying to a static website](../deploying-to-static-website/).
 
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

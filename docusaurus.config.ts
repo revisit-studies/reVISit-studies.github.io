@@ -40,10 +40,21 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          editUrl: ({versionDocsDirPath, docPath}) => {
+            if (docPath.startsWith('typedoc/')) {
+              return undefined;
+            }
+            return `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/${versionDocsDirPath}/${docPath}`;
+          },
           lastVersion: 'current',
           versions: {
             current: { label: 'v2.4.0', path: '' },
           },
+        },
+        blog: {
+          editUrl: 'https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/',
         },
 
         theme: {
@@ -59,9 +70,10 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'support_us',
+      // Update the id and content for each new announcement to ensure it is shown to users who have dismissed previous announcements
+      id: 'version_2.4',
       content:
-        'We released a new version of reVISit! <a href="/blog/2025/10/27/release-2.3/">Read all about reVISit v2.3!</a> &#127881; ',
+        'We released a new version of reVISit! <a href="/blog/2026/02/23/release-2.4/">Read all about reVISit v2.4!</a> &#127881; ',
       backgroundColor: '#f05a30',
       textColor: '#ffffff',
       isCloseable: true,
@@ -140,7 +152,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://revisit.dev/study',
+          href: 'https://revisit.dev/study/',
           label: 'Demo',
           position: 'right',
         },
@@ -155,7 +167,7 @@ const config: Config = {
       style: 'light',
       links: [
         {
-          html: ` 
+          html: `
             <div class="footer-wrapper row">
               <a class="col " target="_blank" href="https://vdl.sci.utah.edu/">
                 <img src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
@@ -165,7 +177,7 @@ const config: Config = {
                 <img src="/img/logos/havoc-logo-light.png" class='logo light-theme-display-component'/>
                 <img src="/img/logos/havoc-logo-dark.png" class='logo dark-theme-display-component'/>
               </a>
-              <a class="col " target="_blank" href="https://www.sci.utah.edu/">
+              <a class="col " target="_blank" href="https://sci.utah.edu/">
                 <img src="/img/logos/sci-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/sci-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
@@ -177,12 +189,12 @@ const config: Config = {
                 <img src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/view-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
-              <a class="col " target="_blank" href="https://wpi.edu/">
+              <a class="col " target="_blank" href="https://www.wpi.edu/">
                 <img src="/img/logos/wpi.png" class='logo'/>
               </a>
               <a class="col " target="_blank" href="https://www.nsf.gov/">
                 <img src="/img/logos/nsf.png" class='logo'/>
-              </a>                                                       
+              </a>
             </div>
           `,
         },
