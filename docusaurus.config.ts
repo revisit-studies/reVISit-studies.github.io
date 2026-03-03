@@ -54,6 +54,7 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
+      // Update the id and content for each new announcement to ensure it is shown to users who have dismissed previous announcements
       id: 'version_2.4',
       content:
         'We released a new version of reVISit! <a href="/blog/2026/02/23/release-2.4/">Read all about reVISit v2.4!</a> &#127881; ',
