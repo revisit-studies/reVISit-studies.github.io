@@ -139,3 +139,31 @@ html[data-theme='dark'] .theme-code-block .language-json .token.null,
 html[data-theme='dark'] .theme-code-block .language-json .token.constant {
   color: #79c0ff !important;
 }
+
+.revisit-doc-breadcrumbs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ifm-spacing-horizontal);
+  margin-bottom: 0.8rem;
+}
+
+.revisit-doc-breadcrumbs-nav {
+  --ifm-breadcrumb-size-multiplier: 0.8;
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+.revisit-doc-breadcrumbs-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+@media only screen and (max-width: 996px) {
+  .revisit-doc-breadcrumbs-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
