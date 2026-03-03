@@ -35,10 +35,19 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          editUrl: ({versionDocsDirPath, docPath}) => {
+            if (docPath.startsWith('typedoc/')) {
+              return 'https://github.com/reVISit-studies/study/tree/main/src/';
+            }
+            return `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/${versionDocsDirPath}/${docPath}`;
+          },
           lastVersion: 'current',
           versions: {
             current: { label: 'v2.4.0', path: '' },
           },
+        },
+        blog: {
+          editUrl: 'https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/',
         },
 
         theme: {
