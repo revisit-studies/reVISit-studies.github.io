@@ -54,7 +54,7 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'support_us',
+      id: 'version_2.4',
       content:
         'We released a new version of reVISit! <a href="/blog/2026/02/23/release-2.4/">Read all about reVISit v2.4!</a> &#127881; ',
       backgroundColor: '#f05a30',
