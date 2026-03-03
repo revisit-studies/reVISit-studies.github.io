@@ -2,7 +2,7 @@
 
 In this example, we'll create a full two-alternative forced choice (2AFC) study for visualizations of correlated data (from [1]), using vega components. We'll use numpy and scipy to generate a dataset, pandas to create a well-structured data frame, and the `revisitpy` package to tie it all together.
 
-You'll see that we have a section which uses the `revisitpy` Widget. This widget is a fully interactive jupyter notebook widget which allows us to preview the created study directly in the notebook. You'll notice that we also utilize the `revisitpy-server` package. This is to simplify the process of viewing our widget. Specifically, it removes the requirement of having a version of the reVISit repository running locally on your computer.
+You'll see that we have a section which uses the `revisitpy` Widget. This widget is a fully interactive Jupyter notebook widget which allows us to preview the created study directly in the notebook. You'll notice that we also utilize the `revisitpy-server` package. This is to simplify the process of viewing our widget. Specifically, it removes the requirement of having a version of the reVISit repository running locally on your computer.
 
 [1] Harrison, Lane, Fumeng Yang, Steven Franconeri, and Remco Chang. "Ranking visualizations of correlation using weber's law." IEEE transactions on visualization and computer graphics 20, no. 12 (2014): 1943-1952.
 
@@ -234,7 +234,6 @@ def create_vega_chart(visType, numPoints, corrValues):
     vega_lite_spec = chart.to_json()
     vega_spec = vlc.vegalite_to_vega(vega_lite_spec, vl_version="5.20")
     return vega_spec
-    
 
 my_vega_spec = create_vega_chart('parallelPlot', 20, [0.3,0.9])
 
@@ -246,7 +245,7 @@ my_vega_spec = create_vega_chart('parallelPlot', 20, [0.3,0.9])
 
 ## Creating The Component Function & Interaction Signals for ReVISit Trials
 
-The `component_function` is used to transform every component in a given sequence to any new component. If we have a sequence that is the correct _structure_, then we call the `component()` method on that sequence and pass in the desired `component_function`. Any `meta` attributes in the original components are passed in as arguments to the `component_function`. 
+The `component_function` is used to transform every component in a given sequence to any new component. If we have a sequence that is the correct _structure_, then we call the `component()` method on that sequence and pass in the desired `component_function`. Any `meta` attributes in the original components are passed in as arguments to the `component_function`.
 
 We'll create a component function which takes in the visualization type, the correlation values, and the number of points and returns the correct vega specification component. Additionally, we append signals directly into the vega spec so that we can detect the user's right and left arrow keys. Instead of the user having to choose "left" or "right" in some drop down, the user will be able to use the left and right arrow keys to pick the chart. We add an additional signal to "highlight" the selected chart with a thick blue border. Finally, since we specified "nextOnEnter" as "True" in the "uiConfig", the user will also be able to proceed to the next component by pressing the "Enter" key. All of this combined creates a seamless study experience.
 
@@ -255,7 +254,7 @@ We'll create a component function which takes in the visualization type, the cor
 def component_function(visType=None, numPoints=None, corrValues=None):
     if(visType is not None and numPoints is not None and corrValues is not None):
         vega_spec = create_vega_chart(visType=visType, numPoints=numPoints, corrValues=corrValues)
-            
+
         # Update signals with new signals for the final vega spec.
         vega_spec['config']["signals"] = [
             {
@@ -277,7 +276,7 @@ def component_function(visType=None, numPoints=None, corrValues=None):
                 ]
             }
         ]
-        
+
         # Add signal based bordering
         for entry in vega_spec['marks']:
             if entry['name'] == 'concat_0_group':
@@ -290,7 +289,7 @@ def component_function(visType=None, numPoints=None, corrValues=None):
             entry['encode']['update']['strokeWidth'] = {
                 "signal": f"revisitAnswer.response === '{condition}' ? 3 : 0"
             }
-        
+
         return rvt.component(
             type='vega',
             config=vega_spec,
@@ -316,7 +315,7 @@ def component_function(visType=None, numPoints=None, corrValues=None):
 # print(component_function('scatterPlot',20,corrValues=[0.2,0.9]))
 ```
 
-## Permuting the Final Sequence 
+## Permuting the Final Sequence
 
 Here we generate the different combinations of the correlation values that we'd like (every combination of two numbers between 0 and 1 with precision 1). Then, we generate a fixed order sequence and being the permutations over our factors. We first permute over the visualization type, then over the number of points, then over all possible correlation value pairs.
 
@@ -363,9 +362,9 @@ study = rvt.studyConfig(
 
 # Using `revisitpy-server` to Prepare Our Widget
 
-The `revisitpy` package provides a widget in order to preview our study directly in a Jupyter notebook. We can interact with the study, check that vega signals work, and even create some introductory data ourselves. In order for the widget to work, a local copy of the reVISit must be running on your local computer. If you already have reVISit locally (colloquially our `study` repo), then all you need to do is navigate to your repository and run `yarn serve`. After this, the widget we create in this jupyter notebook will be usable.
+The `revisitpy` package provides a widget in order to preview our study directly in a Jupyter notebook. We can interact with the study, check that vega signals work, and even create some introductory data ourselves. In order for the widget to work, a local copy of reVISit must be running on your local computer. If you already have reVISit locally (colloquially our `study` repo), then all you need to do is navigate to your repository and run `yarn serve`. After this, the widget we create in this Jupyter notebook will be usable.
 
-A simpler way to achieve the same goal, however is using the `revisitpy-server` Python package. This is a simple python package which already has the most recent reVISit repository built and runs a server locally. After installing `revisitpy-server`, all that is required is the following:
+A simpler way to achieve the same goal, however, is using the `revisitpy-server` Python package. This is a simple Python package which already has the most recent reVISit repository built and runs a server locally. After installing `revisitpy-server`, all that is required is the following:
 
 
 ```python
@@ -378,7 +377,7 @@ Server is running in the background at http://localhost:8080
 ```
 ## The Widget
 
-Now that your server is running, we create the widget with the configuration file we created above. When calling the widget, we are assuming that the assets referenced in the configuration file are relative to this notebook. The widget then copies these static assets to the appropriate directory. Since we're currently using the `revisitpy-server` package, you'll see that they copied into the assets of the local virtual environment `revisitpy-server` package.
+Now that your server is running, we create the widget with the configuration file we created above. When calling the widget, we are assuming that the assets referenced in the configuration file are relative to this notebook. The widget then copies these static assets to the appropriate directory. Since we're currently using the `revisitpy-server` package, you'll see that they are copied into the assets of the local virtual environment `revisitpy-server` package.
 
 
 ```python
@@ -394,7 +393,7 @@ Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-
 ```
 ## Optional: Data Collection
 
-Now that we have the widget running, we can check out some sample data that would be generated from a user. Start by going through a small portion of the study. Once you've gone through the desired number of components inside the widget, navigate to the analysis dashboard using the 'Analysis' tab in the upper left-hand corner. Here you'll see individual participants and the data that they've generated. 
+Now that we have the widget running, we can check out some sample data that would be generated from a user. Start by going through a small portion of the study. Once you've gone through the desired number of components inside the widget, navigate to the analysis dashboard using the 'Analysis' tab in the upper left-hand corner. Here you'll see individual participants and the data that they've generated.
 
 From here, we can export this data back into our Jupyter notebook. Start by clicking the "Download as Tidy CSV" on the right-hand side above the table. Here you'll be shown a preview of the CSV file with some additional options to truncate the data. In the bottom right-hand corner, you'll see a button with the Python icon. Clicking on this button will send the Tidy CSV back to the Jupyter notebook. Once the button is clicked, we can preview the data like so:
 
@@ -412,8 +411,8 @@ import matplotlib.pyplot as plt
 filtered_df = df[df['trialId'].str.startswith(('parallelCoords-', 'scatterPlot-'))].copy()
 
 filtered_df['visType'] = filtered_df['trialId'].apply(
-    lambda x: 'parallelCoordinates' if x.startswith('parallelCoords-') 
-    else 'scatterPlot' if x.startswith('scatterPlot-') 
+    lambda x: 'parallelCoordinates' if x.startswith('parallelCoords-')
+    else 'scatterPlot' if x.startswith('scatterPlot-')
     else x
 )
 
@@ -424,11 +423,7 @@ plt.ylabel('Duration')
 plt.show()
 ```
 
-
-    
 ![png](example_jnd_study_files/example_jnd_study_19_0.png)
-    
-
 
 # Optional: Terminate the server
 

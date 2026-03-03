@@ -19,10 +19,10 @@ jobs:
         with:
           node-version: lts/*
           cache: 'yarn'
-      
+
       - name: Install dependencies
         run: yarn install --immutable
-      
+
       - name: Build documentation
         run: yarn build
 

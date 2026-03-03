@@ -61,10 +61,10 @@ A: ReVISit has built-in error handling so your study can still run even if somet
 
 ![Storage disconnected](./img/faq/storage-disconnected.png)
 
-### Q: How can I ensure balanced numbers of participants between conditions in my study design?
+### Q: How can I ensure balanced numbers of participants between conditions in my between subjects study design?
 
-A: There are several strategies to ensure balanced participant numbers between conditions in your study design using reVISit:
+A: There are several strategies to ensure balanced participant numbers between conditions in your between subjects study design using reVISit:
 1. **Assigning participants to conditions via URL parameters**: You can assign participants to specific conditions via URL parameters using [study conditions](../designing-studies/sequences/url-conditions/). This enables you to create custom recruitment links for each condition, making it easier to control participant distribution.
-1. **Latin square design**: As described in the [Study Sequences documentation](../designing-studies/sequences/study-sequences/#latin-square), you can use Latin square sequences to systematically vary the order of conditions across participants. This helps ensure that each condition appears in each position equally often. However, be aware that if participants drop out or are rejected, this can affect the balance (see the documentation of [latin squares](../designing-studies/sequences/study-sequences/#latin-square) for more details).
+1. **Latin square design**: As described in the [Study Sequences documentation](../designing-studies/sequences/study-sequences/#latin-square), you can use Latin square sequences to systematically vary the order of conditions across participants. This helps ensure that each condition appears in each position equally often. However, be aware that if participants drop out or are rejected, this can affect the balance (see the documentation of [Latin squares](../designing-studies/sequences/study-sequences/#latin-square) for more details).
 1. **Random assignments**: If you are recruiting a large number of participants, random assignment to conditions can help achieve balance over time. While this method may not guarantee perfect balance at any given moment, it tends to even out as more participants are added. This is a viable option when strict balancing is less critical.
 1. **Setting up separate studies**: When precise control is needed, consider setting up separate studies for each condition. This allows you to monitor and control the number of participants in each condition directly. However, this comes at the cost of increased administrative overhead (e.g., separate recruitment links, separate datasets, separate specifications).

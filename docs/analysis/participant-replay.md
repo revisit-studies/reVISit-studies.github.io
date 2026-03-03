@@ -10,7 +10,7 @@ To view the provenance or audio replay for a single participant, click the expan
 
 Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study.
 
-:::note
+:::info
 If a participant hasn't completed any tasks yet, you'll see a warning message indicating that no task data is available for replay. This typically happens when a participant is still in progress or dropped out before submitting any responses.
 ![Incomplete task](./img/participant-replay/participant-replay-incomplete.png)
 :::

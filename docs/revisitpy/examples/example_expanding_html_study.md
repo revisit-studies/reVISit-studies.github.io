@@ -4,7 +4,7 @@ In the previous example, we went over creating the configuration file shown [her
 
 Instead of defining the data for each bar chart directly in the python notebook, suppose we have a CSV file which contains the data for each bar chart. Depending on your specific needs, you may be generating data in R or some other separate Python environment. In these cases, it is extremely useful to have a seamless way to convert raw data into well-defined reVISit components.
 
-Rather than copy this data over into our jupyter notebook, we will use the built-in `data` function to first import the CSV file and then generate components from the data set using the `Sequence` class's `from_data` method.
+Rather than copy this data over into our Jupyter notebook, we will use the built-in `data` function to first import the CSV file and then generate components from the data set using the `Sequence` class's `from_data` method.
 
 ## Using the Data Parser and `from_data` method
 
@@ -14,7 +14,7 @@ We load in the data using the built-in `data` function. This will generate a lis
 ```python
 import revisitpy as rvt
 
-# Import the data using the build in data parser.
+# Import the data using the built-in data parser.
 study_data = rvt.data('./assets/data.csv')
 
 # Generate a single component for each element of the dataset.
@@ -91,10 +91,10 @@ base_component = rvt.component(
 )
 
 def bar_chart_component_function(id, b1, b2, b3, b4, b5, b6, b7):
-    # Toggle between 'largest' and 'smallest' depending on 
+    # Toggle between 'largest' and 'smallest' depending on
     # if the original ID is an odd or even number.
     largest_smallest_string = 'smallest' if id % 2 == 0 else 'largest'
-    
+
     comp = rvt.component(
         base__=base_component,
         component_name__=f'bar-chart-{id}',
@@ -104,12 +104,12 @@ def bar_chart_component_function(id, b1, b2, b3, b4, b5, b6, b7):
             "barData": [b1, b2, b3, b4, b5, b6, b7]
         }
     )
-    
+
     # Always return a component in our component functions.
     return comp
 ```
 
-The component function defined above has the headers of the CSV file as the parameters to the function. When we use this component function, the `meta` attributes of each filler component will be passed into as arguments to this function and return the resulting component to overwrite the filler component. 
+The component function defined above has the headers of the CSV file as the parameters to the function. When we use this component function, the `meta` attributes of each filler component will be passed in as arguments to this function to return the resulting component that overwrites the filler component.
 
 Optionally, we could define this component function with the single parameter `**kwargs`. This will ensure that any argument in the metadata attributes can be passed into the function. However, this would then require you to use syntax like `kwargs.get('b1')` instead of just `b1`. You should consider these options when designing your component function based on your specific needs.
 
