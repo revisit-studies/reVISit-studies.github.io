@@ -37,7 +37,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl: ({versionDocsDirPath, docPath}) => {
             if (docPath.startsWith('typedoc/')) {
-              return 'https://github.com/reVISit-studies/study/tree/main/src/';
+              return undefined;
             }
             return `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/${versionDocsDirPath}/${docPath}`;
           },
