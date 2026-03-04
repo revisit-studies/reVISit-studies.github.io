@@ -15,7 +15,7 @@ These checks are configured in `studyRules`.
 :::note
 `minWidth` and `minHeight` are now configured under `studyRules.display` instead of `uiConfig`.
 
-The previous properties `minWidthSize` and `minHeightSize` have been renamed to `minWidth` and `minHeight`. The `minWidthSize` and `minHeightSize` property is now deprecated and should no longer be used.
+The previous properties `minWidthSize` and `minHeightSize` have been renamed to `minWidth` and `minHeight`. The `minWidthSize` and `minHeightSize` property is now removed and should no longer be used.
 :::
 
 The following snippet shows how to configure device restrictions:
