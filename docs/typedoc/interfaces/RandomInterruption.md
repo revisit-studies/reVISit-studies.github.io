@@ -1,6 +1,6 @@
 # RandomInterruption
 
-Defined in: [parser/types.ts:1332](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1332)
+Defined in: [parser/types.ts:1389](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1389)
 
 The RandomInterruption interface is used to define an interruption that will be shown randomly in the block.
 
@@ -10,38 +10,38 @@ The components property is an array of the components that will be inserted rand
 
 Here's an example of how to use the RandomInterruption:
 
-```js
+```json
 {
- "order": "fixed",
- "components": [
-   "component1",
-   "component2",
-   "component3",
-   "component4",
-   "component5",
-   "component6"
- ],
- "interruptions": [
-   {
-     "spacing": "random",
-     "numInterruptions": 3,
-     "components": [
-       "interruption1",
-       "interruption2"
-     ]
-   }
- ]
+  "order": "fixed",
+  "components": [
+    "component1",
+    "component2",
+    "component3",
+    "component4",
+    "component5",
+    "component6"
+  ],
+  "interruptions": [
+    {
+      "spacing": "random",
+      "numInterruptions": 3,
+      "components": [
+        "interruption1",
+        "interruption2"
+      ]
+    }
+  ]
 }
 ```
 
 The resulting sequence array could be:
 
-```js
+```json
 [
- ["component1", "interruption1", "interruption2", "component2", "interruption1", "interruption2", "component3", "component4", "component5", "interruption1", "interruption2", "component6"],
- ["component1", "interruption1", "interruption2", "component2", "interruption1", "interruption2", "component3", "component4", "interruption1", "interruption2", "component5", "component6"],
- ["component1", "component2" "interruption1", "interruption2", "component3", "interruption1", "interruption2", "component4", "component5", "interruption1", "interruption2", "component6"],
- ...
+  ["component1", "interruption1", "interruption2", "component2", "interruption1", "interruption2", "component3", "component4", "component5", "interruption1", "interruption2", "component6"],
+  ["component1", "interruption1", "interruption2", "component2", "interruption1", "interruption2", "component3", "component4", "interruption1", "interruption2", "component5", "component6"],
+  ["component1", "component2", "interruption1", "interruption2", "component3", "interruption1", "interruption2", "component4", "component5", "interruption1", "interruption2", "component6"],
+  ...
 ]
 ```
 
@@ -49,6 +49,6 @@ The resulting sequence array could be:
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="components"></a> `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. | [parser/types.ts:1338](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1338) |
-| <a id="numinterruptions"></a> `numInterruptions` | `number` | The number of times the interruption will be randomly added | [parser/types.ts:1336](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1336) |
-| <a id="spacing"></a> `spacing` | `"random"` | If spacing is set to random, reVISit will add interruptions randomly. These interruptions will not ever be displayed as the first component in the block. | [parser/types.ts:1334](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1334) |
+| <a id="components"></a> `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. | [parser/types.ts:1395](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1395) |
+| <a id="numinterruptions"></a> `numInterruptions` | `number` | The number of times the interruption will be randomly added | [parser/types.ts:1393](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1393) |
+| <a id="spacing"></a> `spacing` | `"random"` | If spacing is set to random, reVISit will add interruptions randomly. These interruptions will not ever be displayed as the first component in the block. | [parser/types.ts:1391](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1391) |

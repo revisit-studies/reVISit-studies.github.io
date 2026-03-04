@@ -1,6 +1,6 @@
 # DeterministicInterruption
 
-Defined in: [parser/types.ts:1280](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1280)
+Defined in: [parser/types.ts:1337](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1337)
 
 The DeterministicInterruption interface is used to define an interruption that will be shown at a specific location in the block.
 
@@ -10,38 +10,38 @@ The components property is an array of the components that will be inserted at t
 
 Here's an example of how to use the DeterministicInterruption:
 
-```js
+```json
 {
- "order": "fixed",
- "components": [
-   "component1",
-   "component2",
-   "component3",
-   "component4",
-   "component5",
-   "component6"
- ],
- "interruptions": [
-   {
-     "firstLocation": 2,
-     "spacing": 3,
-     "components": [
-       "interruption1",
-       "interruption2"
-     ]
-   }
- ]
+  "order": "fixed",
+  "components": [
+    "component1",
+    "component2",
+    "component3",
+    "component4",
+    "component5",
+    "component6"
+  ],
+  "interruptions": [
+    {
+      "firstLocation": 2,
+      "spacing": 3,
+      "components": [
+        "interruption1",
+        "interruption2"
+      ]
+    }
+  ]
 }
 ```
 
 The resulting sequence array could be:
 
-```js
+```json
 [
- ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
- ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
- ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
- ...
+  ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
+  ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
+  ["component1", "component2", "interruption1", "component3", "component4", "component5", "interruption2", "component6"],
+  ...
 ]
 ```
 
@@ -49,6 +49,6 @@ The resulting sequence array could be:
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="components"></a> `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. | [parser/types.ts:1286](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1286) |
-| <a id="firstlocation"></a> `firstLocation` | `number` | The Location of the first instance of the interruption. If this is set to 2, the interruption will be shown after the second component (inserted at index 2). | [parser/types.ts:1282](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1282) |
-| <a id="spacing"></a> `spacing` | `number` | The number of components between breaks. | [parser/types.ts:1284](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1284) |
+| <a id="components"></a> `components` | `string`[] | The components that are included in the interruption. These reference components in the StudyConfig.components section of the config. | [parser/types.ts:1343](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1343) |
+| <a id="firstlocation"></a> `firstLocation` | `number` | The Location of the first instance of the interruption. If this is set to 2, the interruption will be shown after the second component (inserted at index 2). | [parser/types.ts:1339](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1339) |
+| <a id="spacing"></a> `spacing` | `number` | The number of components between breaks. | [parser/types.ts:1341](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1341) |

@@ -50,7 +50,7 @@ const config: Config = {
           },
           lastVersion: 'current',
           versions: {
-            current: { label: 'v2.4.0', path: '' },
+            current: { label: 'v2.4.1', path: '' },
           },
         },
         blog: {
