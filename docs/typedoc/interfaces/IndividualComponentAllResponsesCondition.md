@@ -1,28 +1,26 @@
 # IndividualComponentAllResponsesCondition
 
-Defined in: [parser/types.ts:1415](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1415)
+Defined in: [parser/types.ts:1467](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1467)
 
 The IndividualComponentAllResponsesCondition interface is used to define a SkipCondition based on all answers to a specific component. The skip logic will be checked for every component in the block that has the specified name.
 
 :::info
-
 If you need to check all instances of a repeated component, you should use the RepeatedComponentBlockCondition.
-
 :::
 
 Here's an example of how to use the IndividualComponentAllResponsesCondition:
 
-```js
+```json
 {
- ...
- "skip": [
-   {
-     "name": "attentionCheck",
-     "check": "responses",
-     "to": "end"
-   }
- ]
- ...
+  ...
+  "skip": [
+    {
+      "name": "attentionCheck",
+      "check": "responses",
+      "to": "end"
+    }
+  ]
+  ...
 }
 ```
 
@@ -32,6 +30,6 @@ In this example, if all responses to the component with the ID "attentionCheck" 
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="check"></a> `check` | `"responses"` | The check we'll perform. | [parser/types.ts:1419](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1419) |
-| <a id="name"></a> `name` | `string` | The name of the component to check. | [parser/types.ts:1417](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1417) |
-| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1421](https://github.com/revisit-studies/study/blob/317436dc2065f4bc80347c4bd7250d4444518b6d/src/parser/types.ts#L1421) |
+| <a id="check"></a> `check` | `"responses"` | The check we'll perform. | [parser/types.ts:1471](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1471) |
+| <a id="name"></a> `name` | `string` | The name of the component to check. | [parser/types.ts:1469](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1469) |
+| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1473](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L1473) |
