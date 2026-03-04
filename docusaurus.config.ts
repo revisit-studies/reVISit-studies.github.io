@@ -15,6 +15,7 @@ const config: Config = {
   projectName: 'ReVISit', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'ignore',
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
