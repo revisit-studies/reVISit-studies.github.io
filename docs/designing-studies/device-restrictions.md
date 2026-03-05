@@ -7,12 +7,18 @@ These checks are configured in `studyRules`.
 
 `studyRules` supports:
 
-- `display`: minimum viewport dimensions in pixels
+- `display`: allowed display sizes
 - `browsers`: allowed browser names and optional minimum versions
 - `devices`: allowed device types (`desktop`, `tablet`, `mobile`)
 - `inputs`: allowed input types (`mouse`, `touch`)
 
-The following snippet shows how to config device restrictions:
+:::note
+`minWidth` and `minHeight` are now configured under `studyRules.display` instead of `uiConfig`.
+
+The previous properties `minWidthSize` and `minHeightSize` have been renamed to `minWidth` and `minHeight`. The `minWidthSize` and `minHeightSize` property is now removed and should no longer be used.
+:::
+
+The following snippet shows how to configure device restrictions:
 
 ```json title="public/study-name/config.json"
 "studyRules": {
@@ -51,15 +57,33 @@ The following snippet shows how to config device restrictions:
 When a participant starts the study, reVISit validates the participant environment against `studyRules`.
 If requirements are not met, a blocking screen is shown with the rule that failed.
 
+## Setting Display Requirements
+
+You can restrict your study to specific screen-size requirements to ensure participants use a supported display.
+
+Configure display restrictions in the `studyRules` section. Use `studyRules.display` to define minimum and optional maximum screen dimensions.
+
+```json title="public/study-name/config.json"
+"studyRules": {
+  "display": {
+    "minHeight": 600,
+    "minWidth": 1024,
+    "maxHeight": 1440,
+    "maxWidth": 2560,
+    "blockedMessage": "This study requires a screen between 1024x600 and 2560x1440."
+  }
+}
+```
+
 For display-size checks, participants see a warning screen with a one-minute countdown timer showing current and required dimensions.
 
 The participant has one minute to resize their browser window. During this time, reVISit continuously monitors the window size. Once both the width and height meet the requirements, the warning disappears and the study begins.
 
 If the timer runs out and the screen is still too small, the participant will see a training failed page and will not be able to continue the study.
 
-In the participant table, the participant will be listed as rejected with the reason "Screen resolution too small."
+In the participant table, the participant will be listed as rejected with the reason "Screen resolution requirements not met."
 
-![Device Size Check Rejected Participant](./img/device-check/screen-resolution-too-small.png)
+![Device Size Check Rejected Participant](./img/device-check/screen-resolution-not-met.png)
 
 ## Setting Browser Requirements
 
