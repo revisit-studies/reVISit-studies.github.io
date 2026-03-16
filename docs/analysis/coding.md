@@ -7,7 +7,7 @@
 To open Think Aloud coding, go to the **Coding** tab under **Analysis**. The first participant and task with audio will load automatically.
 
 :::warning
-Coding is available only when using the Firebase storage engine. It also needs audio recordings to be turned on in your study setup (`"recordAudio" = true`).
+Coding is available only when using the Firebase storage engine. It also needs audio recordings to be turned on in your study setup (`"recordAudio" = true`). To populate transcripts automatically, install the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) in Firebase.
 :::
 
 ![Coding](./img/coding/coding.png)

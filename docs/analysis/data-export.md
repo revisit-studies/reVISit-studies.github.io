@@ -30,7 +30,7 @@ You may check more details [here](https://cran.r-project.org/web/packages/tidyr/
 :::
 
 :::info
-If your study includes [audio recording](../../designing-studies/think-aloud), you can optionally include a transcript column in your tidy CSV export. This column contains the transcribed text from each trial, making it easy to analyze what participants said alongside their responses. You must be using Firebase as your storage engine.
+If your study includes [audio recording](../../designing-studies/think-aloud), you can optionally include a transcript column in your tidy CSV export. This column contains the transcribed text from each trial, making it easy to analyze what participants said alongside their responses. You must be using Firebase as your storage engine and have the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) configured for your project.
 
 Downloading transcripts for large datasets can take significant time. If you're downloading data for **50 or more participants** with transcripts, you'll see a warning about potential delays. The system fetches transcripts with concurrency limits to avoid overwhelming the browser.
 :::
@@ -133,7 +133,7 @@ To download audio from specific participants, select the participants in the tab
 ![Download task audio](./img/data-export/audio-export-3.png)
 
 :::info
-If you are using Firebase, it will download the transcript of the audio file as well.
+If you are using Firebase with the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) configured, it will download the transcript of the audio file as well.
 :::
 
 ## Download Screen Recording
