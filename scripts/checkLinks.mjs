@@ -14,6 +14,7 @@ const linksToSkip = [
   'doi.org',
   'acm.org',
   'cs.utah.edu',
+  'github\\.com/.+/edit/.+', // "Edit this page" links
 ];
 
 const checker = new LinkChecker();
