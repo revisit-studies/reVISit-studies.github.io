@@ -84,6 +84,12 @@ service firebase.storage {
 
 ![Console](./img/firebase_steps/storage_step6.jpg)
 
+### Adding automatic transcription for Think Aloud studies
+
+If you plan to use [Think Aloud](../../designing-studies/think-aloud.md) studies with Firebase and want transcripts, install the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) from the Firebase Extensions marketplace.
+
+Once the extension is configured for your project, it will automatically transcribe uploaded audio files. This is the setup reVISit expects when you want transcripts to appear in analysis and export workflows.
+
 ### Adding an App to the Firebase Project
 
 We are now going to add an app to your Firebase project:
