@@ -55,6 +55,10 @@ A common issue in Google Chrome is the debug token changing whenever the applica
 
 A: We report the total time it took a participant to complete a task as duration, but we also report a **clean time** duration that subtracts inactive periods from the total time. Technically, we determine that a browser window is inactive for a period of time based on the [`visibilitychange event`](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event), which fires, e.g., when the participant switches to a different tab. We subtract that inactive time from the total duration for the clean time. It's often the case that a participant gets distracted and does something unrelated to the study, and then comes back to the study to continue. Clean time is a way to identify these situations and prevent extreme outliers from being considered in timing data. However, there are ways for participants to become distracted that are not tracked by clean time, such as when they step away from their computer and keep their browser open.
 
+### Q: Can I include metadata from my study configuration in a tidy CSV export?
+
+A: Yes. You can attach metadata to components in your study configuration using the [`meta`](../typedoc/interfaces/BaseIndividualComponent/#meta) field. When you download data as a [tidy CSV](../analysis/data-export/), open the CSV Exporter and enable the `meta` attribute to include that metadata in the exported file. This is useful for carrying condition labels or other task-level annotations into your analysis.
+
 ### Q: What happens if there's an error during study initialization?
 
 A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. If an error happens during setup, reVISit will show a warning message, fallback to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud, with a prompt to contact the study administrator.
