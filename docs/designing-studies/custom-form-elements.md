@@ -6,7 +6,7 @@ This page will walk you through how to create and use custom form elements in yo
 
 ## Creating Custom Form Elements
 
-To create a custom form element, you need to define a React component that follows the structure defined by the `CustomResponseParams` type. This component receives the current response value, metadata about the response itself, optional custom parameters from the study config, validation state, and a `field` helper for updating and blurring the value. You can then use this component in your study configuration to collect responses from participants. Here's a basic example of a custom form element that collects a color input from participants:
+To create a custom form element, you need to define a React component that follows the structure defined by the `CustomResponseParams` type. This component receives the current response value, metadata about the response itself, optional custom parameters from the study config, the current validation error message if one exists, and a `field` helper for updating and blurring the value. You can then use this component in your study configuration to collect responses from participants. Here's a basic example of a custom form element that collects a color input from participants:
 
 ```tsx title="ColorPicker.tsx"
 import { CustomResponseParams } from '../../../store/types';
@@ -65,6 +65,10 @@ To use your custom form element in your study config, you need to define a respo
 The path here is relative to the `src/public` directory of the ReVISit app, not the `public` directory used for most other study assets. You can place your custom form element component anywhere under `src/public`. We recommend that you follow the same folder structure that we suggest in the [react stimulus docs](./react-stimulus.md) for your custom form elements.
 :::
 
+::note[JSON-serializable values]
+Custom response values must be JSON-serializable. This applies both to the values you store through `field.setValue(...)` and to any `default` value you define in the study config. Strings, numbers, booleans, `null`, arrays, and plain objects are supported.
+:::
+
 ## Custom Validation Logic for Custom Form Elements
 
 Custom validation logic can be added to your custom form elements by defining a validation function that checks the response value and returns an error message if the value is invalid. The validation controls whether the participant can submit their response or not. The `validate` function receives the current value, the full set of response values for the component, and the current response config, so it can validate against sibling answers or `response.parameters`. Here's an example of how you can add custom validation logic to the `ColorPicker` component:
@@ -114,4 +118,4 @@ When you include this custom form element in your study config, the validation l
 
 ## Provenance tracking for custom form elements
 
-Since custom form elements are hooked into the same response system as built-in form elements, they will automatically have provenance tracking enabled. For proper rehydration of the response values, make sure that your custom form element component updates values through `field.setValue(...)` and marks interaction with `field.onBlur()`. This ensures that the response values are properly tracked and can be analyzed.
+Since custom form elements are hooked into the same response system as built-in form elements, their answers participate in the standard saving and provenance flow. To keep the stored answer in sync, update values through `field.setValue(...)`. Call `field.onBlur()` when the user finishes interacting with the element so validation and touched-state behavior work as expected.
