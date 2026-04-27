@@ -54,7 +54,7 @@ ReVISit is a project developed at the [University of Utah](https://visdesignlab.
 
 [Alexander Lex](https://vdl.sci.utah.edu/team/lex/), Co-PI, Graz University of Technology and University of Utah  
 [Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI  
-[Andrew McNutt](https://www.mcnutt.in/), CO-I, University of Utah  
+[Andrew McNutt](https://www.mcnutt.in/), Co-I, University of Utah  
 [Zach Cutler](https://zach-cutler.com/), PhD Student, University of Utah  
 [Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
 [Tingying He](https://tingying-he.github.io/), Postdoc, University of Utah  
