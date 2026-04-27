@@ -76,6 +76,6 @@ A: There are several strategies to ensure balanced participant numbers between c
 
 ### Q: Why does my participant data appear on the deployed site but not in my local dashboard?
 
-A: The technical answer is that when running locally with yarn serve, reVISIT prefixes all Firestore collections with dev-, while the deployed production site uses prod-. This means your local dashboard will look for data in dev-<studyId> and won't find data collected by the production site, which is stored under prod-<studyId>.
+A: The technical answer is that when running locally with yarn serve, reVISIT prefixes all Firestore collections with dev-, while the deployed production site uses prod-. This means your local dashboard will look for data in dev-studyId and won't find data collected by the production site, which is stored under prod-studyId.
 
 To view production data locally, run `yarn build && npx vite preview` instead of yarn serve. Note that setting NODE_ENV=production will not fix this, as the prefix is driven by Vite's import.meta.env.DEV flag, which is only set to false when running a production build.
