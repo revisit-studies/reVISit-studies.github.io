@@ -38,19 +38,35 @@ For the next two steps, there is no need to change the defaults. Simply click "N
 
 ![Console](./img/firebase_steps/step7.jpg)
 
-With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the 'rules' tab (second tab) and copy and paste the following code. Then click "publish".
+With the new database created, we'll want to use ownership-based rules. Any signed-in user (including anonymous users) can create documents. Users can then read/update/delete only their own documents, while non-anonymous authenticated users (admins) have full CRUD access to all documents. Go to the 'rules' tab (second tab) and copy and paste the following code. Then click "publish".
 
 ```
 rules_version = '2';
 service cloud.firestore {
- match /databases/{database}/documents {
+  function isSignedIn() {
+    return request.auth != null;
+  }
+  function isAdmin() {
+    return isSignedIn()
+      && request.auth.token.firebase.sign_in_provider != 'anonymous';
+  }
+  function isOwner() {
+    return isSignedIn() && resource.data.ownerUid == request.auth.uid;
+  }
+  match /databases/{database}/documents {
     match /{document=**} {
-    	allow read: if true
-      allow write: if request.auth != null;
+      allow create: if isSignedIn()
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow read: if isAdmin() || isOwner();
+      allow update: if isAdmin()
+        || (isOwner() && request.resource.data.ownerUid == resource.data.ownerUid);
+      allow delete: if isAdmin() || isOwner();
     }
   }
 }
 ```
+
+When creating documents, include an `ownerUid` field set to `request.auth.uid` from the signed-in user.
 
 ![Console](./img/firebase_steps/step8.jpg)
 
@@ -76,13 +92,27 @@ Replace the existing rule with the following code and then publish:
 rules_version = '2';
 
 service firebase.storage {
+  function isSignedIn() {
+    return request.auth != null;
+  }
+  function isAdmin() {
+    return isSignedIn()
+      && request.auth.token.firebase.sign_in_provider != 'anonymous';
+  }
+  function isOwner() {
+    return isSignedIn() && resource.metadata.ownerUid == request.auth.uid;
+  }
   match /b/{bucket}/o {
     match /{allPaths=**} {
-      allow read, write: if true;
+      allow create: if isSignedIn()
+        && request.resource.metadata.ownerUid == request.auth.uid;
+      allow read, update, delete: if isAdmin() || isOwner();
     }
   }
 }
 ```
+
+When uploading files, set file metadata `ownerUid` to the signed-in user's UID so ownership checks can pass.
 
 ![Console](./img/firebase_steps/storage_step6.jpg)
 
