@@ -48,6 +48,12 @@ html[data-theme='dark'] .light-theme-display-component {
   }
 }
 
+@media only screen and (min-width: 997px) and (max-width: 1250px) {
+  :root {
+    --ifm-navbar-sidebar-width: 320px;
+  }
+}
+
 @media only screen and (max-width: 1250px) {
   .navbar > .container,
   .navbar > .container-fluid {
@@ -63,15 +69,15 @@ html[data-theme='dark'] .light-theme-display-component {
     margin-left: auto;
   }
 
-  .navbar__items--right .navbar__item {
+  .navbar__inner .navbar__items--right .navbar__item {
     display: none !important;
   }
 
-  .navbar__items--right > button {
+  .navbar__inner .navbar__items--right > button {
     display: none !important;
   }
 
-  .navbar__items:not(.navbar__items--right) .navbar__item {
+  .navbar__inner .navbar__items:not(.navbar__items--right) .navbar__item {
     display: none !important;
   }
 }
