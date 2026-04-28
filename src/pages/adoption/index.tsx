@@ -33,7 +33,6 @@ function Adoption({ adoption }: { adoption: Adoption }) {
       : `https://dx.doi.org/${normalizedDoi.replace(/^doi:\s*/i, "")}`
     : undefined;
 
-  console.log(adoption);
   return (
     <div className={styles.adoptionContainer}>
       <div className={styles.title}>{adoption.title}</div>
