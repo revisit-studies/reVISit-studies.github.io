@@ -2,7 +2,7 @@
 
 Below is a list of frequently asked questions.
 
-If you have a question that is not answered by this page or the rest of the [documentation](../introduction/), you can join the [reVISit Slack group](https://join.slack.com/t/revisit-nsf/shared_invite/zt-2g1lwcq5y-Yae8eBEbMO~r7tP~ZQ7Cig). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
+If you have a question that is not answered by this page or the rest of the [documentation](../introduction/), you can join the [reVISit Slack group](https://revisit-nsf.slack.com/join/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
 
 ### Q: Something weird is happening while I debug my study. What should I do?
 
