@@ -2,4 +2,4 @@
 
 > **ConfigResponseBlockLocation** = `Exclude`\<`ResponseBlockLocation`, `"stimulus"`\>
 
-Defined in: [parser/types.ts:65](https://github.com/revisit-studies/study/blob/0246def09f8a8d3a9193428f2d57948507c787cd/src/parser/types.ts#L65)
+Defined in: [parser/types.ts:72](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L72)
