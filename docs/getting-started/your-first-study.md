@@ -141,6 +141,10 @@ After this, add `basic-questionnaire-study` into the `configsList` list in the s
 ]
 ```
 
+:::info
+Study IDs in `global.json` can include dots, spaces, and other special characters, but reVISit cleans them for URLs by replacing dots (`.`), spaces, and slashes (`/`) with underscores (`_`). (e.g. `example.revisit/study` becomes `example_revisit_study`)
+:::
+
 ## Running the Server
 
 Now, if you start the server (using `yarn serve` as described in the [Installation](./installation.md) section), you'll be able to navigate to http://localhost:8080/ and view your study in the list of studies. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to view the study directly.

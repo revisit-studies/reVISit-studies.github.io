@@ -37,6 +37,10 @@ With this setup, `/path/to/study?condition=color` includes the `color` block and
 **You can also pass multiple conditions like `/path/to/study?condition=color,shape`.** The `introduction` component is shown to all participants regardless of condition.
 
 :::warning
+Conditional URL parameter assignment cannot be combined with random or latinSquare sequence ordering. A `conditional` block must not appear inside a parent block whose `order` is `random` or `latinSquare`. Use fixed ordering when using conditional blocks, or remove conditional blocks.
+:::
+
+:::warning
 We strongly recommend using conditions only at the top levels of your sequence and not nesting conditional blocks inside other conditional blocks, as this can lead to unexpected behavior.
 
 If you'd like to combine multiple conditions, like in the following example:
