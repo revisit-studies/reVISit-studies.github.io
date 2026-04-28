@@ -17,6 +17,7 @@ When reVISit parses your study config file, it checks for issues that could prev
 | Undefined Component | Component is not defined in components object | Add the component to the components object |
 | Sequence Validation | Component is a base component and cannot be used in the sequence | Remove the base component from the sequence |
 | Sequence Validation | Sequence not found in library| Check the sequence name |
+| Sequence Validation | Conditional URL parameter assignment cannot be combined with random or latinSquare sequence ordering | Use fixed ordering when using conditional blocks, or remove conditional blocks |
 | Skip Validation | Skip target does not occur after the skip block it is used in | Add the target to the sequence after the skip block |
 
 
@@ -27,3 +28,4 @@ When reVISit parses your study config file, it checks for issues that could prev
 | Sequence Validation | Sequence has an empty components array | Remove empty components block |
 | Unused Component | Component is defined in components object but not used deterministically in the sequence | Remove the component from the components object or add it to the sequence |
 | Disabled Sidebar | Component uses sidebar locations but sidebar is disabled | Enable the sidebar or move the location to belowStimulus or aboveStimulus |
+| Default Contact Email | The contact email is set to the default value `contact@revisit.dev`. Please update it to your own email address | Update the contactEmail field in uiConfig to your own email address |

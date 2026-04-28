@@ -40,7 +40,7 @@ If you are using Firebase and want automatic transcripts for Think Aloud studies
 
 ## Click-to-record
 
-The `clickToRecord` option enables a click-and-hold microphone button instead of continuous recording. When enabled, audio is muted by default and is recorded only while the button is held. When disabled, recording starts immediately and can be paused or resumed via the microphone button. You can set `"clickToRecord": true` in `uiConfig` for the whole study or at the individual component level.
+The `clickToRecord` option enables a click-and-hold microphone button instead of continuous recording. When enabled, audio is muted by default and is recorded only while the button is held. When disabled, recording starts immediately and can be paused or resumed via the microphone button. If a participant speaks while muted, the microphone icon blinks red and gives a notification to unmute. You can set `"clickToRecord": true` in `uiConfig` for the whole study or at the individual component level.
 
 ![Click to record](./img/think-aloud/click-to-record.png)
 
