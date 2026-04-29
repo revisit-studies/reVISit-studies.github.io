@@ -115,6 +115,36 @@ The `requiredLabel` property is similar to `requiredValue` but is more user-frie
 }
 ```
 
+### Default Values
+
+Most form elements can include a default field to set an initial answer, which is shown when the question loads and restored if the participant resets the question instead of leaving it empty. If you use `paramCapture` to get a value from the URL, that value overrides the default.
+
+```json title="public/study-name/config.json"
+{
+  "id": "q-likert",
+  "type": "likert",
+  "prompt": "How difficult was this task?",
+  "numItems": 5,
+  "default": 3
+}
+```
+
+For matrix questions, `default` sets a value for each row: use one string for `matrix-radio`, and for `matrix-checkbox` use a string (one choice) or a list of strings (multiple choices).
+
+```json title="public/study-name/config.json"
+{
+  "id": "matrix-default",
+  "type": "matrix-checkbox",
+  "prompt": "Which apply to each item?",
+  "questionOptions": ["Q1", "Q2"],
+  "answerOptions": ["A", "B"],
+  "default": {
+    "Q1": ["A", "B"],
+    "Q2": "A"
+  }
+}
+```
+
 ### "Don't Know" Option
 
 You can explicitly allow participants to state that they don't know the response with a dedicated checkbox:
@@ -207,6 +237,8 @@ Here is an example of Matrix Radio questions using `"answerOptions": "likely7"` 
 If any question in the matrix is left unanswered, participants will see a validation message: "Please answer all questions in the matrix to continue."
 
 ![Matrix Radio with warning](img/designing-forms/matrix-warning.png)
+
+For `matrix-radio` and `matrix-checkbox`, setting `"withDontKnow": true` adds an "I don't know" column on the right side of the matrix, separated from the other answer options by a vertical line. In `matrix-checkbox`, selecting "I don't know" deselects any other answers in that row, and selecting any other option deselects "I don't know".
 
 ### Dropdown Features
 

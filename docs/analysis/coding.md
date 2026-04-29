@@ -21,6 +21,7 @@ Here are the main features:
 - **Playback Speed**: Change how fast the audio plays, from **0.5×** to **8×**.
 - **Participant Tags**: Labels for participants that let you group or filter them.
 - **Task Tags**: Labels you can add to the current task to categorize it.
+- **Provenance Color Legend**: A palette icon in the footer opens a hover card that maps each color in the provenance timeline to the event type it represents. The legend appears only when the trial contains more than one event type.
 
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

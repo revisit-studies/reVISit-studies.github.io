@@ -55,7 +55,9 @@ The following snippet shows how to configure device restrictions:
 ## How It Works
 
 When a participant starts the study, reVISit validates the participant environment against `studyRules`.
-If requirements are not met, a blocking screen is shown with the rule that failed.
+If any browser, device, input, or display requirement is not met, a blocking screen lists every rule that failed alongside the participant's currently detected browser, device, input, and display values.
+
+When [Development Mode](../../analysis/revisit-modes#development-mode) is enabled, the blocking screen and the display-size countdown are suppressed and replaced with a "Device Requirement Not Met" badge in the header. This lets study designers explore the study on devices that don't meet the configured rules without being blocked or rejected.
 
 ## Setting Display Requirements
 
@@ -75,7 +77,7 @@ Configure display restrictions in the `studyRules` section. Use `studyRules.disp
 }
 ```
 
-For display-size checks, participants see a warning screen with a one-minute countdown timer showing current and required dimensions.
+If the current display is below `minWidth` or `minHeight`, participants see a warning screen with a one-minute countdown timer showing current and required dimensions.
 
 The participant has one minute to resize their browser window. During this time, reVISit continuously monitors the window size. Once both the width and height meet the requirements, the warning disappears and the study begins.
 

@@ -8,7 +8,7 @@ Each time you change your `config.json` file and deploy it, reVISit creates a un
 
 ![Config tab](./img/config/config.png)
 
-The Config table has several columns. The version column shows the identifier from your `studyMetadata.version` field (like `1.0.0` or `pilot`). The hash column shows a unique code based on your actual config content. If anything changes in your config, you get a new hash, even if you forget to update the version number. Hover over the info icon to see the full hash, or click the copy icon to copy it.
+The Config table has several columns. The version column shows the identifier from your `studyMetadata.version` field (like `1.0.0` or `pilot`). The latest deployed config is marked with a Current badge. The hash column shows a unique code based on your actual config content. If anything changes in your config, you get a new hash, even if you forget to update the version number. Hover over the info icon to see the full hash, or click the copy icon to copy it.
 
 The date column shows when you created that version (from `studyMetadata.date`). The time frame column shows when participants actually used it, from the first to the last participant. The participants column tells you how many people used each version.
 
