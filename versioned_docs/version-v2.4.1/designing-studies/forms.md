@@ -138,7 +138,7 @@ You can structure your forms by adding a divider between form elements. This is 
 ]
 ```
 
-Alternatively, if you want to position dividers independently of specific questions, you can use [`DividerResponse`](../../docs/typedoc/interfaces/DividerResponse.md) as a standalone response element.
+Alternatively, if you want to position dividers independently of specific questions, you can use [`DividerResponse`](/docs/typedoc/interfaces/DividerResponse.md) as a standalone response element.
 
 ```json title="public/study-name/config.json"
 "components": {
