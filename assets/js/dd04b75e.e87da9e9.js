@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs_website=self.webpackChunkdocs_website||[]).push([["18673"],{33024(e){e.exports=JSON.parse('{"authors":[{"name":"The ReVISit Team","key":"team","page":null,"count":5},{"name":"Lane Harrison","key":"harrison","page":null,"count":1},{"name":"Alexander Lex","key":"lex","page":null,"count":0}]}')}}]);
