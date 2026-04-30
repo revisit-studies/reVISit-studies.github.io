@@ -4,10 +4,69 @@
         <title>Home | ReVISit Blog</title>
         <link>https://revisit.dev/blog/</link>
         <description>Home | ReVISit Blog</description>
-        <lastBuildDate>Mon, 23 Feb 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 30 Apr 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Integrating an LLM-Based Chatbot into a reVISit Study]]></title>
+            <link>https://revisit.dev/blog/2026/04/30/llm-in-revisit/</link>
+            <guid>https://revisit.dev/blog/2026/04/30/llm-in-revisit/</guid>
+            <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Studying how people interact with AI is increasingly relevant, and when that AI is embedded in an interactive system, such as a data visualization, the questions get even more interesting. With reVISit, you can now integrate an LLM-based chatbot directly into your study workflow. In this post, we walk through a working demo and show you how to adapt it for your own research.]]></description>
+            <content:encoded><![CDATA[<p>Studying how people interact with AI is increasingly relevant, and when that AI is embedded in an interactive system, such as a data visualization, the questions get even more interesting. With reVISit, you can now integrate an LLM-based chatbot directly into your study workflow. In this post, we walk through a working demo and show you how to adapt it for your own research.</p>
+<p>Take a look at our <a href="https://revisit.dev/study/example-llm-chatbot/" target="_blank" rel="noopener noreferrer" class="">demo study</a>. The goal of this scenario was to help people learn about a chart. In this context, the chatbot should do more than simply generate answers. It should understand the study context, respond based on relevant materials, maintain continuity across turns, and make every interaction traceable for later analysis.</p>
+<p><img decoding="async" loading="lazy" alt="A screenshot of the demo study, showing a clustered heat map on the left and a chatbot on the right, where a user has asked to tell them about the chart and the bot has answered" src="https://revisit.dev/assets/images/llm-chatbot-study-2deeeecd1d63ee3c55ef3d738def7fcc.png" width="3442" height="1384" class="img_ev3q"></p>
+<p>Below, we describe why this chatbot is useful for studies, highlight its core features, and explain how to customize it.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-does-this-chatbot-enable-in-our-demo-study">What does this chatbot enable in our demo study?<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#what-does-this-chatbot-enable-in-our-demo-study" class="hash-link" aria-label="Direct link to What does this chatbot enable in our demo study?" title="Direct link to What does this chatbot enable in our demo study?" translate="no">​</a></h2>
+<p>In the demo study, participants can ask questions about a clustered heatmap, and the chatbot responds with streaming text. When a question requires exact data values or visual details, the chatbot can request the dataset or chart image. All inputs and outputs are tracked by <a href="https://apps.vdl.sci.utah.edu/trrackjs/" target="_blank" rel="noopener noreferrer" class="">Trrack, our provenance library</a>, making it possible to analyze how participants interact with the chatbot and what information they request.</p>
+<p>Our example uses the <a href="https://developers.openai.com/api/reference/resources/responses" target="_blank" rel="noopener noreferrer" class="">OpenAI Responses API</a> and is implemented with the following features:</p>
+<ul>
+<li class=""><strong>Conversation memory:</strong> keeps the model aware of prior turns</li>
+<li class=""><strong>Streaming responses:</strong> reduce perceived latency and make the interface feel more responsive</li>
+<li class=""><strong>Sending the chart image and dataset only when needed:</strong> gives the chatbot access to study materials only when required</li>
+<li class=""><strong>Recording provenance and conversation history:</strong> makes interactions traceable for later analysis</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-can-you-use-and-customize-it">How can you use and customize it?<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#how-can-you-use-and-customize-it" class="hash-link" aria-label="Direct link to How can you use and customize it?" title="Direct link to How can you use and customize it?" translate="no">​</a></h2>
+<p>The demo is designed to be flexible (check out the <a href="https://github.com/revisit-studies/study/tree/main/src/public/example-llm-chatbot/assets" target="_blank" rel="noopener noreferrer" class="">code</a>). Most settings live in <code>ChatInterface.tsx</code>, where you can customize the chatbot’s behavior and study materials.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="set-up-the-api-key">Set up the API key<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#set-up-the-api-key" class="hash-link" aria-label="Direct link to Set up the API key" title="Direct link to Set up the API key" translate="no">​</a></h3>
+<p>One challenge with LLM-based interfaces is keeping API keys secure in a (mostly) serverless environment such as a reVISit study. Our demo uses a proxy server to get around this problem. We created a simple proxy server for you, which you can find at <a href="https://github.com/visdesignlab/openai-api-proxy" target="_blank" rel="noopener noreferrer" class="">https://github.com/visdesignlab/openai-api-proxy</a>.</p>
+<p>After deploying the proxy, set <code>VITE_OPENAI_API_URL</code> in your <code>.env</code> file for either local development or production.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adjust-the-chatbot-behavior">Adjust the Chatbot Behavior<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#adjust-the-chatbot-behavior" class="hash-link" aria-label="Direct link to Adjust the Chatbot Behavior" title="Direct link to Adjust the Chatbot Behavior" translate="no">​</a></h3>
+<p>All key settings live in <code>ChatInterface.tsx</code>. The most relevant parameters are:</p>
+<p><strong>Change the assistant behavior (system prompt)</strong><br>
+<!-- -->Edit <code>prePrompt</code> and <code>toolPolicy</code> to control how the assistant responds and when it should use tools.</p>
+<p>Learn more: <a href="https://platform.openai.com/docs/guides/responses#system-instructions" target="_blank" rel="noopener noreferrer" class="">System instructions</a></p>
+<p><strong>Change the model</strong><br>
+<!-- -->Update <code>model</code> in both the tool-selection request and the streaming request.</p>
+<p>Learn more: <a href="https://platform.openai.com/docs/models" target="_blank" rel="noopener noreferrer" class="">Model list</a></p>
+<p><strong>Change response length and style</strong></p>
+<ul>
+<li class=""><code>max_output_tokens</code>: maximum reply length</li>
+<li class=""><code>temperature</code>: creativity level</li>
+</ul>
+<p>Learn more: <a href="https://platform.openai.com/docs/api-reference/responses" target="_blank" rel="noopener noreferrer" class="">Responses API parameters</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="replace-the-study-materials">Replace the study materials<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#replace-the-study-materials" class="hash-link" aria-label="Direct link to Replace the study materials" title="Direct link to Replace the study materials" translate="no">​</a></h3>
+<p>You can also swap in your own resources:</p>
+<ul>
+<li class="">Replace <code>assets/data/clustered-heatmap.csv</code> with your dataset</li>
+<li class="">Replace the chart image file ID with your own uploaded chart image</li>
+</ul>
+<p>Learn more: <a href="https://platform.openai.com/docs/api-reference/files" target="_blank" rel="noopener noreferrer" class="">Files API</a></p>
+<p>This makes it straightforward to adapt the demo to different tasks, datasets, and visualizations.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="get-the-results">Get the results<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#get-the-results" class="hash-link" aria-label="Direct link to Get the results" title="Direct link to Get the results" translate="no">​</a></h3>
+<p>You can review participants’ interactions in the replay interface. The chat history is also included in the downloaded results in CSV or JSON format.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-steps">Next steps<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#next-steps" class="hash-link" aria-label="Direct link to Next steps" title="Direct link to Next steps" translate="no">​</a></h2>
+<p>Of course, you can also build wildly different intelligent interfaces to study, using our simple example here as a launching point!</p>
+<p>This setup can also be combined with <a href="https://revisit.dev/docs/designing-studies/think-aloud/" target="_blank" rel="noopener noreferrer" class="">audio recording</a> or <a href="https://revisit.dev/docs/designing-studies/record-screen/" target="_blank" rel="noopener noreferrer" class="">screen recording</a> for remote unmoderated studies.</p>
+<p>If you have questions or want to share what you build, come find us in the <a href="https://revisit-nsf.slack.com/join/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ" target="_blank" rel="noopener noreferrer" class="">reVISit Slack</a>. We’d be excited to see how you apply these ideas in your own prototypes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="relevant-links">Relevant Links<a href="https://revisit.dev/blog/2026/04/30/llm-in-revisit/#relevant-links" class="hash-link" aria-label="Direct link to Relevant Links" title="Direct link to Relevant Links" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://revisit.dev/study/example-llm-chatbot/" target="_blank" rel="noopener noreferrer" class="">Demo study</a></li>
+<li class=""><a href="https://github.com/revisit-studies/study/blob/main/public/example-llm-chatbot/config.json" target="_blank" rel="noopener noreferrer" class="">The Study Config</a></li>
+<li class=""><a href="https://github.com/revisit-studies/study/tree/main/src/public/example-llm-chatbot" target="_blank" rel="noopener noreferrer" class="">The React Component Sources</a></li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[ReVISit 2.4: All About Speed and Stability!]]></title>
             <link>https://revisit.dev/blog/2026/02/23/release-2.4/</link>
