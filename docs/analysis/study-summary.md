@@ -38,6 +38,11 @@ This section shows each part of the study in a table you can sort, filter, and s
 - Average Time – average time spent
 - Average Clean Time – average time without browsing away
 - Correctness – percentage of correct answers (shows N/A if the component has no correct answer)
+- Configs – the config versions in which this component was used
+
+Components are grouped by `component.id` (the key under `components` in your config), so the same component across multiple deployed configs is aggregated into a single row. Renaming a component therefore creates a new row rather than continuing the previous one.
+
+Components that exist only in older configs — and not in the active one — are marked with an "Outdated" badge. These rows are grouped below current ones so they don't interfere with sorting.
 
 ## Response Statistics
 
@@ -50,3 +55,6 @@ This section provides details for each question, with each row representing a si
 - Question – question prompt
 - Options – answer options given to the participants
 - Correctness – percentage of correct answers
+- Configs – the config versions in which this response was used
+
+Responses are grouped by `response.id` within their component, so the same question across multiple deployed configs is aggregated into a single row. Changing a response's `id` therefore creates a new row rather than continuing the previous one.

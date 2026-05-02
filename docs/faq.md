@@ -2,7 +2,7 @@
 
 Below is a list of frequently asked questions.
 
-If you have a question that is not answered by this page or the rest of the [documentation](../introduction/), you can join the [reVISit Slack group](https://join.slack.com/t/revisit-nsf/shared_invite/zt-2g1lwcq5y-Yae8eBEbMO~r7tP~ZQ7Cig). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
+If you have a question that is not answered by this page or the rest of the [documentation](../introduction/), you can join the [reVISit Slack group](https://revisit-nsf.slack.com/join/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ). Otherwise, you can contact us at [contact@revisit.dev](mailto:contact@revisit.dev).
 
 ### Q: Something weird is happening while I debug my study. What should I do?
 
@@ -61,9 +61,17 @@ A: Yes. You can attach metadata to components in your study configuration using 
 
 ### Q: What happens if there's an error during study initialization?
 
-A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. If an error happens during setup, reVISit will show a warning message, fallback to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud, with a prompt to contact the study administrator.
+A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. After a five-second grace period, reVISit will show a warning modal, fall back to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud. The modal includes a `mailto:` link to your `uiConfig.contactEmail` along with diagnostic metadata — study ID, participant ID, storage engine, UTC timestamp, and current URL — so participants can quickly forward useful context to the study administrator.
 
 ![Storage disconnected](./img/faq/storage-disconnected.png)
+
+### Q: How does reVISit make sure a participant's final answers are saved at the end of the study?
+
+A: When a participant reaches the end of the study, reVISit runs a finalize loop to confirm that all queued writes have been successfully stored before marking the participant as completed. If a write fails — for example, due to a transient network issue — the system automatically retries with backoff, starting at 2 seconds and increasing with each failure. As a result, participants won’t see the "complete" screen until their data is safely stored.
+
+### Q: When I open Replay or Coding in another tab, do my changes sync between them?
+
+A: Yes — when you click **Replay** or **Coding** from an analysis tab, the new tab is linked to the originating tab. Changing the participant, trial, or playback speed in either tab updates both. Sync is scoped to that parent/child pair, so unrelated analysis tabs you opened separately won't interfere with each other.
 
 ### Q: How can I ensure balanced numbers of participants between conditions in my between subjects study design?
 
