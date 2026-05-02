@@ -15,6 +15,7 @@ const linksToSkip = [
   'acm.org',
   'cs.utah.edu',
   'github\\.com/.+/edit/.+', // "Edit this page" links
+  'slack.com', // Slack invites
 ];
 
 const checker = new LinkChecker();
