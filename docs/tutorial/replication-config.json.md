@@ -13,6 +13,10 @@ The completed version is [`public/tutorial/_answers/replication-config.json`](ht
 This exercise shows how to make a reusable base component, create several practice trials from it, and then hand off to a dynamic block that chooses later trials.
 :::
 
+:::tip
+If you have not completed the [config.json tutorial](./config.json.md), do that first. This page assumes you already understand the basic loop: define a component, add it to the sequence, save, refresh, and preview with **Next participant**.
+:::
+
 ## Starting point
 
 The starter file ends with:
@@ -32,6 +36,10 @@ You will fill these sections in order:
 2. Add practice and trial components to `components`.
 3. Add those components to the sequence.
 4. Add the dynamic sequence block.
+
+:::warning
+The component names in this exercise intentionally include spaces and correlation values, such as `practice T1 A:0.3 B:0.7`. That is allowed, but the name must match exactly everywhere it is used in the sequence.
+:::
 
 ## Step 1: Add the reusable scatter plot base component
 
@@ -65,9 +73,17 @@ Replace the empty `baseComponents` object with `scatterBase`:
 }
 ```
 
-This base component defines the stimulus once. It points to the React component that renders the scatter plots and defines the response Participants will use for every trial.
+This [base component](../typedoc/interfaces/StudyConfig.md#basecomponents) defines the stimulus once. It points to the [React component](../typedoc/interfaces/ReactComponent.md) that renders the scatter plots and defines the response Participants will use for every trial.
 
-The response uses `buttons` because Participants choose between two clear options. The stored values are `left` and `right`, which you will use in `correctAnswer` later.
+The response uses [`buttons`](../typedoc/interfaces/ButtonsResponse.md) because Participants choose between two clear options. The stored values are `left` and `right`, which you will use in `correctAnswer` later.
+
+:::tip
+`baseComponents` are templates — they are not added to the sequence directly. Other components inherit from them via `"baseComponent": "scatterBase"` and override only the fields that change (typically `parameters` and `correctAnswer`).
+:::
+
+:::info
+React component paths are relative to `src/public/`. The path `tutorial/assets/replication/ScatterWrapper.tsx` points to `src/public/tutorial/assets/replication/ScatterWrapper.tsx`.
+:::
 
 ## Step 2: Add the first practice trial
 
@@ -92,28 +108,31 @@ Replace the empty `components` object with the first practice trial:
 }
 ```
 
-This trial inherits the stimulus and response from `scatterBase`. The `parameters` values tell the React component which correlations to show in the left and right plots.
+This trial [inherits](../typedoc/type-aliases/InheritedComponent.md) the stimulus and response from `scatterBase`. The `parameters` values tell the React component which correlations to show in the left and right plots.
 
-For this practice trial, `r2` is larger than `r1`, so the correct answer is `"right"`. The `id` in `correctAnswer` must match the response id from the base component: `buttonsResponse`.
+For this practice trial, `r2` is larger than `r1`, so the correct answer is `"right"`. The `id` in [`correctAnswer`](../typedoc/interfaces/Answer.md) must match the response id from the base component: `buttonsResponse`.
 
 ## Step 3: Add the second practice trial
 
 Add a comma after the first practice trial, then add:
 
 ```json title="public/tutorial/replication-config.json"
-"practice T2 A:0.9 B:0.6": {
-  "baseComponent": "scatterBase",
-  "parameters": {
-    "r1": 0.9,
-    "r2": 0.6
-  },
-  "correctAnswer": [
-    {
-      "id": "buttonsResponse",
-      "answer": "left"
-    }
-  ],
-  "provideFeedback": true
+"components": {
+  "practice T1 A:0.3 B:0.7": { ... },
+  "practice T2 A:0.9 B:0.6": {
+    "baseComponent": "scatterBase",
+    "parameters": {
+      "r1": 0.9,
+      "r2": 0.6
+    },
+    "correctAnswer": [
+      {
+        "id": "buttonsResponse",
+        "answer": "left"
+      }
+    ],
+    "provideFeedback": true
+  }
 }
 ```
 
@@ -126,19 +145,23 @@ This is the main benefit of `baseComponents`: the shared stimulus and response a
 Add the third practice trial after the second:
 
 ```json title="public/tutorial/replication-config.json"
-"practice T3 A:0.6 B:0.3": {
-  "baseComponent": "scatterBase",
-  "parameters": {
-    "r1": 0.6,
-    "r2": 0.3
-  },
-  "correctAnswer": [
-    {
-      "id": "buttonsResponse",
-      "answer": "left"
-    }
-  ],
-  "provideFeedback": true
+"components": {
+  "practice T1 A:0.3 B:0.7": { ... },
+  "practice T2 A:0.9 B:0.6": { ... },
+  "practice T3 A:0.6 B:0.3": {
+    "baseComponent": "scatterBase",
+    "parameters": {
+      "r1": 0.6,
+      "r2": 0.3
+    },
+    "correctAnswer": [
+      {
+        "id": "buttonsResponse",
+        "answer": "left"
+      }
+    ],
+    "provideFeedback": true
+  }
 }
 ```
 
@@ -151,14 +174,23 @@ All three practice trials use `provideFeedback: true` so Participants can learn 
 Add one more component after the practice trials:
 
 ```json title="public/tutorial/replication-config.json"
-"trial": {
-  "baseComponent": "scatterBase"
+"components": {
+  "practice T1 A:0.3 B:0.7": { ... },
+  "practice T2 A:0.9 B:0.6": { ... },
+  "practice T3 A:0.6 B:0.3": { ... },
+  "trial": {
+    "baseComponent": "scatterBase"
+  }
 }
 ```
 
 This component also inherits from `scatterBase`, but it does not define fixed parameters or a fixed correct answer. The dynamic block will provide those values while the study runs.
 
 Use this pattern when many trials share the same display and response format, but the exact trial values are generated or selected dynamically.
+
+:::note
+`trial` deliberately omits `parameters` and `correctAnswer` — both are injected at runtime by the dynamic block's function. This keeps a single reusable component definition for an arbitrary number of trials.
+:::
 
 ## Step 6: Add the fixed practice sequence
 
@@ -184,16 +216,31 @@ This shows the three practice trials in order. The component names in this seque
 
 At this point, the Study Config has a complete practice section.
 
+:::tip
+Preview the study here before adding the dynamic block. You should see the three practice trials in order, and each should provide feedback after the Participant answers.
+:::
+
 ## Step 7: Add the dynamic JND block
 
-Inside the nested fixed block, add the dynamic block after the three practice trials:
+Inside the nested fixed block, add the [dynamic block](../typedoc/interfaces/DynamicBlock.md) after the three practice trials:
 
 ```json title="public/tutorial/replication-config.json"
-{
-  "order": "dynamic",
-  "id": "steppedSequence",
-  "functionPath": "tutorial/assets/replication/JNDDynamic.tsx",
-  "parameters": {}
+"sequence": {
+  "order": "fixed",
+  "components": [
+    {
+      "order": "fixed",
+      "components": [
+        ...,
+        {
+          "order": "dynamic",
+          "id": "steppedSequence",
+          "functionPath": "tutorial/assets/replication/JNDDynamic.tsx",
+          "parameters": {}
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -225,19 +272,13 @@ The dynamic block calls the function at `tutorial/assets/replication/JNDDynamic.
 
 The `id` gives the dynamic block a stable name in the study sequence. The empty `parameters` object is still included so the block has the same shape as dynamic blocks that do receive custom settings.
 
-## Step 8: Compare with the completed config
+:::tip
+The function at `functionPath` returns the next component id (typically `"trial"` here) plus the `parameters` and `correctAnswer` to inject. Use dynamic blocks for adaptive procedures like staircases, JND/QUEST, or branching based on prior responses. See the [Dynamic Blocks guide](../designing-studies/sequences/dynamic-blocks.md) for the full function contract.
+:::
 
-Open [`public/tutorial/_answers/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/replication-config.json) and check:
-
-- `baseComponents.scatterBase` defines the React stimulus and the shared button response.
-- Each practice component uses `"baseComponent": "scatterBase"`.
-- Each practice component passes `r1` and `r2` through `parameters`.
-- Each practice component has a `correctAnswer` that uses `buttonsResponse`.
-- `trial` inherits from `scatterBase` without fixed parameters.
-- The sequence shows three practice trials before the dynamic block.
-- The dynamic block uses `functionPath: "tutorial/assets/replication/JNDDynamic.tsx"`.
-
-When those pieces match, the replication Study Config is complete.
+:::info
+Dynamic block function paths are also relative to `src/public/`. In the repository, `tutorial/assets/replication/JNDDynamic.tsx` lives at `src/public/tutorial/assets/replication/JNDDynamic.tsx`.
+:::
 
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
@@ -251,6 +292,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     referenceLinks={[
         {name: "Pre Tutorial", url: "../tutorial/"},
         {name: "config.json Tutorial", url: "../config.json/"},
-        {name: "Dynamic Blocks", url: "../../designing-studies/sequences/dynamic-blocks/"}
+        {name: "Dynamic Blocks", url: "../../designing-studies/sequences/dynamic-blocks/"},
+        {name: "Study Config Reference", url: "../../typedoc/interfaces/StudyConfig/"},
+        {name: "React Components", url: "../../typedoc/interfaces/ReactComponent/"}
     ]}
 />

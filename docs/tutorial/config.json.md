@@ -48,8 +48,8 @@ Open `public/tutorial/config.json`. The starter file already has the main parts 
 - [`$schema`](../typedoc/interfaces/StudyConfig.md#schema) points to the Study Config schema.
 - [`studyMetadata`](../typedoc/interfaces/StudyMetadata.md) describes the study.
 - [`uiConfig`](../typedoc/interfaces/UIConfig.md) controls reVISit interface behavior, such as the contact email, help text, progress bar, sidebar, logo, and recording settings.
-- [`components`](../typedoc/interfaces/BaseIndividualComponent.md) defines the stimuli and tasks that the Participant can see.
-- [`sequence`](../typedoc/interfaces/Sequence.md) decides which components appear and in what order.
+- [`components`](../typedoc/interfaces/StudyConfig.md#components) defines the stimuli and tasks that the Participant can see.
+- [`sequence`](../typedoc/interfaces/StudyConfig.md#sequence) decides which components appear and in what order.
 
 The tutorial is mostly about the last two pieces: add a component, then add that component's id to the sequence.
 
@@ -543,6 +543,10 @@ This component renders `ReactExample.tsx`. The `parameters` object tells the Rea
 Values in `parameters` are passed into the `.tsx` file as the `parameters` prop, alongside reVISit's `setAnswer` callback. The same React file can therefore power many trials with different data, fields, or behavior.
 :::
 
+:::info
+React component paths are relative to `src/public/`, not the root `public/` folder. The path `tutorial/assets/ReactExample.tsx` points to `src/public/tutorial/assets/ReactExample.tsx`.
+:::
+
 Add `reactExampleCars` to the sequence.
 
 ![The tutorial study with the reactExampleCars trial](./img/config.json/step10.png)
@@ -897,6 +901,9 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     referenceLinks={[
         {name: "Pre Tutorial", url: "../tutorial/"},
         {name: "replication-config.json Tutorial", url: "../replication-config.json/"},
-        {name: "How Does It Work?", url: "../../getting-started/how-does-it-work/"}
+        {name: "How Does It Work?", url: "../../getting-started/how-does-it-work/"},
+        {name: "Study Config Reference", url: "../../typedoc/interfaces/StudyConfig/"},
+        {name: "Forms Reference", url: "../../designing-studies/forms/"},
+        {name: "Study Sequences", url: "../../designing-studies/sequences/study-sequences/"}
     ]}
 />
