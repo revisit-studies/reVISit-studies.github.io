@@ -2,6 +2,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const enableGtag = process.env.ENABLE_GTAG === 'true';
+
 const config: Config = {
   title: 'Home | ReVISit',
   tagline: 'reVISit: Reproducible and Powerful Visualization User Studies',
@@ -61,10 +63,14 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-        gtag: {
-          trackingID: 'G-FLX70EGV5P',
-          anonymizeIP: true,
-        },
+        ...(enableGtag
+          ? {
+            gtag: {
+              trackingID: 'G-FLX70EGV5P',
+              anonymizeIP: true,
+            },
+          }
+          : {}),
       } satisfies Preset.Options,
     ],
   ],

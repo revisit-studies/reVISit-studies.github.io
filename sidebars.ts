@@ -136,6 +136,16 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Tutorial',
+      collapsed: true,
+      items: [
+        'tutorial/tutorial',
+        'tutorial/config.json',
+        'tutorial/replication-config.json',
+      ],
+    },
+    {
+      type: 'category',
       label: 'ReVISitPy',
       link: {
         type: 'doc',
