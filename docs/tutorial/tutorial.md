@@ -19,7 +19,7 @@ By the end of this page, you should know:
 
 ## Tutorial Roadmap
 
-This tutorial follows the same general structure as the ReVISit visualization tutorial worksheet. You will start by getting the template running locally, then build and test a Study Config, and then look at analysis and deployment topics.
+This tutorial follows the same general structure as the reVISit visualization tutorial worksheet. You will start by getting the template running locally, then build and test a Study Config, and then look at analysis and deployment topics.
 
 The main sections are:
 
@@ -37,7 +37,7 @@ Use these links during the tutorial:
 
 | Resource | Link |
 | --- | --- |
-| ReVISit Slack team | [Join Slack](https://join.slack.com/t/revisit-nsf/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ) |
+| reVISit Slack team | [Join Slack](https://join.slack.com/t/revisit-nsf/shared_invite/zt-25mrh5ppi-6sDAL6HqcWJh_uvt2~~DMQ) |
 | reVISit home page | [https://revisit.dev/](https://revisit.dev/) |
 | reVISit GitHub organization | [https://github.com/reVISit-studies/](https://github.com/reVISit-studies/) |
 | Installation guide | [Installation](../getting-started/installation.md) |
@@ -202,7 +202,7 @@ When you compare your starter file to an answer file, focus on the section you j
 
 ## Step 5: Know what starts empty
 
-Both starter configs already include the basic Study Config structure: schema, study metadata, UI config, empty components, and an empty sequence.
+Both starter configs already include the basic [Study Config](../typedoc/interfaces/StudyConfig.md) structure: [`$schema`](../typedoc/interfaces/StudyConfig.md#schema), [`studyMetadata`](../typedoc/interfaces/StudyMetadata.md), [`uiConfig`](../typedoc/interfaces/UIConfig.md), empty [`components`](../typedoc/interfaces/StudyConfig.md#components), and an empty [`sequence`](../typedoc/interfaces/StudyConfig.md#sequence).
 
 In `public/tutorial/config.json`, the main work starts here:
 
@@ -224,6 +224,8 @@ In `public/tutorial/replication-config.json`, the main work starts here:
   "components": []
 }
 ```
+
+The replication config adds [`baseComponents`](../typedoc/interfaces/StudyConfig.md#basecomponents) on top of the standard structure — these are reusable templates that other components inherit from.
 
 These empty sections are intentional. They make it easier to see exactly what each tutorial step adds.
 
@@ -281,6 +283,10 @@ Common mistakes are usually small:
 - A component name in `sequence.components` that does not match the name in `components`.
 - A response `id` in `correctAnswer` or `skip` that does not match the response definition.
 - Editing a file in `_answers` instead of the starter file.
+
+:::tip
+With the `$schema` line at the top of each Study Config, VS Code (or any IDE that supports JSON Schema) will underline most of these mistakes as you type — missing commas, wrong types, unknown fields, and even mismatched component ids in the sequence. That's faster than catching them via reVISit's error page after refresh.
+:::
 
 ## Step 8: Move to the first config tutorial
 
