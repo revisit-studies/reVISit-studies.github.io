@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/logos/favicon.svg',
 
   url: 'https://revisit.dev',
-  baseUrl: '/',
+  baseUrl: process.env.DOCUSAURUS_BASE_URL || '/',
   trailingSlash: true,
 
   organizationName: 'University of Utah', // Usually your GitHub org/user name.
@@ -43,7 +43,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           showLastUpdateTime: true,
           showLastUpdateAuthor: false,
-          editUrl: ({versionDocsDirPath, docPath}) => {
+          editUrl: ({ versionDocsDirPath, docPath }) => {
             if (docPath.startsWith('typedoc/')) {
               return undefined;
             }

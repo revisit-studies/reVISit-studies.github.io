@@ -4,18 +4,19 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  deploy:
+  deploy-main:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: deploy-main
     steps:
       - uses: actions/checkout@v4
 
-      # Build documentation repo
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -27,11 +28,45 @@ jobs:
       - name: Build documentation
         run: yarn build
 
-      # Deploy to GitHub Pages
-      - uses: peaceiris/actions-gh-pages@v3
-        name: Deploy
-        id: deploy
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           cname: revisit.dev
+          keep_files: true
+
+  deploy-preview:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    concurrency:
+      group: deploy-preview-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build documentation
+        run: yarn build
+        env:
+          DOCUSAURUS_BASE_URL: /pr-preview/pr-${{ github.event.pull_request.number }}/
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./build
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
