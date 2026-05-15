@@ -26,6 +26,15 @@ const sidebars: SidebarsConfig = {
         'getting-started/how-does-it-work',
         'getting-started/installation',
         'getting-started/your-first-study',
+        {
+          type: 'category',
+          label: 'Tutorial',
+          collapsed: true,
+          items: [
+            'tutorial/config.json',
+            'tutorial/replication-config.json',
+          ],
+        },
         'getting-started/collecting-data',
       ],
     },
@@ -132,16 +141,6 @@ const sidebars: SidebarsConfig = {
             'analysis/data-management',
           ],
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Tutorial',
-      collapsed: true,
-      items: [
-        'tutorial/tutorial',
-        'tutorial/config.json',
-        'tutorial/replication-config.json',
       ],
     },
     {
