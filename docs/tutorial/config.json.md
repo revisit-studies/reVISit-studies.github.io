@@ -1,9 +1,9 @@
 # config.json
 
-In this part of the tutorial, you will build the main [Study Config](../typedoc/interfaces/StudyConfig.md), [`public/tutorial/config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/config.json). The completed version is [`public/tutorial/_answers/config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/config.json). Use the completed version to check the step you just finished, not as something to copy all at once.
+In this part of the tutorial, you will build the [Study Config](../typedoc/interfaces/StudyConfig.md), [`public/tutorial/config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/config.json). The completed version is [`public/tutorial/_answers/config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/config.json). Use the completed version to check the step you just finished, not as something to copy all at once.
 
 :::info
-Before starting this page, complete the [Installation guide](../getting-started/installation.md) using the **Starting from the Template Repository** workflow.
+Before you start editing tutorial files, complete the [Installation guide](../getting-started/installation.md) using the **Starting from the Template Repository** workflow.
 :::
 
 ## Step 1: Run the local server
@@ -200,7 +200,7 @@ Add `demographics` to the sequence:
 }
 ```
 
-Click "Next Participant" and confirm that the demographics page appears after consent.
+Click "Next participant" and confirm that the demographics page appears after consent.
 
 ![The tutorial study with demographics](./img/config.json/step4.png)
 
@@ -305,6 +305,7 @@ Add `coinImage` to the sequence after `trainingWithFeedback`.
     "welcome",
     "consent",
     "demographics",
+    "trainingWithFeedback",
     "coinImage"
   ]
 }
