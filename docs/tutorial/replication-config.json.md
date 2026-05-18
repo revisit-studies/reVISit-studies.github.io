@@ -1,49 +1,89 @@
----
-title: replication-config.json
-description: Step-by-step guide for building the replication study Study Config from the template repository.
----
-
 # replication-config.json
 
-In this part of the tutorial, you will build [`public/tutorial/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/replication-config.json). The starter file already has study metadata, UI settings for a Prolific-style study, empty `baseComponents`, empty `components`, and an empty fixed-order sequence.
-
-The completed version is [`public/tutorial/_answers/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/replication-config.json). Use it as the reference after each step.
+In this part of the tutorial, you will build a [Study Config](../typedoc/interfaces/StudyConfig.md) for a replication study, [`public/tutorial/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/replication-config.json). The completed version is [`public/tutorial/_answers/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/replication-config.json). Use the completed version to check the step you just finished, not as something to copy all at once.
 
 :::info
-This exercise shows how to make a reusable base component, create several practice trials from it, and then hand off to a dynamic block that chooses later trials.
+Before you start editing tutorial files, complete the [Installation guide](../getting-started/installation.md) using the **Starting from the Template Repository** workflow.
 :::
 
-:::tip
-If you have not completed the [config.json tutorial](./config.json.md), do that first. This page assumes you already understand the basic loop: define a component, add it to the sequence, save, refresh, and preview with **Next participant**.
-:::
+## Step 1: Run the local server and register the config
 
-## Starting point
+Start the local server from the root of your template repository:
 
-The starter file ends with:
+```bash
+yarn serve
+```
 
-```json title="public/tutorial/replication-config.json"
-"baseComponents": {},
-"components": {},
-"sequence": {
-  "order": "fixed",
-  "components": []
+Before editing the replication Study Config, open [`public/global.json`](https://github.com/revisit-studies/template/blob/main/public/global.json). Add `replication` to `configsList` and `configs`.
+
+```json title="public/global.json"
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.2/src/parser/GlobalConfigSchema.json",
+  "configsList": ["tutorial", "replication"],
+  "configs": {
+    "tutorial": {
+      "path": "tutorial/config.json"
+    },
+    "replication": {
+      "path": "tutorial/replication-config.json"
+    }
+  }
 }
 ```
 
-You will fill these sections in order:
+Open [http://localhost:8080](http://localhost:8080). You should now see the replication study listed.
 
-1. Add a reusable `scatterBase` component to `baseComponents`.
-2. Add practice and trial components to `components`.
-3. Add those components to the sequence.
-4. Add the dynamic sequence block.
+![The replication study appears on the local reVISit page](./img/replication-config.json/step1.png)
 
-:::warning
-The component names in this exercise intentionally include spaces and correlation values, such as `practice T1 A:0.3 B:0.7`. That is allowed, but the name must match exactly everywhere it is used in the sequence.
-:::
+## Step 2: Add the reusable scatter plot base component
 
-## Step 1: Add the reusable scatter plot base component
+First, create the React wrapper that the Study Config will load. In `src/public/tutorial/assets/replication/`, add a file named `ScatterWrapper.tsx`.
 
-Replace the empty `baseComponents` object with `scatterBase`:
+```tsx title="src/public/tutorial/assets/replication/ScatterWrapper.tsx"
+import {
+  Center, Group, Stack, Text,
+} from '@mantine/core';
+import { Scatter } from './Scatter';
+import { StimulusParams } from '../../../../store/types';
+
+/**
+ * Holds 2 Scatter Plots
+ * @param param0 - r1 is the correlation value for 1, r2 is the correlation value for 2.
+ * @returns 2 Scatter Plots
+ */
+export default function ScatterWrapper({ parameters }: StimulusParams<{ r1: number; r2: number }>) {
+  const { r1, r2 } = parameters;
+  const r1DatasetName = `dataset_${r1.toFixed(1)}_size_100.csv`;
+  const r2DatasetName = `dataset_${r2.toFixed(1)}_size_100.csv`;
+
+  return (
+    <Stack style={{ width: '100%', height: '100%' }}>
+      <Text style={{
+        textAlign: 'center', paddingBottom: '0px', fontSize: '18px', fontWeight: 'bold',
+      }}
+      >
+        Please select the visualization that appears to have a larger correlation.
+      </Text>
+      <Text style={{
+        textAlign: 'center', paddingBottom: '24px', fontSize: '18px', fontWeight: 'bold',
+      }}
+      >
+        You can either click the buttons or use the left and right arrow keys.
+      </Text>
+      <Center>
+        <Group style={{ gap: '40px' }} mb="md">
+          <Scatter r={r1} datasetName={r1DatasetName} />
+          <Scatter r={r2} datasetName={r2DatasetName} />
+        </Group>
+      </Center>
+    </Stack>
+  );
+}
+```
+
+This wrapper reads `r1` and `r2` from the component [`parameters`](../typedoc/interfaces/ReactComponent.md#parameters), turns them into dataset file names, and renders two scatter plots side by side.
+
+Replace the empty [`baseComponents`](../typedoc/interfaces/StudyConfig.md#basecomponents) object with `scatterBase`.
 
 ```json title="public/tutorial/replication-config.json"
 "baseComponents": {
@@ -73,21 +113,11 @@ Replace the empty `baseComponents` object with `scatterBase`:
 }
 ```
 
-This [base component](../typedoc/interfaces/StudyConfig.md#basecomponents) defines the stimulus once. It points to the [React component](../typedoc/interfaces/ReactComponent.md) that renders the scatter plots and defines the response Participants will use for every trial.
+`baseComponents` are templates. They are not added to the sequence directly. Other components inherit from them via `"baseComponent": "scatterBase"` and override only the fields that change, usually [`parameters`](../typedoc/interfaces/ReactComponent.md#parameters).
 
-The response uses [`buttons`](../typedoc/interfaces/ButtonsResponse.md) because Participants choose between two clear options. The stored values are `left` and `right`, which you will use in `correctAnswer` later.
+## Step 3: Add the first practice trial
 
-:::tip
-`baseComponents` are templates — they are not added to the sequence directly. Other components inherit from them via `"baseComponent": "scatterBase"` and override only the fields that change (typically `parameters` and `correctAnswer`).
-:::
-
-:::info
-React component paths are relative to `src/public/`. The path `tutorial/assets/replication/ScatterWrapper.tsx` points to `src/public/tutorial/assets/replication/ScatterWrapper.tsx`.
-:::
-
-## Step 2: Add the first practice trial
-
-Replace the empty `components` object with the first practice trial:
+Replace the empty [`components`](../typedoc/interfaces/StudyConfig.md#components) object with the first practice trial.
 
 ```json title="public/tutorial/replication-config.json"
 "components": {
@@ -108,13 +138,31 @@ Replace the empty `components` object with the first practice trial:
 }
 ```
 
-This trial [inherits](../typedoc/type-aliases/InheritedComponent.md) the stimulus and response from `scatterBase`. The `parameters` values tell the React component which correlations to show in the left and right plots.
+This trial [inherits](../typedoc/type-aliases/InheritedComponent.md) the stimulus and response from `scatterBase`. The [`parameters`](../typedoc/interfaces/ReactComponent.md#parameters) values tell the React component which correlations to show in the left and right plots.
 
 For this practice trial, `r2` is larger than `r1`, so the correct answer is `"right"`. The `id` in [`correctAnswer`](../typedoc/interfaces/Answer.md) must match the response id from the base component: `buttonsResponse`.
 
-## Step 3: Add the second practice trial
+Add the first practice trial to the sequence:
 
-Add a comma after the first practice trial, then add:
+```json title="public/tutorial/replication-config.json"
+"sequence": {
+  "order": "fixed",
+  "components": [
+    {
+      "order": "fixed",
+      "components": [
+        "practice T1 A:0.3 B:0.7"
+      ]
+    }
+  ]
+}
+```
+
+![The replication study with the first practice trial](./img/replication-config.json/step3.png)
+
+## Step 4: Add the second practice trial
+
+Add a comma after the first practice trial, then add the second practice trial.
 
 ```json title="public/tutorial/replication-config.json"
 "components": {
@@ -138,11 +186,28 @@ Add a comma after the first practice trial, then add:
 
 This trial uses the same base component, but with different correlation values. Here, `r1` is larger than `r2`, so the correct answer is `"left"`.
 
-This is the main benefit of `baseComponents`: the shared stimulus and response are written once, and each trial only provides the values that change.
+Add the second practice trial to the same fixed sequence block:
 
-## Step 4: Add the third practice trial
+```json title="public/tutorial/replication-config.json"
+"sequence": {
+  "order": "fixed",
+  "components": [
+    {
+      "order": "fixed",
+      "components": [
+        "practice T1 A:0.3 B:0.7",
+        "practice T2 A:0.9 B:0.6"
+      ]
+    }
+  ]
+}
+```
 
-Add the third practice trial after the second:
+![The replication study with the first two practice trials](./img/replication-config.json/step4.png)
+
+## Step 5: Add the third practice trial
+
+Add the third practice trial after the second.
 
 ```json title="public/tutorial/replication-config.json"
 "components": {
@@ -167,34 +232,7 @@ Add the third practice trial after the second:
 
 Again, this trial inherits from `scatterBase`. The left plot has the higher correlation, so the answer is `"left"`.
 
-All three practice trials use `provideFeedback: true` so Participants can learn what the task is asking before the study moves into the dynamic trial section.
-
-## Step 5: Add the reusable trial component
-
-Add one more component after the practice trials:
-
-```json title="public/tutorial/replication-config.json"
-"components": {
-  "practice T1 A:0.3 B:0.7": { ... },
-  "practice T2 A:0.9 B:0.6": { ... },
-  "practice T3 A:0.6 B:0.3": { ... },
-  "trial": {
-    "baseComponent": "scatterBase"
-  }
-}
-```
-
-This component also inherits from `scatterBase`, but it does not define fixed parameters or a fixed correct answer. The dynamic block will provide those values while the study runs.
-
-Use this pattern when many trials share the same display and response format, but the exact trial values are generated or selected dynamically.
-
-:::note
-`trial` deliberately omits `parameters` and `correctAnswer` — both are injected at runtime by the dynamic block's function. This keeps a single reusable component definition for an arbitrary number of trials.
-:::
-
-## Step 6: Add the fixed practice sequence
-
-Replace the empty top-level sequence with a fixed block:
+Add the third practice trial to the sequence:
 
 ```json title="public/tutorial/replication-config.json"
 "sequence": {
@@ -212,39 +250,67 @@ Replace the empty top-level sequence with a fixed block:
 }
 ```
 
-This shows the three practice trials in order. The component names in this sequence must exactly match the keys you added in `components`.
+All three practice trials use [`provideFeedback`](../designing-studies/answers-trainings.md) so participants can learn what the task is asking before the study moves into the dynamic trial section.
 
-At this point, the Study Config has a complete practice section.
+![The replication study with all three practice trials](./img/replication-config.json/step5.png)
 
-:::tip
-Preview the study here before adding the dynamic block. You should see the three practice trials in order, and each should provide feedback after the Participant answers.
-:::
+## Step 6: Add the dynamic JND block
 
-## Step 7: Add the dynamic JND block
+First, create the dynamic block function. In `src/public/tutorial/assets/replication/`, add a file named `JNDDynamic.tsx`.
 
-Inside the nested fixed block, add the [dynamic block](../typedoc/interfaces/DynamicBlock.md) after the three practice trials:
+```ts title="src/public/tutorial/assets/replication/JNDDynamic.tsx"
+import { JumpFunctionParameters, JumpFunctionReturnVal, StoredAnswer } from '../../../../store/types';
 
-```json title="public/tutorial/replication-config.json"
-"sequence": {
-  "order": "fixed",
-  "components": [
-    {
-      "order": "fixed",
-      "components": [
-        ...,
-        {
-          "order": "dynamic",
-          "id": "steppedSequence",
-          "functionPath": "tutorial/assets/replication/JNDDynamic.tsx",
-          "parameters": {}
-        }
-      ]
-    }
-  ]
+const findLatestTrial = (allDynamicAnswers: StoredAnswer[]) => {
+  const trials = allDynamicAnswers
+    .sort((a, b) => parseInt(a.trialOrder.split('_').at(-1) || '0', 10) - parseInt(b.trialOrder.split('_').at(-1) || '0', 10));
+
+  return trials.at(-1)!;
+};
+
+export default function func({ answers }: JumpFunctionParameters<{ r1: number, r2: number, counter: number }>): JumpFunctionReturnVal {
+  const allDynamicAnswers = Object.values(answers)
+    .filter((answer) => answer.componentName === 'trial');
+
+  // First trial
+  if (allDynamicAnswers.length === 0) {
+    return {
+      component: 'trial',
+      parameters: {
+        r1: 0.1,
+        r2: 0.9,
+      },
+      correctAnswer: [{ id: 'buttonsResponse', answer: 'right' }],
+    };
+  }
+
+  if (allDynamicAnswers.length === 9) {
+    return { component: null };
+  }
+
+  const latestTrial = findLatestTrial(allDynamicAnswers);
+
+  const right = latestTrial.parameters.r2 === 0.9;
+
+  const approachingValue = right ? latestTrial.parameters.r1 + 0.1 : latestTrial.parameters.r2 + 0.1;
+
+  const r1 = right ? 0.9 : approachingValue;
+  const r2 = right ? approachingValue : 0.9;
+
+  return {
+    component: 'trial',
+    parameters: {
+      r1,
+      r2,
+    },
+    correctAnswer: [{ id: 'buttonsResponse', answer: right ? 'left' : 'right' }],
+  };
 }
 ```
 
-The full nested sequence should now look like this:
+This function looks at the participant's previous dynamic trial answers. It starts with a large correlation difference, then moves the smaller correlation closer to `0.9` until the dynamic block has shown nine trials.
+
+Then, inside the nested fixed block, add the [dynamic block](../typedoc/interfaces/DynamicBlock.md) after the three practice trials.
 
 ```json title="public/tutorial/replication-config.json"
 "sequence": {
@@ -268,17 +334,9 @@ The full nested sequence should now look like this:
 }
 ```
 
-The dynamic block calls the function at `tutorial/assets/replication/JNDDynamic.tsx`. That function decides what trial comes next and can pass parameters into the reusable `trial` component.
+The dynamic block calls the function at `tutorial/assets/replication/JNDDynamic.tsx`. That function decides what trial comes next and can pass `parameters` and `correctAnswer` into the next generated trial.
 
-The `id` gives the dynamic block a stable name in the study sequence. The empty `parameters` object is still included so the block has the same shape as dynamic blocks that do receive custom settings.
-
-:::tip
-The function at `functionPath` returns the next component id (typically `"trial"` here) plus the `parameters` and `correctAnswer` to inject. Use dynamic blocks for adaptive procedures like staircases, JND/QUEST, or branching based on prior responses. See the [Dynamic Blocks guide](../designing-studies/sequences/dynamic-blocks.md) for the full function contract.
-:::
-
-:::info
-Dynamic block function paths are also relative to `src/public/`. In the repository, `tutorial/assets/replication/JNDDynamic.tsx` lives at `src/public/tutorial/assets/replication/JNDDynamic.tsx`.
-:::
+![The replication study with the dynamic JND block](./img/replication-config.json/step6.png)
 
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
@@ -290,9 +348,10 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Replication Assets", url: "https://github.com/revisit-studies/template/tree/main/public/tutorial/assets/replication"}
     ]}
     referenceLinks={[
-        {name: "Pre Tutorial", url: "../tutorial/"},
+        {name: "Installation", url: "../../getting-started/installation/"},
         {name: "config.json Tutorial", url: "../config.json/"},
         {name: "Dynamic Blocks", url: "../../designing-studies/sequences/dynamic-blocks/"},
+        {name: "Study Sequences", url: "../../designing-studies/sequences/study-sequences/"},
         {name: "Study Config Reference", url: "../../typedoc/interfaces/StudyConfig/"},
         {name: "React Components", url: "../../typedoc/interfaces/ReactComponent/"}
     ]}
