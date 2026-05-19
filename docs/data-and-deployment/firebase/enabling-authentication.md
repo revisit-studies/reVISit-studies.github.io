@@ -17,7 +17,7 @@ In the provider section, click on "Google".
 
 ![Firebase provider selection page with Google highlighted](./img/auth2.png)
 
-Upon clicking "Enable", you will be prompted with providing some information about the application. You can leave these as their defaults. Click "save" and then Google SSO will be enabled in your application immediately.
+Upon clicking "Enable", you will be prompted with providing some information about the application. You can leave these as their defaults. Click "Save" and then Google SSO will be enabled in your application immediately.
 
 ![Firebase Google sign-in provider setup page](./img/auth3.png)
 
