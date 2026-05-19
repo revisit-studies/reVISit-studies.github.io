@@ -395,6 +395,7 @@ Add `vegaPath` and `vegaConfig` to the sequence.
     "welcome",
     "consent",
     "demographics",
+    "trainingWithFeedback",
     "coinImage",
     "vegaPath",
     "vegaConfig"
@@ -605,7 +606,7 @@ Add a second React component trial that uses the same React file with different 
   "reactExamplePenguins": {
     "type": "react-component",
     "path": "tutorial/assets/ReactExample.tsx",
-    "instruction": "Consider only cars that have a miles per gallon value greater than 30 AND weigh more than 2000 pounds. Which country or region produces the most and the least of these cars?",
+    "instruction": "Consider only penguins with a body mass greater than 4000 g AND a flipper length greater than 200 mm. How many penguins match these conditions?",
     "response": [
       {
         "id": "response",
