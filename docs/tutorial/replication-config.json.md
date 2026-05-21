@@ -343,16 +343,10 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     codeLinks={[
-        {name: "Starter replication-config.json", url: "https://github.com/revisit-studies/template/blob/main/public/tutorial/replication-config.json"},
-        {name: "Completed replication-config.json", url: "https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/replication-config.json"},
-        {name: "Replication Assets", url: "https://github.com/revisit-studies/template/tree/main/public/tutorial/assets/replication"}
+        {name: "replication-config.json", url: "https://github.com/revisit-studies/template/blob/main/public/tutorial/replication-config.json"},
+        {name: "replication-config.json Answer", url: "https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/replication-config.json"}
     ]}
     referenceLinks={[
-        {name: "Installation", url: "../../getting-started/installation/"},
-        {name: "config.json Tutorial", url: "../config.json/"},
-        {name: "Dynamic Blocks", url: "../../designing-studies/sequences/dynamic-blocks/"},
-        {name: "Study Sequences", url: "../../designing-studies/sequences/study-sequences/"},
-        {name: "Study Config Reference", url: "../../typedoc/interfaces/StudyConfig/"},
-        {name: "React Components", url: "../../typedoc/interfaces/ReactComponent/"}
+        {name: "Installation", url: "../../getting-started/installation/"}
     ]}
 />
