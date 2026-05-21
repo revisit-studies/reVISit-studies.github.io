@@ -6,7 +6,7 @@ ReVISit stores study and participant data in Firebase, which is backed by Google
 By default, Object Versioning is disabled for Firebase storage buckets. Without it, there is still a **one-week soft delete recovery window** in which data can be restored.
 :::
 
-reVISit data stored with Firebase lives in Google Cloud services:
+ReVISit data stored with Firebase lives in Google Cloud services:
 
 - Study and participant records are stored in **Cloud Firestore**.
 - Files (for example, audio and screen recordings) are stored in **Cloud Storage for Firebase**, which uses a **Google Cloud Storage bucket**.
@@ -20,10 +20,13 @@ Every noncurrent object version is stored and billed until removed (manually or 
 1. Enable Object Versioning on your bucket:
    - Open the [Google Cloud Console](https://console.cloud.google.com/).
    - Go to **Cloud Storage** -> **Buckets** -> your Firebase bucket.
+   ![Google Cloud Storage buckets page with a Firebase bucket selected](./img/data-recovery/step1.png)
    - Open the **Protection** tab and enable **Object versioning**.
+   ![Google Cloud Storage Protection tab with Object versioning](./img/data-recovery/step2.png)
 2. View versions for one object:
    - In the bucket's **Objects** tab, change **Show** to **Live and noncurrent objects**.
    - Click the object name.
+   ![Google Cloud Storage Objects tab showing live and noncurrent object versions](./img/data-recovery/step3.png)
    - Open the **Version history** tab to see each generation.
 3. (Optional) Restore an older version from that same version history view.
 
