@@ -50,6 +50,16 @@ At the end of the study, you typically need to return the participant to the pla
     ...
 }
 ```
+To automatically redirect participants when the study ends, set `studyEndAutoRedirectURL` in `uiConfig`. After the study end screen appears, participants are redirected after `studyEndAutoRedirectDelay`, which defaults to 10 seconds.
+
+```json title="public/study-name/config.json"
+"uiConfig": {
+    "studyEndMsg": "Thank you for completing the study! You will be redirected shortly...",
+    "studyEndAutoRedirectURL": "https://app.prolific.com/submissions/complete?cc=abc123",
+    "studyEndAutoRedirectDelay": 30000,
+    ...
+}
+```
 
 ## Prolific
 [Prolific](https://prolific.com) is a popular platform for recruiting crowd-sourced participants.

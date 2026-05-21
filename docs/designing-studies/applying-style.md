@@ -226,6 +226,10 @@ Apply styles directly to component configurations:
 }
 ```
 
+:::info
+If you set `width` in `style` without setting `maxWidth`, reVISit automatically applies `maxWidth: '100%'` so the component cannot overflow its container on smaller screens. Set `maxWidth` explicitly to override this clamp.
+:::
+
 ### Component Styling Examples
 
 #### Markdown Component styling

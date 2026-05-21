@@ -43,6 +43,10 @@ Libraries expose one or multiple "components" and possibly also "sequences" – 
 - **Components**: `$libraryName.components.componentName`
 - **Sequences**: `$libraryName.sequences.sequenceName`
 
+:::info
+In older study configs, you may see `.co.` and `.se.` used as shorthand for `.components.` and `.sequences.`. These shortcuts are still supported for backward compatibility, but `.components.` and `.sequences.` are the recommended forms and should be used in all new configs.
+:::
+
 For example:
 
 ```json title="public/study-name/config.json"
