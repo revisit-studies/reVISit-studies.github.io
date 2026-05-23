@@ -26,7 +26,7 @@ You can also check out this video introduction to reVISit:
 <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9' }}>
   <iframe
     src="https://www.youtube.com/embed/1aa9UM2M3_Q?si=7ul6janppYiL2B_u"
-    title="YouTube video player"
+    title="ReVISit video introduction"
     style={{
       position: 'absolute',
       top: 0,
