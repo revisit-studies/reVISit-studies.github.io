@@ -652,7 +652,7 @@ Add `reactExamplePenguins` to the sequence.
 
 ![The tutorial study with the reactExamplePenguins trial](./img/config.json/step11.png)
 
-## Step 12: Add example1 and example2
+## Step 12: Add questionnaire examples: example1 and example2
 
 Add two simple questionnaire components.
 
