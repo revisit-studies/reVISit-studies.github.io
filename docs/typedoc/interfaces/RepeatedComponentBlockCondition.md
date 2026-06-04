@@ -1,6 +1,6 @@
 # RepeatedComponentBlockCondition
 
-Defined in: [parser/types.ts:1582](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1582)
+Defined in: [parser/types.ts:1588](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1588)
 
 The RepeatedComponentBlockCondition interface is used to define a SkipCondition based on the number of correct or incorrect repeated components. You might use this if you need to check if an attention check was failed multiple times. This is similar to the [ComponentBlockCondition](../ComponentBlockCondition), but it only checks a specific repeated component.
 
@@ -28,8 +28,8 @@ In this example, when the number of incorrect responses to the repeated componen
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="check"></a> `check` | `"repeatedComponent"` | The check we'll perform. | [parser/types.ts:1586](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1586) |
-| <a id="condition"></a> `condition` | `"numCorrect"` \| `"numIncorrect"` | The condition to check. | [parser/types.ts:1588](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1588) |
-| <a id="name"></a> `name` | `string` | The name of the repeated component to check (e.g. attentionCheck). | [parser/types.ts:1584](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1584) |
-| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1592](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1592) |
-| <a id="value"></a> `value` | `number` | The number of correct or incorrect responses to check for. | [parser/types.ts:1590](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1590) |
+| <a id="check"></a> `check` | `"repeatedComponent"` | The check we'll perform. | [parser/types.ts:1592](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1592) |
+| <a id="condition"></a> `condition` | `"numCorrect"` \| `"numIncorrect"` | The condition to check. | [parser/types.ts:1594](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1594) |
+| <a id="name"></a> `name` | `string` | The name of the repeated component to check (e.g. attentionCheck). | [parser/types.ts:1590](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1590) |
+| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1598](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1598) |
+| <a id="value"></a> `value` | `number` | The number of correct or incorrect responses to check for. | [parser/types.ts:1596](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1596) |

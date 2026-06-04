@@ -1,6 +1,6 @@
 # IndividualComponentSingleResponseCondition
 
-Defined in: [parser/types.ts:1476](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1476)
+Defined in: [parser/types.ts:1482](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1482)
 
 The IndividualComponentSingleResponseCondition interface is used to define a SkipCondition based on a single answer to a specific component. The skip logic will be checked for every component in the block that has the specified name.
 
@@ -33,9 +33,9 @@ In this example, we assign our skip logic to the component whose ID is "attentio
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="check"></a> `check` | `"response"` | The check we'll perform. | [parser/types.ts:1480](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1480) |
-| <a id="comparison"></a> `comparison` | `"equal"` \| `"notEqual"` | The comparison to use. | [parser/types.ts:1486](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1486) |
-| <a id="name"></a> `name` | `string` | The name of the component to check. | [parser/types.ts:1478](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1478) |
-| <a id="responseid"></a> `responseId` | `string` | The response id to check. | [parser/types.ts:1482](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1482) |
-| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1488](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1488) |
-| <a id="value"></a> `value` | `string` \| `number` | The value to check. | [parser/types.ts:1484](https://github.com/revisit-studies/study/blob/1342408885dd25e64fbef15c6478d0a8d7cedb45/src/parser/types.ts#L1484) |
+| <a id="check"></a> `check` | `"response"` | The check we'll perform. | [parser/types.ts:1486](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1486) |
+| <a id="comparison"></a> `comparison` | `"equal"` \| `"notEqual"` | The comparison to use. | [parser/types.ts:1492](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1492) |
+| <a id="name"></a> `name` | `string` | The name of the component to check. | [parser/types.ts:1484](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1484) |
+| <a id="responseid"></a> `responseId` | `string` | The response id to check. | [parser/types.ts:1488](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1488) |
+| <a id="to"></a> `to` | `string` | The id of the component or block to skip to | [parser/types.ts:1494](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1494) |
+| <a id="value"></a> `value` | `string` \| `number` | The value to check. | [parser/types.ts:1490](https://github.com/revisit-studies/study/blob/72b8e5c4fa403736be782c35d94c86b3f785e056/src/parser/types.ts#L1490) |
