@@ -36,6 +36,10 @@ If you've used reVISit for your visualization research, we'd love to see it! Fil
 
 ## Community Activities
 
+- Tutorial at [IEEE VIS 2026](https://ieeevis.org/year/2026/welcome), Boston, USA, November 2026
+- Tutorial at [EuroVis 2026](https://eurovis.org.uk/), Nottingham, England, June 2026
+- Tutorial at [GI Center](https://www.gicentre.net/) and [University of Warwick](https://warwick.ac.uk/), (virtual), May 2026
+- Tutorial at [TU Wien](https://www.tuwien.at/en/), Austria (virtual), March 2026
 - Open Hackathon at [University of Utah](https://www.utah.edu/), February 2026
 - Open Hackathon at [TU Graz](https://www.tugraz.at/), Austria, November 2025
 - Tutorial at [IEEE VIS 2025](https://ieeevis.org/year/2025/welcome), Vienna, November 2025
