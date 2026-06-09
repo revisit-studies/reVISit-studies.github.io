@@ -18,7 +18,7 @@ Before editing the replication Study Config, open [`public/global.json`](https:/
 
 ```json title="public/global.json"
 {
-  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.2/src/parser/GlobalConfigSchema.json",
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.3/src/parser/GlobalConfigSchema.json",
   "configsList": ["tutorial", "replication"],
   "configs": {
     "tutorial": {
