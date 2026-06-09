@@ -14,11 +14,13 @@ Start the local server from the root of your template repository:
 yarn serve
 ```
 
-Before editing the tutorial Study Config, open [`public/global.json`](https://github.com/revisit-studies/template/blob/main/public/global.json). This file follows the [Global Config](../typedoc/interfaces/GlobalConfig.md) schema. The template already registers the tutorial config. You should see `tutorial` listed in both `configsList` and `configs`.
+Before editing the tutorial Study Config, open [`public/global.json`](https://github.com/revisit-studies/template/blob/main/public/global.json). This file follows the [Global Config](../typedoc/interfaces/GlobalConfig.md) schema. The template should be empty for now.
+
+Let's add a tutorial study here. 
 
 ```json title="public/global.json"
 {
-  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.2/src/parser/GlobalConfigSchema.json",
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.3/src/parser/GlobalConfigSchema.json",
   "configsList": ["tutorial"],
   "configs": {
     "tutorial": {
@@ -42,7 +44,7 @@ If you go into the tutorial study right now, you will be directed straight to th
 
 ![The tutorial study with the end page](./img/config.json/step2-1.png)
 
-Inside the empty `components` object, add a basic [Markdown component](../typedoc/interfaces/MarkdownComponent.md) named `welcome`.
+Next, open `public/tutorial/config.json`. Inside the empty `components` object, add a basic [Markdown component](../typedoc/interfaces/MarkdownComponent.md) named `welcome`.
 
 ```json title="public/tutorial/config.json"
 "components": {
@@ -67,8 +69,6 @@ Now add `welcome` to the sequence:
 }
 ```
 
-Because this is a [fixed sequence](../designing-studies/sequences/study-sequences.md#simple-sequence), participants see the component names in this array from top to bottom.
-
 Refresh the local study or click "Next participant" to reload the Study Config and start a fresh preview. You should now see the welcome page.
 
 
@@ -77,7 +77,6 @@ Refresh the local study or click "Next participant" to reload the Study Config a
 :::warning
 A common mistake is to add the component but forget the sequence entry. If the component exists in `components` but is not listed in `sequence.components`, the component will not show up.
 :::
-
 
 ## Step 3: Add the consent component
 
@@ -95,7 +94,7 @@ Add a comma after the `welcome` component, then add a second Markdown component 
 }
 ```
 
-This component displays [`public/tutorial/assets/consent.md`](https://github.com/revisit-studies/template/blob/main/public/tutorial/assets/consent.md). The `nextButtonText` field changes the text on the next button, which is useful for consent pages because the button can say exactly what the participant is agreeing to.
+This component displays [`public/tutorial/assets/consent.md`](https://github.com/revisit-studies/template/blob/main/public/tutorial/assets/consent.md). The `nextButtonText` field changes the text on the next button, which is useful for consent pages.
 
 Add `consent` after `welcome` in the sequence:
 
@@ -606,7 +605,7 @@ Add a second React component trial that uses the same React file with different 
   "reactExamplePenguins": {
     "type": "react-component",
     "path": "tutorial/assets/ReactExample.tsx",
-    "instruction": "Consider only penguins with a body mass greater than 4000 g AND a flipper length greater than 200 mm. How many penguins match these conditions?",
+    "instruction": "How many Gentoo penguins weigh less than 4.5k grams (g)?",
     "response": [
       {
         "id": "response",
