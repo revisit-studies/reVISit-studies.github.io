@@ -40,21 +40,28 @@ Open [http://localhost:8080](http://localhost:8080). You should now see the repl
 First, create the React wrapper that the Study Config will load. In `src/public/tutorial/assets/replication/`, add a file named `ScatterWrapper.tsx`.
 
 ```tsx title="src/public/tutorial/assets/replication/ScatterWrapper.tsx"
+/**
+ * Authors: The ReVISit team
+ * Description:
+ *    This file is the wrapper component for the Scatter plots
+ */
+
 import {
   Center, Group, Stack, Text,
 } from '@mantine/core';
 import { Scatter } from './Scatter';
-import { StimulusParams } from '../../../../store/types';
+import { StimulusParams } from '../../../../../store/types';
 
 /**
  * Holds 2 Scatter Plots
- * @param param0 - r1 is the correlation value for 1, r2 is the correlation value for 2.
+ * @param param0 - r1 is the correlation value for 1, r2 is the correlation value for 2,
+ * onClick is a function that determines the functionality when a graph is clicked.
  * @returns 2 Scatter Plots
  */
 export default function ScatterWrapper({ parameters }: StimulusParams<{ r1: number; r2: number }>) {
   const { r1, r2 } = parameters;
-  const r1DatasetName = `dataset_${r1.toFixed(1)}_size_100.csv`;
-  const r2DatasetName = `dataset_${r2.toFixed(1)}_size_100.csv`;
+  const r1DatasetName = `dataset_${r1.toFixed(2)}_size_100.csv`;
+  const r2DatasetName = `dataset_${r2.toFixed(2)}_size_100.csv`;
 
   return (
     <Stack style={{ width: '100%', height: '100%' }}>
@@ -63,12 +70,6 @@ export default function ScatterWrapper({ parameters }: StimulusParams<{ r1: numb
       }}
       >
         Please select the visualization that appears to have a larger correlation.
-      </Text>
-      <Text style={{
-        textAlign: 'center', paddingBottom: '24px', fontSize: '18px', fontWeight: 'bold',
-      }}
-      >
-        You can either click the buttons or use the left and right arrow keys.
       </Text>
       <Center>
         <Group style={{ gap: '40px' }} mb="md">
@@ -256,7 +257,9 @@ All three practice trials use [`provideFeedback`](../designing-studies/answers-t
 
 ## Step 6: Add the dynamic JND block
 
-First, create the dynamic block function. In `src/public/tutorial/assets/replication/`, add a file named `JNDDynamic.tsx`.
+Navigate to `src/public/tutorial/assets/replication/` and open the file named `JNDDynamic.tsx`.
+
+This file currently contains a placeholder. Let's write a function that dynamically changes which component appears next.
 
 ```ts title="src/public/tutorial/assets/replication/JNDDynamic.tsx"
 import { JumpFunctionParameters, JumpFunctionReturnVal, StoredAnswer } from '../../../../store/types';
