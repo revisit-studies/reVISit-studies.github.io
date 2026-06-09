@@ -2,19 +2,22 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const enableGtag = process.env.ENABLE_GTAG === 'true';
+const isPreviewBuild = Boolean(process.env.BASE_URL);
+
 const config: Config = {
   title: 'Home | ReVISit',
   tagline: 'reVISit: Reproducible and Powerful Visualization User Studies',
   favicon: 'img/logos/favicon.svg',
 
   url: 'https://revisit.dev',
-  baseUrl: '/',
+  baseUrl: process.env.BASE_URL ?? '/',
   trailingSlash: true,
 
   organizationName: 'University of Utah', // Usually your GitHub org/user name.
   projectName: 'ReVISit', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: isPreviewBuild ? 'warn' : 'throw',
   onBrokenAnchors: 'ignore',
   markdown: {
     hooks: {
@@ -61,10 +64,14 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-        gtag: {
-          trackingID: 'G-FLX70EGV5P',
-          anonymizeIP: true,
-        },
+        ...(enableGtag
+          ? {
+            gtag: {
+              trackingID: 'G-FLX70EGV5P',
+              anonymizeIP: true,
+            },
+          }
+          : {}),
       } satisfies Preset.Options,
     ],
   ],

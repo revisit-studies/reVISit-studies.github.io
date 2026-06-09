@@ -27,6 +27,19 @@ const sidebars: SidebarsConfig = {
         'getting-started/installation',
         'getting-started/your-first-study',
         'getting-started/collecting-data',
+        {
+          type: 'category',
+          label: 'Tutorial',
+          link: {
+            type: 'doc',
+            id: 'tutorial/tutorial',
+          },
+          collapsed: true,
+          items: [
+            'tutorial/config.json',
+            'tutorial/replication-config.json',
+          ],
+        },
       ],
     },
     {
