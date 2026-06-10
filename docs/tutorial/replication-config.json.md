@@ -44,58 +44,15 @@ Open [http://localhost:8080](http://localhost:8080). You should now see the repl
 
 ## Step 2: Add the reusable scatter plot base component
 
-First, navigate to [`src/public/tutorial/assets/replication/`](https://github.com/revisit-studies/template/tree/main/src/public/tutorial/assets/replication) and open [`ScatterWrapper.tsx`](https://github.com/revisit-studies/template/blob/main/src/public/tutorial/assets/replication/ScatterWrapper.tsx).
+First, navigate to [`src/public/tutorial/assets/replication/`](https://github.com/revisit-studies/template/tree/main/src/public/tutorial/assets/replication) and open [`ScatterWrapper.tsx`](https://github.com/revisit-studies/template/blob/main/src/public/tutorial/assets/replication/ScatterWrapper.tsx). The wrapper component is already provided for this tutorial. It renders two scatter plots side by side so you can focus on wiring the Study Config.
 
-This file contains an empty placeholder for now. We will write a wrapper component that renders two scatter plots side by side.
-
+:::note
 The scatter plots use pre-generated datasets from [`public/tutorial/assets/datasets/size_100`](https://github.com/revisit-studies/template/tree/main/public/tutorial/assets/datasets/size_100). Each file contains 100 points with a specific correlation value, and the file names follow the pattern `dataset_{correlation}_size_100.csv`.
 
-The individual scatter plot component is already written in [`Scatter.tsx`](https://github.com/revisit-studies/template/blob/main/src/public/tutorial/assets/replication/Scatter.tsx). `Scatter.tsx` loads one dataset file and renders it as a D3 scatter plot.
+The individual scatter plot component is also provided in [`Scatter.tsx`](https://github.com/revisit-studies/template/blob/main/src/public/tutorial/assets/replication/Scatter.tsx). `Scatter.tsx` loads one dataset file and renders it as a D3 scatter plot.
 
-```tsx title="src/public/tutorial/assets/replication/ScatterWrapper.tsx"
-/**
- * Authors: The ReVISit team
- * Description:
- *    This file is the wrapper component for the Scatter plots
- */
-
-import {
-  Center, Group, Stack, Text,
-} from '@mantine/core';
-import { Scatter } from './Scatter';
-import { StimulusParams } from '../../../../store/types';
-
-/**
- * Holds 2 Scatter Plots
- * @param param0 - r1 is the correlation value for 1, r2 is the correlation value for 2,
- * onClick is a function that determines the functionality when a graph is clicked.
- * @returns 2 Scatter Plots
- */
-export default function ScatterWrapper({ parameters }: StimulusParams<{ r1: number; r2: number }>) {
-  const { r1, r2 } = parameters;
-  const r1DatasetName = `dataset_${r1.toFixed(2)}_size_100.csv`;
-  const r2DatasetName = `dataset_${r2.toFixed(2)}_size_100.csv`;
-
-  return (
-    <Stack style={{ width: '100%', height: '100%' }}>
-      <Text style={{
-        textAlign: 'center', paddingBottom: '0px', fontSize: '18px', fontWeight: 'bold',
-      }}
-      >
-        Please select the visualization that appears to have a larger correlation.
-      </Text>
-      <Center>
-        <Group style={{ gap: '40px' }} mb="md">
-          <Scatter r={r1} datasetName={r1DatasetName} />
-          <Scatter r={r2} datasetName={r2DatasetName} />
-        </Group>
-      </Center>
-    </Stack>
-  );
-}
-```
-
-This wrapper reads `r1` and `r2` from the component [`parameters`](../typedoc/interfaces/ReactComponent.md#parameters), converts them into dataset file names, and renders two scatter plots side by side.
+`ScatterWrapper.tsx` reads `r1` and `r2` from the component [`parameters`](../typedoc/interfaces/ReactComponent.md#parameters), converts them into dataset file names, and renders two scatter plots side by side.
+:::
 
 Now, let's go to [`public/tutorial/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/replication-config.json). 
 
@@ -259,7 +216,7 @@ All three practice trials use [`provideFeedback`](../designing-studies/answers-t
 
 ## Step 6: Add the Dynamic JND Block
 
-This is the exciting part of the tutorial: building a dynamic block for the sequence.
+This is the exciting part of the tutorial: using a dynamic block in the sequence.
 
 A regular sequence lists every component ahead of time. A [dynamic block](../typedoc/interfaces/DynamicBlock.md) works differently. Instead of listing all trials in the config, it calls a function while the study is running. That function can look at the participant’s previous answers and decide which component should appear next.
 
@@ -267,63 +224,17 @@ In this replication study, the dynamic block will adapt the scatterplot comparis
 
 Navigate to [`src/public/tutorial/assets/replication/`](https://github.com/revisit-studies/template/tree/main/src/public/tutorial/assets/replication) and open [`JNDDynamic.tsx`](https://github.com/revisit-studies/template/blob/main/src/public/tutorial/assets/replication/JNDDynamic.tsx).
 
-This file currently contains a placeholder. We will replace it with a jump function that returns the next trial. The function returns:
+The dynamic function is already provided for this tutorial. You will connect it to the Study Config with a dynamic block.
+
+:::note
+The dynamic function returns:
 
 - `component`: the component to show next
 - `parameters`: the values passed into that trial, such as `r1` and `r2`, which represent the correlation values for the two scatterplots
 - `correctAnswer`: the correct button response for the generated trial
 
-```ts title="src/public/tutorial/assets/replication/JNDDynamic.tsx"
-import { JumpFunctionParameters, JumpFunctionReturnVal, StoredAnswer } from '../../../../store/types';
-
-const findLatestTrial = (allDynamicAnswers: StoredAnswer[]) => {
-    const trials = allDynamicAnswers
-        .sort((a, b) => parseInt(a.trialOrder.split('_').at(-1) || '0', 10) - parseInt(b.trialOrder.split('_').at(-1) || '0', 10));
-
-    return trials.at(-1)!;
-};
-
-export default function func({ answers }: JumpFunctionParameters<{ r1: number, r2: number, counter: number }>): JumpFunctionReturnVal {
-    const allDynamicAnswers = Object.values(answers)
-        .filter((answer) => answer.componentName === 'trial');
-
-    // First trial
-    if (allDynamicAnswers.length === 0) {
-        return {
-            component: 'trial',
-            parameters: {
-                r1: 0.1,
-                r2: 0.9,
-            },
-            correctAnswer: [{ id: 'buttonsResponse', answer: 'right' }],
-        };
-    }
-
-    if (allDynamicAnswers.length === 9) {
-        return { component: null };
-    }
-
-    const latestTrial = findLatestTrial(allDynamicAnswers);
-
-    const right = latestTrial.parameters.r2 === 0.9;
-
-    const approachingValue = right ? latestTrial.parameters.r1 + 0.1 : latestTrial.parameters.r2 + 0.1;
-
-    const r1 = right ? 0.9 : approachingValue;
-    const r2 = right ? approachingValue : 0.9;
-
-    return {
-        component: 'trial',
-        parameters: {
-            r1,
-            r2,
-        },
-        correctAnswer: [{ id: 'buttonsResponse', answer: right ? 'left' : 'right' }],
-    };
-}
-```
-
 This function looks at the participant’s previous answers within the dynamic block. It starts with a large correlation difference, using `0.1` for one scatterplot and `0.9` for the other. If the participant answers correctly, the function makes the lower correlation value a little higher, so the two scatterplots look more similar and the next task becomes harder. The dynamic block stops after nine trials.
+:::
 
 Before adding the dynamic block to the sequence, add a reusable dynamic trial component named `trial`. The jump function will return this component each time it generates a new dynamic trial.
 
@@ -372,8 +283,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     codeLinks={[
         {name: "replication-config.json", url: "https://github.com/revisit-studies/template/blob/main/public/tutorial/replication-config.json"},
         {name: "replication-config.json Answer", url: "https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/replication-config.json"},
-        {name: "replication-config assets ", url: "https://github.com/revisit-studies/template/tree/main/src/public/tutorial/assets"},
-        {name: "replication-config assets Answer", url: "https://github.com/revisit-studies/template/tree/main/src/public/tutorial/assets/_answers/replication"}
+        {name: "replication-config assets", url: "https://github.com/revisit-studies/template/tree/main/src/public/tutorial/assets"}
     ]}
     referenceLinks={[
         {name: "Installation", url: "../../getting-started/installation/"}
