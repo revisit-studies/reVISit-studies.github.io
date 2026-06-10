@@ -18,20 +18,20 @@ Start the local server from the root of your template repository:
 yarn serve
 ```
 
-Before editing the replication Study Config, open [`public/global.json`](https://github.com/revisit-studies/template/blob/main/public/global.json). Add `replication` to `configsList` and `configs`.
+Before editing the replication Study Config, open [`public/global.json`](https://github.com/revisit-studies/template/blob/main/public/global.json). Add `tutorial-replication` to `configsList` and `configs`.
 
 ```json title="public/global.json"
 {
   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.3/src/parser/GlobalConfigSchema.json",
   "configsList": [
     "tutorial",
-    "replication"
+    "tutorial-replication"
   ],
   "configs": {
     "tutorial": {
       "path": "tutorial/config.json"
     },
-    "replication": {
+    "tutorial-replication": {
       "path": "tutorial/replication-config.json"
     }
   }
