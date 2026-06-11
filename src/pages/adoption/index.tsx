@@ -100,7 +100,7 @@ function Adoption({ adoption }: { adoption: Adoption }) {
               <FontAwesomeIcon icon={faExternalLink} />
             </Link>
           ) : null}
-          <span>Uses ReVISit v{adoption.revisitVersion}</span>
+          {adoption.revisitVersion?.trim() ? <span>Uses reVISit v{adoption.revisitVersion}</span> : null}
         </div>
       </div>
     </div>
