@@ -26,12 +26,20 @@ interface Adoption {
 }
 
 function Adoption({ adoption }: { adoption: Adoption }) {
+  const studyUrls = adoption.revisitStudyUrl
+    ? adoption.revisitStudyUrl.split("|").map((u) => u.trim()).filter(Boolean)
+    : [];
+  const multipleStudies = studyUrls.length > 1;
   const normalizedDoi = adoption.doi?.trim();
   const doiHref = normalizedDoi
     ? normalizedDoi.startsWith("http")
       ? normalizedDoi
       : `https://dx.doi.org/${normalizedDoi.replace(/^doi:\s*/i, "")}`
     : undefined;
+  const effectivePaperUrl =
+    adoption.paperUrl && adoption.paperUrl !== "#"
+      ? adoption.paperUrl
+      : doiHref ?? null;
 
   return (
     <div className={styles.adoptionContainer}>
@@ -52,46 +60,48 @@ function Adoption({ adoption }: { adoption: Adoption }) {
       <p className={styles.description}>{adoption.subtitle}</p>
       <div className={styles.buttonContainer}>
         <div className={styles.primaryButtons}>
-          {adoption.revisitStudyUrl ? (
+          {studyUrls.map((url, i) => (
             <Link
+              key={url}
               className={clsx("button button--primary", styles.buttonDesktop)}
               style={{ color: "white" }}
-              to={adoption.revisitStudyUrl}
+              to={url}
             >
-              See ReVISit Study
+              {multipleStudies ? `See Study ${i + 1}` : "See Study"}
             </Link>
-          ) : null}
-          {adoption.paperUrl === "#" ? null : (
+          ))}
+          {effectivePaperUrl ? (
             <Link
               className={clsx("button button--secondary", styles.buttonDesktop)}
-              to={adoption.paperUrl}
+              to={effectivePaperUrl}
             >
-              See the paper
+              See Paper
             </Link>
-          )}
-          {adoption.revisitStudyUrl ? (
+          ) : null}
+          {studyUrls.map((url, i) => (
             <Link
+              key={url}
               className={clsx(
                 "button button--primary button--sm",
                 styles.buttonMobile,
               )}
               style={{ color: "white" }}
-              to={adoption.revisitStudyUrl}
+              to={url}
             >
-              See ReVISit Study
+              {multipleStudies ? `See Study ${i + 1}` : "See Study"}
             </Link>
-          ) : null}
-          {adoption.paperUrl === "#" ? null : (
+          ))}
+          {effectivePaperUrl ? (
             <Link
               className={clsx(
                 "button button--secondary button--sm",
                 styles.buttonMobile,
               )}
-              to={adoption.paperUrl}
+              to={effectivePaperUrl}
             >
-              See the paper
+              See Paper
             </Link>
-          )}
+          ) : null}
         </div>
         <div className={styles.secondaryButtons}>
           {adoption.sourceCodeLink ? (
@@ -137,12 +147,8 @@ export default function Home() {
             doi: entry.DOI,
             initialIndex: idx,
           }));
-          // Sort based on Published then year (descending year).
+          // Sort based on year (descending).
           parsedAdoption.sort((a: Adoption, b: Adoption) => {
-            if (a.published !== b.published) {
-              return a.published ? -1 : 1;
-            }
-
             const yearDiff = Number(b.year) - Number(a.year);
             if (yearDiff !== 0) {
               return yearDiff;
