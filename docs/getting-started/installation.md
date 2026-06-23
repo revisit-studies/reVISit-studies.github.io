@@ -50,11 +50,11 @@ Navigate to the [template repository](https://github.com/revisit-studies/templat
 
 ![Use this template button](./img/template-repo.png)
 
-![Create a new repository from the template](./img/create-new-repo.png)
-
 :::info
 You can choose a name for the repository to suit your needs, but if you choose anything other than `study`, you also need to adjust the `VITE_BASE_PATH` in your [`.env`](https://github.com/revisit-studies/study/blob/main/.env) file to reflect that change.
 :::
+
+![Create a new repository from the template](./img/create-new-repo.png)
 
 You can then clone this new repository to your local machine and start making changes to it and share it with collaborators as desired.
 
