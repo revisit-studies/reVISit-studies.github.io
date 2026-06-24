@@ -44,21 +44,97 @@ For the next two steps, there is no need to change the defaults. Simply click "N
 
 ![Firestore database page after the database is created](./img/enabling-authentication/step11.png)
 
-With the new database created, we'll want to change the read/write rules to only allow authenticated users to write to the database. Go to the "Rules" tab (second tab) and copy and paste the following code. Then click "Publish".
+With the new database created, we'll want to use rules that match reVISit's storage layout. Firestore stores shared study-control records such as modes, the active config hash, and sequence assignments. Participant data and uploaded media are stored in Firebase Storage and are covered in the Storage rules below. Go to the 'rules' tab (second tab) and copy and paste the following code. Then click "publish".
+
+:::warning
+Do not treat every Google sign-in as an administrator. The `isAdmin()` function below expects a Firebase Auth custom claim named `revisitAdmin`. If you use a different admin mechanism, update this function before publishing. The in-app `adminUsers` list is useful for the reVISit UI, but Security Rules cannot safely use the current email/UID array as a rules-level admin allowlist.
+:::
 
 ![Firestore Rules tab with custom read and write rules entered](./img/enabling-authentication/step12.png)
 
 ```
 rules_version = '2';
 service cloud.firestore {
- match /databases/{database}/documents {
+  function isSignedIn() {
+    return request.auth != null;
+  }
+
+  function isAdmin() {
+    return isSignedIn() && request.auth.token.revisitAdmin == true;
+  }
+
+  function hasOwnerUid() {
+    return isSignedIn()
+      && request.resource.data.ownerUid == request.auth.uid;
+  }
+
+  function isOwner() {
+    return isSignedIn() && resource.data.ownerUid == request.auth.uid;
+  }
+
+  function ownerUidUnchanged() {
+    return request.resource.data.ownerUid == resource.data.ownerUid;
+  }
+
+  function participantIdUnchanged() {
+    return request.resource.data.participantId == resource.data.participantId;
+  }
+
+  function isClaimingRejectedAssignment() {
+    return isSignedIn()
+      && resource.data.rejected == true
+      && resource.data.claimed == false
+      && request.resource.data.claimed == true
+      && ownerUidUnchanged()
+      && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimed']);
+  }
+
+  match /databases/{database}/documents {
+    match /user-management/{document=**} {
+      allow read, write: if isAdmin();
+    }
+
+    match /{studyId}/modes {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isAdmin();
+    }
+
+    match /{studyId}/configHash {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn();
+      allow delete: if isAdmin();
+    }
+
+    match /{studyId}/snapshots {
+      allow read, write: if isAdmin();
+    }
+
+    match /{studyId}/sequenceAssignment {
+      allow read, write: if isSignedIn();
+
+      match /sequenceAssignment/{participantId} {
+        allow create: if hasOwnerUid()
+          && request.resource.data.participantId == participantId;
+        allow get: if isAdmin() || isOwner();
+        allow list: if isSignedIn();
+        allow update: if isAdmin()
+          || (isOwner() && ownerUidUnchanged() && participantIdUnchanged())
+          || isClaimingRejectedAssignment();
+        allow delete: if isAdmin();
+      }
+    }
+
     match /{document=**} {
-    	allow read: if true;
-      allow write: if request.auth != null;
+      allow read, write: if false;
     }
   }
 }
 ```
+
+:::note
+The participant-owned `sequenceAssignment` documents must include an `ownerUid` field set to the signed-in user's Firebase UID. The subcollection is intentionally list-readable by signed-in users because the current client-side assignment algorithm reads all assignments to choose a balanced sequence and to reuse rejected assignments. This exposes participant IDs and assignment status to signed-in clients. To hide those details, move sequence assignment to a trusted backend or Cloud Function and tighten the `allow list` rule.
+:::
 
 ## Adding Firebase Storage
 
@@ -86,13 +162,74 @@ Replace the existing rule with the following code and then publish:
 rules_version = '2';
 
 service firebase.storage {
+  function isSignedIn() {
+    return request.auth != null;
+  }
+
+  function isAdmin() {
+    return isSignedIn() && request.auth.token.revisitAdmin == true;
+  }
+
+  function hasOwnerMetadata() {
+    return isSignedIn()
+      && request.resource.metadata.ownerUid == request.auth.uid;
+  }
+
+  function isOwner() {
+    return isSignedIn() && resource.metadata.ownerUid == request.auth.uid;
+  }
+
+  function ownerMetadataUnchanged() {
+    return !('ownerUid' in request.resource.metadata)
+      || request.resource.metadata.ownerUid == resource.metadata.ownerUid;
+  }
+
   match /b/{bucket}/o {
+    match /{studyId}/_sequenceArray {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isAdmin();
+    }
+
+    match /{studyId}/configs/{configFile} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn();
+      allow delete: if isAdmin();
+    }
+
+    match /{studyId}/participants/{participantFile} {
+      allow create: if isAdmin() || hasOwnerMetadata();
+      allow read: if isAdmin() || isOwner();
+      allow update: if isAdmin() || (isOwner() && ownerMetadataUnchanged());
+      allow delete: if isAdmin() || isOwner();
+    }
+
+    match /{studyId}/audio/transcriptAndTags/{allPaths=**} {
+      allow read, write: if isAdmin();
+    }
+
+    match /{studyId}/audio/{audioFile} {
+      allow create: if isAdmin() || hasOwnerMetadata();
+      allow read: if isAdmin() || isOwner();
+      allow update: if isAdmin() || (isOwner() && ownerMetadataUnchanged());
+      allow delete: if isAdmin() || isOwner();
+    }
+
+    match /{studyId}/screenRecording/{screenFile} {
+      allow create: if isAdmin() || hasOwnerMetadata();
+      allow read: if isAdmin() || isOwner();
+      allow update: if isAdmin() || (isOwner() && ownerMetadataUnchanged());
+      allow delete: if isAdmin() || isOwner();
+    }
+
     match /{allPaths=**} {
-      allow read, write: if true;
+      allow read, write: if false;
     }
   }
 }
 ```
+
+The participant-owned Storage rules require uploads to include custom metadata `ownerUid` set to the signed-in user's Firebase UID, for example `customMetadata: { ownerUid: auth.currentUser.uid }`. Shared objects such as `_sequenceArray` and `configs/*_config` are readable by all signed-in users because every participant needs the same sequence/config data. Config uploads remain writable by signed-in users because the current serverless client calls `saveConfig()` during startup; making config writes admin-only requires changing the app so admins pre-publish configs instead of letting participant clients bootstrap them.
 
 ![Firebase Storage Rules tab with custom read and write rules entered](./img/enabling-authentication/step17.png)
 
