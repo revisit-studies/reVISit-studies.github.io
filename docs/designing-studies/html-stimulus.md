@@ -85,6 +85,30 @@ One of the interesting pieces of the above code is that this HTML document inter
 
 Furthermore, you’ll see that we have also created an `onClick` function and attached it to each of the bars in the bar graph. This click function uses the `Revisit.postAnswers` method to send information back to reVISit.
 
+### Adding provenance tracking
+
+For a website or iframe stimulus that uses Trrack, create the instance with `Revisit.createTrrack`:
+
+```js
+const trrack = Revisit.createTrrack({
+  initializeTrrack,
+  registry,
+  initialState,
+});
+```
+
+This managed API automatically captures the initial state and every apply, undo, redo, or other traversal. It also removes its subscription when the iframe page is discarded. Continue to use `Revisit.postAnswers` for answers.
+
+During replay, render the state reVISit sends to the iframe:
+
+```js
+Revisit.onProvenanceReceive((provenanceState) => {
+  renderState(provenanceState);
+});
+```
+
+Calling `Revisit.postProvenance(trrack.graph.backend)` manually is deprecated, but remains backward-compatible for existing and historical studies. See [Provenance Tracking](provenance-tracking.md) for a complete example and migration guidance.
+
 Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to account for these new components.
 
 In your `config.json` document, create new key called `baseComponents` as a sibling to the keys `uiConfig`, `components`, `sequence`, etc. In this newly created key, paste the code below:
@@ -146,6 +170,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
   referenceLinks={[
     {name: "D3.js", url: "https://d3js.org/"},
     {name: "WebsiteComponent", url: "../../typedoc/interfaces/WebsiteComponent"},
-    {name: "BaseComponents", url: "../../typedoc/type-aliases/BaseComponents/"}
+    {name: "BaseComponents", url: "../../typedoc/type-aliases/BaseComponents/"},
+    {name: "Provenance Tracking", url: "../provenance-tracking"}
   ]}
 />

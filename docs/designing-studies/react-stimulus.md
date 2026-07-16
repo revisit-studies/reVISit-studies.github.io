@@ -280,10 +280,14 @@ Below is a minimal config with two Stroop trials. Each trial passes `displayText
 
 ### Adding provenance tracking
 
-To record user interactions and enable replay, you can add provenance tracking with Trrack. This involves:
+To record user interactions and enable replay, use the managed `useRevisitTrrack` hook. This involves:
+
 - Creating a Trrack registry and actions for state changes
-- Passing `provenanceGraph` in `setAnswer` so reVISit stores the provenance
-- Using `provenanceState` to restore the textbox during replay
+- Passing the registry and initial state to `useRevisitTrrack`
+- Continuing to use `setAnswer` for answers without attaching a provenance graph
+- Using `provenanceState` to render the restored state during replay
+
+The hook automatically captures the initial state, apply, undo, redo, and other traversals, then cleans up its subscription when the stimulus unmounts. Passing `provenanceGraph` to `setAnswer` is deprecated, although it remains backward-compatible for historical studies.
 
 For a full walkthrough, see the [Provenance Tracking](provenance-tracking.md) tutorial.
 
