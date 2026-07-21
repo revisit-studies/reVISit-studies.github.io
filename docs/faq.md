@@ -61,9 +61,17 @@ A: Yes. You can attach metadata to components in your study configuration using 
 
 ### Q: What happens if there's an error during study initialization?
 
-A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. After a five-second grace period, reVISit will show a warning modal, fall back to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud. The modal includes a `mailto:` link to your `uiConfig.contactEmail` along with diagnostic metadata — study ID, participant ID, storage engine, UTC timestamp, and current URL — so participants can quickly forward useful context to the study administrator.
+A: In a production build configured for Firebase or Supabase, a storage connection failure blocks participation so data is not collected without reaching the configured backend. Ask the Participant to check their internet connection and select **Reconnect**, which reloads the page and tries the configured storage again. The modal includes copyable diagnostics and a link to your `uiConfig.contactEmail` for support.
 
-![Storage disconnected](./img/faq/storage-disconnected.png)
+<!-- Screenshot needed: docs/img/faq/storage-disconnected.png. Replace the existing image with the non-dismissible startup storage-failure modal, showing Reconnect, copyable diagnostics, and the contact-email link. Once replaced, restore the image reference here: ![Storage disconnected](./img/faq/storage-disconnected.png) -->
+
+If saving an answer or provenance fails after the study starts, ReVISit shows a blocking **Failed to Save Response** modal. Ask the Participant to select **Retry** and wait for it to close before continuing; ReVISit retries queued writes and resumes only after they succeed.
+
+<!-- Screenshot needed: docs/img/faq/failed-save-response.png. Capture the blocking Failed to Save Response modal during a queued-write failure, showing Retry and the diagnostics/contact controls. Reference it here as ./img/faq/failed-save-response.png once captured. -->
+
+In a non-production build, ReVISit can fall back to local storage after warning that the configured cloud storage failed. Do not assume this locally stored data will be synchronized to Firebase or Supabase later.
+
+If a study fails to start for a reason unrelated to the storage backend, ReVISit shows a loading error instead of a **Storage Disconnected** warning. Check the displayed error and your Study Config before troubleshooting the storage connection.
 
 ### Q: How does reVISit make sure a participant's final answers are saved at the end of the study?
 

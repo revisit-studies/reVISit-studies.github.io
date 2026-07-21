@@ -59,7 +59,11 @@ This renders as so:
 
 ![A video stimulus](img/video-stimulus.png)
 
-In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. This is useful for ensuring that participants watch the entire video before answering questions.
+In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the Participant can proceed. This is useful for ensuring that Participants watch the entire video before answering questions.
+
+When `forceCompletion` is `true`, a Participant who selects **Next** before playback finishes stays on the component and sees: “Please finish the video to continue.”
+
+<!-- Screenshot needed: docs/designing-studies/img/video-force-completion-validation.png. Capture a force-completion video after the Participant selects Next before the video finishes, with the completion message visible. -->
 
 ### External Videos
 

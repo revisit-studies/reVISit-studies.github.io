@@ -109,6 +109,8 @@ In your `config.json` document, create new key called `baseComponents` as a sibl
 ```
 This creates a component that new components can be based off of. Each component using the `bar-chart` as the value to the `baseComponent` key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating these next components.
 
+Because this `reactive` response is required, the embedded activity must report an interaction before the Participant can continue. If they select **Next** first, ReVISit shows: “Please finish the embedded activity to continue.”
+
 In the components section, add the following objects:
 
 ```json title="public/basic-questionnaire-study/config.json"
