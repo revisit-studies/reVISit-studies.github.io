@@ -71,6 +71,8 @@ For the complete Stroop component with provenance tracking, see [DemoReactTrrack
 
 For a basic HTML + D3 example, see our [Dots example](https://github.com/revisit-studies/study/blob/main/public/demo-html-trrack/assets/dots-count.html). Creating a Trrack instance and actions works the same as above, just without the React hooks.
 
+For a runnable [Svelte + Trrack dot-counter example](https://revisit.dev/study/demo-svelte-trrack/), see the [Svelte demo source](https://github.com/revisit-studies/study/tree/dev/public/demo-svelte-trrack). It demonstrates undo/redo and restoring provenance during replay; it is an example, not a required or recommended Svelte build or deployment approach.
+
 ## Using Trrack for undo/redo
 
 The above example shows the basic use case for Trrack if you just want to store provenance and enable replay. With a little more effort, Trrack can also give your stimulus undo/redo and full study rehydration.

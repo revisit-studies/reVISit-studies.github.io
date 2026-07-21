@@ -13,7 +13,7 @@ Install these tools before cloning and running a study locally:
 - The Active LTS version of [Node.js](https://nodejs.org/), which also installs NPM.
 
 :::info
-NPM is installed with Node.js. You usually do not need to install NPM separately: install Node.js first, then use NPM to install Yarn. If NPM is not installed for any reason, review the [NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started.
+reVISit supports both Yarn and NPM. Yarn is the preferred package manager, but you can use NPM if you prefer. NPM is installed with Node.js, so you usually do not need to install it separately. If NPM is not installed for any reason, review the [NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started.
 :::
 
 You can check whether Git, Node.js, and NPM are already installed with:
@@ -24,7 +24,7 @@ node --version
 npm --version
 ```
 
-Yarn can be installed using NPM. Run the following command to install Yarn:
+If you want to use the preferred package manager, install Yarn using NPM:
 
 ```bash
 npm i -g yarn
@@ -96,16 +96,28 @@ Then install the packages that reVISit needs to run:
 yarn install
 ```
 
+If you prefer NPM, use this command instead:
+
+```bash
+npm install
+```
+
 Once this is finished, start the local server:
 
 ```bash
 yarn serve
 ```
 
+With NPM, run:
+
+```bash
+npm run serve
+```
+
 This will launch a local web server where you can view and interact with reVISit. By default, you can access it by visiting [http://localhost:8080/](http://localhost:8080/). Any change you make to the code will automatically update the website.
 
 :::warning
-If `yarn install` or `yarn serve` says it cannot find `package.json`, you are probably not inside the repository folder. Run `cd your-repository-name` first, then try the command again.
+If `yarn install`, `yarn serve`, `npm install`, or `npm run serve` says it cannot find `package.json`, you are probably not inside the repository folder. Run `cd your-repository-name` first, then try the command again.
 :::
 
 When you visit the site, you'll see the studies registered in your local `public/global.json` file. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
@@ -114,8 +126,8 @@ When you visit the site, you'll see the studies registered in your local `public
 If you started from the template repository, this will be a smaller set of starter tutorial studies.
 :::
 
-:::warning
-We do not support using `npm` to run reVISit. Please use `yarn` for all package management and running commands.
+:::note
+Use the same package manager for installation and project commands. Yarn is preferred, but NPM is supported.
 :::
 
 ## Forking Repository (Advanced Alternative to Template Repository)

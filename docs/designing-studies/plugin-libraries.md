@@ -214,6 +214,10 @@ F. R. H. Zijlstra and L. Van Doorn, "The construction of a scale to measure perc
 J. Brooke, "SUS: A 'quick and dirty' usability scale," in _Usability Evaluation in Industry_, P. W. Jordan et al., Eds. London, U.K.: Taylor & Francis, 1996, pp. 207–212, doi: 10.1201/9781498710411-35.
 :::
 
+- [`ueq`](../../libraries/ueq): **UEQ: The User Experience Questionnaire**. The full questionnaire has 26 bipolar 1–7 matrix rows.
+
+- [`ueq-s`](../../libraries/ueq-s): **UEQ-S: The Short User Experience Questionnaire**. The short questionnaire has 8 bipolar 1–7 matrix rows.
+
 - [`umux`](../../libraries/umux): **UMUX: The Usability Metric for User Experience**
 :::note[Reference]
 K. Finstad, "The usability metric for user experience," _Interacting with Computers_, vol. 22, no. 5, pp. 323–327, Sep. 2010, doi: 10.1016/j.intcom.2010.04.004.
@@ -289,6 +293,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Screen Recording Demo", url: "https://revisit.dev/study/library-screen-recording/"},
     {name: "SMEQ Demo", url: "https://revisit.dev/study/library-smeq/"},
     {name: "SUS Demo", url: "https://revisit.dev/study/library-sus/"},
+    {name: "UEQ Demo", url: "https://revisit.dev/study/library-ueq/"},
+    {name: "UEQ-S Demo", url: "https://revisit.dev/study/library-ueq-s/"},
     {name: "UMUX Demo", url: "https://revisit.dev/study/library-umux/"},
     {name: "UMUX Lite Demo", url: "https://revisit.dev/study/library-umux-lite/"},
     {name: "Virtual Chinrest Demo", url: "https://revisit.dev/study/library-virtual-chinrest/"},
@@ -311,6 +317,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Screen Recording Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-screen-recording/"},
     {name: "SMEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq/"},
     {name: "SUS Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-sus"},
+    {name: "UEQ Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-ueq"},
+    {name: "UEQ-S Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-ueq-s"},
     {name: "UMUX Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-umux/"},
     {name: "UMUX Lite Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-umux-lite/"},
     {name: "Virtual Chinrest Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-virtual-chinrest"},
@@ -334,6 +342,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "Screen Recording Library", url:"../../libraries/screen-recording/"},
     {name: "SMEQ Library", url:"../../libraries/smeq/"},
     {name: "SUS Library", url:"../../libraries/sus/"},
+    {name: "UEQ Library", url:"../../libraries/ueq/"},
+    {name: "UEQ-S Library", url:"../../libraries/ueq-s/"},
     {name: "UMUX Library", url:"../../libraries/umux/"},
     {name: "UMUX Lite Library", url:"../../libraries/umux-lite/"},
     {name: "Virtual Chinrest Library", url:"../../libraries/virtual-chinrest"},
