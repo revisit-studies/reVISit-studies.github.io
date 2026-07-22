@@ -19,6 +19,8 @@ Use the **Order** selector in the toolbar above the participant table to choose 
 
 Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study. This includes the moment validation errors were revealed after a Participant attempted to continue, so replay shows the same highlighted validation state.
 
+For stimuli that use managed Trrack provenance, replay follows the recorded interaction path, including undo, redo, and revisiting an existing state. Historical graph-only provenance remains replayable, but may not reproduce those traversals as faithfully.
+
 <!-- Screenshot needed: docs/analysis/img/participant-replay/validation-reveal.png. Capture a replay of a form validation state after the Participant selected Next, with the same highlighted field and error summary shown in the replayed task. -->
 
 :::info
