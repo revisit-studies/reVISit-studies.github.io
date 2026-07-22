@@ -85,6 +85,30 @@ One of the interesting pieces of the above code is that this HTML document inter
 
 Furthermore, you’ll see that we have also created an `onClick` function and attached it to each of the bars in the bar graph. This click function uses the `Revisit.postAnswers` method to send information back to reVISit.
 
+### Adding provenance tracking
+
+For a website or iframe stimulus that uses Trrack, create the instance with `Revisit.createTrrack` rather than manually publishing graph snapshots:
+
+```js
+const trrack = Revisit.createTrrack({
+  initializeTrrack,
+  registry,
+  initialState,
+});
+```
+
+ReVISit automatically captures the initial state plus apply, undo, redo, and other traversals. Continue to use `Revisit.postAnswers` for answers; do not repeatedly call `Revisit.postProvenance(trrack.graph.backend)` in new studies.
+
+To render replayed state, register a handler:
+
+```js
+Revisit.onProvenanceReceive((provenanceState) => {
+  renderState(provenanceState);
+});
+```
+
+Manual `Revisit.postProvenance(...)` integrations remain supported for existing studies, but are deprecated for new work. See [Provenance Tracking](provenance-tracking.md) for React, website, and migration guidance.
+
 Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to account for these new components.
 
 In your `config.json` document, create new key called `baseComponents` as a sibling to the keys `uiConfig`, `components`, `sequence`, etc. In this newly created key, paste the code below:

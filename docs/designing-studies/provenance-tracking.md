@@ -1,103 +1,104 @@
 # Provenance Tracking
 
-ReVISit has integrated provenance tracking with Trrack, a state-based provenance tracking library maintained by the same team that maintains reVISit. For more detailed information on Trrack and its API, visit the [Trrack documentation](https://apps.vdl.sci.utah.edu/trrack).
+ReVISit integrates with [Trrack](https://apps.vdl.sci.utah.edu/trrack), a state-based provenance tracking library maintained by the ReVISit team. For new studies, use ReVISit's managed Trrack APIs:
 
-## Integrating into a React and HTML component
+- React stimuli receive `useTrrack` through `StimulusParams`.
+- Website and iframe stimuli use `Revisit.createTrrack(...)`.
 
-Building off the [Stroop color experiment](react-stimulus.md#example-2-stroop-color-experiment-with-reactive-response) from the React stimulus tutorial, we add provenance tracking to record each keystroke and enable replay.
+The managed APIs capture the initial state and every Trrack traversal, including `apply`, undo, redo, and revisiting an existing node. This gives Analyst replay the recorded interaction path rather than requiring it to infer a path from graph creation order.
 
-### 1. Define state and create Trrack with `useMemo`
+## React Stimuli
 
-Because Trrack is state-based, you must define a state for your tracked application. For the Stroop text input:
+Accept `useTrrack` in the component parameters. Do not import a ReVISit hook. Call it at the component's top level, as you would any other React hook.
 
-```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
-interface StroopState {
-  response: string;
+```tsx title="src/public/my-study/assets/MyStimulus.tsx"
+import { useMemo } from 'react';
+import { Registry } from '@trrack/core';
+import type { StimulusParams } from '../../store/types';
+
+type CounterState = { count: number };
+
+export default function MyStimulus({
+  useTrrack,
+}: StimulusParams<undefined, CounterState>) {
+  const { actions, registry } = useMemo(() => {
+    const nextRegistry = Registry.create();
+    const increment = nextRegistry.register('increment', (state) => ({
+      ...state,
+      count: state.count + 1,
+    }));
+
+    return { actions: { increment }, registry: nextRegistry };
+  }, []);
+
+  const trrack = useTrrack({
+    registry,
+    initialState: { count: 0 },
+  });
+
+  const increment = () => {
+    // Calls to apply, undo, redo, and traversal are captured automatically.
+    trrack.apply('Increment', actions.increment());
+  };
+
+  return <button onClick={increment}>Increment</button>;
 }
 ```
 
-Create the Trrack registry, action, and instance **once** using `useMemo` (empty deps). This ensures the instance is stable across renders:
+Continue to use `setAnswer` to report answers, but do not attach `provenanceGraph` to it. ReVISit records provenance separately from answer validation.
 
-```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
-const { actions, trrack } = useMemo(() => {
-  const reg = Registry.create();
-  const setResponseAction = reg.register('setResponse', (state, nextResponse: string) => {
-    state.response = nextResponse;
-    return state;
-  });
-  const trrackInst = initializeTrrack({
-    registry: reg,
-    initialState: { response: '' },
-  });
-  return {
-    actions: { setResponseAction },
-    trrack: trrackInst,
-  };
-}, []);
+During replay, render the `provenanceState` supplied to the stimulus. Do not call `apply` while hydrating a replayed state, because that would create a new participant action.
+
+```tsx
+useEffect(() => {
+  if (provenanceState) {
+    setCount(provenanceState.count);
+  }
+}, [provenanceState]);
 ```
 
-### 2. Call the action and pass `provenanceGraph` to `setAnswer`
+## Website and Iframe Stimuli
 
-When the user types, call the Trrack action and include `provenanceGraph` in `setAnswer` so reVISit stores the provenance. Use a `useCallback` to keep the handler stable:
+After loading `revisit-communicate.js`, pass Trrack's `initializeTrrack` function and the usual Trrack options to `Revisit.createTrrack`:
 
-```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
-const updateAnswer = useCallback((value: string) => {
-  setResponseText(value);
-  trrack.apply('Set response', actions.setResponseAction(value));
-  setAnswer({
-    status: value.trim().length > 0,
-    provenanceGraph: trrack.graph.backend,
-    answers: { stroopAnswer: value },
-  });
-}, [actions, setAnswer, trrack]);
-
-```
-
-### 3. Sync from `provenanceState` for replay
-
-During replay, reVISit passes `provenanceState` with the restored state. Sync it to your textbox so the input updates visibly when the user seeks through the timeline:
-
-```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
-  useEffect(() => {
-    if (provenanceState) {
-      setResponseText(provenanceState.response);
-    }
-  }, [provenanceState]);
-```
-
-### Full component example
-
-For the complete Stroop component with provenance tracking, see [DemoReactTrrack.tsx](https://github.com/revisit-studies/study/blob/main/src/public/demo-react-trrack/assets/DemoReactTrrack.tsx).
-
-For a basic HTML + D3 example, see our [Dots example](https://github.com/revisit-studies/study/blob/main/public/demo-html-trrack/assets/dots-count.html). Creating a Trrack instance and actions works the same as above, just without the React hooks.
-
-For a runnable [Svelte + Trrack dot-counter example](https://revisit.dev/study/demo-svelte-trrack/), see the [Svelte demo source](https://github.com/revisit-studies/study/tree/dev/public/demo-svelte-trrack). It demonstrates undo/redo and restoring provenance during replay; it is an example, not a required or recommended Svelte build or deployment approach.
-
-## Using Trrack for undo/redo
-
-The above example shows the basic use case for Trrack if you just want to store provenance and enable replay. With a little more effort, Trrack can also give your stimulus undo/redo and full study rehydration.
-
-For this, use Trrack as your central storage instead of React state. Where you would normally call `setState`, call the Trrack action instead:
-
-```ts
-trrack.apply('Set response', setResponseAction(value));
-```
-
-To update the frontend when the current node changes (e.g., when `undo` or `redo` are called), add an observer:
-
-```ts
-trrack.currentChange(() => {
-  const response = trrack.getState().response;
-  setResponseText(response);
+```js
+const trrack = Revisit.createTrrack({
+  initializeTrrack,
+  registry,
+  initialState,
 });
 ```
 
-Add undo/redo via buttons or keybinds:
+This replaces direct `initializeTrrack(...)` plus repeated calls to `Revisit.postProvenance(trrack.graph.backend)`. The returned value is a normal Trrack instance, and ReVISit automatically records its initial state and subsequent traversals.
 
-```ts
-trrack.undo();
-trrack.redo();
+To render a replayed state, register a provenance handler in the website or iframe:
+
+```js
+Revisit.onProvenanceReceive((provenanceState) => {
+  renderState(provenanceState);
+});
 ```
+
+## Migrating Existing Stimuli
+
+New stimuli should use the managed APIs. Existing manual integrations remain supported, so you do not need to migrate an existing study urgently.
+
+:::note[Deprecated compatibility paths]
+`Revisit.postProvenance(...)`, `setAnswer({ provenanceGraph, ... })`, and graph-only replay for historical provenance remain supported for existing studies and data. They are deprecated for new work because they cannot reliably preserve traversal history such as undo, redo, or revisiting an existing node.
+:::
+
+When you do migrate:
+
+- In a React stimulus, replace direct `initializeTrrack(...)` with the `useTrrack` function from `StimulusParams`, and remove `provenanceGraph` from `setAnswer`.
+- In a website or iframe stimulus, replace the direct Trrack initialization and manual `Revisit.postProvenance(...)` calls with `Revisit.createTrrack(...)`.
+
+## Examples
+
+The official Trrack demos show managed provenance, answer reporting, undo/redo, and replay hydration:
+
+- [React Stroop demo](https://revisit.dev/study/demo-react-trrack/)
+- [HTML Trrack demo](https://revisit.dev/study/demo-html-trrack/)
+- [Svelte Trrack demo](https://revisit.dev/study/demo-svelte-trrack/)
 
 <!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
@@ -105,14 +106,17 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 <StructuredLinks
     demoLinks={[
         {name: "React Stroop Demo", url: "https://revisit.dev/study/demo-react-trrack/"},
-        {name: "HTML Track Demo", url: "https://revisit.dev/study/demo-html-trrack/"}
+        {name: "HTML Trrack Demo", url: "https://revisit.dev/study/demo-html-trrack/"},
+        {name: "Svelte Trrack Demo", url: "https://revisit.dev/study/demo-svelte-trrack/"}
     ]}
     codeLinks={[
-        {name: "React Stroop Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-react-trrack"},
-        {name: "HTML Track Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"}
+        {name: "React Stroop Code", url: "https://github.com/revisit-studies/study/tree/main/src/public/demo-react-trrack"},
+        {name: "HTML Trrack Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"},
+        {name: "Svelte Trrack Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-svelte-trrack"}
     ]}
     referenceLinks={[
         {name: "Trrack", url: "https://apps.vdl.sci.utah.edu/trrack"},
-        {name: "React Stimulus", url: "../react-stimulus"}
+        {name: "React Stimulus", url: "../react-stimulus"},
+        {name: "HTML Stimulus", url: "../html-stimulus"}
     ]}
 />
