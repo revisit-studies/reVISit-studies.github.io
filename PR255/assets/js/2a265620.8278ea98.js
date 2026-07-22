@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_website=self.webpackChunkdocs_website||[]).push([["38948"],{8509(e){e.exports=JSON.parse('{"metadata":{"permalink":"/PR255/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":7,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
