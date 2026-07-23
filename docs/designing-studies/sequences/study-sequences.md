@@ -349,7 +349,6 @@ You can also use `skip` to jump around within your study. The example below skip
 
 After jumping to `moreEasyQuestions`, the sequence will continue as if you had gotten there naturally, so will continue on to `post-survey` afterwards.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

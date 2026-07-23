@@ -166,7 +166,6 @@ You can enable the previous button by setting `previousButton` to `true`, which 
 
 ![Previous button](./img/previous-button.png)
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

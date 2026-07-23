@@ -20,11 +20,9 @@ Create a new Firebase project
 Enabling Gemini or Google Analytics is not necessary. Feel free to disable this when prompted.
 :::
 
-
 Name your project accordingly.
 
 ![Firebase project overview page after the project is created](./img/enabling-authentication/step6.png)
-
 
 ## Adding a Firestore Database
 
@@ -112,8 +110,6 @@ We are now going to add an app to your Firebase project:
 
 ![Firebase web app registration dialog for naming the app](./img/enabling-authentication/step20.png)
 
-
-
 With the app set up, we are ready to copy over the app configuration to your reVISit project. 
 In the image below you will see a JSON object denoted as `const firebaseConfig = { ... }`.
 
@@ -146,8 +142,6 @@ Our last step is to set up App Check.
 Click on "Register" to register your app with reCAPTCHA. At this point you will need to navigate to [reCAPTCHA](https://www.google.com/recaptcha/admin/create) to create a secret key.
 
 ![Google reCAPTCHA admin page for creating a new reCAPTCHA key](./img/enabling-authentication/recaptcha1.jpg)
-
-
 
 The important part here is filling out the domains that you will allow to access the Firebase database. Add `localhost` and `127.0.0.1` to test your survey on your local machine.
 
@@ -222,7 +216,6 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 
 If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -300,12 +300,6 @@ At this point, the click accuracy test will be running and be able to collect pa
 
 ![Click accuracy test](img/react-stimulus-click.png)
 
-<!-- As an additional We have three assignments for you.
-1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
-2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
-3) We can make this stimulus more challenge, adding multiple moving dots and ask the participants to click on the highlighted one. -->
-
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

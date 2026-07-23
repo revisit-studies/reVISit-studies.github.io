@@ -1,8 +1,6 @@
 
 # smeq
 
-
-
 The Subjective Mental Effort Questionnaire (SMEQ) is a single-item scale designed to measure perceived mental effort during a task. This library includes a single component, the SMEQ.
 
 ## Reference
@@ -11,10 +9,6 @@ The Subjective Mental Effort Questionnaire (SMEQ) is a single-item scale designe
 Zijlstra, F. R. H., and L. Van Doorn. The Construction of a Scale to Measure Perceived Effort. Delft University of Technology, 1985.
 :::
 
-
-
-
-
 ## Available Components
 
 - smeq
@@ -22,10 +16,6 @@ Zijlstra, F. R. H., and L. Van Doorn. The Construction of a Scale to Measure Per
 ## Available Sequences
 
 None
-
-
-
-<!-- Importing Links -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

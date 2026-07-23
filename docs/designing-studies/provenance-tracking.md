@@ -97,7 +97,6 @@ trrack.undo();
 trrack.redo();
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -1,8 +1,6 @@
 
 # umux
 
-
-
 The evaluation you're about to complete is the Usability Metric for User Experience (UMUX). The UMUX is a short, standardized usability questionnaire developed as a concise and conceptually similar alternative to the System Usability Scale (SUS). It includes four statements designed to assess how effective, efficient, and satisfying you find the system to use.
 
 ## Reference
@@ -13,8 +11,6 @@ Finstad, Kraig. "The usability metric for user experience." Interacting with com
 
 DOI: [10.1016/j.intcom.2010.04.004](https://dx.doi.org/10.1016/j.intcom.2010.04.004)
 
-
-
 ## Available Components
 
 - umux
@@ -23,9 +19,6 @@ DOI: [10.1016/j.intcom.2010.04.004](https://dx.doi.org/10.1016/j.intcom.2010.04.
 
 None
 
-
-
-<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks

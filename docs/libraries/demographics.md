@@ -1,17 +1,7 @@
 
 # demographics
 
-
-
 This is a library for demographic questions. It contains one component, demographics, with three questions: gender, age, and education.
-
-
-
-
-
-
-
-
 
 ## Available Components
 
@@ -21,9 +11,6 @@ This is a library for demographic questions. It contains one component, demograp
 
 None
 
-
-
-<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks

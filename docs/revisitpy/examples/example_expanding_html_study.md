@@ -10,7 +10,6 @@ Rather than copy this data over into our Jupyter notebook, we will use the built
 
 We load in the data using the built-in `data` function. This will generate a list of `DataRows` classes. We can then pass this directly into the `from_data` method of the sequence we create.
 
-
 ```python
 import revisitpy as rvt
 
@@ -60,7 +59,6 @@ print(data_sequence.get_components()[0])
 
 Notice that each component in this sequence we created is not the website component that we'd like. Instead, these are "filler components". The idea of the `from_data` method (or the similarly designed `permute` method) is to generate the _structure_ of the sequence. This method applies each of the data rows to the `meta` attribute of the components. These attributes will be printed out when inspecting the JSON and will appear in the final config. However, in general, the `meta` attribute does not have any tangible effect on the resulting component. This `meta` attribute is used when transforming these filler components into our desired components. Below we inspect the `meta` attribute of the first component in the sequence.
 
-
 ```python
 print(data_sequence.get_components()[0].get('meta'))
 ```
@@ -69,7 +67,6 @@ print(data_sequence.get_components()[0].get('meta'))
 {'id': 1, 'b1': 0.32, 'b2': 0.01, 'b3': 1.2, 'b4': 1.3, 'b5': 0.82, 'b6': 0.4, 'b7': 0.3}
 ```
 Now that we've verified that the metadata attributes are correctly applied to the components, lets transform these filler components to the components we'd like. We start by creating a "component function"
-
 
 ```python
 # Define the response and the base component.
@@ -116,7 +113,6 @@ Optionally, we could define this component function with the single parameter `*
 If the component function fails to create the component, the operation will not totally fail. Instead, the original filler component will remain in its place.
 
 Now that we have the function defined, the transformation is simple:
-
 
 ```python
 data_sequence.component(bar_chart_component_function)
@@ -168,7 +164,6 @@ print(data_sequence.get_components()[0])
 ## Creating the Final Sequence
 
 Now that we have the new sequence we created, let's redefine our study config and the inputted sequence.
-
 
 ```python
 
@@ -236,7 +231,6 @@ study = rvt.studyConfig(
 ```
 Finally, lets preview this in our widget.
 
-
 ```python
 import revisitpy_server as rs
 
@@ -261,7 +255,6 @@ Copying file from ./assets/help.md to /Users/bbollen23/revisit-py-examples/.venv
 Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/revisitLogoSquare.svg
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

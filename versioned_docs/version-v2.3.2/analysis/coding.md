@@ -22,7 +22,6 @@ Here are the main features:
 - **Participant Tags**: Labels for participants that let you group or filter them.
 - **Task Tags**: Labels you can add to the current task to categorize it.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -136,7 +136,6 @@ Just like with other platforms, you can display the SONA ID in the introduction 
 },
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

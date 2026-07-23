@@ -200,7 +200,6 @@ Here's a complete example combining all restriction types:
 
 ![Browser or device not supported](./img/device-check/device-not-supported.png)
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

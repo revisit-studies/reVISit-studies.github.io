@@ -9,7 +9,7 @@ We’re happy to share that our paper on reVISit 2 received a Best Paper Award a
 
 ![Selfie by the reVISit team on stage at IEEE VIS in Vienna after receiving the award.](/img/blog_posts/2025-11-10-ieee-vis-award/award_photo.jpg)
 
-<!-- truncate -->
+{/* truncate */}
 
 Running online visualization studies is now standard practice in VIS and HCI research. Yet the process remains fragmented: researchers stitch together survey tools, custom web code, logging scripts, analysis pipelines, and ad hoc debugging workflows. Users of [reVISit](https://revisit.dev) already know this story: reVISit consolidates this ecosystem into a single open framework that supports the **entire experiment life cycle** – from design to dissemination.
 

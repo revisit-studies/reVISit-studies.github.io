@@ -1,6 +1,5 @@
 # Applying Styles
 
-
 ReVISit provides flexible styling capabilities to customize the appearance of your study components and responses. You can apply styles at three levels: **globally through UI configuration**, at the **component** level, and at the **response** level.
 
 This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience. 
@@ -586,8 +585,6 @@ You can also make responses interactive using CSS. For example, you can change t
 }
 ```
 
-
-<!--   Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

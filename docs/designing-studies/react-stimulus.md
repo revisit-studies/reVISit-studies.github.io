@@ -287,7 +287,6 @@ To record user interactions and enable replay, you can add provenance tracking w
 
 For a full walkthrough, see the [Provenance Tracking](provenance-tracking.md) tutorial.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -276,7 +276,6 @@ Then, inside the `sequence`, add the [dynamic block](../typedoc/interfaces/Dynam
 
 ![The replication study with the dynamic JND block](./img/replication-config.json/step6.png)
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

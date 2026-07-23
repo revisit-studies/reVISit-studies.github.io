@@ -24,7 +24,6 @@ The video shows how to set up and use reVISit - it gives you a feel for the basi
 
 After watching it, follow the [Installation guide](../getting-started/installation.md) to create a study from the template repository. Then work through the written tutorials below, starting with `config.json` and then moving on to `replication-config.json`.
 
-<!-- Importing doc card list -->
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />

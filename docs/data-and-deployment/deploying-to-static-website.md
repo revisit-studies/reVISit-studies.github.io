@@ -116,8 +116,6 @@ Destination: /index.html
 
 After adding the rewrite rule, deploy your site. After a protracted period of time, this will yield a website like `https://<APP_NAME>.onrender.com/`
 
-<!-- Importing links -->
-
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -1,8 +1,6 @@
 
 # virtual-chinrest
 
-
-
 A library for visual calibration tasks including virtual chinrest (card size) and viewing distance calibration using blindspot tracking.
 
 ## Reference
@@ -24,9 +22,6 @@ Link: [https://github.com/QishengLi/virtual_chinrest](https://github.com/Qisheng
 
 - full
 
-
-
-<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks

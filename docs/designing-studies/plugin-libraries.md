@@ -268,7 +268,6 @@ T. He, P. Isenberg, R. Dachselt, and T. Isenberg, "BeauVis: A validated scale fo
 A.-F. Cabouat, T. He, P. Isenberg, and T. Isenberg, "PREVis: Perceived readability evaluation for visualizations," _IEEE Transactions on Visualization and Computer Graphics_, vol. 31, no. 1, pp. 1083–1093, Jan. 2025, doi: 10.1109/TVCG.2024.3456318.
 :::
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

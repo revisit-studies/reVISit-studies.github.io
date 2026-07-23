@@ -73,7 +73,6 @@ The condition picker lists the available conditions and the current participant 
 After the initial assignment that happens when you visit a URL with a condition, changing conditions is not possible, even in dev mode, except by starting as a new participant with the "Next Participant" button.
 :::
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

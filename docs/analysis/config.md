@@ -57,7 +57,6 @@ The Config tab syncs with filters in other tabs. Config names are displayed as `
 
 Select "ALL" to see everyone, or choose specific versions to analyze just those participants. This is useful when you want to analyze only your final version, compare responses across versions, exclude pilot data, or analyze different study runs separately.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -73,7 +73,6 @@ Now add `welcome` to the sequence:
 
 Refresh the local study or click "Next participant" to reload the Study Config and start a fresh preview. You should now see the welcome page.
 
-
 ![The tutorial study with the welcome page](./img/config.json/step2-2.png)
 
 :::warning
@@ -186,7 +185,6 @@ ReVISit supports many [form response types](../designing-studies/forms.md) insid
 ```
 
 This one component introduces several form elements: [numerical input](../typedoc/interfaces/NumericalResponse.md), [Likert scale](../typedoc/interfaces/LikertResponse.md), [divider](../typedoc/interfaces/DividerResponse.md), [matrix checkbox](../typedoc/interfaces/MatrixCheckboxResponse.md), [short text](../typedoc/interfaces/ShortTextResponse.md), [checkbox](../typedoc/interfaces/CheckboxResponse.md), and [slider](../typedoc/interfaces/SliderResponse.md).
-
 
 Add `demographics` to the sequence:
 
@@ -999,7 +997,6 @@ The `${library-name}.components.{componentName}` syntax references a component d
 }
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

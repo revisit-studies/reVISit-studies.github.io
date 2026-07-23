@@ -8,7 +8,7 @@ authors:
  
 Studying how people interact with AI is increasingly relevant, and when that AI is embedded in an interactive system, such as a data visualization, the questions get even more interesting. With reVISit, you can now integrate an LLM-based chatbot directly into your study workflow. In this post, we walk through a working demo and show you how to adapt it for your own research.
 
-<!-- truncate -->
+{/* truncate */}
 
 Take a look at our [demo study](https://revisit.dev/study/example-llm-chatbot/). The goal of this scenario was to help people learn about a chart. In this context, the chatbot should do more than simply generate answers. It should understand the study context, respond based on relevant materials, maintain continuity across turns, and make every interaction traceable for later analysis.
 

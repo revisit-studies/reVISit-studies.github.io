@@ -1,14 +1,11 @@
 # Setting Up Your First Study
 
-
-
 In this tutorial we will use the example of a simple survey. You will learn: 
 
 * How to set up your own copy of revisit.
 * How to write a simple reVISit spec with survey questions split into multiple pages.
 * How to register your study with reVISit so it shows up on your local web-server.
 * How to run the local webserver and access / preview your study. 
-
 
 :::note
 It is easiest to best to use an IDE for developing reVISit studies. We suggest something like [VSCode](https://code.visualstudio.com/) since it has JSON autocomplete, which will make it much easier to write a reVISit Spec.
@@ -146,12 +143,6 @@ After this, add `basic-questionnaire-study` into the `configsList` list in the s
 Now, if you start the server (using `yarn serve` as described in the <a href="#installation">Installation</a> section), you'll be able to navigate to http://localhost:8080/ and view your study in the list of studies. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to view the study directly.
 
 You should now see your study and be able to navigate quickly through it. However, your study is currently set up for development, so you won't be collecting any data yet. Go to the next getting started guide to learn how to enable data collection and download your data.
-
-
-
-
-<!-- Importing links  -->
-
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

@@ -1,8 +1,6 @@
 
 # adaptive-vlat
 
-
-
 A-VLAT is a short, adaptive visualization literacy test, which are built upon the existing static assessments VLAT. 
 
 This library contains a sequence of the full A-VLAT questionnaire. 
@@ -17,8 +15,6 @@ Y. Cui, L. W. Ge, Y. Ding, F. Yang, L. Harrison and M. Kay, Adaptive Assessment 
 
 DOI: [10.1109/TVCG.2023.3327165](https://dx.doi.org/10.1109/TVCG.2023.3327165)
 
-
-
 ## Available Components
 
 - VlatTrial
@@ -26,10 +22,6 @@ DOI: [10.1109/TVCG.2023.3327165](https://dx.doi.org/10.1109/TVCG.2023.3327165)
 ## Available Sequences
 
 - adaptive-vlat
-
-
-
-<!-- Importing Links -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

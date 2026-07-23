@@ -1,8 +1,6 @@
 
 # calvi
 
-
-
 The Critical Thinking Assessment for Literacy in Visualizations (CALVI) library is a collection of visualizations and questions designed to assess the ability to interpret data visualizations. The library includes a variety of visualizations, such as line graphs, bar charts, and pie charts, along with corresponding questions that test the user's understanding of the data presented. The questions are designed to be challenging and require critical thinking skills to answer correctly.
 
 ## Reference
@@ -12,8 +10,6 @@ Lily W. Ge, Yuan Cui, and Matthew Kay. 2023. CALVI: Critical Thinking Assessment
 :::
 
 DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
-
-
 
 ## Available Components
 
@@ -84,9 +80,6 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 - fullBank
 - specificBank
 
-
-
-<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks

@@ -61,9 +61,6 @@ The widget function passes the study configuration file as an iframe to the widg
 Since the `revisitpy-server` package uses an already built version of the reVISit application, `react-component` assets will not be copied over to the package directory. All other assets will work as expected. If your study heavily relies on react components as study assets, we suggest using a local copy of reVISit instead of the `revisitpy-server`, or use placeholder components until you're ready to deploy your study.
 :::
 
-
-
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

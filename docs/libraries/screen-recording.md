@@ -1,17 +1,7 @@
 
 # screen-recording
 
-
-
 This is a library for getting screen recording permissions and starting screen recording.
-
-
-
-
-
-
-
-
 
 ## Available Components
 
@@ -21,9 +11,6 @@ This is a library for getting screen recording permissions and starting screen r
 
 None
 
-
-
-<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks

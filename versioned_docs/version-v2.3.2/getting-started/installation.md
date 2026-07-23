@@ -73,7 +73,6 @@ When you visit the site, you'll see a list of demo studies, identical to [the de
 We do not support using `npm` to run reVISit. Please use `yarn` for all package management and running commands.
 :::
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
