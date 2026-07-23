@@ -45,8 +45,6 @@ All key settings live in `ChatInterface.tsx`. The most relevant parameters are:
 **Change the assistant behavior (system prompt)**  
 Edit `prePrompt` and `toolPolicy` to control how the assistant responds and when it should use tools.
 
-Learn more: [System instructions](https://platform.openai.com/docs/guides/responses#system-instructions)
-
 **Change the model**  
 Update `model` in both the tool-selection request and the streaming request.
 
@@ -88,4 +86,3 @@ If you have questions or want to share what you build, come find us in the [reVI
 * [Demo study](https://revisit.dev/study/example-llm-chatbot/)
 * [The Study Config](https://github.com/revisit-studies/study/blob/main/public/example-llm-chatbot/config.json)
 * [The React Component Sources](https://github.com/revisit-studies/study/tree/main/src/public/example-llm-chatbot)
-

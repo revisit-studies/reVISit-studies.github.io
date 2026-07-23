@@ -16,6 +16,7 @@ const linksToSkip = [
   'cs.utah.edu',
   'github\\.com/.+/edit/.+', // "Edit this page" links
   'slack.com', // Slack invites
+  'https?://.+,https?://.+', // Linkinator misreads multi-author blog metadata as one URL
 ];
 
 const checker = new LinkChecker();
