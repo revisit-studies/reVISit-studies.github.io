@@ -173,6 +173,8 @@ The component uses:
 - `setAnswer` to send typed responses to reVISit
 - `reactive` response in config
 
+Set `"required": true` on a `reactive` response when the Participant must interact with the stimulus before continuing. If they select **Next** first, ReVISit shows: “Please complete the stimulus interaction to continue.”
+
 We will use `demo-react-trrack` as the experiment name. Create the React stimulus file in `src/public/demo-react-trrack/assets/`.
 
 ```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
@@ -280,10 +282,11 @@ Below is a minimal config with two Stroop trials. Each trial passes `displayText
 
 ### Adding provenance tracking
 
-To record user interactions and enable replay, you can add provenance tracking with Trrack. This involves:
-- Creating a Trrack registry and actions for state changes
-- Passing `provenanceGraph` in `setAnswer` so reVISit stores the provenance
-- Using `provenanceState` to restore the textbox during replay
+To record user interactions and enable replay, use the managed `useTrrack` function supplied in `StimulusParams`. Create a Trrack registry and actions, then call `useTrrack({ registry, initialState })` at the component's top level. Do not import a ReVISit hook.
+
+ReVISit records the initial state plus apply, undo, redo, and other traversals automatically. Continue to use `setAnswer` for answers without passing `provenanceGraph`, and use `provenanceState` to render the restored stimulus state during replay.
+
+Existing manual `provenanceGraph` integrations remain supported, but are deprecated for new studies.
 
 For a full walkthrough, see the [Provenance Tracking](provenance-tracking.md) tutorial.
 

@@ -66,7 +66,13 @@ For response option, `infoText` is only supported in `button`, `checkbox`, `radi
 
 ### Required Fields
 
-You can make a field required, in which case a red star is rendered (see above) and it is necessary that a response is given before the "Next" button is activated and the participant can proceed. Required is the default, set `"required": false` if an answer is optional.
+You can make a field required, in which case a red star is rendered (see above). Required is the default; set `"required": false` if an answer is optional.
+
+The **Next** button is available before a Participant answers. When they select it, ReVISit checks required fields and validation rules. If anything needs attention, the page stays open, highlights the affected fields, and shows a summary of unanswered questions and invalid answers. The Participant can then correct the highlighted fields and select **Next** again.
+
+This attempted-advance validation applies to required responses, `requiredValue` and `requiredLabel`, numeric ranges, `minSelections` and `maxSelections`, matrix questions, incomplete **Other** entries, and custom response validation.
+
+<!-- Screenshot needed: docs/designing-studies/img/designing-forms/validation-after-next.png. Capture a Participant form after selecting Next with one required response unanswered and one invalid response, showing the inline errors and the validation summary. -->
 
 You can also force participants to provide a specific answer value using `requiredValue`. This is useful for attention checks, training tasks, or ensuring participants read instructions carefully. The participant must provide an exact match with the specified value to proceed.
 
@@ -207,6 +213,8 @@ Radios and checkboxes can be rendered either vertically (the default) or horizon
 
 You can allow an "other" option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
 
+When a Participant selects **Other**, they must complete its text field before continuing. If they select **Next** without entering text, ReVISit highlights the incomplete field.
+
 #### Selection Requirements for Checkboxes
 
 For checkboxes, you can specify the minimum and maximum number of selections required using `minSelections` and `maxSelections`. These properties control how many options must be selected before the participant can proceed.
@@ -234,7 +242,34 @@ Here is an example of Matrix Radio questions using `"answerOptions": "likely7"` 
 
 ![Matrix Radio examples with likely7 and satisfaction5 answer options](img/designing-forms/matrix-answer-options.png)
 
-If any question in the matrix is left unanswered, participants will see a validation message: "Please answer all questions in the matrix to continue."
+### Bipolar Matrix Row Labels
+
+For `matrix-radio` and `matrix-checkbox`, each `questionOptions` item can be a string or an object. Use `leftLabel` and `rightLabel` on an object to place opposing terms at the left and right ends of a row without changing the value stored for that row.
+
+```json title="public/study-name/config.json"
+{
+  "id": "ueq-response",
+  "type": "matrix-radio",
+  "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+  "questionOptions": [
+    {
+      "label": "Obstructive - Supportive",
+      "value": "obstructive-supportive",
+      "leftLabel": "Obstructive",
+      "rightLabel": "Supportive"
+    }
+  ]
+}
+```
+
+- `label` is the fallback display label.
+- `value` is the optional key stored in the Participant's response and defaults to `label`.
+- `leftLabel` replaces `label` at the left end of the row when supplied.
+- `rightLabel` adds a label at the right end. The right-hand label column appears when at least one matrix row has a `rightLabel`; rows without one leave that cell empty.
+
+Matrix row randomization and saved answers continue to use `value`, so adding left and right display labels does not change existing response keys.
+
+If a Participant selects **Next** with a matrix question unanswered, they will see a validation message: "Please answer all questions in the matrix to continue."
 
 ![Matrix Radio with warning](img/designing-forms/matrix-warning.png)
 

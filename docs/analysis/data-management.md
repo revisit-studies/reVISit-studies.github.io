@@ -8,6 +8,18 @@ A **snapshot** in the data management platform is an exact copy of the current s
 
 ![Data Management](./img/data-management.png)
 
+<!-- Screenshot needed: replace ./img/data-management.png with the Snapshots table showing the Completed, In Progress, and Rejected columns, with the most recently created snapshot first. -->
+
+### Snapshot Participant Status
+
+The Snapshots table lists the most recently created snapshot first and summarizes its participant status at the time of the snapshot:
+
+- **Completed**: Participants who completed the study and were not rejected.
+- **In Progress**: Participants who had not completed the study and were not rejected.
+- **Rejected**: Participants who were rejected.
+
+New snapshots store these counts when they are created. For an older snapshot, reVISit calculates the counts the first time you view it. The table shows **Loading...** during that calculation or **Unavailable** if the counts cannot be calculated. You can still rename, restore, delete, or download that snapshot while a count is loading or unavailable.
+
 ## Archiving Data
 
 When you archive your data, it first creates a snapshot of the current study data. Then, the current study data is completely removed -- allowing you to essentially "reset" the study while creating a backup copy to restore at a later point.

@@ -57,6 +57,7 @@ const sidebars: SidebarsConfig = {
         'designing-studies/react-stimulus',
         'designing-studies/vega-stimulus',
         'designing-studies/answers-trainings',
+        'designing-studies/study-browser',
         {
           type: 'category',
           label: 'Sequences',
