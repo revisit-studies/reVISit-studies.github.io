@@ -174,20 +174,20 @@ export default function Home() {
             </Heading>
             <div className={styles.pageIntro}>
               Many people have already gotten started using reVISit in their
-              data visualization research. Check out all the different ways
+              experiments. Check out all the different ways
               people are using reVISit to produce novel research. It's already
               been used in {adoption.length} published studies. If you&apos;ve
               used reVISit as part of your research, we strongly encourage you
-              to fill out{" "}
+              to fill out
               <Link
                 href="https://forms.gle/CE82n3V1bcmZ4ahY9"
                 target="_blank"
                 rel="noreferrer"
               >
-                this Google form
+                {" this Google form"}
               </Link>
-              . Once we verify your work, your research will be added to the
-              list of papers using reVISit below.
+              {" "}
+              and we will add your study to the list.
             </div>
             {adoption.map((adoption: Adoption, index: number) => (
               <Adoption key={index} adoption={adoption} />
