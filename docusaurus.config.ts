@@ -192,6 +192,10 @@ const config: Config = {
               <a class="col " target="_blank" href="https://www.cs.utah.edu/">
                 <img src="/img/logos/ULogo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/ULogo-dark.svg" class='logo dark-theme-display-component'/>
+              </a>              
+                  <a class="col " target="_blank" href="https://www.tugraz.at/">
+                  <img src="/img/logos/tug_logo.svg" class='logo light-theme-display-component'/>
+                  <img src="/img/logos/tug_logo_dark_background.svg" class='logo dark-theme-display-component'/>       
               </a>
               <a class="col " target="_blank" href="http://web.cs.wpi.edu/~ltharrison/">
                 <img src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>
