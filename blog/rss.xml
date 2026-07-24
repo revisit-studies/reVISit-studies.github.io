@@ -37,7 +37,6 @@
 <p>All key settings live in <code>ChatInterface.tsx</code>. The most relevant parameters are:</p>
 <p><strong>Change the assistant behavior (system prompt)</strong><br>
 <!-- -->Edit <code>prePrompt</code> and <code>toolPolicy</code> to control how the assistant responds and when it should use tools.</p>
-<p>Learn more: <a href="https://platform.openai.com/docs/guides/responses#system-instructions" target="_blank" rel="noopener noreferrer" class="">System instructions</a></p>
 <p><strong>Change the model</strong><br>
 <!-- -->Update <code>model</code> in both the tool-selection request and the streaming request.</p>
 <p>Learn more: <a href="https://platform.openai.com/docs/models" target="_blank" rel="noopener noreferrer" class="">Model list</a></p>
