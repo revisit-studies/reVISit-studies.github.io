@@ -1,4 +1,4 @@
-# replication-config.json
+# Building a Complex Config for a Replication
 
 In this part of the tutorial, you will build a [Study Config](../typedoc/interfaces/StudyConfig.md) for a replication study, [`public/tutorial/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/replication-config.json). The completed version is [`public/tutorial/_answers/replication-config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/replication-config.json). Use the completed version to check the step you just finished, not as something to copy all at once.
 

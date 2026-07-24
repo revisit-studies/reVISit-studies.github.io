@@ -1,0 +1,35 @@
+import React, { type ReactNode } from 'react';
+import { PageMetadata } from '@docusaurus/theme-common';
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client';
+
+export default function BlogPostPageMetadata(): ReactNode {
+  const { assets, metadata } = useBlogPost();
+  const { title, description, date, tags, authors, frontMatter } = metadata;
+
+  const { keywords } = frontMatter;
+  const image = assets.image ?? frontMatter.image;
+  const authorUrls = authors
+    .map((author) => author.url)
+    .filter((url): url is string => Boolean(url));
+
+  return (
+    <PageMetadata
+      title={frontMatter.title_meta ?? title}
+      description={description}
+      keywords={keywords}
+      image={image}
+    >
+      <meta property="og:type" content="article" />
+      <meta property="article:published_time" content={date} />
+      {authorUrls.map((authorUrl) => (
+        <meta key={authorUrl} property="article:author" content={authorUrl} />
+      ))}
+      {tags.length > 0 && (
+        <meta
+          property="article:tag"
+          content={tags.map((tag) => tag.label).join(',')}
+        />
+      )}
+    </PageMetadata>
+  );
+}
