@@ -6,6 +6,8 @@ import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
 import EditThisPage from "@theme/EditThisPage";
 
+import { VegaEmbed } from "react-vega";
+
 import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Papa from "papaparse";
@@ -27,7 +29,10 @@ interface Adoption {
 
 function Adoption({ adoption }: { adoption: Adoption }) {
   const studyUrls = adoption.revisitStudyUrl
-    ? adoption.revisitStudyUrl.split("|").map((u) => u.trim()).filter(Boolean)
+    ? adoption.revisitStudyUrl
+        .split("|")
+        .map((u) => u.trim())
+        .filter(Boolean)
     : [];
   const multipleStudies = studyUrls.length > 1;
   const normalizedDoi = adoption.doi?.trim();
@@ -39,7 +44,7 @@ function Adoption({ adoption }: { adoption: Adoption }) {
   const effectivePaperUrl =
     adoption.paperUrl && adoption.paperUrl !== "#"
       ? adoption.paperUrl
-      : doiHref ?? null;
+      : (doiHref ?? null);
 
   return (
     <div className={styles.adoptionContainer}>
@@ -110,10 +115,78 @@ function Adoption({ adoption }: { adoption: Adoption }) {
               <FontAwesomeIcon icon={faExternalLink} />
             </Link>
           ) : null}
-          {adoption.revisitVersion?.trim() ? <span>Uses reVISit v{adoption.revisitVersion}</span> : null}
+          {adoption.revisitVersion?.trim() ? (
+            <span>Uses reVISit v{adoption.revisitVersion}</span>
+          ) : null}
         </div>
       </div>
     </div>
+  );
+}
+
+function AdoptionChart(props: { data: Adoption[] }) {
+  const { data } = props;
+  const values = data.map((x) => ({ year: +x.year }));
+  return (
+    <VegaEmbed
+      options={{ actions: false, renderer: "svg" }}
+      spec={JSON.parse(
+        JSON.stringify({
+          $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+          width: 400,
+          height: {
+            step: 40,
+          },
+          view: {
+            stroke: null,
+          },
+          data: { values },
+          encoding: {
+            y: {
+              field: "year",
+              type: "nominal",
+              axis: { title: null, ticks: false, domain: false },
+              scale: { reverse: true },
+            },
+            x: {
+              aggregate: "count",
+              type: "quantitative",
+              ticks: false,
+              axis: {
+                title: "Number of Studies Per Year",
+                ticks: false,
+                domain: false,
+              },
+            },
+          },
+          layer: [
+            { mark: { type: "bar", color: "#f05a30" } },
+            {
+              mark: { type: "text", dx: 8, color: "black" },
+              encoding: {
+                text: { aggregate: "count", type: "quantitative" },
+              },
+            },
+          ],
+          config: {
+            text: { fontSize: 14 },
+            axis: {
+              labelFontSize: 14,
+              titleFontSize: 14,
+            },
+            legend: {
+              labelFontSize: 14,
+              titleFontSize: 14,
+            },
+            header: {
+              labelFontSize: 14,
+              titleFontSize: 14,
+            },
+            title: { fontSize: 14 },
+          },
+        }),
+      )}
+    />
   );
 }
 
@@ -174,20 +247,21 @@ export default function Home() {
             </Heading>
             <div className={styles.pageIntro}>
               Many people have already gotten started using reVISit in their
-              experiments. Check out all the different ways
-              people are using reVISit to produce novel research. It's already
-              been used in {adoption.length} published studies. If you&apos;ve
-              used reVISit as part of your research, we strongly encourage you
-              to fill out
+              experiments. Check out all the different ways people are using
+              reVISit to produce novel research. It's already been used in{" "}
+              {adoption.length} published studies. If you&apos;ve used reVISit
+              as part of your research, we strongly encourage you to fill out
               <Link
                 href="https://forms.gle/CE82n3V1bcmZ4ahY9"
                 target="_blank"
                 rel="noreferrer"
               >
                 {" this Google form"}
-              </Link>
-              {" "}
+              </Link>{" "}
               and we will add your study to the list.
+            </div>
+            <div className={styles.chartContainer}>
+              <AdoptionChart data={adoption} />
             </div>
             {adoption.map((adoption: Adoption, index: number) => (
               <Adoption key={index} adoption={adoption} />
