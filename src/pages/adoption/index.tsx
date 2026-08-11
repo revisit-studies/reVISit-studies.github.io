@@ -132,9 +132,15 @@ function AdoptionChart(props: { data: Adoption[] }) {
       spec={JSON.parse(
         JSON.stringify({
           $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-          width: 400,
+          width: 340,
+          title: {
+            text: "Number of reVISit Studies Per Year",
+            anchor: "start",
+            fontSize: 14,
+            offset: 16,
+          },
           height: {
-            step: 40,
+            step: 28,
           },
           view: {
             stroke: null,
@@ -144,16 +150,22 @@ function AdoptionChart(props: { data: Adoption[] }) {
             y: {
               field: "year",
               type: "nominal",
-              axis: { title: null, ticks: false, domain: false },
+              axis: {
+                title: null,
+                ticks: false,
+                domain: false,
+                labelPadding: 12,
+              },
               scale: { reverse: true },
             },
             x: {
               aggregate: "count",
               type: "quantitative",
-              ticks: false,
               axis: {
-                title: "Number of Studies Per Year",
+                title: null,
+                labels: false,
                 ticks: false,
+                grid: false,
                 domain: false,
               },
             },
@@ -181,7 +193,7 @@ function AdoptionChart(props: { data: Adoption[] }) {
               labelFontSize: 14,
               titleFontSize: 14,
             },
-            title: { fontSize: 14 },
+            title: { fontSize: 14, anchor: "start" },
           },
         }),
       )}
