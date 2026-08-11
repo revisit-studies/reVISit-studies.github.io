@@ -3664,6 +3664,11 @@ batch@0.6.1:
   resolved "https://registry.npmjs.org/batch/-/batch-0.6.1.tgz"
   integrity sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==
 
+bibtex-parser@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/bibtex-parser/-/bibtex-parser-0.0.0.tgz#d3342fd597483a02490ae9393a08e1d8d1c5e71c"
+  integrity sha512-IIpyZinwT4kbwpJ+uPLGkNskJ/HWj5OYzvhSSIyOcStstf+FMQxIoNbsleUnsB4W0fmH1+AzUizLRJsuwjfOQg==
+
 big.js@^5.2.2:
   version "5.2.2"
   resolved "https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz"
@@ -7462,11 +7467,6 @@ package-json@^8.1.0:
     registry-auth-token "^5.0.1"
     registry-url "^6.0.0"
     semver "^7.3.7"
-
-papaparse@^5.4.1:
-  version "5.5.3"
-  resolved "https://registry.npmjs.org/papaparse/-/papaparse-5.5.3.tgz"
-  integrity sha512-5QvjGxYVjxO59MGU2lHVYpRWBBtKHnlIAcSe1uNFCkkptUh63NFRj0FJQm7nR67puEruUci/ZkjmEFrjCAyP4A==
 
 param-case@^3.0.4:
   version "3.0.4"

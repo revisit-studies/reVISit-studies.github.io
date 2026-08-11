@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import parser from "bibtex-parser";
 
 const SOURCE_BIB_PATH = path.resolve("static/adoption.bib");
 const OUTPUT_JSON_PATH = path.resolve("src/data/adoption.generated.json");
@@ -12,253 +13,44 @@ function normalizeAuthors(value) {
   return normalizeWhitespace(value).replace(/(?:,\s*)?\s+and\s+/gi, ", ");
 }
 
-function unescapeBibValue(value) {
-  return value.replace(/\\([{}"\\])/g, "$1");
-}
-
-function findTopLevelComma(text) {
-  let depth = 0;
-  let inQuote = false;
-
-  for (let i = 0; i < text.length; i += 1) {
-    const ch = text[i];
-    const prev = text[i - 1];
-
-    if (inQuote) {
-      if (ch === '"' && prev !== "\\") {
-        inQuote = false;
-      }
-      continue;
-    }
-
-    if (ch === '"') {
-      inQuote = true;
-      continue;
-    }
-
-    if (ch === "{") {
-      depth += 1;
-      continue;
-    }
-
-    if (ch === "}") {
-      depth = Math.max(0, depth - 1);
-      continue;
-    }
-
-    if (ch === "," && depth === 0) {
-      return i;
-    }
-  }
-
-  return -1;
-}
-
-function parseBibValue(text, startIndex) {
-  let i = startIndex;
-
-  while (i < text.length && /\s/.test(text[i])) {
-    i += 1;
-  }
-
-  if (i >= text.length) {
-    return { value: "", nextIndex: i };
-  }
-
-  const startChar = text[i];
-
-  if (startChar === "{") {
-    let depth = 0;
-    const valueStart = i + 1;
-
-    for (; i < text.length; i += 1) {
-      const ch = text[i];
-      const prev = text[i - 1];
-
-      if (ch === "{" && prev !== "\\") {
-        depth += 1;
-      } else if (ch === "}" && prev !== "\\") {
-        depth -= 1;
-        if (depth === 0) {
-          const raw = text.slice(valueStart, i);
-          return {
-            value: normalizeWhitespace(unescapeBibValue(raw)),
-            nextIndex: i + 1,
-          };
-        }
-      }
-    }
-
-    throw new Error("Unterminated braced BibTeX value.");
-  }
-
-  if (startChar === '"') {
-    const valueStart = i + 1;
-    i += 1;
-
-    for (; i < text.length; i += 1) {
-      const ch = text[i];
-      const prev = text[i - 1];
-      if (ch === '"' && prev !== "\\") {
-        const raw = text.slice(valueStart, i);
-        return {
-          value: normalizeWhitespace(unescapeBibValue(raw)),
-          nextIndex: i + 1,
-        };
-      }
-    }
-
-    throw new Error("Unterminated quoted BibTeX value.");
-  }
-
-  const valueStart = i;
-  for (; i < text.length; i += 1) {
-    if (text[i] === ",") {
-      break;
-    }
-  }
-
-  const raw = text.slice(valueStart, i);
-  return {
-    value: normalizeWhitespace(unescapeBibValue(raw)),
-    nextIndex: i,
-  };
-}
-
-function parseFields(fieldText) {
-  const fields = {};
-  let i = 0;
-
-  while (i < fieldText.length) {
-    while (i < fieldText.length && /[\s,]/.test(fieldText[i])) {
-      i += 1;
-    }
-
-    if (i >= fieldText.length) {
-      break;
-    }
-
-    const nameStart = i;
-    while (i < fieldText.length && /[A-Za-z0-9_:-]/.test(fieldText[i])) {
-      i += 1;
-    }
-
-    const name = fieldText.slice(nameStart, i).toLowerCase();
-    if (!name) {
-      break;
-    }
-
-    while (i < fieldText.length && /\s/.test(fieldText[i])) {
-      i += 1;
-    }
-
-    if (fieldText[i] !== "=") {
-      break;
-    }
-
-    i += 1;
-
-    const { value, nextIndex } = parseBibValue(fieldText, i);
-    fields[name] = value;
-    i = nextIndex;
-
-    while (i < fieldText.length && /\s/.test(fieldText[i])) {
-      i += 1;
-    }
-
-    if (fieldText[i] === ",") {
-      i += 1;
-    }
-  }
-
-  return fields;
-}
-
 function parseBibTeX(input) {
+  const parsed = parser(input);
   const entries = [];
-  let i = 0;
 
-  while (i < input.length) {
-    const atIndex = input.indexOf("@", i);
-    if (atIndex === -1) {
-      break;
-    }
+  Object.entries(parsed).forEach(([key, entry]) => {
+    const fields = {};
+    const normalizedType = (entry.entryType ?? "unknown").toLowerCase();
+    const type =
+      normalizedType === "article"
+        ? "article"
+        : normalizedType === "inproceedings"
+          ? "inproceedings"
+          : normalizedType;
 
-    let cursor = atIndex + 1;
-    while (cursor < input.length && /\s/.test(input[cursor])) {
-      cursor += 1;
-    }
-
-    const typeStart = cursor;
-    while (cursor < input.length && /[A-Za-z]/.test(input[cursor])) {
-      cursor += 1;
-    }
-
-    const type = input.slice(typeStart, cursor).toLowerCase();
-
-    while (cursor < input.length && /\s/.test(input[cursor])) {
-      cursor += 1;
-    }
-
-    const open = input[cursor];
-    if (open !== "{" && open !== "(") {
-      i = cursor + 1;
-      continue;
-    }
-
-    const close = open === "{" ? "}" : ")";
-    cursor += 1;
-
-    const bodyStart = cursor;
-    let depth = 1;
-    let inQuote = false;
-
-    while (cursor < input.length && depth > 0) {
-      const ch = input[cursor];
-      const prev = input[cursor - 1];
-
-      if (inQuote) {
-        if (ch === '"' && prev !== "\\") {
-          inQuote = false;
-        }
-        cursor += 1;
-        continue;
+    Object.entries(entry).forEach(([name, value]) => {
+      if (name === "entryType") {
+        return;
       }
 
-      if (ch === '"' && prev !== "\\") {
-        inQuote = true;
-      } else if (ch === open && prev !== "\\") {
-        depth += 1;
-      } else if (ch === close && prev !== "\\") {
-        depth -= 1;
+      if (typeof value === "string") {
+        fields[name.toLowerCase()] = normalizeWhitespace(value);
+      } else if (Array.isArray(value)) {
+        fields[name.toLowerCase()] = value.join(", ");
+      } else if (value && typeof value === "object") {
+        fields[name.toLowerCase()] = value.value ?? "";
+      } else {
+        fields[name.toLowerCase()] = value ?? "";
       }
+    });
 
-      cursor += 1;
-    }
-
-    if (depth !== 0) {
-      throw new Error(`Unterminated BibTeX entry near index ${atIndex}.`);
-    }
-
-    const body = input.slice(bodyStart, cursor - 1);
-    const splitIndex = findTopLevelComma(body);
-    if (splitIndex === -1) {
-      i = cursor;
-      continue;
-    }
-
-    const key = body.slice(0, splitIndex).trim();
-    const fieldText = body.slice(splitIndex + 1);
-    const fields = parseFields(fieldText);
+    fields.author = fields.author ? normalizeAuthors(fields.author) : "";
 
     entries.push({
       type,
       key,
       fields,
     });
-
-    i = cursor;
-  }
+  });
 
   return entries;
 }
@@ -339,3 +131,5 @@ main().catch((error) => {
   console.error("Failed to generate adoption data:", error);
   process.exit(1);
 });
+
+export { parseBibTeX };

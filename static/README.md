@@ -12,13 +12,13 @@ The adoption page data is generated at build time from this BibTeX file.
 - `title`
 - `author`
 - `year`
+- `abstract`(either the paper abstract or a summary of the purpose of the study)
 
 ## Recommended standard fields
 
 - `journal` or `booktitle`
 - `url`
 - `doi`
-- `abstract` (displayed as the adoption page description text)
 
 ## Custom fields used by the adoption page
 
@@ -38,7 +38,9 @@ All fields other than `title`, `author`, and `year` are optional.
 - If `sourcecodelink` is missing, no source code link is shown.
 - If `studyurl` is missing, no `See Study` button is shown.
 
-## Example entry
+## Example entries
+
+### Articles and preprints
 
 ```bibtex
 @article{example-study-2026,
@@ -52,5 +54,22 @@ All fields other than `title`, `author`, and `year` are optional.
 	revisitversion = {2.4.3},
 	sourcecodelink = {https://github.com/example/repo},
 	studyurl = {https://example.org/study-1 | https://example.org/study-2},
+}
+```
+
+### Conference papers can use inproceedings
+
+```bibtex
+@inproceedings{example-conference-2026,
+	title = {Example Conference Paper Title},
+	author = {First Author and Second Author},
+	year = {2026},
+	booktitle = {Example Conference},
+	url = {https://example.org/paper},
+	doi = {10.1234/example-doi},
+	abstract = {One-sentence summary of the purpose of the study used on the adoption page. Alternatively, the abstract of the paper.},
+	revisitversion = {2.4.3},
+	sourcecodelink = {https://github.com/example/repo},
+	studyurl = {https://example.org/study},
 }
 ```
