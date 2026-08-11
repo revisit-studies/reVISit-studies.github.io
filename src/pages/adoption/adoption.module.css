@@ -22,11 +22,38 @@ html[data-theme="dark"] .adoptionContainer {
     color: var(--ifm-color-primary);
 }
 
+.introLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.pageIntro {
+    min-width: 0;
+}
+
 .chartContainer {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (min-width: 1025px) {
+    .introLayout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .pageIntro {
+        flex: 1 1 auto;
+    }
+
+    .chartContainer {
+        flex: 0 0 420px;
+        width: 420px;
+        justify-content: flex-end;
+    }
 }
 
 .description {
