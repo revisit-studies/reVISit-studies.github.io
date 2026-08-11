@@ -32,7 +32,7 @@ Running into a bug? Or want to write an extension? Use the [GitHub issue tracker
 
 ## Submit Your ReVISit Study
 
-If you've used reVISit for your visualization research, we'd love to see it! Fill out [this Google form](https://forms.gle/CE82n3V1bcmZ4ahY9) and you'll be added to our [adoption page](../adoption).
+If you've used reVISit for your visualization research, we'd love to see it. Open a pull request that updates [static/adoption.bib](https://github.com/revisit-studies/reVISit-studies.github.io/blob/main/static/adoption.bib), or email [contact@revisit.dev](mailto:contact@revisit.dev) if you'd prefer help from us.
 
 ## Community Activities
 

@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "generate:adoption": "node scripts/generateAdoptionData.mjs",
+    "prestart": "yarn generate:adoption",
+    "prebuild": "yarn generate:adoption",
+    "pretypecheck": "yarn generate:adoption",
     "docusaurus": "docusaurus",
     "start": "docusaurus start --no-open",
     "build": "docusaurus build",
@@ -28,7 +32,6 @@
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "linkinator": "^7.5.3",
-    "papaparse": "^5.4.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
@@ -10,7 +10,7 @@ import { VegaEmbed } from "react-vega";
 
 import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Papa from "papaparse";
+import adoptionData from "../../data/adoption.generated.json";
 import styles from "./adoption.module.css";
 
 interface Adoption {
@@ -192,50 +192,7 @@ function AdoptionChart(props: { data: Adoption[] }) {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-
-  const [adoption, setAdoption] = useState<Adoption[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("/adoption.csv");
-      if (!response.ok) {
-        console.error("Error fetching the CSV file:", response.statusText);
-        return;
-      }
-      const text = await response.text();
-      Papa.parse(text, {
-        header: true,
-        complete: (results: { data: any[] }) => {
-          const parsedAdoption = results.data.map((entry, idx) => ({
-            title: entry["Paper Title"],
-            authors: entry["List of Authors"],
-            year: entry["Year of Publication"],
-            revisitStudyUrl: entry["Study URL"],
-            paperUrl: entry["Paper URL"],
-            subtitle: entry["Short Description"],
-            revisitVersion: entry["ReVISit Version"],
-            sourceCodeLink: entry["Source Code Link"],
-            published: entry["Has this paper been published?"] === "Yes",
-            venue: entry["Journal, Conference or Venue"],
-            doi: entry.DOI,
-            initialIndex: idx,
-          }));
-          // Sort based on year (descending).
-          parsedAdoption.sort((a: Adoption, b: Adoption) => {
-            const yearDiff = Number(b.year) - Number(a.year);
-            if (yearDiff !== 0) {
-              return yearDiff;
-            }
-            // otherwise sort based on the order in the CSV file (assuming more recent entries are added to the bottom of the CSV file).
-            return (b as any).initialIndex - (a as any).initialIndex;
-          });
-          setAdoption(parsedAdoption);
-        },
-      });
-    };
-
-    fetchData();
-  }, []);
+  const adoption = adoptionData as Adoption[];
 
   return (
     <Layout description={`${siteConfig.tagline}`}>
@@ -249,16 +206,14 @@ export default function Home() {
               Many people have already gotten started using reVISit in their
               experiments. Check out all the different ways people are using
               reVISit to produce novel research. It's already been used in{" "}
-              {adoption.length} published studies. If you&apos;ve used reVISit
-              as part of your research, we strongly encourage you to fill out
-              <Link
-                href="https://forms.gle/CE82n3V1bcmZ4ahY9"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {" this Google form"}
-              </Link>{" "}
-              and we will add your study to the list.
+              {adoption.length} published studies. If you&apos;ve used reVISit as
+              part of your research, please open a pull request updating{" "}
+              <Link href="https://github.com/revisit-studies/reVISit-studies.github.io/blob/main/static/adoption.bib">
+                static/adoption.bib
+              </Link>
+              . If you&apos;re not comfortable with that workflow, email us at{" "}
+              <Link href="mailto:contact@revisit.dev">contact@revisit.dev</Link>
+              .
             </div>
             <div className={styles.chartContainer}>
               <AdoptionChart data={adoption} />
