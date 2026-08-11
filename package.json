@@ -18,6 +18,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
+    "test": "node --test scripts/generateAdoptionData.test.mjs",
     "checkLinks": "node scripts/checkLinks.mjs"
   },
   "dependencies": {

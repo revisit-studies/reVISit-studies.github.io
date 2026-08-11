@@ -223,8 +223,13 @@ export default function Home() {
                 <Link href="https://github.com/revisit-studies/reVISit-studies.github.io/blob/main/static/adoption.bib">
                   static/adoption.bib
                 </Link>
-                . If you&apos;re not comfortable with that workflow, email us at{" "}
-                <Link href="mailto:contact@revisit.dev">contact@revisit.dev</Link> and we'd be happy to add your paper.
+                . For guidance on the BibTeX format and the fields used on this page,
+                see the{" "}
+                <Link href="https://github.com/revisit-studies/reVISit-studies.github.io/blob/main/static/README.md">
+                  README
+                </Link>
+                .If you&apos;re not comfortable with that workflow, email us at{" "}
+                <Link href="mailto:contact@revisit.dev">contact@revisit.dev</Link> and we'd be happy to add your paper. 
               </div>
               <div className={styles.chartContainer}>
                 <AdoptionChart data={adoption} />
