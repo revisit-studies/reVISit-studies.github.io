@@ -205,14 +205,13 @@ export default function Home() {
               Many people have already gotten started using reVISit in their
               experiments. Check out all the different ways people are using
               reVISit to produce novel research. It's already been used in{" "}
-              {adoption.length} published studies. If you&apos;ve used reVISit as
+              {adoption.length} papers. If you&apos;ve used reVISit as
               part of your research, please open a pull request updating{" "}
               <Link href="https://github.com/revisit-studies/reVISit-studies.github.io/blob/main/static/adoption.bib">
                 static/adoption.bib
               </Link>
               . If you&apos;re not comfortable with that workflow, email us at{" "}
-              <Link href="mailto:contact@revisit.dev">contact@revisit.dev</Link>
-              .
+              <Link href="mailto:contact@revisit.dev">contact@revisit.dev</Link> and we'd be happy to add your paper.
             </div>
             <div className={styles.chartContainer}>
               <AdoptionChart data={adoption} />

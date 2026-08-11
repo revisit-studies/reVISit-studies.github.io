@@ -9,7 +9,7 @@ function normalizeWhitespace(value) {
 }
 
 function normalizeAuthors(value) {
-  return normalizeWhitespace(value).replace(/\s+and\s+/gi, ", ");
+  return normalizeWhitespace(value).replace(/(?:,\s*)?\s+and\s+/gi, ", ");
 }
 
 function unescapeBibValue(value) {
