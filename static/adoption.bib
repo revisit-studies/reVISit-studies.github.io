@@ -39,7 +39,7 @@
 @article{yuan-cui-2024-3,
   title = {Promises and Pitfalls: Using Large Language Models to Generate Visualization Items},
   author = {Yuan Cui, W Ge Lily, Yiren Ding, Lane Harrison, Fumeng Yang, Matthew Kay},
-  year = {2024},
+  year = {2025},
   journal = {IEEE Transactions on Visualization and Computer Graphics (VIS)},
   url = {https://osf.io/au3er/download},
   doi = {10.1109/TVCG.2024.3456309},
@@ -190,6 +190,7 @@
   year = {2026},
   journal = {Preprint},
   url = {https://arxiv.org/abs/2604.01181},
+  abstract = {This study investigates the ability of multimodal Large Language Models (LLMs) to identify and interpret misleading visualizations, and recognize these observations along with their underlying causes and potential intentionality. Our analysis leverages concepts from visualization rhetoric and a newly developed taxonomy of authorial intents as explanatory lenses. We formulated three research questions and addressed them experimentally using a dataset of 2,336 COVID-19-related tweets, half of which contain misleading visualizations, and supplemented it with real-world examples of perceptual, cognitive, and conceptual errors drawn from VisLies, the IEEE VIS community event dedicated to showcasing deceptive and misleading visualizations. To ensure broad coverage of the current LLM landscape, we evaluated 16 state-of-the-art models. Among them, 15 are open-weight models, spanning a wide range of model sizes, architectural families, and reasoning capabilities. The selection comprises small models, namely Nemotron-Nano-V2-VL (12B parameters), Mistral-Small-3.2 (24B), DeepSeek-VL2 (27B), Gemma3 (27B), and GTA1 (32B); medium-sized models, namely Qianfan-VL (70B), Molmo (72B), GLM-4.5V (108B), LLaVA-NeXT (110B), and Pixtral-Large (124B); and large models, namely Qwen3-VL (235B), InternVL3.5 (241B), Step3 (321B), Llama-4-Maverick (400B), and Kimi-K2.5 (1000B). In addition, we employed OpenAI GPT-5.4, a frontier proprietary model. To establish a human perspective on these tasks, we also conducted a user study with visualization experts to assess how people perceive rhetorical techniques and the authorial intentions behind the same misleading visualizations. This allows comparison between model and expert behavior, revealing similarities and differences that provide insights into where LLMs align with human judgment and where they diverge.}
 }
 
 @article{sheng-long-2026-16,
@@ -201,24 +202,25 @@
   studyurl = {https://mika-long.github.io/vis-decode/vis-decode-slider/ | https://mika-long.github.io/vis-decode/vis-decode-retrieve-value/},
   revisitversion = {2.4},
   sourcecodelink = {https://github.com/mika-long/vis-decode/},
+  abstract = {Prior work on perceptual effectiveness has decomposed visualizations into smaller common units (e.g., channels such as angle, position, and length) to establish rankings. While useful, these decompositions lack the computational structure to predict performance for new visualization x task combinations, requiring new experiments for each. We propose an alternative unit of analysis: operationalizing quantitative visualization interpretation as sequences of composable visual decoding operators. Using probability density function (PDF) and cumulative distribution function (CDF) charts, we examine how four chart-specific tasks can be decomposed into five reusable, chart-agnostic perceptual operations and characterize their error profiles through hierarchical Bayesian modeling. We then test generalizability by composing one kind of learned operators to predict performance on a structurally different task: Moritz et al.'s [37] scatterplot mean-estimation experiment, where the chart type, chart dimensions, and analytic goal all differ from the learning conditions. With a pre-registered analysis plan, we compose operators under six candidate strategies and evaluate each against empirical data with no parameters fit to the response data. One strategy captures both bias and variance of observed responses; five alternatives fail in distinguishable ways. We argue that this decoding-operator-oriented approach to empirical visualization research demonstrates the feasibility of a different way of doing empirical visualization research, one where findings compose, and predictions extend beyond the conditions in which they were measured. Free copy of this paper and supplemental materials: https://osf.io/prtfq.}
 }
 
-@article{shiyi-he-2026-17,
+@inproceedings{shiyi-he-2026-17,
   title = {Reading Between the Curly Braces: On Textual Data Serialization Format Usability},
   author = {Shiyi He, Zach Cutler, Andrew McNutt},
   year = {2026},
-  journal = {IEEE Symposium on Visual Languages and Human-Centric Computing},
+  booktitle = {IEEE Symposium on Visual Languages and Human-Centric Computing},
   url = {https://arxiv.org/abs/2607.26211},
   abstract = {Textual data serialization formats, such as JSON or XML, are ubiquitous, supporting tasks like software configuration and data tabularization. Despite their prominence, little is known about their usability. What makes one good or bad? Is there a best one for cognitive efficiency? We explore these questions via a (N = 215) crowd work study and a (N = 9) semi- structured interview study. We find that format distinctions (like indentation versus curly braces) do not consistently translate into substantial usability differences. While HJSON and YAML performed better than other formats in certain modification tasks, these advantages disappeared in more realistic settings where task complexity was either trivial or highly demanding. Instead, usability appears driven by sociotechnical ecosystems: the tooling, documentation, and community practices surrounding a format matter more than syntax.},
   revisitversion = {2.3},
   sourcecodelink = {https://osf.io/jryna},
 }
 
-@article{shiyi-he-2026-18,
+@inproceedings{shiyi-he-2026-18,
   title = {How Wrangling Tools Shape Wrangling: A Technical Dimensions Analysis},
   author = {Shiyi He, El Kindi Rezig, Paul Rosen, Andrew McNutt},
   year = {2026},
-  journal = {IEEE Symposium on Visual Languages and Human-Centric Computing},
+  booktitle = {IEEE Symposium on Visual Languages and Human-Centric Computing},
   url = {https://arxiv.org/abs/2607.26198},
   abstract = {Wrangling consumes a disproportionate share of the effort associated with any data project. While a variety of tools support it, relatively little is known about how their differing interface forms shape the way people actually wrangle. We conduct a between-subjects (N=40) observational study of data cleaning tasks performed in tools spanning distinct interface paradigms: Jupyter (notebook), Excel (spreadsheet), ChatGPT (conversational AI), and OpenRefine (visual wranglers). We situate our observations within the Technical Dimensions of Programming Systems framework, which we use as a conceptual scaffold for comparing across interface paradigms. Within the context of our study, the results suggest that tool affordances steer user strategies but do not determine outcomes. There is no consistent advantage of any single tool, nor convergence of results within tools observed across our outcome measures. Instead, we identify trade-offs and connect them with observed practice. For example, a key tension is between data- and abstraction-centered interfaces, where data-centered interfaces encourage opportunistic cleaning rather than systematic, planned transformations found in abstraction-focused tools (but come with a cognitive burden). Tool design, beyond mere functionality, plays a structuring role in how data work unfolds.},
   revisitversion = {2.3},
@@ -228,7 +230,8 @@
 @article{valentin-edelsbrunner-2025-19,
   title = {Mind the Badge: How Visualization Badges Impact Reading Visualizations},
   author = {Valentin Edelsbrunner, Jinrui Wang, Min Chen, Pierre Dragicevic, Benjamin Bach},
-  year = {2025},
+  year = {2027},
   journal = {IEEE Transactions on Visualization and Computer Graphics (VIS)},
   url = {https://hal.science/hal-05706226/document},
+  abstract = {This paper assesses how visualization badges-small informative visual labels placed alongside visualizations-affect people's ability to read, interpret, and learn from visualizations. Similar to visual labels on product packaging, visualization badges highlight potentially relevant information to the reader, such as pointing to a 'Major Finding', cautioning a 'Truncated Axis', or informing about 'AI Involvement'. We scrutinize 10 qualities of badges through three complementary studies: (1) a controlled Prolific study with a general audience (N=24); (2) interviews with 12 domain experts experiencing badges as part of professional visualization applications; and (3) interviews with 5 visualization designers gauging the feasibility of badges for themselves and their audiences. We found clear evidence for badges attracting curiosity, aiding interpretation, fostering trust, and motivating broader adoption. We conclude by discussing the role of badges in data and visualization literacy and exploring their potential to become an accepted convention for visualization. By providing our study materials, reusable badge implementation, and additional badge resources at https://vis-badges.github.io, we invite the community to use, adapt, and further study visualization badges.}
 }

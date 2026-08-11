@@ -257,12 +257,6 @@ function buildAdoptionRecord(entry, originalIndex) {
   const year = fields.year ?? "";
   const venue = fields.journal ?? fields.booktitle ?? "";
 
-  const publishedField = (fields.published ?? "").toLowerCase();
-  const published =
-    publishedField.length > 0
-      ? ["true", "yes", "1"].includes(publishedField)
-      : venue.trim().toLowerCase() !== "preprint";
-
   return {
     key,
     title,
@@ -270,10 +264,9 @@ function buildAdoptionRecord(entry, originalIndex) {
     year,
     paperUrl: fields.url ?? "",
     revisitStudyUrl: fields.studyurl ?? "",
-    subtitle: fields.abstract ?? "",
+    abstract: fields.abstract ?? "",
     sourceCodeLink: fields.sourcecodelink ?? "",
     revisitVersion: fields.revisitversion ?? "",
-    published,
     venue,
     doi: fields.doi ?? "",
     initialIndex: originalIndex,

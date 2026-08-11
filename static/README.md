@@ -18,7 +18,7 @@ The adoption page data is generated at build time from this BibTeX file.
 - `journal` or `booktitle`
 - `url`
 - `doi`
-- `abstract` (used as the adoption page subtitle)
+- `abstract` (displayed as the adoption page description text)
 
 ## Custom fields used by the adoption page
 

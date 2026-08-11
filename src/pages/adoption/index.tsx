@@ -19,10 +19,9 @@ interface Adoption {
   year: string;
   paperUrl: string;
   revisitStudyUrl?: string;
-  subtitle: string;
+  abstract: string;
   sourceCodeLink?: string;
   revisitVersion: string;
-  published: boolean;
   venue: string;
   doi?: string;
 }
@@ -62,7 +61,7 @@ function Adoption({ adoption }: { adoption: Adoption }) {
         ) : null}
         {`, ${adoption.year}`}
       </div>
-      <p className={styles.description}>{adoption.subtitle}</p>
+      <p className={styles.description}>{adoption.abstract}</p>
       <div className={styles.buttonContainer}>
         <div className={styles.primaryButtons}>
           {studyUrls.map((url, i) => (
