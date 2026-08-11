@@ -33,7 +33,6 @@ All fields other than `title`, `author`, and `year` are optional.
 - If `journal` and `booktitle` are missing, the entry is shown as `Preprint`.
 - If `url` is missing, the `See Paper` button is omitted (unless a DOI link can be used).
 - If `doi` is missing, no DOI link is shown.
-- If `abstract` is missing, no subtitle text is shown.
 - If `revisitversion` is missing, no reVISit version label is shown.
 - If `sourcecodelink` is missing, no source code link is shown.
 - If `studyurl` is missing, no `See Study` button is shown.
