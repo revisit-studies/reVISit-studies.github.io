@@ -211,14 +211,28 @@ function parseBibTeX(input) {
 
     const bodyStart = cursor;
     let depth = 1;
+    let inQuote = false;
 
     while (cursor < input.length && depth > 0) {
       const ch = input[cursor];
-      if (ch === open) {
+      const prev = input[cursor - 1];
+
+      if (inQuote) {
+        if (ch === '"' && prev !== "\\") {
+          inQuote = false;
+        }
+        cursor += 1;
+        continue;
+      }
+
+      if (ch === '"' && prev !== "\\") {
+        inQuote = true;
+      } else if (ch === open && prev !== "\\") {
         depth += 1;
-      } else if (ch === close) {
+      } else if (ch === close && prev !== "\\") {
         depth -= 1;
       }
+
       cursor += 1;
     }
 
