@@ -12,7 +12,7 @@ The adoption page data is generated at build time from this BibTeX file.
 - `title`
 - `author`
 - `year`
-- `abstract`(A brief summary of the purpose of the study (preferred), or alternatively the abstract of the paper.)
+- `abstract` (A brief summary of the purpose of the study (preferred), or alternatively the abstract of the paper.)
 
 ## Recommended standard fields
 
