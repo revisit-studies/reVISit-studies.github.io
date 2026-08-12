@@ -12,7 +12,7 @@ The adoption page data is generated at build time from this BibTeX file.
 - `title`
 - `author`
 - `year`
-- `abstract`(either the paper abstract or a summary of the purpose of the study)
+- `abstract`(A brief summary of the purpose of the study (preferred), or alternatively the abstract of the paper.)
 
 ## Recommended standard fields
 
@@ -28,7 +28,7 @@ The adoption page data is generated at build time from this BibTeX file.
 
 ## Optional fields
 
-All fields other than `title`, `author`, and `year` are optional.
+All fields other than `title`, `author`, `year`, and `abstract` are optional.
 
 - If `journal` and `booktitle` are missing, the entry is shown as `Preprint`.
 - If `url` is missing, the `See Paper` button is omitted (unless a DOI link can be used).

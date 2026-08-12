@@ -83,7 +83,8 @@ function hasRequiredFields(record) {
   return (
     record.title.trim().length > 0 &&
     record.authors.trim().length > 0 &&
-    record.year.trim().length > 0
+    record.year.trim().length > 0 &&
+    record.abstract.trim().length > 0
   );
 }
 
@@ -122,7 +123,7 @@ async function main() {
 
   if (skipped.length > 0) {
     console.warn(
-      `Skipped ${skipped.length} entries missing required fields (title, author, year): ${skipped.join(", ")}`,
+      `Skipped ${skipped.length} entries missing required fields (title, author, year, abstract): ${skipped.join(", ")}`,
     );
   }
 }
@@ -132,4 +133,4 @@ main().catch((error) => {
   process.exit(1);
 });
 
-export { parseBibTeX };
+export { parseBibTeX, buildAdoptionRecord, hasRequiredFields };

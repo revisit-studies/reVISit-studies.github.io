@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseBibTeX } from './generateAdoptionData.mjs';
+import { buildAdoptionRecord, hasRequiredFields, parseBibTeX } from './generateAdoptionData.mjs';
 
 test('parseBibTeX handles article and inproceedings entries', () => {
   const source = `
@@ -35,4 +35,36 @@ test('parseBibTeX handles article and inproceedings entries', () => {
   assert.equal(entries[0].fields.sourcecodelink, 'https://example.org/code');
   assert.equal(entries[1].type, 'inproceedings');
   assert.equal(entries[1].fields.booktitle, 'Example Conference');
+});
+
+test('hasRequiredFields rejects records without abstract', () => {
+  const entry = {
+    key: 'missing-abstract',
+    fields: {
+      title: 'Valid Title',
+      author: 'First Author and Second Author',
+      year: '2026',
+      abstract: '',
+    },
+  };
+
+  const record = buildAdoptionRecord(entry, 0);
+
+  assert.equal(hasRequiredFields(record), false);
+});
+
+test('hasRequiredFields accepts records with abstract', () => {
+  const entry = {
+    key: 'with-abstract',
+    fields: {
+      title: 'Valid Title',
+      author: 'First Author and Second Author',
+      year: '2026',
+      abstract: 'This paper evaluates a study built with ReVISit.',
+    },
+  };
+
+  const record = buildAdoptionRecord(entry, 0);
+
+  assert.equal(hasRequiredFields(record), true);
 });
