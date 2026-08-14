@@ -82,6 +82,6 @@ Note that this wil _only_ render when we have the right-hand sidebar in the mark
 
 ## Adoption
 
-If you use reVISit in a paper, please open a pull request that updates `static/adoption.bib`.
+If you use reVISit in a paper, please open a pull request that updates `static/adoption.bib` or [file an issue](https://github.com/revisit-studies/reVISit-studies.github.io/issues/new/choose).
 
 If you are not comfortable with pull requests, email us at contact@revisit.dev and we can help add your study.
