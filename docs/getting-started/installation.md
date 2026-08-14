@@ -1,5 +1,8 @@
 # Installation
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ReVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase.
 
 For most users, the best place to start is the template repository (first option below). If you want all demos and tighter upstream parity, or are considering contributing to reVISit, we recommend you fork the repository instead.
@@ -24,6 +27,19 @@ node --version
 npm --version
 ```
 
+:::note
+On Windows your machine needs docker to install Node.js and NPM via the command line. You can download a Windows installer instead. When you use that option it might happen that the path is not properly configured for npm. If you get an error while checking for you Node.js or NPM version try the following:
+
+Check in your PowerShell where your Node.js and NPM are installed with:
+```bash
+where.exe node
+where.exe npm
+```
+Then check your Environment variables by pressing `Win` and search for `Environment Variables`. Click `Edit the System Environment Variables` > `Environment Variables` > `Path` > `Edit`. Ensure that the paths from the previous command are listed there. If not, add them and click OK and close all dialogues that you opened.
+
+If you still cannot check for your NPM version try `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` close the PowerShell window and open a new one, then try again.
+:::
+
 Yarn can be installed using NPM. Run the following command to install Yarn:
 
 ```bash
@@ -33,9 +49,23 @@ npm i -g yarn
 :::note
 If your machine restricts global installs, run the command with administrator permissions:
 
+<Tabs>
+<TabItem value="win" label="Windows">
+
+```bash
+npm install -g yarn --allow-scripts=yarn
+```
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
 ```bash
 sudo npm i -g yarn
 ```
+
+</TabItem>
+</Tabs>
+
 :::
 
 After installing Yarn, check that it was installed correctly:
