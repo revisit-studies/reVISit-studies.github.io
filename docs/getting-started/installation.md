@@ -27,18 +27,29 @@ node --version
 npm --version
 ```
 
-:::note
-On Windows your machine needs docker to install Node.js and NPM via the command line. You can download a Windows installer instead. When you use that option it might happen that the path is not properly configured for npm. If you get an error while checking for you Node.js or NPM version try the following:
+<details>
+<summary><strong>Troubleshooting for Windows users</strong></summary>
 
-Check in your PowerShell where your Node.js and NPM are installed with:
+On Windows, you can install Node.js and NPM using the Windows installer. In some cases, `npm` is installed correctly but the PATH is not set. If you get an error while checking your Node.js or NPM version, try this:
+
+Check where Node.js and NPM are installed:
+
 ```bash
 where.exe node
 where.exe npm
 ```
-Then check your Environment variables by pressing `Win` and search for `Environment Variables`. Click `Edit the System Environment Variables` > `Environment Variables` > `Path` > `Edit`. Ensure that the paths from the previous command are listed there. If not, add them and click OK and close all dialogues that you opened.
 
-If you still cannot check for your NPM version try `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` close the PowerShell window and open a new one, then try again.
-:::
+Then check your environment variables: press `Win`, search for `Environment Variables`, click `Edit the System Environment Variables` > `Environment Variables` > `Path` > `Edit`, and confirm the paths above are listed.
+
+If `npm --version` still fails, run:
+
+```bash
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Then close PowerShell, open a new window, and try again.
+
+</details>
 
 Yarn can be installed using NPM. Run the following command to install Yarn:
 
@@ -48,21 +59,16 @@ npm i -g yarn
 
 :::note
 If your machine restricts global installs, run the command with administrator permissions:
-
 <Tabs>
-<TabItem value="win" label="Windows">
-
-```bash
-npm install -g yarn --allow-scripts=yarn
-```
-
-</TabItem>
-<TabItem value="linux" label="Linux">
-
+<TabItem value="linux" label="Mac/Linux">
 ```bash
 sudo npm i -g yarn
 ```
-
+</TabItem>
+<TabItem value="win" label="Windows">
+```bash
+npm install -g yarn --allow-scripts=yarn
+```
 </TabItem>
 </Tabs>
 
@@ -148,7 +154,12 @@ If you started from the template repository, this will be a smaller set of start
 We do not support using `npm` to run reVISit. Please use `yarn` for all package management and running commands.
 :::
 
-## Forking Repository (Advanced Alternative to Template Repository)
+## Forking the Study Repository 
+**An advanced alternative to using the template repository**
+
+:::info
+Forking the main repository is the right choice if you're considering contributing back reVISit, or want to stay up-to-date with the latest changes by trying out the dev branch.
+ :::
 
 Forking the repository is a more advanced option that allows you to have a copy of the entire `study` repository in your GitHub account. This means that you will have access to all the demo studies and that you can choose to follow the latest changes from the main repository (e.g., by following the `dev` branch). However, it also means that your repository will be linked to the upstream repository's fork network, which can make it more complex to manage.
 
