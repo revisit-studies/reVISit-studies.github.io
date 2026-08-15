@@ -28,7 +28,7 @@ npm --version
 ```
 
 <details>
-<summary><strong>Troubleshooting for Windows users</strong></summary>
+<summary><strong>Troubleshooting NPM for Windows users</strong></summary>
 
 On Windows, you can install Node.js and NPM using the Windows installer. In some cases, `npm` is installed correctly but the PATH is not set. If you get an error while checking your Node.js or NPM version, try this:
 
