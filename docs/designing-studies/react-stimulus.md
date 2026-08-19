@@ -12,6 +12,8 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "example-cleveland," so we put this code into `src/public/example-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
 
+The Study Config `path` is relative to `src/public/`, so the path for that example would be `example-cleveland/assets/BarChart.tsx`. ReVISit verifies this path while parsing the Study Config and reports an **Unresolved path** error if the file is missing or was placed under `public/` instead. See [Parser Errors and Warnings](parser-errors.md#unresolved-react-component-paths) for troubleshooting.
+
 We have a few reusable components and hooks available in the `src/public/example-cleveland/assets/hooks` and `src/public/example-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks help creating charts using D3.js in React. You may copy them to your own experiment folder.
 
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.

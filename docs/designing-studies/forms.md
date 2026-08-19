@@ -72,7 +72,7 @@ The **Next** button is available before a Participant answers. When they select 
 
 This attempted-advance validation applies to required responses, `requiredValue` and `requiredLabel`, numeric ranges, `minSelections` and `maxSelections`, matrix questions, incomplete **Other** entries, and custom response validation.
 
-<!-- Screenshot needed: docs/designing-studies/img/designing-forms/validation-after-next.png. Capture a Participant form after selecting Next with one required response unanswered and one invalid response, showing the inline errors and the validation summary. -->
+{/* Screenshot needed: docs/designing-studies/img/designing-forms/validation-after-next.png. Capture a Participant form after selecting Next with one required response unanswered and one invalid response, showing the inline errors and the validation summary. */}
 
 You can also force participants to provide a specific answer value using `requiredValue`. This is useful for attention checks, training tasks, or ensuring participants read instructions carefully. The participant must provide an exact match with the specified value to proceed.
 
@@ -383,6 +383,19 @@ The `numItems` option cannot be used in pairwise rankings, since their purpose i
 :::
 
 This option is useful when you want participants to focus on their strongest preferences rather than distributing all items.
+
+#### Pairwise ranking validation
+
+In a `ranking-pairwise` response, a complete pair has exactly one item in **HIGH** and one different item in **LOW**. A required pairwise ranking must contain at least one complete pair before the Participant can continue. If the Participant creates additional pairs, every pair must be complete or removed before continuing.
+
+ReVISit prevents the following invalid arrangements and displays an error explaining what to correct:
+
+- placing more than one item in either side of a pair;
+- placing the same item in both **HIGH** and **LOW**;
+- creating the same pair more than once; or
+- leaving a pair unfinished.
+
+For all three ranking types, the widget becomes read-only after the response is finalized: items can no longer be dragged, and any applicable controls for adding or removing pairs are disabled.
 
 ![Examples of ranking widgets](img/designing-forms/ranking.png)
 
