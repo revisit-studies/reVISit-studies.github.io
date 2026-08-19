@@ -1,8 +1,6 @@
 
 # berlin-num
 
-
-
 The Berlin Numeracy Test is a psychometrically sound instrument that quickly assesses statistical numeracy and risk literacy. It contains 4 questions. This library contains four components, each is a question from the Berlin Numeracy Test. There are two sequences: a four-item sequence and a single-item sequence. The four-item sequence is the traditional Berlin Numeracy Test and contains all 4 questions. The single-item sequence is the single question version and contains only question 1.
 
 ## Reference
@@ -27,10 +25,6 @@ Link: [http://www.riskliteracy.org/](http://www.riskliteracy.org/)
 - adaptive
 - four-items
 - single-item
-
-
-
-<!-- Importing Links -->
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

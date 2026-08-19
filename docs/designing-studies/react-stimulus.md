@@ -290,7 +290,6 @@ Existing manual `provenanceGraph` integrations remain supported, but are depreca
 
 For a full walkthrough, see the [Provenance Tracking](provenance-tracking.md) tutorial.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -31,7 +31,6 @@ If your study uses a [dynamic block](../../typedoc/interfaces/DynamicBlock/), yo
 
 ![Live monitor dynamic block](./img/live-monitor/live-monitor-in-progress-dynamic.png)
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

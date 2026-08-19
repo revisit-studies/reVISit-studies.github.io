@@ -1,8 +1,6 @@
 
 # umux-lite
 
-
-
 The UMUX-Lite is a two-item questionnaire derived from the original UMUX. It is designed for situations where testing time is limited, offering a brief yet reliable measure of perceived usability. The two statements assess how usable and easy to use you find the system, providing a quick indication of overall user experience quality.
 
 ## Reference
@@ -13,8 +11,6 @@ Lewis, James R., Brian S. Utesch, and Deborah E. Maher. "UMUX-LITE: when there's
 
 DOI: [10.1145/2470654.2481287](https://dx.doi.org/10.1145/2470654.2481287)
 
-
-
 ## Available Components
 
 - umux-lite
@@ -23,9 +19,6 @@ DOI: [10.1145/2470654.2481287](https://dx.doi.org/10.1145/2470654.2481287)
 
 None
 
-
-
-<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks

@@ -22,6 +22,47 @@ html[data-theme="dark"] .adoptionContainer {
     color: var(--ifm-color-primary);
 }
 
+.introLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    padding-bottom: 12px;
+}
+
+.pageIntro {
+    min-width: 0;
+}
+
+.chartContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 8px;
+}
+
+@media only screen and (min-width: 1025px) {
+    .introLayout {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 88px;
+        padding-right: 48px;
+        padding-bottom: 12px;
+    }
+
+    .pageIntro {
+        flex: 1 1 auto;
+        padding-right: 28px;
+    }
+
+    .chartContainer {
+        flex: 0 0 360px;
+        width: 360px;
+        justify-content: flex-end;
+        padding: 0 0 8px 48px;
+    }
+}
+
 .description {
     font-style: italic;
 }

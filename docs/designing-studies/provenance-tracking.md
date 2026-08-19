@@ -12,9 +12,9 @@ The managed APIs capture the initial state and every Trrack traversal, including
 Accept `useTrrack` in the component parameters. Do not import a ReVISit hook. Call it at the component's top level, as you would any other React hook.
 
 ```tsx title="src/public/my-study/assets/MyStimulus.tsx"
-import { useMemo } from 'react';
-import { Registry } from '@trrack/core';
-import type { StimulusParams } from '../../store/types';
+import { useMemo } from "react";
+import { Registry } from "@trrack/core";
+import type { StimulusParams } from "../../store/types";
 
 type CounterState = { count: number };
 
@@ -23,7 +23,7 @@ export default function MyStimulus({
 }: StimulusParams<undefined, CounterState>) {
   const { actions, registry } = useMemo(() => {
     const nextRegistry = Registry.create();
-    const increment = nextRegistry.register('increment', (state) => ({
+    const increment = nextRegistry.register("increment", (state) => ({
       ...state,
       count: state.count + 1,
     }));
@@ -38,7 +38,7 @@ export default function MyStimulus({
 
   const increment = () => {
     // Calls to apply, undo, redo, and traversal are captured automatically.
-    trrack.apply('Increment', actions.increment());
+    trrack.apply("Increment", actions.increment());
   };
 
   return <button onClick={increment}>Increment</button>;
@@ -101,22 +101,23 @@ The official Trrack demos show managed provenance, answer reporting, undo/redo, 
 - [Svelte Trrack demo](https://revisit.dev/study/demo-svelte-trrack/)
 
 <!-- Importing links -->
+
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    demoLinks={[
-        {name: "React Stroop Demo", url: "https://revisit.dev/study/demo-react-trrack/"},
-        {name: "HTML Trrack Demo", url: "https://revisit.dev/study/demo-html-trrack/"},
-        {name: "Svelte Trrack Demo", url: "https://revisit.dev/study/demo-svelte-trrack/"}
-    ]}
-    codeLinks={[
-        {name: "React Stroop Code", url: "https://github.com/revisit-studies/study/tree/main/src/public/demo-react-trrack"},
-        {name: "HTML Trrack Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"},
-        {name: "Svelte Trrack Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-svelte-trrack"}
-    ]}
-    referenceLinks={[
-        {name: "Trrack", url: "https://apps.vdl.sci.utah.edu/trrack"},
-        {name: "React Stimulus", url: "../react-stimulus"},
-        {name: "HTML Stimulus", url: "../html-stimulus"}
-    ]}
+demoLinks={[
+{name: "React Stroop Demo", url: "https://revisit.dev/study/demo-react-trrack/"},
+{name: "HTML Trrack Demo", url: "https://revisit.dev/study/demo-html-trrack/"},
+{name: "Svelte Trrack Demo", url: "https://revisit.dev/study/demo-svelte-trrack/"}
+]}
+codeLinks={[
+{name: "React Stroop Code", url: "https://github.com/revisit-studies/study/tree/main/src/public/demo-react-trrack"},
+{name: "HTML Trrack Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-html-trrack"},
+{name: "Svelte Trrack Code", url: "https://github.com/revisit-studies/study/tree/main/public/demo-svelte-trrack"}
+]}
+referenceLinks={[
+{name: "Trrack", url: "https://apps.vdl.sci.utah.edu/trrack"},
+{name: "React Stimulus", url: "../react-stimulus"},
+{name: "HTML Stimulus", url: "../html-stimulus"}
+]}
 />

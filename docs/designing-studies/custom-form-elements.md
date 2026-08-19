@@ -61,11 +61,11 @@ To use your custom form element in your study config, you need to define a respo
 }
 ```
 
-::note[Note]
+:::note[Note]
 The path here is relative to the `src/public` directory of the ReVISit app, not the `public` directory used for most other study assets. You can place your custom form element component anywhere under `src/public`. We recommend that you follow the same folder structure that we suggest in the [react stimulus docs](./react-stimulus.md) for your custom form elements.
 :::
 
-::note[JSON-serializable values]
+:::note[JSON-serializable values]
 Custom response values must be JSON-serializable. This applies both to the values you store through `field.setValue(...)` and to any `default` value you define in the study config. Strings, numbers, booleans, `null`, arrays, and plain objects are supported.
 :::
 

@@ -1,4 +1,4 @@
-# config.json
+# Building a Basic Study Config
 
 In this part of the tutorial, you will build the [Study Config](../typedoc/interfaces/StudyConfig.md), [`public/tutorial/config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/config.json). The completed version is [`public/tutorial/_answers/config.json`](https://github.com/revisit-studies/template/blob/main/public/tutorial/_answers/config.json). Use the completed version to check the step you just finished, not as something to copy all at once.
 
@@ -72,7 +72,6 @@ Now add `welcome` to the sequence:
 ```
 
 Refresh the local study or click "Next participant" to reload the Study Config and start a fresh preview. You should now see the welcome page.
-
 
 ![The tutorial study with the welcome page](./img/config.json/step2-2.png)
 
@@ -186,7 +185,6 @@ ReVISit supports many [form response types](../designing-studies/forms.md) insid
 ```
 
 This one component introduces several form elements: [numerical input](../typedoc/interfaces/NumericalResponse.md), [Likert scale](../typedoc/interfaces/LikertResponse.md), [divider](../typedoc/interfaces/DividerResponse.md), [matrix checkbox](../typedoc/interfaces/MatrixCheckboxResponse.md), [short text](../typedoc/interfaces/ShortTextResponse.md), [checkbox](../typedoc/interfaces/CheckboxResponse.md), and [slider](../typedoc/interfaces/SliderResponse.md).
-
 
 Add `demographics` to the sequence:
 
@@ -999,7 +997,6 @@ The `${library-name}.components.{componentName}` syntax references a component d
 }
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

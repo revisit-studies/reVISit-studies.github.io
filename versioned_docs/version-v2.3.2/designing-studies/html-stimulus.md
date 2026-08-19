@@ -135,7 +135,6 @@ The `parameters` key is a dynamically valued key which is used to pass data to y
 
 To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2` to the sequence in `config.json`).
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

@@ -109,7 +109,6 @@ The figure shows the result:
 
 Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/table).
 
-
 ```json title="public/demo-vega/config.json"
 "components": {
   "vegademo1": {
@@ -337,7 +336,6 @@ Remember that all events in this example are fully tracked, so you can inspect t
 }
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

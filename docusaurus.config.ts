@@ -27,7 +27,7 @@ const config: Config = {
 
   future: {
     v4: true, // opt-in for Docusaurus v4 planned changes
-    experimental_faster: true, // turns Docusaurus Faster on globally
+    faster: true, // turns Docusaurus Faster on globally
   },
 
   // Even if you don't use internationalization, you can use this field to set
@@ -192,6 +192,10 @@ const config: Config = {
               <a class="col " target="_blank" href="https://www.cs.utah.edu/">
                 <img src="/img/logos/ULogo-light.svg" class='logo light-theme-display-component'/>
                 <img src="/img/logos/ULogo-dark.svg" class='logo dark-theme-display-component'/>
+              </a>              
+                  <a class="col " target="_blank" href="https://www.tugraz.at/">
+                  <img src="/img/logos/tug_logo.svg" class='logo light-theme-display-component'/>
+                  <img src="/img/logos/tug_logo_dark_background.svg" class='logo dark-theme-display-component'/>       
               </a>
               <a class="col " target="_blank" href="http://web.cs.wpi.edu/~ltharrison/">
                 <img src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>

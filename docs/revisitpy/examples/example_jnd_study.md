@@ -8,7 +8,6 @@ You'll see that we have a section which uses the `revisitpy` Widget. This widget
 
 We'll start by defining the basic structure of the study:
 
-
 ```python
 
 import revisitpy as rvt
@@ -22,7 +21,6 @@ study_metadata = rvt.studyMetadata(
     date='2025-01-13',
     version='1.0'
 )
-
 
 # UI Config
 ui_config = rvt.uiConfig(
@@ -51,7 +49,6 @@ print(introduction)
 ## Generating Correlation Data
 
 We now want to generate the datasets that will go into our vega charts. We don't yet have to worry about rendering these, we'll just define the functions to generate the data.
-
 
 ```python
 import numpy as np
@@ -106,7 +103,6 @@ print(generate_correlated_data_uniform(0.6, 10, seed=42))
 ## Vega ScatterPlots and Parallel Coordinate Plots
 
 For this study, we need to generate pairs of scatterplots and pairs of parallel coordinate plots. We will create two generalized functions which take in two data frames whose columns are 'X' and 'Y' and whose entries are tuples, indicating the coordinates. These functions will each return a vega-altair chart that will be added as components.
-
 
 ```python
 import pandas as pd
@@ -190,28 +186,17 @@ chart = create_scatter_plot(test_data_1,test_data_2)
 chart
 ```
 
-
-
-
-    
 ![png](example_jnd_study_files/example_jnd_study_5_0.png)
     
-
-
-
 # Generate Vega Spec to combine Generated Data and Plots
 
 Now that we have our functions to create the individual chart, we want a function that returns the correct vega spec when given the number of points, the correlation values, and the visualization type ('scatterPlot' or 'parallelPlot'). We'll use the number of points and the pair of correlation values to generate the dataset. Using the visualization type, we'll either return the scatter plot of this data or the parallel coordinates plot. Hover, instead of returning the vega-altair chart, we instead convert the chart to its vega-lite specification, then convert that into the true vega specification.
-
-
 
 ```python
 import random
 import pandas as pd
 import altair as alt
 import vl_convert as vlc
-
-
 
 def create_vega_chart(visType, numPoints, corrValues):
     random.shuffle(corrValues)
@@ -225,7 +210,6 @@ def create_vega_chart(visType, numPoints, corrValues):
         columns=['X', 'Y']
     )
     
-
     if visType == 'scatterPlot':
         chart = create_scatter_plot(data1, data2)
     else:
@@ -248,7 +232,6 @@ my_vega_spec = create_vega_chart('parallelPlot', 20, [0.3,0.9])
 The `component_function` is used to transform every component in a given sequence to any new component. If we have a sequence that is the correct _structure_, then we call the `component()` method on that sequence and pass in the desired `component_function`. Any `meta` attributes in the original components are passed in as arguments to the `component_function`.
 
 We'll create a component function which takes in the visualization type, the correlation values, and the number of points and returns the correct vega specification component. Additionally, we append signals directly into the vega spec so that we can detect the user's right and left arrow keys. Instead of the user having to choose "left" or "right" in some drop down, the user will be able to use the left and right arrow keys to pick the chart. We add an additional signal to "highlight" the selected chart with a thick blue border. Finally, since we specified "nextOnEnter" as "True" in the "uiConfig", the user will also be able to proceed to the next component by pressing the "Enter" key. All of this combined creates a seamless study experience.
-
 
 ```python
 def component_function(visType=None, numPoints=None, corrValues=None):
@@ -323,7 +306,6 @@ When we permute over these factors, the corresponding factored will be added to 
 
 After we have finished generating the sequence, we add the entire component block to an a sequence only containing the introduction.
 
-
 ```python
 import itertools
 
@@ -366,7 +348,6 @@ The `revisitpy` package provides a widget in order to preview our study directly
 
 A simpler way to achieve the same goal, however, is using the `revisitpy-server` Python package. This is a simple Python package which already has the most recent reVISit repository built and runs a server locally. After installing `revisitpy-server`, all that is required is the following:
 
-
 ```python
 import revisitpy_server as rs
 process = rs.serve()
@@ -378,7 +359,6 @@ Server is running in the background at http://localhost:8080
 ## The Widget
 
 Now that your server is running, we create the widget with the configuration file we created above. When calling the widget, we are assuming that the assets referenced in the configuration file are relative to this notebook. The widget then copies these static assets to the appropriate directory. Since we're currently using the `revisitpy-server` package, you'll see that they are copied into the assets of the local virtual environment `revisitpy-server` package.
-
 
 ```python
 w = rvt.widget(study, server=True)
@@ -397,11 +377,9 @@ Now that we have the widget running, we can check out some sample data that woul
 
 From here, we can export this data back into our Jupyter notebook. Start by clicking the "Download as Tidy CSV" on the right-hand side above the table. Here you'll be shown a preview of the CSV file with some additional options to truncate the data. In the bottom right-hand corner, you'll see a button with the Python icon. Clicking on this button will send the Tidy CSV back to the Jupyter notebook. Once the button is clicked, we can preview the data like so:
 
-
 ```python
 df = w.get_df()
 ```
-
 
 ```python
 import pandas as pd
@@ -429,17 +407,14 @@ plt.show()
 
 Closing the notebook will automatically terminate the server. If you'd rather do this manually, you can do the following.
 
-
 ```python
 process.terminate()
 ```
 
-
 ```python
 
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

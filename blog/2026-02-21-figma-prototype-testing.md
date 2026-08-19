@@ -7,7 +7,7 @@ authors:
 
 Scheduling one-on-one usability sessions is time-consuming, expensive, and hard to scale. With reVISit's **screen recording** and **think-aloud audio** features, you can run instrumented prototype studies asynchronously — participants navigate your Figma prototype while their screen and voice are captured, and you can run multiple participants at once!
 
-<!-- truncate -->
+{/* truncate */}
 
 ## Why Test Figma Prototypes with reVISit?
 

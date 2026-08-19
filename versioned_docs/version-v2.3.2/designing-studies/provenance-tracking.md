@@ -56,7 +56,6 @@ For a full React example, see our [ClickAccuracyTest example](https://github.com
 
 For a basic HTML + D3 example, see our [Dots example](https://github.com/revisit-studies/study/blob/main/public/demo-html-trrack/assets/dots-count.html). Creating a Trrack instance and actions works the same as above, just without the React hooks.
 
-
 ## Using Trrack for undo/redo 
 The above example shows the basic use case for Trrack if you just want to store provenance, and do some simple analysis on it later. But with a little more effort, Trrack can also give your stimulus more powerful features, such as undo/redo and full study rehydration. 
 
@@ -88,7 +87,6 @@ trrack.undo();
 trrack.redo();
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

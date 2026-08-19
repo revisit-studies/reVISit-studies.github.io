@@ -1,6 +1,5 @@
 # Setting Up Authentication
 
-
 :::warning
 In order to use authentication, you must have a Firebase application already configured. To set up your Firebase application, please see [here](../setup).
 :::
@@ -37,7 +36,6 @@ Through the settings cog on the right side of your reVISit application, navigate
 
 When you first enable authentication, you will be prompted to sign in using Google SSO. The account you choose will automatically be added as a user. Any other account that attempts to log in to reVISit and access protected routes will be redirected to the login screen.
 
-
 ![ReVISit settings page with Google sign-in](./img/auth5.png)
 
 ## Manage Administrators in reVISit
@@ -54,7 +52,6 @@ In the "Enabled Users" section, you will see the "Delete" icon to the right of e
 
 ![Remove User](./../img/manage_admin/remove_user.png)
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

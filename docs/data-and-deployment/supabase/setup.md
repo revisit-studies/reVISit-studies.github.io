@@ -1,6 +1,5 @@
 # Configuring Supabase
 
-
 <a href="https://supabase.com/" target="_blank" >Supabase</a> is an open-source alternative to Firebase that provides a real-time database and storage solution. It is built on top of PostgreSQL, which allows for more complex queries and data structures. Supabase is particularly useful for researchers who need to comply with strict data privacy regulations, as it can be self-hosted.
 
 This guide will be focused on setting up a self-hosted Supabase instance for use with reVISit. If you would like to use a hosted solution, we suggest that you use the Firebase implementation instead. However, if you would like to use Supabase, as a hosted solution, you can follow the instructions on their website to stand up a hosted instance.
@@ -149,7 +148,6 @@ Make sure to replace `your-domain.com` with your actual domain name and provide 
 
 Once the reverse proxy is set up, you can access your Supabase instance securely over HTTPS. Update `VITE_SUPABASE_URL` in your reVISit `.env` file to use `https://` and drop the port if you are using default `443` (as shown in the example above).
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

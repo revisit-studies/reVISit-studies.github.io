@@ -14,10 +14,8 @@ uv sync
 
 This will initialize a virtual environment with all of the necessary packages for the repository (including `revisitpy` and `revisitpy-server`). Then, when running any of the examples, you just need to choose the `ipykernel` associated with your virtual environment (by default, this is the `.venv` directory).
 
-
 <DocCardList />
 
-<!-- Importing links -->
 import DocCardList from '@theme/DocCardList';
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

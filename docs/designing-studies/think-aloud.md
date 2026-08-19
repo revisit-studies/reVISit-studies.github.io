@@ -56,7 +56,6 @@ To download the audio and transcript files in bulk from Firebase, navigate to yo
 Transcript files are generated only if you have installed the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) in Firebase.
 :::
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

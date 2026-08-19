@@ -1,5 +1,8 @@
 # Installation
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ReVISit project is open-source – meaning anyone can see the entire codebase. Most of the work that is done to create a new study is done by making changes to this codebase.
 
 For most users, the best place to start is the template repository (first option below). If you want all demos and tighter upstream parity, or are considering contributing to reVISit, we recommend you fork the repository instead.
@@ -24,7 +27,31 @@ node --version
 npm --version
 ```
 
-If you want to use the preferred package manager, install Yarn using NPM:
+<details>
+<summary><strong>Troubleshooting NPM for Windows users</strong></summary>
+
+On Windows, you can install Node.js and NPM using the Windows installer. In some cases, `npm` is installed correctly but the PATH is not set. If you get an error while checking your Node.js or NPM version, try this:
+
+Check where Node.js and NPM are installed:
+
+```powershell
+where.exe node
+where.exe npm
+```
+
+Then check your environment variables: press `Win`, search for `Environment Variables`, click `Edit the System Environment Variables` > `Environment Variables` > `Path` > `Edit`, and confirm the paths above are listed.
+
+If `npm --version` still fails, run:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Then close PowerShell, open a new window, and try again.
+
+</details>
+
+Yarn can be installed using NPM. Run the following command to install Yarn:
 
 ```bash
 npm i -g yarn
@@ -33,9 +60,19 @@ npm i -g yarn
 :::note
 If your machine restricts global installs, run the command with administrator permissions:
 
+<Tabs>
+<TabItem value="linux" label="Mac/Linux">
 ```bash
 sudo npm i -g yarn
 ```
+</TabItem>
+<TabItem value="win" label="Windows">
+```powershell
+npm install -g yarn --allow-scripts=yarn
+```
+</TabItem>
+</Tabs>
+
 :::
 
 After installing Yarn, check that it was installed correctly:
@@ -79,7 +116,7 @@ cd your-repository-name
 ![Copy the repository clone URL from GitHub](./img/clone-repo.png)
 
 :::note
-If you have not configured GitHub authentication locally, you can use "Download ZIP". 
+If you have not configured GitHub authentication locally, you can use "Download ZIP".
 :::
 
 ## Run the Local Server
@@ -130,7 +167,13 @@ If you started from the template repository, this will be a smaller set of start
 Use the same package manager for installation and project commands. Yarn is preferred, but NPM is supported.
 :::
 
-## Forking Repository (Advanced Alternative to Template Repository)
+## Forking the Study Repository
+
+**An advanced alternative to using the template repository**
+
+:::info
+Forking the main repository is the right choice if you're considering contributing back to ReVISit, or want to stay up-to-date with the latest changes by trying out the `dev` branch.
+:::
 
 Forking the repository is a more advanced option that allows you to have a copy of the entire `study` repository in your GitHub account. This means that you will have access to all the demo studies and that you can choose to follow the latest changes from the main repository (e.g., by following the `dev` branch). However, it also means that your repository will be linked to the upstream repository's fork network, which can make it more complex to manage.
 
@@ -152,20 +195,19 @@ You can rename the repository to suit your needs, but if you change the name, yo
 
 After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    codeLinks={[
-        {name: "ReVISit Template Repository", url: "https://github.com/revisit-studies/template"},
-        {name: "ReVISit Main Repository", url: "https://github.com/revisit-studies/study"}
-    ]}
-    referenceLinks={[
-        {name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
-        {name: "Visual Studio Code Installation", url: "https://code.visualstudio.com/"},
-        {name: "Git Installation", url: "https://git-scm.com/downloads"},
-        {name: "Node.js Installation", url: "https://nodejs.org/en"},
-        {name: "NPM Installation", url: "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"},
-        {name: "Yarn Installation", url: "https://yarnpkg.com/getting-started/install"}
-    ]}
+codeLinks={[
+{name: "ReVISit Template Repository", url: "https://github.com/revisit-studies/template"},
+{name: "ReVISit Main Repository", url: "https://github.com/revisit-studies/study"}
+]}
+referenceLinks={[
+{name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
+{name: "Visual Studio Code Installation", url: "https://code.visualstudio.com/"},
+{name: "Git Installation", url: "https://git-scm.com/downloads"},
+{name: "Node.js Installation", url: "https://nodejs.org/en"},
+{name: "NPM Installation", url: "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"},
+{name: "Yarn Installation", url: "https://yarnpkg.com/getting-started/install"}
+]}
 />

@@ -38,7 +38,6 @@ Every noncurrent object version is stored and billed until removed (manually or 
 - If you want automatic cleanup, add Object Lifecycle rules (for example, delete noncurrent versions after N days).
 - Noncurrent versions are billed as stored Cloud Storage data, so turning on version history will increase storage costs.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

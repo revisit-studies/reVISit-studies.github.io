@@ -1,21 +1,27 @@
-import { LinkChecker, LinkState } from 'linkinator';
+import { LinkChecker, LinkState } from "linkinator";
 
-const RESET = '\x1b[0m';
-const BOLD = '\x1b[1m';
-const RED = '\x1b[31m';
-const GREEN = '\x1b[32m';
-const YELLOW = '\x1b[33m';
+const RESET = "\x1b[0m";
+const BOLD = "\x1b[1m";
+const RED = "\x1b[31m";
+const GREEN = "\x1b[32m";
+const YELLOW = "\x1b[33m";
 
 const linksToSkip = [
-  'revisit.dev',
-  'localhost:8080',
-  'wpi.edu',
-  'petra.isenberg.cc',
-  'doi.org',
-  'acm.org',
-  'cs.utah.edu',
-  'github\\.com/.+/edit/.+', // "Edit this page" links
-  'slack.com', // Slack invites
+  "revisit.dev",
+  "localhost:8080",
+  "wpi.edu",
+  "petra.isenberg.cc",
+  "doi.org",
+  "acm.org",
+  "cs.utah.edu",
+  "github\\.com/.+/edit/.+", // "Edit this page" links
+  "slack.com", // Slack invites
+
+  "mika-long.github.io/vis-decode/", // slow revisit load
+  "vdl.sci.utah.edu/Upset-alttxt-study/", // slow revisit load
+  "ojs.aaai.org",
+  "console.cloud.google.com",
+  "https://www.google.com/recaptcha/admin/create",
 ];
 
 const checker = new LinkChecker();
@@ -26,7 +32,7 @@ const okLinks = [];
 const skippedLinks = [];
 const brokenLinks = [];
 
-checker.on('link', (result) => {
+checker.on("link", (result) => {
   if (seenUrls.has(result.url)) {
     return;
   }
@@ -35,7 +41,9 @@ checker.on('link', (result) => {
   if (result.state === LinkState.BROKEN) {
     brokenLinks.push(result);
     // Print broken links immediately so progress is visible
-    console.log(`${BOLD}${RED}[${result.status ?? 'ERR'}] ${result.url}${RESET}`);
+    console.log(
+      `${BOLD}${RED}[${result.status ?? "ERR"}] ${result.url}${RESET}`,
+    );
   } else if (result.state === LinkState.SKIPPED) {
     skippedLinks.push(result);
     console.log(`[SKIP] ${result.url}`);
@@ -46,7 +54,7 @@ checker.on('link', (result) => {
 });
 
 const results = await checker.check({
-  path: './build',
+  path: "./build",
   recurse: true,
   linksToSkip,
 });
@@ -55,18 +63,24 @@ const results = await checker.check({
 if (brokenLinks.length > 0) {
   console.log(`\n${BOLD}${RED}=== BROKEN LINKS SUMMARY ===${RESET}`);
   for (const link of brokenLinks) {
-    const status = link.status ?? 'ERR';
-    const parent = link.parent ? ` (found on: ${link.parent})` : '';
-    console.log(`${BOLD}${RED}  [${status}] ${link.url}${YELLOW}${parent}${RESET}`);
+    const status = link.status ?? "ERR";
+    const parent = link.parent ? ` (found on: ${link.parent})` : "";
+    console.log(
+      `${BOLD}${RED}  [${status}] ${link.url}${YELLOW}${parent}${RESET}`,
+    );
   }
-  console.log(`\n${BOLD}${RED}Total broken links: ${brokenLinks.length}${RESET}`);
+  console.log(
+    `\n${BOLD}${RED}Total broken links: ${brokenLinks.length}${RESET}`,
+  );
 } else {
   console.log(`\n${BOLD}${GREEN}All links are valid!${RESET}`);
 }
 
 const totalUnique = okLinks.length + skippedLinks.length + brokenLinks.length;
 const totalReported = results.links.length;
-console.log(`Checked ${totalUnique} unique links (${totalReported} total, ${totalReported - totalUnique} duplicates skipped).`);
+console.log(
+  `Checked ${totalUnique} unique links (${totalReported} total, ${totalReported - totalUnique} duplicates skipped).`,
+);
 
 if (!results.passed) {
   process.exit(1);

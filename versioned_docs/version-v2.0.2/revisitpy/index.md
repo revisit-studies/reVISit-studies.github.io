@@ -2,7 +2,6 @@
 
 The reVISitPy python package is a pip package that aids in the construction of configuration files. Just like in the study configuration file, you can create components, responses, study metadata, UI config, and complex sequences. Then, you can combine these all together in a single study configuration file. Here is an example of creating a simple response and attaching it to a single component.
 
-
 ```python
 response_one = rvt.response(
     id='response_one',
@@ -47,18 +46,13 @@ When using the widget, you can immediately interact with the study in the Jupyte
 Note that a Jupyter environment is not necessary to take advantage of reVISitPy. Jupyter enhances the experience by providing this widget functionality, but configuration files can still be created and saved using reVISitPy with a standard python environment.
 :::
 
-<!-- Maybe a video here?? Or Just a screenshot?? Probably need to wait to push the new packages.-->
-
-
 ## Advanced Sequence Creation
 
 When using the reVISitPy python package, not only do you have all the flexibility of using a full programming language, we have also built several different features to help create complex study designs. Generated data in a separate CSV file? Pass the data in using reVISitPy's `from_data` method in order to create components based on the data. Need to permute over multiple different factors? Use the `Sequence` class's built-in `permute` function to generate components based on these factors while simultaneously permuting over possible combinations of them.
 
-
 ## Usage
 
 If you're ready to get started using the reVISitPy in your own python environment, check out the [installation page](./installation.md). If you'd like to try out the package as quick as possible, we instead suggest using the [reVISitPy examples repository](https://github.com/revisit-studies/revisit-py-examples). This repository uses a jupyter notebook to walk you through each example. Start by cloning the repository:
-
 
 ```bash
 git clone git@github.com:revisit-studies/revisit-py-examples.git
