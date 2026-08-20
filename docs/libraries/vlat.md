@@ -1,15 +1,16 @@
-
 # vlat
 
-Visualization Literacy Assessment Test (VLAT) is developed to measure users' ability to read, understand, and use data visualizations to solve problems. The VLAT consists of 12 data visualizations and 53 multiple-choice questions. This library contains 53 components, each corresponding to a question of the VLAT. It also includes a sequence of all 53 components (the full VLAT).
+Visualization Literacy Assessment Test (VLAT) was developed to measure users' ability to read, understand, and use data visualizations to solve problems. The VLAT consists of 12 data visualizations and 53 multiple-choice questions. This library contains 53 components, each corresponding to a question of the VLAT. It also includes a sequence of all 53 components (the full VLAT).
 
 ## Reference
 
 :::note[Reference]
-S. Lee, S.-H. Kim, and B. C. Kwon, "VLAT: Development of a Visualization Literacy Assessment Test," IEEE Transactions on Visualization and Computer Graphics, vol. 23, no. 1, pp. 551-560, Jan. 2017
+S. Lee, S.-H. Kim, and B. C. Kwon, “VLAT: Development of a Visualization Literacy Assessment Test,” IEEE Transactions on Visualization and Computer Graphics, vol. 23, no. 1, pp. 551–560, Jan. 2017.
 :::
 
 DOI: [10.1109/TVCG.2016.2598920](https://dx.doi.org/10.1109/TVCG.2016.2598920)
+
+Link: [https://www.bckwon.com/publication/vlat/](https://www.bckwon.com/publication/vlat/)
 
 ## Available Components
 
@@ -71,6 +72,7 @@ DOI: [10.1109/TVCG.2016.2598920](https://dx.doi.org/10.1109/TVCG.2016.2598920)
 
 - full
 
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
@@ -78,10 +80,11 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "vlat Demo", url: "https://revisit.dev/study/library-vlat"}
       ]}
       codeLinks={[
-        {name: "vlat Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"}
+        {name: "vlat Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-vlat"},
+        {name: "vlat Library Code", url: "https://github.com/revisit-studies/study/tree/main/public/libraries/vlat"}
       ]}
       referenceLinks={[
-        {name: "DOI", url: "https://dx.doi.org/10.1109/TVCG.2016.2598920"}
-        
+        {name: "DOI", url: "https://dx.doi.org/10.1109/TVCG.2016.2598920"},
+        {name: "vlat", url: "https://www.bckwon.com/publication/vlat/"}
       ]}
   />

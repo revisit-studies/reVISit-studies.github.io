@@ -1,4 +1,3 @@
-
 # smeq
 
 The Subjective Mental Effort Questionnaire (SMEQ) is a single-item scale designed to measure perceived mental effort during a task. This library includes a single component, the SMEQ.
@@ -6,7 +5,7 @@ The Subjective Mental Effort Questionnaire (SMEQ) is a single-item scale designe
 ## Reference
 
 :::note[Reference]
-Zijlstra, F. R. H., and L. Van Doorn. The Construction of a Scale to Measure Perceived Effort. Delft University of Technology, 1985.
+F. R. H. Zijlstra and L. van Doorn, “The construction of a scale to measure perceived effort,” Delft University of Technology, Delft, The Netherlands, Tech. Rep., 1985.
 :::
 
 ## Available Components
@@ -17,6 +16,7 @@ Zijlstra, F. R. H., and L. Van Doorn. The Construction of a Scale to Measure Per
 
 None
 
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
@@ -24,7 +24,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "smeq Demo", url: "https://revisit.dev/study/library-smeq"}
       ]}
       codeLinks={[
-        {name: "smeq Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq"}
+        {name: "smeq Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-smeq"},
+        {name: "smeq Library Code", url: "https://github.com/revisit-studies/study/tree/main/public/libraries/smeq"}
       ]}
       
   />

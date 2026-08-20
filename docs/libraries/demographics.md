@@ -1,4 +1,3 @@
-
 # demographics
 
 This is a library for demographic questions. It contains one component, demographics, with three questions: gender, age, and education.
@@ -11,6 +10,7 @@ This is a library for demographic questions. It contains one component, demograp
 
 None
 
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
@@ -18,7 +18,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "demographics Demo", url: "https://revisit.dev/study/library-demographics"}
       ]}
       codeLinks={[
-        {name: "demographics Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"}
+        {name: "demographics Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-demographics"},
+        {name: "demographics Library Code", url: "https://github.com/revisit-studies/study/tree/main/public/libraries/demographics"}
       ]}
       
   />
