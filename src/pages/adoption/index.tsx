@@ -23,6 +23,7 @@ interface Adoption {
   sourceCodeLink?: string;
   osfLink?: string;
   revisitVersion: string;
+  numParticipants: number | null;
   venue: string;
   doi?: string;
 }
@@ -124,7 +125,7 @@ function Adoption({ adoption }: { adoption: Adoption }) {
   );
 }
 
-function AdoptionChart(props: { data: Adoption[] }) {
+function AdoptionPaperCountChart(props: { data: Adoption[] }) {
   const { data } = props;
   const values = data.map((x) => ({ year: +x.year }));
   return (
@@ -202,6 +203,107 @@ function AdoptionChart(props: { data: Adoption[] }) {
   );
 }
 
+function AdoptionNumParticipantsChart(props: { data: Adoption[] }) {
+  const { data } = props;
+  const values = data
+    .filter((x) => typeof x.numParticipants === "number")
+    .map((x) => ({ year: +x.year, participants: x.numParticipants }));
+  return (
+    <VegaEmbed
+      options={{ actions: false, renderer: "svg" }}
+      spec={JSON.parse(
+        JSON.stringify({
+          $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+          width: 340,
+          height: 160,
+          title: {
+            text: "Cumulative reVISit Study Participants",
+            anchor: "start",
+            fontSize: 14,
+            offset: 16,
+          },
+          view: {
+            stroke: null,
+          },
+          data: { values },
+          transform: [
+            {
+              aggregate: [
+                { op: "sum", field: "participants", as: "yearTotal" },
+              ],
+              groupby: ["year"],
+            },
+            {
+              window: [{ op: "sum", field: "yearTotal", as: "cumulative" }],
+              sort: [{ field: "year", order: "ascending" }],
+              frame: [null, 0],
+            },
+          ],
+          encoding: {
+            x: {
+              field: "year",
+              type: "ordinal",
+              axis: {
+                title: null,
+                ticks: false,
+                domain: false,
+                labelAngle: 0,
+                labelPadding: 8,
+              },
+            },
+            y: {
+              field: "cumulative",
+              type: "quantitative",
+              axis: {
+                title: null,
+                ticks: false,
+                domain: false,
+                grid: false,
+                labels: false,
+              },
+            },
+          },
+          layer: [
+            {
+              mark: {
+                type: "area",
+                color: "#f05a30",
+                opacity: 0.15,
+                line: { color: "#f05a30", strokeWidth: 2 },
+              },
+            },
+            {
+              mark: { type: "point", color: "#f05a30", filled: true, size: 60 },
+            },
+            {
+              mark: { type: "text", dy: -12, color: "black" },
+              encoding: {
+                text: { field: "cumulative", type: "quantitative" },
+              },
+            },
+          ],
+          config: {
+            text: { fontSize: 14 },
+            axis: {
+              labelFontSize: 14,
+              titleFontSize: 14,
+            },
+            legend: {
+              labelFontSize: 14,
+              titleFontSize: 14,
+            },
+            header: {
+              labelFontSize: 14,
+              titleFontSize: 14,
+            },
+            title: { fontSize: 14, anchor: "start" },
+          },
+        }),
+      )}
+    />
+  );
+}
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const adoption = adoptionData as Adoption[];
@@ -246,7 +348,8 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.chartContainer}>
-                <AdoptionChart data={adoption} />
+                <AdoptionPaperCountChart data={adoption} />
+                <AdoptionNumParticipantsChart data={adoption} />
               </div>
             </div>
             {adoption.map((adoption: Adoption, index: number) => (
