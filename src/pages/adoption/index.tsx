@@ -330,7 +330,7 @@ export default function Home() {
                   <Link href="https://github.com/revisit-studies/reVISit-studies.github.io/blob/main/static/adoption.bib">
                     static/adoption.bib
                   </Link>
-                  or
+                  {" or "}
                   <Link href="https://github.com/revisit-studies/reVISit-studies.github.io/issues/new/choose">
                     file an issue
                   </Link>
