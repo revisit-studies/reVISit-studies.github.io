@@ -271,7 +271,8 @@
   url             = {https://arxiv.org/abs/2607.26211},
   abstract        = {Textual data serialization formats, such as JSON or XML, are ubiquitous, supporting tasks like software configuration and data tabularization. Despite their prominence, little is known about their usability. What makes one good or bad? Is there a best one for cognitive efficiency? We explore these questions via a (N = 215) crowd work study and a (N = 9) semi- structured interview study. We find that format distinctions (like indentation versus curly braces) do not consistently translate into substantial usability differences. While HJSON and YAML performed better than other formats in certain modification tasks, these advantages disappeared in more realistic settings where task complexity was either trivial or highly demanding. Instead, usability appears driven by sociotechnical ecosystems: the tooling, documentation, and community practices surrounding a format matter more than syntax.},
   revisitversion  = {2.3},
-  sourcecodelink  = {https://osf.io/jryna},
+  sourcecodelink  = {https://github.com/mcnuttandrew/json-revisit-study},
+  osflink         = {https://osf.io/jryna},
   studyurl        = {https://dsf-study.netlify.app/a-usability-study-config/|https://dsf-study.netlify.app/a-usability-study-tabular/}
 }
 
@@ -333,10 +334,26 @@
 
 
 @inproceedings{rahman20262026AnnoBench,
-  title    = {AnnoBench: A Benchmark for Visualization Annotation Generation},
-  author   = {Md Rahat-uz-Zaman and Md Dilshadur Rahman and Andrew McNutt and Paul Rosen},
-  journal  = {Preprint},
-  year     = {2026},
-  abstract = {Annotation is among the most demanding visualization tasks to automate, as it simultaneously requires correctly navigating visual, semantic, and stylistic constraints. Failure to meet any of these conditions severely undermines the utility of an annotation, rendering it challenging to read, inaccurate, or visually discordant. Despite a growing body of annotation tools and automations, no existing benchmark or evaluation framework tests whether these conditions are met because of their scope and annotation not being the focus of their studies. We introduce AnnoBench, a benchmark for visualization annotation that materializes the inherent challenges of this domain in a structured and testable manner. AnnoBench pairs visualizations from professional data journalism and visualization galleries with annotation tasks, spanning four representation formats, five chart description conditions, and two prompt specification levels. The benchmark is executed via VLM-as-a-judge, using models aligned with manual human assessment. We evaluate the benchmark via four one-factor-at-a-time experiments, exploring the effects of input representation, semantic context, and prompt specificity, and model selection on annotation quality. This work provides a foundation for advancing annotation automation, tooling, and visualization-generation pipelines},
-  url      = {https://arxiv.org/abs/2607.25911v1}
+  title           = {AnnoBench: A Benchmark for Visualization Annotation Generation},
+  author          = {Md Rahat-uz-Zaman and Md Dilshadur Rahman and Andrew McNutt and Paul Rosen},
+  journal         = {Preprint},
+  year            = {2026},
+  numparticipants = {2},
+  abstract        = {Annotation is among the most demanding visualization tasks to automate, as it simultaneously requires correctly navigating visual, semantic, and stylistic constraints. Failure to meet any of these conditions severely undermines the utility of an annotation, rendering it challenging to read, inaccurate, or visually discordant. Despite a growing body of annotation tools and automations, no existing benchmark or evaluation framework tests whether these conditions are met because of their scope and annotation not being the focus of their studies. We introduce AnnoBench, a benchmark for visualization annotation that materializes the inherent challenges of this domain in a structured and testable manner. AnnoBench pairs visualizations from professional data journalism and visualization galleries with annotation tasks, spanning four representation formats, five chart description conditions, and two prompt specification levels. The benchmark is executed via VLM-as-a-judge, using models aligned with manual human assessment. We evaluate the benchmark via four one-factor-at-a-time experiments, exploring the effects of input representation, semantic context, and prompt specificity, and model selection on annotation quality. This work provides a foundation for advancing annotation automation, tooling, and visualization-generation pipelines},
+  url             = {https://arxiv.org/abs/2607.25911v1}
+}
+
+
+@article{hasan2026enrichingdimensionalityreduction,
+  title           = {Enriching dimensionality reduction with distortion cues},
+  numparticipants = {146},
+  journal         = {Computers & Graphics},
+  volume          = {139},
+  pages           = {104724},
+  year            = {2026},
+  issn            = {0097-8493},
+  doi             = {https://doi.org/10.1016/j.cag.2026.104724},
+  author          = {Waqar Hassan and Antonia Schlieder and Filip Sadlo and Luis Gustavo Nonato},
+  keywords        = {Dimensionality Reduction, Layout enrichment, Methodologies, Visual representation design, High-dimensional data},
+  abstract        = {Dimensionality Reduction (DR) techniques like t-SNE and UMAP, while powerful visualization tools, inherently introduce distortion during the high-to-low-dimensional mapping process. This distortion means the resulting layout often fails to represent the original high-dimensional distances and relationships faithfully. For instance, visually proximal clusters may be distant in the original space (a global distortion artifact), or densely grouped high-dimensional points may appear scattered (a local density artifact). Prior research consistently shows that practitioners working with DR layouts, especially those less experienced, are frequently unaware of these inherent visual pitfalls, leading them to perform faulty analyses and draw incorrect conclusions based on misleading layouts. To directly address this analytical misuse, this work shows that simple geometry-based layout enrichment mechanisms can substantially prevent misinterpretations. By enriching the structures that surface in the 2D projection with information about their true high-dimensional distances, our approach avoids the approximation errors and smoothness assumptions introduced by typical distortion metrics. We present a Delaunay-based layout enrichment visualization, demonstrating the corrective power of simple distance-based approaches to assist users in their analysis. Furthermore, a comprehensive user evaluation confirms our hypothesis that participants equipped with our enriched layouts exhibit a lower incidence of analytical errors compared to those using established baselines, validating the practical utility of our approach.}
 }

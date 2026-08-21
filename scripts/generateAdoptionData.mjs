@@ -70,6 +70,7 @@ function buildAdoptionRecord(entry, originalIndex) {
     year,
     paperUrl: fields.url ?? "",
     revisitStudyUrl: fields.studyurl ?? "",
+    osfLink: fields.osflink ?? "",
     abstract: fields.abstract ?? "",
     sourceCodeLink: fields.sourcecodelink ?? "",
     revisitVersion: fields.revisitversion ?? "",

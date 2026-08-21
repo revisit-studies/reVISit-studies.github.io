@@ -21,6 +21,7 @@ interface Adoption {
   revisitStudyUrl?: string;
   abstract: string;
   sourceCodeLink?: string;
+  osfLink?: string;
   revisitVersion: string;
   venue: string;
   doi?: string;
