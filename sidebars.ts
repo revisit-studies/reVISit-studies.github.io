@@ -120,18 +120,10 @@ const sidebars: SidebarsConfig = {
       items: [
         'analysis/study-card',
         'analysis/study-summary',
-        {
-          type: 'category',
-          label: 'Participant View',
-          link: {
-            type: 'doc',
-            id: 'analysis/participant-view',
-          },
-          items: [
-            'analysis/data-export',
-            'analysis/participant-replay',
-          ],
-        },
+        'analysis/participant-view',
+        'analysis/data-export',
+        'analysis/data-analysis',
+        'analysis/participant-replay',
         'analysis/trial-stats',
         'analysis/coding',
         'analysis/live-monitor',
