@@ -74,7 +74,9 @@ function buildAdoptionRecord(entry, originalIndex) {
     abstract: fields.abstract ?? "",
     sourceCodeLink: fields.sourcecodelink ?? "",
     revisitVersion: fields.revisitversion ?? "",
-    numParticipants: fields.numparticipants || 0,
+    numParticipants: fields.numparticipants
+      ? Number(fields.numparticipants)
+      : null,
     venue,
     doi: fields.doi ?? "",
     initialIndex: originalIndex,
