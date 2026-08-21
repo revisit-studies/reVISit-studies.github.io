@@ -22,6 +22,28 @@ The tidy data is missing some data that is available in the JSON download, such 
 
 ![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
 
+<!-- Screenshot needed: replace ./img/data-export/tidy-export-csv-exporter.png with the CSV Exporter showing the new optional fields metaData, participantTags, and taskTags in the field list (unselected by default). -->
+
+### Export Qualitative Tags
+
+If you use [Participant Tags and Task Tags](./coding.md) for qualitative coding, select `participantTags` and/or `taskTags` in the **CSV Exporter**. These optional fields are not selected by default.
+
+- `taskTags` adds a column to each task-response row. Its value is a JSON string containing that task's tag array.
+- `participantTags` adds a separate row for each participant. Both `trialId` and `responseId` are `participantTags`, and the `answer` column contains a JSON string with the participant's tag array.
+
+### Export Participant Metadata
+
+Select `metaData` in the **CSV Exporter** to include each Participant's stored metadata, such as browser or device information. This optional field is not selected by default.
+
+`metaData` adds one row per Participant rather than a column to every task-response row. Both `trialId` and `responseId` are `metaData`; the complete participant metadata object is serialized as JSON in the existing `answer` column.
+
+```text
+participantId,trialId,trialOrder,responseId,answer
+abc123,metaData,,metaData,"{""resolution"":{...}, ...}"
+```
+
+Parse the JSON string in `answer` in your analysis tooling when you need individual metadata properties.
+
 After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplot](https://revisit.dev/study/example-brush-interactions) study in R.
 
 :::info What is Tidy data format?
@@ -102,6 +124,32 @@ ggsave("plot.pdf", width = 5, height = 2, units = "in")
 2. Open the Participant View, then click on the **Download as JSON** button.
 
 ![JSON export](./img/data-export/json-export.png)
+
+### Export Qualitative Tags
+
+JSON downloads include qualitative coding data in each participant's `qualitativeCodes` object. `participantTags` contains tags assigned to the participant, while `taskTags` maps each task identifier to its tag array. Tags include their `id` and `name`; their display colors are not exported. A task without tags can be included with an empty array.
+
+```json
+{
+  "qualitativeCodes": {
+    "participantTags": [{ "id": "tag-1", "name": "Hesitation" }],
+    "taskTags": {
+      "task_0": [{ "id": "tag-2", "name": "Chart Reading" }],
+      "task_1": []
+    }
+  }
+}
+```
+
+### Timed-Out Components
+
+When a component uses automatic advance and reaches its time limit, its participant-data record has `timedOut: true`, an end time, and an empty `answer` object. Treat this as an incomplete response rather than a submitted answer when analyzing the JSON download.
+
+## Download Provenance
+
+Standard participant JSON downloads do not include provenance graphs. This keeps the download smaller and faster when you do not need provenance data.
+
+To analyze provenance, use the provenance download button next to the other download buttons; its tooltip reads "Download all provenance as ZIP" (or "Download selected provenance as ZIP" when participants are selected). The ZIP contains separate provenance JSON files for each participant and task. Participant replay supports both this separate provenance storage and provenance graphs stored in answers from earlier data, so existing studies and data remain replayable.
 
 ## Download Audio
 

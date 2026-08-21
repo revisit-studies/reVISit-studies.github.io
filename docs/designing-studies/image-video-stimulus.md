@@ -59,7 +59,21 @@ This renders as so:
 
 ![A video stimulus](img/video-stimulus.png)
 
-In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. This is useful for ensuring that participants watch the entire video before answering questions.
+In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the Participant can proceed. This is useful for ensuring that Participants watch the entire video before answering questions.
+
+When `forceCompletion` is `true`, a Participant who selects **Next** before playback finishes stays on the component and sees: “Please finish the video to continue.”
+
+{/* Screenshot needed: docs/designing-studies/img/video-force-completion-validation.png. Capture a force-completion video after the Participant selects Next before the video finishes, with the completion message visible. */}
+
+#### Troubleshoot a missing internal video
+
+If an internal video request returns an error in a production deployment, ReVISit reports that the stimulus could not be loaded instead of leaving an empty video that prevents the Participant from continuing. Check that:
+
+- the `path` is relative to the app's `public` directory;
+- the file exists at that path and was included in the deployment; and
+- the capitalization of every folder and filename matches the Study Config. Production hosts commonly use case-sensitive paths even when a local development machine does not.
+
+After correcting the path or deployment, rebuild and redeploy the study before testing it again.
 
 ### External Videos
 
@@ -82,6 +96,10 @@ This renders as so:
 ![A YouTube video stimulus](img/youtube-stimulus.png)
 
 In this example, the video is rendered in the main window. The video is given an optional parameter `forceCompletion` to specify whether the video must be watched in full before the participant can proceed. In this case, the video does not need to be watched in full, so the `forceCompletion` parameter is set to `false`. The `withTimeline` parameter adds a timeline to the video, allowing participants to skip/scrub to specific parts of the video.
+
+:::note Vimeo can appear blank during local development
+Vimeo may appear blank in local development because of a known [plyr-react 6.0.0 Strict Mode issue](https://github.com/chintan9/plyr-react/issues/1253). Production builds are not affected by the extra development-only lifecycle cycle, so test Vimeo with a production build before treating it as a Study Config error. Until the upstream issue is fixed, use an internal video or another supported provider when local testing is required.
+:::
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
