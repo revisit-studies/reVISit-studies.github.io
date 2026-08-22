@@ -60,7 +60,7 @@ ReVISit is advised by a board of community members who regularly run a diverse s
 
 [Danielle Albers Szafir](https://danielleszafir.com/), University of North Carolina-Chapel Hill  
 [Cindy Xiong Bearfield](https://cyxiong.com/), Georgia Tech  
-[Ana Crisan](https://amcrisan.github.io/), Tableau Research  
+[Ana Crisan](https://amcrisan.github.io/), University of Waterloo  
 [Alex Endert](https://va.gatech.edu/endert/), Georgia Tech  
 [Jean-Daniel Fekete](https://www.aviz.fr/~fekete/), INRIA Paris  
 [Petra Isenberg](https://petra.isenberg.cc/wiki/pmwiki.php), INRIA Paris  
