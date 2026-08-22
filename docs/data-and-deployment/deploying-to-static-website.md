@@ -1,5 +1,12 @@
 # Deploying To a Static Website
 
+Deploy using
+
+- [GitHub](#deploying-using-gitHub)
+- [Netlify](#deploying-using-netlify)
+- [Vercel](#deploying-using-vercel)
+- [render](#deploying-using-render)
+
 ## Deploying using GitHub
 
 Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
@@ -86,7 +93,7 @@ Then, on the next page, select GitHub. This will require you to authorize Vercel
 
 You likely will not need to make any changes to the configuration. After a short period of time, this will yield a website like `https://<APP_NAME>.vercel.app/`
 
-## Deploying using render.com
+## Deploying using render
 
 Deploying with render.com is a little more involved than some of the other options, but has similar bones as the other platforms. Ensure that your VITE_BASE_PATH in your `.env` is like the following:
 
@@ -108,6 +115,7 @@ On this configuration screen, make sure the following options are set (or accept
 - **Publish Directory**: `dist`
 
 After saving these settings, you will also need to add a rewrite rule. Go to your static site on Render → Redirects/Rewrites tab → Add Rule:
+
 ```
 Type: Rewrite
 Source: /*
