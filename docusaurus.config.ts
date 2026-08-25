@@ -8,7 +8,28 @@ const isPreviewBuild = Boolean(process.env.BASE_URL);
 const config: Config = {
   title: "Home | ReVISit",
   tagline: "reVISit: Reproducible and Powerful Visualization User Studies",
-  favicon: "img/logos/favicon.svg",
+  // Use a conventional raster favicon so link unfurlers can display the site
+  // icon. Its fixed light tile remains legible in both light and dark clients.
+  favicon: "favicon.ico",
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "icon",
+        type: "image/png",
+        sizes: "256x256",
+        href: "/img/logos/favicon.png",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "apple-touch-icon",
+        sizes: "256x256",
+        href: "/img/logos/favicon.png",
+      },
+    },
+  ],
 
   url: "https://revisit.dev",
   baseUrl: process.env.BASE_URL ?? "/",
@@ -124,7 +145,9 @@ const config: Config = {
 
       // ... other Algolia params
     },
-    image: "img/logos/revisitLogoThumbnail.png",
+    // Let unfurlers use the raster favicon instead of publishing a large,
+    // generic Open Graph image for every page.
+    metadata: [{ name: "twitter:card", content: "summary" }],
     colorMode: {
       respectPrefersColorScheme: true,
     },
