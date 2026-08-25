@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://revisit.dev/blog/"/>
     <subtitle>Home | ReVISit Blog</subtitle>
-    <icon>https://revisit.dev/favicon.ico</icon>
+    <icon>https://revisit.dev/img/logos/favicon.svg</icon>
     <entry>
         <title type="html"><![CDATA[Integrating an LLM-Based Chatbot into a reVISit Study]]></title>
         <id>https://revisit.dev/blog/2026/04/30/llm-in-revisit/</id>
