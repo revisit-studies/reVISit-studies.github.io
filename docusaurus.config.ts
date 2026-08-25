@@ -124,9 +124,17 @@ const config: Config = {
 
       // ... other Algolia params
     },
-    // Use the color-scheme-aware favicon for compact link previews instead of
-    // publishing a large, generic Open Graph image for every page.
-    metadata: [{ name: "twitter:card", content: "summary" }],
+    // A small square image produces a compact unfurl instead of a large media
+    // card. The fixed-contrast tile remains legible in light and dark clients.
+    image: "img/logos/link-preview-icon.png",
+    metadata: [
+      { name: "twitter:card", content: "summary" },
+      { property: "og:image:width", content: "256" },
+      { property: "og:image:height", content: "256" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:alt", content: "ReVISit logo" },
+      { name: "twitter:image:alt", content: "ReVISit logo" },
+    ],
     colorMode: {
       respectPrefersColorScheme: true,
     },
