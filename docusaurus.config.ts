@@ -8,19 +8,10 @@ const isPreviewBuild = Boolean(process.env.BASE_URL);
 const config: Config = {
   title: "Home | ReVISit",
   tagline: "reVISit: Reproducible and Powerful Visualization User Studies",
-  // Use a conventional raster favicon so link unfurlers can display the site
-  // icon. Its fixed light tile remains legible in both light and dark clients.
-  favicon: "favicon.ico",
+  // Browsers use the scalable SVG favicon. Link unfurlers can use the separate
+  // raster touch icon below for compact previews.
+  favicon: "img/logos/favicon.svg",
   headTags: [
-    {
-      tagName: "link",
-      attributes: {
-        rel: "icon",
-        type: "image/png",
-        sizes: "256x256",
-        href: "/img/logos/favicon.png",
-      },
-    },
     {
       tagName: "link",
       attributes: {
