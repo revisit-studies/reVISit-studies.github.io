@@ -124,7 +124,9 @@ const config: Config = {
 
       // ... other Algolia params
     },
-    image: "img/logos/revisitLogoThumbnail.png",
+    // Use the color-scheme-aware favicon for compact link previews instead of
+    // publishing a large, generic Open Graph image for every page.
+    metadata: [{ name: "twitter:card", content: "summary" }],
     colorMode: {
       respectPrefersColorScheme: true,
     },
