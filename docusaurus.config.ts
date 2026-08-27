@@ -1,27 +1,44 @@
-import { themes as prismThemes } from 'prism-react-renderer';
-import type { Config } from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
-const enableGtag = process.env.ENABLE_GTAG === 'true';
+const enableGtag = process.env.ENABLE_GTAG === "true";
 const isPreviewBuild = Boolean(process.env.BASE_URL);
 
 const config: Config = {
-  title: 'Home | ReVISit',
-  tagline: 'reVISit: Reproducible and Powerful Visualization User Studies',
-  favicon: 'img/logos/favicon.svg',
+  title: "Home | ReVISit",
+  tagline: "reVISit: Reproducible and Powerful Visualization User Studies",
+  // Browsers use the scalable SVG favicon. Link unfurlers can use the separate
+  // raster touch icon below for compact previews.
+  favicon: "img/logos/favicon.svg",
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "apple-touch-icon",
+        sizes: "256x256",
+        href: "/img/logos/favicon.png",
+      },
+    },
+  ],
 
-  url: 'https://revisit.dev',
-  baseUrl: process.env.BASE_URL ?? '/',
+  url: "https://revisit.dev",
+  baseUrl: process.env.BASE_URL ?? "/",
   trailingSlash: true,
 
-  organizationName: 'University of Utah', // Usually your GitHub org/user name.
-  projectName: 'ReVISit', // Usually your repo name.
+  organizationName: "University of Utah", // Usually your GitHub org/user name.
+  projectName: "ReVISit", // Usually your repo name.
 
-  onBrokenLinks: isPreviewBuild ? 'warn' : 'throw',
-  onBrokenAnchors: 'ignore',
+  onBrokenLinks: isPreviewBuild ? "warn" : "throw",
+  onBrokenAnchors: "ignore",
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownLinks: "warn",
+    },
+    // future.v4 disables MDX v1 compat by default, but our docs (including the
+    // generated library pages) still use HTML comments, so keep that one on.
+    mdx1Compat: {
+      comments: true,
     },
   },
 
@@ -34,43 +51,44 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: "./sidebars.ts",
           showLastUpdateTime: true,
           showLastUpdateAuthor: false,
-          editUrl: ({versionDocsDirPath, docPath}) => {
-            if (docPath.startsWith('typedoc/')) {
+          editUrl: ({ versionDocsDirPath, docPath }) => {
+            if (docPath.startsWith("typedoc/")) {
               return undefined;
             }
             return `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/${versionDocsDirPath}/${docPath}`;
           },
-          lastVersion: 'current',
+          lastVersion: "current",
           versions: {
-            current: { label: 'v2.4.3', path: '' },
+            current: { label: "v2.4.4", path: "" },
           },
         },
         blog: {
-          editUrl: 'https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/',
+          editUrl:
+            "https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/",
         },
 
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
         ...(enableGtag
           ? {
-            gtag: {
-              trackingID: 'G-FLX70EGV5P',
-              anonymizeIP: true,
-            },
-          }
+              gtag: {
+                trackingID: "G-FLX70EGV5P",
+                anonymizeIP: true,
+              },
+            }
           : {}),
       } satisfies Preset.Options,
     ],
@@ -79,21 +97,21 @@ const config: Config = {
   themeConfig: {
     announcementBar: {
       // Update the id and content for each new announcement to ensure it is shown to users who have dismissed previous announcements
-      id: 'version_2.4',
+      id: "version_2.4",
       content:
         'We released a new version of reVISit! <a href="/blog/2026/02/23/release-2.4/">Read all about reVISit v2.4!</a> &#127881; ',
-      backgroundColor: '#f05a30',
-      textColor: '#ffffff',
+      backgroundColor: "#f05a30",
+      textColor: "#ffffff",
       isCloseable: true,
     },
     algolia: {
       // The application ID provided by Algolia
-      appId: 'CE7T3Q5S25',
+      appId: "CE7T3Q5S25",
 
       // Public API key: it is safe to commit it
-      apiKey: '0e172022221452330a1cf49f25f6ebc6',
+      apiKey: "0e172022221452330a1cf49f25f6ebc6",
 
-      indexName: 'revisit-docusaurus',
+      indexName: "revisit-docusaurus",
 
       // Ensures that search is based on version
       contextualSearch: true,
@@ -111,68 +129,70 @@ const config: Config = {
       searchParameters: {},
 
       // Optional: path for search page that enabled by default (`false` to disable it)
-      searchPagePath: 'search',
+      searchPagePath: "search",
 
       // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
       insights: false,
 
       // ... other Algolia params
     },
-    image: 'img/logos/revisitLogoThumbnail.png',
+    // Let unfurlers use the raster favicon instead of publishing a large,
+    // generic Open Graph image for every page.
+    metadata: [{ name: "twitter:card", content: "summary" }],
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'ReVISit',
+      title: "ReVISit",
       logo: {
-        alt: 'ReVISit Logo',
-        src: 'img/logos/revisitLogoThumbnail-dotted-light.svg',
-        srcDark: 'img/logos/revisitLogoThumbnail-dotted-dark.svg',
+        alt: "ReVISit Logo",
+        src: "img/logos/revisitLogoThumbnail-dotted-light.svg",
+        srcDark: "img/logos/revisitLogoThumbnail-dotted-dark.svg",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docs',
-          position: 'left',
-          label: 'Documentation',
+          type: "docSidebar",
+          sidebarId: "docs",
+          position: "left",
+          label: "Documentation",
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'reference',
-          position: 'left',
-          label: 'Reference',
+          type: "docSidebar",
+          sidebarId: "reference",
+          position: "left",
+          label: "Reference",
         },
-        { to: '/about', label: 'About', position: 'left' },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/community', label: 'Community', position: 'left' },
+        { to: "/about", label: "About", position: "left" },
+        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/community", label: "Community", position: "left" },
         {
-          to: '/adoption',
-          label: 'Adoption',
-          position: 'left',
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
+          to: "/adoption",
+          label: "Adoption",
+          position: "left",
         },
         {
-          href: 'https://github.com/revisit-studies/study',
-          label: 'GitHub',
-          position: 'right',
+          type: "docsVersionDropdown",
+          position: "right",
         },
         {
-          href: 'https://revisit.dev/study/',
-          label: 'Demo',
-          position: 'right',
+          href: "https://github.com/revisit-studies/study",
+          label: "GitHub",
+          position: "right",
         },
         {
-          href: 'https://revisit.dev/replication-studies/',
-          label: 'Examples',
-          position: 'right',
+          href: "https://revisit.dev/study/",
+          label: "Demo",
+          position: "right",
+        },
+        {
+          href: "https://revisit.dev/replication-studies/",
+          label: "Examples",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'light',
+      style: "light",
       links: [
         {
           html: `
@@ -211,12 +231,12 @@ const config: Config = {
           `,
         },
       ],
-      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${new Date().toISOString().split('T')[0]}. Built with Docusaurus.`,
+      copyright: `Copyright © 2022-${new Date().getFullYear()}. The reVISit team. Last updated on ${new Date().toISOString().split("T")[0]}. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'typescript', 'r'],
+      additionalLanguages: ["bash", "typescript", "r"],
     },
   } satisfies Preset.ThemeConfig,
 };

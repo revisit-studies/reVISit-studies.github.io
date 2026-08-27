@@ -1,4 +1,3 @@
-
 # mini-vlat
 
 Mini-VLAT is a short and effective measure of visualization literacy. Mini-VLAT has 12 questions and participants should answer each question within 25 seconds. This library contains 12 components. Each component contains one question of the Mini-VLAT. This library also contains a sequence of all 12 components (the full Mini-VLAT).
@@ -6,14 +5,16 @@ Mini-VLAT is a short and effective measure of visualization literacy. Mini-VLAT 
 ## Reference
 
 :::note[Reference]
-S. Pandey and A. Ottley, “Mini‐VLAT: A Short and Effective Measure of Visualization Literacy,” Computer Graphics Forum, vol. 42, no. 3, pp. 1–11, Jun. 2023
+S. Pandey and A. Ottley, “Mini‐VLAT: A Short and Effective Measure of Visualization Literacy,” Computer Graphics Forum, vol. 42, no. 3, pp. 1–11, Jun. 2023.
 :::
 
 DOI: [10.1111/cgf.14809](https://dx.doi.org/10.1111/cgf.14809)
 
+Link: [https://washuvis.github.io/minivlat/](https://washuvis.github.io/minivlat/)
+
 ## Available Components
 
-- areachar
+- areachart
 - barchart
 - bubblechart
 - choropleth
@@ -23,13 +24,14 @@ DOI: [10.1111/cgf.14809](https://dx.doi.org/10.1111/cgf.14809)
 - scatterplot
 - stackedarea
 - stackedbar
-- stackedBar100
+- stackedbar100
 - treemap
 
 ## Available Sequences
 
 - full
 
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
@@ -37,10 +39,11 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "mini-vlat Demo", url: "https://revisit.dev/study/library-mini-vlat"}
       ]}
       codeLinks={[
-        {name: "mini-vlat Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"}
+        {name: "mini-vlat Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mini-vlat"},
+        {name: "mini-vlat Library Code", url: "https://github.com/revisit-studies/study/tree/main/public/libraries/mini-vlat"}
       ]}
       referenceLinks={[
-        {name: "DOI", url: "https://dx.doi.org/10.1111/cgf.14809"}
-        
+        {name: "DOI", url: "https://dx.doi.org/10.1111/cgf.14809"},
+        {name: "mini-vlat", url: "https://washuvis.github.io/minivlat/"}
       ]}
   />

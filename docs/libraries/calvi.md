@@ -1,4 +1,3 @@
-
 # calvi
 
 The Critical Thinking Assessment for Literacy in Visualizations (CALVI) library is a collection of visualizations and questions designed to assess the ability to interpret data visualizations. The library includes a variety of visualizations, such as line graphs, bar charts, and pie charts, along with corresponding questions that test the user's understanding of the data presented. The questions are designed to be challenging and require critical thinking skills to answer correctly.
@@ -6,7 +5,7 @@ The Critical Thinking Assessment for Literacy in Visualizations (CALVI) library 
 ## Reference
 
 :::note[Reference]
-Lily W. Ge, Yuan Cui, and Matthew Kay. 2023. CALVI: Critical Thinking Assessment for Literacy in Visualizations. In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI '23). Association for Computing Machinery, New York, NY, USA, Article 815, 1-18.
+L. W. Ge, Y. Cui, and M. Kay, “CALVI: Critical Thinking Assessment for Literacy in Visualizations,” in Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI '23), New York, NY, USA: Association for Computing Machinery, 2023, Art. no. 815, pp. 1–18.
 :::
 
 DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
@@ -14,12 +13,6 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 ## Available Components
 
 - N1
-- N10
-- N11
-- N12
-- N13
-- N14
-- N15
 - N2
 - N3
 - N4
@@ -28,7 +21,20 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 - N7
 - N8
 - N9
+- N10
+- N11
+- N12
+- N13
+- N14
+- N15
 - T1
+- T2
+- T3
+- T4
+- T5
+- T6
+- T8
+- T9
 - T10
 - T11
 - T12
@@ -39,7 +45,6 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 - T17
 - T18
 - T19
-- T2
 - T20
 - T21
 - T22
@@ -49,7 +54,6 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 - T27
 - T28
 - T29
-- T3
 - T30
 - T34
 - T35
@@ -57,7 +61,6 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 - T37
 - T38
 - T39
-- T4
 - T40
 - T42
 - T43
@@ -67,12 +70,8 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 - T47
 - T48
 - T49
-- T5
 - T50
 - T52
-- T6
-- T8
-- T9
 
 ## Available Sequences
 
@@ -80,6 +79,7 @@ DOI: [10.1145/3544548.3581406](https://dx.doi.org/10.1145/3544548.3581406)
 - fullBank
 - specificBank
 
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
@@ -87,7 +87,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "calvi Demo", url: "https://revisit.dev/study/library-calvi"}
       ]}
       codeLinks={[
-        {name: "calvi Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"}
+        {name: "calvi Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-calvi"},
+        {name: "calvi Library Code", url: "https://github.com/revisit-studies/study/tree/main/public/libraries/calvi"}
       ]}
       referenceLinks={[
         {name: "DOI", url: "https://dx.doi.org/10.1145/3544548.3581406"}

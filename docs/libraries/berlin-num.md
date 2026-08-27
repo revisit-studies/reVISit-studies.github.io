@@ -1,12 +1,11 @@
-
 # berlin-num
 
-The Berlin Numeracy Test is a psychometrically sound instrument that quickly assesses statistical numeracy and risk literacy. It contains 4 questions. This library contains four components, each is a question from the Berlin Numeracy Test. There are two sequences: a four-item sequence and a single-item sequence. The four-item sequence is the traditional Berlin Numeracy Test and contains all 4 questions. The single-item sequence is the single question version and contains only question 1.
+The Berlin Numeracy Test is a psychometrically sound instrument that quickly assesses statistical numeracy and risk literacy. It contains 4 questions. This library contains four components, each of which is a question from the Berlin Numeracy Test. There are three sequences: an adaptive sequence, a four-item sequence, and a single-item sequence. The four-item sequence is the traditional Berlin Numeracy Test and contains all 4 questions. The single-item sequence is the single question version and contains only question 1.
 
 ## Reference
 
 :::note[Reference]
-Cokely ET, Galesic M, Schulz E, Ghazal S, Garcia-Retamero R. Measuring Risk Literacy: The Berlin Numeracy Test. Judgment and Decision Making. 2012;7(1):25-47.
+E. T. Cokely, M. Galesic, E. Schulz, S. Ghazal, and R. Garcia-Retamero, “Measuring risk literacy: The Berlin Numeracy Test,” Judgment and Decision Making, vol. 7, no. 1, pp. 25–47, 2012.
 :::
 
 DOI: [10.1017/S1930297500001819](https://dx.doi.org/10.1017/S1930297500001819)
@@ -26,6 +25,7 @@ Link: [http://www.riskliteracy.org/](http://www.riskliteracy.org/)
 - four-items
 - single-item
 
+<!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
   <StructuredLinks
@@ -33,7 +33,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "berlin-num Demo", url: "https://revisit.dev/study/library-berlin-num"}
       ]}
       codeLinks={[
-        {name: "berlin-num Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"}
+        {name: "berlin-num Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-berlin-num"},
+        {name: "berlin-num Library Code", url: "https://github.com/revisit-studies/study/tree/main/public/libraries/berlin-num"}
       ]}
       referenceLinks={[
         {name: "DOI", url: "https://dx.doi.org/10.1017/S1930297500001819"},
