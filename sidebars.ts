@@ -92,6 +92,7 @@ const sidebars: SidebarsConfig = {
             'data-and-deployment/firebase/setup',
             'data-and-deployment/firebase/enabling-authentication',
             'data-and-deployment/firebase/data-recovery',
+            'data-and-deployment/firebase/converting-screen-recording',
           ],
         },
         {
