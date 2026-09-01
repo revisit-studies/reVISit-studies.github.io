@@ -8,6 +8,11 @@ Responses can optionally also be provided with an [Answer](../../typedoc/interfa
  * In the analysis interface, tasks will be shown as correct or incorrect depending on the answer.
  * Answers can be used to check the response during the experiment, which is useful for **training**.
 
+### Understanding Response Status
+
+When a component does not configure `correctAnswer`, reVISit cannot evaluate whether a submitted response is correct. In sidebars and the Analyst task timeline, that response is shown with a gray checkmark and the tooltip “Response recorded; correctness not configured.” The gray checkmark confirms that the response was recorded; it does not indicate a correct answer. A green checkmark indicates a correct answer, and a red X indicates an incorrect answer.
+
+
 :::info
 There might be situations when answers cannot accurately capture whether a response was correct or not (e.g., with text input). In other situations, answers may have "degrees of correctness". In such cases, you will have to compute correct answers as part of your data analysis process.
 :::
@@ -68,11 +73,33 @@ If a user fails the training and `allowFailedTraining` is set to `false`, they�
 
 You can customize the behavior and appearance of navigation buttons in your study components. These options can be set globally in the `uiConfig` or overridden on individual components.
 
+### Alignment
+
+Use `nextButtonAlignment` to align the navigation action group—Previous, Check Answer, and Next—at the left, center, or right of its current location. The default is `"right"`. This setting changes only the group's alignment; it does not change the order, location, or behavior of the buttons.
+
+Set it in `uiConfig` to use the same alignment throughout the study. Set it on an individual component to override the global value for that component. Study Config validation accepts only `"left"`, `"center"`, and `"right"`.
+
+```json title="public/study-name/config.json"
+{
+  "uiConfig": {
+    "nextButtonAlignment": "center"
+  },
+  "components": {
+    "consent": {
+      "type": "questionnaire",
+      "nextButtonAlignment": "left",
+      "response": []
+    }
+  }
+}
+```
+
+
 ### Next
 
 The next button offers several customization options. You can change the button text using `nextButtonText` (e.g., "Continue", "Next Question") and control its location with `nextButtonLocation`.
 
-To enable keyboard navigation, set `nextOnEnter` to `true`, which allows participants to press Enter to move to the next question.
+To enable keyboard navigation, set `nextOnEnter` to `true`, which allows participants to press Enter to move to the next question. In a training component where **Check Answer** is available, Enter checks the answer first; otherwise, it moves to the next question.
 
 For timing control, you can use `nextButtonEnableTime` to delay when the button becomes clickable, which helps ensure participants have time to read the content, and `nextButtonDisableTime` to set a time limit after which the button becomes disabled, which is useful for time-limited tasks.
 
@@ -103,11 +130,52 @@ You can also combine `nextButtonDisableTime` with `timeoutReject` to automatical
 }
 ```
 
+### Automatically Advance After a Timeout
+
+To move a Participant to the next component after a time limit, set `nextButtonAutoAdvanceTime` on an individual component. You can also set these fields in a `baseComponents` entry and inherit them in components that use that base component.
+
+```json title="public/study-name/config.json"
+{
+  "components": {
+    "timed-task": {
+      "type": "questionnaire",
+      "nextButtonAutoAdvanceTime": 60000,
+      "nextButtonAutoAdvanceWarningTime": 10000,
+      "nextButtonAutoAdvanceWarningMessage": "Moving on in {seconds} {unit}. Your response will not be saved.",
+      "response": [
+        {
+          "id": "q1",
+          "prompt": "Answer within one minute",
+          "type": "shortText"
+        }
+      ]
+    }
+  }
+}
+```
+
+- `nextButtonAutoAdvanceTime` is the required time limit, in milliseconds.
+- `nextButtonAutoAdvanceWarningTime` controls when the warning appears before the time limit. It defaults to `30000`; set it to `0` or a negative number to hide the warning.
+- `nextButtonAutoAdvanceWarningMessage` optionally replaces the warning text. `{seconds}` becomes the rounded-up remaining time and `{unit}` becomes `second` or `seconds`. When neither placeholder is included, ReVISit appends its standard countdown text.
+
+The default warning says: “You will be automatically advanced to the next component. Responses on this component will not be saved.”
+
+Unlike `nextButtonDisableTime`, this setting actively moves the Participant forward. It does not merely disable **Next** and does not reject the Participant.
+
+:::caution[Timeouts discard the current response]
+When ReVISit auto-advances, it does not save the current component response. Use this only when intentionally discarding an incomplete response is acceptable. The stored component record includes its end time, `timedOut: true`, and an empty `answer` object.
+:::
+
+
 ### Check Answer
 
 When you set `correctAnswer` and `provideFeedback` to `true`, a "Check Answer" button appears next to the Next button. Participants can click this button to see if their answer is right or wrong before moving on.
 
+If a required or invalid response needs attention, **Check Answer** reveals the same validation errors as **Next**. This does not consume a training attempt.
+
 The Check Answer button uses `trainingAttempts` to limit how many times participants can check their answer. When a participant gets the answer right, the Check Answer button turns off and the Next button turns on. If you set `trainingAttempts` to a number, the button turns off after that many tries.
+
+Check Answer attempts and feedback status are saved, so refreshing the page does not reset a participant's attempts or feedback.
 
 You can choose what happens when participants fail training by setting `allowFailedTraining`. When set to `false`, participants who use up all their tries without getting the answer right will be rejected from the study.
 

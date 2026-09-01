@@ -61,9 +61,16 @@ A: Yes. You can attach metadata to components in your study configuration using 
 
 ### Q: What happens if there's an error during study initialization?
 
-A: ReVISit has built-in error handling so your participants won't be able to take a study without an active storage engine connection. After a five-second grace period, reVISit will show an error. The modal includes a `mailto:` link to your `uiConfig.contactEmail` along with diagnostic metadata — study ID, participant ID, storage engine, UTC timestamp, and current URL — so participants can quickly forward useful context to the study administrator.
+A: In a production build configured for Firebase or Supabase, a storage connection failure blocks participation so data is not collected without reaching the configured backend. After a five-second grace period, ReVISit shows an error. Ask the Participant to check their internet connection and select **Reconnect**, which reloads the page and tries the configured storage again. The modal includes a link to your `uiConfig.contactEmail` and copyable diagnostic metadata — including the study ID, participant ID, storage engine, UTC timestamp, and current URL — so the Participant can quickly forward useful context to the Study Designer.
 
 ![Storage disconnected](./img/faq/storage-disconnected.png)
+
+If saving an answer or provenance fails after the study starts, ReVISit shows a blocking **Failed to Save Response** modal. Ask the Participant to select **Retry** and wait for it to close before continuing; ReVISit retries queued writes and resumes only after they succeed.
+
+
+In a non-production build, ReVISit can fall back to local storage after warning that the configured cloud storage failed. Do not assume this locally stored data will be synchronized to Firebase or Supabase later.
+
+If the application cannot start for another reason, ReVISit shows a **ReVISit could not load** screen instead of leaving the page blank. Select **Reload** to retry without changing the current URL. Production builds hide raw backend and configuration details from Participants; local development builds display diagnostic details for the Study Designer. If reloading does not resolve the problem, check the browser console, the Study Config, and the configured storage service. Study Config validation errors continue to use the detailed config error list so they can be corrected directly.
 
 ### Q: How does reVISit make sure a participant's final answers are saved at the end of the study?
 
