@@ -6,7 +6,7 @@ ReVISit allows you to export data in [Tidy](https://cran.r-project.org/web/packa
 
 The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.
 
-The tidy data does not contain some data that is available in the JSON download, such as the provenance graphs. If you need this data, you can [download the JSON data](./#download-as-json) and parse it in your analysis platform.
+The tidy CSV and standard JSON downloads do not include provenance graphs. If you need this data, use the [provenance ZIP download](./#download-provenance) and parse the separate provenance JSON files in your analysis platform.
 
 ### Steps to Download Data
 
@@ -89,7 +89,7 @@ When a component uses automatic advance and reaches its time limit, its particip
 
 Standard participant JSON downloads do not include provenance graphs. This keeps the download smaller and faster when you do not need provenance data.
 
-To analyze provenance, use the provenance download button next to the other download buttons; its tooltip reads "Download all provenance as ZIP" (or "Download selected provenance as ZIP" when participants are selected). The ZIP contains separate provenance JSON files for each participant and task. Participant replay supports both this separate provenance storage and provenance graphs stored in answers from earlier data, so existing studies and data remain replayable.
+To analyze provenance, use the provenance ZIP download button next to the other download buttons. The ZIP contains separate provenance JSON files for each participant and task. Participant replay supports both this separate provenance storage and provenance graphs stored in answers from earlier data, so existing studies and data remain replayable.
 
 ## Download Audio
 

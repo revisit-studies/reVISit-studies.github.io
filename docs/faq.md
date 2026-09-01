@@ -70,7 +70,7 @@ If saving an answer or provenance fails after the study starts, ReVISit shows a 
 
 In a non-production build, ReVISit can fall back to local storage after warning that the configured cloud storage failed. Do not assume this locally stored data will be synchronized to Firebase or Supabase later.
 
-If the application cannot start for another reason, ReVISit shows a **ReVISit could not load** screen instead of leaving the page blank. Select **Reload** to retry without changing the current URL. Production builds hide raw backend and configuration details from Participants; development mode displays diagnostic details for the Study Designer. If reloading does not resolve the problem, check the browser console, the Study Config, and the configured storage service. Study Config validation errors continue to use the detailed config error list so they can be corrected directly.
+If the application cannot start for another reason, ReVISit shows a **ReVISit could not load** screen instead of leaving the page blank. Select **Reload** to retry without changing the current URL. Production builds hide raw backend and configuration details from Participants; local development builds display diagnostic details for the Study Designer. If reloading does not resolve the problem, check the browser console, the Study Config, and the configured storage service. Study Config validation errors continue to use the detailed config error list so they can be corrected directly.
 
 ### Q: How does reVISit make sure a participant's final answers are saved at the end of the study?
 

@@ -10,17 +10,17 @@ To view the provenance or audio replay for a single participant, click the expan
 
 ## Order Tasks in the Timeline
 
-Use the **Order** selector in the toolbar above the participant table to choose how tasks and their labels are listed in each expanded timeline. This affects only their order in the timeline; each bar's position and width continue to reflect the recorded time.
+Use the **Order** selector in the toolbar above the participant table to choose how tasks and their labels are listed in each expanded timeline. In the **Time** layout, task bars retain their time-based positions and widths. In the **Uniform** layout, the selected order determines their left-to-right placement.
 
-- **Sequence** (default) lists tasks in the order they appear in the Study Config sequence.
-- **Answer time** lists tasks by the time their responses began. Tasks without a completed response appear after those tasks, in sequence order.
+- **Sequence** (default) lists tasks in the sequence generated and recorded for that Participant.
+- **Answer time** lists tasks by the time they began. Tasks that were never started appear after started tasks, in sequence order.
 
 
 ## Choose a Timeline Layout
 
 Use the **Time / Uniform** control in the toolbar above the participant table to choose how task bars are sized in each expanded timeline. This setting changes the timeline layout, not the task order selected with the **Order** control.
 
-- **Time** (default) positions and sizes task bars using their recorded start and end times. It also shows when the Participant browsed away from the study.
+- **Time** (default) positions and sizes task bars using their recorded start and end times. It also shows when the Participant browsed away from the study. Long periods without recorded component timing are compressed and marked with `//`; hover over the marker to see the duration of the gap.
 - **Uniform** gives every task the same width, making short tasks easier to select and compare. Each task is at least 48 pixels wide. If all task bars do not fit in the table, scroll horizontally to view the rest of the timeline. Because this layout does not represent duration, browsed-away markers are hidden.
 
 Uniform mode does not change the task order selected with the **Order** control. Task colors continue to distinguish correct, incorrect, incomplete, and recorded responses whose correctness is not configured.

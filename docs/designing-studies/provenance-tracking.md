@@ -14,7 +14,7 @@ Accept `useTrrack` in the component parameters. Do not import a ReVISit hook. Ca
 ```tsx title="src/public/my-study/assets/MyStimulus.tsx"
 import { useMemo } from "react";
 import { Registry } from "@trrack/core";
-import type { StimulusParams } from "../../store/types";
+import type { StimulusParams } from "../../../store/types";
 
 type CounterState = { count: number };
 
