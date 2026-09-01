@@ -15,7 +15,6 @@ Use the **Order** selector in the toolbar above the participant table to choose 
 - **Sequence** (default) lists tasks in the order they appear in the Study Config sequence.
 - **Answer time** lists tasks by the time their responses began. Tasks without a completed response appear after those tasks, in sequence order.
 
-{/* Screenshot needed: docs/analysis/img/participant-replay/timeline-order-selector.png. Capture the Order selector (Sequence / Answer time) in the toolbar above the participant table, with an expanded participant timeline below it. */}
 
 ## Choose a Timeline Layout
 
@@ -30,7 +29,6 @@ Task replay is intended to be used with provenance, audio recording, or both. Au
 
 For stimuli that use managed Trrack provenance, replay follows the recorded interaction path, including undo, redo, and revisiting an existing state. Historical graph-only provenance remains replayable, but may not reproduce those traversals as faithfully.
 
-{/* Screenshot needed: docs/analysis/img/participant-replay/validation-reveal.png. Capture a replay of a form validation state after the Participant selected Next, with the same highlighted field and error summary shown in the replayed task. */}
 
 :::info
 If a participant hasn't completed any tasks yet, you'll see a warning message indicating that no task data is available for replay. This typically happens when a participant is still in progress or dropped out before submitting any responses.

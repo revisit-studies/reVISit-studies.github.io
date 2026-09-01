@@ -67,7 +67,6 @@ A: In a production build configured for Firebase or Supabase, a storage connecti
 
 If saving an answer or provenance fails after the study starts, ReVISit shows a blocking **Failed to Save Response** modal. Ask the Participant to select **Retry** and wait for it to close before continuing; ReVISit retries queued writes and resumes only after they succeed.
 
-{/* Screenshot needed: docs/img/faq/failed-save-response.png. Capture the blocking Failed to Save Response modal during a queued-write failure, showing Retry and the diagnostics/contact controls. Reference it here as ./img/faq/failed-save-response.png once captured. */}
 
 In a non-production build, ReVISit can fall back to local storage after warning that the configured cloud storage failed. Do not assume this locally stored data will be synchronized to Firebase or Supabase later.
 

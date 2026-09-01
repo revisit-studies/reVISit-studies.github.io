@@ -22,7 +22,6 @@ The tidy data does not contain some data that is available in the JSON download,
 
 ![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
 
-<!-- Screenshot needed: replace ./img/data-export/tidy-export-csv-exporter.png with the CSV Exporter showing the new optional fields metaData, participantTags, and taskTags in the field list (unselected by default). -->
 
 ### Export Qualitative Tags
 

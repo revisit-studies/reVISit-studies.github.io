@@ -63,7 +63,6 @@ In this example, the video is rendered in the main window. The video is given an
 
 When `forceCompletion` is `true`, a Participant who selects **Next** before playback finishes stays on the component and sees: “Please finish the video to continue.”
 
-{/* Screenshot needed: docs/designing-studies/img/video-force-completion-validation.png. Capture a force-completion video after the Participant selects Next before the video finishes, with the completion message visible. */}
 
 #### Troubleshoot a missing internal video
 

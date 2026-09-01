@@ -12,7 +12,6 @@ Responses can optionally also be provided with an [Answer](../../typedoc/interfa
 
 When a component does not configure `correctAnswer`, reVISit cannot evaluate whether a submitted response is correct. In sidebars and the Analyst task timeline, that response is shown with a gray checkmark and the tooltip “Response recorded; correctness not configured.” The gray checkmark confirms that the response was recorded; it does not indicate a correct answer. A green checkmark indicates a correct answer, and a red X indicates an incorrect answer.
 
-<!-- Screenshot needed: docs/designing-studies/img/response-status-indicators.png. Capture response-status indicators in a sidebar or Analyst task timeline, including the gray “Response recorded; correctness not configured” status with its tooltip. -->
 
 :::info
 There might be situations when answers cannot accurately capture whether a response was correct or not (e.g., with text input). In other situations, answers may have "degrees of correctness". In such cases, you will have to compute correct answers as part of your data analysis process.
@@ -95,7 +94,6 @@ Set it in `uiConfig` to use the same alignment throughout the study. Set it on a
 }
 ```
 
-<!-- Screenshot needed: docs/designing-studies/img/next-button-alignment.png. Capture the navigation action group shown with left, center, and right alignment. -->
 
 ### Next
 
@@ -168,7 +166,6 @@ Unlike `nextButtonDisableTime`, this setting actively moves the Participant forw
 When ReVISit auto-advances, it does not save the current component response. Use this only when intentionally discarding an incomplete response is acceptable. The stored component record includes its end time, `timedOut: true`, and an empty `answer` object.
 :::
 
-<!-- Screenshot needed: docs/designing-studies/img/auto-advance-warning.png. Capture a Participant view component with a custom countdown message and the yellow “Automatically advancing soon” warning visible. -->
 
 ### Check Answer
 

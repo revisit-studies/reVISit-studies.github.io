@@ -8,7 +8,6 @@ A **snapshot** in the data management platform is an exact copy of the current s
 
 ![Data Management](./img/data-management.png)
 
-<!-- Screenshot needed: replace ./img/data-management.png with the Snapshots table showing the Completed, In Progress, and Rejected columns, with the most recently created snapshot first. -->
 
 ### Snapshot Participant Status
 

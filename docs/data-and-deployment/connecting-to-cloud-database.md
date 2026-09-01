@@ -16,7 +16,6 @@ The warning does not prevent the study from running, but participant data might 
 
 The warning is not shown for local development (`localhost` or `127.0.0.1`) or for reVISit-managed domains such as `revisit.dev` and `vdl.sci.utah.edu`. These deployment settings are separate from the Study Config.
 
-<!-- Screenshot needed: docs/data-and-deployment/img/default-storage-warning.png. Show a study opened on an external domain with the orange Default Firebase or Default Supabase badge and its tooltip. -->
 
 ## Recovering from Cloud Storage Failures
 

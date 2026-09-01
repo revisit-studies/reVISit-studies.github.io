@@ -72,7 +72,6 @@ The **Next** button is available before a Participant answers. When they select 
 
 This attempted-advance validation applies to required responses, `requiredValue` and `requiredLabel`, numeric ranges, `minSelections` and `maxSelections`, matrix questions, incomplete **Other** entries, and custom response validation.
 
-{/* Screenshot needed: docs/designing-studies/img/designing-forms/validation-after-next.png. Capture a Participant form after selecting Next with one required response unanswered and one invalid response, showing the inline errors and the validation summary. */}
 
 You can also force participants to provide a specific answer value using `requiredValue`. This is useful for attention checks, training tasks, or ensuring participants read instructions carefully. The participant must provide an exact match with the specified value to proceed.
 
