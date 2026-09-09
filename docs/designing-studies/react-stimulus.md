@@ -12,6 +12,8 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "example-cleveland," so we put this code into `src/public/example-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
 
+The Study Config `path` is relative to `src/public/`, so the path for that example would be `example-cleveland/assets/BarChart.tsx`. ReVISit verifies this path while parsing the Study Config and reports an **Unresolved path** error if the file is missing or was placed under `public/` instead. See [Parser Errors and Warnings](parser-errors.md#unresolved-react-component-paths) for troubleshooting.
+
 We have a few reusable components and hooks available in the `src/public/example-cleveland/assets/hooks` and `src/public/example-cleveland/assets/chartcomponents` folders, which are required in this demo. These reusable components and hooks help creating charts using D3.js in React. You may copy them to your own experiment folder.
 
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
@@ -173,6 +175,8 @@ The component uses:
 - `setAnswer` to send typed responses to reVISit
 - `reactive` response in config
 
+Set `"required": true` on a `reactive` response when the Participant must interact with the stimulus before continuing. If they select **Next** first, ReVISit shows: “Please complete the stimulus interaction to continue.”
+
 We will use `demo-react-trrack` as the experiment name. Create the React stimulus file in `src/public/demo-react-trrack/assets/`.
 
 ```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
@@ -280,10 +284,11 @@ Below is a minimal config with two Stroop trials. Each trial passes `displayText
 
 ### Adding provenance tracking
 
-To record user interactions and enable replay, you can add provenance tracking with Trrack. This involves:
-- Creating a Trrack registry and actions for state changes
-- Passing `provenanceGraph` in `setAnswer` so reVISit stores the provenance
-- Using `provenanceState` to restore the textbox during replay
+To record user interactions and enable replay, use the managed `useTrrack` function supplied in `StimulusParams`. Create a Trrack registry and actions, then call `useTrrack({ registry, initialState })` at the component's top level. Do not import a ReVISit hook.
+
+ReVISit records the initial state plus apply, undo, redo, and other traversals automatically. Continue to use `setAnswer` for answers without passing `provenanceGraph`, and use `provenanceState` to render the restored stimulus state during replay.
+
+Existing manual `provenanceGraph` integrations remain supported, but are deprecated for new studies.
 
 For a full walkthrough, see the [Provenance Tracking](provenance-tracking.md) tutorial.
 
