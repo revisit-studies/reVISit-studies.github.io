@@ -124,23 +124,23 @@ To download audio from a subset of participants, select the participants in the 
 If you are using Firebase with the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) configured, it will download the transcript of the audio file as well.
 :::
 
-## Download Screen Recording
+## Download Screen and Webcam Recordings
 
-You can download screen recording video files if you have enabled `recordScreen: true` in your study. To learn how to enable the screen recording feature in your study, please visit [Record Screen](../../designing-studies/record-screen).
+You can download recording video files if you have enabled `recordScreen: true` and/or `recordWebcam: true` in your study. To learn how to enable recording, please visit [Record Screen and Webcam](../../designing-studies/record-screen).
 
-### Bulk-Download Participants' Screen Recording
+### Bulk-Download Participants' Recordings
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the **Participant View**, then click on the **Download participants' screen recording** button.
+2. Open the **Participant View**, then click on the recording download button. It downloads screen recordings, webcam recordings, or both, depending on what the study collected.
 
 ![Download participants' screen recording](./img/data-export/screen-recording-export-all.png)
 
 :::note
-To download screen recording from specific participants, select the participants in the table.
+To download recordings from specific participants, select the participants in the table.
 :::
 
-### Download Individual Participant's Screen Recording for a Specific Task
+### Download Individual Participant's Recordings for a Specific Task
 
 1. Navigate to the **Analysis** platform for the current study.
 
@@ -150,7 +150,7 @@ To download screen recording from specific participants, select the participants
 3. Click on the task.
 ![Download task audio](./img/data-export/screen-recording-export-2.png)
 
-3. Click on the **Download Screen Recording** button.
+3. Click on the **Download recordings** button. If both screen and webcam recordings are available for the task, both files are downloaded.
 ![Download screen recording video](./img/data-export/screen-recording-export-3.png)
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
