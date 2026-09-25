@@ -1,17 +1,6 @@
-
 # mic-check
 
-
-
 This is a library for testing the microphone. It provides a component that listens to the microphone and only enables the next button when audio is detected.
-
-
-
-
-
-
-
-
 
 ## Available Components
 
@@ -21,8 +10,6 @@ This is a library for testing the microphone. It provides a component that liste
 
 None
 
-
-
 <!-- Importing Links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -31,7 +18,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "mic-check Demo", url: "https://revisit.dev/study/library-mic-check"}
       ]}
       codeLinks={[
-        {name: "mic-check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"}
+        {name: "mic-check Demo Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check"},
+        {name: "mic-check Library Code", url: "https://github.com/revisit-studies/study/tree/main/public/libraries/mic-check"}
       ]}
       
   />

@@ -20,3 +20,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+
+# Generated adoption data
+src/data/adoption.generated.json

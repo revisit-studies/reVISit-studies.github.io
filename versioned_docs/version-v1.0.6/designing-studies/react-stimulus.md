@@ -149,7 +149,6 @@ The parameters are an object; you can change the format to suit your needs.
             },
 ```
 
-
 ## Example 2: Click Accuracy Experiment
 The click accuracy experiment requires participants to click on a moving dot on the screen. The dot will move inside a bounded box. The faster the dot moves, the more difficult it is for the participants to click on it.
 
@@ -285,8 +284,3 @@ In the config file, we pass the `taskid` and speed as parameters. Notice the res
 ```
 
 At this point, the click accuracy test will be running and be able to collect participant's data.
-
-<!-- As an additional We have three assignments for you. 
-1) If you notice, we did not use the speed parameter in this React component, can you modify the code to use the speed parameter as the initial speed?
-2) The distance we record is between the click location and the center of the dot. Can you modify the code to record the distance between click location and the edge of the dot?
-3) We can make this stimulus more challenge, adding mulitple moving dots and ask the participants to click on the highlighted one. -->

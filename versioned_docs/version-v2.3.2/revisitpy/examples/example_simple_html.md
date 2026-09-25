@@ -35,7 +35,6 @@ ui_config = rvt.uiConfig(
 
 Next we'll create the response and the base component that we will be using. Note that in the reVISitPy package, the base components work in a slightly different way. Instead of directly adjusting the `"baseComponent"` top level key in the configuration file, the inheritance is handled directly in the library. So, when you inspect a component that has a base, the component will already have all the appropriate properties from the base. Similar to the config, however, a base component in `revisitpy` is defined in the same exact way as a regular component.
 
-
 ```python
 response_one = rvt.response(
     id='barChart',
@@ -62,7 +61,6 @@ base_component = rvt.component(
 # Generating the regular components
 
 Since we have the base components set up, we can create our two other components which both inherit these bases.
-
 
 ```python
 # No need to define the response in this component since it will automatically be initialized as empty.
@@ -112,7 +110,6 @@ comp_two = rvt.component(
 ## Generate The Sequence and Final Config
 
 Now that all the individual pieces are created, we'll create the sequence and then the final configuration file.
-
 
 ```python
 sequence = rvt.sequence(
@@ -252,7 +249,6 @@ Now that we have the study completed, let's use the widget to visualize this. We
 
 Simply import the `revisitpy-server` package and call `rs.serve()`. We set the return value of `rs.serve()` to `process` so that we can terminate the process afterwards if desired.
 
-
 ```python
 import revisitpy_server as rs
 
@@ -265,7 +261,6 @@ Server is running in the background at http://localhost:8080
 ## Launching The Widget
 
 Launching the widget is also straightforward -- especially when using the `revisitpy_server` package.
-
 
 ```python
 w = rvt.widget(study, server=True)
@@ -281,7 +276,6 @@ Copying file from ./assets/help.md to /Users/bbollen23/revisit-py-examples/.venv
 Copying file from ./assets/revisitLogoSquare.svg to /Users/bbollen23/revisit-py-examples/.venv/lib/python3.12/site-packages/revisitpy_server/static/__revisit-widget/assets/revisitLogoSquare.svg
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

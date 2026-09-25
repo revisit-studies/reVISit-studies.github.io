@@ -37,11 +37,11 @@ A: Firebase lets you choose the region for both Firestore and Storage. Please se
 
 ### Q: I don't want to use Firebase, what other options do I have?
 
-A: We also support an open, self-hosted alternative to Firebase called Supabase. You will have to run this on a server you control. For details, see the [documentation](../data-and-deployment/supabase/setup/).
+A: We also support an open, self-hosted alternative to Firebase called [Supabase](https://supabase.com/), which is backed by PostgreSQL. You will have to run this on a server you control. For details, see the [documentation](../data-and-deployment/supabase/setup/).
 
-### Q: How do I store data in some other database?
+### Q: How do I store data in other database?
 
-A: In short: we don't support other databases. However, reVISit is designed with "storage engines" in mind. By default, we use the local storage engine (data being stored directly on the user's computer) for development or for in-lab studies and the firebase storage engine for production builds. However, we do have plans to create additional storage engines for cases where a study creator has a backend server hooked up to a database (such as MySQL). In the meantime, you can view the [source code](https://github.com/revisit-studies/study/tree/main/src/storage/engines) to design your own storage engine that best fits your needs. If you make a storage engine to suit your own needs, please consider making a [pull request](https://github.com/revisit-studies/study/pulls) so that we can improve reVISit for all users.
+A: In short: we don't support databases other than Firebase / Supabase (PostgreSQL). However, reVISit is designed with "storage engines" in mind. By default, we use the local storage engine (data being stored directly on the user's computer) for development or for in-lab studies and the other storage engines for production builds. You can view the [source code](https://github.com/revisit-studies/study/tree/main/src/storage/engines) to design your own storage engine that best fits your needs. If you make a storage engine to suit your own needs, please consider making a [pull request](https://github.com/revisit-studies/study/pulls) so that we can improve reVISit for all users.
 
 ### Q: I had Firebase connected but it no longer works locally. What happened?
 
@@ -61,9 +61,16 @@ A: Yes. You can attach metadata to components in your study configuration using 
 
 ### Q: What happens if there's an error during study initialization?
 
-A: ReVISit has built-in error handling so your study can still run even if something goes wrong with the storage engine connection. After a five-second grace period, reVISit will show a warning modal, fall back to local storage for data storage, and continue running the study. Participants are notified that their data will only be stored locally on their machine and not uploaded to the cloud. The modal includes a `mailto:` link to your `uiConfig.contactEmail` along with diagnostic metadata — study ID, participant ID, storage engine, UTC timestamp, and current URL — so participants can quickly forward useful context to the study administrator.
+A: In a production build configured for Firebase or Supabase, a storage connection failure blocks participation so data is not collected without reaching the configured backend. After a five-second grace period, ReVISit shows an error. Ask the Participant to check their internet connection and select **Reconnect**, which reloads the page and tries the configured storage again. The modal includes a link to your `uiConfig.contactEmail` and copyable diagnostic metadata — including the study ID, participant ID, storage engine, UTC timestamp, and current URL — so the Participant can quickly forward useful context to the Study Designer.
 
 ![Storage disconnected](./img/faq/storage-disconnected.png)
+
+If saving an answer or provenance fails after the study starts, ReVISit shows a blocking **Failed to Save Response** modal. Ask the Participant to select **Retry** and wait for it to close before continuing; ReVISit retries queued writes and resumes only after they succeed.
+
+
+In a non-production build, ReVISit can fall back to local storage after warning that the configured cloud storage failed. Do not assume this locally stored data will be synchronized to Firebase or Supabase later.
+
+If the application cannot start for another reason, ReVISit shows a **ReVISit could not load** screen instead of leaving the page blank. Select **Reload** to retry without changing the current URL. Production builds hide raw backend and configuration details from Participants; local development builds display diagnostic details for the Study Designer. If reloading does not resolve the problem, check the browser console, the Study Config, and the configured storage service. Study Config validation errors continue to use the detailed config error list so they can be corrected directly.
 
 ### Q: How does reVISit make sure a participant's final answers are saved at the end of the study?
 

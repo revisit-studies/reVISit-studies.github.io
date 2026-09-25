@@ -32,7 +32,7 @@ Running into a bug? Or want to write an extension? Use the [GitHub issue tracker
 
 ## Submit Your ReVISit Study
 
-If you've used reVISit for your visualization research, we'd love to see it! Fill out [this Google form](https://forms.gle/CE82n3V1bcmZ4ahY9) and you'll be added to our [adoption page](../adoption).
+If you've used reVISit for your visualization research, we'd love to see it. Open a pull request that updates [static/adoption.bib](https://github.com/revisit-studies/reVISit-studies.github.io/blob/main/static/adoption.bib), or email [contact@revisit.dev](mailto:contact@revisit.dev) if you'd prefer help from us.
 
 ## Community Activities
 
@@ -60,7 +60,7 @@ ReVISit is advised by a board of community members who regularly run a diverse s
 
 [Danielle Albers Szafir](https://danielleszafir.com/), University of North Carolina-Chapel Hill  
 [Cindy Xiong Bearfield](https://cyxiong.com/), Georgia Tech  
-[Ana Crisan](https://amcrisan.github.io/), Tableau Research  
+[Ana Crisan](https://amcrisan.github.io/), University of Waterloo  
 [Alex Endert](https://va.gatech.edu/endert/), Georgia Tech  
 [Jean-Daniel Fekete](https://www.aviz.fr/~fekete/), INRIA Paris  
 [Petra Isenberg](https://petra.isenberg.cc/wiki/pmwiki.php), INRIA Paris  

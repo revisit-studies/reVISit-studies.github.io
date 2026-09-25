@@ -42,7 +42,6 @@ To download audio data after completing a study, navigate to [Participant View](
 To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio` .
 :::
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

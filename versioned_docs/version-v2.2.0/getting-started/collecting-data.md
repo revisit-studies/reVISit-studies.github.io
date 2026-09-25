@@ -1,7 +1,5 @@
 # Collecting Data Locally
 
-
-
 Now that we have a working study, we'll look at how we can start collecting data. 
 
 By default, reVISit does not collect data. This is because you don't need to collect data while you're developing your study. Rather, you want to work on your stimuli and study design first, and then, when you're ready to test you can enable data collection. 
@@ -27,7 +25,6 @@ Note that the JSON data contains much more detailed data, including logs about m
 
 You can also preview your data in the “Table View”, which is especially usefull if you're debugging your study. 
 
-
 ## Resetting your Local Database
 
 The data collected locally is stored in your browser and associated with the page. If you want to clear the data, e.g., because you have completed your pilots and are ready to start a study, you will need to reset the local storage of your browser associated with reVISit. How this works varies between browsers. For Chrome: 
@@ -43,8 +40,6 @@ This will clear your database.
 This cannot be undone. Be sure to back up your data if it is valuable. 
 :::
 
-
-<!-- Importing links  -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

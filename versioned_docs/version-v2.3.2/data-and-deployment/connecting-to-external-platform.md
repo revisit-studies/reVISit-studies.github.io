@@ -19,7 +19,6 @@ When participants are recruited through a third-party platform, their unique ID 
 When a participant visits the following link, reVISit will store abc123 as their participant ID for the duration of the study:
 https://revisit.dev/study/studyName?PARTICIPANT_ID=abc123
 
-
 ### Display the ID in the Study
 You can use the captured participant ID as a response value by adding the paramCapture field to a `shortText` response. This automatically fills in the participant’s ID from the URL and disables editing to prevent manual tampering.
 
@@ -128,7 +127,6 @@ Just like with other platforms, you can display the SONA ID in the introduction 
 },
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

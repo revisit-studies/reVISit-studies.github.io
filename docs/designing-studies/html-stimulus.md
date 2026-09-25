@@ -87,7 +87,7 @@ Furthermore, you’ll see that we have also created an `onClick` function and at
 
 ### Adding provenance tracking
 
-For a website or iframe stimulus that uses Trrack, create the instance with `Revisit.createTrrack`:
+For a website or iframe stimulus that uses Trrack, create the instance with `Revisit.createTrrack` rather than manually publishing graph snapshots:
 
 ```js
 const trrack = Revisit.createTrrack({
@@ -97,9 +97,9 @@ const trrack = Revisit.createTrrack({
 });
 ```
 
-This managed API automatically captures the initial state and every apply, undo, redo, or other traversal. It also removes its subscription when the iframe page is discarded. Continue to use `Revisit.postAnswers` for answers.
+ReVISit automatically captures the initial state plus apply, undo, redo, and other traversals. Continue to use `Revisit.postAnswers` for answers; do not repeatedly call `Revisit.postProvenance(trrack.graph.backend)` in new studies.
 
-During replay, render the state reVISit sends to the iframe:
+To render replayed state, register a handler:
 
 ```js
 Revisit.onProvenanceReceive((provenanceState) => {
@@ -107,7 +107,7 @@ Revisit.onProvenanceReceive((provenanceState) => {
 });
 ```
 
-Calling `Revisit.postProvenance(trrack.graph.backend)` manually is deprecated, but remains backward-compatible for existing and historical studies. See [Provenance Tracking](provenance-tracking.md) for a complete example and migration guidance.
+Manual `Revisit.postProvenance(...)` integrations remain supported for existing studies, but are deprecated for new work. See [Provenance Tracking](provenance-tracking.md) for React, website, and migration guidance.
 
 Now that we have this HTML document in our study directory, we are ready to adjust our `config.json` file to account for these new components.
 
@@ -133,6 +133,8 @@ In your `config.json` document, create new key called `baseComponents` as a sibl
 ```
 This creates a component that new components can be based off of. Each component using the `bar-chart` as the value to the `baseComponent` key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating these next components.
 
+Because this `reactive` response is required, the embedded activity must report an interaction before the Participant can continue. If they select **Next** first, ReVISit shows: “Please finish the embedded activity to continue.”
+
 In the components section, add the following objects:
 
 ```json title="public/basic-questionnaire-study/config.json"
@@ -157,7 +159,6 @@ The `parameters` key is a dynamically valued key which is used to pass data to y
 
 To finish this tutorial, add these two components (`bar-chart-1` and `bar-chart-2` to the sequence in `config.json`).
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
@@ -170,7 +171,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
   referenceLinks={[
     {name: "D3.js", url: "https://d3js.org/"},
     {name: "WebsiteComponent", url: "../../typedoc/interfaces/WebsiteComponent"},
-    {name: "BaseComponents", url: "../../typedoc/type-aliases/BaseComponents/"},
-    {name: "Provenance Tracking", url: "../provenance-tracking"}
+    {name: "BaseComponents", url: "../../typedoc/type-aliases/BaseComponents/"}
   ]}
 />

@@ -61,11 +61,11 @@ To use your custom form element in your study config, you need to define a respo
 }
 ```
 
-::note[Note]
+:::note[Note]
 The path here is relative to the `src/public` directory of the ReVISit app, not the `public` directory used for most other study assets. You can place your custom form element component anywhere under `src/public`. We recommend that you follow the same folder structure that we suggest in the [react stimulus docs](./react-stimulus.md) for your custom form elements.
 :::
 
-::note[JSON-serializable values]
+:::note[JSON-serializable values]
 Custom response values must be JSON-serializable. This applies both to the values you store through `field.setValue(...)` and to any `default` value you define in the study config. Strings, numbers, booleans, `null`, arrays, and plain objects are supported.
 :::
 
@@ -114,7 +114,7 @@ export const validate: CustomResponseValidate<ColorPickerValue> = (value, _value
 
 In this example, we supplied a `validate` function that checks if a color has been selected. If no color is selected, it returns an error message prompting the participant to select a color. If a color is selected, it returns `null`, indicating that the response is valid. The function must be called `validate` and must be exported from the same file as the custom form element component.
 
-When you include this custom form element in your study config, the validation logic will be automatically applied, and participants will not be able to submit their response until they have selected a color.
+When a Participant selects **Next**, validation runs for custom form elements as well as built-in responses. If the custom `validate` function returns an error, ReVISit keeps the Participant on the component and passes the message through the `error` parameter so the custom element can display it. The error does not appear until the Participant attempts to continue.
 
 ## Provenance tracking for custom form elements
 

@@ -91,6 +91,8 @@ Once the signal is defined in your Vega specifications, you can configure the re
 
 This setup ensures that the participant's interaction with the visualization is seamlessly recorded and displayed in the reVISit interface.
 
+Set `"required": true` on a `reactive` response when the Participant must interact with the visualization before continuing. If they select **Next** before the required interaction is reported, ReVISit shows: “Please complete the stimulus interaction to continue.”
+
 :::info
 Make sure that the `response.id` matches the one in vega signal's `responseId`.
 :::
@@ -106,7 +108,6 @@ The figure shows the result:
 ![The reVISit UI showing a Vega bar chart where one bar is selected and the response is printed in the sidebar.](./img/vega-response.png)
 
 Remember that all events in this example are fully tracked, so you can inspect the interactions of each participants in the [replay view](https://revisit.dev/study/analysis/stats/demo-vega/table).
-
 
 ```json title="public/demo-vega/config.json"
 "components": {
@@ -335,7 +336,6 @@ Remember that all events in this example are fully tracked, so you can inspect t
 }
 ```
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

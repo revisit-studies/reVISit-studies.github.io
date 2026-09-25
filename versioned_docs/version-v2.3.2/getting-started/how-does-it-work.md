@@ -141,7 +141,6 @@ For each component a participant interacts with, reVISit stores a [StoredAnswer]
 - **Interaction Data**: Timing information (start and end times) and a log of interactions including mouse movements, keyboard input, scrolling, and visibility events
 - **Provenance Graphs**: A graph structure that tracks the sequence of meaningful state changes in the component.
 
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

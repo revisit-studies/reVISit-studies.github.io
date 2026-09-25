@@ -1,7 +1,5 @@
 # Installation
 
-
-
 Adding reVISitPy to a python project is simple. If you're using `pip`, you can do the following:
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +23,6 @@ uv add revisitpy
 </Tabs>
 
 This will provide you with all the functionality that reVISitPy provides -- including the widget to view your study in a Jupyter notebook.
-
 
 ## ReVISit Server
 
@@ -60,8 +57,6 @@ process = rs.serve()
 Note that this is, by default, serving a copy of reVISit on port 8080. Currently, there are no adjustments in place to change this default port. We intend to allow for more customization in the future.
 :::
 
-
-<!-- Importing links -->
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
