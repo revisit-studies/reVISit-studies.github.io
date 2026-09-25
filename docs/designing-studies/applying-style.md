@@ -4,11 +4,61 @@ ReVISit provides flexible styling capabilities to customize the appearance of yo
 
 This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience.
 
+## Color Mode
+
+Set `uiConfig.colorMode` in your Study Config to choose the study's appearance:
+
+```json title="public/study-name/config.json"
+"uiConfig": {
+  "colorMode": "dark"
+}
+```
+
+| Value            | Behavior                                                                 |
+| ---------------- | ------------------------------------------------------------------------ |
+| `light`          | Always use light mode. This is the default when `colorMode` is omitted.  |
+| `dark`           | Always use dark mode.                                                    |
+| `userPreference` | Use the Participant's system color preference when they start the study. |
+
+:::note
+
+The chosen mode is saved with the Participant's data and used when they resume the study or when an Analyst replays it. Later changes to the system theme do not change that Participant's study mode.
+
+Participants do not have a theme toggle within the study. The theme toggle on the home page and in Analysis controls the application appearance separately and does not override the Study Config.
+
+:::
+
+### HTML and Embedded Websites
+
+Components with `"type": "website"` inherit the study's color mode by default. To give an embedded page a different mode, set `colorMode` on that component to `light` or `dark`:
+
+```json title="public/study-name/config.json"
+"components": {
+  "chart": {
+    "type": "website",
+    "path": "study-name/assets/chart.html",
+    "colorMode": "light",
+    "response": []
+  }
+}
+```
+
+This passes a CSS color scheme to the iframe; the embedded page must support it. It does not recolor a page's hard-coded backgrounds, text, or chart colors.
+
+:::note
+
+Built-in study controls support both modes. Custom CSS, images, and visualizations may need their own color adjustments. For example, a Vega chart with dark axis labels needs lighter labels to remain readable on a dark background. Check your stimuli in each mode your study allows.
+
+Try the [Dark Mode Demo](https://revisit.dev/study/demo-dark-mode) to see forms, a Vega chart, and an embedded page in a dark study.
+
+:::
+
 ## Styling Methods
 
 There are two primary ways to apply styles to your study:
 
 ### 1. External CSS Files (`stylesheetPath`)
+
 For comprehensive styling with complex rules, pseudo-classes, etc. across all components, you can load external CSS files.
 
 ```json title="public/study-name/config.json"
@@ -20,6 +70,7 @@ For comprehensive styling with complex rules, pseudo-classes, etc. across all co
 When styling elements with external CSS files, target them using the appropriate selectors:
 
 **Class Selectors:**
+
 - Sidebar: `.sidebar`
 - Study Browser: `.studyBrowser`
 - Header/Title Bar: `.header`
@@ -35,18 +86,22 @@ When styling elements with external CSS files, target them using the appropriate
 - Individual Response: `.response`
 
 **ID Selectors:**
+
 - Component: `#componentName` (e.g., `#introduction`, `#survey-question`)
 - Response: `#responseId` (e.g., `#final-feedback`, `#user-rating`)
 
 :::info
+
 Styles are applied in the following order (later styles override earlier ones):
 
 1. **Global UI Styles** (`uiConfig.stylesheetPath`)
 2. **Component Styles** (`component.stylesheetPath` and `component.style`)
 3. **Response Styles** (`response.stylesheetPath` and `response.style`)
+
 :::
 
 ### 2. Inline Styles (`style`)
+
 For basic styling like sizing, colors, and fonts, apply specific CSS properties directly to components or responses:
 
 ```json title="public/study-name/config.json"
@@ -227,7 +282,9 @@ Apply styles directly to component configurations:
 ```
 
 :::info
+
 If you set `width` in `style` without setting `maxWidth`, reVISit automatically applies `maxWidth: '100%'` so the component cannot overflow its container on smaller screens. Set `maxWidth` explicitly to override this clamp.
+
 :::
 
 ### Component Styling Examples
@@ -256,7 +313,7 @@ If you set `width` in `style` without setting `maxWidth`, reVISit automatically 
 }
 
 #introduction h2 {
-  font-family: "Gill Sans", sans-serif;
+  font-family: 'Gill Sans', sans-serif;
   font-weight: 700;
 }
 
@@ -325,6 +382,7 @@ If you set `width` in `style` without setting `maxWidth`, reVISit automatically 
 ### Using External CSS Files
 
 Responses can have their own stylesheets. You can target them using their type (as a class) or by their specific id.
+
 - To select a specific response, use its `id` (e.g., `#final-feedback`).
 - To target responses by `type`, use the class name (e.g., `.likert`, `.textOnly`).
 - Use `.responseBlock` to select the whole block that holds the responses.
@@ -359,7 +417,7 @@ Responses can have their own stylesheets. You can target them using their type (
   margin: 10px 0;
 }
 
-.likert{
+.likert {
   background: #e9ecef;
   border-radius: 4px;
   padding: 8px 12px;
@@ -499,7 +557,10 @@ You can also make responses interactive using CSS. For example, you can change t
   margin: 10px;
   width: 70%;
   color: #333333;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition:
+    background 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    width 0.3s ease-in-out;
 }
 
 #likert-response:hover {
@@ -553,11 +614,15 @@ You can also make responses interactive using CSS. For example, you can change t
 }
 
 @keyframes typing-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 15px 40px #9abddc;
   }
   50% {
-    box-shadow: 0 25px 80px #9abddc, 0 0 30px #9abddc, inset 0 0 20px rgba(154, 189, 220, 0.3);
+    box-shadow:
+      0 25px 80px #9abddc,
+      0 0 30px #9abddc,
+      inset 0 0 20px rgba(154, 189, 220, 0.3);
   }
 }
 ```
@@ -566,15 +631,29 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
   demoLinks={[
-    {name: "Style Demo", url: "https://revisit.dev/study/demo-style"}
+    { name: 'Style Demo', url: 'https://revisit.dev/study/demo-style' },
+    { name: 'Dark Mode Demo', url: 'https://revisit.dev/study/demo-dark-mode' },
   ]}
   codeLinks={[
-    {name: "Style Demo Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-style"}
+    {
+      name: 'Style Demo Code',
+      url: 'https://github.com/revisit-studies/study/blob/main/public/demo-style',
+    },
+    {
+      name: 'Dark Mode Demo Code',
+      url: 'https://github.com/revisit-studies/study/blob/main/public/demo-dark-mode',
+    },
   ]}
   referenceLinks={[
-    {name: "UIConfig", url: "../../typedoc/interfaces/UIConfig"},
-    {name: "BaseIndividualComponent", url: "../../typedoc/interfaces/BaseIndividualComponent"},
-    {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"},
-    {name: "CSS Properties", url:"https://developer.mozilla.org/en-US/docs/Web/CSS/Properties"}
+    { name: 'UIConfig', url: '../../typedoc/interfaces/UIConfig' },
+    {
+      name: 'BaseIndividualComponent',
+      url: '../../typedoc/interfaces/BaseIndividualComponent',
+    },
+    { name: 'BaseResponse', url: '../../typedoc/interfaces/BaseResponse' },
+    {
+      name: 'CSS Properties',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Properties',
+    },
   ]}
 />
