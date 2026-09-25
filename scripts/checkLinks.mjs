@@ -22,6 +22,7 @@ const linksToSkip = [
   "ojs.aaai.org",
   "console.cloud.google.com",
   "https://www.google.com/recaptcha/admin/create",
+  "^https://platform\\.openai\\.com/", // automated requests are denied
 ];
 
 const checker = new LinkChecker();
@@ -57,6 +58,8 @@ const results = await checker.check({
   path: "./build",
   recurse: true,
   linksToSkip,
+  retryErrors: true,
+  retryErrorsCount: 2,
 });
 
 // Print a summary of broken links at the end for easy identification
