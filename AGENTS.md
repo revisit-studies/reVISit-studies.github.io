@@ -27,7 +27,7 @@ Study Configs
 The study configurations are defined in JSON files with schemas. These configs specify various aspects of the study, including the visualization tools to be used, the tasks participants need to complete, and the data sources involved. You can find the full definition of the study config typescript at https://raw.githubusercontent.com/revisit-studies/study/dev/src/parser/parser.ts. When adding new docs, always ready the current version of the schema and assume that you should read from the `dev` branch (replace dev in the string above if you're asked to look at a different branch).
 
 How you should interact with this docs codebase
-You should read docs related to features that you're adding Fore example, if we're adding anew component, read the docs for the other component types. You can run git commands but don't run them unless asked to. Don't interact with GitHub issues or pull requests directly. You should only ever write user facing documentation, we don't host any development/architectural documents in this repo.
+You should read docs related to features that you're adding Fore example, if we're adding a new component, read the docs for the other component types. You can run git commands but don't run them unless asked to. Don't interact with GitHub issues or pull requests directly. You should only ever write user facing documentation, we don't host any development/architectural documents in this repo.
 
 Typedoc
 Typedoc is built from the app for every release and included as reference material so you don't need to add that to this repo. Assume it will be handled, but state your assumption.
