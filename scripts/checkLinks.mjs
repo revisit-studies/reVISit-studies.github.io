@@ -22,6 +22,7 @@ const linksToSkip = [
   "ojs.aaai.org",
   "console.cloud.google.com",
   "https://www.google.com/recaptcha/admin/create",
+  "^https://platform\\.openai\\.com/", // automated requests are denied
 ];
 
 const checker = new LinkChecker();
@@ -31,7 +32,6 @@ const seenUrls = new Set();
 const okLinks = [];
 const skippedLinks = [];
 const brokenLinks = [];
-const warningLinks = [];
 
 checker.on("link", (result) => {
   if (seenUrls.has(result.url)) {
@@ -48,9 +48,6 @@ checker.on("link", (result) => {
   } else if (result.state === LinkState.SKIPPED) {
     skippedLinks.push(result);
     console.log(`[SKIP] ${result.url}`);
-  } else if (result.status === 403) {
-    warningLinks.push(result);
-    console.log(`${YELLOW}[WARN 403] ${result.url} (access denied to checker)${RESET}`);
   } else {
     okLinks.push(result);
     console.log(`${GREEN}[${result.status}] ${result.url}${RESET}`);
@@ -63,8 +60,6 @@ const results = await checker.check({
   linksToSkip,
   retryErrors: true,
   retryErrorsCount: 2,
-  // A 403 can reflect a site's policy for automated requests, not a missing page.
-  statusCodes: { "403": "warn" },
 });
 
 // Print a summary of broken links at the end for easy identification
@@ -81,14 +76,10 @@ if (brokenLinks.length > 0) {
     `\n${BOLD}${RED}Total broken links: ${brokenLinks.length}${RESET}`,
   );
 } else {
-  console.log(`\n${BOLD}${GREEN}No broken links found.${RESET}`);
+  console.log(`\n${BOLD}${GREEN}All links are valid!${RESET}`);
 }
 
-if (warningLinks.length > 0) {
-  console.log(`${YELLOW}${warningLinks.length} access-denied links need manual review.${RESET}`);
-}
-
-const totalUnique = okLinks.length + skippedLinks.length + brokenLinks.length + warningLinks.length;
+const totalUnique = okLinks.length + skippedLinks.length + brokenLinks.length;
 const totalReported = results.links.length;
 console.log(
   `Checked ${totalUnique} unique links (${totalReported} total, ${totalReported - totalUnique} duplicates skipped).`,
