@@ -8,7 +8,27 @@ To view the provenance or audio replay for a single participant, click the expan
 
 ![Single Replay](./img/participant-replay/participant-replay-single.png)
 
-Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study.
+## Order Tasks in the Timeline
+
+Use the **Order** selector in the toolbar above the participant table to choose how tasks and their labels are listed in each expanded timeline. In the **Time** layout, task bars retain their time-based positions and widths. In the **Uniform** layout, the selected order determines their left-to-right placement.
+
+- **Sequence** (default) lists tasks in the sequence generated and recorded for that Participant.
+- **Answer time** lists tasks by the time they began. Tasks that were never started appear after started tasks, in sequence order.
+
+
+## Choose a Timeline Layout
+
+Use the **Time / Uniform** control in the toolbar above the participant table to choose how task bars are sized in each expanded timeline. This setting changes the timeline layout, not the task order selected with the **Order** control.
+
+- **Time** (default) positions and sizes task bars using their recorded start and end times. It also shows when the Participant browsed away from the study. Long periods without recorded component timing are compressed and marked with `//`; hover over the marker to see the duration of the gap.
+- **Uniform** gives every task the same width, making short tasks easier to select and compare. Each task is at least 48 pixels wide. If all task bars do not fit in the table, scroll horizontally to view the rest of the timeline. Because this layout does not represent duration, browsed-away markers are hidden.
+
+Uniform mode does not change the task order selected with the **Order** control. Task colors continue to distinguish correct, incorrect, incomplete, and recorded responses whose correctness is not configured.
+
+Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study. This includes the moment validation errors were revealed after a Participant attempted to continue, so replay shows the same highlighted validation state.
+
+For stimuli that use managed Trrack provenance, replay follows the recorded interaction path, including undo, redo, and revisiting an existing state. Historical graph-only provenance remains replayable, but may not reproduce those traversals as faithfully.
+
 
 :::info
 If a participant hasn't completed any tasks yet, you'll see a warning message indicating that no task data is available for replay. This typically happens when a participant is still in progress or dropped out before submitting any responses.

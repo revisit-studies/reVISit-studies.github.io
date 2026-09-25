@@ -91,6 +91,8 @@ Once the signal is defined in your Vega specifications, you can configure the re
 
 This setup ensures that the participant's interaction with the visualization is seamlessly recorded and displayed in the reVISit interface.
 
+Set `"required": true` on a `reactive` response when the Participant must interact with the visualization before continuing. If they select **Next** before the required interaction is reported, ReVISit shows: “Please complete the stimulus interaction to continue.”
+
 :::info
 Make sure that the `response.id` matches the one in vega signal's `responseId`.
 :::

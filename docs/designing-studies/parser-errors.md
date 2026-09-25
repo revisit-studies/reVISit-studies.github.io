@@ -15,10 +15,24 @@ When reVISit parses your study config file, it checks for issues that could prev
 | Undefined Base Component | Base component is not defined in baseComponents object | Add the base component to the baseComponents object |
 | Undefined Base Component | Base component is not defined in baseComponents object in library | Add the base component to the baseComponents object |
 | Undefined Component | Component is not defined in components object | Add the component to the components object |
+| Undefined Component | Unresolved path | Make sure the React component exists under `src/public/` and that its `path` is relative to `src/public/`, not `public/` |
 | Sequence Validation | Component is a base component and cannot be used in the sequence | Remove the base component from the sequence |
 | Sequence Validation | Sequence not found in library| Check the sequence name |
 | Sequence Validation | Conditional URL parameter assignment cannot be combined with random or latinSquare sequence ordering | Use fixed ordering when using conditional blocks, or remove conditional blocks |
 | Skip Validation | Skip target does not occur after the skip block it is used in | Add the target to the sequence after the skip block |
+
+### Unresolved React component paths
+
+ReVISit verifies the `path` of every `react-component`, including React components defined in `baseComponents` or inherited by another component. For example, this configuration expects the file at `src/public/my-study/assets/Chart.tsx`:
+
+```json title="public/my-study/config.json"
+{
+  "type": "react-component",
+  "path": "my-study/assets/Chart.tsx"
+}
+```
+
+If the file cannot be found, the parser reports an **Unresolved path** error before the study starts. React component files belong under `src/public/`; most non-React assets, such as images and videos, belong under `public/`.
 
 
 ## Warnings

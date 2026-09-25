@@ -200,6 +200,8 @@ Some studies need more advanced sequencing logic, based on a participant's respo
 
 The example below will jump straight to `end` if the consent form is answered with anything but `yes` to the field `consentApproval`, meaning the participant did not approve of the consent form. All skip conditions require labeling any components that you want to jump to with your own id, except for the keyword `end`, which always jumps to the default final component of the study.
 
+Components that auto-advance after a timeout are ignored during skip-condition evaluation. An unanswered timed-out component therefore cannot trigger a response- or block-based branch.
+
 ```json title="public/study-name/config.json"
 "sequence": {
   "order": "fixed",
@@ -226,6 +228,8 @@ The example below will jump straight to `end` if the consent form is answered wi
   ]
 }
 ```
+
+When reviewing a participant in the [Study Browser](../study-browser.md), blocks with skip logic have a purple arrow icon. It marks tasks or blocks bypassed by the condition as **Skipped**, and items omitted by randomization or condition filtering as **Excluded**.
 
 To check if multiple components are correct, for example that all attention checks were correct, you can do the following:
 
