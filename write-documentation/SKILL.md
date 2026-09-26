@@ -17,7 +17,7 @@ The project's documented technology baseline is:
 - Study application: Yarn, React 18, TypeScript, Vite, and Mantine UI.
 - Storage and database backends: Firebase or Supabase, selected through `.env` configuration.
 
-Study Configs are schema-backed configurations, commonly written in JSON, that define study components, tasks, data sources, and study flow. The TypeScript definitions live in the study repository's `src/parser/parser.ts`; consult the branch matching the documentation target as described below.
+Study Configs are schema-backed configurations, commonly written in JSON, that define study components, tasks, data sources, and study flow. Start at the study repository's `src/parser/parser.ts` and follow imports and exports to the actual type definitions and validation schema for the documentation target version.
 
 ## Terminology
 
@@ -39,6 +39,7 @@ Use these terms consistently in prose while preserving exact identifiers and lab
 ## Working boundaries
 
 - Do not run Git commands unless the user asks for them. This includes read-only Git commands as well as branch changes, commits, and pushes.
+- The default deliverable is local documentation edits in the user's current working folder and branch, preserving existing changes. A documentation request alone does not authorize commits, pushes, PR creation, branch changes, or worktree creation. These boundaries apply equally to commands, tools, and APIs. An explicit instruction such as "do not push" remains in effect until the user changes it.
 - Read relevant GitHub PRs and linked issues to gather evidence, but do not create or modify PRs or issues, post comments, or change their state as part of this workflow.
 - TypeDoc is generated from the study application for each release and included as reference material. Assume that process is handled separately: do not generate, add, or edit TypeDoc output. Link to relevant reference entries instead, and state this assumption in the completion report when the change relies on updated TypeDoc material.
 
@@ -68,7 +69,7 @@ These principles adapt selected guidance from [Diátaxis](https://diataxis.fr/),
 - Start with the supplied PR link, PR description, or related issue. Read the linked issue when available to understand the user's problem and intended behavior. Accept pasted descriptions as input; a PR link is not required.
 - Read related existing documentation to understand the current explanation and conventions. For example, before documenting a new component type, read the guides for other component types.
 - If the PR or issue does not provide enough detail, inspect the relevant implementation in the ReVISit study repository. Select the source branch using the release and version mapping below. Do not combine behavior from different branches into one example.
-- When creating documentation or changing configuration properties, defaults, or examples in existing documentation, read the current Study Config schema at `src/parser/parser.ts` on the selected study branch. For example, use `https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/parser.ts` for released behavior or the equivalent URL with `dev` for development behavior. Use schemas and relevant implementation to verify configuration names, supported values, defaults, and behavior; do not rely on old examples alone.
+- When creating documentation or changing configuration properties, defaults, or examples in existing documentation, start at `src/parser/parser.ts` on the selected study branch. For example, use `https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/parser.ts` for released behavior or the equivalent URL with `dev` for development behavior. Follow imports and exports to the actual type definitions and locate the validation schema; do not assume the entry file contains all definitions or that their paths stay fixed. Use the target version's types, schema, and relevant implementation to verify configuration names, supported values, defaults, and behavior; do not rely on old examples alone.
 - When a PR changes documented behavior, update the affected explanations, examples, warnings, and links together. Replace obsolete instructions rather than leaving them alongside an appended correction. If migration guidance needs to describe earlier behavior, identify the versions it applies to and preserve older-version documentation within its intended scope.
 - Select evidence according to the fact being documented:
   - Actual behavior: implementation on the target version, supported by tests or observed execution for that version and relevant conditions. A single observation may reflect an environment difference or a bug; it does not automatically establish intended or supported behavior.
@@ -78,18 +79,19 @@ These principles adapt selected guidance from [Diátaxis](https://diataxis.fr/),
 - If only existing documentation is outdated and the target implementation and schema agree, correct it without asking the user to resolve that discrepancy. If implementation, schema, or same-version observations conflict in a way that changes the documented contract, do not choose an interpretation by assumption.
 - If an ambiguity would change documented behavior, target version, file location, or task scope, stop the affected part and ask the user a specific question. Continue only work that is independent of that ambiguity; do not complete dependent content until it is resolved.
 
-## Release and target branch
+## Documentation version and working branch
 
 - Determine the release status and version being documented from the user's request and available PR or release context. A PR's original base branch alone does not establish whether its changes have since been released.
-- For changes already released on `study/main`, target the documentation repository's `main` branch and use `study/main` as the code and schema source.
-- For development changes on `study/dev`, target the documentation branch for the corresponding upcoming version, such as `3.0`, and use `study/dev` as the code and schema source. `3.0` is an example, not a permanent default.
-- Follow an explicitly requested version or branch when supplied. If the release status or corresponding documentation branch is unclear, ask the user rather than defaulting to `dev` or inventing a version branch.
-- Keep the documentation target, implementation, schema, and examples aligned with the same release. Identifying the target branch does not itself authorize Git commands, branch creation, or checkout changes; follow the working boundaries above.
+- For changes already released on `study/main`, use `study/main` as the code and schema source; the corresponding documentation release is normally maintained on the documentation repository's `main` branch.
+- For development changes on `study/dev`, identify the corresponding upcoming documentation version, such as `3.0`, and use `study/dev` as the code and schema source. `3.0` is an example, not a permanent default.
+- Distinguish the documentation version from the working branch. A version request such as "3.0" selects the behavior, schema, and examples to document; make the edits in the user's current working folder and branch unless the user explicitly requests a different working location. A version request alone does not authorize switching branches or creating a worktree.
+- Follow an explicitly requested version or working branch when supplied. If the release status or documentation version is unclear, ask the user rather than defaulting to `dev` or inventing a version. Do not ask merely because the current working branch has a different name from the documentation version.
+- Keep the documented behavior, implementation, schema, and examples aligned with the same release, regardless of the working branch's name. Follow the working boundaries above for any repository operation.
 
 ## Location and structure
 
 - Use the related documentation reviewed during evidence gathering to choose the page's location and structure. Extend an existing page when it serves the task better than a new page.
-- Confirm which documentation directory represents the target version on the selected branch. Do not copy changes into `versioned_docs/` unless the request includes those older versions. Creating a documentation version is a separate task requiring a user request.
+- Confirm which documentation directory should receive the target version's edits in the current working folder. Do not copy changes into `versioned_docs/` unless the request includes those older versions. Creating a documentation version is a separate task requiring a user request.
 - When adding a page, inspect the applicable sidebar configuration and related index pages. Update navigation entries where needed so readers can find it. This repository's `sidebars.ts` explicitly lists many guide pages, while some reference categories are autogenerated; do not assume adding a file always adds it to navigation. Necessary documentation navigation edits are within this skill's scope.
 
 ## Writing
@@ -111,8 +113,8 @@ These principles adapt selected guidance from [Diátaxis](https://diataxis.fr/),
 ## Code blocks
 
 - Every code block must have a descriptive title and an appropriate language identifier.
-- In Docusaurus, use fence metadata such as `title="config.json"`. In other documentation systems, use the supported equivalent for a visible code-block title.
-- Use the actual filename when showing a file. For a snippet or command, use a title describing its purpose. Avoid vague titles such as "Code" or "Example".
+- In Docusaurus, use fence metadata such as `title="public/study-name/config.json"`. In other documentation systems, use the supported equivalent for a visible code-block title.
+- For a file or a partial excerpt from a file, use only the actual filename or path as the title. Put explanations such as "Entry inside components" in the surrounding prose, not in the title. For commands or snippets without an associated file, use a short purpose-based title. Avoid vague titles such as "Code" or "Example".
 - Keep examples minimal and consistent with the current schema and surrounding instructions. Say whether an example is a complete file or a partial snippet, and identify where it belongs.
 - For examples presented as runnable, include the necessary imports, variable definitions, setup requirements, and execution location. Explicitly link to earlier steps when they supply that context. A focused partial example is appropriate for a small change when its insertion point is clear; do not expand every snippet into a complete application.
 - Clearly identify values readers must replace. Do not present pseudocode or incomplete JSON as a directly usable configuration.
@@ -143,12 +145,13 @@ Use four admonition types for new or rewritten content: `note`, `info`, `warning
 - Use the existing `StructuredLinks` component to collect relevant demos, demo source code, and references for a feature page when those resources exist. Update an existing block instead of adding another one.
 - Import it once with `import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';`. Follow the existing feature-page convention of placing the component block at the end of the document. Insert it as MDX, not as a fenced code example.
 - Each link entry has a descriptive `name` and a `url`. Use these categories:
-  - `demoLinks`: working live demos that demonstrate the documented feature.
+  - `demoLinks`: the public demo for the documented feature, using the canonical URL convention below.
   - `codeLinks`: the corresponding demo's source file or directory, rather than an unrelated repository homepage.
   - `referenceLinks`: relevant TypeDoc types and authoritative external references, such as the CSS property reference for a styling guide.
-- Include only relevant, verified resources. All three props are optional; omit categories without links, and omit the component if none exist. Do not invent demo URLs or add placeholders to fill categories.
-- Keep demo and code names clearly paired, such as "Style Demo" and "Style Demo Code". Name type references using their actual type names, such as "UIConfig".
-- Align source-code links with the study branch or release being documented. Verify that a live demo actually supports the described behavior; a development feature may not yet exist on the public demo site.
+- Include only relevant resources whose paths are grounded in the repository or deployment structure. All three props are optional; omit categories without links, and omit the component if none exist. Do not invent demo URLs or add placeholders to fill categories. A known public destination awaiting release is allowed as described below.
+- Keep demo and code names concise and clearly paired: use "<Feature> Demo" and "<Feature> Code", such as "Form Elements Demo" and "Form Elements Code". Do not add "Development" for unreleased features. Name type references using their actual type names, such as "UIConfig".
+- In reader-facing documentation, use canonical public demo URLs without `/dev/`, such as `https://revisit.dev/study/demo-form-elements`, and GitHub source links on `main`, such as `https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/`. Apply this convention to StructuredLinks and inline links, even when the documented change has not yet merged into `main`. Do not substitute development URLs for these published links.
+- Keep published link destinations separate from evidence gathering: inspect and test the code, schema, and development demo matching the target documentation version. Check the public destinations too, but do not claim the documented feature is already available there if it is not. Report any merge or deployment still needed for those links to demonstrate the feature as pending in the completion report; retain the canonical public URLs.
 - Resolve relative reference URLs from the rendered documentation page, accounting for its nesting and version. The component uses ordinary anchor `href` values; do not assume a Markdown source-file path will be rewritten automatically. Follow nearby working examples and check destinations when a preview is available.
 - StructuredLinks must never be the sole location of prerequisites or task-critical information. Keep necessary links and instructions in the relevant prose as well.
 - Continue using `note[Reference]` for paper citations. A StructuredLinks reference list does not replace the citation itself.
