@@ -196,6 +196,10 @@ Alternatively, if you want to position dividers independently of specific questi
 
 You can automatically number questions by setting `"enumerateQuestions": true`. This will prepend each question with its index number (starting from 1). This feature should only be used when all questions are in the same location (e.g., all questions are in the sidebar).
 
+:::note
+`textOnly` and `divider` responses do not count as numbered questions.
+:::
+
 ![Enumerate questions](img/designing-forms/enumerate-questions.png)
 
 ### Radio and Checkbox Features
@@ -557,6 +561,8 @@ You can customize the width of the sidebar by setting `"sidebarWidth"` (in pixel
 ```
 
 For more details on sidebar configuration, see the [`UIConfig`](../../typedoc/interfaces/UIConfig/) and [`BaseIndividualComponent`](../../typedoc/interfaces/BaseIndividualComponent/) documentation.
+
+See [Applying Styles](./applying-style.md#default-widths-and-form-styling) for default response widths and form styling options.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

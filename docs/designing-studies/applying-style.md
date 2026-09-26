@@ -2,7 +2,22 @@
 
 ReVISit provides flexible styling capabilities to customize the appearance of your study components and responses. You can apply styles at three levels: **globally through UI configuration**, at the **component** level, and at the **response** level.
 
-This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience.
+## Default Widths and Form Styling
+
+Response blocks above and below the stimulus are centered, with a maximum width of **880px** and space around the responses. They shrink to fit narrower screens. Sidebar blocks keep their own layout.
+
+ReVISit limits the width of compact answer fields while allowing their question text to use the form's width:
+
+- **Up to 150px:** `numerical`, `date` (date/month/year), and `shortText` with `phoneNumber` or `usPhoneNumber` validation.
+- **Up to 180px:** `time`.
+- **Up to 280px:** other `shortText` responses and single- or multi-select `dropdown` responses.
+- **Full form width, up to 1600px:** all remaining response types.
+
+Explore the response types and their appearance in the [Form Elements Demo](https://revisit.dev/study/demo-form-elements).
+
+To customize the layout, [change the column width](#change-the-column-width-with-css), [resize individual responses](#response-styling), or apply a [Google Forms style](#form-style) without writing CSS.
+
+![Numerical and short-text answer fields are narrower than the slider and long-text field](./img/applying-style/default-response-widths.png)
 
 ## Color Mode
 
@@ -79,10 +94,10 @@ When styling elements with external CSS files, target them using the appropriate
 - Study Title: `.studyTitle`
 - Progress Bar: `.progressBar`
 - Help Modal: `.helpModal`
-- Component Container: `.componentType` (e.g., `.markdown`, `.image`)
-- Response type: `.responseType` (e.g., `.textOnly`, `.likert`)
+- Stimulus Container: `.stimulus`, or its component type class (e.g., `.markdown`, `.image`)
+- Response Type: `.response--responseType` (e.g., `.response--textOnly`, `.response--likert`, `.response--divider`)
 - Response Block Container: `.responseBlock`
-- Response Block Container with Location: `.responseBlock-location` (e.g., `responseBlock-aboveStimulus`, `responseBlock-belowStimulus`)
+- Response Block Container with Location: `.responseBlock-location` (e.g., `.responseBlock-aboveStimulus`, `.responseBlock-belowStimulus`, `.responseBlock-sidebar`)
 - Individual Response: `.response`
 
 **ID Selectors:**
@@ -90,15 +105,9 @@ When styling elements with external CSS files, target them using the appropriate
 - Component: `#componentName` (e.g., `#introduction`, `#survey-question`)
 - Response: `#responseId` (e.g., `#final-feedback`, `#user-rating`)
 
-:::info
+A stylesheet can affect any matching element while it is loaded, even when attached to one component or response. Use an ID selector to target a single element. When rules conflict, more specific selectors take precedence; equally specific rules use load order. Inline `style` values override ordinary stylesheet rules on the same element.
 
-Styles are applied in the following order (later styles override earlier ones):
-
-1. **Global UI Styles** (`uiConfig.stylesheetPath`)
-2. **Component Styles** (`component.stylesheetPath` and `component.style`)
-3. **Response Styles** (`response.stylesheetPath` and `response.style`)
-
-:::
+You can override the default widths with the selectors above without adding `!important`.
 
 ### 2. Inline Styles (`style`)
 
@@ -135,56 +144,51 @@ Apply global styles that affect the entire study interface:
 
 ### Examples
 
-#### Form style
+#### Form Style
 
-![Form Style](img/style-form.gif)
+Use `revisitAssets/googleForm.css` to display responses as centered cards with rounded borders and a subtle shadow. Cards are up to 640px wide, and colors follow the study's light or dark theme.
 
-```json title="public/demo-style/config.json"
-"uiConfig": {
-  "stylesheetPath": "demo-style/assets/style/form.css"
-},
-```
+Try the [Shared Form Style page in the Styling Demo](https://revisit.dev/study/demo-style/reviewer-shared-form-style) to see the cards and section divider.
 
-```css title="public/demo-style/assets/style/form.css"
-.main {
-  background-color: #f5f7fa;
-}
+To style one page, add `stylesheetPath` to that component. The following partial Study Config defines a questionnaire without a header image. Add `survey` to your study's `sequence` to display it.
 
-.image {
-  height: 200px;
-  width: 80%;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-}
-
-.responseBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.response {
-  width: 80%;
-  background-color: #ffffff;
-  margin: 15px auto 0;
-  padding: 20px;
-  box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 2px solid #e3e8ed;
-  border-radius: 12px;
-}
-
-label {
-  margin-bottom: 10px;
-}
-
-#form-title p {
-  font-size: 32px;
-  font-weight: bold;
+```json title="public/study-name/config.json"
+{
+  "components": {
+    "survey": {
+      "type": "questionnaire",
+      "stylesheetPath": "revisitAssets/googleForm.css",
+      "response": [
+        {
+          "id": "survey-title",
+          "type": "textOnly",
+          "prompt": "# Your experience"
+        },
+        {
+          "id": "survey-frequency",
+          "type": "radio",
+          "prompt": "How often do you create surveys?",
+          "options": ["Often", "Sometimes", "Rarely"]
+        },
+        {
+          "id": "survey-section-break",
+          "type": "divider"
+        },
+        {
+          "id": "survey-feedback",
+          "type": "longText",
+          "prompt": "What would make a survey easier to complete?",
+          "required": false
+        }
+      ]
+    }
+  }
 }
 ```
+
+For the same style throughout a study, set `"stylesheetPath": "revisitAssets/googleForm.css"` in `uiConfig` instead. This shared stylesheet is already included in `public/revisitAssets/`.
+
+![Shared form styling displays centered response cards with a section divider between them](./img/applying-style/shared-form-style.png)
 
 #### Large Text
 
@@ -220,6 +224,50 @@ label {
 }
 ```
 
+## Stimulus Width
+
+By default, the stimulus container and response blocks above and below it are centered with a maximum width of **880px**. Response blocks have **16px to 40px** of horizontal padding on each side, depending on browser width. The stimulus does not receive that form padding. Sidebar response blocks keep their own layout.
+
+### Change the Column Width with CSS
+
+Create `public/study-name/assets/style.css` and load it through `uiConfig.stylesheetPath` as shown in [External CSS Files](#1-external-css-files-stylesheetpath). Replace `study-name` with your study directory's name. This rule widens the stimulus and response blocks together:
+
+```css title="public/study-name/assets/style.css"
+.stimulus,
+.responseBlock-aboveStimulus,
+.responseBlock-belowStimulus {
+  max-width: 1000px;
+}
+```
+
+The column still shrinks to fit the available space. Use `max-width: none` in the same rule to remove the column's maximum width. Individual responses retain their own default limits unless you [override their widths](#response-styling).
+
+To change only the stimulus width, use `.stimulus` alone.
+
+These rules override the default layout. If you have also set `width` or `maxWidth` in the component's inline `style`, adjust or remove those values before controlling the same properties with CSS.
+
+### Set One Component's Width
+
+Set `style.width` and `style.maxWidth` on a component to size its stimulus container. The response blocks retain their own widths.
+
+This partial Study Config sets an image stimulus to 800px, shrinking on narrower screens. Replace the image path with your study's asset path.
+
+```json title="public/study-name/config.json"
+{
+  "components": {
+    "chart": {
+      "type": "image",
+      "path": "study-name/assets/chart.png",
+      "style": {
+        "width": "800px",
+        "maxWidth": "100%"
+      },
+      "response": []
+    }
+  }
+}
+```
+
 ## Component Styling
 
 ### Using External CSS Files
@@ -230,7 +278,7 @@ Components can load their own CSS files using `stylesheetPath`:
 "markdown-intro": {
   "type": "markdown",
   "path": "study-name/assets/introduction.md",
-  "stylesheetPath": "study-name/assets/componentStyle.css",
+  "stylesheetPath": "study-name/assets/style/componentStyle.css",
   "response": []
 }
 ```
@@ -269,13 +317,12 @@ Apply styles directly to component configurations:
 ```json title="public/study-name/config.json"
 "chart": {
   "type": "image",
-  "path": "assets/chart.png",
+  "path": "study-name/assets/chart.png",
   "style": {
     "width": "500px",
     "border": "2px solid #333",
     "borderRadius": "10px",
-    "margin": "20px auto",
-    "boxShadow": "0 4px 8px rgba(0,0,0,0.1)"
+    "margin": "20px auto"
   },
   "response": []
 }
@@ -379,36 +426,40 @@ If you set `width` in `style` without setting `maxWidth`, reVISit automatically 
 
 ## Response Styling
 
-### Using External CSS Files
+The [default answer widths](#default-widths-and-form-styling) keep compact input fields narrower than their question text. Choose whether to resize just the answer field or the entire response, including its prompt.
 
-Responses can have their own stylesheets. You can target them using their type (as a class) or by their specific id.
+### Change Only the Answer Field Width
 
-- To select a specific response, use its `id` (e.g., `#final-feedback`).
-- To target responses by `type`, use the class name (e.g., `.likert`, `.textOnly`).
-- Use `.responseBlock` to select the whole block that holds the responses.
-- Use `.response` to target any individual response element across the study.
+To widen a short-text answer field while keeping its question text wide, set `--response-field-max-width` in a stylesheet loaded by the study. This example changes the default for short-text responses to 400px:
 
-```json title="public/demo-style/config.json"
-"components": {
-  "component": {
-    ...
-    "response": [
-      {
-        "id": "user-feedback",
-        "prompt": "Rate your experience:",
-        "type": "likert",
-        "numItems": 5,
-        "leftLabel": "Poor",
-        "rightLabel": "Excellent",
-        "stylesheetPath": "demo-style/assets/style/responseStyle.css",
-        "location": "belowStimulus"
-      }
-    ]
-  }
+```css title="public/study-name/assets/style.css"
+.response--shortText {
+  --response-field-max-width: 400px;
 }
 ```
 
-```css title="public/demo-style/assets/style/responseStyle.css",
+Use a response ID such as `#user-comments` instead of `.response--shortText` to target one response. This variable changes the default cap; it does not apply when that response defines `style.width`, `style.minWidth`, or `style.maxWidth`.
+
+### Using External CSS Files
+
+Responses can load a stylesheet through `stylesheetPath`. Use an ID such as `#user-feedback` to style one response, or a class such as `.response--likert` to style all responses of that type.
+
+Create `public/study-name/assets/responseStyle.css` with the CSS below. Add this response to a component's `response` array, replacing `study-name` with your study directory's name:
+
+```json title="public/study-name/config.json"
+{
+  "id": "user-feedback",
+  "prompt": "Rate your experience:",
+  "type": "likert",
+  "numItems": 5,
+  "leftLabel": "Poor",
+  "rightLabel": "Excellent",
+  "stylesheetPath": "study-name/assets/responseStyle.css",
+  "location": "belowStimulus"
+}
+```
+
+```css title="public/study-name/assets/responseStyle.css"
 #user-feedback {
   background: #f8f9fa;
   border: 1px solid #dee2e6;
@@ -417,7 +468,7 @@ Responses can have their own stylesheets. You can target them using their type (
   margin: 10px 0;
 }
 
-.likert {
+.response--likert {
   background: #e9ecef;
   border-radius: 4px;
   padding: 8px 12px;
@@ -426,30 +477,25 @@ Responses can have their own stylesheets. You can target them using their type (
 
 ### Using Inline Styles
 
-Apply styles directly to response configurations:
+Apply `style` to an entry in a component's `response` array. Setting `width`, `minWidth`, or `maxWidth` here replaces that response's default width limit. Unlike component styling, response styling does not automatically add `maxWidth: "100%"`; include it to keep a fixed width within the form on narrower screens.
 
-```json title="public/demo-style/config.json"
-"components": {
-  "component": {
-    ...
-    "response": [
-      {
-        "id": "user-comments",
-        "prompt": "Additional comments:",
-        "type": "longText",
-        "placeholder": "Share your thoughts...",
-        "location": "belowStimulus",
-        "style": {
-          "width": "100%",
-          "maxWidth": "600px",
-          "margin": "20px auto",
-          "padding": "15px",
-          "border": "1px solid #ccc",
-          "borderRadius": "6px",
-          "backgroundColor": "#fafafa"
-        }
-      }
-    ]
+The following response uses the available width up to 600px:
+
+```json title="public/study-name/config.json"
+{
+  "id": "user-comments",
+  "prompt": "Additional comments:",
+  "type": "longText",
+  "placeholder": "Share your thoughts...",
+  "location": "belowStimulus",
+  "style": {
+    "width": "100%",
+    "maxWidth": "600px",
+    "margin": "20px auto",
+    "padding": "15px",
+    "border": "1px solid #ccc",
+    "borderRadius": "6px",
+    "backgroundColor": "#fafafa"
   }
 }
 ```
@@ -457,6 +503,8 @@ Apply styles directly to response configurations:
 ### Response Styling Examples
 
 #### Text Response Styling
+
+This excerpt defines a component's `response` array. Both responses request a width of 700px and shrink to fit a narrower form.
 
 ![Text Response Styling](img/style-text.png)
 
@@ -472,6 +520,7 @@ Apply styles directly to response configurations:
     "style": {
       "fontFamily": "'Courier New', monospace",
       "width": "700px",
+      "maxWidth": "100%",
       "margin": "25px auto",
       "padding": "10px",
       "letterSpacing": "2px"
@@ -486,6 +535,7 @@ Apply styles directly to response configurations:
     "required": false,
     "style": {
       "width": "700px",
+      "maxWidth": "100%",
       "margin": "25px auto",
       "padding": "15px",
       "border": "2px solid green",
@@ -636,7 +686,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
   ]}
   codeLinks={[
     {
-      name: 'Style Demo Code',
+      name: 'Style Code',
       url: 'https://github.com/revisit-studies/study/blob/main/public/demo-style',
     },
     {
