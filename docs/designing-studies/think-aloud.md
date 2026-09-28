@@ -4,6 +4,8 @@ ReVISit has integrated audio recording and audio playback for conducting in-pers
 
 ## Turning on audio recording
 
+Enable [Data Collection](../analysis/revisit-modes.md#data-collection) in the study's **Manage** tab before testing or collecting audio recordings. When Data Collection is disabled, audio recording is disabled even if `recordAudio` is `true`.
+
 Turning on audio recording for your entire study can be done by setting the `recordAudio` flag in the `uiConfig` section of your config file.
 
 ```json title="public/study-name/config.json"
@@ -32,7 +34,7 @@ By default, this will record audio for every task in the study. However, we reco
 },
 ```
 
-Audio is recorded via browser, and participants will receive a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the [`mic-check`](../libraries/mic-check.md) library, which requires participants to have a functioning microphone to continue the study. You can find more information in the [reVISit libraries](./plugin-libraries.md).
+When Data Collection is enabled, audio is recorded via browser, and participants will receive a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the [`mic-check`](../libraries/mic-check.md) library, which requires participants to have a functioning microphone to continue the study when Data Collection is enabled. You can find more information in the [reVISit libraries](./plugin-libraries.md).
 
 :::info
 If you are using Firebase and want automatic transcripts for Think Aloud studies, you must also install the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) in your Firebase project. Once configured, it will automatically transcribe uploaded audio files.
