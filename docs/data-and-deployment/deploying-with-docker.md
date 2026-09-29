@@ -8,15 +8,13 @@ This guide explains how to build and run a ReVISit study with Docker using:
 
 ## 1. Set environment variables before building
 
-Before you run `docker build`, configure your `.env` file at the repository root.
+Before you run `docker build`, configure your storage connection in the `.env` file at the repository root. See [Connecting to a cloud database](./connecting-to-cloud-database.md) if you will collect Participant data online.
 
-At minimum, set `VITE_BASE_PATH` correctly for your deployment target:
+If you serve the application at the root of a domain, leave `VITE_BASE_PATH` unset or set it to `/`. Both the application build and the Docker web server default to `/` when the variable is absent or empty.
+
+For a subpath deployment, add a value with leading and trailing slashes. For example, to serve the application at `/study/`, use:
 
 ```env title=".env"
-# Root deployment
-VITE_BASE_PATH="/"
-
-# Or subpath deployment (example)
 VITE_BASE_PATH="/study/"
 ```
 
@@ -32,8 +30,6 @@ From the project root (where the `Dockerfile` lives):
 docker build -t revisit-study:latest .
 ```
 
-The build will fail if `VITE_BASE_PATH` is missing from `.env`.
-
 ## 3. Run the app container
 
 ```bash
@@ -42,7 +38,7 @@ docker run --rm -p 8080:8080 revisit-study:latest
 
 Then open:
 
-- `http://localhost:8080/` if `VITE_BASE_PATH="/"`.
+- `http://localhost:8080/` if `VITE_BASE_PATH` is unset, empty, or `/`.
 - `http://localhost:8080/<your-base-path>/` for subpath deployments.
 
 ## 4. Optional: proxy through host Nginx
