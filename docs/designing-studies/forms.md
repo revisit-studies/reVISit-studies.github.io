@@ -55,6 +55,9 @@ Below we list some notable features that apply to all or most form elements.
 
 Each form element requires a `prompt` that introduces the question. You can also provide a more detailed description in `secondaryText` that is shown below the prompt; both are demonstrated in the above example.
 
+A response's `prompt`, `secondaryText`, and `infoText` support [`{{variable}}` templating](./templating.md), so you can reuse one component across trials and swap in per-trial values or even reference a participant's answer from an earlier trial.
+Option labels and option-level `infoText` can use the same templates; give templated labels an explicit `value` when the saved answer must stay stable.
+
 ### Additional Descriptions
 
 The `infoText` allows you to provide additional description for survey questions or response options that appears when participants hover over an information icon. This helps clarify questions or scales while keeping the `prompt` simple.

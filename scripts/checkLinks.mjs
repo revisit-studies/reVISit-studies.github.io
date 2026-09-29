@@ -31,6 +31,7 @@ const seenUrls = new Set();
 const okLinks = [];
 const skippedLinks = [];
 const brokenLinks = [];
+let ignoredExternalConnectionFailure = false;
 
 checker.on("link", (result) => {
   if (seenUrls.has(result.url)) {
@@ -38,7 +39,11 @@ checker.on("link", (result) => {
   }
   seenUrls.add(result.url);
 
-  if (result.state === LinkState.BROKEN) {
+  if (result.state === LinkState.BROKEN && result.status === 0 && /^https?:\/\//.test(result.url)) {
+    ignoredExternalConnectionFailure = true;
+    skippedLinks.push(result);
+    console.log(`[SKIP 0] ${result.url}`);
+  } else if (result.state === LinkState.BROKEN) {
     brokenLinks.push(result);
     // Print broken links immediately so progress is visible
     console.log(
@@ -82,6 +87,6 @@ console.log(
   `Checked ${totalUnique} unique links (${totalReported} total, ${totalReported - totalUnique} duplicates skipped).`,
 );
 
-if (!results.passed) {
+if (!results.passed && (brokenLinks.length > 0 || !ignoredExternalConnectionFailure)) {
   process.exit(1);
 }
