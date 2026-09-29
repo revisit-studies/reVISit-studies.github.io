@@ -12,11 +12,10 @@ This is powered by a templating library **Handlebars**. You don't need to know a
 - a response's `prompt`, `secondaryText`, and `infoText`
 - the text inside a markdown component's `.md` file
 - a markdown component's `path` (so you can pick _which_ `.md` file to load per trial)
-- `helpTextPath` content (the text shown when a participant clicks "Help")
+- `helpTextPath` and the markdown file it loads (the text shown when a participant clicks "Help")
+- the `path` of `image`, `video`, `website`, `vega`, and `react-component` components
 
-:::info
-The `path` field on `image`, `video`, `website`, `vega`, and `react-component` components also supports plain `{{variable}}` substitution, but it does **not** support the answer-lookup features described below (`lookupAnswers`/`lookupAnswersRel`). Those only work in the fields listed above.
-:::
+All these fields support the answer-lookup and conditional helpers described below, including paths.
 
 ## The Basics: `{{variable}}`
 
@@ -36,6 +35,8 @@ This renders as:
 > Hello Ada!
 
 If you misspell a variable name, or forget to add it to `parameters`, it just renders as blank text — participants won't see an error.
+
+In markdown content, instructions, response prompts, and help text, `{{name}}` escapes HTML characters in the inserted value. HTML written directly in the template still renders. Use `{{{name}}}` only for trusted markup that you intend to render.
 
 This is also how you can reuse one component across several trials. Define the component once with `{{...}}` placeholders, then give each trial its own `parameters`:
 
@@ -78,7 +79,7 @@ Sometimes you want to show a participant something based on how they answered an
 1. Which trial to look at (explained below — this is the part that differs between them)
 2. The `id` of the response you want (the `id` field you gave that response in the config)
 
-### `lookupAnswersRel` — N Trials from Here
+### `lookupAnswersRel` — N Recorded Trials from Here
 
 `lookupAnswersRel` counts relative to **the trial the participant is currently on**.
 
@@ -92,20 +93,20 @@ This means: "the value the participant entered for the response named `capital-a
 - `-2` = two trials before this one
 - Positive numbers (`1`, `2`, ...) = trials _after_ this one — only meaningful if that trial has already been answered (e.g. when reviewing a completed run), since a participant can't have answered a future trial yet
 
-### `lookupAnswers` — Trial Number N in the Whole Study
+### `lookupAnswers` — Recorded Trial Number N
 
-`lookupAnswers` counts from the **start (or end) of the entire study sequence**, no matter which trial the participant is currently viewing.
+`lookupAnswers` counts from the **start (or end) of the recorded trials**, no matter which trial the participant is currently viewing. Each recorded iteration of a dynamic block counts as a trial.
 
 ```
 {{lookupAnswers 1 "capital-answer"}}
 ```
 
-This means: "the value entered for `capital-answer` on the 2nd trial in the whole study" (counting starts at 0, so `1` is the second trial).
+This means: "the value entered for `capital-answer` on the 2nd recorded trial" (counting starts at 0, so `1` is the second recorded trial).
 
-- `0`, `1`, `2`, ... = counting from the very first trial in the study
-- `-1` = the very last trial in the study, `-2` = second-to-last, and so on
+- `0`, `1`, `2`, ... = counting from the first recorded trial
+- `-1` = the most recently recorded trial, `-2` = the one before it, and so on
 
-**The difference in one sentence:** `lookupAnswersRel` always means "relative to where the participant is right now"; `lookupAnswers` always means "this exact trial, wherever the participant currently is."
+**The difference in one sentence:** `lookupAnswersRel` counts from the current trial; `lookupAnswers` counts from the first or last recorded trial.
 
 ### What You Can't Look Up
 
