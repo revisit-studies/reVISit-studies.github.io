@@ -230,12 +230,13 @@ By default, the stimulus container and response blocks above and below it are ce
 
 ### Change the Column Width with CSS
 
-Create `public/study-name/assets/style.css` and load it through `uiConfig.stylesheetPath` as shown in [External CSS Files](#1-external-css-files-stylesheetpath). Replace `study-name` with your study directory's name. This rule widens the stimulus and response blocks together:
+Create `public/study-name/assets/style.css` and load it through `uiConfig.stylesheetPath` as shown in [External CSS Files](#1-external-css-files-stylesheetpath). Replace `study-name` with your study directory's name. This rule widens the stimulus, response blocks, and navigation row together:
 
 ```css title="public/study-name/assets/style.css"
 .stimulus,
 .responseBlock-aboveStimulus,
-.responseBlock-belowStimulus {
+.responseBlock-belowStimulus,
+.responseBlock-actions {
   max-width: 1000px;
 }
 ```
@@ -438,7 +439,7 @@ To widen a short-text answer field while keeping its question text wide, set `--
 }
 ```
 
-Use a response ID such as `#user-comments` instead of `.response--shortText` to target one response. This variable changes the default cap; it does not apply when that response defines `style.width`, `style.minWidth`, or `style.maxWidth`.
+Use a short-text response ID such as `#contact-phone` instead of `.response--shortText` to target one response. This variable changes the default cap; it does not apply when that response defines `style.width`, `style.minWidth`, or `style.maxWidth`.
 
 ### Using External CSS Files
 
