@@ -6,7 +6,7 @@ ReVISit allows you to export data in [Tidy](https://cran.r-project.org/web/packa
 
 The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.
 
-The tidy CSV and standard JSON downloads do not include provenance graphs. If you need this data, use the [provenance ZIP download](./#download-provenance) and parse the separate provenance JSON files in your analysis platform.
+The tidy CSV and standard JSON downloads do not include provenance graphs. If you need this data, use the [provenance ZIP download](#download-provenance) and parse the separate provenance JSON files in your analysis platform.
 
 ### Steps to Download Data
 
@@ -22,6 +22,16 @@ The tidy CSV and standard JSON downloads do not include provenance graphs. If yo
 
 ![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
 
+
+### Include Window Events
+
+Window events, such as mouse movements, key presses, and changes in window focus, are excluded from Tidy CSV exports by default. To include them, select `windowEvents` under **Optional columns** in the **CSV Exporter** and keep `answer` selected.
+
+This adds one summary row per trial with `responseId` set to `windowEvents`. The `answer` contains a JSON object with a count for each event type, including zero counts when no events were recorded. It summarizes event counts rather than listing individual events or their timestamps.
+
+Deselect `windowEvents` to remove these rows from the preview and export. This setting does not change the recorded data or JSON downloads.
+
+![The windowEvents option is selected under Optional columns, and the Tidy CSV preview includes rows with windowEvents as the responseId.](./img/data-export/window-events.png)
 
 ### Export Qualitative Tags
 
@@ -152,6 +162,34 @@ To download recordings from specific participants, select the participants in th
 
 3. Click on the **Download recordings** button. If both screen and webcam recordings are available for the task, both files are downloaded.
 ![Download screen recording video](./img/data-export/screen-recording-export-3.png)
+
+## Export Study Pages to PDF
+
+Save a study page as a PDF to share its instructions, stimulus, and questions with collaborators or include it in study materials. Each export captures the current page and its response values. To save several pages, open and export each one separately.
+
+### Export the Current Page
+
+1. Open the study page you want to save. Wait for its content to load and enter any responses you want to show in the PDF. For a video stimulus, pause on the frame you want to include.
+2. Open **Study actions**, the three-dot menu at the top right. This menu is available even when the study title bar is hidden.
+3. Select **Export page as PDF**. Wait for **PDF exported** and the download to finish.
+4. Open the downloaded file and check its content. The filename includes the component name and export date and time, such as `introduction_2026-09-29T14-30-00.pdf`.
+
+![Export page as PDF is highlighted in the Study actions menu at the top right of the study page.](./img/data-export/pdf-export-menu.png)
+
+The PDF includes a header with the study title and component name, the stimulus, visible responses, the response sidebar when shown, and the **Next** button when present. Exporting does not submit your responses or advance the study.
+
+### What the PDF Captures
+
+- Markdown, images, React content, Vega/SVG visualizations, and Canvas content are captured as they appear at export time.
+- Embedded HTML pages can be captured when hosted on the same origin as the study: the same protocol, hostname, and port.
+- Videos are captured as a still image of the current frame.
+- The content is scaled to fit one A4 page. ReVISit chooses landscape or portrait automatically; long pages may have small text.
+
+:::warning[Embedded external websites prevent export]
+If the page includes an external website or an embedded page the browser cannot access, ReVISit shows **PDF export unavailable** and does not download a PDF. To export that content, host it with the study and make sure the embedded page is accessible.
+:::
+
+If **PDF export failed** appears, wait for the page content to finish loading and try again.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
