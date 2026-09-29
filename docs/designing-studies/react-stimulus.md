@@ -177,6 +177,8 @@ The component uses:
 
 Set `"required": true` on a `reactive` response when the Participant must interact with the stimulus before continuing. If they select **Next** first, ReVISit shows: “Please complete the stimulus interaction to continue.”
 
+To require a particular answer from the stimulus, add `requiredValue` to the reactive response. Use `requiredLabel` for the readable name shown in its validation message. See [Requiring a Value from a Stimulus](./forms.md#requiring-a-value-from-a-stimulus) for an example and matching rules.
+
 We will use `demo-react-trrack` as the experiment name. Create the React stimulus file in `src/public/demo-react-trrack/assets/`.
 
 ```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
