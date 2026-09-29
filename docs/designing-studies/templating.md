@@ -10,12 +10,21 @@ This is powered by a templating library **Handlebars**. You don't need to know a
 
 - `instruction`
 - a response's `prompt`, `secondaryText`, and `infoText`
+- option labels and option `infoText` in radio, checkbox, button, dropdown, ranking, and matrix responses; slider labels and radio and matrix endpoint labels
 - the text inside a markdown component's `.md` file
 - a markdown component's `path` (so you can pick _which_ `.md` file to load per trial)
 - `helpTextPath` and the markdown file it loads (the text shown when a participant clicks "Help")
 - the `path` of `image`, `video`, `website`, `vega`, and `react-component` components
 
 All these fields support the answer-lookup and conditional helpers described below, including paths.
+
+For website components, only the `path` is templated. The contents of the HTML file are not templated.
+
+Templating an option label changes only what participants see. An option's saved `value` defaults to the label as written in the config, so give a templated label an explicit, stable value:
+
+```json
+"options": [{ "label": "{{country}}", "value": "selected-country", "infoText": "About {{country}}" }]
+```
 
 ## The Basics: `{{variable}}`
 
