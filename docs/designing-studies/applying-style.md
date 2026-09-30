@@ -99,6 +99,7 @@ When styling elements with external CSS files, target them using the appropriate
 - Response Block Container: `.responseBlock`
 - Response Block Container with Location: `.responseBlock-location` (e.g., `.responseBlock-aboveStimulus`, `.responseBlock-belowStimulus`, `.responseBlock-sidebar`)
 - Individual Response: `.response`
+- Required asterisk in a response prompt: `.required-asterisk`
 
 **ID Selectors:**
 
@@ -500,6 +501,28 @@ The following response uses the available width up to 600px:
   }
 }
 ```
+
+### Styling Required Asterisks
+
+Use `.required-asterisk` in a stylesheet to change the required marker beside response prompts. Create `public/study-name/assets/required.css`, replacing `study-name` with your study folder, and add `stylesheetPath` to your existing `uiConfig`. The following is a partial Study Config excerpt:
+
+```json title="public/study-name/config.json"
+"uiConfig": {
+  "stylesheetPath": "study-name/assets/required.css"
+}
+```
+
+This CSS changes required markers to blue:
+
+```css title="public/study-name/assets/required.css"
+.required-asterisk {
+  color: #1971c2;
+}
+```
+
+To style only one response, prefix the selector with its ID, such as `#attention-check .required-asterisk`. If you already load a stylesheet, add the rule to that file.
+
+You can hide the marker with `display: none` on the same selector, for example when your instructions state that all questions are required. Keep the required/optional distinction clear in the question text. Changing or hiding the asterisk only affects appearance: it does not make a response optional or bypass [response validation](./forms.md#required-fields).
 
 ### Response Styling Examples
 

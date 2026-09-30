@@ -2,7 +2,7 @@
 
 Form elements are essential for most studies to capture user [responses](../typedoc/interfaces/BaseResponse.md). ReVISit provides rich form elements, such as [sliders](../typedoc/interfaces/SliderResponse.md), [checkboxes](../typedoc/interfaces/CheckboxResponse.md), text fields, etc., so that you can efficiently design your forms.
 
-This tutorial does not give a comprehensive introduction into all form elements. For this, refer to the demo and other links in the relevant links panel. Instead, we introduce some high-level principles that apply to all form elements.
+This guide explains how to configure form responses, validate answers, and show follow-up questions. Try the [Form Elements Demo](https://revisit.dev/study/demo-form-elements) to explore the available controls. The reference links at the end of this page list the full configuration options.
 
 ## Principles
 
@@ -69,14 +69,15 @@ For response option, `infoText` is only supported in `button`, `checkbox`, `radi
 
 ### Required Fields
 
-You can make a field required, in which case a red star is rendered (see above). Required is the default; set `"required": false` if an answer is optional.
+Responses are required by default and show an asterisk beside the prompt. Set `"required": false` if an answer is optional. You can [style the required asterisk](./applying-style.md#styling-required-asterisks) without changing validation.
 
-The **Next** button is available before a Participant answers. When they select it, ReVISit checks required fields and validation rules. If anything needs attention, the page stays open, highlights the affected fields, and shows a summary of unanswered questions and invalid answers. The Participant can then correct the highlighted fields and select **Next** again.
+The **Next** button is available before a Participant answers. When they select it, ReVISit checks required fields and validation rules. If a required response is unanswered or invalid, the page stays open, highlights the affected fields, and shows a summary of unanswered questions and invalid answers. The Participant can then correct the highlighted fields and select **Next** again.
+
+This check includes `requiredValue`, text and format rules, numeric ranges, selection counts, matrix questions, incomplete **Other** entries, and custom response validation. Optional responses can show validation feedback but do not block **Next**, even when an entered answer is invalid. Keep a response required when its constraints must be satisfied before continuing.
 
 When responses accompany a stimulus, **Next** stays disabled while the stimulus asset is loading or has a detected loading failure. See [When a Stimulus Cannot Load](./answers-trainings.md#when-a-stimulus-cannot-load) if the button remains disabled.
 
-This attempted-advance validation applies to required responses, `requiredValue` and `requiredLabel`, numeric ranges, `minSelections` and `maxSelections`, matrix questions, incomplete **Other** entries, and custom response validation.
-
+#### Requiring a Specific Answer
 
 You can also force participants to provide a specific answer value using `requiredValue`. This is useful for attention checks, training tasks, or ensuring participants read instructions carefully. The participant must provide an exact match with the specified value to proceed.
 
@@ -96,7 +97,7 @@ For single-select responses (`radio`, `shortText`, `longText`, `numerical`, etc.
 }
 ```
 
-For multi-select responses (`checkbox`, `dropdown` with multiple selections), `requiredValue` can be an array of values that must all be selected:
+For multi-select responses (`checkbox`, `dropdown` with multiple selections), use an array in `requiredValue` to require exactly that set of selections:
 
 ```json title="public/study-name/config.json"
 {
@@ -108,9 +109,9 @@ For multi-select responses (`checkbox`, `dropdown` with multiple selections), `r
 }
 ```
 
-When using `requiredValue` with arrays, the system checks that the participant has selected exactly the specified values, in any order. If the participant selects different values or a different number of values, they will see a message asking them to select the required options.
+For these checkbox and dropdown arrays, the system checks that the participant has selected exactly the specified values, in any order. If the participant selects different values or a different number of values, they will see a message asking them to select the required options.
 
-The `requiredLabel` property is similar to `requiredValue` but is more user-friendly. Instead of matching against the value stored in the data, it matches against the label displayed to participants. This is particularly useful when options have both labels and values, as it allows you to specify requirements using the human-readable label.
+Use `requiredLabel` together with `requiredValue` to supply a readable name for the expected answer in the validation message. It does not compare against option labels or impose a requirement by itself. For options with separate labels and values, put the stored value in `requiredValue`:
 
 ```json title="public/study-name/config.json"
 {
@@ -121,13 +122,210 @@ The `requiredLabel` property is similar to `requiredValue` but is more user-frie
     { "label": "I agree", "value": "agree" },
     { "label": "I disagree", "value": "disagree" }
   ],
+  "requiredValue": "agree",
   "requiredLabel": "I agree"
 }
 ```
 
+#### Requiring a Value from a Stimulus
+
+A `reactive` response receives an answer from a [React](./react-stimulus.md), [HTML](./html-stimulus.md), or [Vega](./vega-stimulus.md) stimulus. Add `requiredValue` to require a particular reported answer, and use `requiredLabel` to explain the expected value in the validation message:
+
+```json title="public/study-name/config.json"
+{
+  "id": "selectedRegion",
+  "type": "reactive",
+  "prompt": "Select the West region in the visualization.",
+  "required": true,
+  "requiredValue": "west",
+  "requiredLabel": "the West region"
+}
+```
+
+Add this response to the component containing your stimulus, and have the stimulus report its selected region under the answer key `selectedRegion`. The answer must be `"west"` to pass this check. Reporting a successful stimulus interaction alone does not satisfy `requiredValue`; the stimulus must also send the matching answer. Follow the linked stimulus guide to connect your interaction to ReVISit.
+
+:::info
+
+Reactive values are compared without converting types: `3` and `"3"` are different. Arrays must match in order, and objects must match in structure and values. Use a simple string, number, or boolean when a single completion value is sufficient.
+
+:::
+
+### Text Length and Content Validation
+
+For `shortText` and `longText`, add any of these properties to the response:
+
+- `minCharLength` and `maxCharLength` set the minimum and maximum number of characters, including spaces.
+- `minWordLength` and `maxWordLength` set the minimum and maximum number of whitespace-separated words. Punctuation-only entries do not count as words.
+
+Use nonnegative whole numbers, with the minimum no greater than the maximum. For required responses, maximum lengths must be greater than zero. Character counting uses JavaScript string length, so some symbols, such as emoji, can count as more than one character.
+
+This response requires between 10 and 50 words, with a maximum of 500 characters:
+
+```json title="public/study-name/config.json"
+{
+  "id": "explanation",
+  "type": "longText",
+  "prompt": "Explain your choice in 10–50 words.",
+  "secondaryText": "Use no more than 500 characters.",
+  "minWordLength": 10,
+  "maxWordLength": 50,
+  "maxCharLength": 500
+}
+```
+
+For content rules, add a `textValidation` array. Every rule must pass; ReVISit checks rules in array order and displays the first failing rule's message.
+
+- `matchesRegex`: Set `value` to a JavaScript regular expression pattern the answer must match.
+- `contains`: Set `value` to text that must appear in the answer.
+- `doesNotContain`: Set `value` to text that must not appear in the answer.
+- `equals`: Set `value` to the complete expected answer.
+- `doesNotEqual`: Set `value` to a complete answer to reject.
+
+Text comparisons are case-sensitive and preserve spaces. Regex patterns are strings without surrounding `/` delimiters. Use `^` and `$` to match the entire answer, and double backslashes inside JSON: `\d` represents a digit in a regular expression.
+
+```json title="public/study-name/config.json"
+{
+  "id": "text-validation-regex",
+  "type": "shortText",
+  "prompt": "Enter a code with three uppercase letters, a hyphen, and three digits.",
+  "secondaryText": "For example: ABC-123. This response uses matchesRegex with the pattern ^[A-Z]{3}-\\d{3}$.",
+  "placeholder": "ABC-123",
+  "textValidation": [
+    {
+      "type": "matchesRegex",
+      "value": "^[A-Z]{3}-\\d{3}$"
+    }
+  ]
+}
+```
+
+Describe your expected format in `prompt` or `secondaryText` so Participants know how to correct an answer. Length checks run before built-in format checks, followed by the `textValidation` rules. Invalid regex syntax causes a Study Config error; correct the pattern before running the study.
+
+![Entering ABC in the Form Elements Demo shows a validation message because the code does not match the required format.](./img/forms/text-validation.png)
+
+### Built-in Formats, Dates, and Times
+
+For common text formats, use `builtInValidation` on a `shortText` response:
+
+- `email`: An address such as `test@revisit.dev`.
+- `phoneNumber`: 7–15 digits, with an optional leading `+` and hyphens between digits; spaces and parentheses are not accepted.
+- `usPhoneNumber`: Exactly `000-000-0000`: ten digits with two hyphens.
+- `url`: An absolute URL beginning with `http://` or `https://`, with a valid hostname.
+
+These checks validate formatting; they do not verify that an address, phone number, or website exists.
+
+```json title="public/study-name/config.json"
+{
+  "id": "email",
+  "type": "shortText",
+  "prompt": "Enter your email address.",
+  "placeholder": "participant@example.org",
+  "builtInValidation": "email"
+}
+```
+
+You can combine a built-in format with length and `textValidation` rules. The Form Elements Demo shows prompts and placeholders for each built-in format:
+
+![Email, international phone number, US phone number, and URL fields with format instructions and example placeholders in the Form Elements Demo.](./img/forms/built-in-validation.png)
+
+For dates and times, use the dedicated `date` and `time` response types instead of `builtInValidation`.
+
+For a `date` response, `options` selects the input and stored format:
+
+- `date` (default): Stores `MM/DD/YYYY`, such as `09/28/2026`.
+- `month`: Stores `MM/YYYY`, such as `09/2026`.
+- `year`: Stores `YYYY`, such as `2026`.
+
+Use the same format for `default`, `min`, `max`, and `requiredValue`. Bounds are inclusive, and supported years range from `0100` through `9999`.
+
+```json title="public/study-name/config.json"
+{
+  "id": "session-date",
+  "type": "date",
+  "prompt": "Select your September 2026 session date.",
+  "min": "09/01/2026",
+  "max": "09/30/2026"
+}
+```
+
+A `time` response stores a 24-hour `HH:mm` string, or `HH:mm:ss` when `withSeconds` is `true`. Setting `format` to `12h` changes the display only; `default`, `min`, `max`, and `requiredValue` still use the 24-hour stored format. The default display format is `24h`, and bounds are inclusive.
+
+```json title="public/study-name/config.json"
+{
+  "id": "session-time",
+  "type": "time",
+  "prompt": "Select a session time between 9 AM and 5 PM.",
+  "format": "12h",
+  "min": "09:00",
+  "max": "17:00"
+}
+```
+
+The Form Elements Demo illustrates the different date and time controls:
+
+![Date, month, year, and time inputs in the Form Elements Demo, including 12-hour time and time with seconds.](./img/forms/date-time-responses.png)
+
+### Conditional Follow-up Questions
+
+Use `visibleIf` to show a response only when another response in the **same component** satisfies a condition. For example, place this component inside your Study Config's `components` object and include `education` in your study sequence:
+
+```json title="public/study-name/config.json"
+{
+  "education": {
+    "type": "questionnaire",
+    "response": [
+      {
+        "id": "attendedUniversity",
+        "type": "radio",
+        "prompt": "Did you attend university?",
+        "options": [
+          { "label": "Yes", "value": "yes" },
+          { "label": "No", "value": "no" }
+        ]
+      },
+      {
+        "id": "universityName",
+        "type": "shortText",
+        "prompt": "Name of your university",
+        "visibleIf": {
+          "responseId": "attendedUniversity",
+          "comparison": "equals",
+          "value": "yes"
+        }
+      }
+    ]
+  }
+}
+```
+
+In this example, selecting **Yes** reveals the university question, which is required by default. Selecting **No** or leaving the first question unanswered keeps it hidden.
+
+The three properties in `visibleIf` define the condition:
+
+- `responseId` identifies the question whose answer to check.
+- `comparison` specifies the check. Here, `equals` checks for an exact match.
+- `value` is the expected answer. Use the stored value (`"yes"`), not the displayed label (`"Yes"`).
+
+#### What Happens to Hidden Answers
+
+If a Participant enters a university name and then selects **No**, ReVISit hides the university question and clears its answer. Hidden answers are omitted from the saved trial answers and do not block **Next** or correctness checks. Any associated **Other** text and **I don't know** selection are cleared too.
+
+If the Participant selects **Yes** again, the previous university name is not restored. The question starts with its configured `default`, if any. Earlier interactions may still appear in replay history.
+
+Try this sequence when testing your form: select **Yes**, enter a university name, then select **No**. Confirm that the follow-up disappears and that its answer is absent from the saved trial answers after continuing.
+
+#### Other Conditions
+
+You can check answers from `radio`, `dropdown`, `buttons`, `checkbox`, `shortText`, `numerical`, or `date` responses in the same component. Choose the comparison that fits your question:
+
+- `equals` or `doesNotEqual`: Check whether the answer matches a value. For checkboxes and multiselect dropdowns, use an array such as `["A", "B"]`; matching requires the same selections, regardless of order. For numerical answers, use a number such as `18`, without quotes.
+- `contains`, `doesNotContain`, or `matchesRegex`: Check text in a single answer. These cannot check whether a checkbox selection contains an option.
+- `lessThan`, `lessThanOrEqual`, `greaterThan`, or `greaterThanOrEqual`: Compare a `numerical` answer with a number.
+- `isCorrect`: Check whether an answer is correct. Define `correctAnswer` on the component and set the condition's `value` to `true` or `false`. See [Answers and Training](./answers-trainings.md).
+
 ### Default Values
 
-Most form elements can include a default field to set an initial answer, which is shown when the question loads and restored if the participant resets the question instead of leaving it empty. If you use `paramCapture` to get a value from the URL, that value overrides the default.
+Most form elements can include `default` to set an initial answer when the question loads. **Clear selection** leaves the response unanswered instead of restoring this default. If you use `paramCapture` to get a value from the URL, that value overrides the default.
 
 ```json title="public/study-name/config.json"
 {
@@ -139,7 +337,7 @@ Most form elements can include a default field to set an initial answer, which i
 }
 ```
 
-For matrix questions, `default` sets a value for each row: use one string for `matrix-radio`, and for `matrix-checkbox` use a string (one choice) or a list of strings (multiple choices).
+For matrix questions, `default` sets a value for each row: use one string for `matrix-radio`, and an array of strings for `matrix-checkbox`, including when only one choice is selected.
 
 ```json title="public/study-name/config.json"
 {
@@ -150,7 +348,7 @@ For matrix questions, `default` sets a value for each row: use one string for `m
   "answerOptions": ["A", "B"],
   "default": {
     "Q1": ["A", "B"],
-    "Q2": "A"
+    "Q2": ["A"]
   }
 }
 ```
@@ -160,7 +358,7 @@ For matrix questions, `default` sets a value for each row: use one string for `m
 You can explicitly allow participants to state that they don't know the response with a dedicated checkbox:
 ![A numerical input example with a don't know option.](img/designing-forms/dont-know.png)
 
-To achieve that, add the `"withDontKnow": true` option to your form element.
+To achieve that, add the `"withDontKnow": true` option to your form element. Selecting **I don't know** counts as a completed answer and bypasses that response's validation rules.
 
 ### Dividers
 
@@ -221,11 +419,21 @@ Radios and checkboxes can be rendered either vertically (the default) or horizon
 
 You can allow an "other" option for radios and checkboxes, as shown for the first radio group above. To enable that, set `"withOther": true`.
 
-When a Participant selects **Other**, they must complete its text field before continuing. If they select **Next** without entering text, ReVISit highlights the incomplete field.
+When a Participant selects **Other** in a required response, they must complete its text field before continuing. If they select **Next** without entering text, ReVISit highlights the incomplete field.
+
+#### Clearing Selections
+
+Participants can click a selected radio option again to deselect it. This also applies to Likert scales and individual rows in `matrix-radio` responses.
+
+For `radio`, `likert`, `buttons`, `matrix-radio`, and `matrix-checkbox` responses with a prompt, **Clear selection** appears beside the prompt after an answer is selected. It clears that response; for a matrix, it clears every row. The control disappears when nothing is selected and is disabled when the response is read-only. No additional configuration is needed.
+
+Clearing a required response does not make it optional: the Participant must answer it again before continuing. Ordinary checkbox options can still be unchecked individually.
+
+![A Likert scale with 6 selected and a Clear selection button beside the question prompt.](./img/forms/clear-selection.png)
 
 #### Selection Requirements for Checkboxes
 
-For checkboxes, you can specify the minimum and maximum number of selections required using `minSelections` and `maxSelections`. These properties control how many options must be selected before the participant can proceed.
+For checkboxes, you can specify the minimum and maximum number of selections required using `minSelections` and `maxSelections`. For required responses, these properties control how many options must be selected before the Participant can proceed. Set both to the same number to require an exact count.
 
 ```json title="public/study-name/config.json"
 {
@@ -250,7 +458,25 @@ Here is an example of Matrix Radio questions using `"answerOptions": "likely7"` 
 
 ![Matrix Radio examples with likely7 and satisfaction5 answer options](img/designing-forms/matrix-answer-options.png)
 
-### Bipolar Matrix Row Labels
+#### Selection Counts per Matrix Row
+
+For `matrix-checkbox`, use `min` and `max` to limit the number of choices **in each row**. These are different from the `minSelections` and `maxSelections` properties used by ordinary checkboxes and dropdowns. Set `min` and `max` to the same value to require an exact count per row.
+
+```json title="public/study-name/config.json"
+{
+  "id": "chart-uses",
+  "type": "matrix-checkbox",
+  "prompt": "Select one or two uses for each chart.",
+  "questionOptions": ["Bar chart", "Line chart"],
+  "answerOptions": ["Comparison", "Trends", "Distribution"],
+  "min": 1,
+  "max": 2
+}
+```
+
+A required matrix must have an answer in every row. With `withDontKnow`, selecting **I don't know** satisfies that row without applying its selection-count limits.
+
+#### Bipolar Matrix Row Labels
 
 For `matrix-radio` and `matrix-checkbox`, each `questionOptions` item can be a string or an object. Use `leftLabel` and `rightLabel` on an object to place opposing terms at the left and right ends of a row without changing the value stored for that row.
 
@@ -258,6 +484,7 @@ For `matrix-radio` and `matrix-checkbox`, each `questionOptions` item can be a s
 {
   "id": "ueq-response",
   "type": "matrix-radio",
+  "prompt": "Rate each pair of opposing terms.",
   "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
   "questionOptions": [
     {
@@ -285,11 +512,11 @@ For `matrix-radio` and `matrix-checkbox`, setting `"withDontKnow": true` adds an
 
 ### Dropdown Features
 
-A dropdown allows participants to choose one or more from a list. By default, they can only pick one item. If you want to allow multiple selections, add `minSelections` or `maxSelections` and the dropdown will then automatically become a multiselect dropdown.
+A dropdown allows participants to choose one or more from a list. By default, they can only pick one item. To allow multiple selections, set `minSelections` to at least `1` or `maxSelections` to greater than `1`. Setting only `"maxSelections": 1` keeps it single-select.
 
 ![Multiselect dropdown](img/designing-forms/dropdown-multiselect.png)
 
-When `minSelections` or `maxSelections` are specified for a dropdown, it automatically becomes a multiselect dropdown, allowing participants to choose multiple options.
+Use `minSelections` and `maxSelections` to set the accepted count for a required multiselect dropdown. Set them to the same number to require exactly that many selections.
 
 Example with minimum selections:
 
@@ -316,6 +543,22 @@ Example with both minimum and maximum:
 }
 ```
 
+#### Country Dropdowns
+
+Set `"options": "countries"` to use a searchable list of English country names with flag emoji. Answers store uppercase ISO alpha-2 codes, such as `"US"`, rather than country names or flags. Use these codes in `default`, `requiredValue`, and `visibleIf` comparisons.
+
+```json title="public/study-name/config.json"
+{
+  "id": "country",
+  "type": "dropdown",
+  "prompt": "Which country do you live in?",
+  "options": "countries",
+  "placeholder": "Select a country"
+}
+```
+
+For multiple countries, add selection-count limits as described above; the saved answer is then an array of country codes.
+
 ### Likert Features
 
 A Likert response allows participants to rate something on a scale. You can customize the scale in several ways -- you can set where the scale starts, how large the steps between values are, the label locations, and how many options it has.
@@ -330,7 +573,7 @@ You can control the label location in Likert responses to better fit your layout
 
 ### Numerical Response Features
 
-Numerical response inputs support `min` and `max` fields that define the acceptable range of values for the answer. These constraints help ensure that participants provide values within the expected bounds, and warnings will be displayed if their input falls outside this range.
+Numerical responses support inclusive `min` and `max` bounds. For a required response, a value outside the range prevents the Participant from continuing when they select **Next**.
 
 ```json title="public/study-name/config.json"
 {
@@ -344,11 +587,11 @@ Numerical response inputs support `min` and `max` fields that define the accepta
 }
 ```
 
-The `min` and `max` properties work together to define a range. When participants enter values outside this range, they will see a warning message indicating the acceptable range.
+Use `strictMin` or `strictMax` for exclusive bounds. For example, `"strictMin": 0` requires a value greater than zero, while `"min": 0` also accepts zero. `"strictMax": 100` rejects 100 itself. All supplied bounds must be satisfied; either end of a range can be omitted.
 
 ![Numerical response with min 0 and max 100](./img/designing-forms/numerical-min-max.png)
 
-You can also define a range of acceptable answers using the `acceptableLow` and `acceptableHigh` properties in the `Answer` interface. This is particularly useful for numerical answers where you want to accept values within a certain range rather than requiring an exact match.
+Separately, you can define a range of correct answers using the `acceptableLow` and `acceptableHigh` properties in the `Answer` interface. These belong to the component's `correctAnswer` array and control correctness checks; they do not replace input bounds on the response. This is particularly useful for numerical answers where you want to accept values within a certain range rather than requiring an exact match.
 
 ```json title="public/study-name/config.json"
 {
@@ -379,18 +622,30 @@ The example below shows a slider with `"snap": true` and `"withBar": false`.
 
 A ranking widget allows participants to order or group items rather than simply selecting them. They are useful when you want to capture relative preferences, priorities, or categories of interest.
 
-#### The "numItems" option
+#### Item and Pair Counts
 
-For sublist and categorical rankings, you can use the `numItems` option to control how many items participants must assign:
+Use `min` and `max` to set the accepted count for a required ranking response:
 
-- In a sublist, `numItems` sets how many items they have to rank (e.g., top 2 out of 5).
-- In a categorical ranking, `numItems` can limit how many items may be placed in each category (e.g., only 3 items per category).
+- `ranking-sublist`: Counts items placed in the ranked list.
+- `ranking-categorical`: Counts items in **each** of the HIGH, MEDIUM, and LOW categories, including empty categories.
+- `ranking-pairwise`: Counts complete pairs, rather than individual items.
 
-:::info
-The `numItems` option cannot be used in pairwise rankings, since their purpose is to compare and rank items by pairs.
-:::
+Set `min` and `max` to the same number for an exact count. This response asks the Participant to rank exactly two items:
 
-This option is useful when you want participants to focus on their strongest preferences rather than distributing all items.
+```json title="public/study-name/config.json"
+{
+  "id": "top-charts",
+  "type": "ranking-sublist",
+  "prompt": "Rank your two preferred charts, best first.",
+  "options": ["Bar", "Line", "Scatterplot", "Area"],
+  "min": 2,
+  "max": 2
+}
+```
+
+For `ranking-categorical`, `numItems` requires an exact **total** across all categories. Use `categorizeAll: true` to require every configured item to be categorized. These requirements apply together with any per-category `min` and `max`; choose limits that allow all requirements to be met. For example, a minimum of one item per category requires at least three items in total.
+
+For `ranking-sublist`, `numItems` is a fallback maximum when `max` is absent; it does not require an exact count. Prefer explicit `min` and `max` in new configurations. For `ranking-pairwise`, use `min` and `max` instead of `numItems`.
 
 #### Pairwise ranking validation
 
@@ -589,6 +844,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "LongTextResponse", url: "../../typedoc/interfaces/LongTextResponse"},
     {name: "MatrixResponse", url: "../../typedoc/interfaces/MatrixResponse"},
     {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"},
+    {name: "ReactiveResponse", url: "../../typedoc/interfaces/ReactiveResponse"},
     {name: "RadioResponse", url: "../../typedoc/interfaces/RadioResponse"},
     {name: "RankingResponse", url: "../../typedoc/interfaces/RankingResponse"},
     {name: "ShortTextResponse", url: "../../typedoc/interfaces/ShortTextResponse"},

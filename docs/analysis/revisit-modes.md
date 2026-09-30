@@ -14,6 +14,12 @@ With Data Collection enabled, all data that is captured by participants will be 
 
 Disabling data collection on a particular study will cause the user to see a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
 
+:::info
+When **Data Collection** is off, reVISit does not record audio or screens, even if recording is enabled in your Study Config. Participants can continue past the microphone check and screen recording permission pages without recording. The **Start Recording** button is disabled.
+
+To test recording, turn on **Data Collection** in the study's **Manage** tab.
+:::
+
 ## Development Mode
 
 When the development mode is enabled, any user will be able to access the study's "study browser". This allows users to move between any two components in the study freely. This is especially useful when you are disseminating your study after all data collection has completed and you'd like to share your study with the broader public.

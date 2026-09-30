@@ -1,25 +1,24 @@
 # Config
 
-The Config tab shows all the different versions of your study configuration that participants have used.
+Open the **Config** tab in the Analysis platform to view, download, and compare saved Study Config versions. It includes the current version, when available, and versions used by Participants who match your current filters.
 
 ## Overview
 
 Each time you change your `config.json` file and deploy it, reVISit creates a unique hash for that version.
 
-![Config tab](./img/config/config.png)
+![The Config tab shows the current Study Config version with participant counts and time frames for the current filters.](./img/config/config.png)
 
 The Config table has several columns. The version column shows the identifier from your `studyMetadata.version` field (like `1.0.0` or `pilot`). The latest deployed config is marked with a Current badge. The hash column shows a unique code based on your actual config content. If anything changes in your config, you get a new hash, even if you forget to update the version number. Hover over the info icon to see the full hash, or click the copy icon to copy it.
 
-The date column shows when you created that version (from `studyMetadata.date`). The time frame column shows when participants actually used it, from the first to the last participant. The participants column tells you how many people used each version.
+The **Date** column shows the date from `studyMetadata.date`. **Time Frame** shows the period of recorded activity for each version, and **Participants** shows how many Participants used it. Both reflect only the Participants visible under your current filters. A saved current version can appear with zero Participants; unavailable timing information is shown as `N/A`.
 
-Update your `studyMetadata` in `config.json` every time you make changes:
+Update the `version` and `date` fields in your `studyMetadata` when you change your Study Config. This partial example shows the fields to update; keep your other metadata fields:
 
 ```json title="public/study-name/config.json"
 {
   "studyMetadata": {
     "version": "pilot",
-    "date": "2026-02-17",
-    ...
+    "date": "2026-02-17"
   }
 }
 ```
@@ -41,7 +40,7 @@ Download configs to back up your study versions, share with collaborators, archi
 
 ## Compare Config
 
-Select exactly two configs using the checkboxes, then click Compare Configs. You'll see a side-by-side view with red highlighting for removed content, green for added content, and no highlighting for unchanged content.
+Select exactly two configs using the checkboxes, then click **Compare**. You'll see an inline diff with red highlighting for removed content, green for added content, and no highlighting for unchanged content.
 
 ![Compare Config](./img/config/compare-config.png)
 
@@ -56,6 +55,12 @@ The Config tab syncs with filters in other tabs. Config names are displayed as `
 ![Filter Config](./img/config/filter-config.png)
 
 Select "ALL" to see everyone, or choose specific versions to analyze just those participants. This is useful when you want to analyze only your final version, compare responses across versions, exclude pilot data, or analyze different study runs separately.
+
+## Empty Results and Loading Errors
+
+- **No Study Config versions are available for the current filters.** No saved versions are available for this view. Check your filters and try including more Participants.
+- **Unable to load saved Study Config versions.** The request failed. Check your connection and reload the page to try again.
+- **Unable to identify the current Study Config version.** ReVISit could not determine which version is current. If versions used by Participants are available, you can still view, download, and compare them, but no version is marked **Current**. Reload the page to try again.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
