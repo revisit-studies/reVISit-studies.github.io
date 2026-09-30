@@ -66,13 +66,13 @@ When `forceCompletion` is `true`, a Participant who selects **Next** before play
 
 #### Troubleshoot a missing internal video
 
-If an internal video request returns an error in a production deployment, ReVISit reports that the stimulus could not be loaded instead of leaving an empty video that prevents the Participant from continuing. Check that:
+While an internal video loads, **Next** is disabled. If loading fails, ReVISit shows an inline **404** message and keeps **Next** disabled, even when `forceCompletion` is `false`. Check that:
 
 - the `path` is relative to the app's `public` directory;
 - the file exists at that path and was included in the deployment; and
 - the capitalization of every folder and filename matches the Study Config. Production hosts commonly use case-sensitive paths even when a local development machine does not.
 
-After correcting the path or deployment, rebuild and redeploy the study before testing it again.
+After correcting the path or deployment, rebuild and redeploy the study before testing it again. See [When a Stimulus Cannot Load](./answers-trainings.md#when-a-stimulus-cannot-load) for other stimulus types and external content limitations.
 
 ### External Videos
 

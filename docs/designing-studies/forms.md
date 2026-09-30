@@ -73,6 +73,8 @@ You can make a field required, in which case a red star is rendered (see above).
 
 The **Next** button is available before a Participant answers. When they select it, ReVISit checks required fields and validation rules. If anything needs attention, the page stays open, highlights the affected fields, and shows a summary of unanswered questions and invalid answers. The Participant can then correct the highlighted fields and select **Next** again.
 
+When responses accompany a stimulus, **Next** stays disabled while the stimulus asset is loading or has a detected loading failure. See [When a Stimulus Cannot Load](./answers-trainings.md#when-a-stimulus-cannot-load) if the button remains disabled.
+
 This attempted-advance validation applies to required responses, `requiredValue` and `requiredLabel`, numeric ranges, `minSelections` and `maxSelections`, matrix questions, incomplete **Other** entries, and custom response validation.
 
 
