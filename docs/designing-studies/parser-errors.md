@@ -73,12 +73,12 @@ If the study ID is recognized but its configuration file cannot be fetched or va
 
 Set `uiConfig.contactEmail` to an address monitored by your study team. ReVISit displays it as a clickable email link on invalid-step pages and missing-resource pages such as missing images, Markdown, videos, help content, and custom response modules.
 
-This partial Study Config shows the field to update inside your existing `uiConfig`. Keep the other settings and replace `study-team@example.org` with your team's address.
+This partial Study Config shows the field to update inside your existing `uiConfig`. Keep the other settings and replace `contact@revisit.dev` with your team's address.
 
 ```json title="public/study-name/config.json"
 {
   "uiConfig": {
-    "contactEmail": "study-team@example.org"
+    "contactEmail": "contact@revisit.dev"
   }
 }
 ```
