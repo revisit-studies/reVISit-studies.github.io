@@ -127,6 +127,12 @@ For basic styling like sizing, colors, and fonts, apply specific CSS properties 
 },
 ```
 
+## Styling Custom React Components
+
+Inside custom React components, use Mantine's [Styles API](https://mantine.dev/styles/styles-api/) to style individual controls. Its `styles` and `classNames` props belong in React code, not in the Study Config.
+
+When updating an older study to Mantine 9, see the [Mantine 7 to 8](https://mantine.dev/guides/7x-to-8x/) and [Mantine 8 to 9](https://mantine.dev/guides/8x-to-9x/) migration guides.
+
 ## UIConfig Styling
 
 ### Using External CSS Files
