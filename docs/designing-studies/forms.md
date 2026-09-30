@@ -483,6 +483,7 @@ For `matrix-radio` and `matrix-checkbox`, each `questionOptions` item can be a s
 {
   "id": "ueq-response",
   "type": "matrix-radio",
+  "prompt": "Rate each pair of opposing terms.",
   "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
   "questionOptions": [
     {
