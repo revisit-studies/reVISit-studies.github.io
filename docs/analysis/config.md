@@ -40,7 +40,7 @@ Download configs to back up your study versions, share with collaborators, archi
 
 ## Compare Config
 
-Select exactly two configs using the checkboxes, then click Compare Configs. You'll see a side-by-side view with red highlighting for removed content, green for added content, and no highlighting for unchanged content.
+Select exactly two configs using the checkboxes, then click **Compare**. You'll see an inline diff with red highlighting for removed content, green for added content, and no highlighting for unchanged content.
 
 ![Compare Config](./img/config/compare-config.png)
 

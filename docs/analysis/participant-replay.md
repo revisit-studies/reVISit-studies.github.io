@@ -69,7 +69,7 @@ You can specify time in different formats:
 - Minutes: `&t=2m`, `&t=10m30s`
 - Hours: `&t=1h30m`
 
-If the entered time exceeds the replay’s maximum length, it will automatically be replaced with the maximum available time in milliseconds.
+Choose a timestamp within the task's recorded duration.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
