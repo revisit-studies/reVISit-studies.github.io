@@ -4,6 +4,8 @@ ReVISit provides built-in support for screen and webcam recording and playback, 
 
 ## Turning on screen and webcam recording
 
+Enable [Data Collection](../analysis/revisit-modes.md#data-collection) in the study's **Manage** tab before testing or collecting screen recordings. When Data Collection is disabled, screen recording is disabled even if `recordScreen` is `true`.
+
 You can enable recording by setting `recordScreen` and/or `recordWebcam` in your study config. Screen recording uses the [`screen-recording`](../libraries/screen-recording.md) library. Webcam-only studies use the `webcam-recording` library and its `webcamRecordingPermission` component.
 
 **Step 1: Enable recording in your study**
@@ -97,7 +99,7 @@ To disable recording for a component, set its `recordScreen` and/or `recordWebca
 
 ## Recording permissions
 
-Participants receive browser permission requests for the devices the study records. The screen permission page includes screen and webcam previews when both are enabled. The webcam-only permission page includes a live webcam preview. If participants do not grant the required permissions, they will be stopped from continuing the study. You can find more information in the [reVISit libraries](./plugin-libraries.md).
+When Data Collection is enabled, participants receive browser permission requests for the devices the study records. The screen permission page includes screen and webcam previews when both are enabled. The webcam-only permission page includes a live webcam preview. If participants do not grant the required permissions, they will be stopped from continuing the study. You can find more information in the [reVISit libraries](./plugin-libraries.md).
 
 Participants are asked to share the study tab. In Chromium-based browsers, the study tab is usually pre-selected by default. In other browsers, participants must manually select the correct tab, which is labeled _"RECORD THIS TAB."_
 
@@ -115,8 +117,8 @@ You can [download screen and webcam recordings](../analysis/data-export.md#downl
 Alternatively, you can use `gsutil` to download recorded videos in bulk. Navigate to your Firebase storage to find your appspot name, then run the relevant command:
 
 ```bash
-gsutil -m cp -r gs://my-bucket/studyName/screenRecording
-gsutil -m cp -r gs://my-bucket/studyName/webcamRecording
+gsutil -m cp -r gs://my-bucket/studyName/screenRecording .
+gsutil -m cp -r gs://my-bucket/studyName/webcamRecording .
 ```
 
 ## Replaying recordings
