@@ -379,13 +379,15 @@ If you set `width` in `style` without setting `maxWidth`, reVISit automatically 
 
 #### Image Component Styling
 
+These examples reuse assets from the bundled image and Vega demos. Asset paths are relative to `public/`, so they can reference files outside the study's own folder.
+
 ![Image Component Style](img/style-image.png)
 
 ```json title="public/demo-style/config.json"
 "components": {
   "chart": {
     "type": "image",
-    "path": "demo-style/assets/image.png",
+    "path": "demo-image/assets/uncertainty-1.png",
     "response": [
       {
         "id": "image-component-style",
@@ -411,7 +413,7 @@ If you set `width` in `style` without setting `maxWidth`, reVISit automatically 
 "components": {
   "vega-component": {
     "type": "vega",
-    "path": "demo-style/specs/vegademo1.specs.json",
+    "path": "demo-vega/specs/vegademo1.specs.json",
     "response": [
       {
         "id": "vega-path-component-style",

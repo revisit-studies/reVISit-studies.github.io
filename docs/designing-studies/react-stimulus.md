@@ -21,7 +21,7 @@ We have a few reusable components and hooks available in the `src/public/example
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
 In this example, we pass two data arrays to the BarChart component. One is the data array contains 5 objects, each object has a name and a value. The other is the selectedIndices array, which contains the indices of the data array that we want to highlight with dots.
 
-```ts title="src/public/example-cleveland/assets/chartcomponents/BarChart.tsx"
+```ts title="src/public/example-cleveland/assets/BarChart.tsx"
 import * as d3 from 'd3';
 import { useChartDimensions } from './hooks/useChartDimensions';
 import { Bars } from './chartcomponents/Bars';
@@ -242,7 +242,7 @@ function StroopColorTask({ parameters, setAnswer }: StimulusParams<any>) {
 export default StroopColorTask;
 ```
 
-Below is a minimal config with two Stroop trials. Each trial passes `displayText` (the word shown) and `textColor` (the color of the text) via `parameters`. The `reactive` response type receives the typed answer from the component.
+Below is a Study Config excerpt with two Stroop trials. Keep your existing `$schema`, `studyMetadata`, and `uiConfig` fields, and set `uiConfig.withSidebar` to `true` so the Next button is visible. Each trial passes `displayText` (the word shown) and `textColor` (the color of the text) via `parameters`. The `reactive` response type receives the typed answer from the component.
 
 ```json title="public/demo-react-trrack/config.json"
 {
@@ -252,6 +252,9 @@ Below is a minimal config with two Stroop trials. Each trial passes `displayText
       "instruction": "In this experiment you are required to say the color of the word, not what the word says. For example, for the word, RED, you should say \"Blue.\"",
       "type": "react-component",
       "path": "demo-react-trrack/assets/DemoReactTrrack.tsx",
+      "parameters": {
+        "taskid": "stroopAnswer"
+      },
       "nextButtonLocation": "sidebar",
       "response": [
         {
