@@ -135,6 +135,8 @@ This creates a component that new components can be based off of. Each component
 
 Because this `reactive` response is required, the embedded activity must report an interaction before the Participant can continue. If they select **Next** first, ReVISit shows: “Please finish the embedded activity to continue.”
 
+To require a particular answer from the stimulus, add `requiredValue` to the reactive response. Use `requiredLabel` for the readable name shown in its validation message. See [Requiring a Value from a Stimulus](./forms.md#requiring-a-value-from-a-stimulus) for an example and matching rules.
+
 In the components section, add the following objects:
 
 ```json title="public/basic-questionnaire-study/config.json"
