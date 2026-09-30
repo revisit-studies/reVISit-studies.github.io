@@ -1,6 +1,6 @@
 # Custom Form Elements
 
-Sometimes, the [form elements](./forms.md) ReVISit provides are not sufficient for your needs. In this case, you can create your own custom form elements. Your custom form elements can be coded in React and can use any React libraries you want. You can then include these custom form elements in your study config and they will be rendered in the study just like the built-in form elements.
+Sometimes, the [form elements](./forms.md) ReVISit provides are not sufficient for your needs. In this case, you can create your own custom form elements in React, using libraries compatible with the React version installed in your study application. You can then include these custom form elements in your Study Config and they will be rendered in the study just like the built-in form elements.
 
 This page will walk you through how to create and use custom form elements in your ReVISit study, and show you how to provide custom validation logic for your custom form elements.
 

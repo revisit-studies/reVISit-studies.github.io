@@ -127,6 +127,12 @@ For basic styling like sizing, colors, and fonts, apply specific CSS properties 
 },
 ```
 
+## Styling Custom React Components
+
+Inside custom React components, use Mantine's [Styles API](https://mantine.dev/styles/styles-api/) to style individual controls. Its `styles` and `classNames` props belong in React code, not in the Study Config.
+
+When updating an older study to Mantine 9, see the [Mantine 7 to 8](https://mantine.dev/guides/7x-to-8x/) and [Mantine 8 to 9](https://mantine.dev/guides/8x-to-9x/) migration guides.
+
 ## UIConfig Styling
 
 ### Using External CSS Files
@@ -373,13 +379,15 @@ If you set `width` in `style` without setting `maxWidth`, reVISit automatically 
 
 #### Image Component Styling
 
+These examples reuse assets from the bundled image and Vega demos. Asset paths are relative to `public/`, so they can reference files outside the study's own folder.
+
 ![Image Component Style](img/style-image.png)
 
 ```json title="public/demo-style/config.json"
 "components": {
   "chart": {
     "type": "image",
-    "path": "demo-style/assets/image.png",
+    "path": "demo-image/assets/uncertainty-1.png",
     "response": [
       {
         "id": "image-component-style",
@@ -405,7 +413,7 @@ If you set `width` in `style` without setting `maxWidth`, reVISit automatically 
 "components": {
   "vega-component": {
     "type": "vega",
-    "path": "demo-style/specs/vegademo1.specs.json",
+    "path": "demo-vega/specs/vegademo1.specs.json",
     "response": [
       {
         "id": "vega-path-component-style",
