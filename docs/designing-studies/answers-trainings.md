@@ -102,11 +102,15 @@ To see a left-aligned **Next** button, open the [Form Elements Demo](https://rev
 
 The next button offers several customization options. You can change the button text using `nextButtonText` (e.g., "Continue", "Next Question") and control its location with `nextButtonLocation`.
 
+ReVISit automatically disables **Next** while the current stimulus asset is loading or has a detected loading failure. This also blocks forward navigation with Enter, automatic advancement, and the timeout **Proceed** action. **Previous** remains available when configured. Once the asset loads successfully, the component's response validation and timing settings apply. See [When a Stimulus Cannot Load](#when-a-stimulus-cannot-load) for supported stimuli and recovery steps.
+
 To enable keyboard navigation, set `nextOnEnter` to `true`, which allows participants to press Enter to move to the next question. In a training component where **Check Answer** is available, Enter checks the answer first; otherwise, it moves to the next question.
 
 For timing control, you can use `nextButtonEnableTime` to delay when the button becomes clickable, which helps ensure participants have time to read the content, and `nextButtonDisableTime` to set a time limit after which the button becomes disabled, which is useful for time-limited tasks.
 
 You can also combine `nextButtonDisableTime` with `timeoutReject` to automatically reject participants who do not click the next button within the time limit. This setup is useful for enforcing strict time constraints in tasks or training phases.
+
+Stimulus loading does not pause these timers, including rejection through `timeoutReject`.
 
 ![Next button](./img/next-button.png)
 
@@ -132,6 +136,21 @@ You can also combine `nextButtonDisableTime` with `timeoutReject` to automatical
   }
 }
 ```
+
+#### When a Stimulus Cannot Load
+
+When ReVISit detects a loading failure, it shows an inline **404** message and keeps **Next** disabled. This applies to Markdown files, images, videos, embedded HTML or websites, React stimuli, and Vega specifications loaded from a file. No additional Study Config option is needed. The check covers the stimulus ReVISit loads, not every image or data file loaded separately by your custom HTML or React code.
+
+To resolve a failure:
+
+1. Compare the path in the error message with the component's `path`. If you use [templating](./templating.md), check the resulting path for the affected trial.
+2. Confirm that the file exists, including matching capitalization. Local Markdown, image, video, HTML, and Vega paths are relative to `public/`; React stimulus paths are relative to `src/public/`.
+3. For a hosted study, confirm that the file was deployed. For external content, check that the URL works and the provider allows embedding.
+4. Correct the file or path, rebuild and redeploy if needed, then reload the affected page and confirm that the stimulus appears and normal navigation resumes.
+
+Browsers do not expose every loading failure for websites embedded from another domain. **Next** may become available even if an external website displays an error or a blank page, so preview it in the deployed study before collecting data. YouTube and Vimeo videos use readiness and error signals from their players.
+
+For contact guidance on error screens, see [Set a Contact Email for Error Pages](./parser-errors.md#set-a-contact-email-for-error-pages).
 
 ### Automatically Advance After a Timeout
 
@@ -164,6 +183,8 @@ To move a Participant to the next component after a time limit, set `nextButtonA
 The default warning says: “You will be automatically advanced to the next component. Responses on this component will not be saved.”
 
 Unlike `nextButtonDisableTime`, this setting actively moves the Participant forward. It does not merely disable **Next** and does not reject the Participant.
+
+The timer continues while a stimulus asset loads, but automatic advancement waits until loading succeeds. If the time limit has already passed, the Participant can advance immediately when the asset becomes ready. A detected asset failure keeps automatic advancement blocked.
 
 :::caution[Timeouts discard the current response]
 When ReVISit auto-advances, it does not save the current component response. Use this only when intentionally discarding an incomplete response is acceptable. The stored component record includes its end time, `timedOut: true`, and an empty `answer` object.

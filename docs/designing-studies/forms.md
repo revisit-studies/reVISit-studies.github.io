@@ -75,6 +75,7 @@ The **Next** button is available before a Participant answers. When they select 
 
 This check includes `requiredValue`, text and format rules, numeric ranges, selection counts, matrix questions, incomplete **Other** entries, and custom response validation. Optional responses can show validation feedback but do not block **Next**, even when an entered answer is invalid. Keep a response required when its constraints must be satisfied before continuing.
 
+When responses accompany a stimulus, **Next** stays disabled while the stimulus asset is loading or has a detected loading failure. See [When a Stimulus Cannot Load](./answers-trainings.md#when-a-stimulus-cannot-load) if the button remains disabled.
 
 #### Requiring a Specific Answer
 
