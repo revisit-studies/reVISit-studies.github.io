@@ -117,8 +117,8 @@ You can [download screen and webcam recordings](../analysis/data-export.md#downl
 Alternatively, you can use `gsutil` to download recorded videos in bulk. Navigate to your Firebase storage to find your appspot name, then run the relevant command:
 
 ```bash
-gsutil -m cp -r gs://my-bucket/studyName/screenRecording
-gsutil -m cp -r gs://my-bucket/studyName/webcamRecording
+gsutil -m cp -r gs://my-bucket/studyName/screenRecording .
+gsutil -m cp -r gs://my-bucket/studyName/webcamRecording .
 ```
 
 ## Replaying recordings

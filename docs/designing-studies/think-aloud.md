@@ -1,6 +1,6 @@
 # Think Aloud
 
-ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio is only recorded while using Firebase or Supabase storage, and will not activate if using local storage.
+ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio recording works with Firebase, Supabase, and local storage. With local storage, recordings remain in the participant's browser.
 
 ## Turning on audio recording
 
@@ -42,18 +42,18 @@ If you are using Firebase and want automatic transcripts for Think Aloud studies
 
 ## Click-to-record
 
-The `clickToRecord` option enables a click-and-hold microphone button instead of continuous recording. When enabled, audio is muted by default and is recorded only while the button is held. When disabled, recording starts immediately and can be paused or resumed via the microphone button. If a participant speaks while muted, the microphone icon blinks red and gives a notification to unmute. You can set `"clickToRecord": true` in `uiConfig` for the whole study or at the individual component level.
+The `clickToRecord` option enables a click-and-hold microphone button instead of continuous recording. When enabled, audio is muted by default and is recorded only while the button is held. When disabled, audio is recorded continuously on components where audio recording is enabled. If a participant speaks while muted, the microphone icon blinks red and gives a notification to unmute. You can set `"clickToRecord": true` in `uiConfig` for the whole study or at the individual component level.
 
 ![Click to record](./img/think-aloud/click-to-record.png)
 
 ## Downloading audio
 
-All audio data is stored in Firebase or Supabase storage. To listen to participants' audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis.
+Audio data is saved by the selected storage engine: Firebase, Supabase, or local storage. To listen to participants' audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis.
 
 To download audio data after completing a study, navigate to [Participant View](../analysis/data-export.md) in analysis.
 
 :::info
-To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio`.
+To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio .`.
 
 Transcript files are generated only if you have installed the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) in Firebase.
 :::
