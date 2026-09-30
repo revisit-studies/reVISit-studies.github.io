@@ -79,7 +79,7 @@ Use `nextButtonAlignment` to align the navigation action group—Previous, Check
 
 Set it in `uiConfig` to use the same alignment throughout the study. Set it on an individual component to override the global value for that component. Study Config validation accepts only `"left"`, `"center"`, and `"right"`.
 
-To see a left-aligned **Next** button, open the [Form Elements Demo](https://revisit.dev/study/demo-form-elements) and go to **Next Button Alignment** page. See the [demo's Study Config](https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/config.json) for the conifguration.
+To see a left-aligned **Next** button, open the [Form Elements Demo](https://revisit.dev/study/demo-form-elements) and go to **Next Button Alignment** page. See the [demo's Study Config](https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/config.json) for the configuration.
 
 ```json title="public/study-name/config.json"
 {
