@@ -131,15 +131,16 @@ Now, our study is almost set up to view. The last step is to make sure that reVI
 }
 ```
 
-After this, add `basic-questionnaire-study` into the `configsList` list in the same file. Because the configs list is ordered, make sure to put `basic-questionnaire-study` at the top of the list so you can immediately see it. This is what this should look like:
+After this, add `basic-questionnaire-study` at the start of the existing `configsList` array in the same file, keeping the other study IDs. This puts it first within its landing-page tab. For example, if your list currently contains only `demo-html`, the updated property is:
 
 ```json title="public/global.json"
 "configsList": [
     "basic-questionnaire-study",
-    "demo-html",
-    ...
+    "demo-html"
 ]
 ```
+
+Because this study has no `tab` assignment, it appears under **Studies**. If your landing page has other tabs, select **Studies** to find it. To choose a different tab or change tab order, see [Configuring the Landing Page](../data-and-deployment/landing-page.md).
 
 :::info
 Study IDs in `global.json` can include dots, spaces, and other special characters, but reVISit cleans them for URLs by replacing dots (`.`), spaces, and slashes (`/`) with underscores (`_`). (e.g. `example.revisit/study` becomes `example_revisit_study`)
@@ -147,7 +148,7 @@ Study IDs in `global.json` can include dots, spaces, and other special character
 
 ## Running the Server
 
-Now, if you start the server (using `yarn serve` as described in the [Installation](./installation.md) section), you'll be able to navigate to http://localhost:8080/ and view your study in the list of studies. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to view the study directly.
+Now, if you start the server (using `yarn serve` as described in the [Installation](./installation.md) section), you'll be able to navigate to http://localhost:8080/ and view your study under **Studies**. Alternatively, you can navigate to http://localhost:8080/basic-questionnaire-study to view the study directly.
 
 You should now see your study and be able to navigate quickly through it. However, your study is currently set up for development, so you won't be collecting any data yet. Go to the next getting started guide to learn how to enable data collection and download your data.
 
