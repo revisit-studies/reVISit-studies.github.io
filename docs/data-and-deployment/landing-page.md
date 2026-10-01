@@ -76,6 +76,8 @@ With Firebase or Supabase configured, the visibility setting is saved in that ba
 
 Leave **Show study on landing page** on and turn **Share Data and Make Analytics Interface Public** off in the study's **Manage** tab.
 
+For Firebase or Supabase, make this change while the study's cloud datastore is connected. When **Use local storage for new sessions** is enabled, the sharing switch changes only the browser's local setting; it does not disable cloud data sharing or change the cloud-backed landing-page card.
+
 The study card remains visible with its description, status, activity dates when available, mode icons, and **Go to Study** button. Participant-count badges, configuration warnings and errors, and the **Analyze & Manage Study** button are hidden. These landing-page display rules also apply to administrators.
 
 ![Study card with data sharing off and Go to Study still available](../analysis/img/study-card/data-sharing-off.jpg)
