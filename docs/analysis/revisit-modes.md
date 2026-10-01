@@ -28,7 +28,7 @@ When the development mode is enabled, any user will be able to access the study'
 
 The analytics interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the participants, see the answers given, and download all the data.
 
-Turning this mode off keeps the landing-page card visible, but hides Participant counts, condition counts, configuration warnings and errors, and the **Analyze & Manage Study** button, including for administrators. To reach the analysis interface when that button is hidden, open `/analysis` under your deployment's base URL and sign in as an administrator if authentication is enabled.
+Turning this mode off keeps the landing-page card visible, but hides Participant counts, configuration warnings and errors, and the **Analyze & Manage Study** button, including for administrators. To reach the analysis interface when that button is hidden, open `/analysis` under your deployment's base URL and sign in as an administrator if authentication is enabled.
 
 To hide the entire card, use the separate **Show study on landing page** setting under **Study visibility** in **Manage**. See [Show or hide a study](../data-and-deployment/landing-page.md#show-or-hide-a-study) for the steps and how to restore a hidden study.
 

@@ -14,8 +14,8 @@ With data sharing enabled, click **Analyze & Manage Study** to open the study su
 
 ![Study card with data sharing enabled, showing Participant status counts and the Analyze & Manage Study button](./img/study-card.png)
 
-When data sharing is off, the card remains visible, but Participant counts, condition counts, configuration warnings and errors, and **Analyze & Manage Study** are hidden. The study description, status, activity dates when available, and **Go to Study** remain available.
+When data sharing is off, the card remains visible, but Participant counts, configuration warnings and errors, and **Analyze & Manage Study** are hidden. The study description, status, activity dates when available, and **Go to Study** remain available.
 
-<!-- TODO: Screenshot — In the study/dev app, use a visible demo study with synthetic Participant data and data sharing off. Capture its landing-page card, showing Go to Study, status, and activity dates without Participant-count badges or Analyze & Manage Study. No annotations needed. Alt: Study card with data sharing off and Go to Study still available. Save to ./img/study-card/data-sharing-off.png. -->
+![Study card with data sharing off and Go to Study still available](./img/study-card/data-sharing-off.jpg)
 
 To organize the cards into tabs or hide an entire card, see [Configuring the Landing Page](../data-and-deployment/landing-page.md).

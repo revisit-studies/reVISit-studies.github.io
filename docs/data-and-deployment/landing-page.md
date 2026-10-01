@@ -44,7 +44,7 @@ The following complete example uses three studies included in the study reposito
 
 Save the file and open your landing page. With these studies visible, you will see **Demo Studies**, **Tutorials**, and **Studies**, in that order. The HTML study appears in **Demo Studies**, the tutorial in **Tutorials**, and the Vega study in **Studies** because it has no `tab` assignment.
 
-<!-- TODO: Screenshot — Use the study/dev app with the global.json example above and all three studies visible. Open the landing page with Demo Studies selected. Frame the three tab labels, the Markdown description with bold text, and the HTML study card. No annotations needed. Alt: Demo Studies, Tutorials, and Studies tabs with the Demo Studies description and HTML study visible. Save to ./img/landing-page/configured-tabs.png. -->
+![Demo Studies, Tutorials, and Studies tabs with the Demo Studies description and HTML study visible](./img/landing-page/configured-tabs.jpg)
 
 ### Defaults and tab names
 
@@ -64,7 +64,7 @@ Use the analysis interface to change study visibility. This setting is separate 
 3. Under **Study visibility**, turn off **Show study on landing page**.
 4. Return to the landing page to check that the study card is hidden. To restore it, return to **Manage** through the analysis interface and turn the switch on.
 
-<!-- TODO: Screenshot — In the study/dev app, open a demo study's Manage tab as an administrator. Show the Study visibility section immediately below ReVISit Modes, with Show study on landing page turned off. Frame the headings and switch so the setting can be located. Alt: Study visibility in the Manage tab with Show study on landing page turned off. Save to ./img/landing-page/study-visibility.png. -->
+![Study visibility in the Manage tab with Show study on landing page turned off](./img/landing-page/study-visibility.jpg)
 
 Studies are shown by default. Turning this setting off hides the entire card for everyone, including signed-in administrators. If it was the last visible study in a tab, that tab disappears too.
 
@@ -76,9 +76,9 @@ With Firebase or Supabase configured, the visibility setting is saved in that ba
 
 Leave **Show study on landing page** on and turn **Share Data and Make Analytics Interface Public** off in the study's **Manage** tab.
 
-The study card remains visible with its description, status, activity dates when available, mode icons, and **Go to Study** button. Participant-count badges, counts in the condition picker, configuration warnings and errors, and the **Analyze & Manage Study** button are hidden. These landing-page display rules also apply to administrators.
+The study card remains visible with its description, status, activity dates when available, mode icons, and **Go to Study** button. Participant-count badges, configuration warnings and errors, and the **Analyze & Manage Study** button are hidden. These landing-page display rules also apply to administrators.
 
-<!-- TODO: Screenshot -->
+![Study card with data sharing off and Go to Study still available](../analysis/img/study-card/data-sharing-off.jpg)
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
