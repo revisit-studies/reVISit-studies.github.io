@@ -1,6 +1,6 @@
 # ReVISit Modes
 
-Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analysis interface. You can also view the current mode status from the study card.
+Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analysis interface. When the study is visible on the landing page, its card also shows the current mode status.
 
 ![ReVISit modes study card](./img/revisit-modes/modes-study-card.png)
 
@@ -27,6 +27,10 @@ When the development mode is enabled, any user will be able to access the study'
 ## Share Data and Make Analytics Interface Public
 
 The analytics interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the participants, see the answers given, and download all the data.
+
+Turning this mode off keeps the landing-page card visible, but hides Participant counts, configuration warnings and errors, and the **Analyze & Manage Study** button, including for administrators. To reach the analysis interface when that button is hidden, open `/analysis` under your deployment's base URL and sign in as an administrator if authentication is enabled.
+
+To hide the entire card, use the separate **Show study on landing page** setting under **Study visibility** in **Manage**. See [Show or hide a study](../data-and-deployment/landing-page.md#show-or-hide-a-study) for the steps and how to restore a hidden study.
 
 :::note
 If you are using older version mode names, reVISit will automatically update the old mode names to the new mode names in storage engines.
