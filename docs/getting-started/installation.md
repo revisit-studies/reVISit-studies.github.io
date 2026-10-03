@@ -16,7 +16,7 @@ Install these tools before cloning and running a study locally:
 - The Active LTS version of [Node.js](https://nodejs.org/), which also installs NPM.
 
 :::info
-NPM is installed with Node.js. You usually do not need to install NPM separately: install Node.js first, then use NPM to install Yarn. If NPM is not installed for any reason, review the [NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started.
+reVISit supports both Yarn and NPM. Yarn is the preferred package manager, but you can use NPM if you prefer. NPM is installed with Node.js, so you usually do not need to install it separately. If NPM is not installed for any reason, review the [NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started.
 :::
 
 You can check whether Git, Node.js, and NPM are already installed with:
@@ -116,7 +116,7 @@ cd your-repository-name
 ![Copy the repository clone URL from GitHub](./img/clone-repo.png)
 
 :::note
-If you have not configured GitHub authentication locally, you can use "Download ZIP". 
+If you have not configured GitHub authentication locally, you can use "Download ZIP".
 :::
 
 ## Run the Local Server
@@ -133,16 +133,28 @@ Then install the packages that reVISit needs to run:
 yarn install
 ```
 
+If you prefer NPM, use this command instead:
+
+```bash
+npm install
+```
+
 Once this is finished, start the local server:
 
 ```bash
 yarn serve
 ```
 
+With NPM, run:
+
+```bash
+npm run serve
+```
+
 This will launch a local web server where you can view and interact with reVISit. By default, you can access it by visiting [http://localhost:8080/](http://localhost:8080/). Any change you make to the code will automatically update the website.
 
 :::warning
-If `yarn install` or `yarn serve` says it cannot find `package.json`, you are probably not inside the repository folder. Run `cd your-repository-name` first, then try the command again.
+If `yarn install`, `yarn serve`, `npm install`, or `npm run serve` says it cannot find `package.json`, you are probably not inside the repository folder. Run `cd your-repository-name` first, then try the command again.
 :::
 
 When you visit the site, you'll see the studies registered in your local `public/global.json` file. You can interact with any of these studies to get some familiarity (and hopefully some inspiration) for how reVISit can help you quickly launch a crowd-sourced visualization study.
@@ -151,15 +163,16 @@ When you visit the site, you'll see the studies registered in your local `public
 If you started from the template repository, this will be a smaller set of starter tutorial studies.
 :::
 
-:::warning
-We do not support using `npm` to run reVISit. Please use `yarn` for all package management and running commands.
+:::note
+Use the same package manager for installation and project commands. Yarn is preferred, but NPM is supported.
 :::
 
 ## Forking the Study Repository
+
 **An advanced alternative to using the template repository**
 
 :::info
- Forking the main repository is the right choice if you're considering contributing back to ReVISit, or want to stay up-to-date with the latest changes by trying out the `dev` branch.
+Forking the main repository is the right choice if you're considering contributing back to ReVISit, or want to stay up-to-date with the latest changes by trying out the `dev` branch.
 :::
 
 Forking the repository is a more advanced option that allows you to have a copy of the entire `study` repository in your GitHub account. This means that you will have access to all the demo studies and that you can choose to follow the latest changes from the main repository (e.g., by following the `dev` branch). However, it also means that your repository will be linked to the upstream repository's fork network, which can make it more complex to manage.
@@ -185,16 +198,16 @@ After the repository is on your local machine, you will have the entire codebase
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks
-    codeLinks={[
-        {name: "ReVISit Template Repository", url: "https://github.com/revisit-studies/template"},
-        {name: "ReVISit Main Repository", url: "https://github.com/revisit-studies/study"}
-    ]}
-    referenceLinks={[
-        {name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
-        {name: "Visual Studio Code Installation", url: "https://code.visualstudio.com/"},
-        {name: "Git Installation", url: "https://git-scm.com/downloads"},
-        {name: "Node.js Installation", url: "https://nodejs.org/en"},
-        {name: "NPM Installation", url: "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"},
-        {name: "Yarn Installation", url: "https://yarnpkg.com/getting-started/install"}
-    ]}
+codeLinks={[
+{name: "ReVISit Template Repository", url: "https://github.com/revisit-studies/template"},
+{name: "ReVISit Main Repository", url: "https://github.com/revisit-studies/study"}
+]}
+referenceLinks={[
+{name: "Cloning Repository", url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository"},
+{name: "Visual Studio Code Installation", url: "https://code.visualstudio.com/"},
+{name: "Git Installation", url: "https://git-scm.com/downloads"},
+{name: "Node.js Installation", url: "https://nodejs.org/en"},
+{name: "NPM Installation", url: "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"},
+{name: "Yarn Installation", url: "https://yarnpkg.com/getting-started/install"}
+]}
 />
