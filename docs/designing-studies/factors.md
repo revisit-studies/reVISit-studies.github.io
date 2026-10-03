@@ -393,27 +393,19 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
   demoLinks={[
-    {name: "Stroop Factors using only Markdown", url: "https://revisit.dev/study/demo-factors-elements"},
-    {name: "Stroop Factors using HTML", url: "https://revisit.dev/study/demo-factors-elements"},
-    {name: "Correlation", url: "https://revisit.dev/study/demo-factors-elements"}
+    {name: "Stroop Factors using only Markdown", url: "https://revisit.dev/study/demo-stroop-factors/"},
+    {name: "Stroop Factors using HTML", url: "https://revisit.dev/study/demo-stroop-html-factors/"},
+    {name: "Correlation", url: "https://revisit.dev/study/incentives-corr"}
   ]}
   codeLinks={[
-    {name: "Form Elements Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/"}
+    {name: "Stroop Factors using only Markdown", url: "https://github.com/revisit-studies/study/tree/dev/public/demo-stroop-factors"},
+    {name: "Stroop Factors using HTML", url: "https://github.com/revisit-studies/study/tree/dev/public/demo-stroop-thml-factors"},
+    {name: "Correlation", url: "https://github.com/revisit-studies/study/tree/dev/public/incentives-corr"}
   ]}
   referenceLinks={[
-    {name: "Answer", url: "../../typedoc/interfaces/Answer"},
-    {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"},
     {name: "ButtonsResponse", url: "../../typedoc/interfaces/ButtonsResponse"},
-    {name: "CheckboxResponse", url: "../../typedoc/interfaces/CheckboxResponse"},
-    {name: "DividerResponse", url: "../../typedoc/interfaces/DividerResponse"},
-    {name: "DropdownResponse", url: "../../typedoc/interfaces/DropdownResponse"},
-    {name: "LikertResponse", url: "../../typedoc/interfaces/LikertResponse"},
-    {name: "LongTextResponse", url: "../../typedoc/interfaces/LongTextResponse"},
-    {name: "MatrixResponse", url: "../../typedoc/interfaces/MatrixResponse"},
-    {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"},
-    {name: "RadioResponse", url: "../../typedoc/interfaces/RadioResponse"},
-    {name: "RankingResponse", url: "../../typedoc/interfaces/RankingResponse"},
-    {name: "ShortTextResponse", url: "../../typedoc/interfaces/ShortTextResponse"},
-    {name: "SliderResponse", url: "../../typedoc/interfaces/SliderResponse"},
+    {name: "Sequence", url: "../../designing-studies/sequences/study-sequences"},
+    {name: "WebsiteComponent", url: "../../typedoc/interfaces/WebsiteComponent"},
+    {name: "BaseComponents", url: "../../typedoc/type-aliases/BaseComponents/"}
   ]}
 />
