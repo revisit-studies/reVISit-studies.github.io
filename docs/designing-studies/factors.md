@@ -106,20 +106,23 @@ In `StroopTrial.tsx`, the values of `color` and `congruence` can be accessed as 
 So far, we've only seen experiment designs where the factors vary within-subjects (such as the Stroop test, where both color and congruence vary within-subjects). However, in many experiments, we might want different participants to see different stimuli. 
 
 
-For example, consider an alternate version of the Stroop test where a participant is shown either the neutral or incongruent stimuli, but not both. For such an experiment, the factor `congruence` needs to vary between-subjects. This is directly specified:
+For example, consider an alternate version of the Stroop test where a participant is shown the stimuli in either a small font of 24px or large font of 48px, but not both. For such an experiment, the factor `fontSize` needs to vary between-subjects. This is directly specified:
 
 ```json title="public/study-name/config.json"
-"betweenSubject": ["congruence"]
+"factors": {
+  ...
+  "fontSize": ["24px", "48px"]
+},
+"betweenSubject": ["fontSize"],
+...
 ```
-
-This is demonstrated using an *actual* experiment in Correlations study (second) example below.
 
 
 ## Example
 
 For the factors version of the Stroop test experiment, we simply need to display the `word` using a specific `color` (./react-stimulus.md). However, note that in the previous examples, we did not actually specify what the color would be if the stimuli was incongruent. There are two ways to go about this:
 
-1. If the stimuli page is an HTML component, we can randomly select an incongruent color to display.
+1. If the stimuli page is an HTML component, we can randomly select an incongruent color to display. The reason this requires the use of an HTML component is because we are programmatically sampling an incongruent color, which requires JavaScript and cannot be done in markdown.
 2. We can modify the factors implementation to create a factor which is a color tuple that we can then pass as parameters.
 
 We demonstrate both approaches below.
@@ -143,7 +146,7 @@ We demonstrate both approaches below.
       // Get data from the config file
       Revisit.onDataReceive((data) => {
         word = data.color;
-        inkColor = data.congruence == "neutral" ? word : colors.filter(d => d != word)[idx];
+        inkColor = data.congruence == "neutral" ? word : colors.filter(d => d != word)[idx]; // randomly selects the inkColor
         
         const stimuli = document.querySelector("p#stimuli");
         stimuli.innerHTML = word;
@@ -160,6 +163,8 @@ We demonstrate both approaches below.
 
 The HTML component above defines two variables `word` and `inkColor` which are then used to create the stimuli. The `word` is the text that is displayed, and `inkColor` is the color the word is displayed in. The factors declaration in the `config.json` file can remain as is.
 
+See the full implementation [here](https://revisit.dev/study/demo-stroop-html-factors/).
+
 ### Stroop Color Experiment using *only* Markdown
 
 Unlike HTML, markdown does not allows us to programmatically declare the color based on whether the condition is `neutral` or `incongruent`. Thus, we instead need to create an alternative factor declaration which directly provides `word` and `inkColor`.
@@ -168,14 +173,9 @@ Unlike HTML, markdown does not allows us to programmatically declare the color b
 "factors": {
   "color": [
     "RED",
-    "ORANGE",
     "YELLOW",
     "GREEN",
     "BLUE",
-    "PURPLE",
-    "PINK",
-    "BROWN",
-    "GRAY",
     "BLACK"
   ],
   "stroopCross": {
@@ -240,5 +240,180 @@ Unlike HTML, markdown does not allows us to programmatically declare the color b
 
 As mentioned previously, specifying the Stroop experiment without using any programming logic is a bit challenging; however, the factors syntax is expressive enough to let you achieve it. The code above creates two sequences separately for congruent and incongruent stimuli. Congruent stimuli is quite straightforward as it basically involves the same color as both `word` and `inkColor`. To declare the incongruent stimuli, we first take the cartesian product (every pair) of colours, then remove the congruent stimuli (i.e., where the `word` and `inkColor` are the same) from the cartesian product, and then we sample one value for each value of word using `"groupBy": "word"`.
 
+See the full implementation [here](https://revisit.dev/study/demo-stroop-factors/).
 
 ### Incentivized Perception of Correlation
+
+Next, we demonstrate how to declare an experiment with mixed between and within subjects factor in a Perception of Correlation study. In this [study](https://arxiv.org/pdf/2607.07463), participants are shown to scatterplots next to each other, and have to select the one with the greater correlation. There were four factors in this study: incentives (whether participants were given performance based incentives or just a flat payment structure) and the visual representation shown to participants were between-subject factors; the correlations of the two plots (`r1` and `r1 + delta`) were within-subject factors.
+
+This experiment design only investigated a subspace of the correlation stimuli of prior work (see [Harrison et al.](https://www.cs.tufts.edu/~remco/publications/2014/InfoVis2014-JND.pdf) and [Cutler et al.](https://arxiv.org/abs/2508.03876)). Specifically, this study investigated fewer visualizations and only examined the "approach from above" i.e., where the stimuli of the baseline plot (`r = r1`) was always lower than the stimuli of the other plot (`r = r1 + delta` where `delta > 0`). In addition, unlike other studies in this area, this study did not use a staircase procedure.
+
+```json title="public/demo-corr-factors/config.json"
+"factors": {
+  "incentive": ["base", "inc"],
+  "vis": ["pcp", "scatter"],
+  "r1": [0.3, 0.4, 0.5, 0.6, 0.7],
+  "delta": [0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.12, 0.14, 0.18, 0.22, 0.26],
+  "testTrials": {
+    "action": "cross",
+    "factors": ["r1", "delta"]
+  }
+},
+"baseComponents": {
+    "test": {
+      "type": "react-component",
+      "path": "incentives-corr/assets/Task.tsx",
+      "stylesheetPath": "incentives-corr/assets/task.css",
+      "helpTextPath": "incentives-corr/assets/help-{{vis}}.md",
+      "response": [
+        {
+          "id": "test",
+          "prompt": "",
+          "required": true,
+          "type": "buttons",
+          "options": ["false", "true"],
+          "location": "belowStimulus",
+          "hidden": true
+        }
+      ],
+      "correctAnswer": [
+        {
+          "id": "test",
+          "answer": true
+        }
+      ]
+    }
+  },
+  ...
+  "betweenSubjects": ["incentive", "vis"],
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      "introduction",
+      "consent",
+      "tutorial",
+      ...
+      "task-details",
+      {
+        "type": "factor",
+        "id": "test",
+        "factor": "testTrials",
+        "order": "random",
+        "components": "test"
+      }
+    ]
+  }
+```
+
+There are a few things of note here:
+
+First, we allow users to reference factors in the `config.json` file itself; here, the `help` file is different for different visualization conditions, and thus are separate markdown files.
+
+Second, by default, we allow users to declare all between-subjects factors as a list; doing so will automatically perform a cross operation over the levels of the between-subjects factors. If the user does not want to all combinations of levels of the factors, then they should create a composite factor with the required number of levels (as was shown previously for the Stroop example), and then pass it as an argument to `betweenSubjects`. The html component used here receives the factors data, randomizes the order (i.e., whether the stimuli with the higher correlation will be displayed on the left or the right), and then uses javascript query selection to display the stimuli. In addition, in this example, we allow the user to respond to the stimuli both using click or keyboard (left or right arrows) interactions. We use `Revisit.postAnswers()` to record participant responses, as well as correctness. 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Perception of Correlation</title>
+    <!-- Load revisit-communicate to be able to send data to reVISit -->
+    <script src="../../revisitUtilities/revisit-communicate.js"></script>
+    <script>
+      window.focus();
+
+      let correct, corrLeft, corrRight;
+      // Get data from the config file
+      Revisit.onDataReceive((data) => {
+        const r1 = Math.round(data.r1 * 100) / 100;
+        const r2 = Math.round((data.r1 + data.delta)*100) / 100;
+        
+        const randomize = Math.round(Math.random());
+        const order = randomize ? ["r1", "r2"] : ["r2", "r1"];
+        
+        correct = randomize ? 'right' : 'left'; // r2 > r1 always
+        corrLeft = randomize ? r1 : r2;
+        corrRight = randomize ? r2 : r1;
+
+        const imgLeftURL = `./img/stimuli/${data.vis}-${order[0]}-${r1}_${r2}-size_100.jpg`;
+        const imgRightURL = `./img/stimuli/${data.vis}-${order[1]}-${r1}_${r2}-size_100.jpg`;
+
+        document.getElementById("stimuli-left").src = imgLeftURL; // set left image
+        document.getElementById("stimuli-right").src = imgRightURL; // set right image
+      })
+    </script>
+  </head>
+  
+  <body>
+    <p>
+      <span class="questionPrompt">Please select the visualization that appears to have a larger correlation.</span>
+      <span class="requiredQuestion">*</span>
+      <br/>
+      <span class="questionSecondaryText">Click A or B, or use the left and right arrow keys.</span>
+    </p>
+    <!-- Instead of declaring the buttons in the config file, we declare the buttons here (see explanation above) -->
+    <div class="stimuliContainer">
+      <div id="option-left" class="imgContainer">
+        <img id="stimuli-left"/>
+        <button id="button-left">A</button>
+      </div>
+      <div id="option-right" class="imgContainer">
+        <img id="stimuli-right"/>
+        <button id="button-right">B</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const buttons = document.querySelector("button")
+
+    document.addEventListener('click', (e) => {
+      const selected = e.target.id.split("-")[1];
+      const isCorrect = selected == correct;
+
+      Revisit.postAnswers({ "selected": selected, "correct": isCorrect, "corrLeft": corrLeft, "corrRight":  corrRight });
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key.includes("Arrow")) {
+        const selected = e.key.split("Arrow")[1].toLowerCase();
+        const isCorrect = selected == correct;
+
+        document.querySelector(`#button-${selected}`).focus();
+
+        console.log(selected, isCorrect);
+        Revisit.postAnswers({ "selected": selected, "correct": isCorrect, "corrLeft": corrLeft, "corrRight":  corrRight });
+      }      
+    })
+  </script>
+</html>
+```
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+  demoLinks={[
+    {name: "Stroop Factors using only Markdown", url: "https://revisit.dev/study/demo-factors-elements"},
+    {name: "Stroop Factors using HTML", url: "https://revisit.dev/study/demo-factors-elements"},
+    {name: "Correlation", url: "https://revisit.dev/study/demo-factors-elements"}
+  ]}
+  codeLinks={[
+    {name: "Form Elements Code", url: "https://github.com/revisit-studies/study/blob/main/public/demo-form-elements/"}
+  ]}
+  referenceLinks={[
+    {name: "Answer", url: "../../typedoc/interfaces/Answer"},
+    {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse"},
+    {name: "ButtonsResponse", url: "../../typedoc/interfaces/ButtonsResponse"},
+    {name: "CheckboxResponse", url: "../../typedoc/interfaces/CheckboxResponse"},
+    {name: "DividerResponse", url: "../../typedoc/interfaces/DividerResponse"},
+    {name: "DropdownResponse", url: "../../typedoc/interfaces/DropdownResponse"},
+    {name: "LikertResponse", url: "../../typedoc/interfaces/LikertResponse"},
+    {name: "LongTextResponse", url: "../../typedoc/interfaces/LongTextResponse"},
+    {name: "MatrixResponse", url: "../../typedoc/interfaces/MatrixResponse"},
+    {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"},
+    {name: "RadioResponse", url: "../../typedoc/interfaces/RadioResponse"},
+    {name: "RankingResponse", url: "../../typedoc/interfaces/RankingResponse"},
+    {name: "ShortTextResponse", url: "../../typedoc/interfaces/ShortTextResponse"},
+    {name: "SliderResponse", url: "../../typedoc/interfaces/SliderResponse"},
+  ]}
+/>
