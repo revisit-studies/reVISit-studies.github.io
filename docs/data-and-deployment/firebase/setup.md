@@ -135,8 +135,10 @@ In addition to what is shown above, you will want to enable "Google Authenticati
 
 App Check verifies that requests to Firebase come from your app. For a new setup, use **Fraud Defense**, which includes **reCAPTCHA Enterprise**. Depending on the console, the provider may appear under either name. Firebase Authentication and App Check are separate: keep the sign-in providers configured above.
 
-:::note Version compatibility
+:::note[Version compatibility]
+
 These instructions require a reVISit version that supports `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY`. Older versions use the v3 provider. Update reVISit before configuring an Enterprise key; replacing the value of `VITE_RECAPTCHAV3TOKEN` alone does not switch providers.
+
 :::
 
 #### Create an Enterprise site key
@@ -144,14 +146,24 @@ These instructions require a reVISit version that supports `VITE_RECAPTCHA_ENTER
 1. Open [Fraud Defense in Google Cloud](https://console.cloud.google.com/security/recaptcha) and select the **same project** as your Firebase app. Enable the reCAPTCHA Enterprise API if prompted.
 2. Select **Create key**, give it a recognizable display name, and choose **Web** as the application type.
 3. Add the hostnames where your study will run. For GitHub Pages, use `your-github-name.github.io`. For a custom domain such as `https://revisit.dev/study/`, use `revisit.dev`. Enter hostnames without `https://`, ports, or paths, and keep domain verification enabled.
+   ![Google Cloud key creation with Web selected and an example hostname](./img/enabling-authentication/enterprise-create-key.png)
+
 4. Leave **Will you use challenges?** disabled to create a score-based key. Leave the test-key and Web Application Firewall options disabled, then create the key.
+   ![Google Cloud additional settings with challenges, test keys, and WAF disabled](./img/enabling-authentication/enterprise-key-options.png)
+
 5. Copy the **site key**. You will use the same value in Firebase and your reVISit build. The site key is public; this setup does not require a secret key in your application.
+
+The screenshots use example values. Replace them with your own study name and hostname.
 
 Do not add `localhost` or `127.0.0.1` to the production key. Use the [debug-token setup below](#local-development-with-debug-tokens) for local development.
 
 #### Register the key with your Firebase app
 
 In **Firebase Console → Security → App Check → Apps**, select the Web app whose app ID matches `VITE_FIREBASE_CONFIG`. Choose **Fraud Defense (formerly known as reCAPTCHA Enterprise)**, paste the site key, and save. The default one-hour token lifetime and risk threshold of 0.5 are reasonable starting points.
+
+![Firebase Fraud Defense registration showing a placeholder site key, one-hour token lifetime, and risk threshold of 0.5](./img/enabling-authentication/enterprise-app-check.png)
+
+The site key shown above is a placeholder; paste the key you created in Google Cloud.
 
 If you already have a Web app, reuse it. You do not need another app for Enterprise. Its nickname is only a display name: renaming it in **Project settings → General → Your apps** does not change the app ID or require a new `VITE_FIREBASE_CONFIG` value.
 
