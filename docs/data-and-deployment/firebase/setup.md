@@ -178,17 +178,9 @@ VITE_RECAPTCHA_ENTERPRISE_SITE_KEY="your-enterprise-site-key"
 
 A nonempty `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` selects Enterprise. When it is empty or unset, reVISit keeps the v3 provider and its existing `VITE_RECAPTCHAV3TOKEN` site key. reVISit enables automatic App Check token refresh for both providers; you do not need to add a refresh timer or load a reCAPTCHA script yourself.
 
-For the supplied **Deploy To GitHub Pages** workflow, open **repository Settings → Secrets and variables → Actions → Variables** and add the appropriate **repository variables**:
+The supplied **Deploy To GitHub Pages** workflow reads the Enterprise site key from `.env`. It does not require a GitHub repository variable for App Check. If you fork the study repository, replace its checked-in key with one configured for your own domain. For other hosting services, supply `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` in the build environment or `.env`.
 
-| Deployment | Variable | Value |
-| --- | --- | --- |
-| Firebase storage | `VITE_STORAGE_ENGINE` | `firebase` |
-| Production (`main`) | `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` | Your Enterprise site key |
-| PR previews and `dev` | `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY_PREVIEW` | Your Enterprise site key |
-
-The supplied workflow sets the provider key from these repository variables, overriding `.env` even when a repository variable is empty. Forks using that workflow must set the relevant repository variables. For other hosting services, supply `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` in the build environment or `.env`.
-
-These settings are read when the website is built. Restart `yarn serve` after changing local settings; for a hosted site, rebuild and redeploy using the [deployment guide](../deploying-to-static-website.md). Changing a GitHub variable alone does not update an already-published site.
+These settings are read when the website is built. Restart `yarn serve` after changing local settings; for a hosted site, rebuild and redeploy using the [deployment guide](../deploying-to-static-website.md). Editing `.env` alone does not update an already-published site.
 
 #### Verify the deployed setup
 
@@ -201,8 +193,8 @@ A page loading or an upload succeeding does not by itself prove App Check is wor
 Keep your existing v3 key and registration while adding Fraud Defense to the **same Firebase Web app**. Both providers can remain registered at the same time. New and existing sessions built with v3 can continue using v3 while a newer deployment uses Enterprise.
 
 1. Create and register the Enterprise key as described above, without removing v3 or changing enforcement settings.
-2. Configure Enterprise for a preview or development deployment first. With the supplied Pages workflow, set only `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY_PREVIEW`; leave the production Enterprise variable unset to keep production on v3. Previews and development builds may share the production database, so use an example study rather than an active study collecting Participant data.
-3. Verify token exchange, response saving, uploads, and refresh before setting the production Enterprise variable and redeploying. You can test on `dev` and release later; there is no need to switch production at the same time.
+2. Set `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` in `.env` on your development branch and deploy a preview or `dev` first. The existing `main` branch keeps using v3 until you release the change. Previews and development builds may share the production database, so use an example study rather than an active study collecting Participant data.
+3. Verify token exchange, response saving, uploads, and refresh before merging the development branch into `main`. The release carries the `.env` setting into production, so new clients will then use Enterprise.
 4. Preserve both registrations for older deployments and open browser sessions. To return new clients to v3, clear the Enterprise setting used by that build and rebuild/redeploy. Leave the legacy v3 key configured for this rollback, and keep Enterprise registered for sessions already using it.
 
 Google's [migration of Classic keys to Google Cloud](https://docs.cloud.google.com/recaptcha/docs/migration-overview) is separate from switching the Firebase provider. It does not, by itself, require changing your reVISit client.
