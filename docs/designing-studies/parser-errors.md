@@ -42,4 +42,9 @@ If the file cannot be found, the parser reports an **Unresolved path** error bef
 | Sequence Validation | Sequence has an empty components array | Remove empty components block |
 | Unused Component | Component is defined in components object but not used deterministically in the sequence | Remove the component from the components object or add it to the sequence |
 | Disabled Sidebar | Component uses sidebar locations but sidebar is disabled | Enable the sidebar or move the location to belowStimulus or aboveStimulus |
+| Empty Sidebar | The sidebar is enabled but no component puts content in it | Set `uiConfig.withSidebar` to `false`, or put an instruction, response, or Next button in the sidebar on a component that shows it |
 | Default Contact Email | The contact email is set to the default value `contact@revisit.dev`. Please update it to your own email address | Update the contactEmail field in uiConfig to your own email address |
+
+## Invalid study URL
+
+If a participant opens a study URL that does not match a configured study route, ReVISit displays a 404 page. The page advises checking the URL and the study's global configuration and provides a **Contact administrator** link using `uiConfig.contactEmail`. Set that field to an email address monitored by the study team so participants can report a broken link.

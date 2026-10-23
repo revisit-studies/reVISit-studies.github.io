@@ -52,6 +52,8 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'designing-studies/forms',
+        'designing-studies/templating',
+        'designing-studies/input-devices',
         'designing-studies/image-video-stimulus',
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
@@ -64,12 +66,14 @@ const sidebars: SidebarsConfig = {
           items: [
             'designing-studies/sequences/study-sequences',
             'designing-studies/sequences/dynamic-blocks',
+            'designing-studies/sequences/factors',
             'designing-studies/sequences/url-conditions',
           ],
         },
         'designing-studies/provenance-tracking',
         'designing-studies/think-aloud',
         'designing-studies/record-screen',
+        'designing-studies/previewing-studies',
         'designing-studies/applying-style',
         'designing-studies/device-restrictions',
         'designing-studies/plugin-libraries',

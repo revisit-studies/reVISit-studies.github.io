@@ -58,6 +58,21 @@ service cloud.firestore {
 }
 ```
 
+### Create indexes for participant sequence assignment
+
+Before the first Participant starts, open the Firestore **Indexes** tab and create these two **composite indexes**. Use **Collection** scope and enter `sequenceAssignment` as the collection ID for both:
+
+| Index | Fields in order |
+| --- | --- |
+| Rejected assignments by time | `rejected` Ascending, `timestamp` Ascending |
+| Reusable assignments by time | `claimed` Ascending, `rejected` Ascending, `timestamp` Ascending |
+
+Wait until both indexes are enabled before opening the study. Add them to existing Firebase deployments when upgrading as well. These indexes are created once per Firebase project/database, not once per study.
+
+If an index is missing, ReVISit blocks study startup. In development mode, its error includes a Firebase link that opens the index creation form with the required fields filled in. Follow that link as the Study Designer who administers the Firebase project, then wait for Firebase to finish building the index. You can also create both indexes in the console ahead of time using the table above.
+
+![Enabled Firestore composite indexes for sequenceAssignment: rejected and timestamp, plus claimed, rejected, and timestamp, all ascending with Collection scope](./img/setup/sequence-assignment-indexes.png)
+
 ## Adding Firebase Storage
 
 Once that is finished, we will enable standard Firebase storage. Click the "Databases & Storage" dropdown menu again and navigate to "Storage".
@@ -128,34 +143,46 @@ We are now going to set up the authentication so that your browser is authorized
 ![Firebase anonymous sign-in provider setup page](./img/enabling-authentication/step24.png)
 
 :::info
-In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for participants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](../enabling-authentication) for more detailed authentication information and set up instructions.
+In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for participants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](./enabling-authentication) for more detailed authentication information and set up instructions.
 :::
 
 ### App Check
 
-Our last step is to set up App Check.
+Our last step is to set up App Check. Choose the reCAPTCHA provider you will register for this web app in Firebase. ReVISit uses reCAPTCHA Enterprise when `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` is set; otherwise, it uses reCAPTCHA v3 with `VITE_RECAPTCHAV3TOKEN`.
 
-![Firebase App Check page showing the registered web app](./img/enabling-authentication/step25.png)
+On the Apps page, the current Firebase console labels reCAPTCHA Enterprise as **Fraud Defense (formerly known as reCAPTCHA Enterprise)**. The check marks show the providers selected for the app.
+
+![Selected Firebase App Check providers, including Fraud Defense (formerly reCAPTCHA Enterprise) and reCAPTCHA](./img/enabling-authentication/step25.png)
+
+#### reCAPTCHA Enterprise
+
+1. In the Google Cloud console, select the same project as your Firebase project. Follow Firebase's [score-based reCAPTCHA key guide](https://firebase.google.com/docs/app-check/recaptcha-keys) to create a **Web** key for this app. Add the domains where you will host the study, such as `<username>.github.io` for GitHub Pages. Leave the checkbox challenge option unselected.
+2. In the Firebase console, open **Security > App Check**. On the **Apps** tab, register the web app with the **reCAPTCHA Enterprise** provider and enter the Enterprise key you created in Google Cloud.
+3. Set `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` in your `.env` file to that **same Enterprise key**. Do not use a reCAPTCHA v3 site key or secret key for this variable.
+
+Do not add `localhost` or `127.0.0.1` to a key used for production. Use the App Check debug token steps below for local development, or create a separate key for a non-production app. See Firebase's [Enterprise App Check setup guide](https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider) for the provider registration steps.
+
+<!-- TODO Screenshot: Capture the reCAPTCHA Enterprise registration dialog with the provider selected and site-key field visible. The available Firebase account is read-only, so the dialog could not be opened. Ask a Firebase project owner to open the registration flow without submitting it; obscure project/app identifiers and key characters. Save beside this page as ./img/setup/enterprise-app-check-registration.png. -->
+
+#### reCAPTCHA v3
+
+If your Firebase web app is registered with the **reCAPTCHA v3** provider, use this existing key-and-secret setup instead. Leave `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` unset so ReVISit selects the v3 provider.
 
 ![Firebase App Check registration page for reCAPTCHA](./img/enabling-authentication/step26.png)
 
-Click on "Register" to register your app with reCAPTCHA. At this point you will need to navigate to [reCAPTCHA](https://www.google.com/recaptcha/admin/create) to create a secret key.
+In the [reCAPTCHA admin console](https://www.google.com/recaptcha/admin/create), register a **reCAPTCHA v3** site and enter the domains where you will host the study. Copy both its site key and secret key.
 
 ![Google reCAPTCHA admin page for creating a new reCAPTCHA key](./img/enabling-authentication/recaptcha1.jpg)
 
-The important part here is filling out the domains that you will allow to access the Firebase database. Add `localhost` and `127.0.0.1` to test your survey on your local machine.
+For GitHub Pages, enter your base domain, such as `<username>.github.io`. Keep local testing separate from the key used for production; use the App Check debug token steps below.
 
-:::info
-If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the GitHub pages deployment, you should enter your base GitHub pages URL (i.e. <code>&lt;username&gt;.github.io</code>).
-:::
-
-You should now see a site key and a secret key. First, copy the secret key and paste it back into the Firebase reCAPTCHA page as shown in the following images.
+In Firebase **Security > App Check**, register the web app with the **reCAPTCHA v3** provider and enter the **secret key** from the reCAPTCHA admin console, as shown below.
 
 ![Google reCAPTCHA admin page showing the generated site key and secret key](./img/enabling-authentication/recaptcha2.jpg)
 
 ![Firebase App Check reCAPTCHA setup page with the secret key field](./img/enabling-authentication/step27.png)
 
-Now, copy the site key. That site key should go into your `.env` file for the variable `VITE_RECAPTCHAV3TOKEN`.
+Set `VITE_RECAPTCHAV3TOKEN` in your `.env` file to the matching **v3 site key**. See Firebase's [reCAPTCHA v3 App Check guide](https://firebase.google.com/docs/app-check/web/recaptcha-provider) for this registration flow.
 
 Now we will link your browser to your app through a debug key.
 
@@ -214,7 +241,7 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 
 ## Deployment
 
-If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
+If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

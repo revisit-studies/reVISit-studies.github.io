@@ -2,11 +2,27 @@
 
 The reVISit analytics platform provides a robust way to manage, backup, and restore your user data.
 
+## Study Visibility
+
+In the study's **Manage** tab, use **Show study on landing page** to control whether the study appears in the public study list. By default, studies are visible. Hide a study when Participants should not be able to browse to other studies or conditions from the landing page.
+
+This setting only hides the study from the landing page. It does not protect the study URL or restrict access to its data. Configure study access and authentication separately if the study should not be public. Re-enable visibility when you want the study to appear in the list again.
+
+## Choose Storage for New Sessions
+
+For a cloud storage study, open the **Datastore** tab and switch **Use local storage for new sessions** on or off. The tab is available when authentication is enabled and a listed administrator is signed in and verified. See [User Management](../data-and-deployment/user-management.md) for authentication setup. This is useful when you need to temporarily stop new sessions from writing to the configured cloud database.
+
+Before changing the switch, check **Configured storage** (the Firebase or Supabase backend set for this deployment) and **Currently used for analytics** (the backend this page is reading). The tab also shows the deployed `VITE_STORAGE_ENGINE` value and either `VITE_FIREBASE_CONFIG` or the Supabase URL and anonymous key. These details are read-only; changing them requires updating the deployment configuration. **Open database** opens the Firebase Firestore data page or Supabase table editor for the configured project in a new tab. If the Supabase URL does not identify a dashboard project, the link is **Open configured endpoint** and opens that URL instead. Access to the provider page depends on your provider account.
+
+Changing the switch reloads the page and affects new sessions only. Participants who are already in progress continue using the storage they started with. While the switch is on, each new Participant's data stays in that Participant's browser and is not uploaded if cloud storage is re-enabled later. Use this setting only when local-only collection is appropriate for your study.
+
+<!-- TODO: Screenshot — Purpose: help administrators identify the new Datastore controls and distinguish the configured backend from the backend used for analytics. Location: study Analysis > Datastore tab in study/dev, signed in as a verified administrator on a synthetic cloud-backed study. Capture state: show Configured storage, Currently used for analytics, Open database (or Open configured endpoint), and Use local storage for new sessions; redact the Firebase config, Supabase URL/key, project IDs, and any real participant information. Framing: crop to the Datastore panel with the switch and labels visible. Annotation: #FFBD59 border and arrow around the switch if it is hard to locate. Alt: Datastore panel showing storage status and the switch for new local sessions. Save to: ./img/data-management/datastore-controls.png. -->
+
 ## Snapshots
 
 A **snapshot** in the data management platform is an exact copy of the current state of a particular study dataset. This includes all the data gathered from each participant as well as the current study assignment sequence. To create a snapshot, you can navigate to the "Manage" tab within a particular study's analytics interface and click "Snapshot" in the "Create A Snapshot" section. When a snapshot is created, you will see the name of the snapshot in the "Snapshots" list below. This does not remove the data from the current study dataset.
 
-![Data Management](./img/data-management.png)
+![Snapshots table with completed, in-progress, and rejected participant counts](./img/data-management.png)
 
 
 ### Snapshot Participant Status

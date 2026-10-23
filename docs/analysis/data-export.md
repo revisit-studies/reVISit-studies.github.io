@@ -20,7 +20,10 @@ The tidy CSV and standard JSON downloads do not include provenance graphs. If yo
 
 4. Once ready, click the **Download** button at the bottom right.
 
-![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
+![Tidy CSV Exporter with the score option highlighted and a 50% score in the preview](./img/data-export/tidy-export-csv-exporter.png)
+
+
+The `score` column contains a saved score for each response scored by a custom scoring module. Values are percentage text rounded to a whole percent: a score of `0.75` exports as `75%`. A blank score means no saved custom score for that response; it does not mean zero. `correctAnswer` is a separate column for a configured expected answer and can be blank for a response graded only by a scorer. See [Responses and Answers](../designing-studies/answers-trainings.md) for how scores and correctness thresholds work.
 
 
 ### Export Qualitative Tags
@@ -42,6 +45,10 @@ abc123,metaData,,metaData,"{""resolution"":{...}, ...}"
 ```
 
 Parse the JSON string in `answer` in your analysis tooling when you need individual metadata properties.
+
+### Export Window Event Counts
+
+Select `windowEvents` in the **CSV Exporter** to add a row for each task with counts of recorded browser and input events. The row uses `windowEvents` for both `trialId` and `responseId`, and its `answer` is a JSON object with counts such as `focus`, `keydown`, `mousemove`, `scroll`, and gamepad events. This optional property is not selected by default.
 
 After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplot](https://revisit.dev/study/example-brush-interactions) study in R.
 
@@ -126,13 +133,13 @@ If you are using Firebase with the [Google Cloud Speech-to-Text extension](https
 
 ## Download Screen Recording
 
-You can download screen recording video files if you have enabled `recordScreen: true` in your study. To learn how to enable the screen recording feature in your study, please visit [Record Screen](../../designing-studies/record-screen).
+You can download screen recording video files if you have enabled `recordScreen: true` in your study. To learn how to enable the screen recording feature in your study, please visit [Record Screen](../designing-studies/record-screen.md).
 
-### Bulk-Download Participants' Screen Recording
+### Bulk-Download Participant Recordings
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the **Participant View**, then click on the **Download participants' screen recording** button.
+2. Open the **Participant View**, then click the recordings download button. Its tooltip identifies whether it will download screen recordings, webcam recordings, or both.
 
 ![Download participants' screen recording](./img/data-export/screen-recording-export-all.png)
 
@@ -140,7 +147,9 @@ You can download screen recording video files if you have enabled `recordScreen:
 To download screen recording from specific participants, select the participants in the table.
 :::
 
-### Download Individual Participant's Screen Recording for a Specific Task
+The download creates a ZIP of the configured recording types. Select participant rows first to limit the download to those Participants. See [Record a Participant's webcam](../designing-studies/record-screen.md#record-a-participants-webcam) for setup details.
+
+### Download a Participant's Recording for a Specific Task
 
 1. Navigate to the **Analysis** platform for the current study.
 
@@ -150,8 +159,8 @@ To download screen recording from specific participants, select the participants
 3. Click on the task.
 ![Download task audio](./img/data-export/screen-recording-export-2.png)
 
-3. Click on the **Download Screen Recording** button.
-![Download screen recording video](./img/data-export/screen-recording-export-3.png)
+4. In the replay controls, select the **Download recordings** icon. ReVISit downloads a ZIP containing the available screen recording, webcam recording, or both for that Participant and task.
+![Download participant recordings](./img/data-export/screen-recording-export-3.png)
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

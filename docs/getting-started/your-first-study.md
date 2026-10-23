@@ -41,7 +41,7 @@ Create a new file called `config.json` in `basic-questionnaire-study`. Then, cop
 
 ```json title="public/basic-questionnaire-study/config.json"
 {
-    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/dev/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
         "title": "Basic Questionnaire Study",
         "version": "pilot",
@@ -144,6 +144,40 @@ After this, add `basic-questionnaire-study` into the `configsList` list in the s
 :::info
 Study IDs in `global.json` can include dots, spaces, and other special characters, but reVISit cleans them for URLs by replacing dots (`.`), spaces, and slashes (`/`) with underscores (`_`). (e.g. `example.revisit/study` becomes `example_revisit_study`)
 :::
+
+When adding this to an existing `global.json`, merge the `tab` properties into its existing `configs` entries and keep the rest of its studies in `configs` and `configsList`.
+
+### Organize the Study List into Tabs
+
+You can group studies on the landing page with `tabs` in `public/global.json`, then assign each study in `configs` to a tab using its `tab` label. For example:
+
+```json title="public/global.json"
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/dev/src/parser/GlobalConfigSchema.json",
+  "tabs": [
+    {
+      "label": "Surveys",
+      "description": "Questionnaires for current studies."
+    },
+    { "label": "Examples" }
+  ],
+  "configs": {
+    "basic-questionnaire-study": {
+      "path": "basic-questionnaire-study/config.json",
+      "tab": "Surveys"
+    },
+    "demo-html": {
+      "path": "demo-html/config.json",
+      "tab": "Examples"
+    }
+  },
+  "configsList": ["basic-questionnaire-study", "demo-html"]
+}
+```
+
+Keep the tab labels unique and non-empty, and make each `configs[*].tab` exactly match one of them. A tab's optional `description` supports Markdown and appears above that tab's study cards. Tabs follow the order in the `tabs` array; tabs with no visible studies are hidden. Studies without a `tab` assignment appear in the default **Studies** tab. If `tabs` is omitted or empty, all studies appear in **Studies**.
+
+Selecting a tab adds its label to the landing-page URL as a `tab` query parameter. You can share a link such as `http://localhost:8080/?tab=Surveys` to open a particular tab. The label must match the configured tab exactly.
 
 ## Running the Server
 

@@ -88,7 +88,38 @@ Screen is recorded via browser, and participants will receive a permissions requ
 
 Participants are asked to share the study tab. In Chromium-based browsers, the study tab is usually pre-selected by default. In other browsers, participants must manually select the correct tab, which is labeled _"RECORD THIS TAB."_
 
-All recorded videos are stored in Firebase storage.
+Recordings are saved through the storage engine configured for your deployment. See [Connecting to a Cloud Database](../data-and-deployment/connecting-to-cloud-database.md) for the available storage backends.
+
+## Record a Participant's webcam
+
+To record a webcam, set `recordWebcam` to `true` in `uiConfig` or on the individual components you want to record. Import the `webcam-recording` library and add its permission component before any component that records webcam video. Participants must grant camera permission in their browser.
+
+```json title="public/study-name/config.json"
+{
+  "importedLibraries": ["webcam-recording"],
+  "uiConfig": {
+    "recordWebcam": true
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      "introduction",
+      "$webcam-recording.components.webcamRecordingPermission",
+      "task"
+    ]
+  }
+}
+```
+
+The permission page can request microphone access too when the study also uses audio recording. If a study records both the Participant's screen and webcam, use the `screenRecordingPermission` component from the `screen-recording` library to request the recording permissions. A screen-recording permission component is required for screen capture; the webcam permission component alone does not start screen recording.
+
+To turn webcam recording off for a specific task, set `recordWebcam` to `false` on that component. For example, you may want to avoid recording consent and demographic pages.
+
+Analysts can replay a task's webcam recording alongside its screen recording in the [Participant Replay](../analysis/participant-replay.md#replay-screen-and-webcam-recordings) page.
+
+The example below uses a synthetic camera feed.
+
+![Webcam recording permission page with an active preview and Continue enabled](./img/record-screen/webcam-permission.png)
 
 ## Downloading screen recording videos
 
@@ -102,7 +133,7 @@ gsutil -m cp -r gs://my-bucket/studyName/screenRecording
 
 ## Screen recording with Think Aloud (audio recording)
 
-ReVISit also supports [Think Aloud](../think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
+ReVISit also supports [Think Aloud](./think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
 
 ```json title="public/study-name/config.json"
 "uiConfig": {
@@ -126,6 +157,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Screen Recording Library", url: "../../libraries/screen-recording/"},
         {name: "ReVISit Libraries", url: "../plugin-libraries"},
         {name: "Downloading recorded videos", url: "../../analysis/data-export/#download-screen-recording"},
-        {name: "ThinkAloud", url: "../think-aloud"}
+        {name: "ThinkAloud", url: "./think-aloud"}
     ]}
 />

@@ -8,7 +8,7 @@ This guide explains how to build and run a ReVISit study with Docker using:
 
 ## 1. Set environment variables before building
 
-Before you run `docker build`, configure your `.env` file at the repository root.
+Before you run `docker build`, configure your `.env` file at the repository root if you are deploying under a subpath. If `VITE_BASE_PATH` is not set, the image uses `/` for a root deployment.
 
 At minimum, set `VITE_BASE_PATH` correctly for your deployment target:
 
@@ -32,7 +32,7 @@ From the project root (where the `Dockerfile` lives):
 docker build -t revisit-study:latest .
 ```
 
-The build will fail if `VITE_BASE_PATH` is missing from `.env`.
+For a subpath deployment, set `VITE_BASE_PATH` to the path with leading and trailing slashes, such as `/study/`. If you leave it unset, open the app at the root URL.
 
 ## 3. Run the app container
 

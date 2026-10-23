@@ -39,9 +39,72 @@ This renders like that:
 
 In this example, the drop-down is rendered in the main window, as indicated by the `"location": "aboveStimulus"` line. As documented in the [`BaseResponse`](../../typedoc/interfaces/BaseResponse/), the other options are `sidebar` and `belowStimulus`.
 
+To use a prebuilt country list, set `options` to `"countries"` instead of providing an array. The menu shows country names with flag emoji, sorted alphabetically, and stores each selection as its two-letter country code. This preset also works as a multiselect dropdown when `minSelections` is positive or `maxSelections` is greater than one; use country codes for `default` and `requiredValue` values.
+
+```json title="public/study-name/config.json"
+{
+  "id": "country",
+  "type": "dropdown",
+  "prompt": "Which country do you live in?",
+  "options": "countries"
+}
+```
+
 Form elements can be placed either in a sidebar, or as the main content of a study page. The sidebar version is useful if you're showing another kind of stimulus in the main part of the window. The main page location is useful for stand-alone survey questions, or if you want to integrate your response with your stimulus.
 
 Because form elements are so commonly combined with other stimuli, a standalone questionnaire component as shown above is just a stripped down component with "only" a response.
+
+## Validate and score a built-in response
+
+Any response type can set `path` to a TypeScript or JavaScript module under the app's `src/public/` directory. For built-in inputs, the module supplies optional named `validate` and `score` exports; it does not replace the input UI. Validation decides whether a Participant can continue. Scoring grades an answer when the study checks it. The path is relative to `src/public/`, unlike image and stylesheet paths, which are relative to `public/`.
+
+For example, save this module as `src/public/my-study/assets/gradeEstimate.ts`:
+
+```ts title="src/public/my-study/assets/gradeEstimate.ts"
+export function validate(value: unknown) {
+  return typeof value === 'number' && value >= 0
+    ? null
+    : 'Enter a number of 0 or greater.';
+}
+
+export function score(value: unknown, _values: unknown, _response: unknown, expected?: unknown) {
+  if (typeof value !== 'number' || typeof expected !== 'number') return 0;
+  const error = Math.abs(value - expected);
+  return Math.max(0, 1 - error / 10);
+}
+```
+
+Then add the module path to a numerical response and an expected answer to the same component:
+
+```json title="public/my-study/config.json (component excerpt)"
+"estimate": {
+  "type": "questionnaire",
+  "provideFeedback": true,
+  "response": [
+    {
+      "id": "estimate-value",
+      "type": "numerical",
+      "prompt": "Estimate the value shown in the chart.",
+      "path": "my-study/assets/gradeEstimate.ts"
+    }
+  ],
+  "correctAnswer": [
+    {
+      "id": "estimate-value",
+      "answer": 50,
+      "correctnessThreshold": 0.8
+    }
+  ]
+}
+```
+
+The exports receive `(value, values, response)`; `score` also receives the optional configured `expected` answer. `values` contains answers from the component, so you can check another response, while `response` contains this response's config. A validation result of `null` or `true` passes; a nonempty string shows that error, and `false` shows a generic invalid-response message. A score may be `true` or `false` (converted to `1` or `0`), a number from `0` to `1`, or `null`. `null` falls back to ordinary `correctAnswer` matching when an answer is configured; without one, the response remains ungraded. An invalid score or a module that cannot load prevents answer checking and shows an error.
+
+Here, an estimate of `52` scores `0.8` and meets the `0.8` threshold. `correctnessThreshold` belongs on the matching `correctAnswer` entry, accepts `0` through `1`, and defaults to `1`. A score below the threshold can still earn partial credit and appears as partially correct during answer feedback. See [Responses and Answers](./answers-trainings.md) for feedback and saved-score behavior.
+
+A separate response-function demo shows how a custom validation message appears after an invalid answer:
+
+![Numerical response showing a custom validation error after an odd number](./img/forms/custom-validation-error.png)
 
 :::note
 You can also add form-based responses to all other stimuli using exactly the same syntax!
@@ -70,7 +133,7 @@ You can make a field required, in which case a red star is rendered (see above).
 
 The **Next** button is available before a Participant answers. When they select it, ReVISit checks required fields and validation rules. If anything needs attention, the page stays open, highlights the affected fields, and shows a summary of unanswered questions and invalid answers. The Participant can then correct the highlighted fields and select **Next** again.
 
-This attempted-advance validation applies to required responses, `requiredValue` and `requiredLabel`, numeric ranges, `minSelections` and `maxSelections`, matrix questions, incomplete **Other** entries, and custom response validation.
+This attempted-advance validation applies to required responses, `requiredValue`, numeric ranges, `minSelections` and `maxSelections`, matrix questions, incomplete **Other** entries, and custom response validation.
 
 
 You can also force participants to provide a specific answer value using `requiredValue`. This is useful for attention checks, training tasks, or ensuring participants read instructions carefully. The participant must provide an exact match with the specified value to proceed.
@@ -105,7 +168,7 @@ For multi-select responses (`checkbox`, `dropdown` with multiple selections), `r
 
 When using `requiredValue` with arrays, the system checks that the participant has selected exactly the specified values, in any order. If the participant selects different values or a different number of values, they will see a message asking them to select the required options.
 
-The `requiredLabel` property is similar to `requiredValue` but is more user-friendly. Instead of matching against the value stored in the data, it matches against the label displayed to participants. This is particularly useful when options have both labels and values, as it allows you to specify requirements using the human-readable label.
+`requiredLabel` does not control matching. ReVISit compares the participant's answer with `requiredValue`; `requiredLabel` only changes the human-readable validation message. This is useful when the stored value differs from the label shown to participants.
 
 ```json title="public/study-name/config.json"
 {
@@ -116,9 +179,23 @@ The `requiredLabel` property is similar to `requiredValue` but is more user-frie
     { "label": "I agree", "value": "agree" },
     { "label": "I disagree", "value": "disagree" }
   ],
+  "requiredValue": "agree",
   "requiredLabel": "I agree"
 }
 ```
+
+Reactive responses can also use `requiredValue` to require an exact match. Set the value to what the reactive component will report when the required action is complete:
+
+```json title="public/study-name/config.json"
+{
+  "id": "complete-action",
+  "type": "reactive",
+  "prompt": "Complete the action before continuing.",
+  "requiredValue": "ready"
+}
+```
+
+For reactive and custom responses, the answer must match the configured value exactly, including its data structure when the answer is an array or object.
 
 ### Default Values
 
@@ -232,6 +309,8 @@ For checkboxes, you can specify the minimum and maximum number of selections req
 
 Matrix questions let you ask several questions at the same time, using the same set of answer choices. You can either provide your own custom answers or use our built-in answer options.
 
+For `matrix-radio` and `matrix-checkbox`, use `min` and `max` to require a minimum or limit the maximum number of answers in each row. These constraints are checked when the Participant selects **Next**.
+
 Built-in options include:
 
 - `likely5` or `likely7`: ranges from Highly Unlikely to Highly Likely
@@ -335,7 +414,19 @@ Numerical response inputs support `min` and `max` fields that define the accepta
 }
 ```
 
-The `min` and `max` properties work together to define a range. When participants enter values outside this range, they will see a warning message indicating the acceptable range.
+The `min` and `max` properties work together to define an inclusive range. To exclude the boundary values, use `strictMin` and/or `strictMax`; a value must be greater than `strictMin` and less than `strictMax`.
+
+```json title="public/study-name/config.json"
+{
+  "id": "age",
+  "type": "numerical",
+  "prompt": "Enter an age greater than 18 and less than 65.",
+  "strictMin": 18,
+  "strictMax": 65
+}
+```
+
+When a Participant tries to continue with a value outside the configured range, ReVISit displays a validation message and keeps the page open.
 
 ![Numerical response with min 0 and max 100](./img/designing-forms/numerical-min-max.png)
 
@@ -387,6 +478,8 @@ This option is useful when you want participants to focus on their strongest pre
 
 In a `ranking-pairwise` response, a complete pair has exactly one item in **HIGH** and one different item in **LOW**. A required pairwise ranking must contain at least one complete pair before the Participant can continue. If the Participant creates additional pairs, every pair must be complete or removed before continuing.
 
+For all ranking types, set `min` and `max` to require or limit the number of items ranked. For `ranking-sublist`, these values count ranked items; for `ranking-categorical`, they count items within each category; for `ranking-pairwise`, they count pairs. `categorizeAll: true` on `ranking-categorical` also requires every item to be assigned to a category.
+
 ReVISit prevents the following invalid arrangements and displays an error explaining what to correct:
 
 - placing more than one item in either side of a pair;
@@ -397,6 +490,111 @@ ReVISit prevents the following invalid arrangements and displays an error explai
 For all three ranking types, the widget becomes read-only after the response is finalized: items can no longer be dragged, and any applicable controls for adding or removing pairs are disabled.
 
 ![Examples of ranking widgets](img/designing-forms/ranking.png)
+
+## Date and Time Responses
+
+Use `date` when a Participant should enter a calendar date, month, or year. The `options` field selects the input: `date` (default), `month`, or `year`. Values are stored as strings in `MM/DD/YYYY`, `MM/YYYY`, or `YYYY` format, respectively. Set `min`, `max`, `default`, or `requiredValue` using the same format as the selected option. Supported years range from `0100` through `9999`.
+
+```json title="public/study-name/config.json"
+{
+  "id": "study-date",
+  "prompt": "When did you first use the tool?",
+  "type": "date",
+  "options": "month",
+  "min": "01/2020",
+  "max": "12/2026"
+}
+```
+
+Use `time` for a time of day. Set `format` to `12h` or `24h` for the display; ReVISit always stores time in 24-hour `HH:mm` format. Set `withSeconds` to `true` to include seconds, which changes the stored format to `HH:mm:ss`. The `min`, `max`, `default`, and `requiredValue` values must use the matching 24-hour format.
+
+## Conditional Responses
+
+Set `visibleIf` on a response to show it only when another response in the same component meets a condition. The controlling response must have an answer, and it must itself be visible. If a response becomes hidden, ReVISit removes its answer from the component's current response data. This prevents a hidden follow-up answer from being submitted or used to reveal another response.
+
+```json title="public/study-name/config.json"
+"response": [
+  {
+    "id": "attended-university",
+    "type": "radio",
+    "prompt": "Did you attend university?",
+    "options": [
+      { "label": "Yes", "value": "yes" },
+      { "label": "No", "value": "no" }
+    ]
+  },
+  {
+    "id": "university-name",
+    "type": "shortText",
+    "prompt": "Which university?",
+    "visibleIf": {
+      "responseId": "attended-university",
+      "comparison": "equals",
+      "value": "yes"
+    }
+  }
+]
+```
+
+The available comparisons are `equals`, `doesNotEqual`, `contains`, `doesNotContain`, `matchesRegex`, `lessThan`, `lessThanOrEqual`, `greaterThan`, `greaterThanOrEqual`, and `isCorrect`. Numeric comparisons require a numerical controller; `isCorrect` can use a matching entry in the component's `correctAnswer` or a scoring module configured through that response's `path`. Equality on checkbox selections ignores selection order. A response cannot refer to itself or form a visibility cycle.
+
+## Delayed Responses
+
+Set `delay` on a response to keep that form element disabled for a number of milliseconds after its component appears. The value must be zero or greater; the default is `0` (no delay). A delay does not automatically advance the Participant or extend a component timeout.
+
+```json title="public/study-name/config.json"
+{
+  "id": "delayed-rating",
+  "prompt": "Rate the chart after reviewing it.",
+  "type": "likert",
+  "numItems": 5,
+  "delay": 5000
+}
+```
+
+## Clear a Selected Answer
+
+Radio, button, and matrix responses show a **Clear selection** control after a Participant makes a selection. It lets them remove the current selection and choose again. The control is disabled when the response is disabled, including while a configured `delay` is active.
+
+## Keyboard Shortcuts for Button Responses
+
+For a `buttons` response, use object options and set `key` to a shortcut that selects that option. The shortcut appears beside the option label. This can help Participants who use a keyboard or support timed tasks where fast responses matter.
+
+```json title="public/study-name/config.json"
+{
+  "id": "color",
+  "prompt": "Which color is shown?",
+  "type": "buttons",
+  "options": [
+    { "label": "Red", "value": "red", "key": "r" },
+    { "label": "Blue", "value": "blue", "key": "b" }
+  ]
+}
+```
+
+Keys can be ordinary characters or named keys such as `ArrowLeft`, and can include modifiers such as `Shift+X`. ReVISit ignores repeated key events and does not use Tab, Ctrl, or Meta shortcuts. See [Keyboard and Gamepad Input](./input-devices.md) for the broader input-recording options.
+
+## Built-In Short-Text Validation
+
+Set `builtInValidation` on a `shortText` response to check a common format. Supported values are `email`, `phoneNumber` (an international number with 7–15 digits), `usPhoneNumber` (10 digits in `000-000-0000` format), and `url` (an absolute HTTP or HTTPS URL). ReVISit checks the value when the Participant continues and shows an error if it does not match the selected format.
+
+## Custom Text Validation
+
+Use `textValidation` on a `shortText` or `longText` response to apply one or more text rules. The rules are checked in order, and the first failing rule determines the message shown when the Participant tries to continue.
+
+```json title="public/study-name/config.json"
+{
+  "id": "study-code",
+  "type": "shortText",
+  "prompt": "Enter your study code.",
+  "textValidation": [
+    { "type": "matchesRegex", "value": "^[A-Z]{2}-[0-9]{4}$" },
+    { "type": "doesNotEqual", "value": "XX-0000" }
+  ]
+}
+```
+
+Supported rule types are `matchesRegex`, `contains`, `doesNotContain`, `equals`, and `doesNotEqual`. For `matchesRegex`, the pattern is tested against the response; use `^` and `$` anchors when the entire value must match. See the [MDN regular expression guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet) for pattern syntax.
 
 ## Randomization of form elements
 

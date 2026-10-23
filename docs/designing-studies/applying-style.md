@@ -4,6 +4,20 @@ ReVISit provides flexible styling capabilities to customize the appearance of yo
 
 This comprehensive styling feature allows you to create accessible and visually appealing study interfaces that enhance the participant experience.
 
+## Choosing a Color Mode
+
+Set `uiConfig.colorMode` to choose the color theme for participants. The default is `"light"`. Set it to `"dark"` to use the dark theme, or to `"userPreference"` to follow the participant's system color preference.
+
+```json title="public/study-name/config.json"
+{
+  "uiConfig": {
+    "colorMode": "userPreference"
+  }
+}
+```
+
+For a `website` component, set `colorMode` to `"light"` or `"dark"` to set the embedded iframe's CSS color scheme. If omitted, the iframe inherits the study's current mode. This does not change the surrounding ReVISit interface. The embedded page must support CSS color schemes to respond; an external website may ignore this setting.
+
 ## Styling Methods
 
 There are two primary ways to apply styles to your study:
@@ -33,6 +47,7 @@ When styling elements with external CSS files, target them using the appropriate
 - Response Block Container: `.responseBlock`
 - Response Block Container with Location: `.responseBlock-location` (e.g., `responseBlock-aboveStimulus`, `responseBlock-belowStimulus`)
 - Individual Response: `.response`
+- Required marker in a question prompt: `.required-asterisk`
 
 **ID Selectors:**
 - Component: `#componentName` (e.g., `#introduction`, `#survey-question`)
@@ -45,6 +60,15 @@ Styles are applied in the following order (later styles override earlier ones):
 2. **Component Styles** (`component.stylesheetPath` and `component.style`)
 3. **Response Styles** (`response.stylesheetPath` and `response.style`)
 :::
+
+You can style the required marker that appears in a response prompt using `.required-asterisk`:
+
+```css title="public/study-name/assets/style.css"
+.required-asterisk {
+  color: #c00;
+  margin-right: 0.25em;
+}
+```
 
 ### 2. Inline Styles (`style`)
 For basic styling like sizing, colors, and fonts, apply specific CSS properties directly to components or responses:
@@ -60,6 +84,33 @@ For basic styling like sizing, colors, and fonts, apply specific CSS properties 
         "borderRadius": "12px"
     }
 },
+```
+
+### Default form layout and response widths
+
+ReVISit centers the stimulus and the response blocks above or below it in a content area up to 880 pixels wide. Those response blocks add responsive horizontal padding, from 16 to 40 pixels, so questions have room on narrow and wide screens.
+
+Answer fields also have default maximum widths based on their response type:
+
+| Default maximum answer width | Responses |
+| --- | --- |
+| 150 px | `numerical`, `date`, and `shortText` with `builtInValidation` set to `phoneNumber` or `usPhoneNumber` |
+| 180 px | `time` |
+| 280 px | Other `shortText` responses and `dropdown` responses, including multi-select dropdowns |
+| Available width | Other response types, such as `longText`, `radio`, `checkbox`, `matrix`, `slider`, and ranking responses; the response itself has a 1600 px maximum |
+
+These defaults keep short answers compact while leaving longer answers and choice groups room to use the form area. To choose a different width for one response, set CSS width properties in its `style` object. When `style.width`, `style.minWidth`, or `style.maxWidth` is set, ReVISit does not apply the response-type default cap.
+
+```json title="public/study-name/config.json"
+{
+  "id": "feedback",
+  "prompt": "What would you change about the study?",
+  "type": "shortText",
+  "style": {
+    "width": "100%",
+    "maxWidth": "500px"
+  }
+}
 ```
 
 ## UIConfig Styling
@@ -80,54 +131,37 @@ Apply global styles that affect the entire study interface:
 
 ### Examples
 
-#### Form style
+#### Shared form style on a component
+
+The `survey-form` component in `demo-style` uses the shared `revisitAssets/googleForm.css` stylesheet. Add the same `stylesheetPath` to another component to reuse it without copying the file. This is a component-level setting; use `uiConfig.stylesheetPath` only when you want a stylesheet across the study.
 
 ![Form Style](img/style-form.gif)
 
 ```json title="public/demo-style/config.json"
-"uiConfig": {
-  "stylesheetPath": "demo-style/assets/style/form.css"
-},
+"components": {
+  "survey-form": {
+    "type": "image",
+    "path": "demo-style/assets/utah.jpg",
+    "stylesheetPath": "revisitAssets/googleForm.css",
+    "response": []
+  }
+}
 ```
 
-```css title="public/demo-style/assets/style/form.css"
-.main {
-  background-color: #f5f7fa;
-}
-
-.image {
-  height: 200px;
-  width: 80%;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-}
-
+```css title="public/revisitAssets/googleForm.css (excerpt)"
 .responseBlock {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .response {
-  width: 80%;
-  background-color: #ffffff;
-  margin: 15px auto 0;
+  background-color: var(--mantine-color-default);
+  color: var(--mantine-color-text);
+  max-width: 640px;
+  margin: 10px auto 0;
   padding: 20px;
-  box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 2px solid #e3e8ed;
+  border: 2px solid var(--mantine-color-default-border);
   border-radius: 12px;
-}
-
-label {
-  margin-bottom: 10px;
-}
-
-#form-title p {
-  font-size: 32px;
-  font-weight: bold;
 }
 ```
 
@@ -135,10 +169,16 @@ label {
 
 ![Large Text Style](img/style-large-text.png)
 
+The `large-text` questionnaire applies this stylesheet to one component:
+
 ```json title="public/demo-style/config.json"
-"uiConfig": {
-  "stylesheetPath": "demo-style/assets/style/largeText.css"
-},
+"components": {
+  "large-text": {
+    "type": "questionnaire",
+    "stylesheetPath": "demo-style/assets/style/largeText.css",
+    "response": []
+  }
+}
 ```
 
 ```css title="public/demo-style/assets/style/largeText.css"

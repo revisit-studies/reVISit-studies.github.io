@@ -19,6 +19,10 @@ DOI: [10.1016/S0166-4115(08)62386-9](https://dx.doi.org/10.1016/S0166-4115(08)62
 
 - nasa-tlx-with-source-of-load-evaluation
 
+## Slider Interaction
+
+On the NASA-TLX rating scales, hovering over the slider track previews the value at the pointer with a temporary tick and numeric tooltip. Moving the pointer does not change the Participant's answer; selecting a value commits it. The preview disappears when the pointer leaves the track and is unavailable when the slider is disabled or read-only during replay.
+
 ## Additional Description
 
 ### Source of Workload Evaluation (Pairwise Weighting Procedure)

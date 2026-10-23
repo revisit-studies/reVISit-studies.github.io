@@ -64,15 +64,15 @@ In this example, the video is rendered in the main window. The video is given an
 When `forceCompletion` is `true`, a Participant who selects **Next** before playback finishes stays on the component and sees: “Please finish the video to continue.”
 
 
-#### Troubleshoot a missing internal video
+#### Troubleshoot a missing stimulus asset
 
-If an internal video request returns an error in a production deployment, ReVISit reports that the stimulus could not be loaded instead of leaving an empty video that prevents the Participant from continuing. Check that:
+If a required internal stimulus asset has not loaded, ReVISit reports the asset path and keeps **Next** unavailable until the asset is ready. This shared loading check applies to image, video, website, Markdown, React component, and Vega stimuli. Check that:
 
 - the `path` is relative to the app's `public` directory;
 - the file exists at that path and was included in the deployment; and
 - the capitalization of every folder and filename matches the Study Config. Production hosts commonly use case-sensitive paths even when a local development machine does not.
 
-After correcting the path or deployment, rebuild and redeploy the study before testing it again.
+After correcting the path or deployment, rebuild and redeploy the study before testing it again. The same checks apply to internal videos described above.
 
 ### External Videos
 

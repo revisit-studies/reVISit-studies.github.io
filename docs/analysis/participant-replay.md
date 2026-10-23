@@ -2,7 +2,7 @@
 
 The participant replay can be used for an overview of each participant's study.
 
-![Participant Replay](./img/participant-replay/participant-replay.png)
+![Participant View timeline with task-order and layout controls, and a browsed-away interval](./img/participant-replay/participant-replay.png)
 
 To view the provenance or audio replay for a single participant, click the expand icon to open their data row, then select a task on the timeline.
 
@@ -28,6 +28,22 @@ Uniform mode does not change the task order selected with the **Order** control.
 Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study. This includes the moment validation errors were revealed after a Participant attempted to continue, so replay shows the same highlighted validation state.
 
 For stimuli that use managed Trrack provenance, replay follows the recorded interaction path, including undo, redo, and revisiting an existing state. Historical graph-only provenance remains replayable, but may not reproduce those traversals as faithfully.
+
+## Replay Screen and Webcam Recordings
+
+When both screen and webcam recordings are available for a task, use **Replay layout** to choose how to view them:
+
+- **Side by side** places the screen and webcam recordings next to each other.
+- **Picture in picture** overlays the webcam recording on the screen recording.
+- **Webcam on top** places the webcam recording above the screen recording. Choose **Small**, **Medium**, or **Large** to adjust its size.
+
+The recordings share the replay controls, so seeking or changing playback speed keeps them synchronized. See [Record a Participant's webcam](../designing-studies/record-screen.md#record-a-participants-webcam) for setup instructions.
+
+![Participant replay with synchronized screen and webcam videos, Webcam on top selected, and Medium webcam size selected](./img/participant-replay/screen-webcam-layout.png)
+
+The example uses a synthetic screen recording and a test camera feed.
+
+Video playback can depend on the browser used to record it. If the Participant's browser differs from the Analyst's, ReVISit displays a warning that playback may not work properly. When a recording does not play, try opening the replay in the same browser family the Participant used.
 
 
 :::info

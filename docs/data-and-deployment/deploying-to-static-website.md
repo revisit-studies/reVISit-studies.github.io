@@ -9,7 +9,7 @@ Deploy using
 
 ## Deploying using GitHub
 
-Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
+The repository includes a GitHub Actions workflow that builds your study and deploys it to GitHub Pages. The workflow sets `VITE_BASE_PATH` to the repository name automatically, so you do not need to edit `.env` for this deployment. For a custom build workflow, set `VITE_BASE_PATH` to the path where the site is hosted. For Netlify, Vercel, and Render deployments at the domain root, the examples below set it to `/`.
 
 After this, you'll need to make sure that your GitHub repository has workflow actions enabled. Navigate to the actions tab in your repository as shown below.
 
@@ -23,7 +23,7 @@ On this page, enable workflows as shown below.
 If you have enabled GitHub pages or ran any other action in your repo, it won't be possible to enable the workflow on this screen. To enable the workflow, you will have to navigate to the `.github/workflows` folder in your repository, remove the workflow files, commit and push, then add the workflow files back, commit and push again. After that, the workflows should be enabled.
 :::
 
-After you've changed the `.env` file and enabled the workflow, go ahead and push the commit to your forked repository. Afterwards, the deploy action will run. Once that has finished, navigate to the 'settings' tab and then the 'pages' tab.
+After enabling the workflow, push your commit to the repository. The deployment action will run. Once it finishes, navigate to the **Settings** tab and then **Pages**.
 
 ![Demo](./img/deploy_step3.jpg)
 

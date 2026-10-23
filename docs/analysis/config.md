@@ -6,7 +6,7 @@ The Config tab shows all the different versions of your study configuration that
 
 Each time you change your `config.json` file and deploy it, reVISit creates a unique hash for that version.
 
-![Config tab](./img/config/config.png)
+![Config table identifying the current deployed version among earlier configs](./img/config/config.png)
 
 The Config table has several columns. The version column shows the identifier from your `studyMetadata.version` field (like `1.0.0` or `pilot`). The latest deployed config is marked with a Current badge. The hash column shows a unique code based on your actual config content. If anything changes in your config, you get a new hash, even if you forget to update the version number. Hover over the info icon to see the full hash, or click the copy icon to copy it.
 

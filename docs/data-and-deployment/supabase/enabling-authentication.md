@@ -1,7 +1,7 @@
 # Setting Up Authentication
 
 :::warning
-In order to use authentication, you must have a Supabase application already configured. To set up your Supabase application, please see [here](../setup).
+In order to use authentication, you must have a Supabase application already configured. To set up your Supabase application, please see [here](./setup).
 :::
 
 ## Enabling Authentication in Supabase
@@ -32,13 +32,13 @@ Finally, ensure that your `SITE_URL` field in the `supabase/.env` file is set to
 
 Through the settings cog on the right of your reVISit application, navigate to the "settings" page. Here, you will see that authentication will be currently disabled with a button to enable authentication.
 
-When you first enable authentication, you will be prompted to sign in using GitHub Oauth. The account chosen will automatically be added as a user. Any other account attempting to log in to reVISit and access these protected routes will be redirected to the login screen.
+When you first enable authentication, you will be prompted to sign in with GitHub OAuth. ReVISit verifies the signed-in GitHub account with Supabase and adds it as the first administrator. Confirm the account shown in the setup prompt before enabling authentication. Other accounts must be added as administrators before they can access protected analysis and settings pages.
 
 ## Manage Administrators in reVISit
 
 ### Adding Additional Users
 
-To add another administrator, simply navigate to the settings page (where you enabled authentication) and click on the "Add User" icon to the right of the "Enabled Users" section. Enter the Google account email for the user and click save. They will now be an administrator and will immediately be able to log into your reVISit application.
+To add another administrator, navigate to the settings page and select the **Add User** icon beside **Enabled Users**. Enter the email address associated with that person's GitHub account and save. They can then sign in with that account to access protected pages.
 
 ![Add User](./../img/manage_admin/add_user.png)
 
@@ -52,7 +52,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Supabase Setup", url: "../setup"},
+        {name: "Supabase Setup", url: "./setup"},
         {name: "Supabase Authentication", url: "https://supabase.com/docs/guides/auth"},
     ]}
 />
