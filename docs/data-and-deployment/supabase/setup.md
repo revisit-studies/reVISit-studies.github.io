@@ -54,7 +54,7 @@ Run these commands on the Linux host. Keep the Supabase deployment in its own di
    sh run.sh config add github
    ```
 
-   Use `<SUPABASE_PUBLIC_URL>/auth/v1/callback` as the redirect URI in your GitHub OAuth app. See the [Supabase Auth provider instructions](https://supabase.com/docs/guides/self-hosting/auth).
+   Use `<SUPABASE_PUBLIC_URL>/auth/v1/callback` as the redirect URI in your GitHub OAuth app. See the [Supabase Auth provider instructions](https://supabase.com/docs/guides/self-hosting/auth/config).
 
 ## Start Supabase and initialize ReVISit storage
 

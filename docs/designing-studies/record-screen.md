@@ -157,6 +157,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Screen Recording Library", url: "../../libraries/screen-recording/"},
         {name: "ReVISit Libraries", url: "../plugin-libraries"},
         {name: "Downloading recorded videos", url: "../../analysis/data-export/#download-screen-recording"},
-        {name: "ThinkAloud", url: "./think-aloud"}
+        {name: "ThinkAloud", url: "../think-aloud"}
     ]}
 />
