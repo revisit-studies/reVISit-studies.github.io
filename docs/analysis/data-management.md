@@ -16,7 +16,9 @@ Before changing the switch, check **Configured storage** (the Firebase or Supaba
 
 Changing the switch reloads the page and affects new sessions only. Participants who are already in progress continue using the storage they started with. While the switch is on, each new Participant's data stays in that Participant's browser and is not uploaded if cloud storage is re-enabled later. Use this setting only when local-only collection is appropriate for your study.
 
-<!-- TODO: Screenshot — Purpose: help administrators identify the new Datastore controls and distinguish the configured backend from the backend used for analytics. Location: study Analysis > Datastore tab in study/dev, signed in as a verified administrator on a synthetic cloud-backed study. Capture state: show Configured storage, Currently used for analytics, Open database (or Open configured endpoint), and Use local storage for new sessions; redact the Firebase config, Supabase URL/key, project IDs, and any real participant information. Framing: crop to the Datastore panel with the switch and labels visible. Annotation: #FFBD59 border and arrow around the switch if it is hard to locate. Alt: Datastore panel showing storage status and the switch for new local sessions. Save to: ./img/data-management/datastore-controls.png. -->
+![Datastore panel showing configured storage, analytics storage, the database link, and the switch for new local sessions](./img/data-management/datastore-controls.png)
+
+In this example, the local-storage switch is off, so new sessions use the configured Firebase backend.
 
 ## Snapshots
 

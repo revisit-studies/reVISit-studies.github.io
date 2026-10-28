@@ -174,7 +174,7 @@ Images from [Ishihara Color Test](https://www.colour-blindness.com/colour-blindn
 
 - [`screen-recording`](../../libraries/screen-recording): **Records participants' screen**
 
-- [`webcam-recording`](./record-screen#record-a-participants-webcam): **Records participants' webcam**
+- [`webcam-recording`](../record-screen#record-a-participants-webcam): **Records participants' webcam**
 
 - [`virtual-chinrest`](../../libraries/virtual-chinrest): **Controls participants' viewing distance using a Virtual Chinrest**
 :::note[Reference]

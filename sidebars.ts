@@ -66,7 +66,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'designing-studies/sequences/study-sequences',
             'designing-studies/sequences/dynamic-blocks',
-            'designing-studies/sequences/factors',
             'designing-studies/sequences/url-conditions',
           ],
         },

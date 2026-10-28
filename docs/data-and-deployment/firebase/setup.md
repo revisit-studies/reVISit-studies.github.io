@@ -143,7 +143,7 @@ We are now going to set up the authentication so that your browser is authorized
 ![Firebase anonymous sign-in provider setup page](./img/enabling-authentication/step24.png)
 
 :::info
-In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for participants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](./enabling-authentication) for more detailed authentication information and set up instructions.
+In addition to what is shown above, you will want to enable "Google Authentication" in the same section of Firebase. You can do this by choosing the "Google" sign in method under the "Additional Providers" section. The anonymous sign-in is used for participants taking the study. It allows them to access and send data to the Firestore without external authentication. The Google sign-in method is used to authenticate administrators for managing studies and data. Please see [here](../enabling-authentication) for more detailed authentication information and set up instructions.
 :::
 
 ### App Check
@@ -158,11 +158,15 @@ On the Apps page, the current Firebase console labels reCAPTCHA Enterprise as **
 
 1. In the Google Cloud console, select the same project as your Firebase project. Follow Firebase's [score-based reCAPTCHA key guide](https://firebase.google.com/docs/app-check/recaptcha-keys) to create a **Web** key for this app. Add the domains where you will host the study, such as `<username>.github.io` for GitHub Pages. Leave the checkbox challenge option unselected.
 2. In the Firebase console, open **Security > App Check**. On the **Apps** tab, register the web app with the **reCAPTCHA Enterprise** provider and enter the Enterprise key you created in Google Cloud.
+
+   ![Firebase App Check Fraud Defense registration form with a placeholder Enterprise site key](./img/setup/enterprise-app-check-registration.png)
+
+   The screenshot uses a placeholder site key; enter the key you created in Google Cloud.
+
 3. Set `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` in your `.env` file to that **same Enterprise key**. Do not use a reCAPTCHA v3 site key or secret key for this variable.
 
 Do not add `localhost` or `127.0.0.1` to a key used for production. Use the App Check debug token steps below for local development, or create a separate key for a non-production app. See Firebase's [Enterprise App Check setup guide](https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider) for the provider registration steps.
 
-<!-- TODO Screenshot: Capture the reCAPTCHA Enterprise registration dialog with the provider selected and site-key field visible. The available Firebase account is read-only, so the dialog could not be opened. Ask a Firebase project owner to open the registration flow without submitting it; obscure project/app identifiers and key characters. Save beside this page as ./img/setup/enterprise-app-check-registration.png. -->
 
 #### reCAPTCHA v3
 
@@ -241,7 +245,7 @@ When running `yarn build`, reVISit automatically uses the Firebase storage engin
 
 ## Deployment
 
-If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
+If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

@@ -154,7 +154,8 @@ Include only links that are relevant and whose destinations can be verified. Omi
 
 - Use concise, descriptive names. Pair demo and code links as `<Feature> Demo` and `<Feature> Code` when applicable, and use actual type names for TypeDoc references.
 - Use canonical public demo URLs, such as `https://revisit.dev/study/demo-form-elements`, and canonical GitHub source links on `main` for reader-facing documentation. Do not use development URLs as published destinations.
-- Verify that relative links resolve from the rendered documentation page when applicable.
+- For links between Docusaurus pages, account for the rendered route's trailing slash: a sibling page link usually needs `../sibling-page`, not `./sibling-page` (which can resolve underneath the current page route). Add or remove `../` segments according to the actual rendered source and target routes. Never change `../` to `./` without verifying the rendered destination. This rule is for page links; image paths such as `./img/...` remain relative to the source document.
+- Verify every relative Markdown/MDX link and every `StructuredLinks` destination from the rendered documentation page. Check that the resolved route reaches the intended page, not just that a similarly named file exists; fix broken destinations before finishing.
 - Do not place prerequisites or task-critical instructions only in `StructuredLinks`; keep them in the relevant documentation as well.
 - Continue using `:::note[Reference]` for paper citations; `StructuredLinks` does not replace citations.
 

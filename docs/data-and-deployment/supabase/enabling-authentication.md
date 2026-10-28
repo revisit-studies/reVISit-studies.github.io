@@ -1,7 +1,7 @@
 # Setting Up Authentication
 
 :::warning
-In order to use authentication, you must have a Supabase application already configured. To set up your Supabase application, please see [here](./setup).
+In order to use authentication, you must have a Supabase application already configured. To set up your Supabase application, please see [here](../setup).
 :::
 
 ## Enabling Authentication in Supabase
@@ -52,7 +52,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
 
 <StructuredLinks
     referenceLinks={[
-        {name: "Supabase Setup", url: "./setup"},
+        {name: "Supabase Setup", url: "../setup"},
         {name: "Supabase Authentication", url: "https://supabase.com/docs/guides/auth"},
     ]}
 />

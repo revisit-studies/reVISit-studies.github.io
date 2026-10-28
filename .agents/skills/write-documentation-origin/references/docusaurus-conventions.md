@@ -5,6 +5,7 @@ Follow patterns from neighboring pages before applying these defaults.
 ## Structure and accessibility
 
 - Use descriptive headings in logical order, meaningful links, active voice, and exact UI labels or verified accessible names.
+- For page-to-page links, account for the rendered route's trailing slash: a sibling page link usually needs `../sibling-page`, not `./sibling-page`, which can resolve underneath the current page route. Add or remove `../` segments according to actual rendered source and target routes. Do not change a `../` link to `./` without verifying the rendered destination. Image links such as `./img/...` remain relative to the source document.
 - Do not rely on screenshot color or positioning as the sole way to communicate an instruction.
 - Describe keyboard behavior only when verified. Keep essential information in text; add purposeful alt text to images.
 - When adding a page, inspect sidebar configuration and nearby indexes. Make the new guide discoverable.
@@ -34,7 +35,7 @@ At the end of relevant feature pages, use the existing `StructuredLinks` compone
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 ```
 
-Use `demoLinks` for public demos, `codeLinks` for corresponding source, and `referenceLinks` for TypeDoc or authoritative external references. Prefer canonical public demo URLs such as `https://revisit.dev/study/demo-form-elements` and canonical GitHub links on `main` for published source destinations; verify each actual URL. Match pairs as `<Feature> Demo` / `<Feature> Code` where appropriate. Omit empty categories and the entire component if no verified links exist. Confirm relative links resolve from the rendered page. Do not place prerequisites or essential instructions only inside `StructuredLinks`.
+Use `demoLinks` for public demos, `codeLinks` for corresponding source, and `referenceLinks` for TypeDoc or authoritative external references. Prefer canonical public demo URLs such as `https://revisit.dev/study/demo-form-elements` and canonical GitHub links on `main` for published source destinations; verify each actual URL. Match pairs as `<Feature> Demo` / `<Feature> Code` where appropriate. Omit empty categories and the entire component if no verified links exist. Resolve every relative destination from the rendered page and confirm it opens the intended page. Do not place prerequisites or essential instructions only inside `StructuredLinks`.
 
 ## Images
 

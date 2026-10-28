@@ -71,7 +71,7 @@ const config: Config = {
           },
           lastVersion: "current",
           versions: {
-            current: { label: "v3.0 (upcoming)", path: "" },
+            current: { label: "v3.0.0", path: "" },
           },
         },
         blog: {

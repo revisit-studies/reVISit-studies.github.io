@@ -133,7 +133,7 @@ gsutil -m cp -r gs://my-bucket/studyName/screenRecording
 
 ## Screen recording with Think Aloud (audio recording)
 
-ReVISit also supports [Think Aloud](./think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
+ReVISit also supports [Think Aloud](../think-aloud) protocols alongside screen recording. To enable this, set `recordAudio` in the `uiConfig`:
 
 ```json title="public/study-name/config.json"
 "uiConfig": {

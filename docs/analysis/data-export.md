@@ -20,11 +20,7 @@ The tidy CSV and standard JSON downloads do not include provenance graphs. If yo
 
 4. Once ready, click the **Download** button at the bottom right.
 
-![Tidy CSV Exporter with the score option highlighted and a 50% score in the preview](./img/data-export/tidy-export-csv-exporter.png)
-
-
-The `score` column contains a saved score for each response scored by a custom scoring module. Values are percentage text rounded to a whole percent: a score of `0.75` exports as `75%`. A blank score means no saved custom score for that response; it does not mean zero. `correctAnswer` is a separate column for a configured expected answer and can be blank for a response graded only by a scorer. See [Responses and Answers](../designing-studies/answers-trainings.md) for how scores and correctness thresholds work.
-
+![CSV Exporter showing selectable columns and a preview of the exported rows](./img/data-export/tidy-export-csv-exporter.png)
 
 ### Export Qualitative Tags
 

@@ -32,7 +32,7 @@ Add `parameters` to a component, then use those names in its `instruction`, resp
 }
 ```
 
-The Markdown file at `study-name/assets/europe-hint.md` can use the same `{{country}}` parameter. The example is a component fragment; place it under a component ID in the Study Config. Parameters also come from [factor-based designs](./sequences/factors.md).
+The Markdown file at `study-name/assets/europe-hint.md` can use the same `{{country}}` parameter. The example is a component fragment; place it under a component ID in the Study Config. Parameters can also come from factor-based designs.
 
 The Help button uses `uiConfig.helpTextPath` by default. Set `helpTextPath` on an individual component to show task-specific help; the component setting overrides the study-wide path. Both the selected help path and the Markdown help content can use the current component's parameters, so a path such as `study-name/assets/help-{{audience}}.md` can load different guidance for different conditions. See [Setting Up Your First Study](../getting-started/your-first-study.md) for the study-wide help setting.
 
@@ -57,7 +57,7 @@ The `ifEquals` helper compares two values and supports an `else` branch. Standar
 
 ## Template an HTML stimulus
 
-For an HTML file in your study's `public` folder, set `templated` to `true` on a `website` component. ReVISit substitutes component parameters into the file before displaying it:
+For an HTML file in your study's `public` folder, set `templated` to `true` on a `website` component. This setting defaults to `false`. When enabled, ReVISit substitutes component parameters into the file before displaying it:
 
 ```json title="public/study-name/config.json"
 {
