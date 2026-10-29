@@ -19,6 +19,9 @@ const linksToSkip = [
 
   "mika-long.github.io/vis-decode/", // slow revisit load
   "vdl.sci.utah.edu/Upset-alttxt-study/", // slow revisit load
+  "^https://aviz\\.fr/PREVis/$", // host times out for automated checks
+  "^https://www\\.aviz\\.fr/~fekete/$", // host times out for automated checks
+  "^https://www\\.aviz\\.fr/Research/BeauVis-Scale$", // host times out for automated checks
   "ojs.aaai.org",
   "console.cloud.google.com",
   "https://www.google.com/recaptcha/admin/create",
