@@ -139,23 +139,28 @@ Our last step is to set up App Check.
 
 ![Firebase App Check registration page for reCAPTCHA](./img/enabling-authentication/step26.png)
 
-Click on "Register" to register your app with reCAPTCHA. At this point you will need to navigate to [reCAPTCHA](https://www.google.com/recaptcha/admin/create) to create a secret key.
+Click on "Register" to register your app with Fraud Defense.
 
-![Google reCAPTCHA admin page for creating a new reCAPTCHA key](./img/enabling-authentication/recaptcha1.jpg)
+### Fraud Defense (formerly known as reCAPTCHA Enterprise)
 
-The important part here is filling out the domains that you will allow to access the Firebase database. Add `localhost` and `127.0.0.1` to test your survey on your local machine.
+1. Go to the [Google Cloud console](https://console.cloud.google.com/security/recaptcha?authuser=1).
+   ![Google Cloud console](./img/enabling-authentication/fraud_defense_step1.png)
+
+2. Click "Create Key".
+
+3. Under "New domain", add the domains that you will allow to access the Firebase database. Add `localhost` and `127.0.0.1` to test your survey on your local machine.
 
 :::info
 If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the GitHub pages deployment, you should enter your base GitHub pages URL (i.e. <code>&lt;username&gt;.github.io</code>).
 :::
 
-You should now see a site key and a secret key. First, copy the secret key and paste it back into the Firebase reCAPTCHA page as shown in the following images.
+   ![New domain](./img/enabling-authentication/fraud_defense_step2.png)
 
-![Google reCAPTCHA admin page showing the generated site key and secret key](./img/enabling-authentication/recaptcha2.jpg)
+4. Copy the site key ID from the Google Cloud console.
+   ![Site key ID](./img/enabling-authentication/fraud_defense_step3.png)
 
-![Firebase App Check reCAPTCHA setup page with the secret key field](./img/enabling-authentication/step27.png)
-
-Now, copy the site key. That site key should go into your `.env` file for the variable `VITE_RECAPTCHAV3TOKEN`.
+5. Paste the site key ID into Firebase.
+   ![Firebase site key](./img/enabling-authentication/fraud_defense_step4.png)
 
 Now we will link your browser to your app through a debug key.
 
@@ -222,7 +227,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     referenceLinks={[
         {name: "Firebase", url: "https://firebase.google.com/"},
         {name: "Firebase Tier Limits", url: "https://cloud.google.com/storage/pricing#cloud-storage-always-free"},
-        {name: "Google reCAPTCHA", url: "https://www.google.com/recaptcha/admin/create"},
+        {name: "Google Fraud Defense", url: "https://console.cloud.google.com/security/recaptcha?authuser=1"},
         {name: "Deploying to GitHub", url: "../../deploying-to-static-website"}
     ]}
 />
