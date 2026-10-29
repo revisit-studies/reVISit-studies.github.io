@@ -10,6 +10,8 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 For studies using React 19, choose compatible React libraries. When adapting older components, check the [React 19 upgrade guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) and the [Mantine compatibility notes](./applying-style.md#styling-custom-react-components).
 
+For values that change across trials, a React stimulus receives the `globalVariables` prop and can register an updater with `registerGlobalStoreUpdater`. See [Global Variables](./global-variables.md#read-and-update-values-in-react) for a complete example that displays and updates a budget, including Previous and reload behavior.
+
 ## Example 1: Graphical Perception Experiment
 
 The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "example-cleveland," so we put this code into `src/public/example-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.

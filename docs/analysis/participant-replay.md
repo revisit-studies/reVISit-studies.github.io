@@ -56,6 +56,10 @@ If a participant hasn't completed any tasks yet, you'll see a warning message in
 
 When a screen or webcam recording was captured in a different browser, a warning above the replay footer identifies the Participant's browser and your current browser. Video playback may not work properly. If you have trouble playing the recording, open the replay in the browser named in the warning. You can close the warning to continue reviewing the task.
 
+## Inspect Global Variable History
+
+For studies using [Global Variables](../designing-studies/global-variables.md), use the **Submission history** selector to choose an original or revised submission. Replay restores the selected path's accepted answers and entry values, including the recording assets associated with that visit. It displays the recorded result without rerunning submission actions or stimulus updaters and does not change the Participant's saved data.
+
 ## Link to a Timestamp
 
 If you’d like to link to a specific timestamp in the replay, you can use the `&t` query parameter in your URL.

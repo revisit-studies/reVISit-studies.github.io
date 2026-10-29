@@ -49,6 +49,8 @@ You can also add form-based responses to all other stimuli using exactly the sam
 
 ## Notable Features
 
+To carry a running score, budget, or flag across trials, attach `onSubmit` actions to responses. See [Global Variables](./global-variables.md#update-values-from-responses) for operations, literal operands, and percentage calculations.
+
 Below we list some notable features that apply to all or most form elements.
 
 ### Prompts and Descriptions

@@ -18,7 +18,9 @@ This is powered by a templating library **Handlebars**. You don't need to know a
 
 All these fields support the answer-lookup and conditional helpers described below, including paths.
 
-For website components, only the `path` is templated. The contents of the HTML file are not templated.
+For website components, the `path` is templated. Set `"templated": true` to substitute templates inside the HTML file as well.
+
+Use `{{globalVariables.budget}}` to display a Participant's current trial-entry budget in any supported template, including Markdown content. See [Global Variables](./global-variables.md) for declarations, response actions, literal operands, and transforms. Component `parameters` supply per-component values; global variables can be updated across trials.
 
 Templating an option label changes only what participants see. An option's saved `value` defaults to the label as written in the config, so give a templated label an explicit, stable value:
 

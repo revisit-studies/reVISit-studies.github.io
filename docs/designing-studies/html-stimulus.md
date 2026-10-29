@@ -4,6 +4,8 @@ Now, we will take the study we just created and add another component based on a
 
 ## HTML Stimuli
 
+For Participant values that change across trials, use `Revisit.onGlobalVariablesReceive` to read them in JavaScript and `Revisit.registerGlobalStoreUpdater` to propose updates on submission. See [Global Variables](./global-variables.md#read-and-update-values-in-html) for a complete example with restoration. With `"templated": true`, HTML markup can also display `{{globalVariables.budget}}` directly.
+
 The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called `bar-chart.html` in the `basic-questionnaire-study/assets` directory.
 
 ```html title="public/basic-questionnaire-study/assets/bar-chart.html"

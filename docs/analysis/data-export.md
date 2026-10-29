@@ -23,6 +23,16 @@ The tidy CSV and standard JSON downloads do not include provenance graphs. If yo
 ![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
 
 
+### Include Global Variables
+
+For studies using [Global Variables](../designing-studies/global-variables.md), the **CSV Exporter** offers three optional fields for active submissions:
+
+- `globalStoreBefore`: the values at trial entry, serialized as JSON.
+- `globalStoreAfter`: the trial's accepted resulting values, serialized as JSON.
+- `globalStoreOperations`: the accepted operations, including resolved operands and any configured operand definitions, serialized as JSON.
+
+Use the provenance ZIP download for the complete original and revised submission history; these Tidy fields describe the active submissions.
+
 ### Include Window Events
 
 Window events, such as mouse movements, key presses, and changes in window focus, are excluded from Tidy CSV exports by default. To include them, select `windowEvents` under **Optional columns** in the **CSV Exporter** and keep `answer` selected.
