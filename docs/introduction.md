@@ -1,5 +1,7 @@
 # Introduction
 
+Use the version menu to choose documentation for your reVISit release. **Next** describes upcoming features on the study app’s `dev` branch; its demos and source links also follow `dev`. The default documentation describes the latest stable release.
+
 ReVISit lets you create interactive, web-based studies using a **JSON-based domain-specific language (the reVISit DSL)** and a set of **stimuli contained in components**.
 The overall process is illustrated in the figure below:
 

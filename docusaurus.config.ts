@@ -1,9 +1,11 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import versions from "./versions.json";
 
 const enableGtag = process.env.ENABLE_GTAG === "true";
-const isPreviewBuild = Boolean(process.env.BASE_URL);
+const baseUrl = process.env.BASE_URL || "/";
+const isPreviewBuild = baseUrl !== "/";
 
 const config: Config = {
   title: "Home | ReVISit",
@@ -23,8 +25,9 @@ const config: Config = {
   ],
 
   url: "https://revisit.dev",
-  baseUrl: process.env.BASE_URL ?? "/",
+  baseUrl,
   trailingSlash: true,
+  noIndex: isPreviewBuild,
 
   organizationName: "University of Utah", // Usually your GitHub org/user name.
   projectName: "ReVISit", // Usually your repo name.
@@ -69,9 +72,10 @@ const config: Config = {
             }
             return `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/${versionDocsDirPath}/${docPath}`;
           },
-          lastVersion: "current",
+          lastVersion: versions[0],
+          includeCurrentVersion: true,
           versions: {
-            current: { label: "v2.4.4", path: "" },
+            current: { label: "Next", path: "next", banner: "unreleased" },
           },
         },
         blog: {
@@ -180,6 +184,7 @@ const config: Config = {
           position: "right",
         },
         {
+          type: "custom-versionedLink",
           href: "https://revisit.dev/study/",
           label: "Demo",
           position: "right",

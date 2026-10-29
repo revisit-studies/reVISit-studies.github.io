@@ -173,7 +173,7 @@ You can structure your forms by adding a divider between form elements. This is 
 ]
 ```
 
-Alternatively, if you want to position dividers independently of specific questions, you can use [`DividerResponse`](/docs/typedoc/interfaces/DividerResponse.md) as a standalone response element.
+Alternatively, if you want to position dividers independently of specific questions, you can use [`DividerResponse`](../typedoc/interfaces/DividerResponse.md) as a standalone response element.
 
 ```json title="public/study-name/config.json"
 "components": {
@@ -576,10 +576,10 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     {name: "DropdownResponse", url: "../../typedoc/interfaces/DropdownResponse"},
     {name: "LikertResponse", url: "../../typedoc/interfaces/LikertResponse"},
     {name: "LongTextResponse", url: "../../typedoc/interfaces/LongTextResponse"},
-    {name: "MatrixResponse", url: "../../typedoc/interfaces/MatrixResponse"},
+    {name: "MatrixResponse", url: "../../typedoc/type-aliases/MatrixResponse"},
     {name: "NumericalResponse", url: "../../typedoc/interfaces/NumericalResponse"},
     {name: "RadioResponse", url: "../../typedoc/interfaces/RadioResponse"},
-    {name: "RankingResponse", url: "../../typedoc/interfaces/RankingResponse"},
+    {name: "RankingResponse", url: "../../typedoc/type-aliases/RankingResponse"},
     {name: "ShortTextResponse", url: "../../typedoc/interfaces/ShortTextResponse"},
     {name: "SliderResponse", url: "../../typedoc/interfaces/SliderResponse"},
   ]}

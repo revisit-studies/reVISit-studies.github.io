@@ -157,7 +157,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "UIConfig", url: "../../typedoc/interfaces/UIConfig"},
         {name: "BaseIndividualComponent", url: "../../typedoc/interfaces/BaseIndividualComponent/"},
         {name: "BaseResponse", url: "../../typedoc/interfaces/BaseResponse/"},
-        {name: "Sequence", url: "../../typedoc/interfaces/Sequence/"},
+        {name: "Sequence", url: "../../typedoc/interfaces/ComponentBlock/"},
         {name: "ParticipantData", url: "../../typedoc/interfaces/ParticipantData/"},
         {name: "StoredAnswer", url: "../../typedoc/interfaces/StoredAnswer/"}
     ]}
