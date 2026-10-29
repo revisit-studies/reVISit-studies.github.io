@@ -22,6 +22,7 @@ const linksToSkip = [
   "^https://aviz\\.fr/PREVis/$", // host times out for automated checks
   "^https://www\\.aviz\\.fr/~fekete/$", // host times out for automated checks
   "^https://www\\.aviz\\.fr/Research/BeauVis-Scale$", // host times out for automated checks
+  "^https://www\\.tugraz\\.at/$", // live site, but GitHub link checking intermittently returns status 0; works locally
   "ojs.aaai.org",
   "console.cloud.google.com",
   "https://www.google.com/recaptcha/admin/create",
