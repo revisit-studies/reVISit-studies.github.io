@@ -36,7 +36,7 @@ Use the provenance ZIP download for the complete original and revised submission
 
 Window events, such as mouse movements, key presses, and changes in window focus, are excluded from Tidy CSV exports by default. To include them, select `windowEvents` under **Optional columns** in the **CSV Exporter** and keep `answer` selected.
 
-This adds one summary row per trial with `responseId` set to `windowEvents`. The `answer` contains a JSON object with a count for each event type, including zero counts when no events were recorded. It summarizes event counts rather than listing individual events or their timestamps.
+This adds one summary row per trial with `responseId` set to `windowEvents`. The `trialId` remains the task's component name, and `trialOrder` identifies its position in the sequence. The `answer` contains a JSON object with a count for each event type, including zero counts when no events were recorded. It summarizes event counts rather than listing individual events or their timestamps.
 
 Deselect `windowEvents` to remove these rows from the preview and export. This setting does not change the recorded data or JSON downloads.
 
@@ -61,10 +61,6 @@ abc123,metaData,,metaData,"{""resolution"":{...}, ...}"
 ```
 
 Parse the JSON string in `answer` in your analysis tooling when you need individual metadata properties.
-
-### Export Window Event Counts
-
-Select `windowEvents` in the **CSV Exporter** to add a row for each task with counts of recorded browser and input events. The row uses `windowEvents` for both `trialId` and `responseId`, and its `answer` is a JSON object with counts such as `focus`, `keydown`, `mousemove`, `scroll`, and gamepad events. This optional property is not selected by default.
 
 After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplot](https://revisit.dev/study/example-brush-interactions) study in R.
 

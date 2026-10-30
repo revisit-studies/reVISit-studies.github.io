@@ -311,7 +311,7 @@ You can enable the previous button by setting `previousButton` to `true`, which 
 ![Previous button](./img/previous-button.png)
 
 :::warning
-**You should only use the previous button with simple stimuli, like form elements, images, markdown, etc.** If you have interactive components, use provenance tracking, use screen capture or audio capture, going back to a previous state will result in undesired behavior: all states, video, audio, will be overwritten.
+Test **Previous** with every interactive stimulus and recording type before collecting data. Custom stimuli must restore their saved state when a Participant returns to a trial. Without `globalVariables`, revisiting a trial can overwrite its provenance and recording assets. Studies with [Global Variables](./global-variables.md#previous-saving-and-analysis) preserve accepted submission history and associate recordings with each visit; changing an earlier answer can still invalidate later progress.
 :::
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';

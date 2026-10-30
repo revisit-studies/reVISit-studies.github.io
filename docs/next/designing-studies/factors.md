@@ -61,7 +61,7 @@ The list of possible `actions` include:
 
 1. **cross**: creates a [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) of two or more `factors`.
 2. **zip**: pairs the levels of multiple factors by position. For example, a `zip` over `"f1": ["x", "y", "z"]` and `"f2": ["1", "2", "3"]` results in three conditions: `{ "f1": "x", "f2": "1" }`, `{ "f1": "y", "f2": "2" }`, and `{ "f1": "z", "f2": "3" }`. If the inputs have different lengths, ReVISit stops after the shortest one and shows a parser warning.
-3. **concat**: concatenates the conditions of two or more factors in order. For example, a `concat` over `"f1": ["x", "y", "z"]` and `"f2": ["a", "b", "c"]` results in `"x"`, `"y"`, `"z"`, `"a"`, `"b"`, `"c"`.
+3. **concat**: concatenates the conditions of two or more factors in order. For example, a `concat` over `"f1": ["x", "y", "z"]` and `"f2": ["a", "b", "c"]` results in `{ "f1": "x" }`, `{ "f1": "y" }`, `{ "f1": "z" }`, `{ "f2": "a" }`, `{ "f2": "b" }`, and `{ "f2": "c" }`. Each condition keeps its original parameter names; `concat` does not rename them to the new factor's name.
 4. **repeat**: repeats the conditions of the listed `factors` the number of times given by `numRepeats`.
 5. **keep** / **remove**: filter the conditions of an existing factor, given in `factor`. `keep` retains only the matching conditions, while `remove` filters them out. Select conditions with `condition`, an object of parameter values to match, or with `items`, a list of complete conditions or another factor expression.
 6. **sample**: randomly selects `numSamples` conditions from the listed `factors` for each participant. Set `samplingStrategy` to `withoutReplacement` or `withReplacement`.
