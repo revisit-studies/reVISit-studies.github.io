@@ -56,9 +56,8 @@ ReVISit is a project developed at the [University of Utah](https://visdesignlab.
 [Lane Harrison](http://web.cs.wpi.edu/~ltharrison/), Co-PI, WPI  
 [Andrew McNutt](https://www.mcnutt.in/), Co-I, University of Utah  
 [Zach Cutler](https://zach-cutler.com/), PhD Student, University of Utah  
-[Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
 [Tingying He](https://tingying-he.github.io/), Postdoc, University of Utah  
-[Jay Kim](https://www.visdesignlab.net/team/jay/), Software Engineer, University of Utah  
+[Arthur Lippitz](https://www.visdesignlab.net/team/lippitz/), Software Engineer, Graz University of Technology.  
 [Abhraneel Sarma ](https://abhsarma.github.io/), Postdoc, Graz University of Technology  
 [Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI  
 [Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah
@@ -69,6 +68,8 @@ ReVISit is a project developed at the [University of Utah](https://visdesignlab.
 [Brian Bollen](http://briancbollen.com/), Senior Software Developer, University of Utah  
 [Kiran Gadhave](https://www.kirangadhave.me/), PhD Student, University of Utah  
 [Akim Ndlovu](https://www.proanalytics.co.uk/), PhD Student, WPI
+[Yiren Ding](https://dyr429.github.io/Portfolio/), PhD Student, WPI  
+[Jay Kim](https://www.visdesignlab.net/team/jay/), Software Engineer, University of Utah  
 
 ### Contributors
 
