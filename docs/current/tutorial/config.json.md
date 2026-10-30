@@ -37,7 +37,7 @@ Open [http://localhost:8080](http://localhost:8080). You should see the tutorial
 ![The tutorial study appears on the local reVISit page with an empty sequence warning.](./img/config.json/step1.png)
 
 :::warning
-At this point, the tutorial config should show a warning that the sequence is empty. You can ignore this warning for now. It is intentional because `public/tutorial/config.json` currently has an empty [`sequence.components`](../typedoc/interfaces/Sequence.md#components) array. If you enter the study now, reVISit may go directly to the study end page because no components have been added to the sequence yet.
+At this point, the tutorial config should show a warning that the sequence is empty. You can ignore this warning for now. It is intentional because `public/tutorial/config.json` currently has an empty [`sequence.components`](../typedoc/interfaces/ComponentBlock.md#components) array. If you enter the study now, reVISit may go directly to the study end page because no components have been added to the sequence yet.
 :::
 
 ## Step 2: Add the welcome component
