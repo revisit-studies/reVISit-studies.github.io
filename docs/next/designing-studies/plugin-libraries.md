@@ -8,6 +8,8 @@ We currently provide libraries for:
 - usability and user workload assessments
 - visualization literacy checks
 - visualization quality metrics
+- a provenance-tracked drawing canvas
+- webcam recording
 
 You can find details [below](#available-libraries).
 
@@ -172,10 +174,16 @@ Images from [Ishihara Color Test](https://www.colour-blindness.com/colour-blindn
 
 - [`screen-recording`](../../libraries/screen-recording): **Records participants' screen**
 
+- [`webcam-recording`](../record-screen#record-a-participants-webcam): **Records participants' webcam**
+
 - [`virtual-chinrest`](../../libraries/virtual-chinrest): **Controls participants' viewing distance using a Virtual Chinrest**
 :::note[Reference]
 Q. Li, S. J. Joo, J. D. Yeatman, and K. Reinecke, "Controlling for participants' viewing distance in large-scale, psychophysical online experiments using a virtual chinrest," _Scientific Reports_, vol. 10, no. 1, pp. 1–11, 2020, doi: 10.1038/s41598-019-57204-1.
 :::
+
+### Study Tools
+
+- [`drawing`](../../libraries/drawing): **Provides a freehand drawing canvas with participant replay support**
 
 ### Questionnaires
 

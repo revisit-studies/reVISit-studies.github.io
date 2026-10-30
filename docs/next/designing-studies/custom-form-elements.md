@@ -4,6 +4,8 @@ Sometimes, the [form elements](./forms.md) ReVISit provides are not sufficient f
 
 This page will walk you through how to create and use custom form elements in your ReVISit study, and show you how to provide custom validation logic for your custom form elements.
 
+If you want to keep a built-in input and only change its validation or scoring, give that response a `path` to a module with named `validate` or `score` exports. See [Validate and score a built-in response](./forms.md#validate-and-score-a-built-in-response); no custom React form element is needed.
+
 ## Creating Custom Form Elements
 
 To create a custom form element, you need to define a React component that follows the structure defined by the `CustomResponseParams` type. This component receives the current response value, metadata about the response itself, optional custom parameters from the study config, the current validation error message if one exists, and a `field` helper for updating and blurring the value. You can then use this component in your study configuration to collect responses from participants. Here's a basic example of a custom form element that collects a color input from participants:

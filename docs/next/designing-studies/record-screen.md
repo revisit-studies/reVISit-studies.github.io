@@ -106,6 +106,10 @@ Participants are asked to share the study tab. In Chromium-based browsers, the s
 Keep the recording streams active until the study is completed.
 Recording files are saved as separate screen and webcam assets by the selected storage engine.
 
+The example below shows the webcam-only permission page with a synthetic camera feed.
+
+![Webcam recording permission page with an active preview and Continue enabled](./img/record-screen/webcam-permission.png)
+
 :::caution[Dynamic blocks]
 If the only component that needs webcam or audio recording is created later inside a dynamic block, ReVISit may not request that device before the block starts. To avoid this, enable the recording at the study level or include a known recording component before the dynamic block.
 :::

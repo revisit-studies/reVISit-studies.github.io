@@ -110,6 +110,15 @@ A stylesheet can affect any matching element while it is loaded, even when attac
 
 You can override the default widths with the selectors above without adding `!important`.
 
+You can style the required marker that appears in a response prompt using `.required-asterisk`:
+
+```css title="public/study-name/assets/style.css"
+.required-asterisk {
+  color: #c00;
+  margin-right: 0.25em;
+}
+```
+
 ### 2. Inline Styles (`style`)
 
 For basic styling like sizing, colors, and fonts, apply specific CSS properties directly to components or responses:
@@ -201,10 +210,16 @@ For the same style throughout a study, set `"stylesheetPath": "revisitAssets/goo
 
 ![Large Text Style](img/style-large-text.png)
 
+The `large-text` questionnaire applies this stylesheet to one component:
+
 ```json title="public/demo-style/config.json"
-"uiConfig": {
-  "stylesheetPath": "demo-style/assets/style/largeText.css"
-},
+"components": {
+  "large-text": {
+    "type": "questionnaire",
+    "stylesheetPath": "demo-style/assets/style/largeText.css",
+    "response": []
+  }
+}
 ```
 
 ```css title="public/demo-style/assets/style/largeText.css"

@@ -58,6 +58,21 @@ service cloud.firestore {
 }
 ```
 
+### Create indexes for participant sequence assignment
+
+Before the first Participant starts, open the Firestore **Indexes** tab and create these two **composite indexes**. Use **Collection** scope and enter `sequenceAssignment` as the collection ID for both:
+
+| Index | Fields in order |
+| --- | --- |
+| Rejected assignments by time | `rejected` Ascending, `timestamp` Ascending |
+| Reusable assignments by time | `claimed` Ascending, `rejected` Ascending, `timestamp` Ascending |
+
+Wait until both indexes are enabled before opening the study. Add them to existing Firebase deployments when upgrading as well. These indexes are created once per Firebase project/database, not once per study.
+
+If an index is missing, ReVISit blocks study startup. In development mode, its error includes a Firebase link that opens the index creation form with the required fields filled in. Follow that link as the Study Designer who administers the Firebase project, then wait for Firebase to finish building the index. You can also create both indexes in the console ahead of time using the table above.
+
+![Enabled Firestore composite indexes for sequenceAssignment: rejected and timestamp, plus claimed, rejected, and timestamp, all ascending with Collection scope](./img/setup/sequence-assignment-indexes.png)
+
 ## Adding Firebase Storage
 
 Once that is finished, we will enable standard Firebase storage. Click the "Databases & Storage" dropdown menu again and navigate to "Storage".

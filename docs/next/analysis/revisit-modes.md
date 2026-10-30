@@ -12,7 +12,7 @@ Here we give a brief introduction to these modes. Check out our [Analysis Platfo
 
 With Data Collection enabled, all data that is captured by participants will be stored either locally or in your cloud database (dependent on your currently specified storage engine). You can check out our [data management documentation](../../analysis/data-management) to learn how to manage participants, create backup datasets, and more.
 
-Disabling data collection on a particular study will cause the user to see a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
+Disabling data collection on a particular study will cause the user to see a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected. In this mode, ReVISit also does not capture audio, screen, or webcam recordings, and does not request recording permissions.
 
 :::info
 When **Data Collection** is off, reVISit does not record audio or screens, even if recording is enabled in your Study Config. Participants can continue past the microphone check and screen recording permission pages without recording. The **Start Recording** button is disabled.

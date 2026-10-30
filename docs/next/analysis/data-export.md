@@ -20,8 +20,7 @@ The tidy CSV and standard JSON downloads do not include provenance graphs. If yo
 
 4. Once ready, click the **Download** button at the bottom right.
 
-![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
-
+![CSV Exporter showing selectable columns and a preview of the exported rows](./img/data-export/tidy-export-csv-exporter.png)
 
 ### Include Global Variables
 
@@ -62,6 +61,10 @@ abc123,metaData,,metaData,"{""resolution"":{...}, ...}"
 ```
 
 Parse the JSON string in `answer` in your analysis tooling when you need individual metadata properties.
+
+### Export Window Event Counts
+
+Select `windowEvents` in the **CSV Exporter** to add a row for each task with counts of recorded browser and input events. The row uses `windowEvents` for both `trialId` and `responseId`, and its `answer` is a JSON object with counts such as `focus`, `keydown`, `mousemove`, `scroll`, and gamepad events. This optional property is not selected by default.
 
 After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplot](https://revisit.dev/study/example-brush-interactions) study in R.
 
@@ -146,19 +149,21 @@ If you are using Firebase with the [Google Cloud Speech-to-Text extension](https
 
 ## Download Screen and Webcam Recordings
 
-You can download recording video files if you have enabled `recordScreen: true` and/or `recordWebcam: true` in your study. To learn how to enable recording, please visit [Record Screen and Webcam](../../designing-studies/record-screen).
+You can download recording video files if you have enabled `recordScreen: true` and/or `recordWebcam: true` in your study. To learn how to enable recording, please visit [Record Screen and Webcam](../designing-studies/record-screen.md).
 
 ### Bulk-Download Participants' Recordings
 
 1. Navigate to the **Analysis** platform for the current study.
 
-2. Open the **Participant View**, then click on the recording download button. It downloads screen recordings, webcam recordings, or both, depending on what the study collected.
+2. Open the **Participant View**, then click the recordings download button. Its tooltip identifies whether it will download screen recordings, webcam recordings, or both.
 
 ![Download participants' screen recording](./img/data-export/screen-recording-export-all.png)
 
 :::note
 To download recordings from specific participants, select the participants in the table.
 :::
+
+The download creates a ZIP of the configured recording types.
 
 ### Download Individual Participant's Recordings for a Specific Task
 
@@ -170,7 +175,7 @@ To download recordings from specific participants, select the participants in th
 3. Click on the task.
 ![Download task audio](./img/data-export/screen-recording-export-2.png)
 
-3. Click on the **Download recordings** button. If both screen and webcam recordings are available for the task, both files are downloaded.
+4. In the replay controls, click the **Download recordings** button. If both screen and webcam recordings are available for the task, both files are downloaded.
 ![Download screen recording video](./img/data-export/screen-recording-export-3.png)
 
 ## Export Study Pages to PDF

@@ -119,6 +119,15 @@ This means: "the value entered for `capital-answer` on the 2nd recorded trial" (
 
 **The difference in one sentence:** `lookupAnswersRel` counts from the current trial; `lookupAnswers` counts from the first or last recorded trial.
 
+### Looking Up Parameters and Correct Answers
+
+The same two counting styles work for a trial's `parameters` and configured correct answers:
+
+- `lookupParametersRel` and `lookupParameters` return a parameter from another trial, such as `{{lookupParametersRel -1 "country"}}`. This includes parameters supplied by the sequence or by factors.
+- `lookupCorrectAnswerRel` and `lookupCorrectAnswer` return the `answer` from another trial's `correctAnswer` entry for a response `id`, such as `{{lookupCorrectAnswerRel -1 "capital-answer"}}`.
+
+As with answers, a missing trial or value renders as blank text.
+
 ### What You Can't Look Up
 
 You cannot look up the answer on the **same trial the participant is currently filling out** — it doesn't exist yet until they submit it and move on. Both helpers can only see already-submitted trials.

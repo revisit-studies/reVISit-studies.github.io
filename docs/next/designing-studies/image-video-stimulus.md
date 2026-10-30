@@ -64,9 +64,9 @@ In this example, the video is rendered in the main window. The video is given an
 When `forceCompletion` is `true`, a Participant who selects **Next** before playback finishes stays on the component and sees: “Please finish the video to continue.”
 
 
-#### Troubleshoot a missing internal video
+#### Troubleshoot a missing stimulus asset
 
-While an internal video loads, **Next** is disabled. If loading fails, ReVISit shows an inline **404** message and keeps **Next** disabled, even when `forceCompletion` is `false`. Check that:
+If a required internal stimulus asset has not loaded, ReVISit keeps **Next** unavailable until the asset is ready. If loading fails, ReVISit shows an inline **404** message with the asset path and keeps **Next** disabled, even when a video's `forceCompletion` is `false`. This shared loading check applies to image, video, website, Markdown, React component, and Vega stimuli. Check that:
 
 - the `path` is relative to the app's `public` directory;
 - the file exists at that path and was included in the deployment; and

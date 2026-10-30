@@ -43,6 +43,58 @@ Form elements can be placed either in a sidebar, or as the main content of a stu
 
 Because form elements are so commonly combined with other stimuli, a standalone questionnaire component as shown above is just a stripped down component with "only" a response.
 
+## Validate and score a built-in response
+
+Any response type can set `path` to a TypeScript or JavaScript module under the app's `src/public/` directory. For built-in inputs, the module supplies optional named `validate` and `score` exports; it does not replace the input UI. Validation decides whether a Participant can continue. Scoring grades an answer when the study checks it. The path is relative to `src/public/`, unlike image and stylesheet paths, which are relative to `public/`.
+
+For example, save this module as `src/public/my-study/assets/gradeEstimate.ts`:
+
+```ts title="src/public/my-study/assets/gradeEstimate.ts"
+export function validate(value: unknown) {
+  return typeof value === 'number' && value >= 0
+    ? null
+    : 'Enter a number of 0 or greater.';
+}
+
+export function score(value: unknown, _values: unknown, _response: unknown, expected?: unknown) {
+  if (typeof value !== 'number' || typeof expected !== 'number') return 0;
+  const error = Math.abs(value - expected);
+  return Math.max(0, 1 - error / 10);
+}
+```
+
+Then add the module path to a numerical response and an expected answer to the same component:
+
+```json title="public/my-study/config.json (component excerpt)"
+"estimate": {
+  "type": "questionnaire",
+  "provideFeedback": true,
+  "response": [
+    {
+      "id": "estimate-value",
+      "type": "numerical",
+      "prompt": "Estimate the value shown in the chart.",
+      "path": "my-study/assets/gradeEstimate.ts"
+    }
+  ],
+  "correctAnswer": [
+    {
+      "id": "estimate-value",
+      "answer": 50,
+      "correctnessThreshold": 0.8
+    }
+  ]
+}
+```
+
+The exports receive `(value, values, response)`; `score` also receives the optional configured `expected` answer. `values` contains answers from the component, so you can check another response, while `response` contains this response's config. A validation result of `null` or `true` passes; a nonempty string shows that error, and `false` shows a generic invalid-response message. A score may be `true` or `false` (converted to `1` or `0`), a number from `0` to `1`, or `null`. `null` falls back to ordinary `correctAnswer` matching when an answer is configured; without one, the response remains ungraded. An invalid score or a module that cannot load prevents answer checking and shows an error.
+
+Here, an estimate of `52` scores `0.8` and meets the `0.8` threshold. `correctnessThreshold` belongs on the matching `correctAnswer` entry, accepts `0` through `1`, and defaults to `1`. A score below the threshold can still earn partial credit and appears as partially correct during answer feedback. See [Responses and Answers](./answers-trainings.md) for feedback and saved-score behavior.
+
+A separate response-function demo shows how a custom validation message appears after an invalid answer:
+
+![Numerical response showing a custom validation error after an odd number](./img/forms/custom-validation-error.png)
+
 :::note
 You can also add form-based responses to all other stimuli using exactly the same syntax!
 :::
@@ -451,6 +503,8 @@ For checkboxes, you can specify the minimum and maximum number of selections req
 
 Matrix questions let you ask several questions at the same time, using the same set of answer choices. You can either provide your own custom answers or use our built-in answer options.
 
+For `matrix-checkbox`, use `min` and `max` to require a minimum or limit the maximum number of answers in each row. These constraints are checked when the Participant selects **Next**.
+
 Built-in options include:
 
 - `likely5` or `likely7`: ranges from Highly Unlikely to Highly Likely
@@ -663,6 +717,38 @@ ReVISit prevents the following invalid arrangements and displays an error explai
 For all three ranking types, the widget becomes read-only after the response is finalized: items can no longer be dragged, and any applicable controls for adding or removing pairs are disabled.
 
 ![Examples of ranking widgets](img/designing-forms/ranking.png)
+
+## Delayed Responses
+
+Set `delay` on a response to keep that form element disabled for a number of milliseconds after its component appears. The value must be zero or greater; the default is `0` (no delay). A delay does not automatically advance the Participant or extend a component timeout.
+
+```json title="public/study-name/config.json"
+{
+  "id": "delayed-rating",
+  "prompt": "Rate the chart after reviewing it.",
+  "type": "likert",
+  "numItems": 5,
+  "delay": 5000
+}
+```
+
+## Keyboard Shortcuts for Button Responses
+
+For a `buttons` response, use object options and set `key` to a shortcut that selects that option. The shortcut appears beside the option label. This can help Participants who use a keyboard or support timed tasks where fast responses matter.
+
+```json title="public/study-name/config.json"
+{
+  "id": "color",
+  "prompt": "Which color is shown?",
+  "type": "buttons",
+  "options": [
+    { "label": "Red", "value": "red", "key": "r" },
+    { "label": "Blue", "value": "blue", "key": "b" }
+  ]
+}
+```
+
+Keys can be ordinary characters or named keys such as `ArrowLeft`, and can include modifiers such as `Shift+X`. ReVISit ignores repeated key events and does not use Tab, Ctrl, or Meta shortcuts. See [Keyboard and Gamepad Input](./input-devices.md) for the broader input-recording options.
 
 ## Randomization of form elements
 
