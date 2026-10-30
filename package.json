@@ -20,6 +20,7 @@
     "typecheck": "tsc",
     "test": "node --test scripts/*.test.mjs",
     "test:promotion": "node scripts/testDocsPromotion.mjs",
+    "test:release-handoff": "node scripts/testDocsPromotion.mjs --study-release-workflow",
     "test:study-docs": "node scripts/testDocsPromotion.mjs --study-references",
     "checkLinks": "node scripts/checkLinks.mjs"
   },
