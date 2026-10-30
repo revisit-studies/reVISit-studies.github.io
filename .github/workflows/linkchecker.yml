@@ -21,7 +21,17 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile
+
+      - name: Generate Next references from study dev
+        uses: ./.github/actions/generate-study-docs
+        with:
+          ref: dev
+
+      - name: Update Next references
+        run: |
+          node scripts/syncStudyDocs.mjs .study-docs docs/next
+          rm -rf .study-docs
 
       - name: Build documentation
         run: yarn build

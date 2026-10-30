@@ -15,7 +15,7 @@ export function resolveVersionedLink(href, version) {
       return `${version.path.replace(/\/$/, '')}/${docs[1] ?? ''}${suffix}`;
     }
 
-    if (version.name === 'current' && /^\/study(?:\/|$)/.test(url.pathname)) {
+    if (version.name === 'next' && /^\/study(?:\/|$)/.test(url.pathname)) {
       const path = url.pathname.replace(/^\/study\/?/, '');
       // Explicit deployment links are already pinned to their own environment.
       if (!/^(dev|dev-supabase|supabase|PR\d+)(\/|$)/.test(path)) {
@@ -24,7 +24,7 @@ export function resolveVersionedLink(href, version) {
     }
   }
 
-  if (version.name === 'current') {
+  if (version.name === 'next') {
     if (url.origin === 'https://github.com') {
       url.pathname = url.pathname.replace(
         /^(\/revisit-studies\/study\/(?:tree|blob)\/)main(?=\/|$)/i,
@@ -37,4 +37,10 @@ export function resolveVersionedLink(href, version) {
   }
 
   return href;
+}
+
+/** Select the same page across doc sources, falling back to that version's home. */
+export function getVersionTarget(version, docId) {
+  return version.docs.find(doc => doc.id === docId)
+    ?? version.docs.find(doc => doc.id === version.mainDocId);
 }

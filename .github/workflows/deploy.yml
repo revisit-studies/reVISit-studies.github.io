@@ -35,13 +35,16 @@ jobs:
 
       - name: Update Next references
         run: |
-          node scripts/syncStudyDocs.mjs .study-docs docs
+          node scripts/syncStudyDocs.mjs .study-docs docs/next
           rm -rf .study-docs
 
       - name: Validate documentation
         run: |
           yarn test
           yarn typecheck
+
+      - name: Test local release promotion and preview routes
+        run: yarn test:promotion
 
       - name: Build stable and Next documentation
         run: yarn build

@@ -25,12 +25,23 @@ jobs:
           ref: gh-pages
           path: .pages
 
+      - name: Check the PR is still closed
+        id: state
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          state=$(gh pr view "$PR_NUMBER" --json state --jq .state)
+          echo "closed=$([[ "$state" == 'CLOSED' || "$state" == 'MERGED' ]] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
       - name: Delete preview folder
+        if: steps.state.outputs.closed == 'true'
         env:
           PREVIEW_DIR: PR${{ github.event.number }}
         run: bash scripts/publishPages.sh --delete .pages "$PREVIEW_DIR"
 
       - name: Comment on PR
+        if: steps.state.outputs.closed == 'true'
         uses: hasura/comment-progress@v2.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
