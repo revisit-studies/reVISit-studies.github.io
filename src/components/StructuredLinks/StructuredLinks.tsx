@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLink, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import VersionedLink from '@site/src/components/VersionedLink';
 interface ReferenceLink {
     name: string,
     url: string
@@ -65,7 +66,7 @@ function StructuredLinkInner({ demoLinks, codeLinks, referenceLinks }: Structure
                                 </div>
                                 <div style={{ marginLeft: '23px' }}>
                                     {demoLinks.map((entry) => (
-                                        <a target="_blank" href={entry.url}>{entry.name}</a>
+                                        <VersionedLink key={entry.url} target="_blank" href={entry.url}>{entry.name}</VersionedLink>
                                     ))}
                                 </div>
                             </div>
@@ -78,7 +79,7 @@ function StructuredLinkInner({ demoLinks, codeLinks, referenceLinks }: Structure
                                 </div>
                                 <div style={{ marginLeft: '23px' }}>
                                     {codeLinks.map((entry) => (
-                                        <a target="_blank" href={entry.url}>{entry.name}</a>
+                                        <VersionedLink key={entry.url} target="_blank" href={entry.url}>{entry.name}</VersionedLink>
                                     ))}
                                 </div>
                             </div>
@@ -91,7 +92,7 @@ function StructuredLinkInner({ demoLinks, codeLinks, referenceLinks }: Structure
                                 </div>
                                 <div style={{ marginLeft: '23px' }}>
                                     {referenceLinks.map(entry =>
-                                        <a target="_blank" href={entry.url}>{entry.name}</a>
+                                        <VersionedLink key={entry.url} target="_blank" href={entry.url}>{entry.name}</VersionedLink>
                                     )
                                     }
                                 </div>
