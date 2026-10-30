@@ -49,4 +49,10 @@ test('promotion archives maintained current, promotes the selected remote branch
   await assert.rejects(createDocsVersion({ ...options, studyCommit: 'b'.repeat(40) }), /different sources/);
   await assert.rejects(createDocsVersion({ ...options, tag: 'v1.0.1' }), /must be newer/);
   await assert.rejects(createDocsVersion({ ...options, tag: 'v2.0.0-beta.1' }), /stable release tag/);
+  git('-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '--quiet', '--allow-empty', '-m', 'New event with unchanged Next');
+  assert.equal(await createDocsVersion({ ...options, docsRef: 'HEAD' }), false);
+  git('add', 'docs/next');
+  git('-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '--quiet', '-m', 'Different docs after release');
+  await assert.rejects(createDocsVersion({ ...options, docsRef: 'HEAD' }), /different sources/);
+  assert.equal(await readFile(path.join(root, 'docs/current/guide.md'), 'utf8'), '# Approved next release\n');
 });

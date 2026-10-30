@@ -32,10 +32,14 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
 
+      - name: Resolve release request
+        id: request
+        run: node scripts/resolveStudyRelease.mjs request >> "$GITHUB_OUTPUT"
+
       - name: Resolve selected docs revision
         id: docs
         env:
-          DOCS_REF: ${{ inputs.docs_ref || github.event.client_payload.docs_ref || github.sha }}
+          DOCS_REF: ${{ steps.request.outputs.docs_ref }}
         run: |
           sha=$(node scripts/createDocsVersion.mjs resolve "$DOCS_REF")
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
@@ -51,26 +55,15 @@ jobs:
       - name: Generate references from the release revision
         uses: ./.github/actions/generate-study-docs
         with:
-          ref: ${{ inputs.release_tag || github.event.client_payload.release_tag || 'main' }}
+          ref: ${{ steps.request.outputs.study_ref }}
           fetch-depth: '0'
 
       - name: Resolve exact stable release tag
         id: release
         env:
-          RELEASE_TAG: ${{ inputs.release_tag || github.event.client_payload.release_tag }}
+          RELEASE_TAG: ${{ steps.request.outputs.release_tag }}
         run: |
-          # Existing study dispatches have no payload. Require main itself to be
-          # tagged instead of guessing the release from tag dates.
-          if [[ -z "$RELEASE_TAG" ]]; then
-            RELEASE_TAG=$(git -C .study-docs describe --exact-match --tags HEAD)
-          fi
-          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo 'Supply an exact stable release_tag and docs_ref using workflow dispatch.' >&2
-            exit 1
-          fi
-          # Generation must already have used the tagged commit.
-          test "$(git -C .study-docs rev-parse HEAD)" = "$(git -C .study-docs rev-parse "refs/tags/$RELEASE_TAG^{commit}")"
-          echo "tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
+          node scripts/resolveStudyRelease.mjs verify .study-docs "$RELEASE_TAG" >> "$GITHUB_OUTPUT"
 
       - name: Archive current and promote approved Next
         env:
