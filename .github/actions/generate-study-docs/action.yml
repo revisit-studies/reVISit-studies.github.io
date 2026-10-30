@@ -1,0 +1,27 @@
+name: Generate study references
+description: Generate TypeDoc and library pages from one study revision
+inputs:
+  ref:
+    description: Study branch or release tag
+    required: true
+  fetch-depth:
+    description: Set to zero when resolving a release tag from main
+    default: '1'
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        repository: revisit-studies/study
+        ref: ${{ inputs.ref }}
+        fetch-depth: ${{ inputs.fetch-depth }}
+        path: .study-docs
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: yarn
+        cache-dependency-path: .study-docs/yarn.lock
+    - shell: bash
+      run: |
+        yarn --cwd .study-docs install --frozen-lockfile
+        node scripts/generateStudyDocs.mjs .study-docs
