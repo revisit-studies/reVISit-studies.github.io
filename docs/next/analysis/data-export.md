@@ -1,0 +1,211 @@
+# Data Export
+
+## Download as Tidy CSV
+
+ReVISit allows you to export data in [Tidy](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) format for analysis in Python notebooks or R.
+
+The exported tidy data includes all the responses from the participants, including the participant ID, trial ID, trial order, and response ID. Additionally, we provide the parameters and correct answers that were set in the study configuration file (or by dynamic block). This data can be used to analyze the performance of participants, the accuracy of responses, and the time taken to complete the study.
+
+The tidy CSV and standard JSON downloads do not include provenance graphs. If you need this data, use the [provenance ZIP download](#download-provenance) and parse the separate provenance JSON files in your analysis platform.
+
+### Steps to Download Data
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the Participant View, then click on the **Download as tidy CSV** button. Here's a [direct link for the example below](https://revisit.dev/study/analysis/stats/example-brush-interactions/table).
+
+![Tidy export](./img/data-export/tidy-export.png)
+
+3. The **CSV Exporter** will open, where you can select the columns to export. A preview of the first five rows of the output CSV will be displayed.
+
+4. Once ready, click the **Download** button at the bottom right.
+
+![Tidy export CSV explorer](./img/data-export/tidy-export-csv-exporter.png)
+
+
+### Include Window Events
+
+Window events, such as mouse movements, key presses, and changes in window focus, are excluded from Tidy CSV exports by default. To include them, select `windowEvents` under **Optional columns** in the **CSV Exporter** and keep `answer` selected.
+
+This adds one summary row per trial with `responseId` set to `windowEvents`. The `answer` contains a JSON object with a count for each event type, including zero counts when no events were recorded. It summarizes event counts rather than listing individual events or their timestamps.
+
+Deselect `windowEvents` to remove these rows from the preview and export. This setting does not change the recorded data or JSON downloads.
+
+![The windowEvents option is selected under Optional columns, and the Tidy CSV preview includes rows with windowEvents as the responseId.](./img/data-export/window-events.png)
+
+### Export Qualitative Tags
+
+If you use [Participant Tags and Task Tags](./coding.md) for qualitative coding, select `participantTags` and/or `taskTags` in the **CSV Exporter**. These optional fields are not selected by default.
+
+- `taskTags` adds a column to each task-response row. Its value is a JSON string containing that task's tag array.
+- `participantTags` adds a separate row for each participant. Both `trialId` and `responseId` are `participantTags`, and the `answer` column contains a JSON string with the participant's tag array.
+
+### Export Participant Metadata
+
+Select `metaData` in the **CSV Exporter** to include each Participant's stored metadata, such as browser or device information. This optional field is not selected by default.
+
+`metaData` adds one row per Participant rather than a column to every task-response row. Both `trialId` and `responseId` are `metaData`; the complete participant metadata object is serialized as JSON in the existing `answer` column.
+
+```text
+participantId,trialId,trialOrder,responseId,answer
+abc123,metaData,,metaData,"{""resolution"":{...}, ...}"
+```
+
+Parse the JSON string in `answer` in your analysis tooling when you need individual metadata properties.
+
+After downloading the Tidy data, you can import it into your favorite analysis platform for further analysis. Below is an example of how to work with exported data from the [Interactive Selections in Scatterplot](https://revisit.dev/study/example-brush-interactions) study in R.
+
+:::info
+**What is the Tidy data format?**  
+The Tidy data format is a structured approach to organizing tabular data where each variable is a column, each observation is a row, and each type of observational unit is a separate table.
+You may check more details [here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
+:::
+
+### Including Transcripts in Tidy CSV Export
+If your study includes [audio recording](../../designing-studies/think-aloud), you can optionally include a transcript column in your tidy CSV export. This column contains the transcribed text from each trial, making it easy to analyze what participants said alongside their responses. You must be using Firebase as your storage engine and have the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) configured for your project.
+
+Downloading transcripts for large datasets can take significant time. If you're downloading data for **50 or more participants** with transcripts, you'll see a warning about potential delays. The system fetches transcripts with concurrency limits to avoid overwhelming the browser.
+
+
+## Download as JSON
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the Participant View, then click on the **Download as JSON** button.
+
+![JSON export](./img/data-export/json-export.png)
+
+### Export Qualitative Tags
+
+JSON downloads include qualitative coding data in each participant's `qualitativeCodes` object. `participantTags` contains tags assigned to the participant, while `taskTags` maps each task identifier to its tag array. Tags include their `id` and `name`; their display colors are not exported. A task without tags can be included with an empty array.
+
+```json
+{
+  "qualitativeCodes": {
+    "participantTags": [{ "id": "tag-1", "name": "Hesitation" }],
+    "taskTags": {
+      "task_0": [{ "id": "tag-2", "name": "Chart Reading" }],
+      "task_1": []
+    }
+  }
+}
+```
+
+### Timed-Out Components
+
+When a component uses automatic advance and reaches its time limit, its participant-data record has `timedOut: true`, an end time, and an empty `answer` object. Treat this as an incomplete response rather than a submitted answer when analyzing the JSON download.
+
+## Download Provenance
+
+Standard participant JSON downloads do not include provenance graphs. This keeps the download smaller and faster when you do not need provenance data.
+
+To analyze provenance, use the provenance ZIP download button next to the other download buttons. The ZIP contains separate provenance JSON files for each participant and task. Participant replay supports both this separate provenance storage and provenance graphs stored in answers from earlier data, so existing studies and data remain replayable.
+
+## Download Audio
+
+You can download audio files if you have enabled `recordAudio: true` in your study. To learn how to enable audio recording in your study, please visit [Think Aloud](../../designing-studies/think-aloud).
+
+### Bulk-Download Participants' Audio
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then click on the **Download participants audio** button.
+
+![Download participants' audio](./img/data-export/audio-export-all.png)
+
+:::note
+To download audio from a subset of participants, select the participants in the table before clicking download.
+:::
+
+### Download Individual Participant's Audio for a Specific Task
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
+![Download task audio](./img/data-export/audio-export-1.png)
+
+3. Click on the task.
+![Download task audio](./img/data-export/audio-export-2.png)
+
+3. Click on the **Download Audio** button.
+![Download task audio](./img/data-export/audio-export-3.png)
+
+:::info
+If you are using Firebase with the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) configured, it will download the transcript of the audio file as well.
+:::
+
+## Download Screen and Webcam Recordings
+
+You can download recording video files if you have enabled `recordScreen: true` and/or `recordWebcam: true` in your study. To learn how to enable recording, please visit [Record Screen and Webcam](../../designing-studies/record-screen).
+
+### Bulk-Download Participants' Recordings
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then click on the recording download button. It downloads screen recordings, webcam recordings, or both, depending on what the study collected.
+
+![Download participants' screen recording](./img/data-export/screen-recording-export-all.png)
+
+:::note
+To download recordings from specific participants, select the participants in the table.
+:::
+
+### Download Individual Participant's Recordings for a Specific Task
+
+1. Navigate to the **Analysis** platform for the current study.
+
+2. Open the **Participant View**, then expand the participant’s timeline by clicking the expand button.
+![Download task audio](./img/data-export/screen-recording-export-1.png)
+
+3. Click on the task.
+![Download task audio](./img/data-export/screen-recording-export-2.png)
+
+3. Click on the **Download recordings** button. If both screen and webcam recordings are available for the task, both files are downloaded.
+![Download screen recording video](./img/data-export/screen-recording-export-3.png)
+
+## Export Study Pages to PDF
+
+Save a study page as a PDF to share its instructions, stimulus, and questions with collaborators or include it in study materials. Each export captures the current page and its response values. To save several pages, open and export each one separately.
+
+### Export the Current Page
+
+1. Open the study page you want to save. Wait for its content to load and enter any responses you want to show in the PDF. For a video stimulus, pause on the frame you want to include.
+2. Open **Study actions**, the three-dot menu at the top right. This menu is available even when the study title bar is hidden.
+3. Select **Export page as PDF**. Wait for **PDF exported** and the download to finish.
+4. Open the downloaded file and check its content. The filename includes the component name and export date and time, such as `introduction_2026-09-29T14-30-00.pdf`.
+
+![Export page as PDF is highlighted in the Study actions menu at the top right of the study page.](./img/data-export/pdf-export-menu.png)
+
+The PDF includes a header with the study title and component name, the stimulus, visible responses, the response sidebar when shown, and the **Next** button when present. Exporting does not submit your responses or advance the study.
+
+### What the PDF Captures
+
+- Markdown, images, React content, Vega/SVG visualizations, and Canvas content are captured as they appear at export time.
+- Embedded HTML pages can be captured when hosted on the same origin as the study: the same protocol, hostname, and port.
+- Videos are captured as a still image of the current frame.
+- The content is scaled to fit one A4 page. ReVISit chooses landscape or portrait automatically; long pages may have small text.
+
+:::warning[Embedded external websites prevent export]
+If the page includes an external website or an embedded page the browser cannot access, ReVISit shows **PDF export unavailable** and does not download a PDF. To export that content, host it with the study and make sure the embedded page is accessible.
+:::
+
+If **PDF export failed** appears, wait for the page content to finish loading and try again.
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+        {name: "Brush Interactions Demo", url: "https://revisit.dev/study/analysis/stats/example-brush-interactions"},
+        {name: "Audio Demo", url: "https://revisit.dev/study/analysis/stats/test-audio"},
+    ]}
+    codeLinks={[
+        {name: "Brush Interactions Code", url: "https://github.com/revisit-studies/study/tree/main/public/example-brush-interactions"},
+        {name: "Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"}
+    ]}
+    referenceLinks={[
+        {name: "Tidy Data", url: "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"},
+        {name: "R", url: "https://www.r-project.org/other-docs.html"},
+        {name: "Jupyter", url: "https://docs.jupyter.org/en/latest/"},
+        {name: "Think Aloud", url: "https://revisit.dev/docs/designing-studies/think-aloud"}
+    ]}
+/>

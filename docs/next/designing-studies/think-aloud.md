@@ -1,0 +1,77 @@
+# Think Aloud
+
+ReVISit has integrated audio recording and audio playback for conducting in-person or crowdsourced think-aloud studies. Audio recording works with Firebase, Supabase, and local storage. With local storage, recordings remain in the participant's browser.
+
+## Turning on audio recording
+
+Enable [Data Collection](../analysis/revisit-modes.md#data-collection) in the study's **Manage** tab before testing or collecting audio recordings. When Data Collection is disabled, audio recording is disabled even if `recordAudio` is `true`.
+
+Turning on audio recording for your entire study can be done by setting the `recordAudio` flag in the `uiConfig` section of your config file.
+
+```json title="public/study-name/config.json"
+"uiConfig": {
+    "recordAudio": true
+}
+```
+
+By default, this will record audio for every task in the study. However, we recommend only recording audio for tasks which you plan on later analyzing, and turning it off for tasks such as consent forms and introductions. Each component can turn off audio for that component by setting the `recordAudio` flag within the component to false, as shown below.
+
+```json title="public/example-brush-interactions/config.json"
+"introduction": {
+    "type": "markdown",
+    "path": "example-brush-interactions/assets/introduction.md",
+    "recordAudio": false,
+    "response": [
+        {
+            "id": "prolificId",
+            "prompt": "Please enter your Prolific ID",
+            "location": "belowStimulus",
+            "type": "shortText",
+            "placeholder": "Prolific ID",
+            "paramCapture": "PROLIFIC_PID"
+        }
+    ]
+},
+```
+
+When Data Collection is enabled, audio is recorded via browser, and participants will receive a permissions request from their browser to access their microphone. If they do not have a microphone or failed to grant permissions, they will not be automatically stopped from continuing the study. However, for this purpose we provide the [`mic-check`](../libraries/mic-check.md) library, which requires participants to have a functioning microphone to continue the study when Data Collection is enabled. You can find more information in the [reVISit libraries](./plugin-libraries.md).
+
+:::info
+If you are using Firebase and want automatic transcripts for Think Aloud studies, you must also install the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) in your Firebase project. Once configured, it will automatically transcribe uploaded audio files.
+:::
+
+## Click-to-record
+
+The `clickToRecord` option enables a click-and-hold microphone button instead of continuous recording. When enabled, audio is muted by default and is recorded only while the button is held. When disabled, audio is recorded continuously on components where audio recording is enabled. If a participant speaks while muted, the microphone icon blinks red and gives a notification to unmute. You can set `"clickToRecord": true` in `uiConfig` for the whole study or at the individual component level.
+
+![Click to record](./img/think-aloud/click-to-record.png)
+
+## Downloading audio
+
+Audio data is saved by the selected storage engine: Firebase, Supabase, or local storage. To listen to participants' audio after they have completed a study, navigate to the [Participant Replay](../analysis/participant-replay.md) view in analysis.
+
+To download audio data after completing a study, navigate to [Participant View](../analysis/data-export.md) in analysis.
+
+:::info
+To download the audio and transcript files in bulk from Firebase, navigate to your Firebase storage to find your appspot name, then run the command `gsutil -m cp -r gs://my-bucket/studyName/audio .`.
+
+Transcript files are generated only if you have installed the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) in Firebase.
+:::
+
+import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
+
+<StructuredLinks
+    demoLinks={[
+        {name: "Test Audio Demo", url: "https://revisit.dev/study/test-audio/"},
+        {name: "Mic Check Demo", url: "https://revisit.dev/study/library-mic-check/"}
+    ]}
+    codeLinks={[
+        {name: "Test Audio Code", url: "https://github.com/revisit-studies/study/tree/main/public/test-audio"},
+        {name: "Mic Check Code", url: "https://github.com/revisit-studies/study/tree/main/public/library-mic-check/"}
+    ]}
+    referenceLinks={[
+        {name: "Mic Check Library", url: "../../libraries/mic-check/"},
+        {name: "ReVISit Libraries", url: "../plugin-libraries"},
+        {name: "Downloading audio", url: "../../analysis/data-export/#download-audio"}
+    ]}
+/>

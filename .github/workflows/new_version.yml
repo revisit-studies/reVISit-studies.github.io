@@ -1,9 +1,24 @@
-name: Create a new version and push to GitHub
+name: Promote documentation release
 
 on:
   repository_dispatch:
     types: [study_repo_publish]
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Exact stable study tag to publish (for example v3.0.0)'
+        required: true
+        type: string
+      docs_ref:
+        description: 'Docs commit or branch whose docs/next should become current'
+        required: true
+        default: main
+        type: string
+
+concurrency:
+  group: docs-release
+  cancel-in-progress: false
+  queue: max
 
 jobs:
   create_version:
@@ -13,66 +28,81 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
+          fetch-depth: 0
           token: ${{ secrets.PAT }}
 
-      - uses: actions/checkout@v4
-        with:
-          repository: revisit-studies/study
-          path: study
+      - name: Resolve selected docs revision
+        id: docs
+        env:
+          DOCS_REF: ${{ inputs.docs_ref || github.event.client_payload.docs_ref || github.sha }}
+        run: |
+          sha=$(node scripts/createDocsVersion.mjs resolve "$DOCS_REF")
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'yarn'
-          cache-dependency-path: study/yarn.lock
-    
-      - name: Install study dependencies
-        run: yarn --cwd=./study install --immutable
+          cache: yarn
 
-      - name: Build study docs
-        run: |
-          yarn --cwd=./study buildDocs
-          yarn --cwd=./study node libraryDocGenerator.cjs
-        working-directory: ./study
+      - name: Install documentation dependencies
+        run: yarn install --frozen-lockfile
 
-      - name: Get the 2 latest tags
-        id: get_tags
-        run: |
-          cd study
-          git fetch --tags
-          tags=$(git for-each-ref --sort='*authordate' --format='%(tag)' refs/tags)
-          tags=($tags)
-          echo "Latest tag: ${tags[${#tags[@]} - 1]}"
-          echo "Second latest tag: ${tags[${#tags[@]} - 2]}"
-          echo "latest_tag=${tags[${#tags[@]} - 1]}" >> $GITHUB_OUTPUT
-          echo "second_latest_tag=${tags[${#tags[@]} - 2]}" >> $GITHUB_OUTPUT
-
-      # Yarn install for docusaurus
-      - uses: actions/setup-node@v4
+      - name: Generate references from the release revision
+        uses: ./.github/actions/generate-study-docs
         with:
-          node-version: lts/*
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Create a version based on the second latest tag
-        run: |
-          yarn makeVersion ${{ steps.get_tags.outputs.second_latest_tag }}
+          ref: ${{ inputs.release_tag || github.event.client_payload.release_tag || 'main' }}
+          fetch-depth: '0'
 
-      - name: Copy new study docs to docs and cleanup
+      - name: Resolve exact stable release tag
+        id: release
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag || github.event.client_payload.release_tag }}
         run: |
-          cp -r study/docs/* ./docs/typedoc/
-          cp -r study/docsLibraries/* ./docs/libraries/
-          rm -rf study
+          # Existing study dispatches have no payload. Require main itself to be
+          # tagged instead of guessing the release from tag dates.
+          if [[ -z "$RELEASE_TAG" ]]; then
+            RELEASE_TAG=$(git -C .study-docs describe --exact-match --tags HEAD)
+          fi
+          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo 'Supply an exact stable release_tag and docs_ref using workflow dispatch.' >&2
+            exit 1
+          fi
+          # Generation must already have used the tagged commit.
+          test "$(git -C .study-docs rev-parse HEAD)" = "$(git -C .study-docs rev-parse "refs/tags/$RELEASE_TAG^{commit}")"
+          echo "tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
 
-      - name: Modify the current version in docusaurus.config.ts
+      - name: Archive current and promote approved Next
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          DOCS_SHA: ${{ steps.docs.outputs.sha }}
         run: |
-          sed -i "s/current: { label: '.*', path: '' },/current: { label: '${{ steps.get_tags.outputs.latest_tag }}', path: '' },/" docusaurus.config.ts
-          
-      - name: Commit and push changes
+          node scripts/createDocsVersion.mjs "$RELEASE_TAG" "$DOCS_SHA" .study-docs
+
+      - name: Generate Next references for validation
+        uses: ./.github/actions/generate-study-docs
+        with:
+          ref: dev
+
+      - name: Update Next references
         run: |
-          git config --global user.email "jackwilburn@tutanota.com"
-          git config --global user.name "Jack Wilburn"
-          git pull
-          git add .
-          git commit -m "Create a new version based on the latest tag"
-          git push
+          node scripts/syncStudyDocs.mjs .study-docs docs/next
+          rm -rf .study-docs
+
+      - name: Validate release snapshot
+        run: |
+          yarn test
+          yarn typecheck
+          yarn build
+
+      - name: Commit and push release snapshot
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git add --all -- docs/current sidebars.current.ts current-release.json versions.json versioned_docs versioned_sidebars
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish documentation for $RELEASE_TAG"
+            git push origin HEAD:main
+          fi
