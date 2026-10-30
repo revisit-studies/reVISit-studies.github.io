@@ -10,7 +10,7 @@ on:
         required: true
         type: string
       docs_ref:
-        description: 'Docs commit or branch containing the approved release documentation'
+        description: 'Docs commit or branch whose docs/next should become current'
         required: true
         default: main
         type: string
@@ -36,7 +36,9 @@ jobs:
         id: docs
         env:
           DOCS_REF: ${{ inputs.docs_ref || github.event.client_payload.docs_ref || github.sha }}
-        run: echo "sha=$(git rev-parse --verify --end-of-options "${DOCS_REF}^{commit}")" >> "$GITHUB_OUTPUT"
+        run: |
+          sha=$(node scripts/createDocsVersion.mjs resolve "$DOCS_REF")
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
         with:
@@ -70,7 +72,7 @@ jobs:
           test "$(git -C .study-docs rev-parse HEAD)" = "$(git -C .study-docs rev-parse "refs/tags/$RELEASE_TAG^{commit}")"
           echo "tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
 
-      - name: Snapshot selected docs and release references
+      - name: Archive current and promote approved Next
         env:
           RELEASE_TAG: ${{ steps.release.outputs.tag }}
           DOCS_SHA: ${{ steps.docs.outputs.sha }}
@@ -84,7 +86,7 @@ jobs:
 
       - name: Update Next references
         run: |
-          node scripts/syncStudyDocs.mjs .study-docs docs
+          node scripts/syncStudyDocs.mjs .study-docs docs/next
           rm -rf .study-docs
 
       - name: Validate release snapshot
@@ -99,7 +101,7 @@ jobs:
         run: |
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git config user.name 'github-actions[bot]'
-          git add versions.json docs-releases.json "versioned_docs/version-$RELEASE_TAG" "versioned_sidebars/version-$RELEASE_TAG-sidebars.json"
+          git add --all -- docs/current sidebars.current.ts current-release.json versions.json versioned_docs versioned_sidebars
           if ! git diff --cached --quiet; then
             git commit -m "Publish documentation for $RELEASE_TAG"
             git push origin HEAD:main

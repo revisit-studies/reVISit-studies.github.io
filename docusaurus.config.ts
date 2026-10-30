@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import versions from "./versions.json";
+import currentRelease from "./current-release.json";
 
 const enableGtag = process.env.ENABLE_GTAG === "true";
 const baseUrl = process.env.BASE_URL || "/";
@@ -63,7 +63,8 @@ const config: Config = {
       "classic",
       {
         docs: {
-          sidebarPath: "./sidebars.ts",
+          path: "docs/current",
+          sidebarPath: "./sidebars.current.ts",
           showLastUpdateTime: true,
           showLastUpdateAuthor: false,
           editUrl: ({ versionDocsDirPath, docPath }) => {
@@ -72,10 +73,10 @@ const config: Config = {
             }
             return `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/${versionDocsDirPath}/${docPath}`;
           },
-          lastVersion: versions[0],
+          lastVersion: "current",
           includeCurrentVersion: true,
           versions: {
-            current: { label: "Next", path: "next", banner: "unreleased" },
+            current: { label: currentRelease.version, path: "", banner: "none" },
           },
         },
         blog: {
@@ -96,6 +97,18 @@ const config: Config = {
           : {}),
       } satisfies Preset.Options,
     ],
+  ],
+
+  plugins: [
+    ["@docusaurus/plugin-content-docs", {
+      id: "next",
+      path: "docs/next",
+      routeBasePath: "docs/next",
+      sidebarPath: "./sidebars.next.ts",
+      versions: { current: { label: "Next", path: "", banner: "unreleased" } },
+      editUrl: ({ docPath }) => docPath.startsWith("typedoc/") ? undefined
+        : `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/docs/next/${docPath}`,
+    }],
   ],
 
   themeConfig: {
@@ -155,13 +168,13 @@ const config: Config = {
       },
       items: [
         {
-          type: "docSidebar",
+          type: "custom-docSidebar",
           sidebarId: "docs",
           position: "left",
           label: "Documentation",
         },
         {
-          type: "docSidebar",
+          type: "custom-docSidebar",
           sidebarId: "reference",
           position: "left",
           label: "Reference",
@@ -175,7 +188,7 @@ const config: Config = {
           position: "left",
         },
         {
-          type: "docsVersionDropdown",
+          type: "custom-docsVersions",
           position: "right",
         },
         {

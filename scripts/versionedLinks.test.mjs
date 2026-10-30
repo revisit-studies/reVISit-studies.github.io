@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { resolveVersionedLink } from '../src/utils/versionedLinks.mjs';
 
-const next = { name: 'current', path: '/docs/next' };
-const stable = { name: 'v2.4.4', path: '/docs' };
+const next = { name: 'next', path: '/docs/next' };
+const stable = { name: 'current', path: '/docs' };
 
 test('moving study source and demo links follow Next and switch back on promotion', () => {
   const links = [
@@ -23,7 +23,7 @@ test('absolute docs links stay in the viewed version, including PR base paths', 
   const href = 'https://revisit.dev/docs/typedoc/interfaces/StudyConfig/?q=a#sequence';
   assert.equal(resolveVersionedLink(href, next), '/docs/next/typedoc/interfaces/StudyConfig/?q=a#sequence');
   assert.equal(resolveVersionedLink(href, stable), '/docs/typedoc/interfaces/StudyConfig/?q=a#sequence');
-  assert.equal(resolveVersionedLink(href, { name: 'current', path: '/PR42/docs/next' }), '/PR42/docs/next/typedoc/interfaces/StudyConfig/?q=a#sequence');
+  assert.equal(resolveVersionedLink(href, { name: 'next', path: '/PR42/docs/next' }), '/PR42/docs/next/typedoc/interfaces/StudyConfig/?q=a#sequence');
   assert.equal(resolveVersionedLink('/docs/introduction/', { name: 'v2.3.2', path: '/PR42/docs/v2.3.2' }), '/PR42/docs/v2.3.2/introduction/');
 });
 
