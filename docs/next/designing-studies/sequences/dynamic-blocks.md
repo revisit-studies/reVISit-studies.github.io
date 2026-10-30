@@ -39,6 +39,7 @@ Where `JumpFunctionParameters` is defined as:
 
 ```ts title="src/store/types.ts"
 export interface JumpFunctionParameters<T> {
+  store: Readonly<Record<string, string | number | boolean>>,
   answers: ParticipantData['answers'],
   customParameters: T,
   currentStep: number,
@@ -57,6 +58,8 @@ export interface JumpFunctionReturnVal {
 ```
 
 The `answers` field is an object that contains the participant's answers to all the questions so far. The `customParameters` field is an object that contains any parameters passed to the function from the study configuration file. The `currentStep` field is the current step index in the flattened sequence, and `currentBlock` is the id/path prefix for the active dynamic block.
+
+For studies with [Global Variables](../global-variables.md), `store` contains the global values corresponding to the accepted prefix before the current dynamic trial. Use it to choose a component or calculate its parameters; it is a read-only snapshot, so return updates through trial submission rather than changing it inside the dynamic function.
 
 The function should return an object with the following fields:
 
