@@ -133,50 +133,91 @@ In addition to what is shown above, you will want to enable "Google Authenticati
 
 ### App Check
 
-Our last step is to set up App Check.
+App Check verifies that requests to Firebase come from your app. For a new setup, use **Fraud Defense**, which includes **reCAPTCHA Enterprise**. Depending on the console, the provider may appear under either name. Firebase Authentication and App Check are separate: keep the sign-in providers configured above.
 
-![Firebase App Check page showing the registered web app](./img/enabling-authentication/step25.png)
+:::note[Version compatibility]
 
-![Firebase App Check registration page for reCAPTCHA](./img/enabling-authentication/step26.png)
+These instructions require a reVISit version that supports `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY`. Older versions use the v3 provider. Update reVISit before configuring an Enterprise key; replacing the value of `VITE_RECAPTCHAV3TOKEN` alone does not switch providers.
 
-Click on "Register" to register your app with reCAPTCHA. At this point you will need to navigate to [reCAPTCHA](https://www.google.com/recaptcha/admin/create) to create a secret key.
-
-![Google reCAPTCHA admin page for creating a new reCAPTCHA key](./img/enabling-authentication/recaptcha1.jpg)
-
-The important part here is filling out the domains that you will allow to access the Firebase database. Add `localhost` and `127.0.0.1` to test your survey on your local machine.
-
-:::info
-If you are planning on hosting this externally (such as using GitHub pages), you need to also enter the base URL for your website. For the GitHub pages deployment, you should enter your base GitHub pages URL (i.e. <code>&lt;username&gt;.github.io</code>).
 :::
 
-You should now see a site key and a secret key. First, copy the secret key and paste it back into the Firebase reCAPTCHA page as shown in the following images.
+#### Create an Enterprise site key
 
-![Google reCAPTCHA admin page showing the generated site key and secret key](./img/enabling-authentication/recaptcha2.jpg)
+1. Open [Fraud Defense in Google Cloud](https://console.cloud.google.com/security/recaptcha) and select the **same project** as your Firebase app. Enable the reCAPTCHA Enterprise API if prompted.
+2. Select **Create key**, give it a recognizable display name, and choose **Web** as the application type.
+3. Add the hostnames where your study will run. For GitHub Pages, use `your-github-name.github.io`. For a custom domain such as `https://revisit.dev/study/`, use `revisit.dev`. Enter hostnames without `https://`, ports, or paths, and keep domain verification enabled.
+   ![Google Cloud key creation with Web selected and an example hostname](./img/enabling-authentication/enterprise-create-key.png)
 
-![Firebase App Check reCAPTCHA setup page with the secret key field](./img/enabling-authentication/step27.png)
+4. Leave **Will you use challenges?** disabled to create a score-based key. Leave the test-key and Web Application Firewall options disabled, then create the key.
+   ![Google Cloud additional settings with challenges, test keys, and WAF disabled](./img/enabling-authentication/enterprise-key-options.png)
 
-Now, copy the site key. That site key should go into your `.env` file for the variable `VITE_RECAPTCHAV3TOKEN`.
+5. Copy the **site key**. You will use the same value in Firebase and your reVISit build. The site key is public; this setup does not require a secret key in your application.
 
-Now we will link your browser to your app through a debug key.
+The screenshots use example values. Replace them with your own study name and hostname.
 
-:::info
-To see the debug token, you need to enable Firebase storage. Open up the <code>.env</code> file in the root of the repository. Change the <code>VITE_STORAGE_ENGINE</code> variable value to "firebase". Once you have Firebase already set up, you can switch between "localStorage" and "firebase" freely for development purposes.
-:::
+Do not add `localhost` or `127.0.0.1` to the production key. Use the [debug-token setup below](#local-development-with-debug-tokens) for local development.
 
-- Navigate to http://localhost:8080 and click on any demo study.
+#### Register the key with your Firebase app
 
-- Open up the browser console. This differs depending on the web browser that you are using. You can find the various ways to view the browser console for popular web browsers <a href="https://help.planday.com/en/articles/30207-how-to-open-the-developer-console-in-your-web-browser" target="_blank">here</a>.
+In **Firebase Console → Security → App Check → Apps**, select the Web app whose app ID matches `VITE_FIREBASE_CONFIG`. Choose **Fraud Defense (formerly known as reCAPTCHA Enterprise)**, paste the site key, and save. The default one-hour token lifetime and risk threshold of 0.5 are reasonable starting points.
 
-- Copy the debug token from the console.
-  ![Browser developer console showing the Firebase App Check debug token](./img/enabling-authentication/console.png)
+![Firebase Fraud Defense registration showing a placeholder site key, one-hour token lifetime, and risk threshold of 0.5](./img/enabling-authentication/enterprise-app-check.png)
 
-- Navigate to your Firebase instance and add the token as shown below:
+The site key shown above is a placeholder; paste the key you created in Google Cloud.
 
-![Firebase App Check debug tokens page](./img/enabling-authentication/step28.png)
+If you already have a Web app, reuse it. You do not need another app for Enterprise. Its nickname is only a display name: renaming it in **Project settings → General → Your apps** does not change the app ID or require a new `VITE_FIREBASE_CONFIG` value.
 
-![Firebase dialog for adding an App Check debug token](./img/enabling-authentication/step29.png)
+#### Configure and deploy reVISit
 
-![Firebase App Check page showing the added debug token](./img/enabling-authentication/step30.png)
+Set these values in your study repository's `.env`, keeping the `VITE_FIREBASE_CONFIG` value you copied earlier:
+
+```env title=".env"
+VITE_STORAGE_ENGINE="firebase"
+VITE_RECAPTCHA_ENTERPRISE_SITE_KEY="your-enterprise-site-key"
+```
+
+A nonempty `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` selects Enterprise. When it is empty or unset, reVISit keeps the v3 provider and its existing `VITE_RECAPTCHAV3TOKEN` site key. reVISit enables automatic App Check token refresh for both providers; you do not need to add a refresh timer or load a reCAPTCHA script yourself.
+
+The supplied **Deploy To GitHub Pages** workflow reads the Enterprise site key from `.env`. It does not require a GitHub repository variable for App Check. If you fork the study repository, replace its checked-in key with one configured for your own domain. For other hosting services, supply `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` in the build environment or `.env`.
+
+These settings are read when the website is built. Restart `yarn serve` after changing local settings; for a hosted site, rebuild and redeploy using the [deployment guide](../deploying-to-static-website.md). Editing `.env` alone does not update an already-published site.
+
+#### Verify the deployed setup
+
+Open your deployed site in a fresh browser session. In the browser's developer tools, check that the App Check request named `exchangeRecaptchaEnterpriseToken` succeeds. Then use an example study to check that responses save and data uploads succeed. Check Firebase's App Check request metrics and verify that the token refreshes during an open session; with the default one-hour lifetime, refresh is expected at approximately 30 minutes.
+
+A page loading or an upload succeeding does not by itself prove App Check is working: services in **Monitoring** mode still accept requests without valid App Check tokens. Monitor valid requests before enabling enforcement, and confirm that all deployed apps are registered. See [Firebase's Enterprise App Check guide](https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider) for setup and enforcement details.
+
+#### Migrate an existing v3 deployment
+
+Keep your existing v3 key and registration while adding Fraud Defense to the **same Firebase Web app**. Both providers can remain registered at the same time. New and existing sessions built with v3 can continue using v3 while a newer deployment uses Enterprise.
+
+1. Create and register the Enterprise key as described above, without removing v3 or changing enforcement settings.
+2. Set `VITE_RECAPTCHA_ENTERPRISE_SITE_KEY` in `.env` on your development branch and deploy a preview or `dev` first. The existing `main` branch keeps using v3 until you release the change. Previews and development builds may share the production database, so use an example study rather than an active study collecting Participant data.
+3. Verify token exchange, response saving, uploads, and refresh before merging the development branch into `main`. The release carries the `.env` setting into production, so new clients will then use Enterprise.
+4. Preserve both registrations for older deployments and open browser sessions. To return new clients to v3, clear the Enterprise setting used by that build and rebuild/redeploy. Leave the legacy v3 key configured for this rollback, and keep Enterprise registered for sessions already using it.
+
+Google's [migration of Classic keys to Google Cloud](https://docs.cloud.google.com/recaptcha/docs/migration-overview) is separate from switching the Firebase provider. It does not, by itself, require changing your reVISit client.
+
+#### Local development with debug tokens
+
+When you run `yarn serve`, reVISit enables Firebase App Check debug mode for local development. The debug provider lets you test locally without adding local domains to the production key.
+
+1. Set `VITE_STORAGE_ENGINE="firebase"` and your Firebase configuration in `.env`, then start or restart `yarn serve`.
+2. Open `http://localhost:8080`, select a demo study, and open your browser's developer console.
+3. Copy the App Check debug token printed in the console.
+
+   ![Browser developer console showing the Firebase App Check debug token](./img/enabling-authentication/console.png)
+
+4. In **Firebase Console → App Check → Apps**, open your Web app's menu, select **Manage debug tokens**, and register the token.
+
+   ![Firebase App Check debug tokens page](./img/enabling-authentication/step28.png)
+
+   ![Firebase dialog for adding an App Check debug token](./img/enabling-authentication/step29.png)
+
+5. Reload the local site. If browser storage is cleared and a new debug token is generated, register the new token too.
+
+Keep debug tokens private and out of source control. Debug mode does not verify real Enterprise attestation; test that separately on your deployed site. See [Firebase's debug-provider guide](https://firebase.google.com/docs/app-check/web/debug-provider).
 
 ## Allowing for CORS requests
 
@@ -207,14 +248,14 @@ You can find the link for the storage bucket by navigating to the "Storage" prod
 Assuming that you have already changed the `VITE_STORAGE_ENGINE` variable in the `.env` file to "firebase", you can now call `yarn serve` to launch the server and navigate to http://localhost:8080 to launch any demo study. All data from any participant session will automatically be uploaded to Firebase.
 
 :::note
-When running `yarn build`, reVISit automatically uses the Firebase storage engine.
+The build must also use `VITE_STORAGE_ENGINE="firebase"`. A deployment workflow can override your local `.env` settings, so check its build environment before publishing.
 :::
 
 ![ReVISit demo study page running with Firebase storage enabled](./img/enabling-authentication/demo.png)
 
 ## Deployment
 
-If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub pages](../../deploying-to-static-website). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
+If you are intending to deploy your reVISit application to a static website, we suggest following our [guide to deploy to GitHub Pages](../deploying-to-static-website.md). In this, you'll see that there is an additional step that you will need to follow in Firebase so that your custom domain can authorize users.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
@@ -222,7 +263,8 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     referenceLinks={[
         {name: "Firebase", url: "https://firebase.google.com/"},
         {name: "Firebase Tier Limits", url: "https://cloud.google.com/storage/pricing#cloud-storage-always-free"},
-        {name: "Google reCAPTCHA", url: "https://www.google.com/recaptcha/admin/create"},
+        {name: "Firebase Enterprise App Check", url: "https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider"},
+        {name: "Google Cloud Fraud Defense", url: "https://console.cloud.google.com/security/recaptcha"},
         {name: "Deploying to GitHub", url: "../../deploying-to-static-website"}
     ]}
 />
