@@ -27,6 +27,8 @@ If you already run the previous bundled MinIO or pgsty stack, follow the [migrat
 
 2. **Follow the [first-time setup guide][supabase-setup]** using the reVISit checkout matching this documentation. It walks you through obtaining the pinned upstream release, generating secrets, enabling anonymous participant sessions, and initializing the reVISit table and private storage bucket with `supabase/revisit.sql`.
 
+   The guide also adds reVISit's required Auth image override, which pins an Auth release containing a TLS security fix. Keep it enabled for every deployment, including when you recreate containers or update Supabase, and complete the guide's Auth image check before letting anyone use the deployment.
+
    Keep the Supabase deployment in its own directory outside the application checkout. Its `.env` contains database credentials and deployment secrets. The `.env` at the root of the reVISit application is separate and contains the public connection settings below.
 
    Run initialization only on a fresh database. Existing installations retain their schema and policies through the migration procedure. The supplied policies allow anyone holding the public application key to read and write reVISit records and objects; a private bucket does not provide participant-level isolation under these policies. Preserve any stricter policies you already use.
@@ -106,7 +108,7 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
 />
 
-[supabase-setup]: https://github.com/revisit-studies/study/blob/1669a47fa63860b39723b4e92a10f73dbbb8936c/supabase/README.md
-[supabase-migration]: https://github.com/revisit-studies/study/blob/1669a47fa63860b39723b4e92a10f73dbbb8936c/supabase/MIGRATION.md
-[supabase-rollback]: https://github.com/revisit-studies/study/blob/1669a47fa63860b39723b4e92a10f73dbbb8936c/supabase/MIGRATION.md#rollback
-[supabase-operations]: https://github.com/revisit-studies/study/blob/1669a47fa63860b39723b4e92a10f73dbbb8936c/supabase/README.md#storage-and-ongoing-operations
+[supabase-setup]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/README.md
+[supabase-migration]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/MIGRATION.md
+[supabase-rollback]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/MIGRATION.md#rollback
+[supabase-operations]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/README.md#storage-and-ongoing-operations

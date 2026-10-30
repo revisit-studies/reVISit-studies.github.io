@@ -72,5 +72,5 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
     ]}
 />
 
-[supabase-setup]: https://github.com/revisit-studies/study/blob/1669a47fa63860b39723b4e92a10f73dbbb8936c/supabase/README.md
-[supabase-migration]: https://github.com/revisit-studies/study/blob/1669a47fa63860b39723b4e92a10f73dbbb8936c/supabase/MIGRATION.md
+[supabase-setup]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/README.md
+[supabase-migration]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/MIGRATION.md

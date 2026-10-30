@@ -54,7 +54,7 @@ When both screen and webcam recordings are available for a task, use **Replay la
 - **Picture in picture** overlays the webcam recording on the screen recording.
 - **Webcam on top** places the webcam recording above the screen recording. Choose **Small**, **Medium**, or **Large** to adjust its size.
 
-The recordings share the replay controls, so seeking or changing playback speed keeps them synchronized. See [Record a Participant's webcam](../designing-studies/record-screen.md#record-a-participants-webcam) for setup instructions.
+The recordings share the replay controls, so seeking or changing playback speed keeps them synchronized. See [Record a Participant's webcam](../designing-studies/record-screen.md#turning-on-screen-and-webcam-recording) for setup instructions.
 
 ![Participant replay with synchronized screen and webcam videos, Webcam on top selected, and Medium webcam size selected](./img/participant-replay/screen-webcam-layout.png)
 
