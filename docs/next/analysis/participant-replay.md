@@ -2,7 +2,7 @@
 
 The participant replay can be used for an overview of each participant's study.
 
-![Participant Replay](./img/participant-replay/participant-replay.png)
+![Participant View timeline with task-order and layout controls, and a browsed-away interval](./img/participant-replay/participant-replay.png)
 
 To view the provenance or audio replay for a single participant, click the expand icon to open their data row, then select a task on the timeline.
 
@@ -25,15 +25,58 @@ Use the **Time / Uniform** control in the toolbar above the participant table to
 
 Uniform mode does not change the task order selected with the **Order** control. Task colors continue to distinguish correct, incorrect, incomplete, and recorded responses whose correctness is not configured.
 
-Task replay is intended to be used with provenance, audio recording, or both. Audio and provenance are synced, and the provenance data is used to rehydrate the task stimulus, showing researchers what participants saw while taking the study. This includes the moment validation errors were revealed after a Participant attempted to continue, so replay shows the same highlighted validation state.
+## Replay a Task
+
+Task replay can include provenance, audio, and screen or webcam recordings, depending on what the study collected. Recordings and provenance follow the same replay clock. Provenance restores the task stimulus, showing what Participants saw while taking the study. This includes the moment validation errors were revealed after a Participant attempted to continue, so replay shows the same highlighted validation state.
+
+Use the controls in the replay footer:
+
+- **Play / Pause** starts or pauses playback.
+- Click a point on the audio/provenance timeline to jump to that time.
+- **Speed** (shown as a multiplier such as **1x**) changes the playback speed.
+- **Restart** appears when the task ends. Select it to play the task again from the beginning.
+
+The timer follows the task's recorded start and end times. If an audio or video recording is shorter than the task, the timer and provenance replay continue through the remaining time.
+
+Scroll the page to reach long task instructions or sidebar responses. The task content and response sidebar scroll together, while the replay controls stay fixed at the bottom.
+
+:::info
+The **Next Participant** actions in the study header menu and Study Browser are disabled during replay because they create a new Participant session. To review another recorded Participant, use the Participant selector in the replay footer.
+:::
 
 For stimuli that use managed Trrack provenance, replay follows the recorded interaction path, including undo, redo, and revisiting an existing state. Historical graph-only provenance remains replayable, but may not reproduce those traversals as faithfully.
+
+## Replay Screen and Webcam Recordings
+
+When both screen and webcam recordings are available for a task, use **Replay layout** to choose how to view them:
+
+- **Side by side** places the screen and webcam recordings next to each other.
+- **Picture in picture** overlays the webcam recording on the screen recording.
+- **Webcam on top** places the webcam recording above the screen recording. Choose **Small**, **Medium**, or **Large** to adjust its size.
+
+The recordings share the replay controls, so seeking or changing playback speed keeps them synchronized. See [Record a Participant's webcam](../designing-studies/record-screen.md#turning-on-screen-and-webcam-recording) for setup instructions.
+
+![Participant replay with synchronized screen and webcam videos, Webcam on top selected, and Medium webcam size selected](./img/participant-replay/screen-webcam-layout.png)
+
+The example uses a synthetic screen recording and a test camera feed.
+
+Video playback can depend on the browser used to record it. If the Participant's browser differs from the Analyst's, ReVISit displays a warning that playback may not work properly. When a recording does not play, try opening the replay in the same browser family the Participant used.
 
 
 :::info
 If a participant hasn't completed any tasks yet, you'll see a warning message indicating that no task data is available for replay. This typically happens when a participant is still in progress or dropped out before submitting any responses.
 ![Incomplete task](./img/participant-replay/participant-replay-incomplete.png)
 :::
+
+### Browser Compatibility
+
+When a screen or webcam recording was captured in a different browser, a warning above the replay footer identifies the Participant's browser and your current browser. Video playback may not work properly. If you have trouble playing the recording, open the replay in the browser named in the warning. You can close the warning to continue reviewing the task.
+
+## Inspect Global Variable History
+
+For studies using [Global Variables](../designing-studies/global-variables.md), use the **Submission history** selector to choose an original or revised submission. Replay restores the selected path's accepted answers and entry values, including the recording assets associated with that visit. It displays the recorded result without rerunning submission actions or stimulus updaters and does not change the Participant's saved data.
+
+## Link to a Timestamp
 
 If you’d like to link to a specific timestamp in the replay, you can use the `&t` query parameter in your URL.
 For example, this link will jump to 40 seconds in the replay: https://revisit.dev/study/example-brush-interactions/LzE2MTl4ZVRMTk5nSFlNYmd1ZDhjZz09?participantId=e4377e49-0f35-461a-bd9c-c31523599db7&t=40s
@@ -46,7 +89,7 @@ You can specify time in different formats:
 - Minutes: `&t=2m`, `&t=10m30s`
 - Hours: `&t=1h30m`
 
-If the entered time exceeds the replay’s maximum length, it will automatically be replaced with the maximum available time in milliseconds.
+Choose a timestamp within the task's recorded duration.
 
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 

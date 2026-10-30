@@ -8,6 +8,10 @@ Here we will introduce how to create a React stimulus for reVISit studies throug
 
 **Example 2** is a Stroop color experiment. This example will demonstrate how to retrieve user answers from the React component using the `reactive` response type.
 
+For studies using React 19, choose compatible React libraries. When adapting older components, check the [React 19 upgrade guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) and the [Mantine compatibility notes](./applying-style.md#styling-custom-react-components).
+
+For values that change across trials, a React stimulus receives the `globalVariables` prop and can register an updater with `registerGlobalStoreUpdater`. See [Global Variables](./global-variables.md#read-and-update-values-in-react) for a complete example that displays and updates a budget, including Previous and reload behavior.
+
 ## Example 1: Graphical Perception Experiment
 
 The React component stimulus should be put into the `src/public/your-exp-name/assets` folder. As stated in other tutorials, we suggest always making an `assets` directory inside your experiment directory for the best organization possible. In our example, we name the experiment "example-cleveland," so we put this code into `src/public/example-cleveland/assets/BarChart.tsx`. Please replace it with another experiment name.
@@ -19,7 +23,7 @@ We have a few reusable components and hooks available in the `src/public/example
 Please note, there is a **"parameters"** prop in the BarChart component. This is used to pass data from the config file to the React component.
 In this example, we pass two data arrays to the BarChart component. One is the data array contains 5 objects, each object has a name and a value. The other is the selectedIndices array, which contains the indices of the data array that we want to highlight with dots.
 
-```ts title="src/public/example-cleveland/assets/chartcomponents/BarChart.tsx"
+```ts title="src/public/example-cleveland/assets/BarChart.tsx"
 import * as d3 from 'd3';
 import { useChartDimensions } from './hooks/useChartDimensions';
 import { Bars } from './chartcomponents/Bars';
@@ -177,6 +181,8 @@ The component uses:
 
 Set `"required": true` on a `reactive` response when the Participant must interact with the stimulus before continuing. If they select **Next** first, ReVISit shows: “Please complete the stimulus interaction to continue.”
 
+To require a particular answer from the stimulus, add `requiredValue` to the reactive response. Use `requiredLabel` for the readable name shown in its validation message. See [Requiring a Value from a Stimulus](./forms.md#requiring-a-value-from-a-stimulus) for an example and matching rules.
+
 We will use `demo-react-trrack` as the experiment name. Create the React stimulus file in `src/public/demo-react-trrack/assets/`.
 
 ```ts title="src/public/demo-react-trrack/assets/DemoReactTrrack.tsx"
@@ -238,7 +244,7 @@ function StroopColorTask({ parameters, setAnswer }: StimulusParams<any>) {
 export default StroopColorTask;
 ```
 
-Below is a minimal config with two Stroop trials. Each trial passes `displayText` (the word shown) and `textColor` (the color of the text) via `parameters`. The `reactive` response type receives the typed answer from the component.
+Below is a Study Config excerpt with two Stroop trials. Keep your existing `$schema`, `studyMetadata`, and `uiConfig` fields, and set `uiConfig.withSidebar` to `true` so the Next button is visible. Each trial passes `displayText` (the word shown) and `textColor` (the color of the text) via `parameters`. The `reactive` response type receives the typed answer from the component.
 
 ```json title="public/demo-react-trrack/config.json"
 {
@@ -248,6 +254,9 @@ Below is a minimal config with two Stroop trials. Each trial passes `displayText
       "instruction": "In this experiment you are required to say the color of the word, not what the word says. For example, for the word, RED, you should say \"Blue.\"",
       "type": "react-component",
       "path": "demo-react-trrack/assets/DemoReactTrrack.tsx",
+      "parameters": {
+        "taskid": "stroopAnswer"
+      },
       "nextButtonLocation": "sidebar",
       "response": [
         {

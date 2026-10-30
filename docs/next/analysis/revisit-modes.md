@@ -1,6 +1,6 @@
 # ReVISit Modes
 
-Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analysis interface. You can also view the current mode status from the study card.
+Each of the reVISit studies has various modes which enable different features. These can be managed in the "Manage" tab of a particular study in our analysis interface. When the study is visible on the landing page, its card also shows the current mode status.
 
 ![ReVISit modes study card](./img/revisit-modes/modes-study-card.png)
 
@@ -12,7 +12,13 @@ Here we give a brief introduction to these modes. Check out our [Analysis Platfo
 
 With Data Collection enabled, all data that is captured by participants will be stored either locally or in your cloud database (dependent on your currently specified storage engine). You can check out our [data management documentation](../../analysis/data-management) to learn how to manage participants, create backup datasets, and more.
 
-Disabling data collection on a particular study will cause the user to see a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected.
+Disabling data collection on a particular study will cause the user to see a `DEMO MODE` icon in the upper right hand corner. This is to alert users that their data is not currently being collected. In this mode, ReVISit also does not capture audio, screen, or webcam recordings, and does not request recording permissions.
+
+:::info
+When **Data Collection** is off, reVISit does not record audio or screens, even if recording is enabled in your Study Config. Participants can continue past the microphone check and screen recording permission pages without recording. The **Start Recording** button is disabled.
+
+To test recording, turn on **Data Collection** in the study's **Manage** tab.
+:::
 
 ## Development Mode
 
@@ -21,6 +27,10 @@ When the development mode is enabled, any user will be able to access the study'
 ## Share Data and Make Analytics Interface Public
 
 The analytics interface provides administrators with a way to view, download, and manage study data. When enabling this mode, all the data for this particular study will be viewable by the broader public. This means that anybody can view the participants, see the answers given, and download all the data.
+
+Turning this mode off keeps the landing-page card visible, but hides Participant counts, configuration warnings and errors, and the **Analyze & Manage Study** button, including for administrators. To reach the analysis interface when that button is hidden, open `/analysis` under your deployment's base URL and sign in as an administrator if authentication is enabled.
+
+To hide the entire card, use the separate **Show study on landing page** setting under **Study visibility** in **Manage**. See [Show or hide a study](../data-and-deployment/landing-page.md#show-or-hide-a-study) for the steps and how to restore a hidden study.
 
 :::note
 If you are using older version mode names, reVISit will automatically update the old mode names to the new mode names in storage engines.

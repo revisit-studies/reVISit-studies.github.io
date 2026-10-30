@@ -1,10 +1,12 @@
 # screen-recording
 
-This is a required library for screen recording. It provides a component that requests user permission for screen and microphone access. Then, it starts screen capture until the end of the study.
+Use this library's permission component when a study records a participant's screen. It requests access to screen capture and any configured webcam or microphone recording, then starts the configured recordings. For webcam-only recording, use the `webcam-recording` library instead. See [Record Screen](../designing-studies/record-screen.md) for setup and participant permission details.
 
 ## Available Components
 
 - screenRecordingPermission
+
+The `screenRecordingPermission` component is required before any screen recording begins. It also handles webcam permission for combined screen and webcam studies, and includes a microphone check when audio recording is enabled.
 
 ## Available Sequences
 

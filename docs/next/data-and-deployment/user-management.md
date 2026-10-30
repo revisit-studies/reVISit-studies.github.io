@@ -1,13 +1,13 @@
 # User Management in reVISit
 
 :::tip
-To use the user-management system that is built into reVISit, you must have a Firebase application set up. Please see [here](../firebase/setup) for how to set up a Firebase application. Additionally, you will need to enable the Google sign-in method for Authentication. You can find this section of the Firebase tutorial [here](../firebase/setup#authentication).
+ReVISit's built-in user management works with Firebase and Supabase. For Firebase, set up Firebase Authentication with Google sign-in using the [Firebase setup guide](./firebase/setup.md). For Supabase, configure GitHub OAuth using the [Supabase authentication guide](./supabase/enabling-authentication.md).
 :::
 
-ReVISit comes with an authentication and authorization system that allows a study creator to manage what users should have access to (possibly sensitive) user data and analysis. This is managed with Firebase's Google SSO and custom authorization tools built into the reVISit application. Enabling the authentication system will not interfere with who can take an individual study. Instead, it will allow a study creator to feel confident that a participant is not navigating to portions of the application which is intended for the study creator only.
+ReVISit comes with an authentication and authorization system that allows a Study Designer to manage who can access study data and analysis. Sign-in uses Google through Firebase or GitHub through Supabase, together with the administrator list managed in ReVISit. Enabling authentication does not prevent Participants from taking a study; it protects the analysis dashboard and other administrator pages.
 
 :::warning
-It is not required that you use the authentication system in reVISit, but it is highly recommended. Without this, any individual will be able to see and download any data that is stored in your Firebase application.
+It is not required that you use the authentication system in ReVISit, but it is highly recommended. Without it, other users who can reach your application may be able to access data in its configured backend.
 :::
 
 ## How does authentication work in reVISit?
@@ -24,7 +24,7 @@ When authentication is enabled, all administrators are required to log into the 
 When a user goes directly to a study, they are signed in <i>anonymously</i>. This means that no personally identifiable information is captured. This is only done so that we can persist the user data across the entire study.
 :::
 
-When you first set up your reVISit application, authentication is disabled by default. The user who first enables this authentication will be prompted to sign in via Google SSO. They will automatically become the first administrator. Additional administrators can be added afterwards.
+When you first set up your ReVISit application, authentication is disabled by default. The person who enables authentication is prompted to sign in with the provider configured for the storage backend: Google for Firebase or GitHub for Supabase. The confirmed account becomes the first administrator. Add other administrators after setup. See the [Firebase](./firebase/enabling-authentication.md) or [Supabase](./supabase/enabling-authentication.md) guide for backend-specific steps.
 
 :::warning
 Authentication should be enabled prior to deployment. This will prevent any unwanted user from enabling authentication and setting themselves as an administrator. Adding or removing administrators can be done before or after deployment.
@@ -35,7 +35,7 @@ Authentication should be enabled prior to deployment. This will prevent any unwa
 ### Firebase
 
 :::danger
-In general, we do not advise editing the user management data directly in the Firestore Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../firebase/enabling-authentication) for editing users within the reVISit UI.
+In general, we do not advise editing the user management data directly in the Firestore Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see the [Firebase authentication guide](./firebase/enabling-authentication.md) for editing users within the ReVISit UI.
 :::
 
 ReVISit allows you to handle all necessary user management from the reVISit UI. However, if you are ever in a situation where you have lost access to the reVISit application, you can still edit the user access via the Firestore.
@@ -72,7 +72,7 @@ Once the collection is deleted, your reVISit application will be ready to re-ena
 ### Supabase
 
 :::danger
-In general, we do not advise editing the user management data directly in the Supabase Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the reVISit application. Please see [here](../supabase/enabling-authentication) for editing users within the reVISit UI.
+In general, we do not advise editing the user management data directly in the Supabase Database. This should only be used in cases where the security of the application has been compromised and there is no way to edit the user access within the ReVISit application. Please see the [Supabase authentication guide](./supabase/enabling-authentication.md) for editing users within the ReVISit UI.
 :::
 
 #### The `user_management` table row

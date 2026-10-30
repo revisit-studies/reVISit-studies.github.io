@@ -73,7 +73,7 @@ ReVISit is a project developed at the [University of Utah](https://visdesignlab.
 
 ### Contributors
 
-[Sheng Long](https://mika-long.github.io/), PhD Student, Northwestern University
+[Sheng Long](https://github.com/mika-long), PhD Student, Northwestern University
 
 ## Contact
 

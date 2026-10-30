@@ -106,7 +106,7 @@ The latin square theoretically ensures proper balance between conditions, howeve
 
 In practice, it is useful to recruit participants in batches and reject incomplete participants before starting a new batch, to ensure that the latin square remains balanced.
 
-For other ways to ensure balance in your study design, please review this [FAQ item](../../../faq/#q-how-can-i-ensure-balanced-numbers-of-participants-between-conditions-in-my-study-design) and consider using [URL-based conditions](../url-conditions/).
+For other ways to ensure balance in your study design, please review this [FAQ item](../../../faq/#q-how-can-i-ensure-balanced-numbers-of-participants-between-conditions-in-my-between-subjects-study-design) and consider using [URL-based conditions](../url-conditions/).
 :::
 
 ## Showing a Subset of All Trials
