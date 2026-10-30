@@ -9,7 +9,7 @@ Configure your Supabase deployment before enabling authentication; see [Configur
 Supabase provides a variety of authentication methods.
 
 :::info
-Supabase supports multiple OAuth providers, but reVISit currently only officially supports GitHub OAuth. For other providers, see the [Supabase self-hosted authentication guide](https://supabase.com/docs/guides/self-hosting/auth).
+Supabase supports multiple OAuth providers, but reVISit currently only officially supports GitHub OAuth. For other providers, see the [Supabase self-hosted authentication guide](https://supabase.com/docs/guides/self-hosting/auth/config).
 :::
 
 To enable GitHub OAuth, start by [creating a GitHub OAuth application](https://github.com/settings/developers).
