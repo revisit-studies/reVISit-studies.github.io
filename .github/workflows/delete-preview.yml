@@ -4,25 +4,44 @@ on:
   pull_request:
     types: [closed]
 
+concurrency:
+  group: docs-pages
+  cancel-in-progress: false
+  queue: max
+
 jobs:
   delete-preview:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
 
     steps:
-      - name: Make empty directory
-        run: mkdir -p public
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: .pages
+
+      - name: Check the PR is still closed
+        id: state
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          state=$(gh pr view "$PR_NUMBER" --json state --jq .state)
+          echo "closed=$([[ "$state" == 'CLOSED' || "$state" == 'MERGED' ]] && echo true || echo false)" >> "$GITHUB_OUTPUT"
 
       - name: Delete preview folder
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          destination_dir: "PR${{ github.event.number }}"
+        if: steps.state.outputs.closed == 'true'
+        env:
+          PREVIEW_DIR: PR${{ github.event.number }}
+        run: bash scripts/publishPages.sh --delete .pages "$PREVIEW_DIR"
 
       - name: Comment on PR
+        if: steps.state.outputs.closed == 'true'
         uses: hasura/comment-progress@v2.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

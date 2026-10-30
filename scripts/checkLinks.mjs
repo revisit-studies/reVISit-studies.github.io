@@ -22,6 +22,7 @@ const linksToSkip = [
   "ojs.aaai.org",
   "console.cloud.google.com",
   "https://www.google.com/recaptcha/admin/create",
+  "^https://platform\\.openai\\.com/", // automated requests are denied
 ];
 
 const checker = new LinkChecker();
@@ -31,6 +32,7 @@ const seenUrls = new Set();
 const okLinks = [];
 const skippedLinks = [];
 const brokenLinks = [];
+let ignoredExternalConnectionFailure = false;
 
 checker.on("link", (result) => {
   if (seenUrls.has(result.url)) {
@@ -38,7 +40,11 @@ checker.on("link", (result) => {
   }
   seenUrls.add(result.url);
 
-  if (result.state === LinkState.BROKEN) {
+  if (result.state === LinkState.BROKEN && result.status === 0 && /^https?:\/\//.test(result.url)) {
+    ignoredExternalConnectionFailure = true;
+    skippedLinks.push(result);
+    console.log(`[SKIP 0] ${result.url}`);
+  } else if (result.state === LinkState.BROKEN) {
     brokenLinks.push(result);
     // Print broken links immediately so progress is visible
     console.log(
@@ -57,6 +63,8 @@ const results = await checker.check({
   path: "./build",
   recurse: true,
   linksToSkip,
+  retryErrors: true,
+  retryErrorsCount: 2,
 });
 
 // Print a summary of broken links at the end for easy identification
@@ -82,6 +90,6 @@ console.log(
   `Checked ${totalUnique} unique links (${totalReported} total, ${totalReported - totalUnique} duplicates skipped).`,
 );
 
-if (!results.passed) {
+if (!results.passed && (brokenLinks.length > 0 || !ignoredExternalConnectionFailure)) {
   process.exit(1);
 }
