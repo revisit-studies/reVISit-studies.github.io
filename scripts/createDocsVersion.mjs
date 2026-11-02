@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { syncStudyDocs } from './syncStudyDocs.mjs';
+import { verifyStudyRelease } from './resolveStudyRelease.mjs';
 
 const git = (directory, ...args) => execFileSync('git', args, { cwd: directory, encoding: 'utf8' }).trim();
 
@@ -82,8 +83,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     console.log(resolveDocsRef(process.cwd(), docsRef));
   } else {
     if (!tag || !docsRef || !studyDir) throw new Error('Usage: node scripts/createDocsVersion.mjs <release-tag> <docs-ref> <study-dir>');
-    const studyCommit = git(studyDir, 'rev-parse', '--verify', '--end-of-options', `refs/tags/${tag}^{commit}`);
-    if (git(studyDir, 'rev-parse', 'HEAD') !== studyCommit) throw new Error('Study checkout must match the release tag before generating references.');
+    verifyStudyRelease(studyDir, tag);
+    const studyCommit = git(studyDir, 'rev-parse', 'HEAD');
     await createDocsVersion({ siteDir: process.cwd(), tag, docsRef, studyCommit, studyDir });
   }
 }
