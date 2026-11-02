@@ -25,6 +25,10 @@ The Study Browser shows how a Study Config is structured and, when an Analyst vi
 
 Response order and option/question order are configured independently.
 
+![Study Browser showing the five-dot random-options indicator, the three-dot random-responses indicator, and a tooltip](./img/study-browser/randomization-indicators.png)
+
+![Study Browser showing imported-library, conditional, and random-order indicators with the imported-library tooltip open](./img/study-browser/structure-indicators.png)
+
 
 ### Participant Status
 

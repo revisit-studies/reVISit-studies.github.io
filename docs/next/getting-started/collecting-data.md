@@ -19,9 +19,9 @@ Take the survey that you have created earlier! After you are done, use the menu 
 
 ## Accessing Data
 
-To access the data, go to the analysis interface by visiting the root of reVISit at http://localhost:8080/, and clicking "Analyze & Manage Study" in the study card on the bottom-right. This will get you to the analysis interface that will show all studies in your reVISit instance, including the one you just created `basic-questionnaire-study`.
+To access the data, open the analysis interface at http://localhost:8080/analysis and choose `basic-questionnaire-study` from **Select Study**. You can also click **Analyze & Manage Study** on its landing-page card when data sharing is enabled. If the card or button is hidden, use the direct analysis URL; you do not need to make your data public to access it.
 
-![Analyze and Manage Study](img/analyze-manage-study.png)
+![Analyze and Manage Study shortcut on a study card with data sharing enabled](img/analyze-manage-study.png)
 
 You can now download your data either "flattened" in tabular data format (as ["tidy data"](https://r4ds.hadley.nz/data-tidy.html#sec-tidy-data)), or you can download the full nested JSON file. For more information on downloading data, refer to [Data Export](../../analysis/data-export/).
 
