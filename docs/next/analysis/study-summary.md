@@ -2,7 +2,7 @@
 
 The study summary gives users a quick overview of their study at a glance. It provides a comprehensive overview of their study data in a single, easy-to-understand dashboard.
 
-The summary is organized into three main sections: Overview Statistics, Component Statistics, and Response Statistics. At the top, participant filters allow you to filter the analysis by including or excluding completed, in-progress, or rejected participants. A stage selector is also available for filtering different study stages. For more details on stage management, see [here](./../stage-management).
+The summary is organized into three main sections: Overview Statistics, Component Statistics, and Response Statistics. At the top, participant filters allow you to filter the analysis by including or excluding **Completed**, **In Progress**, **Rejected**, **Timed Out**, or **Completed Late** participants. A stage selector is also available for filtering different study stages. For more details on stage management, see [Stage Management](./stage-management.md).
 
 ![Study Summary](./img/study-summary/study-summary.png)
 
@@ -13,7 +13,7 @@ This section shows key numbers about the study.
 ![Study Summary Overview Statistics](./img/study-summary/study-summary-overview.png)
 
 - Total Participants – total number of people in the study
-- Completed / In-Progress / Rejected – counts of participants by status (green = completed, yellow = in-progress, red = rejected)
+- Completed / In Progress / Rejected / Timed Out / Completed Late – separate counts for each status. [Auto-timeout](./live-monitor.md#automatically-release-participant-slots) releases participant slots while allowing participants to finish; those who finish afterward count as Completed Late rather than Completed.
 - Start Date / End Date – when the first participant started and the last one finished the study
 - Average Time – average time participants spent on the study
 - Average Clean Time – average time spent without browsing away from the study

@@ -5,7 +5,7 @@ The Live Monitor gives you a real-time view of participant progress throughout y
 Check out the [Live Monitor Demo](https://revisit.dev/study/analysis/stats/demo-dynamic/live-monitor).
 
 :::warning
-Live Monitor currently works only with the Firebase storage engine and requires an active internet connection.
+Live participant monitoring works only with the Firebase storage engine and requires an active internet connection. The **Auto-timeout** setting is also available with Supabase and local storage.
 :::
 
 ## Real-Time Updates
@@ -19,9 +19,33 @@ If your internet connection temporarily drops, the Live Monitor will automatical
 
 ![Live monitor reconnect](./img/live-monitor/live-monitor-reconnect.png)
 
+## Automatically Release Participant Slots
+
+Use **Auto-timeout** to free places held by participants who have not finished within a chosen duration. Only study administrators can change this setting.
+
+1. Open **Live Monitor** under **Analysis** and find the **Auto-timeout** card.
+2. Enter a duration in **Auto-timeout minutes**. The initial value is **60 minutes**; the minimum is **1 minute**, in whole minutes. Auto-timeout is disabled by default.
+3. Turn on **Enable auto-timeout**, then confirm with **Enable auto-timeout** in the **Enable auto-timeout?** dialog.
+
+While enabled, changes to the duration save when you leave the minutes field. Turn off the switch to stop applying new automatic timeouts.
+
+<!-- TODO: Screenshot — Open Analysis > Live Monitor as an administrator with Auto-timeout enabled at 60 minutes. Frame the Auto-timeout card with its explanation, minutes field, and switch. Highlight the switch with a #FFBD59 border and matching arrow. Alt: Auto-timeout card enabled with a duration of 60 minutes. Save to ./img/live-monitor/auto-timeout.png. -->
+
+The duration is measured from the participant's assignment time, not their last response or activity. When a **new participant assignment** is requested during data collection, ReVISit checks unfinished assignments in the current stage and times out those that have reached the duration. This check happens before evaluating participant limits, so released places can admit new participants. Reaching the duration alone does not trigger an update; leaving Live Monitor open does not run a periodic timeout check.
+
+Timed-out participants no longer count toward stage or condition limits. Their data is retained, and they can continue and finish normally. They appear as **Timed Out** until they finish, then as **Completed Late**. A late completion does not occupy a slot again, so the number of people who eventually finish can exceed the recruitment limit. Disabling auto-timeout does not restore slots already released.
+
+:::info[Existing studies]
+If enabling auto-timeout reports that the stage contains legacy assignments without saved order information, create and activate a new stage in [Stage Management](./stage-management.md) before enabling it.
+:::
+
+### Automatic Timeout and Manual Time Out
+
+The existing manual **Time Out** action in the **In-Progress Participants** review dialog rejects the selected participant and returns their assignment for reuse. Their data is retained, but they are marked **Rejected** and cannot continue normally unless the rejection is undone. Use automatic timeout when you want to release capacity while still allowing a participant to finish. Auto-timed-out participants are excluded from the manual review list.
+
 ## Tracking Participant Progress
 
-Participants are grouped by their status, and you can expand or collapse sections as needed. You can also filter participants by status or stage using the controls at the top. They are sorted by creation time, with the most recent participants appearing first.
+Participants are grouped as **Completed**, **In Progress**, **Rejected**, **Timed Out**, or **Completed Late**, and you can expand or collapse sections as needed. You can also filter participants by status or stage using the controls at the top. They are sorted by creation time, with the most recent participants appearing first.
 
 For participants still in progress, question blocks show task status: green for completed, gray for unanswered, teal for dynamic study items. Hovering over a question block displays the task name in a tooltip.
 
