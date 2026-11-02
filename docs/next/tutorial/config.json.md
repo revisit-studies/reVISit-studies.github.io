@@ -20,7 +20,7 @@ Let's add a tutorial study here.
 
 ```json title="public/global.json"
 {
-  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.3/src/parser/GlobalConfigSchema.json",
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/dev/src/parser/GlobalConfigSchema.json",
   "configsList": [
     "tutorial"
   ],
