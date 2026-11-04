@@ -31,7 +31,11 @@ While enabled, changes to the duration save when you leave the minutes field. Tu
 
 <!-- TODO: Screenshot — Open Analysis > Live Monitor as an administrator with Auto-timeout enabled at 60 minutes. Frame the Auto-timeout card with its explanation, minutes field, and switch. Highlight the switch with a #FFBD59 border and matching arrow. Alt: Auto-timeout card enabled with a duration of 60 minutes. Save to ./img/live-monitor/auto-timeout.png. -->
 
-The duration is measured from the participant's assignment time, not their last response or activity. When a **new participant assignment** is requested during data collection, ReVISit checks unfinished assignments in the current stage and times out those that have reached the duration. This check happens before evaluating participant limits, so released places can admit new participants. Reaching the duration alone does not trigger an update; leaving Live Monitor open does not run a periodic timeout check.
+The duration is measured from the participant's assignment time, not their last response or activity. During data collection, ReVISit checks unfinished assignments in the current stage and times out those that have reached the duration when a new participant starts or when an administrator opens Live Monitor. If the stage is full when a new participant arrives, ReVISit first releases expired participants so the newcomer can be admitted. Reaching the duration alone does not trigger an update, and leaving Live Monitor open does not run a periodic check; reopen it to refresh timeouts.
+
+:::warning[Self-hosted Supabase]
+If your Supabase database was initialized with an older reVISit `revisit.sql`, apply the `utc-created-at.sql` migration described in the [Supabase storage and operations guide](https://github.com/revisit-studies/study/blob/3b5a7526c57cf2e8c17321bad2ac3b12bb002537/supabase/README.md#storage-and-ongoing-operations) before enabling auto-timeout. Without it, a database running outside UTC shifts participant start times and timeout deadlines.
+:::
 
 Timed-out participants no longer count toward stage or condition limits. Their data is retained, and they can continue and finish normally. They appear as **Timed Out** until they finish, then as **Completed Late**. A late completion does not occupy a slot again, so the number of people who eventually finish can exceed the recruitment limit. Disabling auto-timeout does not restore slots already released.
 
