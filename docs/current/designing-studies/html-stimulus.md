@@ -4,6 +4,8 @@ Now, we will take the study we just created and add another component based on a
 
 ## HTML Stimuli
 
+For Participant values that change across trials, use `Revisit.onGlobalVariablesReceive` to read them in JavaScript and `Revisit.registerGlobalStoreUpdater` to propose updates on submission. See [Global Variables](./global-variables.md#read-and-update-values-in-html) for a complete example with restoration. With `"templated": true`, HTML markup can also display `{{globalVariables.budget}}` directly.
+
 The HTML code below uses the extensive D3.js library. It renders a simple, horizontal bar chart. Copy and paste this HTML into a document called `bar-chart.html` in the `basic-questionnaire-study/assets` directory.
 
 ```html title="public/basic-questionnaire-study/assets/bar-chart.html"
@@ -134,6 +136,8 @@ In your `config.json` document, create new key called `baseComponents` as a sibl
 This creates a component that new components can be based off of. Each component using the `bar-chart` as the value to the `baseComponent` key will now automatically have the above key-value pairs included. In other words, there is no need to specify the type, response, path, or instruction location when creating these next components.
 
 Because this `reactive` response is required, the embedded activity must report an interaction before the Participant can continue. If they select **Next** first, ReVISit shows: “Please finish the embedded activity to continue.”
+
+To require a particular answer from the stimulus, add `requiredValue` to the reactive response. Use `requiredLabel` for the readable name shown in its validation message. See [Requiring a Value from a Stimulus](./forms.md#requiring-a-value-from-a-stimulus) for an example and matching rules.
 
 In the components section, add the following objects:
 

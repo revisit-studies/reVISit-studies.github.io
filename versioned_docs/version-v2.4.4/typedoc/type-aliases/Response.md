@@ -1,0 +1,5 @@
+# Response
+
+> **Response** = [`NumericalResponse`](../interfaces/NumericalResponse.md) \| [`ShortTextResponse`](../interfaces/ShortTextResponse.md) \| [`LongTextResponse`](../interfaces/LongTextResponse.md) \| [`LikertResponse`](../interfaces/LikertResponse.md) \| [`DropdownResponse`](../interfaces/DropdownResponse.md) \| [`SliderResponse`](../interfaces/SliderResponse.md) \| [`RadioResponse`](../interfaces/RadioResponse.md) \| [`CheckboxResponse`](../interfaces/CheckboxResponse.md) \| [`RankingResponse`](../interfaces/RankingResponse.md) \| [`ReactiveResponse`](../interfaces/ReactiveResponse.md) \| [`CustomResponse`](../interfaces/CustomResponse.md) \| [`MatrixResponse`](MatrixResponse.md) \| [`ButtonsResponse`](../interfaces/ButtonsResponse.md) \| [`TextOnlyResponse`](../interfaces/TextOnlyResponse.md) \| [`DividerResponse`](../interfaces/DividerResponse.md)
+
+Defined in: [parser/types.ts:972](https://github.com/revisit-studies/study/blob/fb7b64f6ea729ee3d5a0457224326b40ce119176/src/parser/types.ts#L972)

@@ -1,5 +1,7 @@
 {
-  "version": "v2.4.4",
-  "docsCommit": "42df22b3467c682cba7b21d452cbd60bb5e7687e",
-  "studyCommit": "fb7b64f6ea729ee3d5a0457224326b40ce119176"
+  "version": "v3.0.0",
+  "docsCommit": "74cdd44ad638748942d1c61cd3659965811144d8",
+  "nextTree": "95b93e8eea3a914309d5b3a635297c7756307457",
+  "sidebarBlob": "a8fdfc8e7b3167029a63049291ce782400c35c30",
+  "studyCommit": "273f7d4991bf1e86cf2f161453897d15b90b7333"
 }

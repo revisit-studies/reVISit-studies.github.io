@@ -1,47 +1,70 @@
 # Deploying To a Static Website
 
-Deploy using
+Publish your study as a static website so Participants can open it in their browsers. First, complete the [installation guide](../getting-started/installation.md) and check that your study builds locally with `yarn build` or `npm run build`.
 
-- [GitHub](#deploying-using-gitHub)
+Before collecting Participant data, configure [your own Firebase or Supabase database](./connecting-to-cloud-database.md). Hosting the website does not create a database for you.
+
+Choose a hosting service:
+
+- [GitHub Pages](#deploying-using-github)
 - [Netlify](#deploying-using-netlify)
 - [Vercel](#deploying-using-vercel)
 - [render](#deploying-using-render)
 
 ## Deploying using GitHub
 
-Deploying your study should be relatively simple. We include a GitHub action that will build your study and deploy it to GitHub pages. The only item that the user must adjust is in the `.env` file in the root of the repository. At the top of this file, you should see `VITE_BASE_PATH="/study/"`. Change "/study/" to `"/<repo-name>/"`.
+The workflow in `.github/workflows/deploy_website.yaml`, named **Deploy To GitHub Pages**, builds your study and writes the website files to the `gh-pages` branch. GitHub Pages then publishes that branch.
 
-After this, you'll need to make sure that your GitHub repository has workflow actions enabled. Navigate to the actions tab in your repository as shown below.
+For example, a repository named `my-study` is published at `https://your-github-name.github.io/my-study/`. Replace `your-github-name` with your GitHub account or organization and `my-study` with your repository name.
 
-![Demo](./img/deploy_step1.jpg)
+Check `VITE_BASE_PATH` in your deployment workflow. If it uses `${{ github.event.repository.name }}`, the path is set automatically. If your workflow builds using `.env` without setting a base path, set `VITE_BASE_PATH="/my-study/"` in `.env` to match your repository name.
 
-On this page, enable workflows as shown below.
+### Enable and run the workflow
 
-![Demo](./img/deploy_step2.jpg)
+1. Open your repository's **Actions** tab. If GitHub asks you to enable workflows for a fork, enable them. If **Deploy To GitHub Pages** is individually disabled, select it and choose **Enable workflow**, as described in [GitHub's workflow instructions](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows).
 
-:::info
-If you have enabled GitHub pages or ran any other action in your repo, it won't be possible to enable the workflow on this screen. To enable the workflow, you will have to navigate to the `.github/workflows` folder in your repository, remove the workflow files, commit and push, then add the workflow files back, commit and push again. After that, the workflows should be enabled.
-:::
+   ![Open the Actions tab in your repository](./img/deploy_step1.jpg)
 
-After you've changed the `.env` file and enabled the workflow, go ahead and push the commit to your forked repository. Afterwards, the deploy action will run. Once that has finished, navigate to the 'settings' tab and then the 'pages' tab.
+   ![Enable workflows for a forked repository](./img/deploy_step2.jpg)
 
-![Demo](./img/deploy_step3.jpg)
+2. Check that your repository has a `gh-pages` branch. The workflow needs this branch before publishing. If it does not exist, use the branch selector on the **Code** tab to create `gh-pages` from `main`. Reserve this branch for generated website files; keep study edits on `main` or `dev`.
+3. Commit and push your study and backend configuration to `main`. Alternatively, select **Actions → Deploy To GitHub Pages → Run workflow**, choose `main`, and select **Run workflow**. The workflow file must be on your repository's default branch for the manual button to appear. See [Manually running a workflow](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow).
+4. Wait for the `deploy-main` job to succeed. If it fails, open the failed step's log before continuing. The generated site should now be in `gh-pages`.
 
-![Demo](./img/deploy_step4.jpg)
+### Publish the generated website
 
-Here we will be able to deploy the site to GitHub pages. In the 'Branch' section, you should see options to select a branch to deploy from. Select 'gh-pages' from the dropdown menu as shown below.
+1. Open **Settings → Pages** in your repository.
 
-![Demo](./img/deploy_step5.jpg)
+   ![Open the Settings tab in your repository](./img/deploy_step3.jpg)
 
-Click 'Save' once you have made the switch. After a short period of time, your reVISit application will deploy to `<username>.github.io/<repository-name>`. If you want to deploy to a custom domain, you can do that as well by following the instructions on [GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+   ![Select Pages in the repository settings](./img/deploy_step4.jpg)
 
-:::info
-If you would like to enable admin sign ins when you deploy your static website, you will have to make sure that Firebase has your domain name set as an authorized domain. Please see [here](../firebase/enabling-authentication/#adding-authorized-domains) to add your custom domain.
-:::
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Select `gh-pages` and the `/(root)` folder, then select **Save**. These are the [GitHub Pages publishing settings](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) for this workflow.
+
+   ![Select gh-pages as the publishing branch](./img/deploy_step5.jpg)
+
+4. Wait for GitHub Pages to publish, then open the site URL shown on that page. Select a study, open its direct URL in a new tab, and refresh it to check that navigation works.
+
+For administrator sign-in, configure [Firebase authorized domains](./firebase/enabling-authentication.md#adding-authorized-domains) or the [Supabase authentication URLs](./supabase/enabling-authentication.md) for your deployed site. Test the storage connection and data collection before sharing the study with Participants.
+
+### Custom domains and base paths
+
+The automatic path assumes a project site at `/<repository-name>/`. It does not configure the hostname or enable Pages. If you use a [custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) or a user/organization site hosted at `/`, adjust the workflow's `VITE_BASE_PATH` values to match the actual paths. The workflow values take precedence over `.env`.
+
+For a Pages site hosted at `/`, also adapt the deployment-root detection in `public/404.html`: the supplied redirect assumes a repository-name segment, followed by an optional deployment segment such as `supabase`. Without this adjustment, opening or refreshing a direct study URL can fail. Check direct URLs for every destination you keep after changing the hosting layout.
+
+For builds outside this workflow, an absent or empty `VITE_BASE_PATH` defaults to `/`. Set it explicitly only when you need a different path, using leading and trailing slashes. For example, this entry builds for a site served at `/my-study/`:
+
+```env title=".env"
+VITE_BASE_PATH="/my-study/"
+```
+
+Rebuild and redeploy after changing the base path. Local development with `yarn serve` still uses `/`.
 
 ## Deploying using Netlify
 
-Similarly deploying your study to Netlify is relatively straightforward. First, modify the VITE_BASE_PATH in your `.env` to be
+For a Netlify site served at the domain root, leave `VITE_BASE_PATH` unset or explicitly set it to `/`. If your `.env` still contains an older subpath value, remove it or replace it with:
 
 ```env title=".env"
 VITE_BASE_PATH="/"
@@ -69,7 +92,7 @@ If you are using Netlify as a secondary venue for anonymization purposes, you ca
 
 ## Deploying using Vercel
 
-Deploying with Vercel is also straightforward and follows a very similar configuration process as the other platforms. Ensure that your VITE_BASE_PATH in your `.env` is like the following:
+For a Vercel site served at the domain root, leave `VITE_BASE_PATH` unset or set it to `/`. Replace any existing subpath value in `.env` with:
 
 ```env title=".env"
 VITE_BASE_PATH="/"
@@ -95,7 +118,7 @@ You likely will not need to make any changes to the configuration. After a short
 
 ## Deploying using render
 
-Deploying with render.com is a little more involved than some of the other options, but has similar bones as the other platforms. Ensure that your VITE_BASE_PATH in your `.env` is like the following:
+For a Render site served at the domain root, leave `VITE_BASE_PATH` unset or set it to `/`. Replace any existing subpath value in `.env` with:
 
 ```env title=".env"
 VITE_BASE_PATH="/"
@@ -116,7 +139,7 @@ On this configuration screen, make sure the following options are set (or accept
 
 After saving these settings, you will also need to add a rewrite rule. Go to your static site on Render → Redirects/Rewrites tab → Add Rule:
 
-```
+```text
 Type: Rewrite
 Source: /*
 Destination: /index.html

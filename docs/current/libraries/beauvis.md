@@ -12,7 +12,7 @@ T. He, P. Isenberg, R. Dachselt, and T. Isenberg, “BeauVis: A Validated Scale 
 
 DOI: [10.1109/TVCG.2022.3209390](https://dx.doi.org/10.1109/TVCG.2022.3209390)
 
-Link: [https://www.aviz.fr/Research/BeauVis-Scale](https://www.aviz.fr/Research/BeauVis-Scale)
+Link: [https://arxiv.org/abs/2207.14147](https://arxiv.org/abs/2207.14147)
 
 ## Available Components
 
@@ -37,6 +37,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
       ]}
       referenceLinks={[
         {name: "DOI", url: "https://dx.doi.org/10.1109/TVCG.2022.3209390"},
-        {name: "beauvis", url: "https://www.aviz.fr/Research/BeauVis-Scale"}
+        {name: "beauvis", url: "https://arxiv.org/abs/2207.14147"}
       ]}
   />

@@ -29,7 +29,7 @@ For example, a warning icon may appear next to Average Clean Time in the Overvie
 
 ## Component Statistics
 
-![Study Summary Component Statistics](./img/study-summary/study-summary-component.png)
+![Component Statistics table showing current and outdated components by Study Config version](./img/study-summary/study-summary-component.png)
 
 This section shows each part of the study in a table you can sort, filter, and search.
 
@@ -46,7 +46,7 @@ Components that exist only in older configs — and not in the active one — ar
 
 ## Response Statistics
 
-![Study Summary Response Statistics](./img/study-summary/study-summary-response.png)
+![Response Statistics table showing current and outdated questions by Study Config version](./img/study-summary/study-summary-response.png)
 
 This section provides details for each question, with each row representing a single question.
 

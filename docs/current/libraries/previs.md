@@ -12,7 +12,7 @@ A.-F. Cabouat, T. He, P. Isenberg, and T. Isenberg, “PREVis: Perceived Readabi
 
 DOI: [10.1109/TVCG.2024.3456318](https://dx.doi.org/10.1109/TVCG.2024.3456318)
 
-Link: [https://aviz.fr/PREVis/](https://aviz.fr/PREVis/)
+Link: [https://tobias.isenberg.cc/p/Cabouat2025PPR](https://tobias.isenberg.cc/p/Cabouat2025PPR)
 
 ## Available Components
 
@@ -38,6 +38,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
       ]}
       referenceLinks={[
         {name: "DOI", url: "https://dx.doi.org/10.1109/TVCG.2024.3456318"},
-        {name: "previs", url: "https://aviz.fr/PREVis/"}
+        {name: "previs", url: "https://tobias.isenberg.cc/p/Cabouat2025PPR"}
       ]}
   />
