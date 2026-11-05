@@ -22,6 +22,12 @@ The tidy CSV and standard JSON downloads do not include provenance graphs. If yo
 
 ![CSV Exporter showing selectable columns and a preview of the exported rows](./img/data-export/tidy-export-csv-exporter.png)
 
+### Participant Status
+
+The `status` column is selected by default in the **CSV Exporter**. It uses the values `completed`, `in progress`, `rejected`, `timed out`, and `completed late`. [Auto-timeout](./live-monitor.md#automatically-release-participant-slots) produces `timed out` while a participant is unfinished and `completed late` if they later finish. A rejected participant is exported as `rejected`, including after an automatic timeout.
+
+Use the analysis status filters to include or exclude these groups before downloading. Include `completed late` explicitly in your analysis if you want all finished participants, rather than only ordinary completions. Participant auto-timeout is separate from a component reaching its time limit.
+
 ### Include Global Variables
 
 For studies using [Global Variables](../designing-studies/global-variables.md), the **CSV Exporter** offers three optional fields for active submissions:
