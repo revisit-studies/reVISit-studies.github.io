@@ -4,6 +4,14 @@ Once you have defined the components you want to be part of your study, you need
 
 ReVISit also always injects a special `end` component at the very end of the study, at which point the data is uploaded and the participant is instructed that they can safely close the window. Other blocks can also optionally be given `id`, which can then be used to jump to them.
 
+:::info Closing or refreshing the study tab
+
+During in-progress study steps, Participants may see a browser confirmation when closing or refreshing the tab. The browser controls whether the prompt appears and its wording; Study Designers cannot customize the message or disable it through the Study Config.
+
+The confirmation is disabled in Development Mode and when viewing analysis or replay. At the `end` component, it remains active while final data is being saved and is removed once completion is confirmed. Participants should wait until the study tells them they can safely close the window.
+
+:::
+
 ## Simple Sequence
 
 If your study has a set order, creating a sequence is simple. Define the components in the order you want to see them, and set your order to `fixed`.
