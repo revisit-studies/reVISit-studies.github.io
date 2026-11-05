@@ -1,7 +1,7 @@
 # Setting Up Authentication
 
 :::warning
-In order to use authentication, you must have a Supabase application already configured. To set up your Supabase application, please see [here](../setup).
+Configure your Supabase deployment before enabling authentication; see [Configuring Supabase](./setup.md). Existing MinIO or pgsty installations must follow the [migration guide][supabase-migration] before using the new deployment configuration.
 :::
 
 ## Enabling Authentication in Supabase
@@ -9,10 +9,10 @@ In order to use authentication, you must have a Supabase application already con
 Supabase provides a variety of authentication methods.
 
 :::info
-Supabase supports multiple OAuth providers, but reVISit currently only officially supports GitHub OAuth. If you want to configure other providers in Supabase look at the [gotrue docs](https://github.com/netlify/gotrue).
+Supabase supports multiple OAuth providers, but reVISit currently only officially supports GitHub OAuth. For other providers, see the [Supabase self-hosted authentication guide](https://supabase.com/docs/guides/self-hosting/auth/config).
 :::
 
-To enable GitHub OAuth, start by navigating to GitHub and creating a new OAuth application [here](http://github.com/settings/developers).
+To enable GitHub OAuth, start by [creating a GitHub OAuth application](https://github.com/settings/developers).
 
 Give your application a name, such as `ReVISit Supabase`. For the "Homepage URL", enter the URL where your reVISit application will be hosted (e.g., `https://my-revisit-app.com`). This must include the `https://` prefix.
 
@@ -20,25 +20,40 @@ Lastly set the "Authorization callback URL" to `https://<your-supabase-domain>/a
 
 ![GitHub OAuth Setup](./img/github-oauth-setup.png)
 
-After creating the OAuth application, you will be provided with a Client ID. Copy this in to the `supabase/.env` file in the `GITHUB_OAUTH_CLIENT_ID` field.
+After creating the OAuth application, copy its Client ID and generate a Client Secret. Edit the `.env` in your **separate Supabase deployment directory**, not the reVISit application's `.env`:
 
-Next, generate a new Client Secret by clicking the "Generate a new client secret" button. Copy this in to the `supabase/.env` file in the `GITHUB_OAUTH_CLIENT_SECRET` field.
+```env title="Supabase deployment .env"
+ENABLE_GITHUB_OAUTH=true
+GITHUB_OAUTH_CLIENT_ID=<your-github-client-id>
+GITHUB_OAUTH_SECRET=<your-github-client-secret>
+GITHUB_OAUTH_REDIRECT_URI=https://<your-supabase-domain>/auth/v1/callback
+API_EXTERNAL_URL=https://<your-supabase-domain>/auth/v1
+SITE_URL=https://<your-revisit-domain>/<application-path>
+```
 
-Now, set the `GITHUB_OAUTH_REDIRECT_URI` field in the `supabase/.env` file to the same URL you used for the "Authorization callback URL" in GitHub.
+Use the exact callback URL registered with GitHub. Set `SITE_URL` to your reVISit application's URL, including its path if applicable, and retain any required `ADDITIONAL_REDIRECT_URLS`. `API_EXTERNAL_URL` is the full Supabase Auth endpoint, including `/auth/v1`. During migration, preserve the registered callback and existing secrets as described in the migration guide.
 
-Finally, ensure that your `SITE_URL` field in the `supabase/.env` file is set to the URL where your reVISit application will be hosted (e.g., `https://my-revisit-app.com/study`). If this is not set, the redirects won't work properly.
+The upstream bundle needs reVISit's GitHub override to read these settings. From the Supabase deployment directory, copy the override from your matching reVISit checkout, enable it, and start the updated configuration:
+
+```bash
+cp /absolute/path/to/revisit-study/supabase/docker-compose.github.yml .
+sh run.sh config add github
+sh run.sh start
+```
+
+See the [complete self-hosted setup guide][supabase-setup] for deployment and key-generation instructions. Keep the client secret private and out of the application's public `VITE_*` variables.
 
 ## Enabling Authentication in reVISit
 
 Through the settings cog on the right of your reVISit application, navigate to the "settings" page. Here, you will see that authentication will be currently disabled with a button to enable authentication.
 
-When you first enable authentication, you will be prompted to sign in using GitHub Oauth. The account chosen will automatically be added as a user. Any other account attempting to log in to reVISit and access these protected routes will be redirected to the login screen.
+When you first enable authentication, you will be prompted to sign in with GitHub OAuth. ReVISit verifies the signed-in GitHub account with Supabase and adds it as the first administrator. Confirm the account shown in the setup prompt before enabling authentication. Other accounts must be added as administrators before they can access protected analysis and settings pages.
 
 ## Manage Administrators in reVISit
 
 ### Adding Additional Users
 
-To add another administrator, simply navigate to the settings page (where you enabled authentication) and click on the "Add User" icon to the right of the "Enabled Users" section. Enter the Google account email for the user and click save. They will now be an administrator and will immediately be able to log into your reVISit application.
+To add another administrator, navigate to the settings page and select the **Add User** icon beside **Enabled Users**. Enter the email address associated with that person's GitHub account and save. They can then sign in with that account to access protected pages.
 
 ![Add User](./../img/manage_admin/add_user.png)
 
@@ -56,3 +71,6 @@ import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLink
         {name: "Supabase Authentication", url: "https://supabase.com/docs/guides/auth"},
     ]}
 />
+
+[supabase-setup]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/README.md
+[supabase-migration]: https://github.com/revisit-studies/study/blob/5dc9fc5b53e9716efb8735ba5744e707bf5b9d81/supabase/MIGRATION.md

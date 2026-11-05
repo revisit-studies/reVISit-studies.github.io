@@ -93,6 +93,8 @@ This setup ensures that the participant's interaction with the visualization is 
 
 Set `"required": true` on a `reactive` response when the Participant must interact with the visualization before continuing. If they select **Next** before the required interaction is reported, ReVISit shows: “Please complete the stimulus interaction to continue.”
 
+To require a particular answer from the stimulus, add `requiredValue` to the reactive response. Use `requiredLabel` for the readable name shown in its validation message. See [Requiring a Value from a Stimulus](./forms.md#requiring-a-value-from-a-stimulus) for an example and matching rules.
+
 :::info
 Make sure that the `response.id` matches the one in vega signal's `responseId`.
 :::
