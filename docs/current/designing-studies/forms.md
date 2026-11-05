@@ -734,13 +734,16 @@ Set `delay` on a response to keep that form element disabled for a number of mil
 
 ## Keyboard Shortcuts for Button Responses
 
-For a `buttons` response, use object options and set `key` to a shortcut that selects that option. The shortcut appears beside the option label. This can help Participants who use a keyboard or support timed tasks where fast responses matter.
+For a `buttons` response, use object options and set `key` to a shortcut that selects that option. By default, the shortcut appears beside the option label (`hideKeyVisual` defaults to `false`). This can help Participants who use a keyboard or support timed tasks where fast responses matter.
+
+Set `"hideKeyVisual": true` on the response to hide the shortcut indicators on all its buttons. The button labels remain visible, and the configured shortcuts still select their options. For example, this response hides the indicators while keeping the **R** and **B** shortcuts active:
 
 ```json title="public/study-name/config.json"
 {
   "id": "color",
   "prompt": "Which color is shown?",
   "type": "buttons",
+  "hideKeyVisual": true,
   "options": [
     { "label": "Red", "value": "red", "key": "r" },
     { "label": "Blue", "value": "blue", "key": "b" }
