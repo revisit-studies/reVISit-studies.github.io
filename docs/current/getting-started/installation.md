@@ -13,7 +13,9 @@ Install these tools before cloning and running a study locally:
 
 - [Visual Studio Code](https://code.visualstudio.com/), or another editor with JSON support.
 - [Git](https://git-scm.com/downloads), so you can clone the template repository and share changes with collaborators.
-- The Active LTS version of [Node.js](https://nodejs.org/), which also installs NPM.
+- [Node.js 24 LTS](https://nodejs.org/en/download), including its bundled NPM. Use the latest patch release of Node.js 24.
+
+The project installs its own TypeScript compiler and Vite build tools with its packages. You do not need to install these tools globally.
 
 :::info
 reVISit supports both Yarn and NPM. Yarn is the preferred package manager, but you can use NPM if you prefer. NPM is installed with Node.js, so you usually do not need to install it separately. If NPM is not installed for any reason, review the [NPM documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get started.
@@ -72,7 +74,6 @@ npm install -g yarn --allow-scripts=yarn
 ```
 </TabItem>
 </Tabs>
-
 :::
 
 After installing Yarn, check that it was installed correctly:
@@ -88,7 +89,7 @@ Navigate to the [template repository](https://github.com/revisit-studies/templat
 ![Use this template button](./img/template-repo.png)
 
 :::info
-You can choose a name for the repository to suit your needs, but if you choose anything other than `study`, you also need to adjust the `VITE_BASE_PATH` in your [`.env`](https://github.com/revisit-studies/study/blob/main/.env) file to reflect that change.
+Choose a name for your repository, such as `my-study`. When you are ready to share your study online, follow the [deployment guide](../data-and-deployment/deploying-to-static-website.md).
 :::
 
 ![Create a new repository from the template](./img/create-new-repo.png)
@@ -106,7 +107,7 @@ You can safely ignore this warning. The reason for this is that the Firebase API
 
 ### Clone your template repository
 
-After GitHub creates your repository from the template, open the repository page and click "Code". Copy the clone URL from the HTTPS and clone it to your computer:
+After GitHub creates your repository from the template, open the repository page and click "Code". Copy its HTTPS clone URL. In the commands below, replace `your-github-name` and `your-repository-name` with your GitHub account or organization and repository name:
 
 ```bash
 git clone https://github.com/your-github-name/your-repository-name.git
@@ -121,7 +122,7 @@ If you have not configured GitHub authentication locally, you can use "Download 
 
 ## Run the Local Server
 
-After cloning your repository, make sure you are inside the repository folder:
+Run the following commands in the repository folder containing `package.json`. If you have opened a new terminal since cloning, navigate to that folder first:
 
 ```bash
 cd your-repository-name
@@ -153,6 +154,8 @@ npm run serve
 
 This will launch a local web server where you can view and interact with reVISit. By default, you can access it by visiting [http://localhost:8080/](http://localhost:8080/). Any change you make to the code will automatically update the website.
 
+Local development always uses the root path `/`, even if you set `VITE_BASE_PATH` for a deployed build. If port 8080 is already in use, open the URL printed by the terminal.
+
 :::warning
 If `yarn install`, `yarn serve`, `npm install`, or `npm run serve` says it cannot find `package.json`, you are probably not inside the repository folder. Run `cd your-repository-name` first, then try the command again.
 :::
@@ -166,6 +169,18 @@ If you started from the template repository, this will be a smaller set of start
 :::note
 Use the same package manager for installation and project commands. Yarn is preferred, but NPM is supported.
 :::
+
+### Check your study before deployment
+
+From the same repository folder, run:
+
+```bash
+yarn build
+```
+
+With NPM, run `npm run build`. This checks TypeScript and creates the deployable website in `dist`. Resolve any reported errors before deploying. When `VITE_BASE_PATH` is absent, the build uses `/`; the GitHub Pages workflow supplies its own path automatically.
+
+You can now follow the [Study Config tutorial](../tutorial/config.json.md). Before collecting Participant data online, [connect your own cloud database](../data-and-deployment/connecting-to-cloud-database.md) and [deploy your study](../data-and-deployment/deploying-to-static-website.md).
 
 ## Forking the Study Repository
 
@@ -190,7 +205,7 @@ GitHub only allows you to fork a repository once. If you have already forked the
 When forking the repository, you will be prompted for some basic information about this repository (such as the desired name). Once you've forked the repository into your own GitHub account, you can [clone the repository to your local computer](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 :::info
-You can rename the repository to suit your needs, but if you change the name, you also need to adjust the `VITE_BASE_PATH` in your [`.env`](https://github.com/revisit-studies/study/blob/main/.env) file to reflect that change.
+After cloning, follow [Run the Local Server](#run-the-local-server), then use the [deployment guide](../data-and-deployment/deploying-to-static-website.md) to publish it.
 :::
 
 After the repository is on your local machine, you will have the entire codebase for your personal use. Any changes that you make to this repository can be committed and then pushed to your forked repository for other users in your organization to see.
