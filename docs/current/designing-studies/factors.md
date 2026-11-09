@@ -138,6 +138,8 @@ For example, consider an alternate version of the Stroop test where a participan
 
 Each participant is assigned one level of each between-subjects factor, which is passed to every component as a parameter (here, `{{fontSize}}`).
 
+Use [Stage Management](../analysis/stage-management.md#controlling-recruitment) to monitor counts for each combination of between-subject factor levels, enable or disable recruitment, and set allocation targets for each stage.
+
 
 ## Example
 
