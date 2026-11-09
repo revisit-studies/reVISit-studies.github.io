@@ -1,3 +1,8 @@
+---
+title: Installing reVISitPy
+sidebar_label: Installation
+---
+
 # Installation
 
 Adding reVISitPy to a python project is simple. If you're using `pip`, you can do the following:

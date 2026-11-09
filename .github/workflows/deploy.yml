@@ -19,6 +19,11 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Per-file git history gives each page its real last-updated date (also
+          # used for sitemap lastmod); skipping blobs keeps the clone small.
+          fetch-depth: 0
+          filter: blob:none
 
       - uses: actions/setup-node@v4
         with:
