@@ -32,6 +32,8 @@ The setting records input events; your stimulus still needs to read the Gamepad 
 
 For a `buttons` response, define each option as an object and set its `key` property. See [Forms](./forms.md#keyboard-shortcuts-for-button-responses) for a configuration example and supported key formats. ReVISit ignores repeated key events and avoids capturing keys while the Participant is typing in an input, text area, or select field.
 
+Set `"hideKeyVisual": true` on the response to hide the shortcut indicators while keeping the shortcuts active. By default, indicators are shown for options with a configured `key`.
+
 ## Analyze input events
 
 Gamepad events are stored with the other component window events in participant data. Download participant data as JSON to inspect those events alongside the response and timestamps. See [Data Export](../analysis/data-export.md#download-as-json) for the JSON download steps.
