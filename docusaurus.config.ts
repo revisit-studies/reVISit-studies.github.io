@@ -10,7 +10,7 @@ const isPreviewBuild = baseUrl !== "/";
 const config: Config = {
   title: "Home | ReVISit",
   tagline: "reVISit: Reproducible and Powerful Visualization User Studies",
-  favicon: "img/logos/favicon.png",
+  favicon: "img/logos/favicon.svg",
 
   url: "https://revisit.dev",
   baseUrl,
