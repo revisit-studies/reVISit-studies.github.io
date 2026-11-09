@@ -1,11 +1,11 @@
 # Declarative Study Design using Factors
 
-Experiments typically involve a mixture of between- and within-subject conditions. In ReVISit version 3, we introduce `factors` to support the declaration of large [sequences](./sequences/study-sequences.md) with between- and within-subject variables using an expressive, declarative syntax. In other words, you can think of factors as building blocks for creating complex experiment designs.
+Experiments typically involve a mixture of between- and within-subject conditions. As of version 3, reVISit supports `factors` that enable the declaration of [sequences](./sequences/study-sequences.md) with between- and within-subject variables using an expressive, declarative syntax. In other words, you can think of **factors as building blocks for creating complex experiment designs**.
 
 
 ## Declaring Factors
 
-We demonstrate how factors can be used to create experiments by implementing the Stroop experiment. In a [Stroop test](https://en.wikipedia.org/wiki/Stroop_effect), a word for a color (e.g., *blue*, *red* etc.) is shown to a participant using a font color which may or may not be the same as the word (e.g., the word *red* displayed in blue font). In a study testing the Stroop effect, different color words are displayed using either neutral or incongruent font color (the font color is congruent if it matches the word being displayed i.e., the word *red* displayed in red font). Thus, color here is a `factor`, which varies across stimuli in a within-subjects design.
+We demonstrate how factors can be used to create experiments by implementing the Stroop experiment. In a [Stroop test](https://en.wikipedia.org/wiki/Stroop_effect), a word for a color (e.g., *blue*, *red* etc.) is shown to a participant using a font color which may or may not be the same as the word (e.g., the word *red* could be displayed in blue font). In a study testing the Stroop effect, different color words are displayed using either neutral (matching) or incongruent font color (the font color does not match the color text). Thus, color here is a `factor`, which varies across stimuli in a within-subjects design.
 
 In ReVISit, factors are declared in the top-level `factors` object of the Study Config:
 
@@ -40,7 +40,7 @@ A second factor in the Stroop test is whether the font color is *neutral* or *in
 }
 ```
 
-## Actions
+## Actions – Combining Factors
 
 In the previous step, we declared all the necessary factors for the experiment. However, we did not provide details on how the `factors` combine with each other. This is done by creating a new factor which is a result of an operation (`action`) performed on previously declared factor(s):
 
@@ -59,14 +59,55 @@ The `"cross"` action creates the Cartesian product of two or more `factors`. Thi
 
 The list of possible `actions` include:
 
-1. **cross**: creates a [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) of two or more `factors`.
-2. **zip**: pairs the levels of multiple factors by position. For example, a `zip` over `"f1": ["x", "y", "z"]` and `"f2": ["1", "2", "3"]` results in three conditions: `{ "f1": "x", "f2": "1" }`, `{ "f1": "y", "f2": "2" }`, and `{ "f1": "z", "f2": "3" }`. If the inputs have different lengths, ReVISit stops after the shortest one and shows a parser warning.
-3. **concat**: concatenates the conditions of two or more factors in order. For example, a `concat` over `"f1": ["x", "y", "z"]` and `"f2": ["a", "b", "c"]` results in `{ "f1": "x" }`, `{ "f1": "y" }`, `{ "f1": "z" }`, `{ "f2": "a" }`, `{ "f2": "b" }`, and `{ "f2": "c" }`. Each condition keeps its original parameter names; `concat` does not rename them to the new factor's name.
-4. **repeat**: repeats the conditions of the listed `factors` the number of times given by `numRepeats`.
-5. **keep** / **remove**: filter the conditions of an existing factor, given in `factor`. `keep` retains only the matching conditions, while `remove` filters them out. Select conditions with `condition`, an object of parameter values to match, or with `items`, a list of complete conditions or another factor expression.
-6. **sample**: randomly selects `numSamples` conditions from the listed `factors` for each participant. Set `samplingStrategy` to `withoutReplacement` or `withReplacement`.
+### Action: Cross
+**cross**: creates a [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) of two or more `factors`.
+
+### Action: Zip
+**zip**: pairs the levels of multiple factors by position. For example, a `zip` over 
+```
+"f1": ["x", "y", "z"], 
+"f2": ["1", "2", "3"]
+```
+ results in three conditions: 
+```
+[{ "f1": "x", "f2": "1" }, 
+{ "f1": "y", "f2": "2" },
+{ "f1": "z", "f2": "3" }]
+```
+If the inputs have different lengths, ReVISit stops after the shortest one and shows a parser warning.
+
+### Action: Concat
+**concat**: concatenates the conditions of two or more factors in order. For example, a `concat` over 
+```
+["f1": ["x", "y", "z"],
+"f2": ["a", "b", "c"]]
+```
+ results in 
+ ```
+ [{ "f1": "x" },
+ { "f1": "y" },
+ { "f1": "z" },
+ { "f2": "a" },
+ { "f2": "b" },
+ { "f2": "c" }].
+```
+Each condition keeps its original parameter names; `concat` does not rename them to the new factor's name.
+
+### Action: Repeat
+`repeat` repeats the conditions of the listed `factors` the number of times given by `numRepeats`.
+
+### Actions: Keep and Remove
+**keep** / **remove**: filter the conditions of an existing factor, given in `factor`. `keep` retains only the matching conditions, while `remove` filters them out. Select conditions with `condition`, an object of parameter values to match, or with `items`, a list of complete conditions or another factor expression.
+
+### Action: Sample
+**sample**: randomly selects `numSamples` conditions from the listed `factors` for each participant. Set `samplingStrategy` to `withoutReplacement` or `withReplacement`.
+
+
+### Naming Output Parameters
 
 For `cross` and `zip`, the optional `as` array renames the output parameters, with one name per input factor. This is required when you combine a factor with itself, as in the [markdown Stroop example](#stroop-color-experiment-using-only-markdown) below.
+
+### Nesting
 
 The `factors` listed in an action can be names of other factors or inline action objects, so actions can be nested. For example, `allPairs` pairs every color word with every ink color, and `incongruentPairs` removes the pairs where `word` and `inkColor` match:
 
@@ -86,6 +127,8 @@ The `factors` listed in an action can be names of other factors or inline action
   }
 }
 ```
+
+### Ordering
 
 A factor can also be an object with a `values` list and an optional `order` (for example `"random"`) and `numSamples`. The selected order is chosen once per participant and shared by every reference to that factor in the sequence.
 
@@ -117,13 +160,15 @@ In order to actually create experiment designs with different combinations of fa
   }
 ```
 
-`order` controls how the generated trials are ordered, using the same options as other [sequence blocks](./sequences/study-sequences.md). Each generated trial receives its condition as `parameters`, so the values of `color` and `congruence` are available to the component. In Markdown files, instructions, and prompts, use them as [templates](./templating.md), such as `{{color}}`. In HTML stimuli, read them with `Revisit.onDataReceive`, as shown below. See [Designing an HTML Stimulus](./html-stimulus.md) and [Designing a React Stimulus](./react-stimulus.md) for more details.
+`order` controls how the generated trials are ordered, using the same options as other [sequence blocks](./sequences/study-sequences.md). Each generated trial receives its condition as `parameters`, so the values of `color` and `congruence` are available to the component. 
 
+In Markdown files, instructions, and prompts, use them as [templates](./templating.md), such as `{{color}}`. 
+
+In HTML stimuli, read them with `Revisit.onDataReceive`, as shown below. See [Designing an HTML Stimulus](./html-stimulus.md) and [Designing a React Stimulus](./react-stimulus.md) for more details.
 
 ## Between-subject Factors
 
 So far, we've only seen experiment designs where the factors vary within-subjects (such as the Stroop test, where both color and congruence vary within-subjects). However, in many experiments, we might want different participants to see different stimuli.
-
 
 For example, consider an alternate version of the Stroop test where a participant is shown the stimuli in either a small font of 24px or large font of 48px, but not both. For such an experiment, the factor `fontSize` needs to vary between-subjects. This is specified with the top-level `betweenSubjects` list:
 
@@ -140,6 +185,13 @@ Each participant is assigned one level of each between-subjects factor, which is
 
 Use [Stage Management](../analysis/stage-management.md#controlling-recruitment) to monitor counts for each combination of between-subject factor levels, enable or disable recruitment, and set allocation targets for each stage.
 
+You can also use multiple factors as between-subjects factors, for example if you wanted to test the Stroop effect with different font sizes and different congruence conditions:
+
+```
+"betweenSubjects": ["fontSize", "congruence"]
+```
+
+This would create 2 x 2 = 4 between-subjects groups, where each participant sees only one combination of font size and congruence condition.
 
 ## Example
 
