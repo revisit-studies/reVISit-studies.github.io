@@ -143,11 +143,27 @@ After this, add `basic-questionnaire-study` at the start of the existing `config
 ]
 ```
 
-To choose a different tab or change tab order, see [Configuring the Landing Page](../data-and-deployment/landing-page.md).
+To choose a different tab or change tab order, see [Configuring the Landing Page](../data-and-deployment/landing-page.md). Altogether your config will look something like
+
+```json title="public/global.json"
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v3.0.0/src/parser/GlobalConfigSchema.json",
+  "configsList": ["basic-questionnaire-study"],
+  "tabs": [{ "label": "Tutorials" }],
+  "configs": {
+    "basic-questionnaire-study": {
+      "path": "basic-questionnaire-study/config.json",
+      "tab": "Tutorials"
+    }
+  }
+}
+
+```
 
 :::info
 Study IDs in `global.json` can include dots, spaces, and other special characters, but reVISit cleans them for URLs by replacing dots (`.`), spaces, and slashes (`/`) with underscores (`_`). (e.g. `example.revisit/study` becomes `example_revisit_study`)
 :::
+
 
 ## Running the Server
 
