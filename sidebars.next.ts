@@ -67,7 +67,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'designing-studies/forms',
         'designing-studies/templating',
-        'designing-studies/input-devices',
         'designing-studies/image-video-stimulus',
         'designing-studies/html-stimulus',
         'designing-studies/react-stimulus',
@@ -185,6 +184,14 @@ const sidebars: SidebarsConfig = {
             'revisitpy/examples/example_jnd_study',
           ],
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Use Cases',
+      collapsed: false,
+      items: [
+        'designing-studies/input-devices',
       ],
     },
     'faq',
