@@ -2,7 +2,7 @@
 
 To create a study with reVISit, you have to create **components** that contain the content of your study, and you have to create the **study configuration (the reVISit Spec)** that controls when and how these components are shown to participants. Here, we will introduce these at a high level and link to the [detailed documentation](../../typedoc/) where appropriate.
 
-# Components
+## Components
 
 Components are where study-specific content goes. ReVISit supports many types of components:
 
@@ -17,7 +17,7 @@ All of these stimuli can be (and commonly are) paired with **responses**. Respon
 
 A component is typically defined in the spec, with the text, code, or image included from a file/URL. The only exception is survey questions, which do not need a file/URL and are specified directly in the spec.
 
-# The reVISit Spec
+## The reVISit Spec
 
 The [reVISit Spec](../../typedoc/interfaces/StudyConfig) enables you to define the details of your experiment as a configuration file. This configuration file can be written in either **JSON** or **YAML** format—both are fully supported and work identically.
 

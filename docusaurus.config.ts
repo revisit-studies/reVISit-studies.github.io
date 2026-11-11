@@ -2,13 +2,19 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import currentRelease from "./current-release.json";
+import archivedVersions from "./versions.json";
 
 const enableGtag = process.env.ENABLE_GTAG === "true";
 const baseUrl = process.env.BASE_URL || "/";
 const isPreviewBuild = baseUrl !== "/";
 
+// Only the current release should be indexed; archived and Next docs duplicate it.
+const archivedVersionOptions = Object.fromEntries(
+  archivedVersions.map((version) => [version, { noIndex: true }]),
+);
+
 const config: Config = {
-  title: "Home | ReVISit",
+  title: "ReVISit",
   tagline: "reVISit: Reproducible and Powerful Visualization User Studies",
   favicon: "img/logos/favicon.svg",
 
@@ -65,11 +71,19 @@ const config: Config = {
           includeCurrentVersion: true,
           versions: {
             current: { label: currentRelease.version, path: "", banner: "none" },
+            ...archivedVersionOptions,
           },
         },
         blog: {
           editUrl:
             "https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/",
+        },
+        sitemap: {
+          lastmod: "date",
+          ignorePatterns: [
+            "/docs/next/**",
+            ...archivedVersions.map((version) => `/docs/${version}/**`),
+          ],
         },
 
         theme: {
@@ -93,7 +107,7 @@ const config: Config = {
       path: "docs/next",
       routeBasePath: "docs/next",
       sidebarPath: "./sidebars.next.ts",
-      versions: { current: { label: "Next", path: "", banner: "unreleased" } },
+      versions: { current: { label: "Next", path: "", banner: "unreleased", noIndex: true } },
       editUrl: ({ docPath }) => docPath.startsWith("typedoc/") ? undefined
         : `https://github.com/revisit-studies/reVISit-studies.github.io/edit/main/docs/next/${docPath}`,
     }],
@@ -204,34 +218,34 @@ const config: Config = {
           html: `
             <div class="footer-wrapper row">
               <a class="col " target="_blank" href="https://vdl.sci.utah.edu/">
-                <img src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
-                <img src="/img/logos/vdl-logo-dark.svg" class='logo dark-theme-display-component'/>
+                <img alt="Visualization Design Lab" src="/img/logos/vdl-logo-light.svg" class='logo light-theme-display-component'/>
+                <img alt="Visualization Design Lab" src="/img/logos/vdl-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
               <a class="col " target="_blank" href="https://www.mcnutt.in/#/lab">
-                <img src="/img/logos/havoc-logo-light.png" class='logo light-theme-display-component'/>
-                <img src="/img/logos/havoc-logo-dark.png" class='logo dark-theme-display-component'/>
+                <img alt="HAVOC: Human And Visualization Oriented Computing Lab" src="/img/logos/havoc-logo-light.png" class='logo light-theme-display-component'/>
+                <img alt="HAVOC: Human And Visualization Oriented Computing Lab" src="/img/logos/havoc-logo-dark.png" class='logo dark-theme-display-component'/>
               </a>
               <a class="col " target="_blank" href="https://sci.utah.edu/">
-                <img src="/img/logos/sci-logo-light.svg" class='logo light-theme-display-component'/>
-                <img src="/img/logos/sci-logo-dark.svg" class='logo dark-theme-display-component'/>
+                <img alt="Scientific Computing and Imaging Institute" src="/img/logos/sci-logo-light.svg" class='logo light-theme-display-component'/>
+                <img alt="Scientific Computing and Imaging Institute" src="/img/logos/sci-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
               <a class="col " target="_blank" href="https://www.cs.utah.edu/">
-                <img src="/img/logos/ULogo-light.svg" class='logo light-theme-display-component'/>
-                <img src="/img/logos/ULogo-dark.svg" class='logo dark-theme-display-component'/>
+                <img alt="University of Utah School of Computing" src="/img/logos/ULogo-light.svg" class='logo light-theme-display-component'/>
+                <img alt="University of Utah School of Computing" src="/img/logos/ULogo-dark.svg" class='logo dark-theme-display-component'/>
               </a>              
                   <a class="col " target="_blank" href="https://www.tugraz.at/">
-                  <img src="/img/logos/tug_logo.svg" class='logo light-theme-display-component'/>
-                  <img src="/img/logos/tug_logo_dark_background.svg" class='logo dark-theme-display-component'/>       
+                  <img alt="Graz University of Technology" src="/img/logos/tug_logo.svg" class='logo light-theme-display-component'/>
+                  <img alt="Graz University of Technology" src="/img/logos/tug_logo_dark_background.svg" class='logo dark-theme-display-component'/>       
               </a>
               <a class="col " target="_blank" href="http://web.cs.wpi.edu/~ltharrison/">
-                <img src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>
-                <img src="/img/logos/view-logo-dark.svg" class='logo dark-theme-display-component'/>
+                <img alt="VIEW Lab, Worcester Polytechnic Institute" src="/img/logos/view-logo-light.svg" class='logo light-theme-display-component'/>
+                <img alt="VIEW Lab, Worcester Polytechnic Institute" src="/img/logos/view-logo-dark.svg" class='logo dark-theme-display-component'/>
               </a>
               <a class="col " target="_blank" href="https://www.wpi.edu/">
-                <img src="/img/logos/wpi.png" class='logo'/>
+                <img alt="Worcester Polytechnic Institute" src="/img/logos/wpi.png" class='logo'/>
               </a>
               <a class="col " target="_blank" href="https://www.nsf.gov/">
-                <img src="/img/logos/nsf.png" class='logo'/>
+                <img alt="U.S. National Science Foundation" src="/img/logos/nsf.png" class='logo'/>
               </a>
             </div>
           `,

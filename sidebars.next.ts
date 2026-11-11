@@ -206,6 +206,7 @@ const sidebars: SidebarsConfig = {
           collapsed: false,
           link: {
             type: 'generated-index',
+            description: 'Reference for the reVISit Spec interfaces, including StudyConfig, components, responses, sequence blocks, and the ParticipantData and StoredAnswer formats.',
           },
           items: [
             {
@@ -220,6 +221,7 @@ const sidebars: SidebarsConfig = {
           collapsed: false,
           link: {
             type: 'generated-index',
+            description: 'Reference for the reVISit Spec type aliases, covering component and response types, factors, conditions, global variables, and device and browser rules.',
           },
           items: [
             {
@@ -236,6 +238,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       link: {
         type: 'generated-index',
+        description: 'Reusable components and validated questionnaires, such as usability, workload, and visualization literacy tests, to import into your reVISit study config.',
       },
       items: [
         {
@@ -250,6 +253,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       link: {
         type: 'generated-index',
+        description: 'Reference for the classes and functions in reVISitPy, the Python package that builds reVISit study configs from components, responses, and sequences.',
       },
       items: [
         {
