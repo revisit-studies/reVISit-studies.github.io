@@ -1,0 +1,24 @@
+name: Check Current and Next docs
+
+# Releases replace docs/current with docs/next, so a fix made only in current is lost.
+# Add the current-only label to a pull request whose change must not reach next.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+jobs:
+  drift:
+    name: Current changes are in Next
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'current-only') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Check that docs/current changes are also in docs/next
+        run: node scripts/checkDocsDrift.mjs "origin/${{ github.base_ref }}"
