@@ -130,6 +130,13 @@ html[data-theme='dark'] .light-theme-display-component {
   margin-top: -10px;
 }
 
+/* Keep version warnings visible while readers scroll an archived or unreleased page. */
+.doc-version-banner-sticky {
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  z-index: 2;
+}
+
 /* Improve JSON token contrast for non-string values. */
 .theme-code-block .language-json .token.number,
 .theme-code-block .language-json .token.boolean,
