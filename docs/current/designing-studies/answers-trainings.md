@@ -314,6 +314,35 @@ You can enable the previous button by setting `previousButton` to `true`, which 
 Test **Previous** with every interactive stimulus and recording type before collecting data. Custom stimuli must restore their saved state when a Participant returns to a trial. Without `globalVariables`, revisiting a trial can overwrite its provenance and recording assets. Studies with [Global Variables](./global-variables.md#previous-saving-and-analysis) preserve accepted submission history and associate recordings with each visit; changing an earlier answer can still invalidate later progress.
 :::
 
+## Help Text
+
+Help text gives Participants reference material they can open at any time, such as task instructions or a key for a visualization. Write it in a markdown file and set `helpTextPath` in `uiConfig` to show a **Help** button in the study header on every component:
+
+```json title="public/study-name/config.json"
+"uiConfig": {
+  "helpTextPath": "study-name/assets/help.md"
+}
+```
+
+Selecting **Help** opens the markdown file in a dialog over the current component. Like other asset paths, `helpTextPath` is relative to the `public` folder.
+
+To show different help on one component, set `helpTextPath` on that component. It replaces the `uiConfig` help text on that component only. Components without their own `helpTextPath` keep using the `uiConfig` file. If neither is set, the **Help** button is hidden.
+
+```json title="public/study-name/config.json"
+"components": {
+  "scatterplot-task": {
+    "type": "markdown",
+    "path": "study-name/assets/scatterplot-task.md",
+    "helpTextPath": "study-name/assets/help-scatterplot.md",
+    "response": []
+  }
+}
+```
+
+Both the path and the markdown file support [templating](./templating.md), so a component with a `vis` parameter can load `"helpTextPath": "study-name/assets/help-{{vis}}.md"`. See [Factors](./factors.md) for an example that shows different help for each condition.
+
+During training, an incorrect answer that the Participant can try again shows a link to review the help text, unless the answer has its own `feedback`. ReVISit saves how many times a Participant opened the help text on each component, from either the **Help** button or this link, as `helpButtonClickedCount` in that component's answer.
+
 import StructuredLinks from '@site/src/components/StructuredLinks/StructuredLinks.tsx';
 
 <StructuredLinks

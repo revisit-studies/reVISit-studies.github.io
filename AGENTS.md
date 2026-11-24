@@ -29,5 +29,12 @@ The study configurations are defined in JSON files with schemas. These configs s
 How you should interact with this docs codebase
 You should read docs related to features that you're adding Fore example, if we're adding anew component, read the docs for the other component types. You can run git commands but don't run them unless asked to. Don't interact with GitHub issues or pull requests directly. You should only ever write user facing documentation, we don't host any development/architectural documents in this repo.
 
+Current and Next docs
+- `docs/current` documents the latest study release. `docs/next` documents the study `dev` branch, including unreleased features. Each release archives `docs/current` into `versioned_docs/` and replaces it with `docs/next`.
+- Document unreleased features only in `docs/next`.
+- Apply every change to `docs/current` to the same file in `docs/next`, unless `dev` has removed or replaced that content. Otherwise the next release undoes the change. The `docs_drift.yml` workflow fails a pull request when a `docs/current` change is missing from `docs/next`; the `current-only` label skips it when that is intentional.
+- `typedoc/` and `libraries/` in both trees are generated from the study repo, so don't edit them. Library pages come from each library's `config.json` in the study repo. The committed `docs/next` copies are stale placeholders that every build regenerates from study `dev`, so they are expected to differ from `docs/current`.
+- Only edit `versioned_docs/` when asked to update an old release.
+
 Typedoc
 Typedoc is built from the app for every release and included as reference material so you don't need to add that to this repo. Assume it will be handled, but state your assumption.
