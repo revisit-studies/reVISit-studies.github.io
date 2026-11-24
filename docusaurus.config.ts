@@ -3,7 +3,6 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import currentRelease from "./current-release.json";
 
-const enableGtag = process.env.ENABLE_GTAG === "true";
 const baseUrl = process.env.BASE_URL || "/";
 const isPreviewBuild = baseUrl !== "/";
 
@@ -75,14 +74,10 @@ const config: Config = {
         theme: {
           customCss: "./src/css/custom.css",
         },
-        ...(enableGtag
-          ? {
-              gtag: {
-                trackingID: "G-FLX70EGV5P",
-                anonymizeIP: true,
-              },
-            }
-          : {}),
+        gtag: {
+          trackingID: "G-FLX70EGV5P",
+          anonymizeIP: true,
+        },
       } satisfies Preset.Options,
     ],
   ],
