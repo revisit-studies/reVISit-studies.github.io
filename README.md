@@ -10,12 +10,14 @@ This site is built using [Docusaurus](https://docusaurus.io/). You can view all 
 
 ### Running the Documentation Locally
 
-Run the following commands to install the dependencies and start the development server:
+Run the following commands to install the dependencies and serve the documentation locally:
 
 ```bash
 yarn
-yarn start
+yarn serve
 ```
+
+`yarn serve` rebuilds the site before serving it, so it reflects the current documentation sources. 
 
 The documentation will be available at [http://localhost:3000](http://localhost:3000).
 
