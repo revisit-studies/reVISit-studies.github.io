@@ -29,6 +29,7 @@
 .titleContainer .description{
   text-align: right;
   margin-left:30px;
+  margin-bottom: 0;
   font-weight: bold;
   line-height: 105%;
 }

@@ -1,3 +1,8 @@
+---
+title: Setting Up Supabase Authentication
+sidebar_label: Setting Up Authentication
+---
+
 # Setting Up Authentication
 
 :::warning

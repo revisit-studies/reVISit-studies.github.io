@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import React from "react";
 import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
 import EditThisPage from "@theme/EditThisPage";
@@ -305,11 +304,13 @@ function AdoptionNumParticipantsChart(props: { data: Adoption[] }) {
 }
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
   const adoption = adoptionData as Adoption[];
 
   return (
-    <Layout description={`${siteConfig.tagline}`}>
+    <Layout
+      title="Adoption in Research"
+      description="Research papers that used reVISit to run their user studies, with links to each paper and, where available, its study and source code."
+    >
       <main className="container container--fluid margin-vert--lg">
         <div className="row">
           <div className="col col--10">
