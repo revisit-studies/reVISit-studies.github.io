@@ -90,7 +90,6 @@ const sidebars: SidebarsConfig = {
         'designing-studies/applying-style',
         'designing-studies/device-restrictions',
         'designing-studies/plugin-libraries',
-        'designing-studies/templating',
         'designing-studies/global-variables',
         'designing-studies/parser-errors',
       ],
