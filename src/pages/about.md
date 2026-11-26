@@ -61,6 +61,7 @@ ReVISit is a project developed at the [University of Utah](https://visdesignlab.
 [Abhraneel Sarma ](https://abhsarma.github.io/), Postdoc, Graz University of Technology  
 [Hilson Shrestha](https://hilsonshrestha.com.np/), PhD Student, WPI  
 [Jack Wilburn](https://jackwilburn.xyz/), Senior Software Engineer, University of Utah
+[Eden Wu](https://edenwuyifan.github.io/me/), PhD Student, University of Utah
 
 ### Alumni
 

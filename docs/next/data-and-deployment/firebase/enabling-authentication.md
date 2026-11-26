@@ -24,12 +24,14 @@ Upon clicking "Enable", you will be prompted with providing some information abo
 
 Once you have deployed your reVISit application to a website, you'll need to ensure that Google SSO is authorized to redirect back to your website once a user has signed in. To do this, navigate to the "Authentication" section of your Firebase application. In the "Settings" tab you will see an "Authorized Domains" section. Add your domain name(s) using the "Add domain" button on the right.
 
+Firebase projects created after April 28, 2025 no longer authorize `localhost` by default (see the [Firebase Authentication FAQ](https://firebase.google.com/docs/auth/faq-and-troubleshooting)). If you use Google SSO locally, add `localhost` under **Authorized domains**—and remove it from production projects once local testing is complete.
+
 ![Firebase authorized domains settings page](./img/auth4.png)
 
 ## Enabling Authentication in reVISit
 
 :::warning
-Note that if your application has been deployed but you have _not_ added your custom authorized domain, then attempting to enable authentication will result in an error.
+If your current domain—either your deployed site domain or `localhost` during local development—has _not_ been added under **Authorized domains** in Firebase, attempting to enable authentication or sign in with Google SSO will fail with an error.
 :::
 
 Through the settings cog on the right side of your reVISit application, navigate to the "Settings" page. Authentication will be disabled by default, with a button to enable it.
