@@ -78,22 +78,22 @@ If an index is missing, ReVISit blocks study startup. In development mode, its e
 Once that is finished, we will enable standard Firebase storage. Click the "Databases & Storage" dropdown menu again and navigate to "Storage".
 
 :::warning
-As of October 1st, 2024, Firebase has changed its requirements for newly created projects. You will now be prompted to add a payment method when creating a new Firebase project. You will _only_ be charged if you exceed the limits of the "Always Free Tier". We suggest reading over the Firebase tier limits [here](https://cloud.google.com/storage/pricing#cloud-storage-always-free). We have conducted several studies using reVISit without going over the "Always Free Tier" limits, such as [this recent study](https://vdl.sci.utah.edu/publications/2024_preprint_guardrails/), but please be proactive and set up billing alerts to ensure you do not exceed the free tier limits.
+Cloud Storage for Firebase requires the pay-as-you-go **Blaze** plan; Spark-plan projects cannot access Storage (since February 3, 2026, existing Spark projects also lose Storage access until upgraded). See [Firebase's billing requirements](https://firebase.google.com/docs/storage/faqs-storage-changes-announced-sept-2024). On Blaze, default buckets in eligible no-cost regions (`us-central1`, `us-east1`, or `us-west1`) still include [Always Free limits](https://cloud.google.com/storage/pricing#cloud-storage-always-free). We have run several reVISit studies within those limits (such as [this study](https://vdl.sci.utah.edu/publications/2024_preprint_guardrails/)), but set up billing alerts to avoid unexpected charges.
 :::
 
-![Firebase sidebar with Storage selected under Databases and Storage](./img/enabling-authentication/step13.png)
+![Firebase Storage page showing the Upgrade project button](./img/enabling-authentication/step13.png)
 
-![Firebase Storage page with the Get started button](./img/enabling-authentication/step14.png)
+![Firebase billing dialog for selecting or creating a Cloud Billing account on the Blaze plan](./img/enabling-authentication/step14.png)
 
-We can leave the options as their defaults.
+Upgrade to the Blaze plan, then leave the default bucket options selected.
 
-![Firebase Storage setup dialog showing security rules options](./img/enabling-authentication/step15.png)
+![Firebase Storage default bucket dialog showing bucket options and No cost location selected](./img/enabling-authentication/step15.png)
 
-![Firebase Storage setup dialog showing storage location settings](./img/enabling-authentication/step16.png)
+![Firebase Storage default bucket dialog showing security rules options](./img/enabling-authentication/step16.png)
 
 Once the storage product is enabled, navigate to the "Rules" tab. 
 
-Replace the existing rule with the following code and then publish:
+Replace the existing rule with the following code (matching the Firestore rule above) and click "Publish":
 
 ```
 rules_version = '2';
@@ -101,19 +101,30 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
     match /{allPaths=**} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
     }
   }
 }
 ```
 
+:::warning
+These rules allow public reads and writes from any authenticated session (including anonymous Participant sessions), which ReVISit's browser-based flow requires. They do not provide per-participant isolation or admin-only writes at the Firebase layer. Enable [App Check enforcement](#verify-the-deployed-setup) for Firestore and Storage, enable [ReVISit Authentication](./enabling-authentication.md) for analysis pages, and avoid storing directly identifying personal data in unencrypted study records.
+:::
+
 ![Firebase Storage Rules tab with custom read and write rules entered](./img/enabling-authentication/step17.png)
+
+<!-- TODO: Screenshot — Show the Firebase Storage Rules tab with allow read: if true; and allow write: if request.auth != null; entered and the Publish button highlighted with a #FFBD59 border and arrow. Alt: Firebase Storage Rules tab with read and authenticated write rules entered. Replace ./img/enabling-authentication/step17.png. -->
 
 ## Adding automatic transcription for Think Aloud studies
 
 If you plan to use [Think Aloud](../../designing-studies/think-aloud.md) studies with Firebase and want transcripts, install the [Google Cloud Speech-to-Text extension](https://extensions.dev/extensions/googlecloud/speech-to-text) from the Firebase Extensions marketplace.
 
 Once the extension is configured for your project, it will automatically transcribe uploaded audio files. This is the setup reVISit expects when you want transcripts to appear in analysis and export workflows.
+
+:::warning
+The Speech-to-Text extension requires the **Blaze** plan and uses billable Google Cloud services. In addition, **Firebase Extensions is being sunset on March 31, 2027**: existing instances will continue running, but can no longer be managed through Firebase afterward. See the [Firebase Extensions FAQ](https://firebase.google.com/docs/extensions/faq-and-troubleshooting).
+:::
 
 ## Adding an App to the Firebase Project
 
@@ -176,6 +187,10 @@ Do not add `localhost` or `127.0.0.1` to the production key. Use the [debug-toke
 
 In **Firebase Console → Security → App Check → Apps**, select the Web app whose app ID matches `VITE_FIREBASE_CONFIG`. Choose **Fraud Defense (formerly known as reCAPTCHA Enterprise)**, paste the site key, and save. The default one-hour token lifetime and risk threshold of 0.5 are reasonable starting points.
 
+![Firebase App Check Apps tab with the Register button highlighted](./img/enabling-authentication/step26.png)
+
+![Firebase App Check attestation providers showing Fraud Defense (formerly known as reCAPTCHA Enterprise)](./img/enabling-authentication/step25.png)
+
 ![Firebase Fraud Defense registration showing a placeholder site key, one-hour token lifetime, and risk threshold of 0.5](./img/enabling-authentication/enterprise-app-check.png)
 
 The site key shown above is a placeholder; paste the key you created in Google Cloud.
@@ -201,7 +216,7 @@ These settings are read when the website is built. Restart `yarn serve` after ch
 
 Open your deployed site in a fresh browser session. In the browser's developer tools, check that the App Check request named `exchangeRecaptchaEnterpriseToken` succeeds. Then use an example study to check that responses save and data uploads succeed. Check Firebase's App Check request metrics and verify that the token refreshes during an open session; with the default one-hour lifetime, refresh is expected at approximately 30 minutes.
 
-A page loading or an upload succeeding does not by itself prove App Check is working: services in **Monitoring** mode still accept requests without valid App Check tokens. Monitor valid requests before enabling enforcement, and confirm that all deployed apps are registered. See [Firebase's Enterprise App Check guide](https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider) for setup and enforcement details.
+A page loading or an upload succeeding does not by itself prove App Check is working: services in **Monitoring** mode still accept requests without valid App Check tokens. Monitor verified requests in **Firebase Console → Security → App Check → APIs** for both **Cloud Firestore** and **Cloud Storage**, confirm all deployed apps are registered, and then click **Enforce** on each service (propagation can take up to 15 minutes). See Firebase's [Enterprise App Check guide](https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider) and [enforcement guide](https://firebase.google.com/docs/app-check/enable-enforcement).
 
 #### Migrate an existing v3 deployment
 
@@ -230,17 +245,19 @@ When you run `yarn serve`, reVISit enables Firebase App Check debug mode for loc
 
    ![Firebase dialog for adding an App Check debug token](./img/enabling-authentication/step29.png)
 
+   ![Firebase dialog for pasting and saving an App Check debug token](./img/enabling-authentication/step30.png)
+
 5. Reload the local site. If browser storage is cleared and a new debug token is generated, register the new token too.
 
 Keep debug tokens private and out of source control. Debug mode does not verify real Enterprise attestation; test that separately on your deployed site. See [Firebase's debug-provider guide](https://firebase.google.com/docs/app-check/web/debug-provider).
 
 ## Allowing for CORS requests
 
-Once that is finished, we'll have to use Google's `gsutil` function in the terminal to set up a CORS policy so that the application can communicate with Firebase storage. Follow <a href="https://cloud.google.com/storage/docs/gsutil_install" target="_blank">these steps on how to install gsutil on your local machine</a>.
+Once that is finished, configure a CORS policy on your Storage bucket using the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) (`gcloud storage`, replacing deprecated `gsutil`, which will be removed from the Google Cloud CLI package after March 2027 — see [Cloud Storage CLI guidance](https://cloud.google.com/storage/docs/gsutil)).
 
-After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` folder on your local machine. Create a new file called "cors.json" with the following contents:
+Create a file named `cors.json` with the following contents:
 
-```json
+```json title="cors.json"
 [
   {
     "origin": ["*"],
@@ -250,10 +267,10 @@ After installing gsutil, you need to navigate to the `google-cloud-sdk/bin` fold
 ]
 ```
 
-Lastly, while still inside this same directory, call the following function:
+Then apply the policy to your bucket:
 
 ```bash
-gsutil cors set cors.json gs://<your-cloud-storage-bucket>
+gcloud storage buckets update gs://<your-cloud-storage-bucket> --cors-file=cors.json
 ```
 
 You can find the link for the storage bucket by navigating to the "Storage" product in Firebase.
